@@ -1,0 +1,333 @@
+# Gear Inventory — Signal Chain Reference
+
+All hardware, plugins, and signal chain components available in this rig. Organized by category. Use this as a reference when evaluating new additions.
+
+---
+
+## Physical Hardware
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb). Lead channel: 50s Tweed + British rock character, with Mid-Bite control that adds gain, tightens bass, and boosts upper mids. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. |
+| iD14 mkII | Audient | Desktop USB-C audio interface. 2 mic/line preamps (JFET discrete input stage), 2 instrument inputs, monitor control. Primary analog front-end before Logic. |
+
+---
+
+## UADx — Amp Emulations
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Dream '65 Reverb Amp | Universal Audio | Fender Blackface Deluxe Reverb '65. Bright/Normal switch, mod circuit (Stock / Lead / D-Tex), built-in spring reverb, bias tremolo. No Middle control. Three cabinet choices, three mic choices. The quintessential clean-to-edge-of-breakup American amp. |
+| Lion '68 Super Lead Amp | Universal Audio | Marshall Super Lead Plexi 1959 100W, '68. Three model variants: Lead (classic Plexi), Bass (rounder, more low-end), Brown (Variac mod, EVH character). Two-channel "jumped" configuration. Ghost Notes and Bright Cap switches. |
+| Ruby '63 Top Boost Amp | Universal Audio | Vox AC30 '63. Three channels: VIB-TREM, NORMAL, BRILLIANT. Top Boost EQ (Treble/Bass) on BRILLIANT only. Tone Cut is counterintuitive — higher = fewer highs. Runs hot; low headroom. |
+| Woodrow '55 Instrument Amp | Universal Audio | Fender Tweed Deluxe '55. Extremely low headroom — compression and breakup at very low volume. Tone control also affects gain. Two channels can be "jumped" for richness. Boost modes: Stock, KP-3K, EP-III. |
+| Enigmatic '82 Overdrive Special Amp | Universal Audio | Four rare ODS-style boutique amps in one plugin. Voices: Suede (warm/round), Silver (bright/articulate), Cream (mid-heavy), Black (aggressive/tight). Very dynamic — cleans up with guitar volume. |
+| Showtime '64 Tube Amp | Universal Audio | Fender Showman/Twin-style, high-headroom. Stays clean until 7–8+. Bright/Normal switch. No built-in reverb. Harmonic vibrato (pitch-based, not tremolo). Most neutral and transparent amp in the inventory — good clean platform. |
+| Paradise Guitar Studio | Universal Audio | Full guitar studio environment. Multiple amp, cab, and effects configurations in one plugin. |
+
+---
+
+## UADx — Dynamics & Compression
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| 1176 Rev A Compressor | Universal Audio | FET peak limiter — Bluestripe variant. Slower attack range, more harmonic color and "hairiness." Attack 1=fastest, 7=slowest (counterintuitive). Release 7=fastest, 1=slowest. |
+| 1176AE Compressor | Universal Audio | FET peak limiter — Anniversary Edition. |
+| 1176LN Rev E Compressor | Universal Audio | FET peak limiter — Blackface/Silverface variant. Classic aggressive character. Part of 1176 Classic Limiter Collection. |
+| LA-2A Silver Compressor | Universal Audio | Optical tube compressor — Silver panel variant. Program-dependent attack/release. Compress (3:1) and Limit (10:1) modes. Very musical, natural response. Part of Teletronix LA-2A Leveler Collection. |
+| LA-2A Gray Compressor | Universal Audio | Optical tube compressor — Gray panel (slightly different circuit voicing from Silver). Part of Teletronix LA-2A Leveler Collection. |
+| LA-2 Compressor | Universal Audio | Optical tube compressor — simplified version of Silver LA-2A. Same core character. |
+| 175-B Tube Compressor | Universal Audio | Variable-mu tube compressor. Attack/Release clockwise = fastest (opposite of 1176). Gain Hi/Low switch. Gentle tube glue and warmth. Part of 175-B/176 Collection. |
+| 176 Tube Compressor | Universal Audio | Variable-mu tube compressor. Ratio switch: 2:1 / 4:1 / 8:1 / 12:1. Parallel Mix control. Part of 175-B/176 Collection. |
+| 610-B Tube Preamp & EQ | Universal Audio | Tube preamp with passive EQ. Gain drives harmonic tube coloration. Shelving and mid-peak EQ. Used for warmth, color, and gentle EQ shaping. |
+
+---
+
+## UADx — Reverb Chambers & Spaces
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Capitol Chambers | Universal Audio | Four rooms beneath Capitol Tower (Chambers 2, 4, 6, 7). Hybrid IR + algorithmic (Dynamic Room Modeling). Four mic choices. Mix is logarithmic — far more aggressive than it appears; 5–10% is the practical guitar range. |
+| Hitsville Reverb Chambers | Universal Audio | Two Motown Studios chambers: 2648 (bright, echo-like, parallel surfaces) and 2644 (smooth, pentagonal). Multiple speaker and mic combinations. Mix is logarithmic — 12 o'clock ≈ 15% wet. |
+| Sound City Studios | Universal Audio | Sound City Studios recording environment and reverb space. |
+
+---
+
+## UADx — Tape, Saturation & Modulation
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Galaxy Tape Echo | Universal Audio | Roland RE-201 Space Echo emulation. Twelve head-select positions across three playback heads. Built-in spring reverb. Echo Rate, Feedback, Tape Age (New/Used/Old). Wet Solo switch. |
+| Studer A800 Multichannel Tape Recorder | Universal Audio | Studer A800 24-track tape machine emulation. Tape saturation, harmonic warmth, subtle wow/flutter. Used as a mix bus or per-track tape coloration. |
+| Studio D Chorus | Universal Audio | Roland SDD-320 Dimension D emulation. Fixed modes 1–4 only — no continuous parameters. Mode 1: barely-there; Mode 4: maximum. Stereo output. |
+| Verve Analog Machines Essentials | Universal Audio | Ten analog saturation machines: five tape (Edge, Glow, Distort, Overdrive, Fire, Sputter) and five solid-state (Sweeten, Warm, Thicken, Vintagize, Overdrive). Drive, Warble (tape only), Tone (solid-state only), Output controls. |
+
+---
+
+## UADx — Instruments & Other
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Electra 88 Vintage Keys | Universal Audio | Rhodes-style electric piano emulation. |
+| Waterfall B3 Organ | Universal Audio | Hammond B3 organ emulation with drawbar control and key click. |
+| Waterfall Rotary Speaker | Universal Audio | Leslie rotary speaker cabinet emulation. Used with the B3 or as a guitar effect. |
+
+---
+
+## Neural DSP
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Archetype Cory Wong X | Neural DSP | Cory Wong signature plugin. Signal chain: Pre FX (4th Position optical compressor) → The Clean Machine amp → Cab section (mic, position, room send) → Post FX (The Wash reverb/shimmer). All controls expressed as 0–100%. Three EQ instances (one per amp section), each independently activated. |
+
+---
+
+## IK Multimedia
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| AmpliTube 5 | IK Multimedia | Guitar amp and effects suite. Large library of amp, cab, and stompbox models. Signal chain with up to 3 amps, 8 effects slots, cab/mic section. |
+| TONEX | IK Multimedia | Neural amp/tone capture player. Plays back machine-learning captures (Tone Models) of real amps, pedals, and rigs. |
+| MODO DRUM | IK Multimedia | Physics-based virtual drum instrument. Real-time simulation of drum physics rather than samples. |
+
+---
+
+## MixWave
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Two-Rock Bloomfield Drive | MixWave | Two-Rock Bloomfield Drive boutique amp emulation. Warm, clean-to-crunch character. |
+
+---
+
+## Two Notes Audio Engineering
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Torpedo Wall of Sound | Two Notes | Speaker cabinet IR loader and room simulator. Microphone placement control. Used for amp head → direct recording without a physical cabinet. |
+
+---
+
+## Valhalla DSP
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| ValhallaSuperMassive | Valhalla DSP | Free reverb and delay plugin. Eleven modes ranging from subtle room to massive infinite wash. Dense reverb tails, shimmer, and spatial effects. |
+
+---
+
+## Other Third-Party
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Neural Amp Modeler | Steven Atkinson | Open-source neural network amp modeler. Loads .NAM model files (captures of real amps and pedals from the NAM community). |
+| LAM16 | Tone Empire | Channel strip plugin — EQ and compression in one unit. |
+| LockOn | SubMission Audio | Low-end/sub frequency processor and management tool. |
+| Vinyl | iZotope | Vinyl record degradation simulator. Crackle, noise, warp, mechanical artifacts. Lo-fi and vintage character. |
+| SongEngine | FeelYourSound | Chord progression and song arrangement generator. MIDI-based, outputs chord voicings and progressions. |
+| COSMOS Sample Finder | Waves | AI-powered sample finder and organizer. |
+| Groove Agent SE | Steinberg | Loop-based virtual drummer and beat player. Pattern-based drum programming. |
+| HALion Sonic | Steinberg | Sample-based virtual instrument workstation. Large library of sounds. |
+
+---
+
+## Logic Pro — Guitar & Amp Effects
+
+| Name | Description |
+|------|-------------|
+| Amp Designer | Full guitar amp + cabinet + microphone simulation. Models include Blackface (Fender clean), Brownface (warm vintage), British Bright (Marshall), Boutique 1/2 (complex), AC Boost (Vox-style), Stadium (high-gain British). |
+| Bass Amp Designer | Bass guitar amp simulation. Dedicated bass amp models and cabinet options. |
+| Pedalboard | Virtual stompbox pedalboard. Houses Logic's collection of modeled pedals (see stompboxes below). Up to 9 pedals in a chain. |
+
+**Pedalboard Stompboxes** — all accessible inside the Pedalboard plugin:
+
+| Name | Type |
+|------|------|
+| Auto-Funk | Auto-wah / envelope filter |
+| Blue Echo | Tape-style echo/delay |
+| Candy Fuzz | Fuzz distortion |
+| Classic Wah | Wah pedal |
+| Double Dragon | Dual overdrive |
+| Dr. Octave | Octave effect |
+| Flange Factory | Flanger |
+| Fuzz Machine | Fuzz distortion |
+| Grinder | Distortion |
+| Grit | Overdrive/saturation |
+| Happy Face Fuzz | Muff-style fuzz |
+| Heavenly Chorus | Chorus |
+| Hi-Drive | High-gain overdrive |
+| Modern Wah | Wah pedal (modern voiced) |
+| Monster Fuzz | Heavy fuzz |
+| OctaFuzz | Octave fuzz |
+| Phase Tripper | Phaser |
+| Rawk! Distortion | Rock distortion |
+| Retro Chorus | Vintage chorus |
+| Robo Flanger | Flanger |
+| Roswell Ringer | Ring modulator |
+| Roto Phase | Phaser |
+| Spring Box | Spring reverb |
+| Squash Compressor | Compressor pedal |
+| The Vibe | Uni-Vibe style modulation |
+| Tie Dye Delay | Delay |
+| Total Tremolo | Tremolo |
+| Trem-O-Tone | Tremolo |
+| Tru-Tape Delay | Tape delay |
+| Tube Burner | Tube overdrive |
+| Vintage Drive | Overdrive |
+| Wham | Pitch shift / whammy |
+
+---
+
+## Logic Pro — Dynamics, Compression & EQ
+
+| Name | Description |
+|------|-------------|
+| Channel EQ | 8-band parametric/shelving EQ. High-pass, low shelf, 4 peak bands, high shelf, low-pass. Primary surgical EQ tool. |
+| Linear Phase EQ | Same as Channel EQ with linear phase response — zero phase shift. Higher latency; use for mastering or when phase accuracy matters. |
+| Vintage Console EQ | Vintage-character console EQ emulation. |
+| Vintage Graphic EQ | Vintage graphic EQ emulation. |
+| Vintage Tube EQ | Vintage tube EQ emulation (Pultec-style character). |
+| Graphic EQ | 31-band graphic equalizer. |
+| Single Band EQ | Simple one-band EQ. |
+| Match EQ | Analyzes and matches the spectral character of a reference track. |
+| Compressor | Multi-circuit compressor. Models: Platinum Digital (transparent), Classic VCA (punchy), Studio VCA (dense), Vintage VCA (glued), Vintage FET (1176-style), Studio FET (aggressive), Vintage Opto (LA-2A-style). |
+| Adaptive Limiter | Loudness limiter with look-ahead. Mastering and output ceiling use. |
+| Limiter | Simple brickwall limiter. |
+| Multipressor | Multiband compressor. Up to 4 bands with independent compression and gain. |
+| Noise Gate | Threshold-based gate with variable range. |
+| Expander | Downward expander — opens dynamic range below threshold. |
+| DeEsser 2 | De-esser. Frequency-selective compression to control sibilance. |
+| Enveloper | Transient designer. Independent attack and release shape control. |
+| ChromaGlow | Harmonic saturation with 5 styles: Vintage, Modern, Tube, Tape, Solid State. Drive, Character, and Mix controls. |
+| Exciter | Harmonic exciter. Adds high-frequency presence and air. |
+| SubBass | Sub-bass synthesizer. Generates sub frequencies from existing audio. |
+
+---
+
+## Logic Pro — Reverb & Spatial
+
+| Name | Description |
+|------|-------------|
+| Space Designer | Convolution reverb with large IR library (rooms, halls, plates, spaces, impulses). Pre-Delay, Size, Stereo Width, Mix. The most versatile reverb in Logic. |
+| ChromaVerb | Modern algorithmic reverb. 14 room types. Visual display of decay. Built-in EQ and damping. |
+| SilverVerb | Classic algorithmic reverb with modulation on the reverb tail. |
+| Quantec Room Simulator | Vintage algorithmic room simulation. |
+| Enverly | Reverb with envelope follower — reverb amount responds to signal dynamics. |
+| Stereo Spread | Stereo widening. Adds frequency-based stereo separation. |
+| Binaural Post-Processing | Binaural spatial audio processor. |
+| Direction Mixer | M/S (mid-side) matrix for stereo manipulation. |
+| Spreader | Widens mono sources into a stereo field. |
+
+---
+
+## Logic Pro — Delay
+
+| Name | Description |
+|------|-------------|
+| Delay Designer | Step-based delay with up to 26 individually configurable taps. Complex rhythmic delay patterns. |
+| Tape Delay | Vintage tape delay emulation. Delay time, feedback, tone filters, wow/flutter. |
+| Stereo Delay | Independent left and right channel delay times. Cross-feedback option. |
+| Echo | Simple, classic echo/slapback. |
+| Sample Delay | Millisecond-precise sample offset. Phase alignment utility, not a musical delay. |
+| Modulation Delay | Short delay with modulation — chorus and flanging-adjacent. |
+
+---
+
+## Logic Pro — Modulation
+
+| Name | Description |
+|------|-------------|
+| Chorus | Classic chorus. Rate, Depth, Delay, Spread, Mix. |
+| Flanger | Flanger. Rate, Depth, Feedback, Manual (center phase position). |
+| Phaze 2 | Phaser. 4, 8, or 12-stage. Rate, Depth, Feedback. |
+| Ensemble | Rich chorus/ensemble. Multiple modulated voices. |
+| Tremolo | Amplitude modulation. Rate, Depth, Waveform, Smoothing. |
+| Scanner Vibrato | Hammond-style scanner vibrato. Pitch modulation via rotating scanner circuit. |
+| Rotor Cabinet | Leslie rotary speaker cabinet simulation. Speed control (Slow/Fast/Brake). |
+| AutoFilter | Envelope follower or LFO-driven filter. Wah, filter sweep, and step-filter effects. |
+| Ringshifter | Ring modulator and frequency shifter. |
+| EVOC 20 FilterBank | Vocoder filterbank — analyzes audio and applies formant-based filtering. |
+| EVOC 20 TrackOscillator | Pitch-tracking vocoder with internal oscillator. |
+
+---
+
+## Logic Pro — Distortion & Drive
+
+| Name | Description |
+|------|-------------|
+| Overdrive | Soft-knee tube-style overdrive. |
+| Distortion | Guitar-style distortion. Hard clipping character. |
+| Distortion II | Alternate distortion circuit character. |
+| Clip Distortion | Hard and soft clipping with tone shaping. |
+| Bitcrusher | Bit-depth reduction and sample-rate crushing. Digital lo-fi, glitch, and crunch. |
+| Phase Distortion | Phase-based distortion. |
+| Fuzz-Wah | Combined fuzz and wah in one plugin. |
+| Phat FX | Multi-effect processor — combines drive, filter, modulation, and compression in one unit. |
+| Step FX | Multi-effect with step sequencer modulation. Rate-synced patterns control effects parameters. |
+| Remix FX | DJ/performance effect unit — gating, tape stop, reverb throw, filter, etc. |
+
+---
+
+## Logic Pro — Instruments
+
+| Name | Description |
+|------|-------------|
+| Alchemy | Sample manipulation and synthesis workstation. Import, granular, additive, spectral synthesis. |
+| ES1 | Analog-style subtractive synth. Single oscillator. |
+| ES2 | Analog-style polyphonic synth. Three oscillators, ring mod, FM, wavetable. |
+| ES E / ES M / ES P | Simpler ES-series synths (Ensemble, Mono, Poly). |
+| EFM1 | FM synthesis. One carrier + one modulator. |
+| Retro Synth | Four synthesis types: Analog, Table (wavetable), FM, Sync. |
+| Sculpture | Physical modeling synthesizer. String/object-based synthesis. |
+| Sample Alchemy | Sample-based synthesis with granular and spectral manipulation. |
+| EVOC 20 PolySynth | Polyphonic synthesizer with integrated vocoder. |
+| Ultrabeat | Drum machine and synthesizer. Step sequencer with individual drum synth voices. |
+| Vintage B3 | Hammond B3 organ emulation with drawbars, percussion, and scanner vibrato. |
+| Vintage Clav | Hohner Clavinet D6 emulation. Pickup configuration and tone options. |
+| Vintage Electric Piano | Rhodes Suitcase and Wurlitzer 200 emulations. |
+| Vintage Mellotron | Mellotron M400 emulation. Tape-based orchestral sounds. |
+| Drum Kit Designer | Acoustic drum kit player using Apple Loops drum content. |
+| Drum Synth | Synthesized drum sounds. Individual voice synthesis per drum element. |
+| Studio Bass | Session-quality upright and electric bass instrument. |
+| Studio Horns | Session brass instrument patches. |
+| Studio Piano | Acoustic grand and upright piano samples. |
+| Studio Strings | Session string ensemble patches. |
+| Quick Sampler | One-shot sample player. Quick drag-and-drop audio to instrument. |
+| Sampler | Full sample instrument editor and player. |
+| Auto Sampler | Automatically samples external hardware instruments. |
+
+---
+
+## Logic Pro — MIDI & Utility
+
+| Name | Description |
+|------|-------------|
+| Pitch Correction | Monophonic pitch correction (Auto-Tune style). |
+| Pitch Shifter | Pitch transposition with formant options. |
+| Vocal Transformer | Pitch and formant manipulation for voice transformation. |
+| Arpeggiator | MIDI arpeggiator with multiple pattern modes. |
+| Beat Breaker | Beat slicer and re-arranger. Pattern-based audio manipulation. |
+| Chord Trigger | Assigns chords to single MIDI notes. |
+| Note Repeater | MIDI note repetition with rate and velocity control. |
+| Randomizer | MIDI parameter randomization. |
+| Modifier | MIDI data transformation and mapping. |
+| Modulator | LFO and envelope generator for MIDI parameter modulation. |
+| Velocity Processor | MIDI velocity scaling, compression, and offset. |
+| Transposer | Real-time MIDI transposition. |
+| Scripter | JavaScript-based MIDI processor. Custom MIDI logic via scripting. |
+| Tuner | Chromatic guitar/instrument tuner. |
+| BPM Counter | Tempo detection from audio. |
+| Correlation Meter | Stereo phase correlation display. |
+| Level Meter | Peak/RMS level metering. |
+| Loudness Meter | LUFS integrated loudness measurement. |
+| MultiMeter | Combined spectrum analyzer, goniometer, and level meters. |
+| Mastering Assistant | AI-assisted mastering with EQ and limiting suggestions. |
+| Gain | Simple level utility. |
+| Multichannel Gain | Multi-channel level utility. |
+| I/O | Hardware insert send/return. |
+| Test Oscillator | Sine/noise test signal generator. |
+| Down Mixer | Surround-to-stereo fold-down. |
+| Spatial Audio Monitoring | Dolby Atmos monitoring and binaural render. |
+| Dolby Atmos | Dolby Atmos spatial audio renderer. |
+| Spectral Gate | Frequency-selective gating. Noise reduction via spectral analysis. |
+| Sample Delay | Sub-millisecond phase offset utility. |

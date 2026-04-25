@@ -1,0 +1,216 @@
+Manufacturer,Plugin Name,Manual Reference
+Apple,AUAudioFilePlayer,
+Apple,AUBandpass,
+Apple,AUDelay,
+Apple,AUDistortion,
+Apple,AUDynamicsProcessor,
+Apple,AUFilter,
+Apple,AUGraphicEQ,
+Apple,AUHighShelfFilter,
+Apple,AUHipass,
+Apple,AULowpass,
+Apple,AULowShelfFilter,
+Apple,AUMatrixReverb,
+Apple,AUMIDISynth,
+Apple,AUMultibandCompressor,
+Apple,AUNBandEQ,
+Apple,AUNetReceive,
+Apple,AUNetSend,
+Apple,AUNewPitch,
+Apple,AUParametricEQ,
+Apple,AUPeakLimiter,
+Apple,AUPitch,
+Apple,AUReverb2,
+Apple,AURogerBeep,
+Apple,AURoundTripAAC,
+Apple,AUSampleDelay,
+Apple,AUSampler,
+Apple,AUSoundIsolation,
+Apple,DLSMusicDevice,
+FeelYourSound,SongEngine,
+IK Multimedia,AmpliTube 5,
+IK Multimedia,MODO DRUM,
+IK Multimedia,TONEX,
+iZotope,Vinyl,
+Logic,Adaptive Limiter,p. 89
+Logic,Alchemy,
+Logic,Amp Designer,p. 12
+Logic,Arpeggiator,p. 202
+Logic,Auto Sampler,p. 359
+Logic,Auto-Funk,p. 45
+Logic,AutoFilter,p. 141
+Logic,Base Amp Designer,p. 26
+Logic,Beat Breaker,p. 270
+Logic,Binaural Post-Processing,p. 168
+Logic,Bitcrusher,p. 80
+Logic,Blue Echo,p. 45
+Logic,BPM Counter,p. 181
+Logic,Candy Fuzz,p. 45
+Logic,Channel EQ,p. 114
+Logic,Chord Trigger,p. 217
+Logic,Chorus,p. 249
+Logic,ChromaGlow,p. 81
+Logic,Chromaverb,p. 312
+Logic,Classic Wah,p. 45
+Logic,Clip Distortion,p. 83
+Logic,Compressor,p. 90
+Logic,Correlation Meter,p. 182
+Logic,DeEsser 2,p. 97
+Logic,Delay Designer,p. 57
+Logic,Direction Mixer,p. 171
+Logic,Distortion,p. 84
+Logic,Distortion II,p. 85
+Logic,Dolby Atmos,
+Logic,Double Dragon,p. 45
+Logic,Down Mixer,p. 364
+Logic,Dr. Octave,p. 45
+Logic,Drum Kit Designer,
+Logic,Drum Synth,
+Logic,Echo,p. 74
+Logic,EFM1,
+Logic,Ensemble,p. 250
+Logic,Enveloper,p. 99
+Logic,Enverly,p. 319
+Logic,ES E,
+Logic,ES M,
+Logic,ES P,
+Logic,ES1,
+Logic,ES2,
+Logic,EVOC 20 Filterbank,p. 146
+Logic,EVOC 20 PolySynth,
+Logic,EVOC 20 TrackOscillator,p. 151
+Logic,Exciter,p. 355
+Logic,Expander,p. 100
+Logic,External Instrument,
+Logic,Flange Factory,p. 45
+Logic,Flanger,p. 251
+Logic,Fuzz Machine,p. 45
+Logic,Fuzz-Wah,p. 162
+Logic,Gain,p. 365
+Logic,Graphic EQ,p. 377
+Logic,Grinder,p. 45
+Logic,Grit,p. 45
+Logic,Happy Face Fuzz,p. 45
+Logic,Heavenly Chorus,p. 45
+Logic,Hi-Drive,p. 45
+Logic,I/O,p. 366
+Logic,Klopfgeist,
+Logic,Level Meter,p. 183
+Logic,Limiter,p. 101
+Logic,Linear Phase EQ,p. 120
+Logic,Loudness Meter,p. 185
+Logic,Mastering Assistant,p. 176
+Logic,Match EQ,p. 127
+Logic,Microphone,
+Logic,Modern Wah,p. 45
+Logic,Modifier,p. 221
+Logic,Modulation Delay,p. 253
+Logic,Modulator,p. 222
+Logic,Monster Fuzz,p. 45
+Logic,Multichannel Gain,p. 367
+Logic,MultiMeter,p. 186
+Logic,Multipressor,p. 102
+Logic,Noise Gate,p. 106
+Logic,Note Repeater,p. 226
+Logic,OctaFuzz,p. 45
+Logic,Overdrive,p. 86
+Logic,Pedalboard,p. 37
+Logic,Phase Distortion,p. 87
+Logic,Phase Tripper,p. 45
+Logic,Phat FX,p. 278
+Logic,Phaze 2,p. 255
+Logic,Pitch Correction,p. 301
+Logic,Pitch Shifter,p. 306
+Logic,Quantec Room Simulator,p. 321
+Logic,Quick Sampler,
+Logic,Randomizer,p. 227
+Logic,Rawk! Distortion,p. 45
+Logic,Remix FX,p. 287
+Logic,Retro Chorus,p. 45
+Logic,Retro Synth,
+Logic,Ringshifter,p. 256
+Logic,Robo Flanger,p. 45
+Logic,Roswell Ringer,p. 45
+Logic,Roto Phase,p. 45
+Logic,Rotor Cabinet,p. 261
+Logic,Sample Alchemy,
+Logic,Sample Delay,p. 74
+Logic,Sampler,
+Logic,Scanner Vibrato,p. 265
+Logic,Scripter,p. 228
+Logic,Sculpture,
+Logic,SilverVerb,p. 332
+Logic,Single Band EQ,p. 134
+Logic,Space Designer,p. 334
+Logic,Spatial Audio Monitoring,p. 169
+Logic,Spectral Gate,p. 165
+Logic,Spreader,p. 266
+Logic,Spring Box,p. 45
+Logic,Squash Compressor,p. 45
+Logic,Step FX,p. 290
+Logic,Stereo Delay,p. 75
+Logic,Stereo Spread,p. 175
+Logic,Studio Bass,
+Logic,Studio Horns,
+Logic,Studio Piano,
+Logic,Studio Strings,
+Logic,SubBass,p. 356
+Logic,Surround Compressor,p. 109
+Logic,Tape Delay,p. 77
+Logic,Test Oscillator,p. 368
+Logic,The Vibe,p. 45
+Logic,Tie Dye Delay,p. 45
+Logic,Total Tremolo,p. 45
+Logic,Transposer,p. 244
+Logic,Trem-O-Tone,p. 45
+Logic,Tremolo,p. 267
+Logic,Tru-Tape Delay,p. 45
+Logic,Tube Burner,p. 45
+Logic,Tuner,p. 199
+Logic,Ultrabeat,
+Logic,Velocity Processor,p. 244
+Logic,Vintage B3,
+Logic,Vintage Clav,
+Logic,Vintage Console EQ,p. 135
+Logic,Vintage Drive,p. 45
+Logic,Vintage Electric Piano,
+Logic,Vintage Graphic EQ,p. 135
+Logic,Vintage Mellotron,
+Logic,Vintage Tube EQ,p. 135
+Logic,Vocal Transformer,p. 307
+Logic,Wham,p. 45
+MixWave,MixWave Two-Rock Bloomfield Drive,
+Neural DSP,Archetype Cory Wong X,
+Steinberg,Groove Agent SE,
+Steinberg,HALion Sonic,
+Steven Atkinson,NeuralAmpModeler,
+SubMission Audio,LockOn,
+Tone Empire,LAM16,
+Two Notes Audio Engineering,Torpedo Wall Of Sound,
+Universal Audio (UADx),UADx 1176 Rev A Compressor,https://help.uaudio.com/hc/en-us/articles/4419447352980-UA-1176-Classic-Limiter-Collection-Manual
+Universal Audio (UADx),UADx 1176AE Compressor,https://help.uaudio.com/hc/en-us/articles/4419447352980-UA-1176-Classic-Limiter-Collection-Manual
+Universal Audio (UADx),UADx 1176LN Rev E Compressor,https://help.uaudio.com/hc/en-us/articles/4419447352980-UA-1176-Classic-Limiter-Collection-Manual
+Universal Audio (UADx),UADx 175-B Compressor,https://help.uaudio.com/hc/en-us/articles/15707665525780-UA-175-B-176-Tube-Compressor-Collection-Manual
+Universal Audio (UADx),UADx 176 Compressor,https://help.uaudio.com/hc/en-us/articles/15707665525780-UA-175-B-176-Tube-Compressor-Collection-Manual
+Universal Audio (UADx),UADx 610-B Preamp and EQ,https://help.uaudio.com/hc/en-us/articles/17475989779860-UA-610-Tube-Preamp-EQ-Collection-Manual
+Universal Audio (UADx),UADx Capitol Chambers,https://help.uaudio.com/hc/en-us/articles/18741463946516-Capitol-Chambers-Manual
+Universal Audio (UADx),UADx Dream '65 Reverb Amp,https://help.uaudio.com/hc/en-us/articles/30847237412500-Dream-65-Reverb-Amp-Manual
+Universal Audio (UADx),UADx Electra 88 Vintage Keys,https://help.uaudio.com/hc/en-us/articles/15388071477652-Electra-88-Vintage-Keys-Manual
+Universal Audio (UADx),UADx Galaxy Tape Echo,https://help.uaudio.com/hc/en-us/articles/4419513003668-Galaxy-Tape-Echo-Manual
+Universal Audio (UADx),UADx Hitsville Reverb Chambers,https://help.uaudio.com/hc/en-us/articles/10095944517396-Hitsville-Reverb-Chambers-Manual
+Universal Audio (UADx),UADx LA-2 Compressor,https://help.uaudio.com/hc/en-us/articles/19378009641748-LA-2A-Tube-Compressor-Manual
+Universal Audio (UADx),UADx LA-2A Gray Compressor,https://help.uaudio.com/hc/en-us/articles/4419496124180-Teletronix-LA-2A-Leveler-Collection-Manual
+Universal Audio (UADx),UADx LA-2A Silver Compressor,https://help.uaudio.com/hc/en-us/articles/4419496124180-Teletronix-LA-2A-Leveler-Collection-Manual
+Universal Audio (UADx),UADx Lion '68 Super Lead Amp,https://help.uaudio.com/hc/en-us/articles/30847259997972-Lion-68-Super-Lead-Amp-Manual
+Universal Audio (UADx),UADx Paradise Guitar Studio,https://help.uaudio.com/hc/en-us/articles/43356770492692-Paradise-Guitar-Studio-Manual
+Universal Audio (UADx),UADx Ruby '63 Top Boost Amp,https://help.uaudio.com/hc/en-us/articles/30847299809556-Ruby-63-Top-Boost-Amp-Manual
+Universal Audio (UADx),UADx Showtime '64 Tube Amp,https://help.uaudio.com/hc/en-us/articles/40062124308756-Showtime-64-Tube-Amp-Manual
+Universal Audio (UADx),UADx Sound City Studios,https://help.uaudio.com/hc/en-us/articles/18738187503380-Sound-City-Studios-Manual
+Universal Audio (UADx),UADx Studer A800 Tape Recorder,https://help.uaudio.com/hc/en-us/articles/4419513099156-Studer-A800-Multichannel-Tape-Recorder-Manual
+Universal Audio (UADx),UADx Studio D Chorus,https://help.uaudio.com/hc/en-us/articles/7360582279828-Studio-D-Chorus-Manual
+Universal Audio (UADx),UADx Verve Analog Machines Essentials,https://help.uaudio.com/hc/en-us/articles/25190283956500-Verve-Analog-Machines-Manual
+Universal Audio (UADx),UADx Waterfall B3 Organ,https://help.uaudio.com/hc/en-us/articles/4421163858836-Waterfall-B3-Organ-Manual
+Universal Audio (UADx),UADx Waterfall Rotary Speaker,https://help.uaudio.com/hc/en-us/articles/12735041523988-Waterfall-Rotary-Speaker-Manual
+Universal Audio (UADx),UADx Woodrow '55 Instrument Amp,https://help.uaudio.com/hc/en-us/articles/34758701036308-Woodrow-55-Instrument-Amp-Manual
+Valhalla DSP LLC,ValhallaSuperMassive,
+Waves,COSMOS Sample Finder,

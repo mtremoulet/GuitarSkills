@@ -1154,7 +1154,7 @@ def main():
     build_only = '--build-only' in sys.argv
 
     script_dir = Path(__file__).parent
-    tones_dir = script_dir / 'tones'
+    tones_dir = script_dir.parent / 'tones'
     output_path = script_dir / 'tone-viewer.html'
 
     tone_files = sorted(tones_dir.glob('*.md'))

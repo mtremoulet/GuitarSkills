@@ -27,7 +27,7 @@ from pathlib import Path
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-TONES_DIR = Path(__file__).parent / 'tones'
+TONES_DIR = Path(__file__).parent.parent / 'tones'
 PRESETS_DIR = TONES_DIR / 'presets'
 LOGIC_SETTINGS = Path.home() / 'Music' / 'Audio Music Apps' / 'Plug-In Settings'
 LOGIC_FACTORY  = Path('/Library/Application Support/Logic/Plug-In Settings')

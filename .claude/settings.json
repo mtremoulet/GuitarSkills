@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(git:*)",
+      "Bash(grep:*)",
+      "Bash(awk:*)",
+      "Bash(chmod:*)",
+      "Bash(plutil:*)",
+      "Bash(unzip:*)",
+      "Bash(sqlite3:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "WebSearch(*)",
+      "WebFetch(help.uaudio.com:*)",
+      "WebFetch(github.com:*)",
+      "WebFetch(raw.githubusercontent.com:*)",
+      "mcp__plugin_playwright__*"
+    ]
+  }
+}

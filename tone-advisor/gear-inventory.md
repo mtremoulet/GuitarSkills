@@ -82,6 +82,36 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 ---
 
+## Nembrini Audio — Amp Emulations
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Mrh810 V2 | Nembrini Audio | Marshall JCM800 2210 emulation. Two channels: Lead (4x12AX7 + 4x EL34; classic British rock-to-metal gain) and Clean (crystal clean to crunch, ideal pedal platform). Six built-in cabinet choices, four mic emulations with on/off-axis + position/distance control, mixer section (blend two mics + ambience), and a 3-slot IR loader with blending. Filters, Noise Gate, and I/O sections included. |
+| Divided 11 | Nembrini Audio | Divided by 13 CJ11 emulation. Class A, tube-rectified, 11W boutique combo — a modern take on a 1950s tweed design. Single channel: Volume, Treble, Bass, Master; Boost switch; High/Low input sensitivity switches. Crisp and clear, saturates beautifully and evenly. Six cabinet choices, four mic emulations, position/distance control, 3-slot IR loader. Filters, Noise Gate, I/O sections included. |
+| Crunck V2 | Nembrini Audio | Original Nembrini design (freeware). Single high-gain channel: Gain, Master, Presence, EQ. Built-in 4x12 V30 cabinet (bypassable). Wide gain range — clean blues through modern metal. |
+
+---
+
+## Nembrini Audio — Acoustic
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Acoustic Voice Pro | Nembrini Audio | Acoustic guitar preamplifier for direct piezo/pickup signals. 10 guitar body emulations, 5 mic models (Audix ADX51, Beyerdynamic M210, Shure SM57, EV RE20, AKG C414). IR loader with factory + third-party IR support. Visual EQ, pedal section for clarity/dynamics/depth, and a post-effects rack (Analog Delay, Room Reverb, Modulation). |
+
+---
+
+## Nembrini Audio — Stomp Effects (Free)
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| 808 | Nembrini Audio | Ibanez TS-808 Tube Screamer emulation. JRC4558D IC circuit. Classic mid-hump overdrive — the standard boost-into-amp or standalone drive pedal. |
+| Big Stuff | Nembrini Audio | Electro-Harmonix Big Muff emulation. Harmonic distortion and sustain; violin-like sustain character. |
+| Black | Nembrini Audio | Pro Co RAT2 distortion emulation. Aggressive, compressed distortion with Filter control for tone shaping. |
+| Clon Minotaur | Nembrini Audio | Klon Centaur transparent overdrive emulation. Adds gain without significantly altering the underlying guitar tone. |
+| Wah | Nembrini Audio | Wah pedal. |
+
+---
+
 ## IK Multimedia
 
 | Name | Maker | Description |

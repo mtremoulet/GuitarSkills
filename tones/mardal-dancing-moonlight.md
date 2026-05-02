@@ -1,0 +1,94 @@
+---
+id: mardal-dancing-moonlight
+created: 2026-05-02
+updated: 2026-05-02
+guitar: Epiphone Sheraton (humbuckers)
+target: Rebecca Mardal "Dancing in the Moonlight" — warm jazz clean with lush-not-ambient reverb.
+tags: jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp
+tone-king-channel: rhythm
+status: tested
+---
+
+# Mardal "Dancing in the Moonlight"
+
+## Target Sound
+The goal is a warm, round, and clean tone where the Sheraton's natural semi-hollow bloom does most of the heavy lifting. The reverb should be musical and audible when you lift your fingers, but sit firmly behind the note rather than washing it out.
+
+The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonestack naturally scoops, creating a rich, vocal midrange.
+
+---
+
+## Signal Chain
+
+### 1. Tone King Imperial Preamp — physical front-end
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Channel | Rhythm | Clean blackface platform |
+| Volume | 2.5 | Minimal coloring; acts as a warm buffer |
+| Attenuation | 5 | Nominal output |
+| IR | Bypassed | Neural DSP provides the cab |
+
+---
+
+### 2. Archetype Cory Wong X: Pre FX — 4th Position Compressor
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Active | On | |
+| Blend | 55% | Preserves some direct attack |
+| Compression | 40% | Evens out pick attack, adds sustain |
+
+---
+
+### 3. Archetype Cory Wong X: Amp — The Clean Machine
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Amp Type | Clean | |
+| Volume | 30% | High headroom |
+| Bright | Off | Warm jazz focus |
+| Middle | 70% | **Key call:** Fills in the midrange for a vocal jazz character |
+| Treble | 40% | Smooth rolloff |
+| Presence | 30% | Keeps the power amp warm |
+
+---
+
+### 4. Archetype Cory Wong X: Cab — Ribbon 121
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Mic Type | Ribbon 121 | Warm, dark character |
+| Position | 0.50 | Balanced response |
+| Distance | 0.22 | Slight air around the speaker |
+| Room Send | −3.0 dB | Subtle room bloom |
+
+---
+
+### 5. Archetype Cory Wong X: Post FX — The Wash (Reverb)
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Active | On | |
+| Mix | 10% | Subtle; sits well behind the dry signal |
+| Shimmer | Off | Keeps it grounded in jazz |
+| Decay | 55% | Medium tail |
+| Low Cut | 27% | Prevents mud in the low-end |
+| High Cut | 60% | Warm tails |
+
+---
+
+## Starting Point Guide
+
+- **Reverb Weight**: If 10% Mix feels too dry, try 15%. Do not go above 20% or the notes will start to blur.
+- **Midrange Balance**: The **Middle 70%** setting is crucial. If the tone feels too "thin," increase this. If it feels too "boxy," pull it back toward 50%.
+
+---
+
+## Feedback History
+
+### 2026-05-02 — tested
+Confirmed tested in previous version of this skill. Status updated to tested.
+
+### 2026-05-02 — recreated
+Recreated from legacy "Mardal Dancing in the Moonlight" print. Sheraton II focused. Uses Archetype Cory Wong X for the "Clean Machine" amp and its integrated spatial effects.

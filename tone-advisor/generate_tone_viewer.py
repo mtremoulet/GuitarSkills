@@ -50,36 +50,116 @@ def parse_md_table(table_lines):
 
 def parse_plugin_block(content):
     """
-    Parse a plugin subsection's content.
-    Returns dict with: pre_text, headers, rows, note
+    Parse a plugin block's content. Handles multiple tables separated by headings.
+    Returns dict with:
+      pre_text: text before first table
+      blocks:   list of {heading, headers, rows} — one per table found
+      note:     trailing text after all tables (newline-joined)
+      headers:  first table headers (backward compat)
+      rows:     first table rows (backward compat)
     """
     lines = content.strip().split('\n')
     pre_lines = []
-    table_lines = []
-    post_lines = []
-    state = 'pre'
+    blocks = []
+    pending_heading_lines = []
+    current_table_lines = []
+    state = 'pre'  # pre | table | inter
 
     for line in lines:
         stripped = line.strip()
         if stripped.startswith('|'):
             state = 'table'
-            table_lines.append(stripped)
+            current_table_lines.append(stripped)
         elif state == 'table' and not stripped.startswith('|'):
-            state = 'post'
-            if stripped:
-                post_lines.append(stripped)
-        elif state == 'pre' and stripped:
-            pre_lines.append(stripped)
-        elif state == 'post' and stripped:
-            post_lines.append(stripped)
+            headers, rows = parse_md_table(current_table_lines)
+            blocks.append({
+                'heading': ' '.join(pending_heading_lines).strip(),
+                'headers': headers,
+                'rows': rows,
+            })
+            current_table_lines = []
+            pending_heading_lines = []
+            state = 'inter'
+            if stripped and stripped != '---':
+                pending_heading_lines.append(stripped)
+        elif state == 'pre':
+            if stripped and stripped != '---':
+                pre_lines.append(stripped)
+        elif state == 'inter':
+            if stripped and stripped != '---':
+                pending_heading_lines.append(stripped)
 
-    headers, rows = parse_md_table(table_lines)
+    if current_table_lines:
+        headers, rows = parse_md_table(current_table_lines)
+        blocks.append({
+            'heading': ' '.join(pending_heading_lines).strip(),
+            'headers': headers,
+            'rows': rows,
+        })
+        pending_heading_lines = []
+
     return {
         'pre_text': ' '.join(pre_lines),
-        'headers': headers,
-        'rows': rows,
-        'note': ' '.join(post_lines),
+        'blocks': blocks,
+        'note': '\n'.join(pending_heading_lines),
+        'headers': blocks[0]['headers'] if blocks else [],
+        'rows': blocks[0]['rows'] if blocks else [],
     }
+
+
+def parse_signal_chain(chain_text):
+    """
+    Parse the Signal Chain section into a list of items.
+    Each item is one of:
+      {'kind': 'plugin',  'num', 'name', 'role', 'pre_text', 'blocks', 'note', 'headers', 'rows'}
+      {'kind': 'track',   'num', 'name', 'role', 'track_note', 'plugins': [...]}
+      {'kind': 'routing', 'num', 'name', 'role', 'note'}
+    """
+    items = []
+    parts = re.split(r'^### (.+)$', chain_text, flags=re.MULTILINE)
+
+    for i in range(1, len(parts), 2):
+        header = parts[i].strip()
+        body = parts[i + 1].strip() if i + 1 < len(parts) else ''
+        num = str(len(items) + 1)
+
+        hm = re.match(r'^(?:\d+\.\s+)?(.+?)(?:\s+—\s+(.+))?$', header)
+        name = hm.group(1).strip() if hm else header
+        role = hm.group(2).strip() if hm and hm.group(2) else ''
+
+        has_sub = bool(re.search(r'^#### ', body, re.MULTILINE))
+        has_table = bool(re.search(r'^\|', body, re.MULTILINE))
+
+        if has_sub:
+            sub_parts = re.split(r'^#### (.+)$', body, flags=re.MULTILINE)
+            track_note = sub_parts[0].strip().strip('---').strip() if sub_parts else ''
+            child_plugins = []
+            for j in range(1, len(sub_parts), 2):
+                sp_hdr = sub_parts[j].strip()
+                sp_body = sub_parts[j + 1].strip() if j + 1 < len(sub_parts) else ''
+                sp_hm = re.match(r'^(?:(\d+)\.\s+)?(.+?)(?:\s+—\s+(.+))?$', sp_hdr)
+                if sp_hm:
+                    sp_num = sp_hm.group(1) or str(len(child_plugins) + 1)
+                    sp_name = sp_hm.group(2).strip()
+                    sp_role = sp_hm.group(3).strip() if sp_hm.group(3) else ''
+                else:
+                    sp_num = str(len(child_plugins) + 1)
+                    sp_name = sp_hdr
+                    sp_role = ''
+                sp_block = parse_plugin_block(sp_body)
+                child_plugins.append({'num': sp_num, 'name': sp_name, 'role': sp_role, **sp_block})
+            items.append({'kind': 'track', 'num': num, 'name': name, 'role': role,
+                          'track_note': track_note, 'plugins': child_plugins})
+
+        elif has_table:
+            block = parse_plugin_block(body)
+            items.append({'kind': 'plugin', 'num': num, 'name': name, 'role': role, **block})
+
+        else:
+            note = body.replace('---', '').strip()
+            items.append({'kind': 'routing', 'num': num, 'name': name, 'role': role, 'note': note})
+
+    return items
 
 
 def parse_tone_file(filepath):
@@ -98,28 +178,11 @@ def parse_tone_file(filepath):
         content = parts[i + 1] if i + 1 < len(parts) else ''
         sections[name] = content.strip()
 
-    # Signal Chain → plugins
-    plugins = []
+    # Signal Chain → items (track groups, simple plugins, routing notes)
+    items = []
     if 'Signal Chain' in sections:
-        chain = sections['Signal Chain']
-        plugin_parts = re.split(r'^### (.+)$', chain, flags=re.MULTILINE)
-        for i in range(1, len(plugin_parts), 2):
-            plugin_header = plugin_parts[i].strip()
-            plugin_body = plugin_parts[i + 1].strip() if i + 1 < len(plugin_parts) else ''
-
-            # Parse "N. Name — role" or "Name — role"
-            hm = re.match(r'^(?:(\d+)\.\s+)?(.+?)(?:\s+—\s+(.+))?$', plugin_header)
-            if hm:
-                num = hm.group(1) or str(len(plugins) + 1)
-                name = hm.group(2).strip()
-                role = hm.group(3).strip() if hm.group(3) else ''
-            else:
-                num = str(len(plugins) + 1)
-                name = plugin_header
-                role = ''
-
-            block = parse_plugin_block(plugin_body)
-            plugins.append({'num': num, 'name': name, 'role': role, **block})
+        items = parse_signal_chain(sections['Signal Chain'])
+    plugins = [item for item in items if item['kind'] == 'plugin']
 
     # Starting Point Guide — bullet items
     guide_items = []
@@ -193,6 +256,7 @@ def parse_tone_file(filepath):
         'platform_display': platform_display,
         'title': title,
         'target_sound': sections.get('Target Sound', ''),
+        'items': items,
         'plugins': plugins,
         'guide_items': guide_items,
         'feedback': feedback,
@@ -227,6 +291,88 @@ def chip_name(plugin_name):
 
 
 # ── HTML rendering ────────────────────────────────────────────────────────────
+
+def render_block_tables(blocks):
+    """Render all table blocks within a plugin card (handles multi-table plugins)."""
+    html = ''
+    for block in blocks:
+        if block.get('heading'):
+            html += f'<div class="block-heading">{inline_md(h(block["heading"]))}</div>'
+        html += render_table(block['headers'], block['rows'])
+    return html
+
+
+def render_plugin_card(p, tone_id, is_nested=False):
+    """Render a plugin settings card. Used for both top-level and nested plugins."""
+    pid = f'plugin-{tone_id}-{p["num"]}'
+    role_html = f'<span class="plugin-role">{h(p["role"])}</span>' if p.get('role') else ''
+
+    pre_html = ''
+    if p.get('pre_text'):
+        pre_html = f'<p class="plugin-note">{inline_md(h(p["pre_text"]))}</p>'
+
+    tables_html = render_block_tables(p.get('blocks', []))
+    if not tables_html:
+        tables_html = render_table(p.get('headers', []), p.get('rows', []))
+
+    note_text = p.get('note', '')
+    if note_text.startswith('*') and note_text.endswith('*') and len(note_text) > 1:
+        note_text = note_text[1:-1]
+    note_html = ''
+    if note_text:
+        note_lines = [inline_md(h(ln)) for ln in note_text.split('\n') if ln.strip()]
+        note_html = f'<p class="interaction-note">{"<br>".join(note_lines)}</p>'
+
+    extra_cls = ' nested-plugin' if is_nested else ''
+    return f'''
+<div class="plugin-section{extra_cls}" id="{h(pid)}">
+  <div class="plugin-header">
+    <span class="plugin-num">{h(p["num"])}</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">{h(p["name"])}</span>
+      {role_html}
+    </div>
+  </div>
+  {pre_html}
+  {tables_html}
+  {note_html}
+</div>'''
+
+
+def render_track_group(track, tone_id):
+    """Render a Logic track group (Aux/Guitar strip) with nested plugin cards."""
+    tgid = f'track-{tone_id}-{track["num"]}'
+    role_html = f'<span class="plugin-role">{h(track["role"])}</span>' if track.get('role') else ''
+
+    track_note_html = ''
+    if track.get('track_note'):
+        note_lines = [inline_md(h(ln)) for ln in track['track_note'].split('\n') if ln.strip()]
+        track_note_html = f'<div class="track-note">{"<br>".join(note_lines)}</div>'
+
+    nested_html = ''.join(render_plugin_card(cp, tone_id, is_nested=True) for cp in track['plugins'])
+
+    return f'''
+<div class="track-group" id="{h(tgid)}">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">{h(track["name"])}</span>
+      {role_html}
+    </div>
+  </div>
+  {track_note_html}
+  <div class="track-body">
+{nested_html}
+  </div>
+</div>'''
+
+
+def render_routing_strip(item):
+    """Render a routing-only section (send, bus assignment) as a strip."""
+    note = item.get('note', '').replace('\n', ' ').strip()
+    note_span = f' <span class="routing-detail">{h(note)}</span>' if note else ''
+    return f'<div class="routing-note"><span class="routing-label">Route</span>{h(item["name"])}{note_span}</div>'
+
 
 def render_table(headers, rows):
     if not headers:
@@ -287,56 +433,41 @@ def render_tone(tone):
 
     tags_html = ''.join(f'<span class="tag">{h(t)}</span>' for t in tone['tags'])
 
-    # Signal chain flow chips
+    # Signal chain flow chips — one per ### section
     chain_html = ''
-    if tone['plugins']:
+    if tone.get('items'):
         chips = []
-        for p in tone['plugins']:
-            cname = chip_name(p['name'])
-            chips.append(
-                f'<button class="chain-chip" onclick="scrollToPlugin(\'{h(tid)}\',\'{h(p["num"])}\')">{h(cname)}</button>'
-            )
+        for item in tone['items']:
+            cname = chip_name(item['name'])
+            if item['kind'] == 'routing':
+                chips.append(f'<span class="chain-routing-label">{h(cname)}</span>')
+            elif item['kind'] == 'track':
+                eid = f'track-{h(tid)}-{h(item["num"])}'
+                chips.append(
+                    f'<button class="chain-chip chain-chip-track" onclick="scrollToItem(\'{eid}\')">{h(cname)}</button>'
+                )
+            else:
+                eid = f'plugin-{h(tid)}-{h(item["num"])}'
+                chips.append(
+                    f'<button class="chain-chip" onclick="scrollToItem(\'{eid}\')">{h(cname)}</button>'
+                )
         chain_html = (
             '<div class="chain-flow">'
             + '<span class="chain-arrow">&#8594;</span>'.join(chips)
             + '</div>'
         )
 
-    # Plugin sections
-    plugins_html_parts = []
-    for p in tone['plugins']:
-        pid = f'plugin-{tid}-{p["num"]}'
-        role_html = f'<span class="plugin-role">{h(p["role"])}</span>' if p['role'] else ''
+    # Items rendering — track groups, plugin cards, routing strips
+    items_html_parts = []
+    for item in tone.get('items', []):
+        if item['kind'] == 'track':
+            items_html_parts.append(render_track_group(item, tid))
+        elif item['kind'] == 'routing':
+            items_html_parts.append(render_routing_strip(item))
+        else:
+            items_html_parts.append(render_plugin_card(item, tid))
 
-        pre_html = ''
-        if p['pre_text']:
-            pre_html = f'<p class="plugin-note">{inline_md(h(p["pre_text"]))}</p>'
-
-        table_html = render_table(p['headers'], p['rows'])
-
-        note_text = p.get('note', '')
-        # Strip surrounding * if entire string is wrapped
-        if note_text.startswith('*') and note_text.endswith('*') and len(note_text) > 1:
-            note_text = note_text[1:-1]
-        note_html = ''
-        if note_text:
-            note_html = f'<p class="interaction-note">{inline_md(h(note_text))}</p>'
-
-        plugins_html_parts.append(f'''
-<div class="plugin-section" id="{h(pid)}">
-  <div class="plugin-header">
-    <span class="plugin-num">{h(p["num"])}</span>
-    <div class="plugin-title-block">
-      <span class="plugin-name">{h(p["name"])}</span>
-      {role_html}
-    </div>
-  </div>
-  {pre_html}
-  {table_html}
-  {note_html}
-</div>''')
-
-    plugins_html = ''.join(plugins_html_parts)
+    plugins_html = ''.join(items_html_parts)
 
     # Starting Point Guide
     guide_html = ''
@@ -471,17 +602,34 @@ CSS = """
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #1c1c1e;
-  --surface:     #2c2c2e;
-  --surface-alt: #3a3a3c;
-  --border:      #3a3a3c;
-  --amber:       #c8922a;
-  --amber-dim:   #7a5518;
-  --amber-glow:  rgba(200,146,42,0.12);
-  --cream:       #f5e6c8;
-  --secondary:   #a09070;
-  --muted:       #68686e;
-  --sidebar-w:   290px;
+  --bg:              #191c22;
+  --surface:         #22262f;
+  --surface-alt:     #2c313d;
+  --border:          #363b48;
+  --accent:          #5ba4c8;
+  --accent-dim:      #2e5f7a;
+  --accent-glow:     rgba(91,164,200,0.11);
+  --text:            #e8edf4;
+  --secondary:       #8c96a4;
+  --muted:           #545c68;
+  --accent-fg:       #0e1014;
+  --badge-tested-bg: rgba(91,164,200,0.14);
+  --sidebar-w:       290px;
+}
+
+[data-theme="light"] {
+  --bg:              #f4f7f5;
+  --surface:         #ffffff;
+  --surface-alt:     #eef2ef;
+  --border:          #c8d5cb;
+  --accent:          #059669;
+  --accent-dim:      #047857;
+  --accent-glow:     rgba(5,150,105,0.10);
+  --text:            #111827;
+  --secondary:       #374151;
+  --muted:           #9ca3af;
+  --accent-fg:       #ffffff;
+  --badge-tested-bg: rgba(5,150,105,0.12);
 }
 
 html, body { height: 100%; overflow: hidden; }
@@ -489,7 +637,7 @@ html, body { height: 100%; overflow: hidden; }
 body {
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
   background: var(--bg);
-  color: var(--cream);
+  color: var(--text);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -525,13 +673,18 @@ body {
 .vault-wordmark {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 4px;
 }
+.vault-wordmark-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .vault-hex {
-  color: var(--amber);
+  color: var(--accent);
   font-size: 20px;
   line-height: 1;
 }
@@ -540,7 +693,7 @@ body {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: var(--cream);
+  color: var(--text);
   text-transform: uppercase;
 }
 
@@ -571,25 +724,25 @@ body {
 .sidebar-item:hover { background: var(--surface-alt); }
 
 .sidebar-item:focus-visible {
-  border-color: var(--amber-dim);
+  border-color: var(--accent-dim);
   background: var(--surface-alt);
 }
 
 .sidebar-item.active {
-  background: var(--amber-glow);
-  border-color: var(--amber-dim);
+  background: var(--accent-glow);
+  border-color: var(--accent-dim);
 }
 
 .sidebar-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--text);
   margin-bottom: 2px;
   line-height: 1.3;
   padding-right: 50px;
 }
 
-.sidebar-item.active .sidebar-title { color: var(--amber); }
+.sidebar-item.active .sidebar-title { color: var(--accent); }
 
 .sidebar-sub {
   font-size: 11px;
@@ -632,14 +785,14 @@ body {
 
 .filter-btn:hover {
   background: var(--surface-alt);
-  color: var(--cream);
-  border-color: var(--amber-dim);
+  color: var(--text);
+  border-color: var(--accent-dim);
 }
 
 .filter-btn.active {
-  background: var(--amber-glow);
-  color: var(--amber);
-  border-color: var(--amber-dim);
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-color: var(--accent-dim);
 }
 
 /* ── Platform pills in sidebar ── */
@@ -683,7 +836,7 @@ body {
 }
 
 .status-initial { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
-.status-tested  { background: rgba(200,146,42,0.18); color: var(--amber); border: 1px solid var(--amber-dim); }
+.status-tested  { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
 .status-refined { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
 
 /* ── Tone header ── */
@@ -696,7 +849,7 @@ body {
 .tone-title {
   font-size: 28px;
   font-weight: 700;
-  color: var(--cream);
+  color: var(--text);
   margin-bottom: 12px;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -753,7 +906,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 14px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
@@ -762,7 +915,7 @@ body {
 .target-sound {
   font-size: 14px;
   line-height: 1.7;
-  color: var(--cream);
+  color: var(--text);
 }
 
 /* ── Signal chain flow ── */
@@ -794,15 +947,15 @@ body {
 }
 
 .chain-chip:first-child {
-  border-color: var(--amber-dim);
-  color: var(--amber);
-  background: var(--amber-glow);
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .chain-chip:hover {
-  border-color: var(--amber);
-  color: var(--amber);
-  background: var(--amber-glow);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .chain-arrow {
@@ -837,8 +990,8 @@ body {
   justify-content: center;
   width: 22px;
   height: 22px;
-  background: var(--amber);
-  color: #1c1c1e;
+  background: var(--accent);
+  color: var(--accent-fg);
   font-size: 10px;
   font-weight: 800;
   border-radius: 50%;
@@ -856,7 +1009,7 @@ body {
 .plugin-name {
   font-size: 14px;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--text);
   line-height: 1.3;
 }
 
@@ -871,7 +1024,7 @@ body {
   color: var(--secondary);
   line-height: 1.55;
   border-bottom: 1px solid var(--border);
-  background: rgba(200,146,42,0.04);
+  background: var(--accent-glow);
 }
 
 .interaction-note {
@@ -880,7 +1033,7 @@ body {
   color: var(--secondary);
   line-height: 1.55;
   border-top: 1px solid var(--border);
-  background: rgba(200,146,42,0.04);
+  background: var(--accent-glow);
   font-style: italic;
 }
 
@@ -911,7 +1064,7 @@ body {
 .settings-table td {
   padding: 9px 18px;
   vertical-align: top;
-  border-bottom: 1px solid rgba(58,58,60,0.5);
+  border-bottom: 1px solid var(--border);
   line-height: 1.45;
 }
 
@@ -920,15 +1073,15 @@ body {
 .row-alt { background: rgba(0,0,0,0.07); }
 
 .col-setting {
-  color: var(--amber) !important;
+  color: var(--accent) !important;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .col-setting strong {
-  color: var(--amber);
+  color: var(--accent);
   font-weight: 700;
-  background: rgba(200,146,42,0.15);
+  background: var(--accent-glow);
   padding: 1px 4px;
   border-radius: 3px;
 }
@@ -945,7 +1098,7 @@ body {
 .guide-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--amber);
+  border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
   padding: 11px 16px;
   font-size: 13px;
@@ -953,13 +1106,13 @@ body {
 }
 
 .guide-label {
-  color: var(--amber);
+  color: var(--accent);
   font-weight: 600;
 }
 
 .guide-label::after { content: ': '; }
 
-.guide-content { color: var(--cream); }
+.guide-content { color: var(--text); }
 
 /* ── Feedback History ── */
 .feedback-entry {
@@ -982,7 +1135,7 @@ body {
 .feedback-date {
   font-family: 'SF Mono', 'Menlo', monospace;
   font-size: 11px;
-  color: var(--amber);
+  color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -1011,11 +1164,11 @@ body {
   letter-spacing: 0.01em;
 }
 
-.view-tab:hover { color: var(--cream); }
+.view-tab:hover { color: var(--text); }
 
 .view-tab.active {
-  color: var(--amber);
-  border-bottom-color: var(--amber);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .checklist-intro {
@@ -1025,11 +1178,30 @@ body {
   margin-bottom: 16px;
 }
 
+/* ── Theme toggle button ── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--accent-dim); }
+
 /* ── Scrollbars ── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--surface-alt); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c8d5cb; }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
 /* ── Empty state ── */
 .empty-state {
@@ -1045,7 +1217,7 @@ body {
 .empty-icon { font-size: 40px; margin-bottom: 14px; opacity: 0.3; }
 
 /* ── Inline text ── */
-strong { color: var(--cream); font-weight: 600; }
+strong { color: var(--text); font-weight: 600; }
 em { color: var(--secondary); }
 
 /* ── Responsive ── */
@@ -1054,6 +1226,130 @@ em { color: var(--secondary); }
   .main-panel { padding: 24px 20px 48px; }
   .tone-title { font-size: 22px; }
   .col-purpose { display: none; }
+}
+
+/* ── Track groups ── */
+.track-group {
+  margin-bottom: 16px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--accent-dim);
+  overflow: hidden;
+}
+
+.track-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 18px;
+  background: rgba(200,146,42,0.06);
+  border-bottom: 1px solid var(--border);
+}
+
+.track-label {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  text-transform: uppercase;
+  font-family: 'SF Mono', 'Menlo', monospace;
+}
+
+.track-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+}
+
+.track-note {
+  padding: 8px 18px;
+  font-size: 12px;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--border);
+  font-style: italic;
+}
+
+.track-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nested-plugin {
+  margin-bottom: 0 !important;
+}
+
+/* ── Routing notes ── */
+.routing-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--secondary);
+  font-family: 'SF Mono', 'Menlo', monospace;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+
+.routing-label {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(58,58,60,0.6);
+  color: var(--muted);
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+
+.routing-detail {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* ── Chain routing label (routing items in chain-flow bar) ── */
+.chain-routing-label {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 4px 6px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ── Track chips in chain-flow bar ── */
+.chain-chip-track {
+  border-color: var(--accent-dim) !important;
+  color: var(--accent) !important;
+  background: var(--accent-glow) !important;
+}
+
+.chain-chip-track:hover {
+  border-color: var(--accent) !important;
+}
+
+/* ── Block headings within plugin cards (multi-table plugins) ── */
+.block-heading {
+  padding: 7px 18px 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--secondary);
+  background: rgba(0,0,0,0.12);
+  border-top: 1px solid var(--border);
 }
 """
 
@@ -1089,6 +1385,11 @@ function showView(toneId, view) {
 
 function scrollToPlugin(toneId, num) {
   var el = document.getElementById('plugin-' + toneId + '-' + num);
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+}
+
+function scrollToItem(id) {
+  var el = document.getElementById(id);
   if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 }
 
@@ -1146,7 +1447,44 @@ document.querySelectorAll('.sidebar-item').forEach(function(el) {
     }
   });
 });
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.dataset.theme || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = next;
+  localStorage.setItem('tv-theme', next);
+  var btn = document.getElementById('theme-toggle');
+  if (btn) { btn.innerHTML = next === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+}
+
+// Sync toggle button label on load
+(function() {
+  var saved = localStorage.getItem('tv-theme');
+  var btn = document.getElementById('theme-toggle');
+  if (saved && btn) { btn.innerHTML = saved === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+}());
 """
+
+def generate_markdown_index(tones, output_path):
+    """Generate a Markdown table index of all tones."""
+    lines = [
+        "# Tone Index",
+        "",
+        "| Title | Guitar | Target | Tags | Status |",
+        "| :--- | :--- | :--- | :--- | :--- |"
+    ]
+    for tone in tones:
+        tags = ", ".join(tone['tags'])
+        # Truncate target to keep it readable in table
+        target = tone['target']
+        if len(target) > 100:
+            target = target[:97] + "..."
+        
+        lines.append(f"| {tone['title']} | {tone['guitar']} | {target} | {tags} | {tone['status']} |")
+    
+    output_path.write_text("\n".join(lines) + "\n", encoding='utf-8')
+
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -1156,6 +1494,7 @@ def main():
     script_dir = Path(__file__).parent
     tones_dir = script_dir.parent / 'tones'
     output_path = script_dir / 'tone-viewer.html'
+    index_path = tones_dir / 'INDEX.md'
 
     tone_files = sorted(tones_dir.glob('*.md'))
     thr_files = sorted((tones_dir / 'thr10ii').glob('*.md')) if (tones_dir / 'thr10ii').is_dir() else []
@@ -1165,6 +1504,11 @@ def main():
         sys.exit(0)
 
     tones = [parse_tone_file(f) for f in all_tone_files]
+    
+    # Generate MD Index
+    generate_markdown_index(tones, index_path)
+    print(f'Generated: {index_path}')
+
     first_id = tones[0]['id']
 
     sidebar_html = '\n'.join(render_sidebar_item(t, i == 0) for i, t in enumerate(tones))
@@ -1177,6 +1521,7 @@ def main():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tone Vault</title>
+<script>(function(){{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.dataset.theme=t;}}());</script>
 <style>
 {CSS}
 </style>
@@ -1187,8 +1532,11 @@ def main():
   <aside class="sidebar">
     <div class="sidebar-header">
       <div class="vault-wordmark">
-        <span class="vault-hex">&#x2B21;</span>
-        <span class="vault-name">Tone Vault</span>
+        <div class="vault-wordmark-logo">
+          <span class="vault-hex">&#x2B21;</span>
+          <span class="vault-name">Tone Vault</span>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
       <div class="platform-filter">
         <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>

@@ -192,9 +192,10 @@ When using an Amp+Cab or ComplexRig capture, the Tone King IR must be bypassed (
 
 ### Step 3 — Look up documentation
 
-- Check `tone-advisor/docs/[category]/[plugin].md` first
-- If the cache file doesn't exist, fetch from source and build it before proceeding
-- Never assign specific values to controls you haven't verified in documentation
+- Check `tone-advisor/docs/[category]/[plugin].md` first.
+- **Targeted Reading:** Use `grep_search` to find specific parameter ranges or sections (e.g., "Controls") rather than reading the entire file, unless it is a very small file.
+- If the cache file doesn't exist, fetch from source and build it before proceeding.
+- Never assign specific values to controls you haven't verified in documentation.
 
 ### Step 4 — Build and present the full recommendation
 
@@ -232,15 +233,11 @@ When Mike signals he's happy or asks to save:
 
 ## Tone recall and feedback workflow
 
-**List saved tones:**
-```sh
-ls tones/
-```
-Present as a readable list with target description from each file's frontmatter.
+**List/Search saved tones:**
+Read `tones/INDEX.md`. **NEVER** run `ls tones/` or use `read_file` on individual tone files just to list or summarize them. The index contains the title, guitar, target description, and status for every tone.
 
-**Search tones:** grep `tones/` by guitar, tag, or keyword in the target field.
-
-**Load a tone:** Read and display the full tone file.
+**Load a tone:**
+Read and display the full tone file **ONLY** if Mike specifically asks to load, see, or edit it.
 
 **Provide feedback:**
 - User describes what worked / what didn't
@@ -323,7 +320,29 @@ Focus entirely on the signal chain and plugin/pedal settings. Do not suggest wha
 
 - `tone-advisor/plugin_index_with_manuals.csv` — Authoritative installed plugin list
 - `tone-advisor/uad_plug_in_manuals.csv` — Full UAD plugin manual URL index
-- `tone-advisor/gear-inventory.md` — Complete hardware and plugin inventory with descriptions
+- `tone-advisor/gear-inventory.md` — Complete hardware and plugin inventory. **DO NOT** read this file in its entirety. Use `grep_search` on specific category headers to explore tools.
 - `tone-advisor/docs/` — Lazily-built per-plugin documentation cache
 - `tone-advisor/ToneModels.json` — 3,018 TONEX captures; query with `tone-advisor/query_tonex.py`
+- `tones/INDEX.md` — Centralized index of all saved tones; use this for all listing/searching.
 - `tones/` — Saved tone preset database, one file per tone
+
+### Inventory Exploration Categories
+
+To explore `gear-inventory.md` without loading the whole file, `grep_search` for these headers with `after=20`:
+- `## Physical Hardware`
+- `## UADx — Amp Emulations`
+- `## UADx — Dynamics & Compression`
+- `## UADx — Reverb Chambers & Spaces`
+- `## UADx — Tape, Saturation & Modulation`
+- `## Neural DSP`
+- `## Nembrini Audio — Amp Emulations`
+- `## Nembrini Audio — Acoustic`
+- `## Nembrini Audio — Stomp Effects (Free)`
+- `## IK Multimedia`
+- `## Logic Pro — Guitar & Amp Effects`
+- `## Logic Pro — Dynamics, Compression & EQ`
+- `## Logic Pro — Reverb & Spatial`
+- `## Logic Pro — Delay`
+- `## Logic Pro — Modulation`
+- `## Logic Pro — Distortion & Drive`
+- `## Other Third-Party`

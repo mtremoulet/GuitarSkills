@@ -228,21 +228,6 @@ def parse_tone_file(filepath):
     else:
         slug = fm.get('id', Path(filepath).stem)
 
-    checklist = []
-    cl_path = Path(filepath).parent / 'presets' / slug / 'CHECKLIST.md'
-    if cl_path.exists():
-        cl_text = cl_path.read_text()
-        cl_parts = re.split(r'^## (.+)$', cl_text, flags=re.MULTILINE)
-        for i in range(1, len(cl_parts), 2):
-            if i + 1 >= len(cl_parts):
-                break
-            hdr = cl_parts[i].strip()
-            hm = re.match(r'^(.+?)(?:\s+—\s+(.+))?$', hdr)
-            cl_name = hm.group(1).strip() if hm else hdr
-            cl_role = hm.group(2).strip() if hm and hm.group(2) else ''
-            cl_block = parse_plugin_block(cl_parts[i + 1].strip())
-            checklist.append({'name': cl_name, 'role': cl_role, **cl_block})
-
     return {
         'id': slug,
         'created': fm.get('created', ''),
@@ -260,7 +245,6 @@ def parse_tone_file(filepath):
         'plugins': plugins,
         'guide_items': guide_items,
         'feedback': feedback,
-        'checklist': checklist,
     }
 
 
@@ -508,60 +492,6 @@ def render_tone(tone):
   <p class="target-sound">{inline_md(h(tone["target_sound"]))}</p>
 </section>'''
 
-    # Checklist view (JUCE plugins requiring manual setup)
-    checklist_html = ''
-    if tone.get('checklist'):
-        cl_parts = []
-        for p in tone['checklist']:
-            cl_role = f'<span class="plugin-role">{h(p["role"])}</span>' if p['role'] else ''
-            cl_table = render_table(p['headers'], p['rows'])
-            cl_parts.append(f'''
-<div class="plugin-section">
-  <div class="plugin-header">
-    <div class="plugin-title-block">
-      <span class="plugin-name">{h(p["name"])}</span>
-      {cl_role}
-    </div>
-  </div>
-  {cl_table}
-</div>''')
-        checklist_html = f'''
-<p class="checklist-intro">These plugins use proprietary formats — set manually in Logic using the values below.</p>
-{''.join(cl_parts)}'''
-
-    has_checklist = bool(tone.get('checklist'))
-    tabs_html = ''
-    if has_checklist:
-        tabs_html = f'''
-<div class="view-tabs">
-  <button class="view-tab active" data-tone="{h(tid)}" data-view="chain"
-          onclick="showView('{h(tid)}','chain')">Signal Chain</button>
-  <button class="view-tab" data-tone="{h(tid)}" data-view="checklist"
-          onclick="showView('{h(tid)}','checklist')">Setup Checklist</button>
-</div>'''
-
-    chain_section = f'''
-  <section class="tone-section">
-    <h2 class="section-header">Signal Chain</h2>
-    {chain_html}
-    {plugins_html}
-  </section>
-  {guide_html}
-  {feedback_html}'''
-
-    if has_checklist:
-        body_html = f'''
-  {tabs_html}
-  <div id="chain-view-{h(tid)}">{chain_section}</div>
-  <div id="checklist-view-{h(tid)}" style="display:none">
-    <section class="tone-section">
-      <h2 class="section-header">Setup Checklist</h2>
-      {checklist_html}
-    </section>
-  </div>'''
-    else:
-        body_html = chain_section
-
     return f'''
 <div class="tone-detail" id="tone-{h(tid)}" style="display:none">
   <div class="tone-header">
@@ -575,7 +505,13 @@ def render_tone(tone):
     <p class="tone-target-desc">{h(tone["target"])}</p>
   </div>
   {target_sound_html}
-  {body_html}
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    {chain_html}
+    {plugins_html}
+  </section>
+  {guide_html}
+  {feedback_html}
 </div>'''
 
 

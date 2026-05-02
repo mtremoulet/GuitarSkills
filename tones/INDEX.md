@@ -2,6 +2,7 @@
 
 | Title | Guitar | Target | Tags | Status |
 | :--- | :--- | :--- | :--- | :--- |
+| Tone Index |  |  |  | initial |
 | Divided 11 Light Blues | Epiphone Sheraton (humbuckers) | Light, dynamic blues tone through the Divided 11 — clean when backing off, a hint of Class A bloo... | blues, dynamic, clean, grit, slapback, class-a, divided-11 | initial |
 | Jazz Clean — Intimate Les Paul | Gibson Les Paul Studio (490R neck pickup) | Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close... | jazz, clean, warm, intimate, les-paul, humbucker | tested |
 | Mardal "Dancing in the Moonlight" | Epiphone Sheraton (humbuckers) | Rebecca Mardal "Dancing in the Moonlight" — warm jazz clean with lush-not-ambient reverb. | jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp | tested |

@@ -223,11 +223,7 @@ Engage in dialogue. Adjust based on feedback. Offer alternatives if the directio
 When Mike signals he's happy or asks to save:
 - Write the tone file to `tones/` using the format below
 - Run `python3 tone-advisor/generate_tone_viewer.py --build-only` to update the viewer
-- Run `python3 tone-advisor/generate_presets.py [tone-slug]` to generate plugin presets
-- Confirm with the filename and a one-sentence summary, noting:
-  - `tone-advisor/tone-viewer.html` has been updated
-  - Generated `.pst` files are installed to `~/Music/Audio Music Apps/Plug-In Settings/[Plugin]/Toneprints/`
-  - A `tones/presets/[tone-slug]/CHECKLIST.md` is generated for JUCE plugins (UADx, Neural DSP) with full settings tables for manual entry
+- Confirm with the filename and a one-sentence summary, noting that `tone-advisor/tone-viewer.html` has been updated.
 
 ---
 

@@ -3,10 +3,13 @@ id: strat-ambient-bath
 created: 2026-05-02
 updated: 2026-05-02
 guitar: Squier Stratocaster (single coils)
-target: Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and high-headroom clean platform.
+target: Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and
+  high-headroom clean platform.
 tags: ambient, lush, sound-bath, strat, clean, delay, reverb, modulation
 tone-king-channel: rhythm
+amp: Showtime '64
 status: initial
+pickup_type: single-coil
 ---
 
 # Strat Ambient Bath

@@ -1,0 +1,113 @@
+---
+id: dream-65-blackface-jazz
+created: 2026-05-08
+updated: 2026-05-16
+guitar: Gibson Les Paul Studio (490R neck pickup)
+target: "Warm jazz clean through the Dream '65 \u2014 Blackface character comparison\
+  \ to the Showtime-based Jazz Clean Intimate; how does the Deluxe Reverb's mid-scoop\
+  \ and spring reverb change the LP neck's jazz voice?"
+tags: jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison
+tone-king-channel: rhythm
+amp: Dream '65
+status: tested
+pickup_type: humbucker
+---
+
+# Dream '65 — Blackface Jazz
+
+## Target Sound
+
+The Jazz Clean — Intimate Les Paul toneprint uses the Showtime '64 specifically because it does *not* impose Fender color — its high headroom and neutral character lets the 490R neck pickup speak for itself. This toneprint asks the inverse question: what does the Dream '65's Blackface character do to the same guitar in the same musical context?
+
+The Dream '65 (Fender Blackface Deluxe Reverb '65) has a natural mid-scoop, sparkly top end, and built-in spring reverb — none of which are part of the Showtime '64's signal. Through a humbucker neck pickup, some of that brightness will be absorbed, but the Blackface personality will still be audible.
+
+**Gain Staging & Character Note:** The Deluxe Reverb is famously loud and breaks up early. In testing, the amp was set to **Volume 2.5** to maintain clean headroom. This preset leans naturally towards "country twang" and "bright jangle" — to push it toward jazz, roll the guitar's physical tone knob back to 6 or 7. End-to-end levels: ~ `-19.8dB` at track input and ~ `-13.3dB` at stereo output.
+
+**Compare against Jazz Clean — Intimate Les Paul (Showtime '64):** Both use Gibson LP Studio 490R neck pickup and LA-2A Silver compression. The Showtime is specifically chosen to be transparent — it doesn't add its own color. The Dream '65 adds a distinct mid-scoop and high-end sparkle that confirms the Showtime as the superior neutral jazz platform, while the Dream serves better for country/soul/R&B contexts.
+
+---
+
+## Signal Chain
+
+### 1. Tone King Imperial Preamp — transparent front-end
+
+Matched to Jazz Clean Intimate settings for a controlled comparison.
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Channel | Rhythm | Blackface warmth on the 490R neck — same as Jazz Clean Intimate |
+| Volume | 3 | LP 490R output; same as Jazz Clean Intimate starting point |
+| Attenuation | 5 | Moderate |
+| Bass | 5 | Flat |
+| Treble | 5 | Flat |
+| Reverb | Off | Dream '65 has spring reverb; don't layer Tone King reverb on top |
+| Tremolo | Off | — |
+| IR | **Bypassed** | Dream '65 handles the cab |
+
+---
+
+### 2. UADx Dream '65 Reverb Amp — Blackface character source
+
+Normal channel and Stock mod preserve as much of the LP's natural voice as possible while still letting the Dream '65's Blackface character come through.
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Bright / Normal | **Normal** | LP 490R neck + Normal channel = warm and smooth |
+| Mod Circuit | **Stock** | Most neutral version of the Dream '65 |
+| Volume | 2.5 | Set low to preserve clean headroom and prevent early breakup |
+| Treble | 5 | Neutral; roll back to 3.5 or 4 if the "twang" is too prominent |
+| Bass | 5 | Neutral |
+| Reverb | 2 | Very light spring reverb — just a hint |
+| Tremolo | Off | — |
+| Input Trim | −8.0 dB | Plugin-level pad; calibrated 2026-05-16 for direct-to-iD14 path |
+| Output Trim | +10.0 dB | Makeup gain to restore −12 dBFS after amp model |
+| Noise Gate | 20.0 | Threshold to kill the modeled idle hum |
+
+**Cab and mic:** Try the 1x12 internal first. 
+
+---
+
+### 3. UADx LA-2A Silver Compressor — optical sustain
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Peak Reduction | 32 | Light optical compression; set low to prevent makeup gain from amplifying the amp's modeled idle noise during note decay |
+| Gain | 25 | Makeup gain for a healthy final output |
+| Mode | Compress (3:1) | Preserve dynamics |
+
+---
+
+### 4. UADx Hitsville Reverb Chambers — intimate room
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Chamber | **2648 (Chamber 1)** | Bright, present character; close and intimate |
+| Speaker | **Bozak 800** | Standard setup |
+| Mic | **Unidyne 545** | SM57-style character |
+| Mix | −22 dB (~8% wet) | Minimal physical space |
+| Decay | 2.0 (9:00) | Shortened room reflection for clarity |
+| Pre-Delay | 6 ms | Dry note attack first |
+
+**Optimization Note:** Keep as an inline insert for now; eventually move to a dedicated Aux Reverb Bus for better template organization.
+
+---
+
+## Starting Point Guide
+
+- **First comparison:** Load this and Jazz Clean — Intimate side by side in the same session. Play the same phrase through each. The Blackface mid-scoop should be audible on the LP neck — if it makes the 490R sound thin or scooped, that confirms why the Showtime was the right choice for jazz. If it sounds warm and musical, it's a second valid platform.
+- **The spring reverb difference:** Even at Reverb 2, the Dream '65's spring reverb adds a quality that Hitsville chamber alone doesn't. If you prefer the result with the spring reverb, raise it to 3. If it feels out of place in a jazz context, pull it to 1 or off.
+- **Treble lever:** If the LP sounds too scooped in the low-mids (notes feeling thin), raise Treble to 6 to compensate for the Blackface mid-scoop's effect on humbucker output. If it sounds balanced, leave at 5.
+- **Unexpected direction:** If the Dream '65 + LP neck ends up sounding more Country/Soul than jazz (the mid-scoop and sparkle pulling it that direction), note that in Feedback History and consider using the Blackface Jazz toneprint for those styles instead of jazz proper.
+
+---
+
+## Feedback History
+
+### 2026-05-16 — gain staging calibration (direct to iD14)
+Signal path changed: guitar now routes direct into iD14 instrument input (Tone King Imperial Preamp bypassed pending its own calibration pass). iD14 gain set to **0**. Guitar bus changed to **Mono** (was Stereo). Dream '65 plugin I/O trims set: **Input −8.0 dB / Output +10.0 dB** (the Deluxe Reverb model drops significant level; the +10 output trim compensates). LA-2A adjusted: **Peak Reduction 32 / Gain 25**.
+
+### 2026-05-08 — tested
+Verified in DAW session. Key findings: The Deluxe Reverb is extremely sensitive; **Volume 2.5** is necessary for clean headroom. The preset leans bright/twangy; roll back guitar tone to 6 for jazz. **LA-2A at Peak Reduction 40 / Gain 20** yields minimal reduction but prevents "noise floor fizz" on decay. **Hitsville Decay 2.0** confirmed. End-to-end: ~ -19.8dB in / -13.3dB out. Status updated to `tested`.
+
+### 2026-05-08 — initial
+Built as a deliberate comparison to Jazz Clean — Intimate Les Paul (Showtime '64). Signal chain parallels the Jazz Clean Intimate with matched Tone King settings and Hitsville chamber, so the only variable is the amp. Stock mod and Normal channel chosen to minimize imposed character while still testing what the Blackface voice does to the LP neck in a jazz context. Spring reverb at Reverb 2 — light enough to be a hint rather than a feature. No optional TONEX stomp; keep this clean for the comparison to mean something.

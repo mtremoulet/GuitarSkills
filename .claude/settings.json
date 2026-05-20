@@ -12,9 +12,9 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "WebSearch(*)",
-      "WebFetch(help.uaudio.com:*)",
-      "WebFetch(github.com:*)",
-      "WebFetch(raw.githubusercontent.com:*)",
+      "WebFetch(domain:help.uaudio.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
       "mcp__plugin_playwright__*"
     ]
   }

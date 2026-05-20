@@ -57,8 +57,13 @@ GuitarSkills/
 ├── scripts/                # build_tab.py, verify_tab.py
 ├── templates/              # session-plan-template.md, etude-template.md
 ├── references/             # chord-voicings.md, common-progressions.md, ascii-notation-guide.md
-├── tone-advisor/           # Toneprints engine: gear-inventory, ToneModels.json, docs cache, Python tools
+├── tone-advisor/           # Toneprints engine: guidelines, gear-inventory, ToneModels.json, docs cache
+│   └── TONEPRINT_GUIDELINES.md # Non-negotiable standards for tone creation and gain staging
 ├── guitar-coach-library/   # Session output (index.md + sessions/ populated over time)
-├── tones/                  # Saved tone definitions (populated over time)
+├── tones/                  # Saved tone definitions
+│   ├── humbuckers/         # Dual-humbucker specific (LP, Sheraton)
+│   ├── single-coils/       # Single-coil specific (Tele, Strat, Revelation)
+│   ├── universal/          # Hybrid/Neutral platforms
+│   └── INDEX.md            # Master tone list with pickup categorization
 └── walkthroughs/           # Song walkthrough outputs (populated over time)
 ```

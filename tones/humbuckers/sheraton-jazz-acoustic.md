@@ -3,10 +3,13 @@ id: sheraton-jazz-acoustic
 created: 2026-04-30
 updated: 2026-04-30
 guitar: Epiphone Sheraton (humbuckers)
-target: Warm clean jazz electric tone blended with an acoustic texture from Acoustic Voice Pro; reverb on a shared bus
+target: Warm clean jazz electric tone blended with an acoustic texture from Acoustic
+  Voice Pro; reverb on a shared bus
 tags: jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers
 tone-king-channel: rhythm
+amp: Showtime '64
 status: tested
+pickup_type: humbucker
 ---
 
 # Sheraton Jazz + Acoustic Blend

@@ -1,14 +1,22 @@
 # Tone Index
 
-| Title | Guitar | Target | Tags | Status |
+| Title | Pickup Type | Intended/Tested Guitar | File Path | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| Tone Index |  |  |  | initial |
-| Divided 11 Light Blues | Epiphone Sheraton (humbuckers) | Light, dynamic blues tone through the Divided 11 — clean when backing off, a hint of Class A bloo... | blues, dynamic, clean, grit, slapback, class-a, divided-11 | initial |
-| Jazz Clean — Intimate Les Paul | Gibson Les Paul Studio (490R neck pickup) | Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close... | jazz, clean, warm, intimate, les-paul, humbucker | tested |
-| Mardal "Dancing in the Moonlight" | Epiphone Sheraton (humbuckers) | Rebecca Mardal "Dancing in the Moonlight" — warm jazz clean with lush-not-ambient reverb. | jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp | tested |
-| MRH810 Classic Lead | Epiphone Sheraton or Les Paul (humbuckers) | Moderate-gain JCM800 lead — singing sustain and clear articulation in the GN'R ballad / Bon Jovi ... | lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain | initial |
-| Sheraton Jazz + Acoustic Blend | Epiphone Sheraton (humbuckers) | Warm clean jazz electric tone blended with an acoustic texture from Acoustic Voice Pro; reverb on... | jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers | tested |
-| Strat Ambient Bath | Squier Stratocaster (single coils) | Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and high-headroom clean p... | ambient, lush, sound-bath, strat, clean, delay, reverb, modulation | initial |
-| The Electronic Veil (Ed Bickert Style) | Fender Player II Telecaster (Neck position, Flatwounds) | Ed Bickert "Electronic Veil" — Extremely dark, warm, and intimate. Simulates a traditional jazz b... | jazz, telecaster, dark, warm, bickert, flatwounds | initial |
-| Singing Blues-Jazz (Larry Carlton Style) | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | Larry Carlton "Singing Blues-Jazz" — Mellow chords with touch-sensitive, mid-focused lead sustain. | jazz, blues, telecaster, carlton, dumble, sustain | initial |
-| Woodrow Sweet Spot | Squier Stratocaster (single coils) | The "Sweet Spot" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing ... | tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward | initial |
+| Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
+| Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
+| JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | initial |
+| Lion '68 — Jumped Plexi Crunch | humbucker | "Epiphone Les Paul Standard (humbuckers \u2014 bridge or neck-bridge blend)" | [humbuckers/lion-68-jumped-plexi-crunch.md](humbuckers/lion-68-jumped-plexi-crunch.md) | tested |
+| Mardal "Dancing in the Moonlight" | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/mardal-dancing-moonlight.md](humbuckers/mardal-dancing-moonlight.md) | tested |
+| MRH810 Classic Lead | humbucker | Epiphone Les Paul Standard | [humbuckers/mrh810-classic-lead.md](humbuckers/mrh810-classic-lead.md) | tested |
+| Paradise Pedal Platform (Humbucker Variant) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton | [humbuckers/paradise-pedal-platform-hb.md](humbuckers/paradise-pedal-platform-hb.md) | initial |
+| Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)" | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
+| Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
+| Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
+| Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
+| Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | tested |
+| Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |
+| Ruby '63 — Vox Top Boost Jangle | single-coil | "Squier Stratocaster (bridge + middle pickup position \u2014 \"quack\")" | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
+| Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
+| The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
+| Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
+| Woodrow Sweet Spot | single-coil | Squier Stratocaster (single coils) | [single-coils/woodrow-sweet-spot.md](single-coils/woodrow-sweet-spot.md) | tested |

@@ -162,6 +162,40 @@ def parse_signal_chain(chain_text):
     return items
 
 
+def infer_genre(tags):
+    tag_set = set(tags)
+    if 'ambient' in tag_set or 'sound-bath' in tag_set:
+        return 'ambient'
+    if any(t in tag_set for t in ('classic-rock', 'crunch', 'jcm800', 'plexi', 'lead', 'zeppelin')):
+        return 'rock'
+    if any(t in tag_set for t in ('country', 'folk-rock', 'jangle', 'british-invasion', 'surf', 'chime')):
+        return 'country'
+    if 'neo-soul' in tag_set or 'jazz-blues' in tag_set:
+        return 'jazz'
+    if 'jazz' in tag_set and 'blues' not in tag_set:
+        return 'jazz'
+    if 'blues' in tag_set and 'jazz' not in tag_set:
+        return 'blues'
+    if 'jazz' in tag_set and 'blues' in tag_set:
+        return 'jazz' if 'boutique' in tag_set else 'blues'
+    if 'clean' in tag_set or 'pedal-platform' in tag_set:
+        return 'clean'
+    return 'jazz'
+
+
+def infer_guitar_type(guitar_str):
+    g = guitar_str.lower()
+    if 'telecaster' in g or ' tele' in g:
+        return 'telecaster'
+    if 'stratocaster' in g or 'strat' in g:
+        return 'strat'
+    if 'sheraton' in g or 'semi-hollow' in g or '335' in g:
+        return 'semi-hollow'
+    if 'les paul' in g:
+        return 'les-paul'
+    return 'other'
+
+
 def parse_tone_file(filepath):
     text = Path(filepath).read_text()
     fm, body = parse_frontmatter(text)
@@ -208,37 +242,22 @@ def parse_tone_file(filepath):
             })
 
     tags = [t.strip() for t in fm.get('tags', '').split(',') if t.strip()]
-
-    # Determine platform
-    parent_dir = Path(filepath).parent.name
-    fm_platform = fm.get('platform', '').strip().lower()
-    if parent_dir == 'thr10ii':
-        platform_key = 'yamaha'
-        platform_display = 'Yamaha'
-    elif 'spark' in fm_platform:
-        platform_key = 'spark-neo'
-        platform_display = 'Spark NEO'
-    else:
-        platform_key = 'logic'
-        platform_display = 'Logic'
-
-    # Prefix thr10ii slugs to avoid collision with same-named Logic tones
-    if parent_dir == 'thr10ii':
-        slug = fm.get('id', 'thr10ii-' + Path(filepath).stem)
-    else:
-        slug = fm.get('id', Path(filepath).stem)
+    guitar = fm.get('guitar', '')
+    slug = fm.get('id', Path(filepath).stem)
 
     return {
         'id': slug,
+        'source_path': str(Path(filepath).relative_to(Path(__file__).parent.parent)),
         'created': fm.get('created', ''),
         'updated': fm.get('updated', ''),
-        'guitar': fm.get('guitar', ''),
+        'guitar': guitar,
         'target': fm.get('target', ''),
         'tags': tags,
         'tone_king_channel': fm.get('tone-king-channel', ''),
         'status': fm.get('status', 'initial'),
-        'platform_key': platform_key,
-        'platform_display': platform_display,
+        'amp': fm.get('amp', '').strip(),
+        'genre': infer_genre(tags),
+        'guitar_type': infer_guitar_type(guitar),
         'title': title,
         'target_sound': sections.get('Target Sound', ''),
         'items': items,
@@ -414,6 +433,7 @@ def render_tone(tone):
     tid = tone['id']
     status = tone['status']
     scls = STATUS_CLS.get(status, 'status-initial')
+    source_url = f'../{tone["source_path"]}'
 
     tags_html = ''.join(f'<span class="tag">{h(t)}</span>' for t in tone['tags'])
 
@@ -495,7 +515,10 @@ def render_tone(tone):
     return f'''
 <div class="tone-detail" id="tone-{h(tid)}" style="display:none">
   <div class="tone-header">
-    <h1 class="tone-title">{h(tone["title"])}</h1>
+    <div class="tone-header-top">
+      <h1 class="tone-title">{h(tone["title"])}</h1>
+      <a href="{h(source_url)}" class="view-source-btn" target="_blank">View Source</a>
+    </div>
     <div class="tone-meta">
       <span class="meta-guitar">{h(tone["guitar"])}</span>
       <span class="badge {scls}">{h(status)}</span>
@@ -522,11 +545,9 @@ def render_sidebar_item(tone, is_first):
     active = ' active' if is_first else ''
     guitar_short = tone['guitar'].split('(')[0].strip()
     tags_preview = ', '.join(tone['tags'][:3])
-    pk = tone['platform_key']
-    pd = tone['platform_display']
-    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-platform="{h(pk)}" tabindex="0">
+    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-status="{h(status)}" data-genre="{h(tone['genre'])}" data-guitar="{h(tone['guitar_type'])}" data-amp="{h(tone['amp'])}" tabindex="0">
   <div class="sidebar-title">{h(tone["title"])}</div>
-  <div class="sidebar-sub">{h(guitar_short)} <span class="platform-pill platform-{h(pk)}">{h(pd)}</span></div>
+  <div class="sidebar-sub">{h(guitar_short)}</div>
   <div class="sidebar-tags">{h(tags_preview)}</div>
   <span class="badge {scls} sidebar-badge">{h(status)}</span>
 </div>'''
@@ -697,12 +718,33 @@ body {
   right: 10px;
 }
 
-/* ── Platform filter ── */
-.platform-filter {
+/* ── Filters ── */
+.filters {
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid var(--border);
   display: flex;
-  gap: 4px;
-  justify-content: center;
-  margin-top: 10px;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.filter-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
 }
 
 .filter-btn {
@@ -710,8 +752,8 @@ body {
   border: 1px solid var(--border);
   color: var(--muted);
   border-radius: 20px;
-  padding: 3px 10px;
-  font-size: 10px;
+  padding: 2px 8px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
@@ -731,22 +773,20 @@ body {
   border-color: var(--accent-dim);
 }
 
-/* ── Platform pills in sidebar ── */
-.platform-pill {
-  display: inline-block;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  border-radius: 3px;
-  padding: 1px 5px;
-  vertical-align: middle;
-  margin-left: 4px;
-  text-transform: uppercase;
+.amp-select {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
 }
 
-.platform-logic   { background: rgba(100,160,255,0.12); color: #6aa0ff; }
-.platform-yamaha  { background: rgba(90,190,120,0.12);  color: #5abc78; }
-.platform-spark-neo { background: rgba(220,100,60,0.14); color: #e07044; }
+.amp-select:hover { border-color: var(--accent-dim); }
 
 /* ── Sidebar footer ── */
 .sidebar-footer {
@@ -780,6 +820,33 @@ body {
   margin-bottom: 32px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
+}
+
+.tone-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.view-source-btn {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.12s;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.view-source-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .tone-title {
@@ -1329,19 +1396,30 @@ function scrollToItem(id) {
   if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 }
 
-var currentFilter = 'all';
+var activeFilters = { status: 'all', genre: 'all', guitar: 'all', amp: 'all' };
 
-function setFilter(filter) {
-  currentFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.filter === filter);
+function setFilter(dim, val) {
+  activeFilters[dim] = val;
+  document.querySelectorAll('.filter-btn[data-dim="' + dim + '"]').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === val);
   });
+  if (dim === 'amp') {
+    var sel = document.getElementById('amp-filter-select');
+    if (sel) { sel.value = val; }
+  }
+  applyFilters();
+}
+
+function applyFilters() {
   var items = document.querySelectorAll('.sidebar-item');
   var visibleCount = 0;
   var firstVisible = null;
   var activeVisible = false;
   items.forEach(function(el) {
-    var show = filter === 'all' || el.dataset.platform === filter;
+    var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
+            && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
+            && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
+            && (activeFilters.amp    === 'all' || el.dataset.amp    === activeFilters.amp);
     el.style.display = show ? '' : 'none';
     if (show) {
       visibleCount++;
@@ -1407,17 +1485,15 @@ def generate_markdown_index(tones, output_path):
     lines = [
         "# Tone Index",
         "",
-        "| Title | Guitar | Target | Tags | Status |",
+        "| Title | Pickup Type | Intended/Tested Guitar | File Path | Status |",
         "| :--- | :--- | :--- | :--- | :--- |"
     ]
     for tone in tones:
-        tags = ", ".join(tone['tags'])
-        # Truncate target to keep it readable in table
-        target = tone['target']
-        if len(target) > 100:
-            target = target[:97] + "..."
+        pickup = tone.get('pickup_type', '')
+        # File path relative to 'tones' dir
+        rel_path = tone['source_path'].replace('tones/', '')
         
-        lines.append(f"| {tone['title']} | {tone['guitar']} | {target} | {tags} | {tone['status']} |")
+        lines.append(f"| {tone['title']} | {pickup} | {tone['guitar']} | [{rel_path}]({rel_path}) | {tone['status']} |")
     
     output_path.write_text("\n".join(lines) + "\n", encoding='utf-8')
 
@@ -1432,20 +1508,33 @@ def main():
     output_path = script_dir / 'tone-viewer.html'
     index_path = tones_dir / 'INDEX.md'
 
-    tone_files = sorted(tones_dir.glob('*.md'))
-    thr_files = sorted((tones_dir / 'thr10ii').glob('*.md')) if (tones_dir / 'thr10ii').is_dir() else []
-    all_tone_files = tone_files + thr_files
+    # Find all .md files in tones/ and its subdirectories, excluding INDEX.md
+    all_tone_files = sorted([
+        f for f in tones_dir.rglob('*.md') 
+        if f.name != 'INDEX.md'
+    ])
+
     if not all_tone_files:
         print('No tone files found in tones/')
         sys.exit(0)
 
     tones = [parse_tone_file(f) for f in all_tone_files]
-    
+
+    # Add pickup_type to the tone data for index generation
+    for i, f in enumerate(all_tone_files):
+        fm, _ = parse_frontmatter(f.read_text())
+        tones[i]['pickup_type'] = fm.get('pickup_type', '')
+
     # Generate MD Index
     generate_markdown_index(tones, index_path)
     print(f'Generated: {index_path}')
 
     first_id = tones[0]['id']
+
+    amp_values = sorted(set(t['amp'] for t in tones if t.get('amp')))
+    amp_options = ''.join(
+        f'<option value="{h(a)}">{h(a)}</option>' for a in amp_values
+    )
 
     sidebar_html = '\n'.join(render_sidebar_item(t, i == 0) for i, t in enumerate(tones))
     detail_html = '\n'.join(render_tone(t) for t in tones)
@@ -1474,13 +1563,47 @@ def main():
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="platform-filter">
-        <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
-        <button class="filter-btn" data-filter="logic" onclick="setFilter('logic')">Logic</button>
-        <button class="filter-btn" data-filter="yamaha" onclick="setFilter('yamaha')">Yamaha</button>
-        <button class="filter-btn" data-filter="spark-neo" onclick="setFilter('spark-neo')">Spark</button>
-      </div>
       <div class="vault-count">{len(tones)} tone{'s' if len(tones) != 1 else ''}</div>
+    </div>
+    <div class="filters">
+      <div class="filter-section">
+        <div class="filter-label">Status</div>
+        <div class="filter-row">
+          <button class="filter-btn active" data-dim="status" data-filter="all" onclick="setFilter('status','all')">All</button>
+          <button class="filter-btn" data-dim="status" data-filter="initial" onclick="setFilter('status','initial')">Initial</button>
+          <button class="filter-btn" data-dim="status" data-filter="tested" onclick="setFilter('status','tested')">Tested</button>
+          <button class="filter-btn" data-dim="status" data-filter="refined" onclick="setFilter('status','refined')">Refined</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-label">Style</div>
+        <div class="filter-row">
+          <button class="filter-btn active" data-dim="genre" data-filter="all" onclick="setFilter('genre','all')">All</button>
+          <button class="filter-btn" data-dim="genre" data-filter="jazz" onclick="setFilter('genre','jazz')">Jazz</button>
+          <button class="filter-btn" data-dim="genre" data-filter="blues" onclick="setFilter('genre','blues')">Blues</button>
+          <button class="filter-btn" data-dim="genre" data-filter="rock" onclick="setFilter('genre','rock')">Rock</button>
+          <button class="filter-btn" data-dim="genre" data-filter="country" onclick="setFilter('genre','country')">Country</button>
+          <button class="filter-btn" data-dim="genre" data-filter="ambient" onclick="setFilter('genre','ambient')">Ambient</button>
+          <button class="filter-btn" data-dim="genre" data-filter="clean" onclick="setFilter('genre','clean')">Clean</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-label">Guitar</div>
+        <div class="filter-row">
+          <button class="filter-btn active" data-dim="guitar" data-filter="all" onclick="setFilter('guitar','all')">All</button>
+          <button class="filter-btn" data-dim="guitar" data-filter="telecaster" onclick="setFilter('guitar','telecaster')">Tele</button>
+          <button class="filter-btn" data-dim="guitar" data-filter="strat" onclick="setFilter('guitar','strat')">Strat</button>
+          <button class="filter-btn" data-dim="guitar" data-filter="les-paul" onclick="setFilter('guitar','les-paul')">LP</button>
+          <button class="filter-btn" data-dim="guitar" data-filter="semi-hollow" onclick="setFilter('guitar','semi-hollow')">Hollow</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-label">Amp</div>
+        <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
+          <option value="all">All amps</option>
+          {amp_options}
+        </select>
+      </div>
     </div>
     <div class="sidebar-list">
 {sidebar_html}

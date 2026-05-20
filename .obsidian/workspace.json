@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "e06e006fb9e907ea",
+    "type": "split",
+    "children": [
+      {
+        "id": "57b91e09e2d98aa1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "382f39c53c71044c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "guitar-coach-library/playlists/funk-lead-guitar-melodic-voice.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "funk-lead-guitar-melodic-voice"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e80c2167d45589af",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a179fa453785910",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "80bee74d2ff187d6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0bdd24f1f29b4623",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5f7c6f3fa3be3bfd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c5137fd433fac3e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc815c610fc260f9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5a38033d38f05c5e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "tones/divided-11-light-blues.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for divided-11-light-blues"
+            }
+          },
+          {
+            "id": "0ffeb44e5c43caf2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "tones/divided-11-light-blues.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from divided-11-light-blues"
+            }
+          },
+          {
+            "id": "7118015e0b765346",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b422a290fa3fde7b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "427afa41297b8fc9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "tones/divided-11-light-blues.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of divided-11-light-blues"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "382f39c53c71044c",
+  "lastOpenFiles": [
+    "guitar-coach-library/playlists/bebop-guitar-vocabulary-primer.md",
+    "guitar-coach-library/playlists/funk-lead-guitar-melodic-voice.md",
+    "tones/humbuckers/mardal-dancing-moonlight.md",
+    "tones/humbuckers/sheraton-jazz-acoustic.md",
+    "gain-staging-calibration-day.md",
+    "guitar-coach-library/playlist-viewer.html",
+    "scripts/sync_playlists.sh",
+    "scripts/generate_playlist_viewer.py",
+    "guitar-coach-library/playlists/INDEX.md",
+    "tones/mardal-dancing-moonlight.md",
+    "tones/jazz-clean-intimate-les-paul.md",
+    "tones/INDEX.md"
+  ]
+}

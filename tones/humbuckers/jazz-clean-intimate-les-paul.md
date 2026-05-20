@@ -1,12 +1,15 @@
 ---
 id: jazz-clean-intimate-les-paul
 created: 2026-04-16
-updated: 2026-05-02
+updated: 2026-05-16
 guitar: Gibson Les Paul Studio (490R neck pickup)
-target: Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close and present, no reverb wash
+target: "Pristine, warm jazz clean \u2014 jazz box intimacy through a transparent\
+  \ high-headroom platform; close and present, no reverb wash"
 tags: jazz, clean, warm, intimate, les-paul, humbucker
 tone-king-channel: rhythm
+amp: Showtime '64
 status: tested
+pickup_type: humbucker
 ---
 
 # Jazz Clean — Intimate Les Paul
@@ -42,7 +45,7 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 | Middle | 5 | Neutral — let the guitar's midrange speak |
 | Bass | 5 | Slightly less than the Tele jazz tone; the LP doesn't need as much added weight |
 | Vibrato | Off | Off |
-| Room | 30% | Slightly higher than the Tele ambient tone — gives an intimate "amp in the room" feel without an external reverb plugin doing heavy lifting |
+| Room | 0 | Off — erroneously left at 30%; Space Designer handles the room |
 | Cabinet | **2x12 (fixed)** | Showtime '64 includes only the original paired 2x12 cab — no alternative selections available |
 | Mic | **Condenser 414** | Detailed and transparent; extended low and high frequency response. Adds note definition and articulation that the 490R's inherent warmth would otherwise round off. |
 
@@ -51,7 +54,7 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Peak Reduction | 30 | Very light optical compression — less than the Tele tone because the 490R neck is already smooth and even; this is sustain-oriented, not corrective |
-| Gain | 50 | Makeup gain |
+| Gain | 20 | Makeup gain — calibrated 2026-05-16; previous value of 50 confirmed clipping |
 | Mode | **Compress** (3:1) | Light touch; preserves jazz picking dynamics |
 
 ### 4. Logic Space Designer — small room ambience
@@ -61,8 +64,9 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 | IR | Room category — small studio or small hall | Close, present acoustic space — not a plate or concert hall |
 | Predelay | 5 ms | Keeps the dry note attack first; room ambience follows immediately behind |
 | Size | 70% | Short, tight space — 70% of original IR size |
+| Length | 103 ms | Default (367 ms) is too echo-y; 103 ms adds color and space without sounding like reverb |
 | Dry | 0.0 dB | Dry signal at unity |
-| Wet | −22 dB | ~8% wet — just enough physical space, not a reverb effect |
+| Wet | −30 dB | Dialled back further during 2026-05-16 calibration — previous −22 dB was too prominent without TKIP in chain |
 
 ---
 
@@ -75,6 +79,12 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 ---
 
 ## Feedback History
+
+### 2026-05-16 — gain staging calibration (direct to iD14)
+Signal path changed: guitar now routes direct into iD14 instrument input (Tone King Imperial Preamp bypassed pending its own calibration pass). iD14 gain set to **0**. Guitar bus changed to **Mono** (was Stereo). Showtime '64 **Room set to 0** — was erroneously left at 30%; Space Designer handles the room, not the plugin's internal reverb. LA-2A **Gain pulled from 50 to 20** — confirmed clipping at 50 with the direct signal path; 30/20 now reads clean. Space Designer **Wet reduced to −30 dB** (from −22 dB) — the previous value felt too prominent without the TKIP's level shaping in the chain.
+
+### 2026-05-03 — Space Designer Length corrected, status: tested
+Space Designer Length was unspecified (defaulted to 367 ms) — too echo-y at that length. Setting to 103 ms brings it into "adds color and space" territory without sounding like a distinct reverb effect. Length added to the signal chain table. Status confirmed tested.
 
 ### 2026-05-02 — retitled/corrected
 Corrected title and guitar specification (Les Paul Studio instead of Sheraton). Confirmed as tested.

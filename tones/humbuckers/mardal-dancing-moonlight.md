@@ -1,12 +1,15 @@
 ---
 id: mardal-dancing-moonlight
 created: 2026-05-02
-updated: 2026-05-02
+updated: 2026-05-16
 guitar: Epiphone Sheraton (humbuckers)
-target: Rebecca Mardal "Dancing in the Moonlight" — warm jazz clean with lush-not-ambient reverb.
+target: "Rebecca Mardal \"Dancing in the Moonlight\" \u2014 warm jazz clean with lush-not-ambient\
+  \ reverb."
 tags: jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp
 tone-king-channel: rhythm
+amp: Cory Wong X
 status: tested
+pickup_type: humbucker
 ---
 
 # Mardal "Dancing in the Moonlight"
@@ -61,7 +64,8 @@ The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonesta
 | Mic Type | Ribbon 121 | Warm, dark character |
 | Position | 0.50 | Balanced response |
 | Distance | 0.22 | Slight air around the speaker |
-| Room Send | −3.0 dB | Subtle room bloom |
+| Output Trim | −7.5 dB | Plugin output trim — calibrated 2026-05-16 to hit −12 dBFS |
+| Room Send | −12.0 dB | Reduced from −3.0 dB; previous value was too hot/washed |
 
 ---
 
@@ -86,6 +90,9 @@ The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonesta
 ---
 
 ## Feedback History
+
+### 2026-05-16 — gain staging calibration (direct to iD14)
+Signal path changed: guitar now routes direct into iD14 instrument input (Tone King Imperial Preamp bypassed pending its own calibration pass). iD14 gain set to **0**. Guitar bus changed to **Mono** (was Stereo). Archetype Cory Wong X **Output Trim set to −7.5 dB** to hit −12 dBFS target. **Room Send reduced from −3.0 dB to −12.0 dB** — the previous −3 dB was producing too much room wash with the direct signal path.
 
 ### 2026-05-02 — tested
 Confirmed tested in previous version of this skill. Status updated to tested.

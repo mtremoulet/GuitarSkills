@@ -1,12 +1,15 @@
 ---
 id: mrh810-classic-lead
 created: 2026-04-30
-updated: 2026-04-30
-guitar: Epiphone Sheraton or Les Paul (humbuckers)
-target: Moderate-gain JCM800 lead — singing sustain and clear articulation in the GN'R ballad / Bon Jovi / Poison tradition
+updated: 2026-05-07
+guitar: Epiphone Les Paul Standard
+target: "Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\
+  \ the GN'R ballad / Bon Jovi / Poison tradition"
 tags: lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain
-tone-king-channel: rhythm
-status: initial
+tone-king-channel: rhythm/lead
+amp: MRH810 V2
+status: tested
+pickup_type: humbucker
 ---
 
 # MRH810 Classic Lead
@@ -15,7 +18,7 @@ status: initial
 
 The JCM800 Lead channel at moderate gain — the sound of Slash on November Rain and Civil War, Jon Bon Jovi on I'll Be There For You, Bret Michaels on Every Rose Has Its Thorn. This is the amp's singing, sustaining sweet spot: enough gain for notes to bloom and hold, not so much that it becomes a wash of distortion. Pick attack is audible and responds to your touch. Notes are warm, round, and clear — the amp is doing compression work, not the pedals.
 
-The Tone King sits in front as a transparent buffer, as with the Divided 11 tone. The MRH810 provides all the amp character. A long single-tap delay adds the ballad depth and harmonic dimension. Reverb on the bus opens the space.
+The hardware signal chain (TONEX One and Tone King) provides the base analog texture and initial gain stages. The MRH810 plugin provides the core Marshall amp character and power amp/cabinet modeling.
 
 ---
 
@@ -33,18 +36,39 @@ The Middle control is the most powerful EQ control on this channel — more so t
 
 ## Signal Chain
 
-### Tone King Imperial Preamp — transparent front-end
+### TONEX One — first in chain
+
+The TONEX One provides a digital capture of a Boss BD-2 Blues Driver, acting as a versatile boost/overdrive before the preamp.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Channel | Rhythm | Cleanest Tone King voicing — buffer role only |
-| Volume | 2 | Very low — minimize preamp coloring before the MRH810 |
-| Attenuation | 5 | Moderate output to interface |
+| Capture | BD-2 | Blues Driver grit; works great with or without for added texture |
+| Tone | 7 | Clear and biting top end |
+| Gain | 5 | Moderate gain for push |
+
+### Tone King Imperial Preamp — hardware preamp
+
+The hardware Tone King pedal sits before the interface, providing the primary analog front-end.
+
+**Option 1: Rhythm Channel (Clean/Edge)**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Channel | Rhythm | Cleanest Tone King voicing |
+| Volume | 5.5 | Pushing the preamp for warmth and body |
+| Attenuation | 7.5 | High attenuation for output level management |
 | Bass | 5 (noon) | Flat |
 | Treble | 5 (noon) | Flat |
-| Reverb | Off | — |
-| Tremolo | Off | — |
-| IR | Bypassed | MRH810 handles the full cab simulation |
+
+**Option 2: Lead Channel (Tweed-style Crunch)**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Channel | Lead | Mid-forward Tweed voicing |
+| Volume | 6 | Pushed gain for thicker lead lines |
+| Attenuation | 5 | Moderate output |
+| Mid-bite | 3 | Slightly clamped mids for tighter crunch |
+| Tone | 6 | Slightly brightened top end |
 
 ---
 
@@ -69,7 +93,7 @@ The Middle control is the most powerful EQ control on this channel — more so t
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Presence | 5 (noon) | Power amp high-frequency content — neutral starting point. Raise slightly (to 6) if the tone feels dark; lower if it feels edgy. |
-| Volume (master) | 5 | Power amp output level |
+| Volume (master) | 2.5 | Power amp output level — see gain staging note below |
 | Reverb | 0 (minimum) | Built-in reverb off — reverb is on the Capitol Chambers bus |
 
 **Cabinet: MRH 4x12 T75** (Marshall 1960B with Celestion G12T-75W speakers)
@@ -95,7 +119,9 @@ This is the canonical Marshall 4x12 sound — what the JCM800 was designed aroun
 
 **Levels:**
 - Input: 0 dB
-- Output: adjust to match signal level with other tracks (unity gain reference)
+- Output (plugin Output slider): −4 dB
+
+> **Gain staging note**: All Nembrini Audio plugins have a plugin-level Input and Output slider — these are transparent gain trims at the plugin boundary, not part of the amp or cab model. The Output slider is the right place to trim overall level without touching amp character. Master/Volume at 5 (original setting) caused the Stereo Out to clip at −0.9 dBFS. The corrected settings (Master/Volume 2.5, plugin Output −4 dB) land harder regular strums at −11 to −12 dBFS on the Stereo Out — a healthy tracking level with headroom for transients. Clipping on the Stereo Out manifests as fizz/crackle on single notes above the noise gate threshold.
 
 ---
 
@@ -170,3 +196,9 @@ Capitol Chambers, **Wet Solo: ON**.
 
 ### 2026-04-30 — initial
 Designed as a starting point for learning the MRH810 V2 capabilities. Lead channel at Gain 5 — the moderate-gain ballad-lead sweet spot referenced in GN'R, Bon Jovi, and Poison classic rock ballad tones. MRH 4x12 T75 (canonical Marshall cabinet) with Dynamic 57 + Ribbon 121 blend. Galaxy Tape Echo on Head 3 for ballad-style delay (~330ms). Capitol Chambers for reverb. Notes cover how to explore the plugin from this starting point — higher gain, clean channel, different cabs.
+
+### 2026-05-03 — gain staging fix, status: tested
+Master/Volume at 5 caused Stereo Out to clip at −0.9 dBFS, producing fizz/crackle on single notes above the noise gate threshold. Fixed by pulling Master/Volume to 2.5 and adding −4 dB on the plugin Output slider (transparent plugin-level trim, no effect on amp character). Result: harder regular strums sit at −11 to −12 dBFS on Stereo Out — healthy headroom for transient peaks. Status updated to tested.
+
+### 2026-05-07 — hardware chain update
+Updated signal chain to include hardware TONEX One (BD-2 capture) and specific hardware Tone King Imperial Preamp settings (Rhythm and Lead options). Guitar specified as Epiphone Les Paul Standard. These hardware settings provide the base analog texture before hitting the MRH810 plugin.

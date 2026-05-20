@@ -1,12 +1,15 @@
 ---
 id: woodrow-sweet-spot
 created: 2026-05-02
-updated: 2026-05-02
+updated: 2026-05-03
 guitar: Squier Stratocaster (single coils)
-target: The "Sweet Spot" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and "hairing up" beautifully when you dig in.
+target: "The \"Sweet Spot\" \u2014 vocal, mid-forward Tweed character; clean-ish with\
+  \ a light touch, compressing and \"hairing up\" beautifully when you dig in."
 tags: tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward
 tone-king-channel: rhythm
-status: initial
+amp: Woodrow '55
+status: tested
+pickup_type: single-coil
 ---
 
 # Woodrow Sweet Spot
@@ -91,3 +94,6 @@ Since the Woodrow is already compressing naturally, we use the Gray LA-2A (which
 
 ### 2026-05-02 — initial
 Designed to introduce Mike to the "Sweet Spot" of the Woodrow '55. Focuses on low-gain, jumped-channel settings paired with a Squier Strat to maximize dynamic headroom and vocal midrange. Corrected for UADx plugin interface (fixed GB25 cabinet, 0.0-10.0 Galaxy scales).
+
+### 2026-05-03 — tested
+Tested with Telecaster (single coils). Sounds excellent — clean but with real character. Surprised by the amount of headroom; may need to raise Tele pickups to get the amp into the compressing/hairing-up zone more easily. The preset was designed for the lower-output Squier Strat, so the Tele's slightly different output profile could explain the extra headroom.

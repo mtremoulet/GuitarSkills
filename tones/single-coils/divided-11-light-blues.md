@@ -1,12 +1,16 @@
 ---
 id: divided-11-light-blues
 created: 2026-04-30
-updated: 2026-04-30
-guitar: Epiphone Sheraton (humbuckers)
-target: Light, dynamic blues tone through the Divided 11 — clean when backing off, a hint of Class A bloom and grit when digging in; slapback delay, room reverb on bus
+updated: 2026-05-03
+guitar: Fender Player II Telecaster
+target: "Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\
+  \ off, a hint of Class A bloom and grit when digging in; slapback delay, room reverb\
+  \ on bus"
 tags: blues, dynamic, clean, grit, slapback, class-a, divided-11
 tone-king-channel: rhythm
-status: initial
+amp: Divided 11
+status: tested
+pickup_type: single-coil
 ---
 
 # Divided 11 Light Blues
@@ -147,3 +151,6 @@ Add an Aux channel strip with Input = Bus 3. On this Aux, add Space Designer.
 
 ### 2026-04-30 — initial
 Designed for Sheraton humbuckers into Divided 11 Class A boutique amp emulation. Tone King kept at Volume 2 as a transparent front-end (no character contribution intended). Key design choice: Low input switch on Divided 11 to avoid overloading the input stage with humbuckers, then Volume 5 to sit at the Class A edge-of-breakup. Galaxy Tape Echo Head 1 slapback at ~85ms provides blues dimension without clutter. Reverb on a send bus — Space Designer small room for ambient support only.
+
+### 2026-05-03 — first test (Gibson, THR10ii monitoring)
+Output is very hot — Mike pulled plugin Output slider to −8dB to prevent blowing out THR10ii. All Nembrini Audio plugins have plugin-level Input and Output sliders as transparent gain trims at the plugin boundary (not part of the amp or cab model). The tone file does not specify the Input slider value (likely defaulted to 0dB). Recommend pairing Input reduction (−4 to −6dB) with Output compensation rather than only trimming Output — this changes how hard the virtual preamp works and may lower the amp's own modeled noise floor. Boost switch confirmed non-starter: acts as a force multiplier on an already hot signal — reserve for high-headroom contexts only. Not much grit at Volume 5 with Low input for lead work; options are Volume 5.5–6 or switch to High input at Volume 3.5–4 for a different edge-of-breakup feel. Noise/hum present even with humbuckers: attributed to Class A / tube rectifier character modeled by Nembrini (amp self-noise, not pickup hum) — noise gate engaged and appropriate.

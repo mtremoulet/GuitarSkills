@@ -88,7 +88,11 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 |------|-------|-------------|
 | Mrh810 V2 | Nembrini Audio | Marshall JCM800 2210 emulation. Two channels: Lead (4x12AX7 + 4x EL34; classic British rock-to-metal gain) and Clean (crystal clean to crunch, ideal pedal platform). Six built-in cabinet choices, four mic emulations with on/off-axis + position/distance control, mixer section (blend two mics + ambience), and a 3-slot IR loader with blending. Filters, Noise Gate, and I/O sections included. |
 | Divided 11 | Nembrini Audio | Divided by 13 CJ11 emulation. Class A, tube-rectified, 11W boutique combo — a modern take on a 1950s tweed design. Single channel: Volume, Treble, Bass, Master; Boost switch; High/Low input sensitivity switches. Crisp and clear, saturates beautifully and evenly. Six cabinet choices, four mic emulations, position/distance control, 3-slot IR loader. Filters, Noise Gate, I/O sections included. |
+| Hughes & Kettner Puretone | Nembrini Audio | H&K Puretone Guitar Amplifier emulation. Clean, hi-fi, transparent character with excellent headroom. Touch-sensitive dynamics; smooth natural breakup at higher volumes. Studio-quality tone platform well suited to clean and edge-of-breakup work. |
+| Jazz Chorus Solid State | Nembrini Audio | Roland JC-120 Jazz Chorus emulation. Pristine solid-state clean tone that doesn't break up. Built-in stereo chorus. Iconic platform for jazz, funk, R&B, and any context requiring ultra-clean, uncolored amplification. |
 | Crunck V2 | Nembrini Audio | Original Nembrini design (freeware). Single high-gain channel: Gain, Master, Presence, EQ. Built-in 4x12 V30 cabinet (bypassable). Wide gain range — clean blues through modern metal. |
+
+> **Gain staging note (all Nembrini amp plugins):** Default Master/Volume of 5 clips the Stereo Out. Pull amp volume to ~2.5 and trim −4 dB on the cab section Output slider. Target: −11 to −12 dBFS on hard strums. The Output slider is a transparent post-model trim; use it first. Master/Volume lives inside the amp model and affects feel — use it last.
 
 ---
 
@@ -124,9 +128,58 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 ## MixWave
 
-| Name | Maker | Description |
-|------|-------|-------------|
-| Two-Rock Bloomfield Drive | MixWave | Two-Rock Bloomfield Drive boutique amp emulation. Warm, clean-to-crunch character. |
+MixWave plugins use a common interface: knob up = clockwise, double-click resets to default, Cmd (Mac) / Ctrl (Win) = fine adjustment. Signal flow: Input Volume → Noise Gate → processing chain (drag-and-drop reorderable) → Output Volume. White frame = active module; gray = bypassed.
+
+### Two-Rock Bloomfield Drive
+
+A "powerful and high headroom amplifier" known for "rich cleans, harmonic overdrive, and smooth transitions between tones." Has a clean channel and a separate lead channel.
+
+**EQ Selection (switch)**
+- **EQ 1**: Lower gain structure with enhanced headroom — the clean-tone choice; extended midrange, fuller bass
+- **EQ 2**: More available gain but still clean headroom; preferred by most players for general use
+
+**Tone Switches** (each boosts independently)
+- **Bright**: Boosts high-frequency response
+- **Mid**: Boosts midrange frequency response
+- **Deep**: Boosts lower bass frequencies and smooths midrange
+- **Tone Stack Bypass**: Bypasses Bass/Middle/Treble controls entirely
+
+**Channel Controls**
+- **Lead Switch**: Engages/disengages lead channel
+- **Gain**: Overall gain of the amp (clean channel)
+- **Lead Gain**: Lead channel input level
+- **Lead Master**: Lead channel output level
+
+**EQ Knobs**
+- **Treble**: Lower = warmer and smoother; higher = more prominence and aggressiveness
+- **Middle**: Lower = scooped; higher = increases midrange and body
+- **Bass**: Full CCW cuts lows; turning up increases bass passed to next gain stage
+
+**Output Controls**
+- **Master**: Overall output level of the clean channel
+- **Presence**: "Adjusts the contour of the high-frequency response" — subtle control for brightness or smoothing
+- **Reverb**: Mixes reverb effect with dry signal (works with Reverb Send)
+- **Vibe**: Affects top end harmonics
+
+**Power and Tubes**
+- **Full/Half Power**: 100w/50w (6L6) or 40w/20w (6V6)
+- **Tube Select**: 6L6 = more headroom, cleaner; 6V6 = earlier breakup, warmer
+- **Reverb Send**: Lower = short decay times; higher = longer decay times
+
+**Built-in Overdrive Pedal** (separate section in UI)
+- Drive, Balance, Tone, Bypass switch, Dry/Wet knob
+- This is integrated into the plugin; can substitute for or stack with an external OD
+
+**Cabinet**: 2x12 Two-Rock Vertical Cabinet with TR12 (Top) and TR12 (Bottom) speakers
+
+**Microphones (21 options)**
+- Dynamic: 57, 7B, 409, 421, 441, R20
+- Tube: 47, 251, C12, 800g
+- Condenser: Fet 47, 32, 4011, 2011, 4099, 450
+- Ribbon: 122, 84, 42Bn
+- Creative: Copper (lo-fi, midrange-focused, unique honky character)
+
+**Gain staging note**: If input isn't clipping but output clips, adjust Master, cab mic level, and global output — more common with ultra-clean settings.
 
 ---
 

@@ -38,14 +38,20 @@ def main():
             
             dest_file = skill_folder / "SKILL.md"
             
-            # Write to SKILL.md
-            dest_file.write_text(content, encoding="utf-8")
-            print(f"Migrated: {src_file.name} -> .agents/skills/{skill_name}/SKILL.md")
+            # Remove existing file/symlink if it exists
+            if dest_file.exists() or dest_file.is_symlink():
+                dest_file.unlink()
+                
+            # Create a relative symlink pointing to the source command file
+            relative_target = f"../../../.claude/commands/{src_file.name}"
+            dest_file.symlink_to(relative_target)
+            
+            print(f"Symlinked: .agents/skills/{skill_name}/SKILL.md -> {relative_target}")
             migrated_count += 1
         except Exception as e:
-            print(f"Failed to migrate {src_file.name}: {e}")
+            print(f"Failed to symlink {src_file.name}: {e}")
 
-    print(f"\nMigration completed! Successfully migrated {migrated_count} skills to .agents/skills/")
+    print(f"\nCompleted! Successfully symlinked {migrated_count} skills under .agents/skills/")
 
 if __name__ == "__main__":
     main()

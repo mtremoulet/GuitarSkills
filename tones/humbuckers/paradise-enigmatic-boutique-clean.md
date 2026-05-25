@@ -1,13 +1,13 @@
 ---
 id: paradise-enigmatic-boutique-clean
 created: 2026-05-24
-updated: 2026-05-24
+updated: 2026-05-25
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield."
 tags: boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82
 tone-king-channel: bypassed
 amp: Enigmatic '82
-status: initial
+status: refined
 pickup_type: humbucker
 ---
 
@@ -41,10 +41,12 @@ To keep the comparison with our Two Rock toneprint completely fair and transpare
 |---------|---------|---------|
 | Amp Model | **Enigmatic '82** | Selected in the amp gallery |
 | Voice | **Suede** | "Warm, round, and smooth" boutique character; ideal for rounding off humbucker harshness and adding low-mid weight |
-| Input Mode | **Normal** | High-impedance guitar input character |
-| Bright Switch | **Off** (Normal) | Down position; tames high-end sizzle for a smooth, smoky character |
+| Input Channel | **NOR** (Normal Jack) | **CRITICAL:** Use the bottom **NOR** input jack. The top **FET** jack is a solid-state transistor-based boost that injects clinical, razor-sharp transients and high-end focus. The Normal input runs directly into warm, saggy tube circuits. |
+| Bright Switch | **Off** (Normal) | Down position; tames high-end sizzle and harshness for a smooth, smoky character |
 | Mid Switch | **Off** (Normal) | Down position; keeps the midrange balanced and natural |
+| Deep Switch | **Off** (Normal) | Down position; preserves lower-midrange presence and keeps the high end integrated |
 | Rock / Jazz Switch | **JAZZ** | Down position; provides a smoother, rounder frequency response than the aggressive, mid-forward Rock setting |
+| Preamp Mods (Tone Stack) | **SKYLINE** | **CRITICAL:** Use **Skyline** under PREAMP MODS. Skyline contains the famous Dumble ODS midrange bloom that glues the highs and lows together. *Note: If Skyline feels "quieter" or "thinner" than Classic, it is because it rounds off the artificial bass/treble scoop of the Classic stack. We compensate for this by pushing the preamp Volume and Bass EQ (see below).* |
 | Boost Button | **OFF** | Disengaged; maintains clean headroom and dynamic range |
 | Overdrive Section | **OFF** | Level & Ratio bypassed; we are strictly in the high-headroom Clean channel |
 
@@ -52,13 +54,13 @@ To keep the comparison with our Two Rock toneprint completely fair and transpare
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Volume | **4.5** | Preamp volume / input gain sweet spot; pushes the preamp into touch-sensitive saturation without breakup |
-| Treble | **4.5** | Rolled back slightly to round off the top end, ensuring a polished, "smoky lounge" quality |
-| Middle | **5.5** | Pushed slightly above neutral to highlight the Dumble-style vocal midrange bloom |
-| Bass | **4.5** | Slightly pulled back from neutral to keep the Les Paul's low end tight and punchy |
+| Volume | **6.0** | **Pushed up to 6.0:** Compensates for Skyline's mid-forward focus by driving the preamp tubes harder, adding harmonic weight, fullness, and organic tube compression |
+| Treble | **3.5** | Rolled back to round off the top end and prevent any remaining high-frequency harshness |
+| Middle | **6.0** | Highlights the Dumble-style vocal midrange, giving notes thick body |
+| Bass | **5.5** | Since Skyline’s EQ curve is tight and controlled, we can safely push the Bass to 5.5 to restore deep, warm low-end weight without creating the flubby mud of the Classic stack |
 | Level / Ratio (OD) | — | Bypassed; not in use |
-| Master (labeled **6.5**) | **6.5** | Pushed high to simulate power amp saturation and thickness; primary control for "bloom" |
-| Presence | **5.0** | Neutral high-frequency power amp contour; provides natural string definition |
+| Master (labeled **6.5**) | **7.0** | **Pushed up to 7.0:** Simulates maximum power amp saturation and thickness; primary control for "bloom" and sustain |
+| Presence | **1.0** | Kept extremely low (1.0) to smooth out the power amp high-frequency contour and remove clinical top-end |
 
 **Cabinet & Microphone (Amp Pane)**
 
@@ -67,6 +69,7 @@ In Universal Audio plugins, the Cabinet and Mic combinations are a single, fixed
 | Component | Setting (PGS Label) | Sonic Character & Aesthetic Profile |
 |-----------|---------------------|-------------------------------------|
 | Cab & Mics Preset | **2×12 Boutique D65** | **The Dumble/Two-Rock Sweet Spot:** Emulates a 2x12 cabinet with Celestion G12-65 speakers mic'd with a pre-blended Shure SM57 (dynamic) and Royer 121 (ribbon). Provides dense lower-midrange "meat," smooth treble compression, and an organic, chewy feel that perfectly matches our Two Rock target. |
+| Room Level | **32%** | **CRITICAL:** Set the Room dial to **32%** (as discovered in feedback). This introduces natural cabinet room reflections and air, blending the pre-blended mics together in an organic acoustic space and taming the "clinical precision." |
 
 ---
 
@@ -110,6 +113,14 @@ By using the exact same reverb auxiliary bus as our Two Rock Bloomfield print, y
 ---
 
 ## Feedback History
+
+### 2026-05-25 — refined (addressing high-frequency harshness)
+Tested in session. Bypassed internal Reverb, Compressor, and EQ pedals in PGS to isolate the amp circuit. Added **Room level at 32%** to blend the mics together and soften the DAW clinical precision. Addressed a major "high-frequency harshness / over-sharpened photo" issue through a calibration loop:
+1. **NOR Input:** Switched from the clinical solid-state FET input back to the bottom **NOR** (Normal) input for warm tube preamp compression.
+2. **Toggle Alignment:** Confirmed Bright and Deep switches are indeed **OFF (Down)**.
+3. **Skyline Midrange Calibration:** Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound "big" but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound "quieter" or "thin"). We countered this by pushing the preamp **Volume to 6.0**, **Bass to 5.5**, and **Middle to 6.0**. This drives the virtual tubes into a thick, organic, and beautifully compressed saturation without losing that crucial boutique warmth.
+4. Set **Treble to 3.5** and **Presence to 1.0** to perfectly roll off the clinical edge.
+5. **Final Touch:** Raised the Master volume (labeled 6.5) to **7.0** and preamp Volume to **6.0** to match the fatness and clean saturation threshold of the Two Rock Bloomfield. Note: The Mixwave Two Rock still retains a slightly tamer/smokier high end, which can be further tweaked in the future, but these settings get Enigmatic in the exact close ballpark. Status updated to `refined`.
 
 ### 2026-05-24 — initial
 Created as part of a dual-preset boutique Dumble-style clean exploration. Bypasses physical front-end (Tone King & TONEX One) to run direct into the iD14 interface. Uses Paradise Guitar Studio's Enigmatic '82 on the Suede voice to match the warm, saturated-but-clean ethos of the Two Rock Bloomfield. Bypasses all internal plugin effects to isolate the amp circuit, using our signature standalone LA-2A Silver and Hitsville Reverb Aux bus for an exact, fair comparison against the Two Rock.

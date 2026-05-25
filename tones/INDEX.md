@@ -9,7 +9,7 @@
 | Lion '68 — Jumped Plexi Crunch | humbucker | "Epiphone Les Paul Standard (humbuckers \u2014 bridge or neck-bridge blend)" | [humbuckers/lion-68-jumped-plexi-crunch.md](humbuckers/lion-68-jumped-plexi-crunch.md) | tested |
 | Mardal "Dancing in the Moonlight" | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/mardal-dancing-moonlight.md](humbuckers/mardal-dancing-moonlight.md) | tested |
 | MRH810 Classic Lead | humbucker | Epiphone Les Paul Standard | [humbuckers/mrh810-classic-lead.md](humbuckers/mrh810-classic-lead.md) | tested |
-| Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-boutique-clean.md](humbuckers/paradise-enigmatic-boutique-clean.md) | initial |
+| Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-boutique-clean.md](humbuckers/paradise-enigmatic-boutique-clean.md) | refined |
 | Paradise Pedal Platform (Humbucker Variant) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton | [humbuckers/paradise-pedal-platform-hb.md](humbuckers/paradise-pedal-platform-hb.md) | initial |
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)" | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
 | Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |

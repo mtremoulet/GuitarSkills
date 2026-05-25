@@ -54,13 +54,13 @@ To keep the comparison with our Two Rock toneprint completely fair and transpare
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Volume | **6.0** | **Pushed up to 6.0:** Compensates for Skyline's mid-forward focus by driving the preamp tubes harder, adding harmonic weight, fullness, and organic tube compression |
-| Treble | **3.5** | Rolled back to round off the top end and prevent any remaining high-frequency harshness |
-| Middle | **6.0** | Highlights the Dumble-style vocal midrange, giving notes thick body |
-| Bass | **5.5** | Since Skyline’s EQ curve is tight and controlled, we can safely push the Bass to 5.5 to restore deep, warm low-end weight without creating the flubby mud of the Classic stack |
+| Volume | **5.5** | Preamp volume / input gain sweet spot; pushes the preamp into touch-sensitive saturation |
+| Treble | **3.5** | Rolled back to round off the top end and prevent high-frequency harshness |
+| Middle | **7.5** | **Pushed to 7.5:** Heavily boosts the Skyline midrange to provide rich, singing, throatier body to the Les Paul neck humbucker |
+| Bass | **7.0** | **Pushed to 7.0:** Skyline’s tight EQ allows us to heavily boost the Bass to 7.0, giving immense, warm lower-frequency weight and fullness |
 | Level / Ratio (OD) | — | Bypassed; not in use |
-| Master (labeled **6.5**) | **7.0** | **Pushed up to 7.0:** Simulates maximum power amp saturation and thickness; primary control for "bloom" and sustain |
-| Presence | **1.0** | Kept extremely low (1.0) to smooth out the power amp high-frequency contour and remove clinical top-end |
+| Master (labeled **6.5**) | **7.0** | **Pushed to 7.0:** Simulates maximum power amp saturation and thickness; primary control for "bloom" and sustain |
+| Presence | **0.5** | **Pulled down to 0.5:** Kept extremely low to completely smooth out the power amp high-frequency contour and eliminate clinical top-end |
 
 **Cabinet & Microphone (Amp Pane)**
 
@@ -118,9 +118,9 @@ By using the exact same reverb auxiliary bus as our Two Rock Bloomfield print, y
 Tested in session. Bypassed internal Reverb, Compressor, and EQ pedals in PGS to isolate the amp circuit. Added **Room level at 32%** to blend the mics together and soften the DAW clinical precision. Addressed a major "high-frequency harshness / over-sharpened photo" issue through a calibration loop:
 1. **NOR Input:** Switched from the clinical solid-state FET input back to the bottom **NOR** (Normal) input for warm tube preamp compression.
 2. **Toggle Alignment:** Confirmed Bright and Deep switches are indeed **OFF (Down)**.
-3. **Skyline Midrange Calibration:** Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound "big" but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound "quieter" or "thin"). We countered this by pushing the preamp **Volume to 6.0**, **Bass to 5.5**, and **Middle to 6.0**. This drives the virtual tubes into a thick, organic, and beautifully compressed saturation without losing that crucial boutique warmth.
-4. Set **Treble to 3.5** and **Presence to 1.0** to perfectly roll off the clinical edge.
-5. **Final Touch:** Raised the Master volume (labeled 6.5) to **7.0** and preamp Volume to **6.0** to match the fatness and clean saturation threshold of the Two Rock Bloomfield. Note: The Mixwave Two Rock still retains a slightly tamer/smokier high end, which can be further tweaked in the future, but these settings get Enigmatic in the exact close ballpark. Status updated to `refined`.
+3. **Skyline Midrange Calibration:** Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound "big" but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound "quieter" or "thin"). We countered this by pushing the preamp **Volume to 5.5**, **Bass to 7.0**, and **Middle to 7.5**. This drives the virtual tubes into a thick, organic, and beautifully compressed saturation without losing that crucial boutique warmth.
+4. Set **Treble to 3.5** and **Presence to 0.5** to perfectly roll off the clinical edge.
+5. **Final Touch:** Locked in the dialed-in values: **Volume 5.5, Treble 3.5, Middle 7.5, Bass 7.0, Master 7.0, Presence 0.5**. These parameters push the low-mids and vocal midrange of the Skyline stack to the max, providing incredible body and richness. Note: The Mixwave Two Rock still retains a slightly tamer/smokier high end, which can be further tweaked in the future, but these settings get Enigmatic in the exact close ballpark. Status updated to `refined`.
 
 ### 2026-05-24 — initial
 Created as part of a dual-preset boutique Dumble-style clean exploration. Bypasses physical front-end (Tone King & TONEX One) to run direct into the iD14 interface. Uses Paradise Guitar Studio's Enigmatic '82 on the Suede voice to match the warm, saturated-but-clean ethos of the Two Rock Bloomfield. Bypasses all internal plugin effects to isolate the amp circuit, using our signature standalone LA-2A Silver and Hitsville Reverb Aux bus for an exact, fair comparison against the Two Rock.

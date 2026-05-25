@@ -2,7 +2,7 @@
 
 | Title | Pickup Type | Intended/Tested Guitar | File Path | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| Amp Snob — Boutique Warm Clean (Archetype Cory Wong X) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/cory-wong-amp-snob-boutique-clean.md](humbuckers/cory-wong-amp-snob-boutique-clean.md) | initial |
+| Amp Snob — Boutique Warm Clean (Archetype Cory Wong X) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/cory-wong-amp-snob-boutique-clean.md](humbuckers/cory-wong-amp-snob-boutique-clean.md) | tested |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
 | Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
 | JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | initial |

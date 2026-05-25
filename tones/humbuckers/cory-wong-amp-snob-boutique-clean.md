@@ -1,13 +1,13 @@
 ---
 id: cory-wong-amp-snob-boutique-clean
 created: 2026-05-24
-updated: 2026-05-24
+updated: 2026-05-25
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
 tags: boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob
 tone-king-channel: bypassed
 amp: The Amp Snob
-status: initial
+status: tested
 pickup_type: humbucker
 ---
 
@@ -76,7 +76,7 @@ We unlink the cabinet from the amp to pair the Amp Snob with a dark, warm, vinta
 | Mic L Type | **Ribbon 121** | Creamy, warm, vintage character; rounds off high-end transients and fattens low-mids |
 | Position L | **0.48** | Just off-center of the speaker cone; balances warmth with note definition |
 | Distance L | **0.25** | Close-mic'd with a tiny bit of "air" to let the low-end bloom breathe |
-| Room Send L | **−12.0 dB** | A tiny touch of natural cabinet room mic blended in |
+| Room Send L | **−28.0 dB** | Kept extremely low to prevent room mud and keep the core tone focused |
 | Cab R | **BYPASSED** | Single mic setup keeps the phase perfectly coherent |
 
 **EQ Section (Amp Snob 9-Band Graphic EQ)**
@@ -125,6 +125,9 @@ By routing this Archetype Cory Wong X track to the exact same Hitsville Reverb b
 ---
 
 ## Feedback History
+
+### 2026-05-25 — tested (nailed the boutique tone)
+Tested in session. Bypassed internal time-based effects and routed track to shared Hitsville Reverb Aux. Confirmed this tone absolutely "nailed" the boutique Two Rock Bloomfield clean vibe on your Les Paul neck humbucker without any changes needed to the amp settings. The only refinement was pulling back the cabinet **Room Send L to −28.0 dB** (down from −12.0 dB) to keep the acoustic space tightly focused and dry. Status updated to `tested`.
 
 ### 2026-05-24 — initial
 Created as part of a dual-preset boutique Dumble-style clean exploration. Bypasses physical front-end (Tone King & TONEX One) to run direct into the iD14 interface. Uses Archetype Cory Wong X's "The Amp Snob" with a pushed Master volume (75%) and low Volume (42%) to capture the virtual power amp compression and harmonic saturation of the Two Rock. Employs "The 4th Position Compressor" at 40% Blend for dynamic parallel compression, and pairs the amp with a Ribbon 121 mic and a subtle 9-band EQ curve for maximum humbucker clarity. Bypasses internal time-based effects in favor of the shared Hitsville Reverb Aux bus.

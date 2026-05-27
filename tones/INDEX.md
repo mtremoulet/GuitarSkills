@@ -14,6 +14,12 @@
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)" | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
 | Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
+| Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | tested |
+| Divided 11 Light Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/divided-11-light-blues-p90.md](p-90s/divided-11-light-blues-p90.md) | initial |
+| The Electronic Veil (P-90/Framus Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/framus-electronic-veil-p90.md](p-90s/framus-electronic-veil-p90.md) | initial |
+| Lion '68 — Jumped Plexi Crunch (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-jumped-plexi-crunch-p90.md](p-90s/lion-68-jumped-plexi-crunch-p90.md) | initial |
+| Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-bloomfield-p90.md](p-90s/two-rock-bloomfield-p90.md) | initial |
+| Woodrow Sweet Spot (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-sweet-spot-p90.md](p-90s/woodrow-sweet-spot-p90.md) | tested |
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
 | Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | tested |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |

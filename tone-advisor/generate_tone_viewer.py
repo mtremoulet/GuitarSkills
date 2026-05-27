@@ -193,6 +193,8 @@ def infer_guitar_type(guitar_str):
         return 'semi-hollow'
     if 'les paul' in g:
         return 'les-paul'
+    if 'framus' in g:
+        return 'framus'
     return 'other'
 
 
@@ -258,6 +260,7 @@ def parse_tone_file(filepath):
         'amp': fm.get('amp', '').strip(),
         'genre': infer_genre(tags),
         'guitar_type': infer_guitar_type(guitar),
+        'pickup_type': fm.get('pickup_type', ''),
         'title': title,
         'target_sound': sections.get('Target Sound', ''),
         'items': items,
@@ -545,7 +548,7 @@ def render_sidebar_item(tone, is_first):
     active = ' active' if is_first else ''
     guitar_short = tone['guitar'].split('(')[0].strip()
     tags_preview = ', '.join(tone['tags'][:3])
-    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-status="{h(status)}" data-genre="{h(tone['genre'])}" data-guitar="{h(tone['guitar_type'])}" data-amp="{h(tone['amp'])}" tabindex="0">
+    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-status="{h(status)}" data-genre="{h(tone['genre'])}" data-guitar="{h(tone['guitar_type'])}" data-pickup="{h(tone['pickup_type'])}" data-amp="{h(tone['amp'])}" tabindex="0">
   <div class="sidebar-title">{h(tone["title"])}</div>
   <div class="sidebar-sub">{h(guitar_short)}</div>
   <div class="sidebar-tags">{h(tags_preview)}</div>
@@ -1396,7 +1399,7 @@ function scrollToItem(id) {
   if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 }
 
-var activeFilters = { status: 'all', genre: 'all', guitar: 'all', amp: 'all' };
+var activeFilters = { status: 'all', genre: 'all', pickup: 'all', guitar: 'all', amp: 'all' };
 
 function setFilter(dim, val) {
   activeFilters[dim] = val;
@@ -1418,6 +1421,7 @@ function applyFilters() {
   items.forEach(function(el) {
     var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
+            && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
             && (activeFilters.amp    === 'all' || el.dataset.amp    === activeFilters.amp);
     el.style.display = show ? '' : 'none';
@@ -1588,6 +1592,15 @@ def main():
         </div>
       </div>
       <div class="filter-section">
+        <div class="filter-label">Pickup</div>
+        <div class="filter-row">
+          <button class="filter-btn active" data-dim="pickup" data-filter="all" onclick="setFilter('pickup','all')">All</button>
+          <button class="filter-btn" data-dim="pickup" data-filter="humbucker" onclick="setFilter('pickup','humbucker')">HB</button>
+          <button class="filter-btn" data-dim="pickup" data-filter="single-coil" onclick="setFilter('pickup','single-coil')">SC</button>
+          <button class="filter-btn" data-dim="pickup" data-filter="p-90" onclick="setFilter('pickup','p-90')">P-90</button>
+        </div>
+      </div>
+      <div class="filter-section">
         <div class="filter-label">Guitar</div>
         <div class="filter-row">
           <button class="filter-btn active" data-dim="guitar" data-filter="all" onclick="setFilter('guitar','all')">All</button>
@@ -1595,6 +1608,7 @@ def main():
           <button class="filter-btn" data-dim="guitar" data-filter="strat" onclick="setFilter('guitar','strat')">Strat</button>
           <button class="filter-btn" data-dim="guitar" data-filter="les-paul" onclick="setFilter('guitar','les-paul')">LP</button>
           <button class="filter-btn" data-dim="guitar" data-filter="semi-hollow" onclick="setFilter('guitar','semi-hollow')">Hollow</button>
+          <button class="filter-btn" data-dim="guitar" data-filter="framus" onclick="setFilter('guitar','framus')">Framus</button>
         </div>
       </div>
       <div class="filter-section">

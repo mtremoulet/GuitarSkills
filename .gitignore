@@ -2,8 +2,7 @@ __pycache__/
 *.pyc
 *.pst
 .playwright-cli/
-tone-advisor/tone-viewer.html
-tone-viewer.html
+/tone-viewer.html
 .DS_Store
 .env
 .spotify_cache

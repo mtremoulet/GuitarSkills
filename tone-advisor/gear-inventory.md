@@ -13,12 +13,27 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 ## Guitars
 
-| Name | Body | Pickups | Notes |
-|------|------|---------|-------|
-| 2014 Gibson Les Paul Studio | Solid mahogany/maple, matte black | 490R neck (Alnico II, ~8.5k DCR), 490T bridge (Alnico II, ~8.5k DCR) — matched pair, warm and balanced | 120th Anniversary model. Both pickups use Alnico II magnets — warmer and lower-output than the 498T often found in LP Standards. Well-suited for jazz, neo-soul, and vintage-voiced tones; Classic Rock and blues require pushing the amp harder to compensate for moderate output. |
-| Framus Earl Slick Artist Series | Solid body | DiMarzio P-90s (single-coil wound, soapbar housing) | P-90s are NOT humbuckers — single-coil construction with natural upper-mid spike and more brightness than humbuckers. Brighter and more present than the LP 490 series. Less Mid-Bite and treble needed on the Tone King to reach equivalent tonal targets vs humbuckers. |
-| Epiphone Sheraton | Semi-hollow, laminate maple | Humbuckers (neck and bridge) | Semi-hollow body adds acoustic bloom, natural sustain, and warmth. More sensitive to feedback at high gain than solid-body guitars. Bridge-neck blend available. |
-| Fender Player II Telecaster | Solid alder | Single-coil (neck and bridge) | Bridge: bright, percussive, cutting. Neck: warmer and rounder than expected for a single-coil. Needs significant treble rollback on the Tone King for dark jazz tones. |
+*Full specs sourced from `guitar_stable.md`. Tone-advisor notes added here for signal chain reference.*
+
+### Electric Guitars
+
+| # | Name | Finish / Year | Body / Neck | Pickups | Strings | Tone Notes |
+|---|------|---------------|-------------|---------|---------|------------|
+| 1 | Fender Player II Telecaster | British Racing Green · 2024 | Solid alder / Rosewood fingerboard, six-saddle modern bridge | Single-coil neck and bridge | D'Addario XS 10-46 | "The Home Base." Bridge: bright, percussive, cutting. Neck: warmer than expected for single-coil. Needs significant treble rollback on the Tone King for dark jazz tones. |
+| 2 | 2014 Gibson Les Paul Studio | Ebony (Serial: 140020207) | Solid mahogany/maple | **490R neck / 490T bridge — both Alnico II, ~8.5k DCR matched pair** | D'Addario XS 10-46 | 120th Anniversary Edition. "Smooth Refinement" and sustain machine. Both pickups warm and moderate-output — warmer/lower than the 498T in LP Standards. Well-suited for jazz, neo-soul, vintage tones. Classic Rock and blues bridge settings need extra Volume/Mid-Bite to compensate for the 490T's moderate output. |
+| 3 | Mid-1980s Squier Stratocaster "Partscaster" | Light Blue / Tortoiseshell pickguard | SQ-series MIJ body / E-series neck | Fender Tex-Mex pre-wired pickguard (3 single-coils) | D'Addario XS 10-46 | "The Funky Quack." Hot, punchy, pure nickel vintage warmth. Tex-Mex pickups are hotter than standard Strat singles. |
+| 4 | 2013 Epiphone Sheraton II | Natural | Semi-hollow laminate maple | Humbuckers (neck and bridge) | Thomastik-Infeld Jazz Swing Flats 10s | "The Velvet Jazz Box." Semi-hollow adds acoustic bloom, natural sustain, warmth. Flatwound strings reinforce dark jazz character. More sensitive to feedback at high gain than solid-body. Bridge-neck blend available. |
+| 5 | 2008 Epiphone Les Paul Standard Plus Top | Vintage Sunburst | Solid mahogany/maple | Humbuckers (neck and bridge) | D'Addario XS 10-46 | "The bright, sustaining classic rock workhorse." Brighter and more aggressive than the Gibson LP Studio. |
+| 6 | 2023 Revelation RFT DLX | — | Thinline Tele-style (semi-hollow) | Alan Entwistle H90 pickups (P-90-style in humbucker housings) | D'Addario XS 10-46 | "The Aggressive Growler." P-90 character: single-coil grit and upper-mid bite with hum-cancelling housing. Similar Tone King approach to the Framus — less Mid-Bite/Treble than a true humbucker. |
+| 7 | 2012 Framus Earl Slick Artist Series | Matte Black (Serial: L-000047-12) | Flat-top double cutaway swamp ash body / Bolt-in maple neck, rosewood fingerboard, 24.75" scale | **Two DiMarzio P-90 pickups (single-coil wound, soapbar housing)** · 3-way rotary selector · Bigsby B500 vibrato | Rotosound Yellows 10-46 | "The Slick Rocker." **P-90s are NOT humbuckers** — single-coil construction, natural upper-mid spike, brighter and more present than LP 490 series. Less Mid-Bite and treble needed on the Tone King vs humbuckers. Swamp ash body adds snap and clarity. Bigsby adds subtle pitch expression. |
+
+### Acoustic Guitars & Bass
+
+| # | Name | Specs | Notes |
+|---|------|-------|-------|
+| 8 | 2025 Cort Standard AD Mini | Spruce top, 3/4 size dreadnought · Rotosound Metal (Steel) strings | Travel/couch steel-string. |
+| 9 | 1990s Washburn D-12 | Dreadnought | "Tim's Guitar." The sentimental dreadnought foundation. |
+| 10 | 1978 Fender Precision Bass | 3-Color Sunburst | The vintage low-end anchor. |
 
 ---
 

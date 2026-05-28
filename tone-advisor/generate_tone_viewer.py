@@ -1644,6 +1644,14 @@ showTone('{first_id}');
     output_path.write_text(html, encoding='utf-8')
     print(f'Generated: {output_path}')
 
+    # Automatically sync to cloud location
+    sync_script = script_dir.parent / 'scripts' / 'sync_toneprints.sh'
+    if sync_script.exists():
+        print(f"Running sync script: {sync_script}")
+        subprocess.run(['bash', str(sync_script)], check=False)
+    else:
+        print("Warning: sync_toneprints.sh not found, skipping sync.")
+
     if not build_only:
         subprocess.run(['open', str(output_path)], check=False)
 

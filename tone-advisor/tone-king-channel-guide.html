@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tone King Imperial — Channel &amp; Guitar Pairing Guide</title>
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #f4f7f5;
+  --surface:     #ffffff;
+  --surface-alt: #eef2ef;
+  --border:      #c8d5cb;
+  --accent:      #059669;
+  --accent-dim:  #047857;
+  --accent-glow: rgba(5,150,105,0.10);
+  --text:        #111827;
+  --secondary:   #374151;
+  --muted:       #9ca3af;
+  --accent-fg:   #ffffff;
+  --sidebar-w:   260px;
+  --warning-bg:  rgba(217,119,6,0.08);
+  --warning-border: #d97706;
+  --info-bg:     rgba(5,150,105,0.07);
+}
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Layout ── */
+.app { display: flex; height: 100vh; overflow: hidden; }
+
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 36px 48px 64px;
+  max-width: 960px;
+}
+
+/* ── Sidebar header ── */
+.sidebar-header {
+  padding: 20px 18px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.guide-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.guide-hex {
+  color: var(--accent);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.guide-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.guide-sub {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ── Sidebar nav ── */
+.sidebar-nav {
+  padding: 10px 8px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nav-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 10px 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 2px;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s;
+  outline: none;
+  user-select: none;
+}
+
+.nav-item:hover { background: var(--surface-alt); }
+
+.nav-item.active {
+  background: var(--accent-glow);
+  border-color: rgba(5,150,105,0.3);
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+  transition: background 0.12s;
+}
+
+.nav-item.active .nav-dot { background: var(--accent); }
+
+.nav-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary);
+  line-height: 1.3;
+}
+
+.nav-item.active .nav-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-sublabel {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 10px;
+}
+
+/* ── Sidebar footer ── */
+.sidebar-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--muted);
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+/* ── Page sections ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── Page header ── */
+.page-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+.page-description em {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── IR callout ── */
+.ir-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--info-bg);
+  border: 1px solid rgba(5,150,105,0.25);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+
+.ir-callout-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.ir-callout-body {
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.ir-callout-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Warning callout ── */
+.warning-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--warning-bg);
+  border: 1px solid rgba(217,119,6,0.25);
+  border-radius: 8px;
+  padding: 11px 16px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.warning-icon {
+  color: var(--warning-border);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Section headers ── */
+.section-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Guitar cards ── */
+.guitar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.guitar-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
+  background: rgba(0,0,0,0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.guitar-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 50%;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+.guitar-title-block { display: flex; flex-direction: column; gap: 1px; }
+
+.guitar-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.guitar-detail {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.guitar-note {
+  padding: 9px 18px;
+  font-size: 12px;
+  color: var(--secondary);
+  font-style: italic;
+  line-height: 1.5;
+  background: var(--accent-glow);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Channel tabs ── */
+.channel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.02);
+}
+
+.channel-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 18px;
+  margin-bottom: -1px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.channel-tab:hover { color: var(--text); }
+
+.channel-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ── Settings table ── */
+.table-wrap { overflow-x: auto; }
+
+.settings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.settings-table thead tr {
+  background: rgba(0,0,0,0.04);
+}
+
+.settings-table th {
+  padding: 6px 16px;
+  text-align: left;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.settings-table td {
+  padding: 8px 16px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.45;
+}
+
+.settings-table tr:last-child td { border-bottom: none; }
+
+.settings-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+.col-control {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.col-value {
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.col-why {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ── Note under table ── */
+.table-footnote {
+  padding: 9px 18px 12px;
+  font-size: 12px;
+  color: var(--secondary);
+  font-style: italic;
+  line-height: 1.55;
+  border-top: 1px solid var(--border);
+  background: var(--accent-glow);
+}
+
+/* ── Reference page ── */
+.ref-block {
+  margin-bottom: 28px;
+}
+
+.ref-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.rule-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 11px 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.rule-num {
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.rule-card .rule-body { color: var(--text); }
+
+.correction-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.correction-header {
+  padding: 10px 18px;
+  background: rgba(0,0,0,0.03);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* ── IR reference table ── */
+.ir-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.ir-table thead tr { background: rgba(0,0,0,0.04); }
+
+.ir-table th {
+  padding: 7px 16px;
+  text-align: left;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.ir-table td {
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.ir-table tr:last-child td { border-bottom: none; }
+.ir-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+.ir-name { font-weight: 600; color: var(--accent); }
+.ir-style { color: var(--text); font-weight: 500; }
+.ir-why { color: var(--muted); font-size: 12px; }
+
+/* ── Scrollbars ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c8d5cb; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ── Strong / em ── */
+strong { color: var(--text); font-weight: 600; }
+em { color: var(--muted); font-style: italic; }
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .sidebar { width: 200px; min-width: 200px; }
+  .main-panel { padding: 20px 18px 48px; }
+  .page-title { font-size: 20px; }
+  .col-why { display: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ══════════════════════════════ SIDEBAR ══════════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="guide-wordmark">
+      <span class="guide-hex">&#x2B21;</span>
+      <span class="guide-name">Channel Guide</span>
+    </div>
+    <div class="guide-sub">Tone King Imperial Preamp<br>Hardware-only · TONEX bypassed</div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Styles</div>
+
+    <div class="nav-item active" onclick="showPage('jazz')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">Jazzy</div>
+        <div class="nav-sublabel">Wes · Ed Bickert · Jim Hall</div>
+      </div>
+    </div>
+
+    <div class="nav-item" onclick="showPage('neo-soul')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">Neo-Soul</div>
+        <div class="nav-sublabel">D'Angelo · Cory Wong · H.E.R.</div>
+      </div>
+    </div>
+
+    <div class="nav-item" onclick="showPage('yacht-rock')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">Yacht Rock</div>
+        <div class="nav-sublabel">Christopher Cross · McDonald</div>
+      </div>
+    </div>
+
+    <div class="nav-item" onclick="showPage('classic-rock')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">Classic Rock</div>
+        <div class="nav-sublabel">Cream · Zeppelin · Stones</div>
+      </div>
+    </div>
+
+    <div class="nav-item" onclick="showPage('blues')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">Blues</div>
+        <div class="nav-sublabel">Chicago · Texas · B.B. King</div>
+      </div>
+    </div>
+
+    <div class="nav-divider"></div>
+
+    <div class="nav-section-label">Reference</div>
+
+    <div class="nav-item" onclick="showPage('reference')" tabindex="0">
+      <span class="nav-dot"></span>
+      <div>
+        <div class="nav-label">IR Selector &amp; Rules</div>
+        <div class="nav-sublabel">Controls · Guitars · IR · Rules</div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    All values 0–10 scale · 5.0 = noon<br>
+    TONEX One bypassed throughout<br>
+    Generated 2026-05-28
+  </div>
+</aside>
+
+<!-- ══════════════════════════════ MAIN PANEL ══════════════════════════════ -->
+<main class="main-panel" id="main-panel">
+
+
+<!-- ════════════ JAZZ ════════════ -->
+<section class="page active" id="page-jazz">
+  <div class="page-header">
+    <div class="page-eyebrow">Style Guide</div>
+    <div class="page-title">Jazzy</div>
+    <div class="page-description">Clean, dark, warm, full low-mids, zero grit. <em>Wes Montgomery, Ed Bickert, Jim Hall.</em><br>
+    The <strong>Rhythm channel is primary</strong>. The Lead channel can work with Mid-Bite ≤ 2.0 — it adds a whisper of upper-mid warmth without crunch. Guitar volume rolled to 7 on all guitars.</div>
+  </div>
+
+  <div class="ir-callout">
+    <span class="ir-callout-label">IR</span>
+    <div class="ir-callout-body"><strong>OH 112 Imperial TK1660</strong> on all four guitars — warmest, most intimate cab. Voiced for dark, close-mic'd character.</div>
+  </div>
+
+  <!-- LP -->
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">1</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Gibson Les Paul Studio</span>
+        <span class="guitar-detail">490R neck · 490T bridge — both Alnico II, matched pair</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr>
+          <th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th>
+          <th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-control">Rhythm</td>
+            <td>Neck (490R)</td><td>7 / 6</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td class="col-value">6.5</td><td class="col-value">Treble 2.5</td><td>—</td>
+            <td>On · Level 2.5, Dwell 3.5</td>
+          </tr>
+          <tr>
+            <td class="col-control">Lead</td>
+            <td>Neck (490R)</td><td>7 / 6</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td>—</td><td class="col-value">Tone 3.0</td><td class="col-value">1.5</td>
+            <td>On · Level 2.5, Dwell 3.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Bass up to compensate for rolled-back Treble. Attenuation 4.5 (slightly below unity) keeps the output intimate. Lead: Mid-Bite 1.5 adds the faintest vocal warmth — drop to 1.0 if it feels too present.</div>
+  </div>
+
+  <!-- Framus -->
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">2</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Framus Earl Slick Artist Series</span>
+        <span class="guitar-detail">DiMarzio P-90s — single-coil wound, brighter and more mid-forward than humbuckers</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr>
+          <th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th>
+          <th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-control">Rhythm</td>
+            <td>Neck P-90</td><td>6 / 5</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td class="col-value">5.5</td><td class="col-value">Treble 2.0</td><td>—</td>
+            <td>On · Level 2.5, Dwell 3.5</td>
+          </tr>
+          <tr>
+            <td class="col-control">Lead</td>
+            <td>Neck P-90</td><td>6 / 5</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td>—</td><td class="col-value">Tone 2.5</td><td class="col-value">1.0</td>
+            <td>On · Level 2.5, Dwell 3.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Treble 2.0 sounds aggressive but P-90s have the brightness to spare. Guitar tone rolled to 5 does the heavy lifting. Keep Mid-Bite ≤ 1.0 — P-90s already push mids naturally; any more sounds prominent quickly.</div>
+  </div>
+
+  <!-- Sheraton -->
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">3</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Epiphone Sheraton</span>
+        <span class="guitar-detail">Semi-hollow humbuckers — body adds natural acoustic bloom and warmth</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr>
+          <th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th>
+          <th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-control">Rhythm</td>
+            <td>Neck</td><td>7 / 6</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td class="col-value">6.0</td><td class="col-value">Treble 3.0</td><td>—</td>
+            <td>On · Level 3.0, Dwell 4.0</td>
+          </tr>
+          <tr>
+            <td class="col-control">Lead</td>
+            <td>Neck</td><td>7 / 6</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td>—</td><td class="col-value">Tone 3.5</td><td class="col-value">2.0</td>
+            <td>On · Level 3.0, Dwell 4.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">The semi-hollow body tames harshness — Treble can sit slightly higher than the LP. More generous Dwell (4.0) works beautifully; the body's bloom extends the reverb tail musically. Think Larry Carlton ES-335 jazz territory.</div>
+  </div>
+
+  <!-- Telecaster -->
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">4</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Fender Player II Telecaster</span>
+        <span class="guitar-detail">Single-coil — neck pickup is warmer than expected but still needs significant treble rollback for jazz</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr>
+          <th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th>
+          <th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-control">Rhythm</td>
+            <td>Neck</td><td>6 / 5</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td class="col-value">7.0</td><td class="col-value">Treble 1.5</td><td>—</td>
+            <td>On · Level 2.5, Dwell 3.0</td>
+          </tr>
+          <tr>
+            <td class="col-control">Lead</td>
+            <td>Neck</td><td>6 / 5</td>
+            <td class="col-value">3.0</td><td class="col-value">4.5</td>
+            <td>—</td><td class="col-value">Tone 2.0</td><td class="col-value">1.0</td>
+            <td>On · Level 2.5, Dwell 3.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Treble 1.5 is aggressive — the Tele neck's inherent brightness compensates. Bass at 7.0 gives the single-coil the body a humbucker has naturally. Roll guitar tone further to 4 if it's still too bright.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ NEO-SOUL ════════════ -->
+<section class="page" id="page-neo-soul">
+  <div class="page-header">
+    <div class="page-eyebrow">Style Guide</div>
+    <div class="page-title">Neo-Soul</div>
+    <div class="page-description">Touch-sensitive, slightly compressed, edge of breakup at full guitar volume, cleans up when rolled back. <em>D'Angelo, Cory Wong, H.E.R., Anderson .Paak.</em><br>
+    The <strong>Lead channel with Mid-Bite at 3.0–4.0</strong> is the sweet spot — vocal upper-mid presence and natural compression without full crunch. Rhythm channel for a smoother, cleaner variant.</div>
+  </div>
+
+  <div class="ir-callout">
+    <span class="ir-callout-label">IR</span>
+    <div class="ir-callout-body"><strong>OH 112 Imperial TK1660</strong> for warmth and depth · <strong>OH 212 Class A Blue</strong> for more chime and Cory Wong-style sparkle.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">1</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Gibson Les Paul Studio</span>
+        <span class="guitar-detail">490R neck · 490T bridge</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Neck</td><td>8 / 7</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td class="col-value">5.5</td><td class="col-value">Treble 5.5</td><td>—</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+          <tr><td class="col-control">Lead</td><td>Neck</td><td>8 / 7</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td>—</td><td class="col-value">Tone 6.0</td><td class="col-value">3.5</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Rhythm: Volume 4.5 pushes the blackface preamp into early warmth and gentle compression. Lead: Mid-Bite 3.5 is the neo-soul center — vocal upper-mid presence with harmonic compression, without going into rock crunch territory.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">2</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Framus Earl Slick Artist Series</span>
+        <span class="guitar-detail">DiMarzio P-90s — tailor-made for neo-soul; natural grit and harmonic complexity</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Neck P-90</td><td>8 / 7</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td class="col-value">Treble 5.0</td><td>—</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+          <tr><td class="col-control">Lead</td><td>Neck P-90</td><td>8 / 7</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td>—</td><td class="col-value">Tone 6.5</td><td class="col-value">3.0</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">P-90 Mid-Bite 3.0 achieves what 3.5 does on the LP — the P-90's natural upper-mid character adds to the effect. The natural P-90 spank on attack is a neo-soul character asset. Higher Tone setting (6.5) lets that P-90 mid character breathe.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">3</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Epiphone Sheraton</span>
+        <span class="guitar-detail">Semi-hollow humbuckers — harmonic bloom and acoustic warmth are perfect for neo-soul</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Bridge-neck blend</td><td>8 / 7</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td class="col-value">5.0</td><td class="col-value">Treble 6.0</td><td>—</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+          <tr><td class="col-control">Lead</td><td>Neck</td><td>8 / 7</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td>—</td><td class="col-value">Tone 6.0</td><td class="col-value">3.5</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Bridge-neck blend on Rhythm gives classic quack-and-warmth. Treble slightly higher (6.0) because the semi-hollow body softens high-end naturally. Lead with Mid-Bite 3.5 produces singing, responsive grind — the body's harmonic complexity makes this guitar shine here.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">4</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Fender Player II Telecaster</span>
+        <span class="guitar-detail">Single-coil — Tele bridge is a neo-soul sleeper; percussive attack works beautifully for rhythmic demands</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Both (middle)</td><td>8 / 7</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td class="col-value">6.0</td><td class="col-value">Treble 4.5</td><td>—</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+          <tr><td class="col-control">Lead</td><td>Neck</td><td>8 / 7</td><td class="col-value">3.5</td><td class="col-value">5.0</td><td>—</td><td class="col-value">Tone 5.5</td><td class="col-value">2.5</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Mid-Bite 2.5 for the Tele — single coils don't need as much push. Less Dwell (2.0) keeps reverb from washing out the percussive attack essential to the genre's groove.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ YACHT ROCK ════════════ -->
+<section class="page" id="page-yacht-rock">
+  <div class="page-header">
+    <div class="page-eyebrow">Style Guide</div>
+    <div class="page-title">Yacht Rock</div>
+    <div class="page-description">Silky clean, polished, bright-warm, glassy transparency. <em>Christopher Cross, Michael McDonald, late-70s/early-80s AOR production.</em><br>
+    The <strong>Rhythm channel only</strong> — the Lead channel's tweed character doesn't fit this style. Maximum headroom, precision playing. Guitar volume at 9–10.</div>
+  </div>
+
+  <div class="ir-callout">
+    <span class="ir-callout-label">IR</span>
+    <div class="ir-callout-body"><strong>OH 212 Class A Blue</strong> on all guitars — Vox AC30 2x12 chime matches the polished AOR brightness perfectly.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">1</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Gibson Les Paul Studio</span>
+        <span class="guitar-detail">490T bridge (Alnico II) — warmer than a 498T; Treble 7.0 needed to achieve polished AOR brightness</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Bridge (490T)</td><td>9 / 8</td><td class="col-value">2.5</td><td class="col-value">5.0</td><td class="col-value">5.0</td><td class="col-value">7.0</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Volume 2.5 keeps the preamp in its cleanest, most transparent zone. The 490T bridge is warmer than a 498T (Alnico II, ~8.5k DCR), so Treble 7.0 is needed to achieve polished AOR brightness without the pickup's warmth pulling the tone dark. Lead channel: Tone 7.0, Mid-Bite 0.5 if needed — barely present, just rounding off raw tweed edge.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">2</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Framus Earl Slick Artist Series</span>
+        <span class="guitar-detail">P-90s — chimey quality is a yacht rock asset when brightness is managed carefully</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Neck P-90</td><td>9 / 7</td><td class="col-value">2.5</td><td class="col-value">5.0</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Neck P-90 is warmer and rounder than bridge — better for this style. Guitar tone at 7 (not 8) because P-90s are brighter than LP pickups and need a bit more management. Treble moderate at 5.5 — the P-90 adds its own presence.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">3</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Epiphone Sheraton</span>
+        <span class="guitar-detail">Semi-hollow — arguably the most natural yacht rock guitar in the lineup</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Bridge-neck blend</td><td>9 / 8</td><td class="col-value">2.5</td><td class="col-value">5.0</td><td class="col-value">4.5</td><td class="col-value">7.0</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Bass at 4.5 (slightly below noon) — the acoustic character of the body already provides low-end fullness. Treble 7.0 produces polished shimmer because the semi-hollow tames harshness naturally. More Dwell (2.5) — body bloom pairs beautifully with spring reverb.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">4</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Fender Player II Telecaster</span>
+        <span class="guitar-detail">Both-pickup position is arguably the most iconic yacht rock guitar sound — session guitarists on those records used exactly this</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Both (middle)</td><td>9 / 7</td><td class="col-value">2.5</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td class="col-value">5.5</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Both-pickup position softens the quack and blends warmth with clarity simultaneously. Guitar tone at 7 (not 8) — Tele's inherent brightness still needs some managing. Bass and Treble both 5.5 for maximum transparency.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ CLASSIC ROCK ════════════ -->
+<section class="page" id="page-classic-rock">
+  <div class="page-header">
+    <div class="page-eyebrow">Style Guide</div>
+    <div class="page-title">Classic Rock</div>
+    <div class="page-description">Crunchy, middy, harmonic distortion, singing sustain. <em>Cream, Led Zeppelin, Rolling Stones, AC/DC.</em><br>
+    The <strong>Lead channel with Mid-Bite at 5.5–7.0</strong> is the engine — it transforms 50s tweed into British crunch by simultaneously raising gain, tightening bass, and pushing upper mids. The Rhythm channel at high Volume delivers "pushed Fender" (more SRV/early Stones).</div>
+  </div>
+
+  <div class="ir-callout">
+    <span class="ir-callout-label">IR</span>
+    <div class="ir-callout-body"><strong>OH 412 Basketweave M25</strong> on all guitars — Marshall 4x12 authority, mid-forward presence, and the low-end girth the genre demands.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">1</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Gibson Les Paul Studio</span>
+        <span class="guitar-detail">490T bridge (Alnico II) — moderate output; Volume and Mid-Bite calibrated for 490T, not the hotter 498T</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Lead</td><td>Bridge (490T)</td><td>10 / 7</td><td class="col-value">5.5</td><td class="col-value">6.0</td><td>—</td><td class="col-value">Tone 6.5</td><td class="col-value">7.0</td><td>Off or minimal</td></tr>
+          <tr><td class="col-control">Rhythm (crunch)</td><td>Bridge (490T)</td><td>10 / 8</td><td class="col-value">7.0</td><td class="col-value">5.5</td><td class="col-value">4.5</td><td class="col-value">Treble 7.0</td><td>—</td><td>Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Lead: The 490T is lower-output than a 498T (~8.5k vs ~14.5k DCR) — Volume 5.5 and Mid-Bite 7.0 compensate. The Alnico II character gives warmer, more vintage crunch. Rhythm/Fender crunch: Volume 7.0 needed for equivalent push with moderate-output 490T. Think early Stones or SRV clean-end.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">2</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Framus Earl Slick Artist Series</span>
+        <span class="guitar-detail">P-90s in classic rock are iconic — Les Paul Jr., early Santana, early Clapton</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Lead</td><td>Bridge P-90</td><td>9 / 7</td><td class="col-value">5.0</td><td class="col-value">6.0</td><td>—</td><td class="col-value">Tone 6.0</td><td class="col-value">5.5</td><td>Off</td></tr>
+          <tr><td class="col-control">Rhythm (crunch)</td><td>Bridge P-90</td><td>10 / 8</td><td class="col-value">6.0</td><td class="col-value">5.5</td><td class="col-value">4.0</td><td class="col-value">Treble 7.0</td><td>—</td><td>Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">P-90 Mid-Bite 5.5 achieves what 6.5 does on the LP — the P-90's natural upper-mid spike and bite adds to the Mid-Bite effect rather than just responding to it. Natural grit, biting mids, percussive attack.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">3</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Epiphone Sheraton</span>
+        <span class="guitar-detail">Semi-hollow — rewarding but requires care at high Mid-Bite settings</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Lead</td><td>Bridge</td><td>9 / 7</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 6.0</td><td class="col-value">5.5</td><td>Off</td></tr>
+          <tr><td class="col-control">Rhythm (crunch)</td><td>Bridge</td><td>10 / 8</td><td class="col-value">6.0</td><td class="col-value">5.5</td><td class="col-value">4.5</td><td class="col-value">Treble 6.5</td><td>—</td><td>Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning-callout">
+      <span class="warning-icon">⚠</span>
+      With Mid-Bite at 5.5+, the semi-hollow body will want to feed back. Position yourself away from monitors. Keep Attenuation at 5.5 — do not push to 6.0+. The reward is naturally singing sustain and harmonic overtones solid-bodies can't produce.
+    </div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">4</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Fender Player II Telecaster</span>
+        <span class="guitar-detail">Bridge — Keith Richards, Springsteen: bright, percussive, biting</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Lead</td><td>Bridge</td><td>10 / 8</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 7.0</td><td class="col-value">5.0</td><td>Off</td></tr>
+          <tr><td class="col-control">Rhythm (crunch)</td><td>Bridge</td><td>10 / 8</td><td class="col-value">6.0</td><td class="col-value">5.5</td><td class="col-value">4.0</td><td class="col-value">Treble 7.5</td><td>—</td><td>Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Tele's natural brightness means Mid-Bite 5.0 achieves what the LP needs 6.5 for. Tone 7.0 lets the Tele's inherent high-end sparkle through — it works for classic rock where the LP might feel boxy.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ BLUES ════════════ -->
+<section class="page" id="page-blues">
+  <div class="page-header">
+    <div class="page-eyebrow">Style Guide</div>
+    <div class="page-title">Blues</div>
+    <div class="page-description">Touch-sensitive, dynamic. From Chicago clean (<em>Magic Sam, Buddy Guy</em>) through Texas dirty (<em>SRV, Albert Collins</em>) to B.B. King's singing vocal tone.<br>
+    <strong>Rhythm channel</strong> → Chicago / clean / West Side. <strong>Lead channel</strong> → Texas / dirty / vocal singing.</div>
+  </div>
+
+  <div class="ir-callout">
+    <span class="ir-callout-label">IR</span>
+    <div class="ir-callout-body">
+      <strong>OH 112 Imperial TK1660</strong> for Chicago / clean / B.B. King styles &nbsp;·&nbsp;
+      <strong>OH 412 Basketweave M25</strong> for Texas / dirty styles.
+    </div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">1</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Gibson Les Paul Studio</span>
+        <span class="guitar-detail">490R neck for Chicago clean · 490T bridge for Texas dirty</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Style</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Chicago / Clean</td><td>Neck (490R)</td><td>7 / 7</td><td class="col-value">4.5</td><td class="col-value">5.0</td><td class="col-value">6.0</td><td class="col-value">Treble 5.5</td><td>—</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+          <tr><td class="col-control">Lead</td><td>Texas / Dirty</td><td>Bridge (490T)</td><td>9 / 7</td><td class="col-value">5.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 5.5</td><td class="col-value">5.0</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Rhythm/Chicago: Guitar vol 7 + Volume 4.5 gives full clean-to-edge-of-breakup dynamics — dig in and it breathes, feather it and it cleans up completely.<br>Lead/Texas: Volume 5.5 accounts for the 490T's lower output vs a 498T. Mid-Bite 5.0 is the blues sweet spot — singing, responsive, without becoming full rock distortion. The Alnico II character adds vintage warmth that suits the style well.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">2</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Framus Earl Slick Artist Series</span>
+        <span class="guitar-detail">P-90s — quintessential blues pickups: Buddy Guy, early Clapton, Hubert Sumlin</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Style</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Chicago / Clean</td><td>Neck P-90</td><td>7 / 6</td><td class="col-value">4.0</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td class="col-value">Treble 5.0</td><td>—</td><td>On · Level 2.5, Dwell 3.0</td></tr>
+          <tr><td class="col-control">Lead</td><td>Texas / Dirty</td><td>Bridge P-90</td><td>9 / 7</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 5.5</td><td class="col-value">4.5</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">Neck P-90 for Chicago: beautiful vocal midrange that sits between humbucker warmth and single-coil clarity — expressive for blues phrasing. More Dwell (3.0) on Rhythm reverb — P-90 open midrange responds well to spring reverb.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">3</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Epiphone Sheraton</span>
+        <span class="guitar-detail">Semi-hollow — B.B. King's ES-335 was essentially this. Singing sustain on leads, acoustic warmth on rhythm.</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Style</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>B.B. King / Singing</td><td>Bridge</td><td>8 / 8</td><td class="col-value">4.5</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td class="col-value">Treble 6.0</td><td>—</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+          <tr><td class="col-control">Lead</td><td>Dirty / Crunch</td><td>Bridge</td><td>9 / 7</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 5.5</td><td class="col-value">4.5</td><td>On · Level 2.0, Dwell 2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote">B.B. King style: Bridge pickup + Treble 6.0 captures the cutting, vocal tone quality — slight treble elevation gives note attacks characteristic bite. Guitar tone at 8 keeps it polished.<br>Lead: Attenuation at 5.5 max — semi-hollow + Mid-Bite 4.5 is warm and responsive, but going higher risks feedback.</div>
+  </div>
+
+  <div class="guitar-card">
+    <div class="guitar-card-header">
+      <span class="guitar-num">4</span>
+      <div class="guitar-title-block">
+        <span class="guitar-name">Fender Player II Telecaster</span>
+        <span class="guitar-detail">Albert Collins · Danny Gatton · Roy Buchanan · Clarence "Gatemouth" Brown</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="settings-table">
+        <thead><tr><th>Channel</th><th>Style</th><th>Pickup</th><th>Guitar Vol / Tone</th><th>Volume</th><th>Attenuation</th><th>Bass</th><th>Treble / Tone</th><th>Mid-Bite</th><th>Reverb</th></tr></thead>
+        <tbody>
+          <tr><td class="col-control">Rhythm</td><td>Clean / Chicken-pickin'</td><td>Bridge</td><td>7 / 6</td><td class="col-value">3.5</td><td class="col-value">5.0</td><td class="col-value">5.5</td><td class="col-value">Treble 5.5</td><td>—</td><td>On · Level 1.5, Dwell 2.0</td></tr>
+          <tr><td class="col-control">Lead</td><td>Vocal / Crying lead</td><td>Neck</td><td>9 / 6</td><td class="col-value">4.5</td><td class="col-value">5.5</td><td>—</td><td class="col-value">Tone 5.0</td><td class="col-value">4.0</td><td>On · Level 2.0, Dwell 3.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footnote"><strong>The Tele neck on the Lead channel is the hidden gem.</strong> Neck pickup warmth + Mid-Bite 4.0 + Dwell 3.0 produces a crying, singing lead tone. Roy Buchanan / Danny Gatton territory. Tone 5.0 (noon) keeps it balanced — neither too bright nor too dark.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ REFERENCE ════════════ -->
+<section class="page" id="page-reference">
+  <div class="page-header">
+    <div class="page-eyebrow">Reference</div>
+    <div class="page-title">IR Selector &amp; Ground Rules</div>
+    <div class="page-description">Actual Tone King controls by channel, guitar specs, IR selector, and the three rules that override everything else.</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="ref-block">
+    <div class="section-header">Actual Controls by Channel</div>
+    <div class="correction-block">
+      <div class="correction-header">Rhythm Channel</div>
+      <div class="table-wrap">
+        <table class="settings-table">
+          <thead><tr><th>Control</th><th>Function</th></tr></thead>
+          <tbody>
+            <tr><td class="col-control">Volume</td><td>Channel output level — also drives preamp character at higher settings</td></tr>
+            <tr><td class="col-control">Attenuation</td><td>Post-phase-inverter master volume — primary level control after the preamp stage</td></tr>
+            <tr><td class="col-control">Bass</td><td>Low frequency content</td></tr>
+            <tr><td class="col-control">Treble</td><td>High frequency content</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="correction-block">
+      <div class="correction-header">Lead Channel</div>
+      <div class="table-wrap">
+        <table class="settings-table">
+          <thead><tr><th>Control</th><th>Function</th></tr></thead>
+          <tbody>
+            <tr><td class="col-control">Volume</td><td>Channel output level</td></tr>
+            <tr><td class="col-control">Attenuation</td><td>Post-phase-inverter master volume</td></tr>
+            <tr><td class="col-control">Tone</td><td>High frequency contour</td></tr>
+            <tr><td class="col-control">Mid-Bite</td><td>Simultaneously: increases gain, tightens bass, rolls off very high frequencies, boosts upper midrange. Transforms tweed into crunch as it's turned up. <strong>There is no separate Mid control — Mid-Bite does all of this at once.</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="warning-callout" style="margin-top:0; margin-bottom: 14px;">
+      <span class="warning-icon">⚠</span>
+      <span>There is no Mid, Presence, or Cut control on either channel. These do not exist on the Imperial Preamp.</span>
+    </div>
+  </div>
+
+  <!-- IR Table -->
+  <div class="ref-block">
+    <div class="section-header">IR Selector by Style</div>
+    <table class="ir-table">
+      <thead><tr><th>Style</th><th>Recommended IR</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="ir-style">Jazz</td><td class="ir-name">OH 112 Imperial TK1660</td><td class="ir-why">Warmest, most intimate — voiced for dark, close-mic'd character</td></tr>
+        <tr><td class="ir-style">Neo-Soul</td><td class="ir-name">TK1660 or Class A Blue</td><td class="ir-why">TK1660 for warmth; Blue for Cory Wong-style sparkle and chime</td></tr>
+        <tr><td class="ir-style">Yacht Rock</td><td class="ir-name">OH 212 Class A Blue</td><td class="ir-why">Vox AC30 2x12 chime matches polished AOR brightness</td></tr>
+        <tr><td class="ir-style">Classic Rock</td><td class="ir-name">OH 412 Basketweave M25</td><td class="ir-why">Marshall 4x12 authority, mid-forward presence, low-end girth</td></tr>
+        <tr><td class="ir-style">Blues (clean)</td><td class="ir-name">OH 112 Imperial TK1660</td><td class="ir-why">Intimacy and warmth for Chicago / B.B. King styles</td></tr>
+        <tr><td class="ir-style">Blues (dirty)</td><td class="ir-name">OH 412 Basketweave M25</td><td class="ir-why">Girth and authority for Texas-style grind</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Three Rules -->
+  <div class="ref-block">
+    <div class="section-header">Three Rules That Override Everything</div>
+    <div class="rule-card"><span class="rule-num">1</span><span class="rule-body">Roll guitar volume to <strong>7</strong> for all jazz and clean blues tones — this activates the Tone King's touch-sensitivity and dynamic range. Full guitar volume is for classic rock and Texas blues only.</span></div>
+    <div class="rule-card"><span class="rule-num">2</span><span class="rule-body"><strong>Mid-Bite is cumulative with pickup character.</strong> P-90s (Framus) already push upper mids naturally — they need 0.5–1.0 less Mid-Bite than the LP to reach the same tonal target.</span></div>
+    <div class="rule-card"><span class="rule-num">3</span><span class="rule-body"><strong>Sheraton feedback risk at high gain.</strong> With Mid-Bite above 5.0, the semi-hollow body wants to feed back. Keep Attenuation at 5.5 max, position away from monitors. The payoff is singing sustain solid-bodies can't produce.</span></div>
+  </div>
+
+  <!-- Gibson LP note -->
+  <div class="ref-block">
+    <div class="section-header">Gibson Les Paul Studio — Pickup Specs</div>
+    <div class="rule-card">
+      <span class="rule-body"><strong>2014 Gibson Les Paul Studio, 120th Anniversary, matte black.</strong> Fitted with <strong>490R neck</strong> and <strong>490T bridge</strong> — both Alnico II, ~8.5k DCR. This is a matched pair: both pickups share the same magnet type and similar output level, producing a balanced, warm, vintage character across all pickup positions. The 490T bridge is notably lower-output and warmer than the 498T commonly found in LP Standards or Traditionals (~14.5k DCR, Alnico V). Classic Rock and Texas Blues bridge settings in this guide are calibrated for the 490T — they require slightly more Volume and Mid-Bite than a hotter 498T would need.</span>
+    </div>
+  </div>
+
+  <!-- Framus note -->
+  <div class="ref-block">
+    <div class="section-header">Framus Earl Slick — Pickup Character</div>
+    <div class="rule-card">
+      <span class="rule-body">The Framus Earl Slick Artist Series has <strong>DiMarzio P-90s</strong> — single-coil wound pickups in soapbar housings, not traditional humbuckers. P-90s are brighter, spankier, and more mid-forward than humbuckers. They need less Treble and less Mid-Bite than the LP to achieve equivalent tonal targets. The natural P-90 character is an asset in neo-soul, blues, and classic rock — work with it rather than against it.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  var target = document.getElementById('page-' + id);
+  if (target) { target.classList.add('active'); }
+
+  document.querySelectorAll('.nav-item').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  // find the nav-item that triggered this page
+  var navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(function(el) {
+    var onclick = el.getAttribute('onclick') || '';
+    if (onclick.indexOf("'" + id + "'") !== -1) {
+      el.classList.add('active');
+    }
+  });
+
+  var panel = document.getElementById('main-panel');
+  if (panel) { panel.scrollTop = 0; }
+}
+
+// Keyboard navigation
+document.querySelectorAll('.nav-item').forEach(function(el) {
+  el.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      el.click();
+      e.preventDefault();
+    }
+  });
+});
+</script>
+</body>
+</html>

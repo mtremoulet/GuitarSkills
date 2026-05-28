@@ -11,7 +11,7 @@
 | MRH810 Classic Lead | humbucker | Epiphone Les Paul Standard | [humbuckers/mrh810-classic-lead.md](humbuckers/mrh810-classic-lead.md) | tested |
 | Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-boutique-clean.md](humbuckers/paradise-enigmatic-boutique-clean.md) | refined |
 | Paradise Pedal Platform (Humbucker Variant) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton | [humbuckers/paradise-pedal-platform-hb.md](humbuckers/paradise-pedal-platform-hb.md) | initial |
-| Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)" | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
+| Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)" | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
 | Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
 | Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | tested |

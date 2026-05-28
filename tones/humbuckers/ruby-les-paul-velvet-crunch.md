@@ -2,7 +2,7 @@
 id: ruby-les-paul-velvet-crunch
 created: 2026-05-20
 updated: 2026-05-20
-guitar: "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)"
+guitar: "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)"
 target: "Warm, vocal Class A chime and creamy velvet crunch; a rich, touch-sensitive pairing of Les Paul humbuckers and Vox AC30 Top Boost."
 tags: vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock
 tone-king-channel: bypassed
@@ -19,12 +19,12 @@ While the Vox AC30 (emulated by the UADx Ruby '63) is legendary for single-coil 
 
 Unlike high-headroom American Fender amps, the AC30 runs hot and compresses early. When fed the thick, high-output, mid-focused signal of Les Paul humbuckers, the amp does not clip harshly; instead, it yields a rich, singing, mid-forward crunch that is incredibly touch-sensitive. This is the sound of late-era Beatles grit (*"Revolution"*, *"Sgt. Pepper"*), the saturated orchestral voice of Queen (Brian May's custom humbucking setup), the chimey indie textures of Radiohead, and the warm, delay-driven arena anthems of U2.
 
-The key to this tone is **balance**. The Les Paul's warm 490R neck pickup and biting 498T bridge pickup provide the woody weight and sustain, while the AC30's **BRILLIANT channel with Top Boost** provides the cutting high-mid chime and compression. This toneprint is dialed to prevent low-end mud while preserving the throatiness and vocal quality of your humbuckers.
+The key to this tone is **balance**. The Les Paul's warm 490R neck pickup and warm-voiced 490T bridge pickup (both Alnico II — a matched pair) provide the woody weight and sustain, while the AC30's **BRILLIANT channel with Top Boost** provides the cutting high-mid chime and compression. This toneprint is dialed to prevent low-end mud while preserving the throatiness and vocal quality of your humbuckers.
 
 > [!TIP]
 > **The Midrange Decision — Plugging Straight In:**
 > While the Tone King Imperial's Rhythm channel emulates a Fender Blackface (which features a classic, beautiful mid-scoop), running your Les Paul **directly into the Audient iD14's JFET DI input (bypassing the Tone King entirely)** is the preferred, purist approach here. 
-> Bypassing the Tone King preserves the raw, rich, wood-flavored impedance and vocal midrange of the 490R/498T humbuckers, letting them interact dynamically and directly with the AC30's EL84 power tube model. If you want a glassier, single-coil-adjacent tone, you can always engage the Tone King's Blackface mid-scoop to pre-shape the signal; but for the ultimate "velvet crunch," plug straight into the interface and let those gorgeous humbucker mids sing!
+> Bypassing the Tone King preserves the raw, rich, wood-flavored impedance and vocal midrange of the 490R/490T humbuckers, letting them interact dynamically and directly with the AC30's EL84 power tube model. If you want a glassier, single-coil-adjacent tone, you can always engage the Tone King's Blackface mid-scoop to pre-shape the signal; but for the ultimate "velvet crunch," plug straight into the interface and let those gorgeous humbucker mids sing!
 
 > [!IMPORTANT]
 > **Humbucker Gain Alert:** Humbuckers will push the Ruby '63 into overdrive *much* earlier than single-coils. The amp Volume must be carefully balanced (Vol 3.5 for clean-chime with natural compression; Vol 5.0 for velvety, singing overdrive).
@@ -115,7 +115,7 @@ To maintain maximum clarity and prevent the Les Paul's thick midrange from getti
 * **Pickup Sweet Spots**:
   * **Middle Position (Bridge + Neck)**: The ultimate clean tone. It naturally scoops the mids slightly and rolls off sub-bass, producing a pristine, glassy, acoustic-adjacent chime.
   * **Neck Position (490R)**: Thick, warm, vocal, and cello-like. Perfect for expressive blues lines and jazz-fusion phrasing.
-  * **Bridge Position (498T)**: Rips with a biting, mid-forward growl. Think Queen’s *"Tie Your Mother Down"* or late Beatles riffs.
+  * **Bridge Position (490T)**: Warm and punchy with more mid-presence than the neck, but not aggressive — the Alnico II magnet keeps it smooth. Think late-Beatles chord crunch or Radiohead rhythm parts rather than biting hard-rock bridge tone.
 
 ---
 

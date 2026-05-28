@@ -8,8 +8,17 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 | Name | Maker | Description |
 |------|-------|-------------|
-| Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb). Lead channel: 50s Tweed + British rock character, with Mid-Bite control that adds gain, tightens bass, and boosts upper mids. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. |
+| Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb) — controls: Volume, Attenuation, Bass, Treble. Lead channel: 50s Tweed + British rock character — controls: Volume, Attenuation, Tone (high-freq contour), Mid-Bite (simultaneously adds gain, tightens bass, boosts upper mids). No Mid, Presence, or Cut controls on either channel. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. |
 | iD14 mkII | Audient | Desktop USB-C audio interface. 2 mic/line preamps (JFET discrete input stage), 2 instrument inputs, monitor control. Primary analog front-end before Logic. |
+
+## Guitars
+
+| Name | Body | Pickups | Notes |
+|------|------|---------|-------|
+| 2014 Gibson Les Paul Studio | Solid mahogany/maple, matte black | 490R neck (Alnico II, ~8.5k DCR), 490T bridge (Alnico II, ~8.5k DCR) — matched pair, warm and balanced | 120th Anniversary model. Both pickups use Alnico II magnets — warmer and lower-output than the 498T often found in LP Standards. Well-suited for jazz, neo-soul, and vintage-voiced tones; Classic Rock and blues require pushing the amp harder to compensate for moderate output. |
+| Framus Earl Slick Artist Series | Solid body | DiMarzio P-90s (single-coil wound, soapbar housing) | P-90s are NOT humbuckers — single-coil construction with natural upper-mid spike and more brightness than humbuckers. Brighter and more present than the LP 490 series. Less Mid-Bite and treble needed on the Tone King to reach equivalent tonal targets vs humbuckers. |
+| Epiphone Sheraton | Semi-hollow, laminate maple | Humbuckers (neck and bridge) | Semi-hollow body adds acoustic bloom, natural sustain, and warmth. More sensitive to feedback at high gain than solid-body guitars. Bridge-neck blend available. |
+| Fender Player II Telecaster | Solid alder | Single-coil (neck and bridge) | Bridge: bright, percussive, cutting. Neck: warmer and rounder than expected for a single-coil. Needs significant treble rollback on the Tone King for dark jazz tones. |
 
 ---
 

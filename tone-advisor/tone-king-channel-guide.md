@@ -5,9 +5,9 @@
 
 ---
 
-## Before You Play: Key Corrections
+## Hardware Controls Reference
 
-**Controls that exist (and only these):**
+**Tone King Imperial Preamp controls by channel:**
 
 | Channel | Controls |
 |---------|----------|
@@ -16,7 +16,9 @@
 
 There is no Mid, Presence, or Cut knob on either channel.
 
-**Framus note:** The Framus Earl Slick Artist Series has DiMarzio **P-90s** — single-coil wound pickups, not traditional humbuckers. They're brighter, spankier, and more mid-forward than humbuckers, and need less Mid-Bite and treble than the LP to reach the same tonal target.
+**Gibson Les Paul Studio (2014, 120th Anniversary, matte black):** 490R neck and **490T** bridge — both Alnico II, ~8.5k DCR. A matched pair, warm and balanced. The 490T bridge is lower-output and warmer than the 498T often found in LP Standards; Classic Rock and Texas Blues bridge settings are calibrated for this.
+
+**Framus Earl Slick Artist Series:** DiMarzio **P-90s** — single-coil wound pickups in soapbar housings, not traditional humbuckers. Brighter, spankier, and more mid-forward than humbuckers; need less Mid-Bite and treble than the LP to reach the same tonal target.
 
 **Scale:** All values use a 0–10 scale. 5.0 = noon/flat. Attenuation 5.0 = unity/moderate output.
 
@@ -53,7 +55,7 @@ The **Rhythm channel** is primary for jazz. The Lead channel can work with Mid-B
 
 ---
 
-### Gibson LP (490R neck / 498T bridge)
+### Gibson LP (490R neck / 490T bridge — both Alnico II)
 
 | Channel | Pickup | Guitar Vol / Tone | Volume | Attenuation | Bass | Treble / Tone | Mid-Bite | Reverb |
 |---------|--------|-------------------|--------|-------------|------|---------------|----------|--------|
@@ -165,9 +167,9 @@ The **Rhythm channel is the only natural fit here** — blackface clean at maxim
 
 | Channel | Pickup | Guitar Vol / Tone | Volume | Attenuation | Bass | Treble | Reverb |
 |---------|--------|-------------------|--------|-------------|------|--------|--------|
-| **Rhythm** | Bridge (498T) | 9 / 8 | 2.5 | 5.0 | 5.0 | 6.5 | On: Level 1.5, Dwell 2.0 |
+| **Rhythm** | Bridge (490T) | 9 / 8 | 2.5 | 5.0 | 5.0 | 7.0 | On: Level 1.5, Dwell 2.0 |
 
-> Volume 2.5 keeps the preamp in its cleanest zone. LP bridge with guitar tone at 8 gives presence and air without shrillness — dark enough that Treble 6.5 produces polish, not harshness.
+> Volume 2.5 keeps the preamp in its cleanest zone. The 490T bridge is warmer than a 498T, so Treble 7.0 (vs a lower setting on hotter pickups) is needed to get that polished AOR brightness without the pickup's Alnico II warmth pulling the tone dark.
 
 *Lead channel: Tone 7.0, Mid-Bite 0.5 — barely present, just rounding off raw tweed edge. Not recommended over Rhythm for this style.*
 
@@ -221,11 +223,11 @@ The **Lead channel with Mid-Bite at 5.5–7.0** is the engine here. Mid-Bite tra
 
 | Channel | Pickup | Guitar Vol / Tone | Volume | Attenuation | Treble / Tone | Mid-Bite | Reverb |
 |---------|--------|-------------------|--------|-------------|---------------|----------|--------|
-| **Lead** | Bridge (498T) | 10 / 7 | 5.0 | 6.0 | Tone 6.5 | 6.5 | Off or Level 1.5, Dwell 1.5 |
-| **Rhythm (Fender crunch)** | Bridge (498T) | 10 / 8 | 6.5 | 5.5 | Treble 7.0 | — | Off |
+| **Lead** | Bridge (490T) | 10 / 7 | 5.5 | 6.0 | Tone 6.5 | 7.0 | Off or Level 1.5, Dwell 1.5 |
+| **Rhythm (Fender crunch)** | Bridge (490T) | 10 / 8 | 7.0 | 5.5 | Treble 7.0 | — | Off |
 
-> **Lead:** Mid-Bite 6.5 is where the Lead channel crosses into genuine crunch. Volume 5.0 + Attenuation 6.0 pushes the phase inverter for natural power-amp compression.\
-> **Rhythm/Fender crunch:** Volume 6.5 makes the blackface preamp work hard — this is "pushed Fender" character (Bass 4.5, Treble 7.0). Think early Stones or SRV's clean end.
+> **Lead:** The 490T is lower-output than the 498T (~8.5k vs ~14.5k DCR), so Volume is 5.5 and Mid-Bite 7.0 to achieve equivalent crunch. The 490T's Alnico II character gives a warmer, more vintage crunch — less aggressive than a 498T but with its own richness.\
+> **Rhythm/Fender crunch:** Volume 7.0 compensates for the 490T's moderate output (Bass 4.5, Treble 7.0). Think early Stones or SRV's clean end.
 
 ---
 
@@ -278,7 +280,7 @@ The **Lead channel with Mid-Bite at 5.5–7.0** is the engine here. Mid-Bite tra
 | Channel | Style | Pickup | Guitar Vol / Tone | Volume | Attenuation | Bass | Treble / Tone | Mid-Bite | Reverb |
 |---------|-------|--------|-------------------|--------|-------------|------|---------------|----------|--------|
 | **Rhythm** | Chicago / Clean | Neck (490R) | 7 / 7 | 4.5 | 5.0 | 6.0 | Treble 5.5 | — | On: Level 2.0, Dwell 2.5 |
-| **Lead** | Texas / Dirty | Bridge (498T) | 9 / 7 | 5.0 | 5.5 | — | Tone 5.5 | 5.0 | On: Level 2.0, Dwell 2.5 |
+| **Lead** | Texas / Dirty | Bridge (490T) | 9 / 7 | 5.5 | 5.5 | — | Tone 5.5 | 5.0 | On: Level 2.0, Dwell 2.5 |
 
 > **Rhythm/Chicago:** Guitar vol 7 + Volume 4.5 gives clean-to-edge-of-breakup dynamics — dig in and it breathes, feather it and it cleans up completely.\
 > **Lead/Texas:** Mid-Bite 5.0 is the blues sweet spot — singing, responsive, without becoming full rock distortion.

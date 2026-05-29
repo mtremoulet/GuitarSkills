@@ -1,10 +1,10 @@
 ---
 id: jazz-clean-intimate-les-paul
+preset_name: "Showtime Jazz Clean Intimate HB"
 created: 2026-04-16
 updated: 2026-05-16
 guitar: Gibson Les Paul Studio (490R neck pickup)
-target: "Pristine, warm jazz clean \u2014 jazz box intimacy through a transparent\
-  \ high-headroom platform; close and present, no reverb wash"
+target: "Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close and present, no reverb wash"
 tags: jazz, clean, warm, intimate, les-paul, humbucker
 tone-king-channel: rhythm
 amp: Showtime '64

@@ -23,9 +23,18 @@ def parse_frontmatter(text):
         return {}, text
     data = {}
     for line in m.group(1).splitlines():
+        # Ignore indented lines (extra metadata like overrides)
+        if line.startswith(' ') or line.startswith('\t'):
+            continue
         if ':' in line:
             k, _, v = line.partition(':')
-            data[k.strip()] = v.strip()
+            val = v.strip()
+            # Strip quotes if present
+            if val.startswith('"') and val.endswith('"'):
+                val = val[1:-1]
+            elif val.startswith("'") and val.endswith("'"):
+                val = val[1:-1]
+            data[k.strip()] = val
     return data, text[m.end():]
 
 

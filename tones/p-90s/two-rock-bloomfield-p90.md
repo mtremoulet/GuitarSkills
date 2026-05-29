@@ -1,5 +1,6 @@
 ---
 id: two-rock-bloomfield-p90
+preset_name: "Two-Rock Bloomfield Boutique Clean P90"
 created: 2026-05-26
 updated: 2026-05-26
 guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)

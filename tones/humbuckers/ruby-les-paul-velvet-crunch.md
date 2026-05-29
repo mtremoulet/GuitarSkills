@@ -1,5 +1,6 @@
 ---
 id: ruby-les-paul-velvet-crunch
+preset_name: "Ruby LP Velvet Crunch HB"
 created: 2026-05-20
 updated: 2026-05-20
 guitar: "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)"

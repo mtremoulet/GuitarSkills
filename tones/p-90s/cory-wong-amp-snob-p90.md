@@ -1,5 +1,6 @@
 ---
 id: cory-wong-amp-snob-p90
+preset_name: "Amp Snob Boutique Clean P90"
 created: 2026-05-26
 updated: 2026-05-27
 guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)

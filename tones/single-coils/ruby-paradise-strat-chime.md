@@ -1,5 +1,6 @@
 ---
 id: ruby-paradise-strat-chime
+preset_name: "Ruby Strat Chime Paradise"
 created: 2026-05-20
 updated: 2026-05-20
 guitar: "Squier Stratocaster (bridge + middle pickup position — \"quack\")"
@@ -9,6 +10,14 @@ tone-king-channel: bypassed
 amp: Ruby '63 (Paradise Guitar Studio)
 status: initial
 pickup_type: single-coil
+
+preset_overrides:
+  postfx_power: true
+  postfx_1_power: true
+  postfx_3_power: true
+  postfx_plate_reverb_decay: 2.0
+  postfx_plate_reverb_predelay: 20.0
+  postfx_plate_reverb_mix: 15.0
 ---
 
 # Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio)

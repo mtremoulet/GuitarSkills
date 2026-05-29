@@ -1,5 +1,6 @@
 ---
 id: cory-wong-amp-snob-boutique-clean
+preset_name: "Amp Snob Boutique Clean HB"
 created: 2026-05-24
 updated: 2026-05-25
 guitar: Gibson Les Paul Studio (490R neck pickup)

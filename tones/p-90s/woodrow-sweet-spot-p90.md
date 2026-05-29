@@ -1,5 +1,6 @@
 ---
 id: woodrow-sweet-spot-p90
+preset_name: "Woodrow Sweet Spot P90"
 created: 2026-05-26
 updated: 2026-05-27
 guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)

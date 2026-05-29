@@ -1,10 +1,10 @@
 ---
 id: dream-65-blackface-sparkle
+preset_name: "Dream 65 Blackface Sparkle SC"
 created: 2026-05-08
 updated: 2026-05-08
 guitar: Fender Player II Telecaster (bridge pickup, roundwound strings)
-target: "Classic Blackface sparkle and country spank \u2014 chicken-picking, surf,\
-  \ 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
+target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
 tags: blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb
 tone-king-channel: rhythm
 amp: Dream '65

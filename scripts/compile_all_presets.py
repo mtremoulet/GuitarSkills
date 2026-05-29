@@ -22,7 +22,7 @@ PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.
 MIXWAVE_TEMPLATE = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User/MikeTweakedTele.xml"
 MIXWAVE_TEMPLATE_ALT = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User/Mike's Two Rocks.xml"
 MIXWAVE_TEMPLATE_FACTORY = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/Factory/LUSH CLEAN.xml"
-MIXWAVE_OUTPUT_DIR = "/Users/miketremoulet/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive"
+MIXWAVE_OUTPUT_DIR = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User"
 
 # Custom Binary Parameter Replacer for Neural DSP (TLV format)
 def replace_binary_parameter(data, param_name, new_val_str):

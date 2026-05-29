@@ -4,6 +4,8 @@ import json
 import re
 import uuid
 import xml.etree.ElementTree as ET
+import base64
+import struct
 
 # Directories & Path Configurations
 TONES_DIR = "/Users/miketremoulet/claude-projects/GuitarSkills/tones"
@@ -17,6 +19,13 @@ NEURAL_OUTPUT_DIR = "/Library/Audio/Presets/Neural DSP/Archetype Cory Wong X/Ton
 BASE_UAD_PRESETS_DIR = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins"
 PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio")
 PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.json")
+
+LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
+HITSVILLE_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_hitsville_chambers/Mike Live Strings.json")
+
+# Logic Pro Native Paths
+LOGIC_EQ_BASE = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Channel EQ/FlatEQ.pst"
+LOGIC_COMP_BASE = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Compressor/DefaultComp.pst"
 
 # MixWave Paths
 MIXWAVE_TEMPLATE = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User/ToneprintTemplate.xml"
@@ -476,6 +485,190 @@ def compile_mixwave_toneprint(filepath, base_xml_path, output_name, frontmatter)
     tree.write(out_path, encoding="utf-8", xml_declaration=True)
     print(f"-> Compiled MixWave Preset: '{output_name}'")
 
+# Dynamic UADx Teletronix LA-2A JSON Compiler (Silver / Gray)
+def compile_la2a_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    with open(filepath, "r") as f:
+        content = f.read()
+
+    # Extract Peak Reduction and Gain
+    peak_reduction = find_numeric_parameter(content, ["Peak Reduction"])
+    gain = find_numeric_parameter(content, ["Gain", "Makeup Gain"])
+    mode_compress = find_boolean_parameter(content, ["Compress Mode", "Compress"]) # True = Compress, False = Limit
+    
+    # If not found in tables, check overrides or skip
+    if peak_reduction is None and gain is None:
+        return
+
+    # Load base template JSON
+    with open(base_preset_path, "r") as f:
+        preset_data = json.load(f)
+
+    # Decode chunk
+    chunk_bytes = bytearray(base64.b64decode(preset_data["chunk"]))
+    
+    # Surgically patch floats
+    # Float 10: Gain (0.0 to 1.0)
+    if gain is not None:
+        val_scaled = gain / 100.0 if gain > 1.0 else gain
+        struct.pack_into("f", chunk_bytes, 10 * 4, val_scaled)
+    # Float 11: Peak Reduction (0.0 to 1.0)
+    if peak_reduction is not None:
+        val_scaled = peak_reduction / 100.0 if peak_reduction > 1.0 else peak_reduction
+        struct.pack_into("f", chunk_bytes, 11 * 4, val_scaled)
+    # Float 13: Mode (1.0 = Compress, 0.0 = Limit)
+    if mode_compress is not None:
+        struct.pack_into("f", chunk_bytes, 13 * 4, 1.0 if mode_compress else 0.0)
+
+    # Re-encode chunk
+    preset_data["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
+    preset_data["name"] = f"Toneprint - {output_name}"
+    preset_data["uid"] = uuid.uuid4().hex
+
+    # Write output
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.json")
+    with open(out_path, "w") as f:
+        json.dump(preset_data, f, indent=4)
+        
+    print(f"-> Compiled UADx LA-2A Preset: 'Toneprint - {output_name}'")
+
+# Dynamic UADx Hitsville Reverb Chambers JSON Compiler
+def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    with open(filepath, "r") as f:
+        content = f.read()
+
+    mix = find_numeric_parameter(content, ["Mix", "Room Mix"])
+    pre_delay = find_numeric_parameter(content, ["Pre-Delay"])
+    decay = find_numeric_parameter(content, ["Decay"])
+
+    if mix is None and pre_delay is None and decay is None:
+        return
+
+    # Load base template JSON
+    with open(base_preset_path, "r") as f:
+        preset_data = json.load(f)
+
+    # Decode chunk
+    chunk_bytes = bytearray(base64.b64decode(preset_data["chunk"]))
+
+    # Float 21: Mix (0.0 to 1.0)
+    if mix is not None:
+        val_scaled = mix / 100.0 if mix > 1.0 else mix
+        struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
+    # Float 12: Pre-Delay (ms scaled to 0.0-1.0, e.g. 8ms -> 0.08)
+    if pre_delay is not None:
+        val_scaled = pre_delay / 100.0
+        struct.pack_into("f", chunk_bytes, 12 * 4, val_scaled)
+
+    preset_data["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
+    preset_data["name"] = f"Toneprint - {output_name}"
+    preset_data["uid"] = uuid.uuid4().hex
+
+    # Write output
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.json")
+    with open(out_path, "w") as f:
+        json.dump(preset_data, f, indent=4)
+
+    print(f"-> Compiled UADx Hitsville Reverb Preset: 'Toneprint - {output_name}'")
+
+# Dynamic Logic Pro Native Channel EQ PST Compiler
+def compile_logic_eq_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    with open(filepath, "r") as f:
+        content = f.read()
+
+    # Search specifically for Channel EQ settings
+    hpf_val = find_numeric_parameter(content, ["High-Pass Filter", "HPF", "High-Pass", "Low Cut Frequency"])
+    lpf_val = find_numeric_parameter(content, ["Low-Pass Filter", "LPF", "Low-Pass", "High-Cut Filter", "High-Cut", "High Cut", "High Cut Frequency"])
+
+    # If both are none, skip EQ generation
+    if hpf_val is None and lpf_val is None:
+        return
+
+    # Handle kHz representation (e.g. 6.5 kHz -> 6500 Hz)
+    if hpf_val is not None and hpf_val < 20.0:
+        hpf_val *= 1000.0
+    if lpf_val is not None and lpf_val < 22.0:
+        lpf_val *= 1000.0
+
+    # Load base .pst template
+    with open(base_preset_path, "rb") as f:
+        preset_bytes = bytearray(f.read())
+
+    # Low Cut (Band 1)
+    if hpf_val is not None:
+        # Float 3: Low Cut On/Off (1.0 = On)
+        struct.pack_into("f", preset_bytes, 8 + 3 * 4, 1.0)
+        # Float 6: Low Cut Frequency
+        struct.pack_into("f", preset_bytes, 8 + 6 * 4, hpf_val)
+        # Float 7: Slope (default 12 dB/Oct = 2.0)
+        struct.pack_into("f", preset_bytes, 8 + 7 * 4, 2.0)
+
+    # High Cut (Band 8)
+    if lpf_val is not None:
+        # Float 33: High Cut On/Off (1.0 = On)
+        struct.pack_into("f", preset_bytes, 8 + 33 * 4, 1.0)
+        # Float 34: High Cut Frequency
+        struct.pack_into("f", preset_bytes, 8 + 34 * 4, lpf_val)
+        # Float 35: Slope (default 12 dB/Oct = 2.0)
+        struct.pack_into("f", preset_bytes, 8 + 35 * 4, 2.0)
+
+    # Save preset
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.pst")
+    with open(out_path, "wb") as f:
+        f.write(preset_bytes)
+
+    print(f"-> Compiled Logic Channel EQ Preset: 'Toneprint - {output_name}'")
+
+# Dynamic Logic Pro Native Compressor PST Compiler
+def compile_logic_compressor_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    with open(filepath, "r") as f:
+        content = f.read()
+
+    # Search for Compressor settings
+    threshold = find_numeric_parameter(content, ["Threshold"])
+    ratio = find_numeric_parameter(content, ["Ratio"])
+    attack = find_numeric_parameter(content, ["Attack"])
+    release = find_numeric_parameter(content, ["Release"])
+    gain = find_numeric_parameter(content, ["Gain", "Makeup Gain"])
+    knee = find_numeric_parameter(content, ["Knee"])
+
+    # If all are None, skip compressor generation
+    if threshold is None and ratio is None and attack is None and release is None:
+        return
+
+    # Load base .pst template
+    with open(base_preset_path, "rb") as f:
+        preset_bytes = bytearray(f.read())
+
+    # Float 5: Threshold
+    if threshold is not None:
+        struct.pack_into("f", preset_bytes, 8 + 5 * 4, threshold)
+    # Float 6: Ratio
+    if ratio is not None:
+        struct.pack_into("f", preset_bytes, 8 + 6 * 4, ratio)
+    # Float 7: Attack
+    if attack is not None:
+        struct.pack_into("f", preset_bytes, 8 + 7 * 4, attack)
+    # Float 8: Release
+    if release is not None:
+        struct.pack_into("f", preset_bytes, 8 + 8 * 4, release)
+    # Float 9: Makeup Gain
+    if gain is not None:
+        struct.pack_into("f", preset_bytes, 8 + 9 * 4, gain)
+    # Float 10: Knee
+    if knee is not None:
+        struct.pack_into("f", preset_bytes, 8 + 10 * 4, knee)
+
+    # Save preset
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.pst")
+    with open(out_path, "wb") as f:
+        f.write(preset_bytes)
+
+    print(f"-> Compiled Logic Compressor Preset: 'Toneprint - {output_name}'")
+
 def main():
     print("==================================================")
     print("RIG-WIDE TONEPRINT COMPILER & PRESET GENERATOR (V2)")
@@ -511,6 +704,10 @@ def main():
     compiled_neural = 0
     compiled_uad = 0
     compiled_mixwave = 0
+    compiled_la2a = 0
+    compiled_hitsville = 0
+    compiled_logiceq = 0
+    compiled_logiccomp = 0
     
     for root, dirs, files in os.walk(TONES_DIR):
         for f in files:
@@ -551,11 +748,43 @@ def main():
                     compile_uad_toneprint(filepath, uad_base_json, clean_name, frontmatter)
                     compiled_uad += 1
 
+            # Compile LA-2A Presets if UADx templates exist
+            if os.path.exists(LA2A_BASE):
+                # Only compile if LA-2A is in the toneprint content
+                if "la-2a" in content.lower():
+                    compile_la2a_toneprint(filepath, LA2A_BASE, clean_name, frontmatter)
+                    compiled_la2a += 1
+
+            # Compile Hitsville Reverb Presets if UADx templates exist
+            if os.path.exists(HITSVILLE_BASE):
+                # Only compile if Hitsville is in the toneprint content
+                if "hitsville" in content.lower():
+                    compile_hitsville_toneprint(filepath, HITSVILLE_BASE, clean_name, frontmatter)
+                    compiled_hitsville += 1
+
+            # Compile Logic Channel EQ Presets if native templates exist
+            if os.path.exists(LOGIC_EQ_BASE):
+                # Check if Logic Channel EQ is in toneprint
+                if "channel eq" in content.lower() or "high-cut" in content.lower() or "low-cut" in content.lower():
+                    compile_logic_eq_toneprint(filepath, LOGIC_EQ_BASE, clean_name, frontmatter)
+                    compiled_logiceq += 1
+
+            # Compile Logic Compressor Presets if native templates exist
+            if os.path.exists(LOGIC_COMP_BASE):
+                # Only compile if Logic Compressor is in toneprint
+                if "logic compressor" in content.lower() or "compressor" in content.lower() and "la-2a" not in content.lower():
+                    compile_logic_compressor_toneprint(filepath, LOGIC_COMP_BASE, clean_name, frontmatter)
+                    compiled_logiccomp += 1
+
     print("\n==================================================")
     print(f"Rig Compilation Complete! Injected:")
     print(f"  -> {compiled_neural} Neural DSP presets in {NEURAL_OUTPUT_DIR}")
     print(f"  -> {compiled_uad} UAD Paradise presets in {PARADISE_DIR}")
     print(f"  -> {compiled_mixwave} MixWave Two-Rock presets in {MIXWAVE_OUTPUT_DIR}")
+    print(f"  -> {compiled_la2a} UADx LA-2A presets in {os.path.dirname(LA2A_BASE)}")
+    print(f"  -> {compiled_hitsville} UADx Hitsville presets in {os.path.dirname(HITSVILLE_BASE)}")
+    print(f"  -> {compiled_logiceq} Logic Channel EQ presets in {os.path.dirname(LOGIC_EQ_BASE)}")
+    print(f"  -> {compiled_logiccomp} Logic Compressor presets in {os.path.dirname(LOGIC_COMP_BASE)}")
     print("==================================================")
 
 if __name__ == "__main__":

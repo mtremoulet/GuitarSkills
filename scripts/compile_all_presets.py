@@ -539,11 +539,13 @@ def parse_eq_bands(content):
     for line in content.split("\n"):
         line_lower = line.lower()
         
-        if "channel eq" in line_lower or "surgical shaping" in line_lower:
-            in_eq_section = True
-            continue
-        elif in_eq_section and (line.startswith("## ") or line.startswith("### ")):
-            in_eq_section = False
+        if line.strip().startswith("#"):
+            if "channel eq" in line_lower or "surgical shaping" in line_lower:
+                in_eq_section = True
+                continue
+            else:
+                in_eq_section = False
+                continue
             
         if not in_eq_section:
             continue
@@ -733,9 +735,9 @@ def compile_logic_eq_toneprint(filepath, base_preset_path, output_name, frontmat
             continue
             
         if band_num == 1:
-            # Low Cut: On/Off = Float 3, Freq = Float 6, Slope = Float 7
+            # Low Cut: On/Off = Float 5, Freq = Float 6, Slope = Float 7
             if params["on"] is not None:
-                struct.pack_into("f", preset_bytes, 8 + 3 * 4, params["on"])
+                struct.pack_into("f", preset_bytes, 8 + 5 * 4, params["on"])
             if params["freq"] is not None:
                 struct.pack_into("f", preset_bytes, 8 + 6 * 4, params["freq"])
             if params["gain_or_slope"] is not None:

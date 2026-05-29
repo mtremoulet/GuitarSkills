@@ -25,12 +25,19 @@ mkdir -p "$DEST"
 rsync -av --delete \
   --include="*/" \
   --include="*.md" \
+  --include="*.thrl6p" \
   --exclude="*" \
   "$TONES_SRC/" "$DEST/"
 
-# Sync the HTML viewer
+# Sync the HTML viewer and guides
 if [[ -f "$HTML_SRC" ]]; then
   cp -v "$HTML_SRC" "$DEST/"
+fi
+if [[ -f "$PROJ_ROOT/tone-advisor/universal-template-guide.md" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/universal-template-guide.md" "$DEST/"
+fi
+if [[ -f "$PROJ_ROOT/tone-advisor/universal-template-guide.html" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/universal-template-guide.html" "$DEST/"
 fi
 
 echo ""

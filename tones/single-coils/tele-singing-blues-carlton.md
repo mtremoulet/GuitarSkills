@@ -1,15 +1,26 @@
 ---
-id: tele-singing-blues-carlton
-created: 2026-05-02
-updated: 2026-05-02
-guitar: Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels)
-target: "Larry Carlton \"Singing Blues-Jazz\" \u2014 Mellow chords with touch-sensitive,\
-  \ mid-focused lead sustain."
-tags: jazz, blues, telecaster, carlton, dumble, sustain
+id: "tele-singing-blues-carlton"
+created: "2026-05-02"
+updated: "2026-05-02"
+guitar: "Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels)"
+target: "\"Larry Carlton \\"Singing Blues-Jazz\\" \u2014 Mellow chords with touch-sensitive,\"
+tags: "jazz, blues, telecaster, carlton, dumble, sustain"
 tone-king-channel: rhythm
-amp: Enigmatic '82
+amp: "Enigmatic '82"
 status: initial
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 3
+    Treble: 5
+    Middle: 7
+    Bass: 4
+  hitsville:
+    mix: 0.1
+  logic_compressor:
+    ratio: 4
+    makeup_gain: 6
 ---
 
 # Singing Blues-Jazz (Larry Carlton Style)

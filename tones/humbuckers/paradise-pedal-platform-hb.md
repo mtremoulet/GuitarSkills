@@ -1,13 +1,20 @@
 ---
-id: paradise-pedal-platform-hb
-created: 2026-05-04
-updated: 2026-05-11
+id: "paradise-pedal-platform-hb"
+created: "2026-05-04"
+updated: "2026-05-11"
 guitar: Gibson Les Paul Studio / Epiphone Sheraton
-target: Humbucker-optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups.
-tags: pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker
-amp: Enigmatic '82
+target: "Humbucker-optimized high-headroom \"pedal platform\" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups."
+tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker"
+amp: "Enigmatic '82"
 status: initial
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Treble: 6.5
+    Bass: 3.5
+    Presence: 6
+    Master: 7
 ---
 
 # Paradise Pedal Platform (Humbucker Variant)

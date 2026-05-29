@@ -254,13 +254,46 @@ Use this structure exactly:
 ```markdown
 ---
 id: [filename without .md]
+preset_name: "[Beautiful Human Preset Name]"
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 guitar: [e.g., Telecaster, Les Paul, Strat]
 target: [one-sentence sonic goal]
 tags: [comma-separated: jazz, clean, warm, blues, crunch, ambient, etc.]
-tone-king-channel: rhythm | lead
+tone-king-channel: rhythm | lead | bypassed
+amp: [Amp Name, e.g., Dream '65 (UADx)]
 status: initial | tested | refined
+pickup_type: humbucker | single-coil
+preset_data:
+  amp_platform: uad_paradise # uad_paradise, neural_dsp, mixwave
+  amp_settings:
+    Volume: 5.0
+    Treble: 4.5
+    Middle: 5.0
+    Bass: 5.0
+    Presence: 0.0
+    Master: 6.5
+    Bright: false
+    Boost: false
+  la2a:
+    peak_reduction: 28.0
+    gain: 45.0
+    compress: true
+  hitsville:
+    mix: 0.15
+    pre_delay: 20.0
+    decay: 1.8
+  logic_eq:
+    band1: {on: true, freq: 80.0, slope: 24.0}
+    band4: {on: true, freq: 650.0, gain: -2.0, q: 1.5}
+    band7: {on: true, freq: 5000.0, gain: -1.5}
+  logic_compressor:
+    threshold: -20.0
+    ratio: 3.0
+    attack: 15.0
+    release: 50.0
+    makeup_gain: 0.0
+    knee: 0.7
 ---
 
 # [Tone Name]

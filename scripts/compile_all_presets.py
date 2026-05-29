@@ -22,6 +22,9 @@ PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.
 
 LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
 HITSVILLE_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_hitsville_chambers/Mike Live Strings.json")
+GALAXY_BASE = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins/uaudio_galaxy_tape_echo/Galaxy_BaseEchoRate0.json"
+STUDIO_D_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_studio_d_chorus/whereami.json")
+VALHALLA_BASE = "/Library/Application Support/Valhalla DSP, LLC/ValhallaSupermassive/Presets/User/whereami.vpreset"
 
 # Logic Pro Native Paths
 LOGIC_EQ_BASE = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Channel EQ/FlatEQ.pst"
@@ -34,6 +37,87 @@ MIXWAVE_TEMPLATE = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield D
 MIXWAVE_TEMPLATE_ALT = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User/Mike's Two Rocks.xml"
 MIXWAVE_TEMPLATE_FACTORY = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/Factory/LUSH CLEAN.xml"
 MIXWAVE_OUTPUT_DIR = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User"
+
+# Yamaha THR-II Paths
+YAMAHA_THR_OUTPUT_DIR = "/Users/miketremoulet/claude-projects/GuitarSkills/tones/presets/yamaha"
+
+# Nembrini Audio XML Presets Paths
+NEMBRINI_DOCS_DIR = "/Users/miketremoulet/Documents/Nembrini Audio"
+NEMBRINI_TEMPLATES = {
+    "mrh810": os.path.join(NEMBRINI_DOCS_DIR, "NA Mrh810 V2/MRH810-All5.xml"),
+    "jc120": os.path.join(NEMBRINI_DOCS_DIR, "NA Jazz Chorus/JC_Base.xml"),
+    "div11": os.path.join(NEMBRINI_DOCS_DIR, "NA Divided 11/Div11-All5.xml"),
+    "acoustic_voice": os.path.join(NEMBRINI_DOCS_DIR, "NA Acoustic Voice Pro/AVP_Base.xml"),
+    "puretone": os.path.join(NEMBRINI_DOCS_DIR, "HK Puretone/HK_Base.xml")
+}
+
+DEFAULT_THR_PRESET = {
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 48,
+        "device_version": 65536,
+        "meta": {
+            "name": "Default Name",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupAmp": {
+                "@asset": "thr_clean",
+                "Bass": 0.5,
+                "Drive": 0.3,
+                "Master": 0.5,
+                "Mid": 0.5,
+                "Treble": 0.5
+            },
+            "THRGroupCab": {
+                "@asset": "thr_cab_2x12",
+                "SpkSimType": "Default"
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "thr_compressor",
+                "@enabled": False,
+                "Level": 0.5,
+                "Sustain": 0.5
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "thr_chorus",
+                "@enabled": False,
+                "@wetDry": 0.5,
+                "Depth": 0.5,
+                "Feedback": 0.0,
+                "Freq": 0.3,
+                "Pre": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "thr_tape_echo",
+                "@enabled": False,
+                "@wetDry": 0.3,
+                "Bass": 0.5,
+                "Feedback": 0.3,
+                "Time": 0.4,
+                "Treble": 0.5
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "thr_hall_reverb",
+                "@enabled": False,
+                "@wetDry": 0.3,
+                "Decay": 0.5,
+                "PreDelay": 0.1,
+                "Tone": 0.5
+            },
+            "THRGroupGate": {
+                "@asset": "thr_noise_gate",
+                "@enabled": False,
+                "Decay": 0.5,
+                "Thresh": 0.1
+            },
+            "global": {
+                "THRPresetParamTempo": 120.0
+            }
+        }
+    }
+}
 
 # Custom Binary Parameter Replacer for Neural DSP (TLV format)
 def replace_binary_parameter(data, param_name, new_val_str):
@@ -54,7 +138,7 @@ def replace_binary_parameter(data, param_name, new_val_str):
     
     return data[:replace_start] + new_block + data[replace_end:]
 
-# Robust Standard Library YAML Frontmatter Parser
+# Robust Standard Library YAML Frontmatter Parser (Recursive)
 def parse_yaml_frontmatter(content):
     match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
     if not match:
@@ -63,81 +147,67 @@ def parse_yaml_frontmatter(content):
     yaml_text = match.group(1)
     body = content[match.end():]
     
-    data = {}
+    # Simple line parser
     lines = yaml_text.splitlines()
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        if not line.strip() or line.strip().startswith("#"):
-            i += 1
+    parsed_lines = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
             continue
-            
         indent = len(line) - len(line.lstrip())
-        if indent > 0:
-            i += 1
-            continue
-            
         if ":" in line:
             key, _, val = line.partition(":")
             key = key.strip()
             val = val.strip()
+            if val.startswith('"') and val.endswith('"'):
+                val = val[1:-1]
+            elif val.startswith("'") and val.endswith("'"):
+                val = val[1:-1]
             
-            # If value is empty, check for nested block
-            if not val:
-                nested_dict = {}
-                i += 1
-                while i < len(lines):
-                    next_line = lines[i]
-                    if not next_line.strip() or next_line.strip().startswith("#"):
-                        i += 1
-                        continue
-                    next_indent = len(next_line) - len(next_line.lstrip())
-                    if next_indent == 0:
-                        break
-                    
-                    if ":" in next_line:
-                        nk, _, nv = next_line.partition(":")
-                        nk = nk.strip()
-                        nv = nv.strip()
-                        
-                        # Strip quotes
-                        if nv.startswith('"') and nv.endswith('"'):
-                            nv = nv[1:-1]
-                        elif nv.startswith("'") and nv.endswith("'"):
-                            nv = nv[1:-1]
-                            
-                        # Parse types
-                        if nv.lower() == "true":
-                            nv = True
-                        elif nv.lower() == "false":
-                            nv = False
-                        else:
-                            try:
-                                if "." in nv:
-                                    nv = float(nv)
-                                else:
-                                    nv = int(nv)
-                            except ValueError:
-                                pass
-                        nested_dict[nk] = nv
-                    i += 1
-                data[key] = nested_dict
-                continue
+            # Type casting
+            if val == "":
+                val = None
+            elif val.lower() == "true":
+                val = True
+            elif val.lower() == "false":
+                val = False
             else:
-                # Strip quotes
-                if val.startswith('"') and val.endswith('"'):
-                    val = val[1:-1]
-                elif val.startswith("'") and val.endswith("'"):
-                    val = val[1:-1]
-                    
-                # Parse types
-                if val.lower() == "true":
-                    val = True
-                elif val.lower() == "false":
-                    val = False
-                data[key] = val
-        i += 1
-    return data, body
+                try:
+                    if "." in val:
+                        val = float(val)
+                    else:
+                        val = int(val)
+                except ValueError:
+                    pass
+            parsed_lines.append((indent, key, val))
+            
+    # Build tree from parsed_lines
+    def build_tree(start_idx, parent_indent):
+        result = {}
+        idx = start_idx
+        while idx < len(parsed_lines):
+            indent, key, val = parsed_lines[idx]
+            if indent <= parent_indent:
+                break
+            
+            next_idx = idx + 1
+            has_children = False
+            if next_idx < len(parsed_lines):
+                next_indent, _, _ = parsed_lines[next_idx]
+                if next_indent > indent:
+                    has_children = True
+            
+            if has_children:
+                child_dict, next_idx = build_tree(next_idx, indent)
+                result[key] = child_dict
+                idx = next_idx
+            else:
+                result[key] = val
+                idx += 1
+        return result, idx
+
+    tree, _ = build_tree(0, -1)
+    return tree, body
 
 # Robust Markdown Parameter Extractor
 def find_numeric_parameter(content, param_names):
@@ -173,81 +243,91 @@ def find_boolean_parameter(content, param_names):
 
 # Dynamic Neural DSP Parser & Compiler
 def compile_neural_toneprint(filepath, base_data, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    amp_settings = preset_data.get("amp_settings") if isinstance(preset_data, dict) else None
 
     settings = {}
     settings["name"] = output_name
-    
-    # 1. Parse Compressor (The 4th Position Compressor)
-    comp_active = find_boolean_parameter(content, ["The 4th Position Compressor", "Compressor Active", "Compressor"])
-    if comp_active is not None:
-        settings["compressorActive"] = "true" if comp_active else "false"
-        
-    for key in ["Blend", "Tone", "Compression", "Volume"]:
-        val = find_numeric_parameter(content, [key])
-        if val is not None:
-            settings["compressor" + key] = f"{val:.2f}"
 
-    # 2. Parse Amp Knobs (The Amp Snob / Amp 3)
-    settings["selectedAmp"] = "2"  # Amp 3 (index 2)
-    settings["selectedCab"] = "2"  # Snob 2x12 Cab (index 2)
-    settings["ampCabLinkedState"] = "false"
-    
-    knobs = {
-        "snobBass": ["Bass"],
-        "snobMid": ["Middle", "Mids"],
-        "snobTreble": ["Treble"],
-        "snobPresence": ["Presence"],
-        "snobMaster": ["Master"],
-        "snobVolume": ["Volume (Gain)", "Volume"],
-        "snobOutputLevel": ["Output"]
-    }
-    
-    for param, names in knobs.items():
-        val = find_numeric_parameter(content, names)
-        if val is not None:
-            settings[param] = f"{val:.2f}"
+    if amp_settings and isinstance(amp_settings, dict):
+        for k, v in amp_settings.items():
+            if isinstance(v, bool):
+                settings[k] = "true" if v else "false"
+            else:
+                settings[k] = str(v)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+
+        # 1. Parse Compressor (The 4th Position Compressor)
+        comp_active = find_boolean_parameter(content, ["The 4th Position Compressor", "Compressor Active", "Compressor"])
+        if comp_active is not None:
+            settings["compressorActive"] = "true" if comp_active else "false"
             
-    drive = find_boolean_parameter(content, ["Drive Switch", "Drive"])
-    if drive is not None:
-        settings["snobDrive"] = "true" if drive else "false"
+        for key in ["Blend", "Tone", "Compression", "Volume"]:
+            val = find_numeric_parameter(content, [key])
+            if val is not None:
+                settings["compressor" + key] = f"{val:.2f}"
+
+        # 2. Parse Amp Knobs (The Amp Snob / Amp 3)
+        settings["selectedAmp"] = "2"  # Amp 3 (index 2)
+        settings["selectedCab"] = "2"  # Snob 2x12 Cab (index 2)
+        settings["ampCabLinkedState"] = "false"
         
-    bright = find_boolean_parameter(content, ["Bright Switch", "Bright"])
-    if bright is not None:
-        settings["snobBright"] = "true" if bright else "false"
-
-    # 3. Parse Cabinet settings
-    pos = find_numeric_parameter(content, ["Position L", "Position"])
-    if pos is not None: settings["leftCabPosition"] = f"{pos:.2f}"
-    
-    dist = find_numeric_parameter(content, ["Distance L", "Distance"])
-    if dist is not None: settings["leftCabDistance"] = f"{dist:.2f}"
-    
-    room = find_numeric_parameter(content, ["Room Send L", "Room Send"])
-    if room is not None: settings["leftRoomMicLevel"] = f"{room:.1f}"
-
-    settings["leftCabActive"] = "true"
-    settings["leftCab0MicType"] = "4"   # Ribbon 121
-    settings["rightCabActive"] = "false" # Bypassed
-
-    # 4. Parse EQ Bands (1 to 9)
-    eq_active = find_boolean_parameter(content, ["EQ Status", "EQ Active", "snobEQActive"])
-    if eq_active is not None:
-        settings["snobEQActive"] = "true" if eq_active else "false"
+        knobs = {
+            "snobBass": ["Bass"],
+            "snobMid": ["Middle", "Mids"],
+            "snobTreble": ["Treble"],
+            "snobPresence": ["Presence"],
+            "snobMaster": ["Master"],
+            "snobVolume": ["Volume (Gain)", "Volume"],
+            "snobOutputLevel": ["Output"]
+        }
         
-    bands = ["65 Hz", "125 Hz", "250 Hz", "500 Hz", "1 kHz", "2 kHz", "4 kHz", "8 kHz", "16 kHz"]
-    for i, band in enumerate(bands, 1):
-        val = find_numeric_parameter(content, [band])
-        if val is not None:
-            settings[f"snobEQBand{i}"] = f"{val:.1f}"
+        for param, names in knobs.items():
+            val = find_numeric_parameter(content, names)
+            if val is not None:
+                settings[param] = f"{val:.2f}"
+                
+        drive = find_boolean_parameter(content, ["Drive Switch", "Drive"])
+        if drive is not None:
+            settings["snobDrive"] = "true" if drive else "false"
+            
+        bright = find_boolean_parameter(content, ["Bright Switch", "Bright"])
+        if bright is not None:
+            settings["snobBright"] = "true" if bright else "false"
 
-    settings["snobEQHpf"] = "20.0"
-    settings["snobEQLpf"] = "20000.0"
+        # 3. Parse Cabinet settings
+        pos = find_numeric_parameter(content, ["Position L", "Position"])
+        if pos is not None: settings["leftCabPosition"] = f"{pos:.2f}"
+        
+        dist = find_numeric_parameter(content, ["Distance L", "Distance"])
+        if dist is not None: settings["leftCabDistance"] = f"{dist:.2f}"
+        
+        room = find_numeric_parameter(content, ["Room Send L", "Room Send"])
+        if room is not None: settings["leftRoomMicLevel"] = f"{room:.1f}"
 
-    # 5. Default bypassed pedals
-    for pedal in ["tuberActive", "bigRigActive", "postalActive", "delayActive", "washActive", "chorusActive"]:
-        settings[pedal] = "false"
+        settings["leftCabActive"] = "true"
+        settings["leftCab0MicType"] = "4"   # Ribbon 121
+        settings["rightCabActive"] = "false" # Bypassed
+
+        # 4. Parse EQ Bands (1 to 9)
+        eq_active = find_boolean_parameter(content, ["EQ Status", "EQ Active", "snobEQActive"])
+        if eq_active is not None:
+            settings["snobEQActive"] = "true" if eq_active else "false"
+            
+        bands = ["65 Hz", "125 Hz", "250 Hz", "500 Hz", "1 kHz", "2 kHz", "4 kHz", "8 kHz", "16 kHz"]
+        for i, band in enumerate(bands, 1):
+            val = find_numeric_parameter(content, [band])
+            if val is not None:
+                settings[f"snobEQBand{i}"] = f"{val:.1f}"
+
+        settings["snobEQHpf"] = "20.0"
+        settings["snobEQLpf"] = "20000.0"
+
+        # 5. Default bypassed pedals
+        for pedal in ["tuberActive", "bigRigActive", "postalActive", "delayActive", "washActive", "chorusActive"]:
+            settings[pedal] = "false"
 
     # Inject overrides from frontmatter (supporting custom studio FX/cabs/etc.)
     overrides = frontmatter.get("preset_overrides", {})
@@ -259,22 +339,22 @@ def compile_neural_toneprint(filepath, base_data, output_name, frontmatter):
                 settings[k] = str(v)
 
     # Inject into binary preset
-    preset_data = base_data
+    preset_data_bytes = base_data
     for key, val in settings.items():
-        preset_data = replace_binary_parameter(preset_data, key, val)
+        preset_data_bytes = replace_binary_parameter(preset_data_bytes, key, val)
         
     # Save preset
     os.makedirs(NEURAL_OUTPUT_DIR, exist_ok=True)
     out_path = os.path.join(NEURAL_OUTPUT_DIR, f"{output_name}.xml")
     with open(out_path, "wb") as f:
-        f.write(preset_data)
+        f.write(preset_data_bytes)
     print(f"-> Compiled Neural Preset: '{output_name}'")
     return True
 
 # Dynamic UADx Parser & Compiler
 def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    amp_settings = preset_data.get("amp_settings") if isinstance(preset_data, dict) else None
         
     amp_str = frontmatter.get("amp", "")
     
@@ -310,27 +390,52 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         
     if amp_type is None: return
 
-    # Extract common knobs
-    vol = find_numeric_parameter(content, ["Volume (Gain)", "Volume", "Volume (Inst)", "inst_volume"])
-    vol_mic = find_numeric_parameter(content, ["Volume (Mic)", "mic_volume"])
-    treble = find_numeric_parameter(content, ["Treble", "Top Boost Treble", "Tone"])
-    mid = find_numeric_parameter(content, ["Middle", "Mids", "Top Boost Mids"])
-    bass = find_numeric_parameter(content, ["Bass", "Top Boost Bass"])
-    presence = find_numeric_parameter(content, ["Presence"])
-    master = find_numeric_parameter(content, ["Master (labeled 6.5)", "Master", "Master volume"])
-    tone_cut = find_numeric_parameter(content, ["Tone Cut"])
-    
-    # Extract switches
-    bright = find_boolean_parameter(content, ["Bright Switch", "Bright / Normal", "Bright"])
-    boost = find_boolean_parameter(content, ["Boost Button", "Boost Switch", "Boost (Stock)", "Boost"])
-    cut_sw = find_boolean_parameter(content, ["Cut Switch", "Cut"])
+    if amp_settings and isinstance(amp_settings, dict):
+        vol = amp_settings.get("Volume")
+        vol_mic = amp_settings.get("Volume (Mic)")
+        treble = amp_settings.get("Treble")
+        mid = amp_settings.get("Middle")
+        bass = amp_settings.get("Bass")
+        presence = amp_settings.get("Presence")
+        master = amp_settings.get("Master")
+        tone_cut = amp_settings.get("Tone Cut")
+        bright = amp_settings.get("Bright")
+        boost = amp_settings.get("Boost")
+        cut_sw = amp_settings.get("Cut")
+        
+        # normalize types
+        if vol is not None: vol = float(vol)
+        if vol_mic is not None: vol_mic = float(vol_mic)
+        if treble is not None: treble = float(treble)
+        if mid is not None: mid = float(mid)
+        if bass is not None: bass = float(bass)
+        if presence is not None: presence = float(presence)
+        if master is not None: master = float(master)
+        if tone_cut is not None: tone_cut = float(tone_cut)
+        if bright is not None: bright = bool(bright)
+        if boost is not None: boost = bool(boost)
+        if cut_sw is not None: cut_sw = bool(cut_sw)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        vol = find_numeric_parameter(content, ["Volume (Gain)", "Volume", "Volume (Inst)", "inst_volume"])
+        vol_mic = find_numeric_parameter(content, ["Volume (Mic)", "mic_volume"])
+        treble = find_numeric_parameter(content, ["Treble", "Top Boost Treble", "Tone"])
+        mid = find_numeric_parameter(content, ["Middle", "Mids", "Top Boost Mids"])
+        bass = find_numeric_parameter(content, ["Bass", "Top Boost Bass"])
+        presence = find_numeric_parameter(content, ["Presence"])
+        master = find_numeric_parameter(content, ["Master (labeled 6.5)", "Master", "Master volume"])
+        tone_cut = find_numeric_parameter(content, ["Tone Cut"])
+        bright = find_boolean_parameter(content, ["Bright Switch", "Bright / Normal", "Bright"])
+        boost = find_boolean_parameter(content, ["Boost Button", "Boost Switch", "Boost (Stock)", "Boost"])
+        cut_sw = find_boolean_parameter(content, ["Cut Switch", "Cut"])
 
     # Map settings into Paradise Guitar Studio JSON
-    preset_data = json.loads(json.dumps(base_preset)) # deep copy
-    preset_data["name"] = f"Toneprint - {output_name}"
-    preset_data["uid"] = uuid.uuid4().hex
+    preset_data_json = json.loads(json.dumps(base_preset)) # deep copy
+    preset_data_json["name"] = f"Toneprint - {output_name}"
+    preset_data_json["uid"] = uuid.uuid4().hex
     
-    controls = preset_data["chunk"]["controls"]
+    controls = preset_data_json["chunk"]["controls"]
     
     # Inject amp and cabinet selection
     controls["amp"] = {"real_value": amp_index}
@@ -393,15 +498,15 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
     os.makedirs(PARADISE_DIR, exist_ok=True)
     out_path = os.path.join(PARADISE_DIR, f"Toneprint - {output_name}.json")
     with open(out_path, "w") as f:
-        json.dump(preset_data, f, indent=4)
+        json.dump(preset_data_json, f, indent=4)
         
     print(f"-> Compiled UAD Paradise Preset: 'Toneprint - {output_name}'")
     return True
 
 # Dynamic MixWave Two-Rock Bloomfield Drive XML Parser & Compiler
 def compile_mixwave_toneprint(filepath, base_xml_path, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    amp_settings = preset_data.get("amp_settings") if isinstance(preset_data, dict) else None
 
     # Parse XML Template using Standard ElementTree
     tree = ET.parse(base_xml_path)
@@ -416,27 +521,60 @@ def compile_mixwave_toneprint(filepath, base_xml_path, output_name, frontmatter)
     od_module = root.find(".//Module[@moduleName='Overdrive']")
     od_vars = od_module.find("Variables") if od_module is not None else None
 
-    # Extract amp values from Markdown
-    gain = find_numeric_parameter(content, ["Gain"])
-    treble = find_numeric_parameter(content, ["Treble"])
-    mid = find_numeric_parameter(content, ["Middle", "Mids"])
-    bass = find_numeric_parameter(content, ["Bass"])
-    presence = find_numeric_parameter(content, ["Presence"])
-    master = find_numeric_parameter(content, ["Master"])
-    reverb = find_numeric_parameter(content, ["Reverb"])
-    vibe = find_numeric_parameter(content, ["Vibe"])
-
-    # Switches
-    bright = find_boolean_parameter(content, ["Bright Switch", "Bright"])
-    mid_sw = find_boolean_parameter(content, ["Mid Switch", "Mid"])
-    deep = find_boolean_parameter(content, ["Deep Switch", "Deep"])
-    bypass_sw = find_boolean_parameter(content, ["Tone Stack Bypass"])
-    lead_sw = find_boolean_parameter(content, ["Lead Switch", "Lead"])
-
-    # Global Gate & Levels
-    gate_val = find_numeric_parameter(content, ["Noise Gate", "Gate Threshold"])
-    input_trim = find_numeric_parameter(content, ["Input Trim"])
-    output_trim = find_numeric_parameter(content, ["Output Trim"])
+    if amp_settings and isinstance(amp_settings, dict):
+        gain = amp_settings.get("Gain")
+        treble = amp_settings.get("Treble")
+        mid = amp_settings.get("Middle")
+        bass = amp_settings.get("Bass")
+        presence = amp_settings.get("Presence")
+        master = amp_settings.get("Master")
+        reverb = amp_settings.get("Reverb")
+        vibe = amp_settings.get("Vibe")
+        bright = amp_settings.get("Bright")
+        mid_sw = amp_settings.get("Mid")
+        deep = amp_settings.get("Deep")
+        bypass_sw = amp_settings.get("Tone Stack Bypass")
+        lead_sw = amp_settings.get("Lead")
+        gate_val = amp_settings.get("Noise Gate")
+        input_trim = amp_settings.get("Input Trim")
+        output_trim = amp_settings.get("Output Trim")
+        
+        # normalize types
+        if gain is not None: gain = float(gain)
+        if treble is not None: treble = float(treble)
+        if mid is not None: mid = float(mid)
+        if bass is not None: bass = float(bass)
+        if presence is not None: presence = float(presence)
+        if master is not None: master = float(master)
+        if reverb is not None: reverb = float(reverb)
+        if vibe is not None: vibe = float(vibe)
+        if bright is not None: bright = bool(bright)
+        if mid_sw is not None: mid_sw = bool(mid_sw)
+        if deep is not None: deep = bool(deep)
+        if bypass_sw is not None: bypass_sw = bool(bypass_sw)
+        if lead_sw is not None: lead_sw = bool(lead_sw)
+        if gate_val is not None: gate_val = float(gate_val)
+        if input_trim is not None: input_trim = float(input_trim)
+        if output_trim is not None: output_trim = float(output_trim)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        gain = find_numeric_parameter(content, ["Gain"])
+        treble = find_numeric_parameter(content, ["Treble"])
+        mid = find_numeric_parameter(content, ["Middle", "Mids"])
+        bass = find_numeric_parameter(content, ["Bass"])
+        presence = find_numeric_parameter(content, ["Presence"])
+        master = find_numeric_parameter(content, ["Master"])
+        reverb = find_numeric_parameter(content, ["Reverb"])
+        vibe = find_numeric_parameter(content, ["Vibe"])
+        bright = find_boolean_parameter(content, ["Bright Switch", "Bright"])
+        mid_sw = find_boolean_parameter(content, ["Mid Switch", "Mid"])
+        deep = find_boolean_parameter(content, ["Deep Switch", "Deep"])
+        bypass_sw = find_boolean_parameter(content, ["Tone Stack Bypass"])
+        lead_sw = find_boolean_parameter(content, ["Lead Switch", "Lead"])
+        gate_val = find_numeric_parameter(content, ["Noise Gate", "Gate Threshold"])
+        input_trim = find_numeric_parameter(content, ["Input Trim"])
+        output_trim = find_numeric_parameter(content, ["Output Trim"])
 
     # Map settings to Amp Variables XML attributes
     if amp_vars is not None:
@@ -619,13 +757,25 @@ def parse_eq_bands(content):
 
 # Dynamic UADx Teletronix LA-2A JSON Compiler (Silver / Gray)
 def compile_la2a_toneprint(filepath, base_preset_path, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    la2a_data = preset_data.get("la2a") if isinstance(preset_data, dict) else None
 
-    # Extract Peak Reduction and Gain
-    peak_reduction = find_numeric_parameter(content, ["Peak Reduction"])
-    gain = find_numeric_parameter(content, ["Gain", "Makeup Gain"])
-    mode_compress = find_boolean_parameter(content, ["Compress Mode", "Compress"]) # True = Compress, False = Limit
+    if la2a_data and isinstance(la2a_data, dict):
+        peak_reduction = la2a_data.get("peak_reduction")
+        gain = la2a_data.get("gain")
+        mode_compress = la2a_data.get("compress")
+        
+        # normalize types
+        if peak_reduction is not None: peak_reduction = float(peak_reduction)
+        if gain is not None: gain = float(gain)
+        if mode_compress is not None: mode_compress = bool(mode_compress)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        # Extract Peak Reduction and Gain
+        peak_reduction = find_numeric_parameter(content, ["Peak Reduction"])
+        gain = find_numeric_parameter(content, ["Gain", "Makeup Gain"])
+        mode_compress = find_boolean_parameter(content, ["Compress Mode", "Compress"]) # True = Compress, False = Limit
     
     # If not found in tables, check overrides or skip
     if peak_reduction is None and gain is None:
@@ -667,12 +817,24 @@ def compile_la2a_toneprint(filepath, base_preset_path, output_name, frontmatter)
 
 # Dynamic UADx Hitsville Reverb Chambers JSON Compiler
 def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    hitsville_data = preset_data.get("hitsville") if isinstance(preset_data, dict) else None
 
-    mix = find_numeric_parameter(content, ["Mix", "Room Mix"])
-    pre_delay = find_numeric_parameter(content, ["Pre-Delay"])
-    decay = find_numeric_parameter(content, ["Decay"])
+    if hitsville_data and isinstance(hitsville_data, dict):
+        mix = hitsville_data.get("mix")
+        pre_delay = hitsville_data.get("pre_delay")
+        decay = hitsville_data.get("decay")
+        
+        # normalize
+        if mix is not None: mix = float(mix)
+        if pre_delay is not None: pre_delay = float(pre_delay)
+        if decay is not None: decay = float(decay)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        mix = find_numeric_parameter(content, ["Mix", "Room Mix"])
+        pre_delay = find_numeric_parameter(content, ["Pre-Delay"])
+        decay = find_numeric_parameter(content, ["Decay"])
 
     if mix is None and pre_delay is None and decay is None:
         return False
@@ -706,13 +868,434 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
     print(f"-> Compiled UADx Hitsville Reverb Preset: 'Toneprint - {output_name}'")
     return True
 
+# Dynamic UADx Galaxy Tape Echo JSON Preset Compiler
+def compile_galaxy_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    galaxy_data = preset_data.get("galaxy") if isinstance(preset_data, dict) else None
+
+    if galaxy_data and isinstance(galaxy_data, dict):
+        echo_rate = galaxy_data.get("echo_rate")
+        feedback = galaxy_data.get("feedback")
+        echo_volume = galaxy_data.get("echo_volume")
+        reverb_volume = galaxy_data.get("reverb_volume")
+        head_select = galaxy_data.get("head_select")
+        tape_age = galaxy_data.get("tape_age")
+        
+        # normalize types
+        if echo_rate is not None: echo_rate = float(echo_rate)
+        if feedback is not None: feedback = float(feedback)
+        if echo_volume is not None: echo_volume = float(echo_volume)
+        if reverb_volume is not None: reverb_volume = float(reverb_volume)
+        if head_select is not None: head_select = str(head_select)
+        if tape_age is not None: tape_age = str(tape_age)
+    else:
+        with open(filepath, "r") as f:
+            full_content = f.read()
+            
+        # Isolate to Galaxy section to prevent parameter collision
+        content = extract_markdown_section(full_content, ["Galaxy Tape Echo", "Galaxy Echo", "Galaxy"])
+        
+        echo_rate = find_numeric_parameter(content, ["Echo Rate", "Rate"])
+        feedback = find_numeric_parameter(content, ["Feedback"])
+        echo_volume = find_numeric_parameter(content, ["Echo Volume", "Volume (Echo)", "Echo Vol"])
+        reverb_volume = find_numeric_parameter(content, ["Reverb Volume", "Reverb Vol"])
+        
+        # Head Select can be integer or string; prioritize string cell first
+        hs_match = re.search(r"\|\s*Head Select\s*\|\s*(?:\*\*)?([^|]+?)(?:\*\*)?\s*\|", content, re.IGNORECASE)
+        if hs_match:
+            head_select = hs_match.group(1).strip()
+        else:
+            head_select_raw = find_numeric_parameter(content, ["Head Select", "Head"])
+            head_select = str(int(head_select_raw)) if head_select_raw is not None else None
+            
+        ta_match = re.search(r"\|\s*Tape Age\s*\|\s*(?:\*\%)?([A-Za-z]+)(?:\*\%)?\s*\|", content, re.IGNORECASE)
+        tape_age = ta_match.group(1).strip() if ta_match else None
+
+    # If all critical controls are None, skip
+    if echo_rate is None and feedback is None and echo_volume is None:
+        return False
+
+    # Load base template JSON preset
+    try:
+        with open(base_preset_path, "r") as f:
+            preset_data_json = json.load(f)
+    except Exception as e:
+        print(f"Error: Failed to parse Galaxy base preset JSON template: {e}")
+        return False
+
+    # Decode chunk
+    chunk_bytes = bytearray(base64.b64decode(preset_data_json["chunk"]))
+    
+    # 1. Echo Rate: Float Index 19 (Offset 76)
+    if echo_rate is not None:
+        val_scaled = echo_rate / 10.0 if echo_rate > 1.0 else echo_rate
+        struct.pack_into("f", chunk_bytes, 19 * 4, val_scaled)
+        
+    # 2. Reverb Volume: Float Index 20 (Offset 80)
+    if reverb_volume is not None:
+        val_scaled = reverb_volume / 10.0 if reverb_volume > 1.0 else reverb_volume
+        struct.pack_into("f", chunk_bytes, 20 * 4, val_scaled)
+        
+    # 3. Feedback: Float Index 21 (Offset 84)
+    if feedback is not None:
+        val_scaled = feedback / 10.0 if feedback > 1.0 else feedback
+        struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
+        
+    # 4. Echo Volume: Float Index 22 (Offset 88)
+    if echo_volume is not None:
+        val_scaled = echo_volume / 10.0 if echo_volume > 1.0 else echo_volume
+        struct.pack_into("f", chunk_bytes, 22 * 4, val_scaled)
+        
+    # 5. Tape Age: Float Index 23 (Offset 92) (New=0.0, Used=0.5, Old=1.0)
+    if tape_age is not None:
+        ta_lower = tape_age.lower()
+        if "new" in ta_lower:
+            val = 0.0
+        elif "used" in ta_lower:
+            val = 0.5
+        elif "old" in ta_lower:
+            val = 1.0
+        else:
+            try:
+                val = float(tape_age)
+            except ValueError:
+                val = 0.0
+        struct.pack_into("f", chunk_bytes, 23 * 4, val)
+        
+    # 6. Head Select: Float Index 14 (Offset 56)
+    if head_select is not None:
+        hs_val = 0.0 # Default to Repeat 1
+        try:
+            hs_str = str(head_select).lower()
+            if "1+2+3" in hs_str or "1,2,3" in hs_str or "all" in hs_str:
+                hs_val = 10.0 / 11.0 # Reverb+Repeat 7 (Heads 1+2+3)
+            elif "1+3" in hs_str or "1,3" in hs_str:
+                hs_val = 9.0 / 11.0 # Reverb+Repeat 6 (Heads 1+3)
+            elif "reverb only" in hs_str or "only reverb" in hs_str:
+                hs_val = 1.0 # Reverb Only
+            else:
+                clean_hs = "".join(c for c in hs_str if c.isdigit() or c == ".")
+                if clean_hs:
+                    hs_num = int(float(clean_hs))
+                    if 1 <= hs_num <= 12:
+                        hs_val = (hs_num - 1) / 11.0
+        except ValueError:
+            pass
+        struct.pack_into("f", chunk_bytes, 14 * 4, hs_val)
+
+    # Re-encode chunk
+    preset_data_json["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
+    preset_data_json["name"] = f"Toneprint - {output_name}"
+    preset_data_json["uid"] = uuid.uuid4().hex
+
+    # Output directory: standard documents plugin presets folder for UADx
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.json")
+    
+    try:
+        with open(out_path, "w") as f:
+            json.dump(preset_data_json, f, indent=4)
+        print(f"-> Compiled UADx Galaxy Tape Echo Preset: 'Toneprint - {output_name}'")
+        return True
+    except Exception as e:
+        print(f"Error: Failed to write Galaxy preset: {e}")
+        return False
+
+
+# Dynamic Universal Audio UADx Studio D Chorus JSON Compiler
+def compile_studio_d_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    studio_d_data = preset_data.get("studio_d") if isinstance(preset_data, dict) else None
+
+    mode = None
+    power = None
+
+    if studio_d_data and isinstance(studio_d_data, dict):
+        mode = studio_d_data.get("mode")
+        power = studio_d_data.get("power")
+        
+        # normalize types
+        if mode is not None:
+            mode = str(mode)
+        if power is not None:
+            if isinstance(power, bool):
+                pass
+            else:
+                power = str(power).lower() in ("true", "on", "1")
+    else:
+        with open(filepath, "r") as f:
+            full_content = f.read()
+            
+        # Isolate to Studio D section to prevent parameter collision
+        content = extract_markdown_section(full_content, ["Studio D Chorus", "Studio D", "Dimension D", "Dimension Chorus"])
+        
+        # Look for Mode. It could be string or numeric (e.g. "4", "1+4", "all")
+        # Let's search for the Mode setting inside the table
+        mode_match = re.search(r"\|\s*Mode\s*\|\s*(?:\*\?)?([^|]+?)(?:\*\%)?\s*\|", content, re.IGNORECASE)
+        if mode_match:
+            mode = mode_match.group(1).strip()
+        else:
+            # Let's try finding the numeric parameter for Mode
+            mode_num = find_numeric_parameter(content, ["Mode"])
+            if mode_num is not None:
+                mode = str(int(mode_num))
+
+        # Look for Power (ON / OFF)
+        power = find_boolean_parameter(content, ["Power"])
+        bypass = find_boolean_parameter(content, ["Bypass"])
+        if bypass is not None:
+            power = not bypass
+
+    # If both are None, skip
+    if mode is None and power is None:
+        return False
+
+    # Load base template JSON preset
+    try:
+        with open(base_preset_path, "r") as f:
+            preset_data_json = json.load(f)
+    except Exception as e:
+        print(f"Error: Failed to parse Studio D base preset JSON template: {e}")
+        return False
+
+    # Decode chunk
+    chunk_bytes = bytearray(base64.b64decode(preset_data_json["chunk"]))
+
+    # Dimension Mode button mapping
+    if mode is not None:
+        mode_str = str(mode).lower().strip()
+        # Parse modes:
+        # Off: 0.0
+        # 1: 1/15.0
+        # 2: 2/15.0
+        # 3: 4/15.0
+        # 4: 8/15.0
+        # "all" or "secret" or "1+2+3+4": 15/15.0 = 1.0
+        # Custom combinations, e.g. "1+4": sum weights 1 + 8 = 9 -> 9/15.0
+        mode_val = 0.0
+        if mode_str in ("off", "0", "none", "bypassed"):
+            mode_val = 0.0
+        elif mode_str in ("all", "secret", "1+2+3+4", "1,2,3,4"):
+            mode_val = 1.0
+        else:
+            # Parse custom combination or single mode
+            parts = re.findall(r"\d", mode_str)
+            if parts:
+                weight_sum = 0
+                for part in parts:
+                    n = int(part)
+                    if n == 1:
+                        weight_sum += 1
+                    elif n == 2:
+                        weight_sum += 2
+                    elif n == 3:
+                        weight_sum += 4
+                    elif n == 4:
+                        weight_sum += 8
+                # scale by 15.0
+                mode_val = min(1.0, max(0.0, weight_sum / 15.0))
+            else:
+                try:
+                    # Fallback to direct float conversion if they passed an exact float
+                    mode_val = float(mode_str)
+                except ValueError:
+                    mode_val = 0.0
+        
+        struct.pack_into("f", chunk_bytes, 10 * 4, mode_val)
+
+    # Power Switch mapping
+    if power is not None:
+        power_val = 1.0 if power else 0.0
+        struct.pack_into("f", chunk_bytes, 12 * 4, power_val)
+
+    # Re-encode chunk
+    preset_data_json["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
+    preset_data_json["name"] = f"Toneprint - {output_name}"
+    preset_data_json["uid"] = uuid.uuid4().hex
+
+    # Output directory: standard documents plugin presets folder for UADx Studio D
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.json")
+
+    try:
+        with open(out_path, "w") as f:
+            json.dump(preset_data_json, f, indent=4)
+        print(f"-> Compiled UADx Studio D Chorus Preset: 'Toneprint - {output_name}'")
+        return True
+    except Exception as e:
+        print(f"Error: Failed to write Studio D preset: {e}")
+        return False
+
+
+# Dynamic Valhalla Supermassive XML VPRESET Compiler
+def compile_supermassive_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    supermassive_data = preset_data.get("supermassive") if isinstance(preset_data, dict) else None
+
+    mix = None
+    delay_ms = None
+    warp = None
+    feedback = None
+    density = None
+    mode = None
+
+    if supermassive_data and isinstance(supermassive_data, dict):
+        mix = supermassive_data.get("mix")
+        delay_ms = supermassive_data.get("delay")
+        warp = supermassive_data.get("warp")
+        feedback = supermassive_data.get("feedback")
+        density = supermassive_data.get("density")
+        mode = supermassive_data.get("mode")
+    else:
+        with open(filepath, "r") as f:
+            full_content = f.read()
+            
+        content = extract_markdown_section(full_content, ["ValhallaSuperMassive", "SuperMassive", "Valhalla Super Massive"])
+        
+        mix = find_numeric_parameter(content, ["Mix"])
+        
+        # Look for Delay specifically with custom regex to handle "ms" or "s"
+        delay_match = re.search(r"\|\s*(?:Delay|Delay time)\s*\|\s*(?:\*\?)?([~0-9.+−-]+)(?:ms|s)?(?:\*\%)?\s*\|", content, re.IGNORECASE)
+        if delay_match:
+            val_str = delay_match.group(1).replace("−", "-").replace("~", "").strip()
+            try:
+                delay_ms = float(val_str)
+            except ValueError:
+                delay_ms = None
+        else:
+            delay_ms = find_numeric_parameter(content, ["Delay", "Delay time"])
+            
+        warp = find_numeric_parameter(content, ["Warp"])
+        feedback = find_numeric_parameter(content, ["Feedback"])
+        density = find_numeric_parameter(content, ["Density"])
+        
+        mode_match = re.search(r"\|\s*Mode\s*\|\s*(?:\*\?)?([^|]+?)(?:\*\%)?\s*\|", content, re.IGNORECASE)
+        if mode_match:
+            mode = mode_match.group(1).strip()
+
+    # Skip if we don't have enough parameters
+    if mix is None and delay_ms is None and feedback is None:
+        return False
+
+    # Load base template vpreset file
+    try:
+        with open(base_preset_path, "r") as f:
+            preset_text = f.read()
+    except Exception as e:
+        print(f"Error: Failed to read Valhalla Supermassive base template: {e}")
+        return False
+
+    try:
+        root_node = ET.fromstring(preset_text.encode("utf-8"))
+        if root_node.tag != "ValhallaSupermassive":
+            return False
+            
+        # Update name
+        root_node.set("presetName", f"Toneprint - {output_name}")
+        
+        # 1. Mix (0.0 to 1.0)
+        if mix is not None:
+            val = mix / 100.0 if mix > 1.0 else mix
+            root_node.set("Mix", f"{val:.15f}".rstrip("0").rstrip("."))
+            
+        # 2. Delay (ms to scaled float: ms / 1000.0)
+        if delay_ms is not None:
+            val = delay_ms / 1000.0 if delay_ms > 2.0 else delay_ms
+            root_node.set("Delay_Ms", f"{val:.15f}".rstrip("0").rstrip("."))
+            
+        # 3. Warp (0.0 to 1.0)
+        if warp is not None:
+            val = warp / 100.0 if warp > 1.0 else warp
+            root_node.set("DelayWarp", f"{val:.15f}".rstrip("0").rstrip("."))
+            
+        # 4. Feedback (0.0 to 1.0)
+        if feedback is not None:
+            val = feedback / 100.0 if feedback > 1.0 else feedback
+            root_node.set("Feedback", f"{val:.15f}".rstrip("0").rstrip("."))
+            
+        # 5. Density (0.0 to 1.0)
+        if density is not None:
+            val = density / 100.0 if density > 1.0 else density
+            root_node.set("Density", f"{val:.15f}".rstrip("0").rstrip("."))
+            
+        # 6. Mode (Index / 24.0)
+        if mode is not None:
+            mode_str = str(mode).lower().strip()
+            VALHALLA_MODES = [
+                "gemini", "hydra", "centaurus", "sagittarius", "great orion",
+                "great annihilator", "andromeda", "lyra", "capricorn",
+                "large magellanic cloud", "small magellanic cloud", "triangulum",
+                "cirrus major", "cirrus minor", "cassiopeia", "ursa major",
+                "ursa minor", "scorpio", "leo", "virgo"
+            ]
+            mode_idx = -1
+            for idx, m in enumerate(VALHALLA_MODES):
+                if m in mode_str or mode_str in m:
+                    mode_idx = idx
+                    break
+            if mode_idx != -1:
+                val = mode_idx / 24.0
+                root_node.set("Mode", f"{val:.15f}".rstrip("0").rstrip("."))
+            else:
+                try:
+                    root_node.set("Mode", f"{float(mode):.15f}".rstrip("0").rstrip("."))
+                except ValueError:
+                    pass
+                    
+        # 7. Default ModRate and ModDepth to 0.0 to keep it clean and detune-free
+        root_node.set("ModRate", "0.0")
+        root_node.set("ModDepth", "0.0")
+
+        # Write back out
+        out_xml = ET.tostring(root_node, encoding="utf-8").decode("utf-8")
+        
+        # Prepend XML declaration
+        out_content = '<?xml version="1.0" encoding="UTF-8"?>\n\n' + out_xml + '\n'
+        
+        # Write out
+        output_dir = os.path.dirname(base_preset_path)
+        out_path = os.path.join(output_dir, f"Toneprint - {output_name}.vpreset")
+        
+        with open(out_path, "w") as f:
+            f.write(out_content)
+        print(f"-> Compiled ValhallaSupermassive Preset: 'Toneprint - {output_name}'")
+        return True
+    except Exception as e:
+        print(f"Error: Failed to compile Supermassive preset: {e}")
+        return False
+
+
 # Dynamic Logic Pro Native Channel EQ PST Compiler
 def compile_logic_eq_toneprint(filepath, base_preset_path, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    eq_data = preset_data.get("logic_eq") if isinstance(preset_data, dict) else None
 
-    # Parse all bands from toneprint markdown
-    bands = parse_eq_bands(content)
+    if eq_data and isinstance(eq_data, dict):
+        bands = {i: {"on": None, "freq": None, "gain_or_slope": None, "q": None} for i in range(1, 9)}
+        for band_str, params in eq_data.items():
+            if not band_str.startswith("band") or not band_str[4:].isdigit():
+                continue
+            band_num = int(band_str[4:])
+            if band_num < 1 or band_num > 8:
+                continue
+            
+            if "on" in params:
+                bands[band_num]["on"] = 1.0 if params["on"] else 0.0
+            if "freq" in params:
+                bands[band_num]["freq"] = float(params["freq"])
+            if band_num in [1, 8]:
+                if "slope" in params:
+                    bands[band_num]["gain_or_slope"] = float(params["slope"])
+            else:
+                if "gain" in params:
+                    bands[band_num]["gain_or_slope"] = float(params["gain"])
+                if "q" in params:
+                    bands[band_num]["q"] = float(params["q"])
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        # Parse all bands from toneprint markdown
+        bands = parse_eq_bands(content)
 
     # Check if any band is active/configured
     any_configured = any(p["on"] is not None for p in bands.values())
@@ -768,16 +1351,34 @@ def compile_logic_eq_toneprint(filepath, base_preset_path, output_name, frontmat
 
 # Dynamic Logic Pro Native Compressor PST Compiler
 def compile_logic_compressor_toneprint(filepath, base_preset_path, output_name, frontmatter):
-    with open(filepath, "r") as f:
-        content = f.read()
+    preset_data = frontmatter.get("preset_data", {})
+    comp_data = preset_data.get("logic_compressor") if isinstance(preset_data, dict) else None
 
-    # Search for Compressor settings using robust helper
-    threshold = extract_comp_param(content, ["Threshold"])
-    ratio = extract_comp_param(content, ["Ratio"])
-    attack = extract_comp_param(content, ["Attack"])
-    release = extract_comp_param(content, ["Release"])
-    gain = extract_comp_param(content, ["Gain", "Makeup Gain"])
-    knee = extract_comp_param(content, ["Knee"])
+    if comp_data and isinstance(comp_data, dict):
+        threshold = comp_data.get("threshold")
+        ratio = comp_data.get("ratio")
+        attack = comp_data.get("attack")
+        release = comp_data.get("release")
+        gain = comp_data.get("makeup_gain")
+        knee = comp_data.get("knee")
+        
+        # normalize types
+        if threshold is not None: threshold = float(threshold)
+        if ratio is not None: ratio = float(ratio)
+        if attack is not None: attack = float(attack)
+        if release is not None: release = float(release)
+        if gain is not None: gain = float(gain)
+        if knee is not None: knee = float(knee)
+    else:
+        with open(filepath, "r") as f:
+            content = f.read()
+        # Search for Compressor settings using robust helper
+        threshold = extract_comp_param(content, ["Threshold"])
+        ratio = extract_comp_param(content, ["Ratio"])
+        attack = extract_comp_param(content, ["Attack"])
+        release = extract_comp_param(content, ["Release"])
+        gain = extract_comp_param(content, ["Gain", "Makeup Gain"])
+        knee = extract_comp_param(content, ["Knee"])
 
     # If all are None, skip compressor generation
     if threshold is None and ratio is None and attack is None and release is None:
@@ -813,6 +1414,346 @@ def compile_logic_compressor_toneprint(filepath, base_preset_path, output_name, 
         f.write(preset_bytes)
 
     print(f"-> Compiled Logic Compressor Preset: 'Toneprint - {output_name}'")
+    return True
+
+
+# Dynamic Yamaha THR-II JSON Compiler (.thrl6p)
+def compile_yamaha_thr_toneprint(filepath, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    thr_data = preset_data.get("yamaha_thr") if isinstance(preset_data, dict) else None
+    
+    # Load base template structure
+    preset_json = json.loads(json.dumps(DEFAULT_THR_PRESET))
+    preset_json["data"]["meta"]["name"] = output_name
+    
+    if thr_data and isinstance(thr_data, dict):
+        tone = preset_json["data"]["tone"]
+        
+        # 1. Amp Settings
+        amp_data = thr_data.get("amp", {})
+        if isinstance(amp_data, dict):
+            if "model" in amp_data: tone["THRGroupAmp"]["@asset"] = str(amp_data["model"])
+            if "drive" in amp_data: tone["THRGroupAmp"]["Drive"] = float(amp_data["drive"])
+            if "bass" in amp_data: tone["THRGroupAmp"]["Bass"] = float(amp_data["bass"])
+            if "mid" in amp_data: tone["THRGroupAmp"]["Mid"] = float(amp_data["mid"])
+            if "treble" in amp_data: tone["THRGroupAmp"]["Treble"] = float(amp_data["treble"])
+            if "master" in amp_data: tone["THRGroupAmp"]["Master"] = float(amp_data["master"])
+            
+        # 2. Cabinet Settings
+        cab_data = thr_data.get("cab", {})
+        if isinstance(cab_data, dict):
+            if "model" in cab_data: tone["THRGroupCab"]["@asset"] = str(cab_data["model"])
+            if "sim_type" in cab_data: tone["THRGroupCab"]["SpkSimType"] = str(cab_data["sim_type"])
+            
+        # 3. Compressor
+        comp_data = thr_data.get("compressor", {})
+        if isinstance(comp_data, dict):
+            if "enabled" in comp_data: tone["THRGroupFX1Compressor"]["@enabled"] = bool(comp_data["enabled"])
+            if "model" in comp_data: tone["THRGroupFX1Compressor"]["@asset"] = str(comp_data["model"])
+            if "level" in comp_data: tone["THRGroupFX1Compressor"]["Level"] = float(comp_data["level"])
+            if "sustain" in comp_data: tone["THRGroupFX1Compressor"]["Sustain"] = float(comp_data["sustain"])
+            
+        # 4. Effect (Modulation)
+        fx_data = thr_data.get("effect", {})
+        if isinstance(fx_data, dict):
+            if "enabled" in fx_data: tone["THRGroupFX2Effect"]["@enabled"] = bool(fx_data["enabled"])
+            if "model" in fx_data: tone["THRGroupFX2Effect"]["@asset"] = str(fx_data["model"])
+            if "wet_dry" in fx_data: tone["THRGroupFX2Effect"]["@wetDry"] = float(fx_data["wet_dry"])
+            if "depth" in fx_data: tone["THRGroupFX2Effect"]["Depth"] = float(fx_data["depth"])
+            if "feedback" in fx_data: tone["THRGroupFX2Effect"]["Feedback"] = float(fx_data["feedback"])
+            if "freq" in fx_data: tone["THRGroupFX2Effect"]["Freq"] = float(fx_data["freq"])
+            if "pre" in fx_data: tone["THRGroupFX2Effect"]["Pre"] = float(fx_data["pre"])
+            
+        # 5. Echo (Delay)
+        echo_data = thr_data.get("echo", {})
+        if isinstance(echo_data, dict):
+            if "enabled" in echo_data: tone["THRGroupFX3EffectEcho"]["@enabled"] = bool(echo_data["enabled"])
+            if "model" in echo_data: tone["THRGroupFX3EffectEcho"]["@asset"] = str(echo_data["model"])
+            if "wet_dry" in echo_data: tone["THRGroupFX3EffectEcho"]["@wetDry"] = float(echo_data["wet_dry"])
+            if "bass" in echo_data: tone["THRGroupFX3EffectEcho"]["Bass"] = float(echo_data["bass"])
+            if "feedback" in echo_data: tone["THRGroupFX3EffectEcho"]["Feedback"] = float(echo_data["feedback"])
+            if "time" in echo_data: tone["THRGroupFX3EffectEcho"]["Time"] = float(echo_data["time"])
+            if "treble" in echo_data: tone["THRGroupFX3EffectEcho"]["Treble"] = float(echo_data["treble"])
+            
+        # 6. Reverb
+        rev_data = thr_data.get("reverb", {})
+        if isinstance(rev_data, dict):
+            if "enabled" in rev_data: tone["THRGroupFX4EffectReverb"]["@enabled"] = bool(rev_data["enabled"])
+            if "model" in rev_data: tone["THRGroupFX4EffectReverb"]["@asset"] = str(rev_data["model"])
+            if "wet_dry" in rev_data: tone["THRGroupFX4EffectReverb"]["@wetDry"] = float(rev_data["wet_dry"])
+            if "decay" in rev_data: tone["THRGroupFX4EffectReverb"]["Decay"] = float(rev_data["decay"])
+            if "pre_delay" in rev_data: tone["THRGroupFX4EffectReverb"]["PreDelay"] = float(rev_data["pre_delay"])
+            if "tone" in rev_data: tone["THRGroupFX4EffectReverb"]["Tone"] = float(rev_data["tone"])
+            
+        # 7. Gate
+        gate_data = thr_data.get("gate", {})
+        if isinstance(gate_data, dict):
+            if "enabled" in gate_data: tone["THRGroupGate"]["@enabled"] = bool(gate_data["enabled"])
+            if "model" in gate_data: tone["THRGroupGate"]["@asset"] = str(gate_data["model"])
+            if "decay" in gate_data: tone["THRGroupGate"]["Decay"] = float(gate_data["decay"])
+            if "thresh" in gate_data: tone["THRGroupGate"]["Thresh"] = float(gate_data["thresh"])
+            
+        # 8. Global Tempo
+        global_data = thr_data.get("global", {})
+        if isinstance(global_data, dict):
+            if "tempo" in global_data: tone["global"]["THRPresetParamTempo"] = float(global_data["tempo"])
+
+    # Output directory
+    os.makedirs(YAMAHA_THR_OUTPUT_DIR, exist_ok=True)
+    out_path = os.path.join(YAMAHA_THR_OUTPUT_DIR, f"{output_name}.thrl6p")
+    
+    with open(out_path, "w") as f:
+        json.dump(preset_json, f, indent=4)
+        
+    print(f"-> Compiled Yamaha THR Preset: '{output_name}'")
+    return True
+
+
+# Helper to extract a specific device's section from Markdown body
+def extract_markdown_section(content, keywords):
+    lines = content.splitlines()
+    section_lines = []
+    in_section = False
+    in_section_level = 0
+    
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("#"):
+            header_level = len(stripped) - len(stripped.lstrip("#"))
+            header_text = stripped.lstrip("#").strip().lower()
+            
+            # Skip page title headers (H1) to avoid matching top-level tone names
+            if header_level == 1:
+                continue
+                
+            if in_section:
+                # Exit section if we hit another header of same or higher level
+                if header_level <= in_section_level:
+                    break
+            
+            # Check if this header matches our device keywords
+            if any(kw.lower() in header_text for kw in keywords):
+                in_section = True
+                in_section_level = header_level
+                continue
+                
+        if in_section:
+            section_lines.append(line)
+            
+    if in_section and section_lines:
+        return "\n".join(section_lines)
+    return content  # Fallback to full content if not found
+
+
+# Dynamic Nembrini XML Presets Compiler
+def compile_nembrini_xml_preset(filepath, base_preset_path, output_name, frontmatter, plugin_type):
+    # Load base XML preset template
+    if not os.path.exists(base_preset_path):
+        print(f"Warning: Nembrini base template missing for {plugin_type}: {base_preset_path}")
+        return False
+
+    preset_data = frontmatter.get("preset_data", {})
+    
+    # Identify target amp/plugin key in frontmatter
+    yaml_keys = {
+        "mrh810": "nembrini_mrh810",
+        "jc120": "nembrini_jc120",
+        "div11": "nembrini_div11",
+        "acoustic_voice": "nembrini_acoustic_voice",
+        "puretone": "nembrini_puretone"
+    }
+    
+    yaml_key = yaml_keys.get(plugin_type)
+    plugin_settings = preset_data.get(yaml_key) if isinstance(preset_data, dict) else None
+    
+    # If not present in frontmatter, dynamically parse from Markdown body
+    if not plugin_settings or not isinstance(plugin_settings, dict):
+        plugin_settings = {}
+        with open(filepath, "r") as f:
+            full_content = f.read()
+            
+        # Isolate the search space to the specific plugin's section to avoid Tone King conflicts
+        keywords_map = {
+            "mrh810": ["mrh810", "jcm800"],
+            "jc120": ["jazz chorus", "jc120", "jc-120"],
+            "div11": ["divided 11", "div11", "divided"],
+            "acoustic_voice": ["acoustic voice"],
+            "puretone": ["puretone", "pure tone"]
+        }
+        
+        keywords = keywords_map.get(plugin_type, [plugin_type])
+        content = extract_markdown_section(full_content, keywords)
+            
+        if plugin_type == "mrh810":
+            # Determine channel first
+            is_clean = "clean channel" in content.lower() and "lead channel" not in content.lower()
+            plugin_settings["ChSel"] = 0.0 if is_clean else 1.0
+            
+            # Common controls
+            master = find_numeric_parameter(content, ["Master", "Volume (master)"])
+            presence = find_numeric_parameter(content, ["Presence"])
+            out_level = find_numeric_parameter(content, ["Output (plugin Output slider)", "Output Level", "Output"])
+            harsh = find_boolean_parameter(content, ["Harsh"])
+            rumbling = find_boolean_parameter(content, ["Rumbling"])
+            
+            # Noise Gate
+            gate_power = find_boolean_parameter(content, ["Noise Gate Power", "Noise Gate", "Gate Power"])
+            gate_threshold = find_numeric_parameter(content, ["Noise Gate Threshold", "Threshold"])
+            gate_range = find_numeric_parameter(content, ["Noise Gate Range", "Range"])
+            
+            if master is not None: plugin_settings["Master"] = master
+            if presence is not None: plugin_settings["Presence"] = presence
+            if out_level is not None: plugin_settings["OutLevel"] = out_level
+            if harsh is not None: plugin_settings["Harsh"] = 1.0 if harsh else 0.0
+            if rumbling is not None: plugin_settings["Rumbling"] = 1.0 if rumbling else 0.0
+            if gate_power is not None: plugin_settings["NgPower"] = 1.0 if gate_power else 0.0
+            if gate_threshold is not None: plugin_settings["NgThreshold"] = gate_threshold
+            if gate_range is not None: plugin_settings["NgRange"] = gate_range
+            
+            # Channel specific controls
+            gain = find_numeric_parameter(content, ["Gain"])
+            volume = find_numeric_parameter(content, ["Volume (channel)", "Volume"])
+            bass = find_numeric_parameter(content, ["Bass"])
+            middle = find_numeric_parameter(content, ["Middle", "Mids"])
+            treble = find_numeric_parameter(content, ["Treble"])
+            
+            if is_clean:
+                if volume is not None: plugin_settings["CleanVolume"] = volume
+                if bass is not None: plugin_settings["CleanBass"] = bass
+                if treble is not None: plugin_settings["CleanTreble"] = treble
+            else:
+                if gain is not None: plugin_settings["LeadGain"] = gain
+                if volume is not None: plugin_settings["LeadVolume"] = volume
+                if bass is not None: plugin_settings["LeadBass"] = bass
+                if middle is not None: plugin_settings["LeadMid"] = middle
+                if treble is not None: plugin_settings["LeadTreble"] = treble
+                
+        elif plugin_type == "jc120":
+            bass = find_numeric_parameter(content, ["Bass"])
+            middle = find_numeric_parameter(content, ["Middle", "Mids"])
+            treble = find_numeric_parameter(content, ["Treble"])
+            volume = find_numeric_parameter(content, ["Volume"])
+            bright = find_boolean_parameter(content, ["Bright Switch", "Bright"])
+            distortion = find_numeric_parameter(content, ["Distortion"])
+            reverb = find_numeric_parameter(content, ["Reverb"])
+            out_level = find_numeric_parameter(content, ["Output (plugin Output slider)", "Output Level", "Output", "OutLevel"])
+            
+            if bass is not None: plugin_settings["Bass"] = bass
+            if middle is not None: plugin_settings["Middle"] = middle
+            if treble is not None: plugin_settings["Treble"] = treble
+            if volume is not None: plugin_settings["Volume"] = volume
+            if bright is not None: plugin_settings["Brigth"] = 1.0 if bright else 0.0
+            if distortion is not None: plugin_settings["Distortion"] = distortion
+            if reverb is not None: plugin_settings["Reverb"] = reverb
+            if out_level is not None: plugin_settings["OutLevel"] = out_level
+            
+            # Modulation type and params
+            mod_depth = find_numeric_parameter(content, ["Modulation Depth", "Mod Depth"])
+            mod_speed = find_numeric_parameter(content, ["Modulation Speed", "Mod Speed"])
+            if "chorus" in content.lower():
+                plugin_settings["ModType"] = 2.0  # Chorus (value 2.0)
+            elif "vibrato" in content.lower():
+                plugin_settings["ModType"] = 1.0  # Vibrato (value 1.0)
+                
+            if mod_depth is not None: plugin_settings["ModDepth"] = mod_depth
+            if mod_speed is not None: plugin_settings["ModSpeed"] = mod_speed
+            
+        elif plugin_type == "div11":
+            bass = find_numeric_parameter(content, ["Bass"])
+            master = find_numeric_parameter(content, ["Master"])
+            volume = find_numeric_parameter(content, ["Volume"])
+            treble = find_numeric_parameter(content, ["Treble"])
+            tight = find_numeric_parameter(content, ["Tight"])
+            harsh = find_numeric_parameter(content, ["Harsh"])
+            boost = find_boolean_parameter(content, ["Boost Switch", "Boost"])
+            out_level = find_numeric_parameter(content, ["Output (plugin Output slider)", "Output Level", "Output", "OutLevel"])
+            
+            if bass is not None: plugin_settings["Bass"] = bass
+            if master is not None: plugin_settings["Master"] = master
+            if volume is not None: plugin_settings["Volume"] = volume
+            if treble is not None: plugin_settings["Treble"] = treble
+            if tight is not None: plugin_settings["Tight"] = tight
+            if harsh is not None: plugin_settings["Harsh"] = harsh
+            if boost is not None: plugin_settings["Boost"] = 1.0 if boost else 0.0
+            if out_level is not None: plugin_settings["OutLevel"] = out_level
+            
+        elif plugin_type == "acoustic_voice":
+            gain = find_numeric_parameter(content, ["DI Preamp Gain", "Preamp Gain", "Gain"])
+            notch = find_numeric_parameter(content, ["DI Preamp Notch", "Preamp Notch", "Notch"])
+            
+            comp_power = find_boolean_parameter(content, ["Compressor Power", "Compressor Active", "Compressor"])
+            comp_attack = find_numeric_parameter(content, ["Compressor Attack"])
+            comp_release = find_numeric_parameter(content, ["Compressor Release"])
+            comp_ratio = find_numeric_parameter(content, ["Compressor Ratio"])
+            comp_thresh = find_numeric_parameter(content, ["Compressor Threshold"])
+            comp_out = find_numeric_parameter(content, ["Compressor Output", "Compressor Gain"])
+            
+            reverb_mix = find_numeric_parameter(content, ["Reverb Mix"])
+            reverb_size = find_numeric_parameter(content, ["Reverb Size"])
+            reverb_tone = find_numeric_parameter(content, ["Reverb Tone"])
+            
+            if gain is not None: plugin_settings["DiPreampGain"] = gain
+            if notch is not None: plugin_settings["DiPreampNotch"] = notch
+            if comp_power is not None: plugin_settings["CompressorPower"] = 1.0 if comp_power else 0.0
+            if comp_attack is not None: plugin_settings["CompressorAttack"] = comp_attack
+            if comp_release is not None: plugin_settings["CompressorRelease"] = comp_release
+            if comp_ratio is not None: plugin_settings["CompressorRatio"] = comp_ratio
+            if comp_thresh is not None: plugin_settings["CompressorThreshold"] = comp_thresh
+            if comp_out is not None: plugin_settings["CompressorOut"] = comp_out
+            if reverb_mix is not None: plugin_settings["ReverbMix"] = reverb_mix
+            if reverb_size is not None: plugin_settings["ReverbSize"] = reverb_size
+            if reverb_tone is not None: plugin_settings["ReverbTone"] = reverb_tone
+            
+        elif plugin_type == "puretone":
+            volume = find_numeric_parameter(content, ["Volume"])
+            growl = find_numeric_parameter(content, ["Growl"])
+            bass = find_numeric_parameter(content, ["Bass"])
+            mid = find_numeric_parameter(content, ["Middle", "Mids", "Mid"])
+            treble = find_numeric_parameter(content, ["Treble"])
+            tone = find_numeric_parameter(content, ["Tone"])
+            out_level = find_numeric_parameter(content, ["Output (plugin Output slider)", "Output Level", "Output", "OutLevel"])
+            
+            if volume is not None: plugin_settings["Volume"] = volume
+            if growl is not None: plugin_settings["Growl"] = growl
+            if bass is not None: plugin_settings["Bass"] = bass
+            if mid is not None: plugin_settings["Mid"] = mid
+            if treble is not None: plugin_settings["Treble"] = treble
+            if tone is not None: plugin_settings["Tone"] = tone
+            if out_level is not None: plugin_settings["OutLevel"] = out_level
+
+    # Skip if no settings were identified
+    if not plugin_settings:
+        return False
+
+    # Standardize values to float types and strings
+    mapped_settings = {}
+    for k, v in plugin_settings.items():
+        if isinstance(v, bool):
+            mapped_settings[k] = 1.0 if v else 0.0
+        elif isinstance(v, (int, float)):
+            mapped_settings[k] = float(v)
+        else:
+            try:
+                mapped_settings[k] = float(v)
+            except ValueError:
+                mapped_settings[k] = v
+
+    # Parse and patch XML
+    tree = ET.parse(base_preset_path)
+    root = tree.getroot()
+    
+    # Surgically patch PARAM elements
+    for param in root.findall("PARAM"):
+        param_id = param.get("id")
+        if param_id in mapped_settings:
+            param.set("value", str(mapped_settings[param_id]))
+            
+    # Write back XML
+    output_dir = os.path.dirname(base_preset_path)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.xml")
+    
+    tree.write(out_path, encoding="UTF-8", xml_declaration=True)
+    print(f"-> Compiled Nembrini {plugin_type.upper()} XML Preset: 'Toneprint - {output_name}'")
     return True
 
 
@@ -855,6 +1796,15 @@ def main():
     compiled_hitsville = 0
     compiled_logiceq = 0
     compiled_logiccomp = 0
+    compiled_thr = 0
+    compiled_mrh810 = 0
+    compiled_jc120 = 0
+    compiled_div11 = 0
+    compiled_acoustic = 0
+    compiled_puretone = 0
+    compiled_galaxy = 0
+    compiled_studiod = 0
+    compiled_supermassive = 0
     
     for root, dirs, files in os.walk(TONES_DIR):
         for f in files:
@@ -888,6 +1838,29 @@ def main():
                 if mixwave_base_xml:
                     if compile_mixwave_toneprint(filepath, mixwave_base_xml, clean_name, frontmatter):
                         compiled_mixwave += 1
+            elif any(x in amp_str for x in ["THR10", "THR30", "Yamaha THR", "THR-II", "THR II"]):
+                if compile_yamaha_thr_toneprint(filepath, clean_name, frontmatter):
+                    compiled_thr += 1
+            elif "MRH810" in amp_str or "JCM800" in amp_str:
+                base_path = NEMBRINI_TEMPLATES["mrh810"]
+                if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "mrh810"):
+                    compiled_mrh810 += 1
+            elif "Jazz Chorus" in amp_str or "JC120" in amp_str or "JC-120" in amp_str:
+                base_path = NEMBRINI_TEMPLATES["jc120"]
+                if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "jc120"):
+                    compiled_jc120 += 1
+            elif "Divided 11" in amp_str or "Div11" in amp_str or "Divided" in amp_str:
+                base_path = NEMBRINI_TEMPLATES["div11"]
+                if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "div11"):
+                    compiled_div11 += 1
+            elif "Acoustic Voice" in amp_str:
+                base_path = NEMBRINI_TEMPLATES["acoustic_voice"]
+                if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "acoustic_voice"):
+                    compiled_acoustic += 1
+            elif "Puretone" in amp_str or "HK Puretone" in amp_str:
+                base_path = NEMBRINI_TEMPLATES["puretone"]
+                if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "puretone"):
+                    compiled_puretone += 1
             else:
                 # Check if it is a UADx model
                 is_uad = any(x in amp_str for x in ["Dream", "Enigmatic", "Woodrow", "Ruby", "Showtime", "Lion"])
@@ -909,6 +1882,27 @@ def main():
                     if compile_hitsville_toneprint(filepath, HITSVILLE_BASE, clean_name, frontmatter):
                         compiled_hitsville += 1
 
+            # Compile Galaxy Tape Echo Presets if templates exist
+            if os.path.exists(GALAXY_BASE):
+                # Only compile if Galaxy is in the toneprint content
+                if "galaxy" in content.lower():
+                    if compile_galaxy_toneprint(filepath, GALAXY_BASE, clean_name, frontmatter):
+                        compiled_galaxy += 1
+
+            # Compile Studio D Chorus Presets if templates exist
+            if os.path.exists(STUDIO_D_BASE):
+                # Only compile if Studio D or Dimension D is in the toneprint content
+                if any(x in content.lower() for x in ["studio d", "dimension d", "dimension chorus"]):
+                    if compile_studio_d_toneprint(filepath, STUDIO_D_BASE, clean_name, frontmatter):
+                        compiled_studiod += 1
+
+            # Compile Valhalla Supermassive Presets if templates exist
+            if os.path.exists(VALHALLA_BASE):
+                # Only compile if Supermassive is in the toneprint content
+                if any(x in content.lower() for x in ["supermassive", "valhallasupermassive"]):
+                    if compile_supermassive_toneprint(filepath, VALHALLA_BASE, clean_name, frontmatter):
+                        compiled_supermassive += 1
+
             # Compile Logic Channel EQ Presets if native templates exist
             if os.path.exists(LOGIC_EQ_BASE):
                 # Check if Logic Channel EQ is in toneprint
@@ -923,6 +1917,14 @@ def main():
                     if compile_logic_compressor_toneprint(filepath, LOGIC_COMP_BASE, clean_name, frontmatter):
                         compiled_logiccomp += 1
 
+            # Compile Nembrini Acoustic Voice Pro Presets if templates exist
+            base_avp_path = NEMBRINI_TEMPLATES["acoustic_voice"]
+            if os.path.exists(base_avp_path):
+                # Only compile if Acoustic Voice is in the toneprint content
+                if "acoustic voice" in content.lower():
+                    if compile_nembrini_xml_preset(filepath, base_avp_path, clean_name, frontmatter, "acoustic_voice"):
+                        compiled_acoustic += 1
+
     print("\n==================================================")
     print(f"Rig Compilation Complete! Injected:")
     print(f"  -> {compiled_neural} Neural DSP presets in {NEURAL_OUTPUT_DIR}")
@@ -932,6 +1934,15 @@ def main():
     print(f"  -> {compiled_hitsville} UADx Hitsville presets in {os.path.dirname(HITSVILLE_BASE)}")
     print(f"  -> {compiled_logiceq} Logic Channel EQ presets in {os.path.dirname(LOGIC_EQ_BASE)}")
     print(f"  -> {compiled_logiccomp} Logic Compressor presets in {os.path.dirname(LOGIC_COMP_BASE)}")
+    print(f"  -> {compiled_thr} Yamaha THR presets in {YAMAHA_THR_OUTPUT_DIR}")
+    print(f"  -> {compiled_mrh810} Nembrini MRH810 XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['mrh810'])}")
+    print(f"  -> {compiled_jc120} Nembrini Jazz Chorus XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['jc120'])}")
+    print(f"  -> {compiled_div11} Nembrini Divided 11 XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['div11'])}")
+    print(f"  -> {compiled_acoustic} Nembrini Acoustic Voice XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['acoustic_voice'])}")
+    print(f"  -> {compiled_puretone} Nembrini Puretone XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['puretone'])}")
+    print(f"  -> {compiled_galaxy} UADx Galaxy Tape Echo presets in {os.path.dirname(GALAXY_BASE)}")
+    print(f"  -> {compiled_studiod} UADx Studio D Chorus presets in {os.path.dirname(STUDIO_D_BASE)}")
+    print(f"  -> {compiled_supermassive} Valhalla Supermassive presets in {os.path.dirname(VALHALLA_BASE)}")
     print("==================================================")
 
 if __name__ == "__main__":

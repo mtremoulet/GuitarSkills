@@ -1,15 +1,35 @@
 ---
-id: two-rock-bloomfield-p90
+id: "two-rock-bloomfield-p90"
 preset_name: "Two-Rock Bloomfield Boutique Clean P90"
-created: 2026-05-26
-updated: 2026-05-26
-guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)
+created: "2026-05-26"
+updated: "2026-05-26"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "High-end boutique warm clean tailored for the Framus's resonant swamp ash snap and DiMarzio P-90 vocal midrange."
-tags: boutique, clean, warm, framus, p-90, two-rock, jazz-blues, neo-soul, bloomfield
+tags: "boutique, clean, warm, framus, p-90, two-rock, jazz-blues, neo-soul, bloomfield"
 tone-king-channel: bypassed
 amp: Two Rock
 status: initial
-pickup_type: p-90
+pickup_type: "p-90"
+preset_data:
+  amp_platform: mixwave
+  amp_settings:
+    Gain: 4.8
+    Treble: 4.8
+    Middle: 5
+    Bass: 4.5
+    Presence: 5
+    Master: 5
+    Reverb: 0
+    Vibe: 4.5
+    Bright: false
+    Mid: false
+    Deep: false
+    Tone Stack Bypass: false
+    Lead: false
+    Noise Gate: 0.38
+  la2a:
+    peak_reduction: 32
+    gain: 4.8
 ---
 
 # Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant)

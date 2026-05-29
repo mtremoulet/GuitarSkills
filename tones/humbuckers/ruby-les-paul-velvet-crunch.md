@@ -1,15 +1,34 @@
 ---
-id: ruby-les-paul-velvet-crunch
-preset_name: "Ruby LP Velvet Crunch HB"
-created: 2026-05-20
-updated: 2026-05-20
-guitar: "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)"
+id: "ruby-les-paul-velvet-crunch"
+preset_name: Ruby LP Velvet Crunch HB
+created: "2026-05-20"
+updated: "2026-05-20"
+guitar: Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)
 target: "Warm, vocal Class A chime and creamy velvet crunch; a rich, touch-sensitive pairing of Les Paul humbuckers and Vox AC30 Top Boost."
-tags: vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock
+tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock"
 tone-king-channel: bypassed
-amp: Ruby '63 (Paradise Guitar Studio)
+amp: "Ruby '63 (Paradise Guitar Studio)"
 status: initial
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Treble: 6.5
+    Bass: 4.2
+    Tone Cut: 5.5
+    Cut: true
+  la2a:
+    peak_reduction: 35
+    gain: 40
+  logic_eq:
+    band1:
+      on: true
+      freq: 80
+      slope: 2
+    band8:
+      on: true
+      freq: 6500
+      slope: 2
 ---
 
 # Ruby '63 — Les Paul Velvet Crunch & Chime

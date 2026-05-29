@@ -1,0 +1,67 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 48,
+        "device_version": 65536,
+        "meta": {
+            "name": "THR Warm Neo Soul",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupAmp": {
+                "@asset": "Clean",
+                "Bass": 0.6,
+                "Drive": 0.35,
+                "Master": 0.6,
+                "Mid": 0.5,
+                "Treble": 0.45
+            },
+            "THRGroupCab": {
+                "@asset": "2x12",
+                "SpkSimType": "Default"
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "Stomp Comp",
+                "@enabled": true,
+                "Level": 0.55,
+                "Sustain": 0.6
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "Chorus",
+                "@enabled": true,
+                "@wetDry": 0.35,
+                "Depth": 0.4,
+                "Feedback": 0.0,
+                "Freq": 0.25,
+                "Pre": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "Tape Echo",
+                "@enabled": true,
+                "@wetDry": 0.25,
+                "Bass": 0.5,
+                "Feedback": 0.2,
+                "Time": 0.3,
+                "Treble": 0.5
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "Hall",
+                "@enabled": true,
+                "@wetDry": 0.2,
+                "Decay": 0.45,
+                "PreDelay": 0.05,
+                "Tone": 0.5
+            },
+            "THRGroupGate": {
+                "@asset": "thr_noise_gate",
+                "@enabled": true,
+                "Decay": 0.5,
+                "Thresh": 0.12
+            },
+            "global": {
+                "THRPresetParamTempo": 120.0
+            }
+        }
+    }
+}

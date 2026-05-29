@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logic Pro — Universal Rig Template Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #0f172a; /* Sleek Dark Slate */
+    --surface:     #1e293b; /* Premium Card Slate */
+    --surface-alt: #334155;
+    --border:      #475569;
+    --accent:      #818cf8; /* Modern Indigo Glow */
+    --accent-dim:  #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+    --text:        #f8fafc;
+    --secondary:   #cbd5e1;
+    --muted:       #94a3b8;
+    --accent-fg:   #ffffff;
+    --sidebar-w:   280px;
+    --warning-bg:  rgba(245, 158, 11, 0.08);
+    --warning-border: #f59e0b;
+    --info-bg:     rgba(99, 102, 241, 0.10);
+  }
+
+  html, body { height: 100%; overflow: hidden; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Layout ── */
+  .app { display: flex; height: 100vh; overflow: hidden; }
+
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: #0f172a;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .main-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 60px;
+    background: #0b0f19;
+  }
+
+  /* ── Sidebar header ── */
+  .sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .guide-wordmark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .guide-hex {
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .guide-name {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  .guide-sub {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── Sidebar nav ── */
+  .sidebar-nav {
+    padding: 14px 10px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .nav-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 12px 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+    outline: none;
+    user-select: none;
+  }
+
+  .nav-item:hover { background: var(--surface); }
+
+  .nav-item.active {
+    background: var(--accent-glow);
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .nav-item.active .nav-dot { background: var(--accent); }
+
+  .nav-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--secondary);
+    line-height: 1.3;
+  }
+
+  .nav-item.active .nav-label {
+    color: var(--accent);
+  }
+
+  .nav-sublabel {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .nav-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 12px 12px;
+  }
+
+  .sidebar-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    color: var(--muted);
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Page sections ── */
+  .page { display: none; max-width: 840px; margin: 0 auto; }
+  .page.active { display: block; }
+
+  /* ── Page header ── */
+  .page-header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .page-description {
+    font-size: 15px;
+    color: var(--secondary);
+    line-height: 1.65;
+  }
+
+  /* ── Callouts ── */
+  .callout {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--info-bg);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 13.5px;
+  }
+
+  .callout-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .callout-body {
+    color: var(--secondary);
+    line-height: 1.6;
+  }
+
+  .callout-body strong { color: var(--text); font-weight: 600; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-dim);
+    color: var(--accent-fg);
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  /* ── Block Diagrams ── */
+  .diagram-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    align-items: center;
+  }
+
+  .diagram-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 18px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  }
+
+  .diagram-node.root {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .diagram-node-title {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  .diagram-node-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .diagram-arrow {
+    width: 2px;
+    height: 20px;
+    background: var(--border);
+    position: relative;
+  }
+
+  .diagram-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: var(--border) transparent transparent;
+  }
+
+  .diagram-split {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .diagram-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 300px;
+  }
+
+  /* ── Settings Table ── */
+  .table-wrap { overflow-x: auto; }
+
+  .settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .settings-table th {
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .settings-table td {
+    padding: 12px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .settings-table tr:last-child td { border-bottom: none; }
+  .settings-table tr:nth-child(even) td { background: rgba(255, 255, 255, 0.01); }
+
+  .col-label { font-weight: 600; color: var(--text); }
+  .col-val { font-weight: 700; color: var(--accent); }
+  .col-desc { color: var(--secondary); font-size: 12.5px; }
+
+  /* ── List Elements ── */
+  .step-list { display: flex; flex-direction: column; gap: 16px; }
+  .step-item { display: flex; gap: 16px; }
+  .step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--accent-dim);
+    color: var(--text);
+    font-weight: 800;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .step-text { color: var(--secondary); line-height: 1.6; }
+  .step-text strong { color: var(--text); }
+
+  /* ── Scrollbars ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ══════════════════════════════ SIDEBAR ══════════════════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="guide-wordmark">
+        <span class="guide-hex">&#x2B21;</span>
+        <span class="guide-name">DAW Rig Template</span>
+      </div>
+      <div class="guide-sub">Logic Pro Project Setup<br>Seamless Preset Recall</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Setup & Routing</div>
+
+      <div class="nav-item active" onclick="showPage('physical')" id="nav-physical" tabindex="0">
+        <span class="nav-dot"></span>
+        <div>
+          <div class="nav-label">1. Physical Front-End</div>
+          <div class="nav-sublabel">Hardware Baseline Specs</div>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="showPage('routing')" id="nav-routing" tabindex="0">
+        <span class="nav-dot"></span>
+        <div>
+          <div class="nav-label">2. DAW Bus Routing</div>
+          <div class="nav-sublabel">The 4-Aux Bus Matrix</div>
+        </div>
+      </div>
+
+      <div class="nav-item" onclick="showPage('checklist')" id="nav-checklist" tabindex="0">
+        <span class="nav-dot"></span>
+        <div>
+          <div class="nav-label">3. Deactivated Plugins</div>
+          <div class="nav-sublabel">Core Plugin Configuration</div>
+        </div>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-section-label">Operation</div>
+
+      <div class="nav-item" onclick="showPage('operation')" id="nav-operation" tabindex="0">
+        <span class="nav-dot"></span>
+        <div>
+          <div class="nav-label">The 3-Step Operation</div>
+          <div class="nav-sublabel">Loading Tones in 15s</div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      Logic Pro Creator Suite<br>
+      Universal Audio UADx Ecosystem<br>
+      Generated 2026-05-29
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════ MAIN PANEL ══════════════════════════════ -->
+  <main class="main-panel">
+
+    <!-- ════════════ PHYSICAL FRONT-END ════════════ -->
+    <section class="page active" id="page-physical">
+      <div class="page-header">
+        <div class="page-eyebrow">Hardware Baseline</div>
+        <div class="page-title">1. Physical Front-End Configuration</div>
+        <div class="page-description">
+          To ensure that the dynamic compilers yield consistent volume, compression threshold, and EQ colors in Logic, your physical guitar front-end must be locked to a transparent baseline.
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Philosophy</span>
+        <div class="callout-body">
+          We want the physical preamp to do as little coloring as possible unless it is explicitly requested by a toneprint. Setting a quiet volume and bypassing speaker cabinet IRs ensures the dry signal reaches the interface at a high-fidelity level, ready for DAW processing.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-num">&#x2714;</span>
+          <span class="card-title">Transparency Floor Calibration Checklist</span>
+        </div>
+        <div class="table-wrap">
+          <table class="settings-table">
+            <thead>
+              <tr>
+                <th>Hardware Control</th>
+                <th>Target Setting</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">TONEX One</td>
+                <td class="col-val">BYPASS (Stomp Mode Off)</td>
+                <td>Keeps the guitar signal completely dry and transparent.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Tone King Channel</td>
+                <td class="col-val">Rhythm</td>
+                <td>Cleanest channel with maximum headroom.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Tone King Volume</td>
+                <td class="col-val">2.0 to 3.0</td>
+                <td>Keeps the preamp in the "transparency zone," avoiding early tube breakup.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Tone King Attenuation</td>
+                <td class="col-val">5.0</td>
+                <td>Moderate/unity level going into the interface.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Tone King Bass / Treble</td>
+                <td class="col-val">5.0 (Noon / Flat)</td>
+                <td>Gives a flat response, leaving EQ shaping entirely to the plugin stack.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Tone King IR</td>
+                <td class="col-val">BYPASS</td>
+                <td>Crucial: avoids stacking multiple cabinet emulations with Logic.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Audient iD14 Preamp</td>
+                <td class="col-val">Set Gain for peaks around −18 dBFS</td>
+                <td>Protects head-room and matches gain staging expectations.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ DAW BUS ROUTING ════════════ -->
+    <section class="page" id="page-routing">
+      <div class="page-header">
+        <div class="page-eyebrow">DAW Architecture</div>
+        <div class="page-title">2. DAW Bus Routing Matrix</div>
+        <div class="page-description">
+          Building a standard 4-Aux routing matrix guarantees you keep a pristine dry sound, gain staging is easy, and you can blend parallel acoustic voicings or spatial returns transparently.
+        </div>
+      </div>
+
+      <div class="diagram-container">
+        <div class="diagram-node root">
+          <div class="diagram-node-title">Guitar Input Track</div>
+          <div class="diagram-node-sub">Output -> Bus 1</div>
+        </div>
+        <div class="diagram-arrow"></div>
+        <div class="diagram-split">
+          <div class="diagram-branch">
+            <div class="diagram-node">
+              <div class="diagram-node-title">Aux 1: Electric Dry</div>
+              <div class="diagram-node-sub">Input: Bus 1 | Fader: 0 dB</div>
+            </div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-node">
+              <div class="diagram-node-title">Sends to FX</div>
+              <div class="diagram-node-sub">Bus 3 Reverb | Bus 4 Delay</div>
+            </div>
+          </div>
+          <div class="diagram-branch">
+            <div class="diagram-node">
+              <div class="diagram-node-title">Aux 2: Acoustic Voice</div>
+              <div class="diagram-node-sub">Input: Bus 1 | Fader: −8 dB</div>
+            </div>
+            <div class="diagram-arrow"></div>
+            <div class="diagram-node">
+              <div class="diagram-node-title">Sends to FX</div>
+              <div class="diagram-node-sub">Bus 3 Reverb | Bus 4 Delay</div>
+            </div>
+          </div>
+        </div>
+        <div class="diagram-arrow"></div>
+        <div class="diagram-split">
+          <div class="diagram-branch">
+            <div class="diagram-node" style="border-color: #f59e0b;">
+              <div class="diagram-node-title">Aux 3: Reverb Return</div>
+              <div class="diagram-node-sub">Input: Bus 3 | 100% Wet</div>
+            </div>
+          </div>
+          <div class="diagram-branch">
+            <div class="diagram-node" style="border-color: #f59e0b;">
+              <div class="diagram-node-title">Aux 4: Delay Return</div>
+              <div class="diagram-node-sub">Input: Bus 4 | 100% Wet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-num">2</span>
+          <span class="card-title">Detailed Channel Strip Definitions</span>
+        </div>
+        <div class="table-wrap">
+          <table class="settings-table">
+            <thead>
+              <tr>
+                <th>Strip Name</th>
+                <th>Input/Output</th>
+                <th>Starting Fader</th>
+                <th>Sends Setup</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Guitar Input (Audio Track)</td>
+                <td>iD14 Input 1 -> **Bus 1**</td>
+                <td>0 dB</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="col-label">Electric Dry (Aux)</td>
+                <td>**Bus 1** -> Stereo Out</td>
+                <td>0 dB</td>
+                <td>Bus 3 (Reverb) @ **−20 dB** | Bus 4 (Delay) @ **−20 dB**</td>
+              </tr>
+              <tr>
+                <td class="col-label">Acoustic (Aux)</td>
+                <td>**Bus 1** -> Stereo Out</td>
+                <td class="col-val">−8 dB</td>
+                <td>Bus 3 (Reverb) @ **−22 dB** | Bus 4 (Delay) @ **−22 dB**</td>
+              </tr>
+              <tr>
+                <td class="col-label">Reverb Bus (Aux)</td>
+                <td>**Bus 3** -> Stereo Out</td>
+                <td class="col-val">−12 dB</td>
+                <td>— (Return strip, set plugin Wet Solo **ON**)</td>
+              </tr>
+              <tr>
+                <td class="col-label">Delay Bus (Aux)</td>
+                <td>**Bus 4** -> Stereo Out</td>
+                <td class="col-val">−15 dB</td>
+                <td>— (Return strip, set plugin Mix to **100%**)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ DEACTIVATED PLUGINS ════════════ -->
+    <section class="page" id="page-checklist">
+      <div class="page-header">
+        <div class="page-eyebrow">Plugin Index</div>
+        <div class="page-title">3. Deactivated Plugin Configurations</div>
+        <div class="page-description">
+          Load these specific plugins in order on each Aux strip and save them in a bypassed (grayed-out) state. This populates your workspace, ready to trigger any signal chain instantly.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-num">&#x2637;</span>
+          <span class="card-title">Electric Dry Aux Plugin Stack (Top-to-Bottom Order)</span>
+        </div>
+        <div class="table-wrap">
+          <table class="settings-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Plugin Name</th>
+                <th>Category</th>
+                <th>Operational Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">1</td>
+                <td class="col-val">Logic Compressor</td>
+                <td>Dynamics</td>
+                <td>Used for modern transparent gating/limiting.</td>
+              </tr>
+              <tr>
+                <td class="col-label">2</td>
+                <td class="col-val">UADx Teletronix LA-2A</td>
+                <td>Dynamics</td>
+                <td>Warm tube compressor for classic jazz/acoustic leveling.</td>
+              </tr>
+              <tr>
+                <td class="col-label">3</td>
+                <td class="col-val">UADx UA 610-B</td>
+                <td>Preamp &amp; EQ</td>
+                <td>Vintage tube drive and analog high shelf taming.</td>
+              </tr>
+              <tr>
+                <td class="col-label">4</td>
+                <td class="col-val">Logic Channel EQ</td>
+                <td>EQ</td>
+                <td>Surgical frequency cuts and high-cut veils.</td>
+              </tr>
+              <tr>
+                <td class="col-label">5</td>
+                <td class="col-val">Archetype Cory Wong X</td>
+                <td>Amp Simulation</td>
+                <td>Neural DSP clean platforms (Amp Snob 2x12).</td>
+              </tr>
+              <tr>
+                <td class="col-label">6</td>
+                <td class="col-val">Bloomfield Drive</td>
+                <td>Amp Simulation</td>
+                <td>MixWave boutique dumble-style clean and lead.</td>
+              </tr>
+              <tr>
+                <td class="col-label">7</td>
+                <td class="col-val">Paradise Guitar Studio</td>
+                <td>Studio Environment</td>
+                <td>UADx Amp emulations (Dream, Showtime, Lion, Woodrow).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-num">&#x2637;</span>
+          <span class="card-title">Parallel Return Plugin Stacks</span>
+        </div>
+        <div class="table-wrap">
+          <table class="settings-table">
+            <thead>
+              <tr>
+                <th>Aux Strip</th>
+                <th>Plugin loaded (Deactivated)</th>
+                <th>Crucial Setting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-label">Acoustic Aux</td>
+                <td>1. Nembrini Acoustic Voice Pro<br>2. Logic Channel EQ</td>
+                <td>Matches acoustic body modeling to magnetic pickups.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Reverb Return Bus</td>
+                <td>1. UADx Capitol Chambers<br>2. UADx Hitsville Reverb<br>3. Logic Space Designer</td>
+                <td class="col-val">WET SOLO: ON (100% Wet)<br>So returns are purely parallel.</td>
+              </tr>
+              <tr>
+                <td class="col-label">Delay Return Bus</td>
+                <td>1. UADx Galaxy Tape Echo<br>2. Logic Tape Delay</td>
+                <td class="col-val">WET SOLO / MIX: 100% Wet<br>No dry signal on return.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ 3-STEP OPERATION ════════════ -->
+    <section class="page" id="page-operation">
+      <div class="page-header">
+        <div class="page-eyebrow">Operating Guide</div>
+        <div class="page-title">The 3-Step Operation Workflow</div>
+        <div class="page-description">
+          When loading a new toneprint (e.g., Wes Clean, Velvet Crunch, etc.), this baseline structure lets you get your sound fully set up and dialed in under 15 seconds.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-num">&#x25B6;</span>
+          <span class="card-title">How to load Tones in Seconds</span>
+        </div>
+        <div class="card-body">
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-badge">1</span>
+              <div class="step-text">
+                <strong>De-Bypass the Target Signal Chain:</strong><br>
+                Look at the toneprint file. Turn on (de-bypass) only the specific plugins mentioned in the signal chain. Keep all other slots in their bypassed state to save CPU and headroom.
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-badge">2</span>
+              <div class="step-text">
+                <strong>Load the prefix-grouped User Presets:</strong><br>
+                Click the preset drop-down menu in each activated plugin window. Find the user directory and select the matching <strong><code>Toneprint - [Tone Name]</code></strong> preset. (e.g., choose <code>Toneprint - Sheraton Jazz Acoustic</code> in UA Paradise, Channel EQ, LA-2A, and Capitol Chambers).
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-badge">3</span>
+              <div class="step-text">
+                <strong>Calibrate the Fader Return Blends:</strong><br>
+                Align your faders to match the toneprint's fader balances. For example, slide the "Acoustic" Aux strip to <strong>−8 dB</strong> and the "Reverb Return" Aux to <strong>−12 dB</strong>. 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-footnote">
+          <strong>Physical Touch Tip:</strong> Roll your physical guitar tone knob to <strong>7</strong> and the volume knob to **8** to complete the touch-sensitive vintage analog environment!
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  function showPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    // Deactivate all nav items
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(n => n.classList.remove('active'));
+
+    // Show selected page
+    const targetPage = document.getElementById('page-' + pageId);
+    if (targetPage) targetPage.classList.add('active');
+
+    // Activate matching nav item
+    const targetNav = document.getElementById('nav-' + pageId);
+    if (targetNav) targetNav.classList.add('active');
+
+    // Scroll main panel to top
+    document.querySelector('.main-panel').scrollTop = 0;
+  }
+</script>
+</body>
+</html>

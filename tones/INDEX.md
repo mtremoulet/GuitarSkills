@@ -23,9 +23,10 @@
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
 | Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | tested |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |
-| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \"quack\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
-| Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — \"quack\") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
+| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
+| Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
 | Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
 | The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
+| THR Warm Neo-Soul — Stratocaster | single-coil | Squier Stratocaster (bridge + middle pickup position) | [single-coils/thr-warm-neo-soul.md](single-coils/thr-warm-neo-soul.md) | initial |
 | Woodrow Sweet Spot | single-coil | Squier Stratocaster (single coils) | [single-coils/woodrow-sweet-spot.md](single-coils/woodrow-sweet-spot.md) | tested |

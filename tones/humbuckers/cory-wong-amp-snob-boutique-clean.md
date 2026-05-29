@@ -1,15 +1,41 @@
 ---
-id: cory-wong-amp-snob-boutique-clean
-preset_name: "Amp Snob Boutique Clean HB"
-created: 2026-05-24
-updated: 2026-05-25
+id: "cory-wong-amp-snob-boutique-clean"
+preset_name: Amp Snob Boutique Clean HB
+created: "2026-05-24"
+updated: "2026-05-25"
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
-tags: boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob
+tags: "boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob"
 tone-king-channel: bypassed
 amp: The Amp Snob
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: neural_dsp
+  amp_settings:
+    selectedAmp: 2
+    selectedCab: 2
+    ampCabLinkedState: false
+    snobDrive: false
+    snobBright: false
+    leftCabPosition: 0.48
+    leftCabDistance: 0.25
+    leftCabActive: true
+    leftCab0MicType: 4
+    rightCabActive: false
+    snobEQActive: true
+    snobEQHpf: 20.0
+    snobEQLpf: 20000.0
+    tuberActive: false
+    bigRigActive: false
+    postalActive: false
+    delayActive: false
+    washActive: false
+    chorusActive: false
+  logic_compressor:
+    ratio: 75
+    attack: -1
+    makeup_gain: 14
 ---
 
 # Amp Snob — Boutique Warm Clean (Archetype Cory Wong X)

@@ -1,15 +1,41 @@
 ---
-id: cory-wong-amp-snob-p90
-preset_name: "Amp Snob Boutique Clean P90"
-created: 2026-05-26
-updated: 2026-05-27
-guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)
+id: "cory-wong-amp-snob-p90"
+preset_name: Amp Snob Boutique Clean P90
+created: "2026-05-26"
+updated: "2026-05-27"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
-tags: boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob
+tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
 tone-king-channel: bypassed
 amp: The Amp Snob
 status: tested
-pickup_type: p-90
+pickup_type: "p-90"
+preset_data:
+  amp_platform: neural_dsp
+  amp_settings:
+    selectedAmp: 2
+    selectedCab: 2
+    ampCabLinkedState: false
+    snobDrive: false
+    snobBright: false
+    leftCabPosition: 0.50
+    leftCabDistance: 0.25
+    leftCabActive: true
+    leftCab0MicType: 4
+    rightCabActive: false
+    snobEQActive: true
+    snobEQHpf: 20.0
+    snobEQLpf: 20000.0
+    tuberActive: false
+    bigRigActive: false
+    postalActive: false
+    delayActive: false
+    washActive: false
+    chorusActive: false
+  logic_compressor:
+    ratio: 1
+    attack: 1
+    makeup_gain: 2
 ---
 
 # Amp Snob — Boutique Warm Clean (P-90 Variant)

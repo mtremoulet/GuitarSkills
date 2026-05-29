@@ -1,15 +1,22 @@
 ---
-id: ruby-63-vox-jangle
-preset_name: "Ruby 63 Vox Jangle SC"
-created: 2026-05-08
-updated: 2026-05-08
-guitar: "Squier Stratocaster (bridge + middle pickup position — \"quack\")"
+id: "ruby-63-vox-jangle"
+preset_name: Ruby 63 Vox Jangle SC
+created: "2026-05-08"
+updated: "2026-05-08"
+guitar: "Squier Stratocaster (bridge + middle pickup position — \\"quack\\")"
 target: "AC30 Top Boost chime and jangle — British Invasion, Byrds folk-rock, Tom Petty, and R.E.M. shimmer; the most tonally distinctive amp voicing in the UADx collection"
-tags: vox, jangle, british-invasion, folk-rock, strat, single-coil, ruby-63, ac30, chime
+tags: "vox, jangle, british-invasion, folk-rock, strat, single-coil, ruby-63, ac30, chime"
 tone-king-channel: rhythm
-amp: Ruby '63
+amp: "Ruby '63"
 status: initial
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 2
+    Treble: 5
+    Bass: 4
+    Tone Cut: 6
 ---
 
 # Ruby '63 — Vox Top Boost Jangle

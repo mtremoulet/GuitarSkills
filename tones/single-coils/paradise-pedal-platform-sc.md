@@ -1,13 +1,20 @@
 ---
-id: paradise-pedal-platform-sc
-created: 2026-05-04
-updated: 2026-05-11
+id: "paradise-pedal-platform-sc"
+created: "2026-05-04"
+updated: "2026-05-11"
 guitar: Fender Player II Telecaster / Squier Stratocaster
-target: Single-coil optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice with fuller low-mid response.
-tags: pedal-platform, paradise-studio, enigmatic-82, overdrive, single-coil
-amp: Enigmatic '82
+target: "Single-coil optimized high-headroom \"pedal platform\" using Paradise Guitar Studio; Silver voice with fuller low-mid response."
+tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, single-coil"
+amp: "Enigmatic '82"
 status: initial
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Treble: 5.5
+    Bass: 5
+    Presence: 5
+    Master: 7.5
 ---
 
 # Paradise Pedal Platform (Single-Coil Variant)

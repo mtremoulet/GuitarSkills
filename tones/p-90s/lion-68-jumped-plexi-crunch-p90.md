@@ -1,14 +1,28 @@
 ---
-id: lion-68-jumped-plexi-crunch-p90
-created: 2026-05-26
-updated: 2026-05-26
-guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)
+id: "lion-68-jumped-plexi-crunch-p90"
+created: "2026-05-26"
+updated: "2026-05-26"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Plexi jumped-channel vintage crunch optimized for P-90 growl — Zeppelin, Who, and classic British rock bite; tighter and throatier than humbuckers."
-tags: plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall
+tags: "plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall"
 tone-king-channel: lead
-amp: Lion '68
+amp: "Lion '68"
 status: initial
-pickup_type: p-90
+pickup_type: "p-90"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 2.5
+    Treble: 5
+    Middle: 5.5
+    Bass: 4.5
+    Presence: 4.5
+  logic_compressor:
+    threshold: 3
+    ratio: 1
+    attack: 4
+    release: 7
+    makeup_gain: 3
 ---
 
 # Lion '68 — Jumped Plexi Crunch (P-90 Variant)

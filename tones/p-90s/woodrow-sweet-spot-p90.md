@@ -1,15 +1,25 @@
 ---
-id: woodrow-sweet-spot-p90
-preset_name: "Woodrow Sweet Spot P90"
-created: 2026-05-26
-updated: 2026-05-27
-guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)
-target: "The Tweed Deluxe \"Sweet Spot\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
-tags: tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward
+id: "woodrow-sweet-spot-p90"
+preset_name: Woodrow Sweet Spot P90
+created: "2026-05-26"
+updated: "2026-05-27"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
+target: "The Tweed Deluxe \\"Sweet Spot\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
+tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
 tone-king-channel: rhythm
-amp: Woodrow '55
+amp: "Woodrow '55"
 status: tested
-pickup_type: p-90
+pickup_type: "p-90"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 2
+    Volume (Mic): 2.5
+    Treble: 5
+    Bass: 5
+  la2a:
+    peak_reduction: 30
+    gain: 25
 ---
 
 # Woodrow Sweet Spot (P-90 Variant)

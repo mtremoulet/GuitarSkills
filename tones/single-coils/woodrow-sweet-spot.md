@@ -1,15 +1,25 @@
 ---
-id: woodrow-sweet-spot
-preset_name: "Woodrow Sweet Spot SC"
-created: 2026-05-02
-updated: 2026-05-03
+id: "woodrow-sweet-spot"
+preset_name: Woodrow Sweet Spot SC
+created: "2026-05-02"
+updated: "2026-05-03"
 guitar: Squier Stratocaster (single coils)
-target: "The \"Sweet Spot\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \"hairing up\" beautifully when you dig in."
-tags: tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward
+target: "The \\"Sweet Spot\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\"hairing up\\" beautifully when you dig in."
+tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
 tone-king-channel: rhythm
-amp: Woodrow '55
+amp: "Woodrow '55"
 status: tested
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 2
+    Volume (Mic): 3
+    Treble: 5
+    Bass: 5
+  la2a:
+    peak_reduction: 25
+    gain: 35
 ---
 
 # Woodrow Sweet Spot

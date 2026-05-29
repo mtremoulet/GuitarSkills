@@ -33,6 +33,7 @@ This project is a self-contained guitar learning and tone-dialing assistant for 
 | `/guitar-lesson-daily` | Autonomous daily jazz standard deep-dive lesson |
 | `/song-walkthrough` | Complete guitarist's guide for a specific named song |
 | `/toneprints` | Guitar tone advisor: signal chain recommendations + tone database |
+| `/preset-compiler` | Dynamic preset mapping and rig compiler playbook |
 
 ---
 

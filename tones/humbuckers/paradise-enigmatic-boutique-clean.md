@@ -1,15 +1,27 @@
 ---
-id: paradise-enigmatic-boutique-clean
-preset_name: "Enigmatic Boutique Clean HB"
-created: 2026-05-24
-updated: 2026-05-25
+id: "paradise-enigmatic-boutique-clean"
+preset_name: Enigmatic Boutique Clean HB
+created: "2026-05-24"
+updated: "2026-05-25"
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield."
-tags: boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82
+tags: "boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82"
 tone-king-channel: bypassed
-amp: Enigmatic '82
+amp: "Enigmatic '82"
 status: refined
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 5.5
+    Treble: 3.5
+    Middle: 7.5
+    Bass: 7
+    Presence: 0.5
+    Boost: false
+  la2a:
+    peak_reduction: 35
+    gain: 28
 ---
 
 # Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio)

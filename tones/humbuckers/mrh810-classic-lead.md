@@ -1,15 +1,18 @@
 ---
-id: mrh810-classic-lead
-created: 2026-04-30
-updated: 2026-05-07
+id: "mrh810-classic-lead"
+created: "2026-04-30"
+updated: "2026-05-07"
 guitar: Epiphone Les Paul Standard
-target: "Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\
-  \ the GN'R ballad / Bon Jovi / Poison tradition"
-tags: lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain
+target: "\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\"
+tags: "lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain"
 tone-king-channel: rhythm/lead
 amp: MRH810 V2
 status: tested
 pickup_type: humbucker
+preset_data:
+  la2a:
+    peak_reduction: 25
+    gain: 5
 ---
 
 # MRH810 Classic Lead

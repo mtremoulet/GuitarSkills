@@ -1,15 +1,25 @@
 ---
-id: dream-65-blackface-jazz
-preset_name: "Dream 65 Blackface Jazz HB"
-created: 2026-05-08
-updated: 2026-05-16
+id: "dream-65-blackface-jazz"
+preset_name: Dream 65 Blackface Jazz HB
+created: "2026-05-08"
+updated: "2026-05-16"
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Warm jazz clean through the Dream '65 — Blackface character comparison to the Showtime-based Jazz Clean Intimate; how does the Deluxe Reverb's mid-scoop and spring reverb change the LP neck's jazz voice?"
-tags: jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison
+tags: "jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison"
 tone-king-channel: rhythm
-amp: Dream '65
+amp: "Dream '65"
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 3
+    Treble: 5
+    Bass: 5
+    Bright: false
+  la2a:
+    peak_reduction: 32
+    gain: 25
 ---
 
 # Dream '65 — Blackface Jazz

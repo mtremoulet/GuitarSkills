@@ -1,12 +1,10 @@
 ---
-id: jc120-pristine-jazz-clean
-created: 2026-05-09
-updated: 2026-05-09
+id: "jc120-pristine-jazz-clean"
+created: "2026-05-09"
+updated: "2026-05-09"
 guitar: Epiphone Sheraton (humbuckers)
-target: Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused
-  on high-headroom clarity with a lush "Space Chorus" option and precise gain staging
-  for monitoring.
-tags: jazz, clean, solid-state, chorus, jc120, nembrini, pristine
+target: "Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused"
+tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
 tone-king-channel: rhythm
 amp: JC120
 status: initial

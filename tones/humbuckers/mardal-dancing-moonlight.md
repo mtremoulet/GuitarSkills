@@ -1,15 +1,45 @@
 ---
-id: mardal-dancing-moonlight
-created: 2026-05-02
-updated: 2026-05-16
+id: "mardal-dancing-moonlight"
+created: "2026-05-02"
+updated: "2026-05-16"
 guitar: Epiphone Sheraton (humbuckers)
-target: "Rebecca Mardal \"Dancing in the Moonlight\" \u2014 warm jazz clean with lush-not-ambient\
-  \ reverb."
-tags: jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp
+target: "\"Rebecca Mardal \\"Dancing in the Moonlight\\" \u2014 warm jazz clean with lush-not-ambient\"
+tags: "jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp"
 tone-king-channel: rhythm
 amp: Cory Wong X
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: neural_dsp
+  amp_settings:
+    compressorBlend: 0.55
+    compressorCompression: 0.40
+    compressorVolume: 2.50
+    selectedAmp: 2
+    selectedCab: 2
+    ampCabLinkedState: false
+    snobMid: 0.70
+    snobTreble: 0.40
+    snobPresence: 0.30
+    snobVolume: 2.50
+    snobBright: false
+    leftCabPosition: 0.50
+    leftCabDistance: 0.22
+    leftCabActive: true
+    leftCab0MicType: 4
+    rightCabActive: false
+    snobEQHpf: 20.0
+    snobEQLpf: 20000.0
+    tuberActive: false
+    bigRigActive: false
+    postalActive: false
+    delayActive: false
+    washActive: false
+    chorusActive: false
+  logic_compressor:
+    ratio: 2026
+    attack: 55
+    makeup_gain: 2026
 ---
 
 # Mardal "Dancing in the Moonlight"

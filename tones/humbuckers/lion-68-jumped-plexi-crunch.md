@@ -1,17 +1,28 @@
 ---
-id: lion-68-jumped-plexi-crunch
-created: 2026-05-08
-updated: 2026-05-16
+id: "lion-68-jumped-plexi-crunch"
+created: "2026-05-08"
+updated: "2026-05-16"
 guitar: "Epiphone Les Paul Standard (humbuckers \u2014 bridge or neck-bridge blend)"
-target: "The Plexi \"jumped channel\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\
-  \ Hendrix harmonic richness; warm compressed British rock, distinctly different\
-  \ from the MRH810's 1980s precision gain"
-tags: plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,
-  marshall
+target: "\"The Plexi \\"jumped channel\\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\"
+tags: "plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,"
 tone-king-channel: lead
-amp: Lion '68
+amp: "Lion '68"
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 3
+    Treble: 5
+    Middle: 5
+    Bass: 5
+    Presence: 5
+  logic_compressor:
+    threshold: 20
+    ratio: 0
+    attack: 4
+    release: 7
+    makeup_gain: 68
 ---
 
 # Lion '68 — Jumped Plexi Crunch

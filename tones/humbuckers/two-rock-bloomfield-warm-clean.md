@@ -1,15 +1,34 @@
 ---
-id: two-rock-bloomfield-warm-clean
+id: "two-rock-bloomfield-warm-clean"
 preset_name: "Two-Rock Bloomfield Boutique Clean HB"
-created: 2026-05-08
-updated: 2026-05-16
+created: "2026-05-08"
+updated: "2026-05-16"
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "High-end boutique clean through the Two Rock Bloomfield Drive — late-night blues, sophisticated jazz-blues, and neo-soul warmth; hi-fi and polished where Fender is glassy and Marshall is aggressive"
-tags: boutique, clean, warm, les-paul, humbucker, two-rock, jazz-blues, neo-soul, bloomfield
+tags: "boutique, clean, warm, les-paul, humbucker, two-rock, jazz-blues, neo-soul, bloomfield"
 tone-king-channel: rhythm
 amp: Two Rock
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: mixwave
+  amp_settings:
+    Gain: 5
+    Treble: 4
+    Middle: 5.5
+    Bass: 5
+    Presence: 5
+    Master: 5
+    Reverb: 0
+    Vibe: 5
+    Bright: false
+    Mid: false
+    Deep: false
+    Tone Stack Bypass: false
+    Lead: false
+  la2a:
+    peak_reduction: 35
+    gain: 5
 ---
 
 # Two Rock Bloomfield — Boutique Warm Clean

@@ -1,15 +1,48 @@
 ---
-id: sheraton-jazz-acoustic
-created: 2026-04-30
-updated: 2026-04-30
+id: "sheraton-jazz-acoustic"
+created: "2026-04-30"
+updated: "2026-04-30"
 guitar: Epiphone Sheraton (humbuckers)
 target: Warm clean jazz electric tone blended with an acoustic texture from Acoustic
-  Voice Pro; reverb on a shared bus
-tags: jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers
+tags: "jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers"
 tone-king-channel: rhythm
-amp: Showtime '64
+amp: "Showtime '64"
 status: tested
 pickup_type: humbucker
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 3
+    Treble: 4
+  la2a:
+    peak_reduction: 28
+    gain: 45
+  logic_eq:
+    band1:
+      on: true
+      freq: 80
+      slope: 4
+    band4:
+      on: true
+      freq: 650
+      gain: -2
+      q: 1.5
+    band7:
+      on: true
+      freq: 5000
+      gain: -1.5
+  nembrini_acoustic_voice:
+    DiPreampPower: true
+    DiPreampNotch: 360.0
+    DiPreampBlend: 60.0
+    DiPreampGain: 0.0
+    DiPreampOut: 1.0
+    CompressorPower: false
+    ReverbPower: false
+    DelayPower: false
+    ModPower: false
+    InputMode: 0.0
+    MicType: 4.0
 ---
 
 # Sheraton Jazz + Acoustic Blend

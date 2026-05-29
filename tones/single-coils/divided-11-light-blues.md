@@ -1,16 +1,18 @@
 ---
-id: divided-11-light-blues
-created: 2026-04-30
-updated: 2026-05-03
+id: "divided-11-light-blues"
+created: "2026-04-30"
+updated: "2026-05-03"
 guitar: Fender Player II Telecaster
-target: "Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\
-  \ off, a hint of Class A bloom and grit when digging in; slapback delay, room reverb\
-  \ on bus"
-tags: blues, dynamic, clean, grit, slapback, class-a, divided-11
+target: "\"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\"
+tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
 tone-king-channel: rhythm
 amp: Divided 11
 status: tested
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  la2a:
+    peak_reduction: 20
+    gain: 42
 ---
 
 # Divided 11 Light Blues

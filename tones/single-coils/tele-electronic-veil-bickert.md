@@ -1,15 +1,37 @@
 ---
-id: tele-electronic-veil-bickert
-created: 2026-05-02
-updated: 2026-05-10
-guitar: Fender Player II Telecaster (Neck position, Flatwounds)
-target: "Ed Bickert \"Electronic Veil\" \u2014 Extremely dark, warm, and intimate.\
-  \ Simulates a traditional jazz box on a solid-body platform."
-tags: jazz, telecaster, dark, warm, bickert, flatwounds
+id: "tele-electronic-veil-bickert"
+created: "2026-05-02"
+updated: "2026-05-10"
+guitar: "Fender Player II Telecaster (Neck position, Flatwounds)"
+target: "\"Ed Bickert \\"Electronic Veil\\" \u2014 Extremely dark, warm, and intimate.\"
+tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
 tone-king-channel: rhythm
-amp: Showtime '64
+amp: "Showtime '64"
 status: tested
-pickup_type: single-coil
+pickup_type: "single-coil"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 6
+    Treble: 2
+    Middle: 5
+    Bass: 5
+    Bright: false
+  la2a:
+    peak_reduction: 32
+    gain: 25
+  hitsville:
+    mix: 0.05
+  logic_eq:
+    band4:
+      on: true
+      freq: 250
+      gain: 2
+      q: 0.8
+    band8:
+      on: true
+      freq: 4000
+      slope: 4
 ---
 
 # The Electronic Veil (Ed Bickert Style)

@@ -1,23 +1,29 @@
 ---
-id: ruby-paradise-strat-chime
-preset_name: "Ruby Strat Chime Paradise"
-created: 2026-05-20
-updated: 2026-05-20
-guitar: "Squier Stratocaster (bridge + middle pickup position — \"quack\")"
+id: "ruby-paradise-strat-chime"
+preset_name: Ruby Strat Chime Paradise
+created: "2026-05-20"
+updated: "2026-05-20"
+guitar: "Squier Stratocaster (bridge + middle pickup position — \\"quack\\")"
 target: "Classic VOX AC30 Top Boost chime, shimmer, and modulated delay; optimized for the bright clarity of Squier Stratocaster single-coils, using Paradise Guitar Studio and bypassing the Tone King preamp."
-tags: vox, ac30, ruby-63, strat, single-coil, chime, echo, paradise-studio, jangle, rock, post-punk
+tags: "vox, ac30, ruby-63, strat, single-coil, chime, echo, paradise-studio, jangle, rock, post-punk"
 tone-king-channel: bypassed
-amp: Ruby '63 (Paradise Guitar Studio)
+amp: "Ruby '63 (Paradise Guitar Studio)"
 status: initial
-pickup_type: single-coil
-
-preset_overrides:
-  postfx_power: true
-  postfx_1_power: true
-  postfx_3_power: true
-  postfx_plate_reverb_decay: 2.0
-  postfx_plate_reverb_predelay: 20.0
-  postfx_plate_reverb_mix: 15.0
+pickup_type: "single-coil"
+preset_overrides: 
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 4.5
+    Treble: 6.5
+    Bass: 5
+    Tone Cut: 5.5
+    Cut: true
+  logic_compressor:
+    ratio: 4
+    attack: 63
+    release: 4
+    makeup_gain: -18
 ---
 
 # Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio)

@@ -1,14 +1,35 @@
 ---
-id: framus-electronic-veil-p90
-created: 2026-05-26
-updated: 2026-05-26
-guitar: Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)
-target: "Ed Bickert \"Electronic Veil\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
-tags: jazz, framus, p-90, dark, warm, bickert, veil
+id: "framus-electronic-veil-p90"
+created: "2026-05-26"
+updated: "2026-05-26"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
+target: "Ed Bickert \\"Electronic Veil\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
+tags: "jazz, framus, p-90, dark, warm, bickert, veil"
 tone-king-channel: rhythm
-amp: Showtime '64
+amp: "Showtime '64"
 status: initial
-pickup_type: p-90
+pickup_type: "p-90"
+preset_data:
+  amp_platform: uad_paradise
+  amp_settings:
+    Volume: 2.5
+    Treble: 2
+    Middle: 5.5
+    Bass: 5
+    Bright: false
+  la2a:
+    peak_reduction: 36
+    gain: 26
+  logic_eq:
+    band4:
+      on: true
+      freq: 250
+      gain: 2.5
+      q: 0.8
+    band8:
+      on: true
+      freq: 3800
+      slope: 4
 ---
 
 # The Electronic Veil (P-90/Framus Variant)

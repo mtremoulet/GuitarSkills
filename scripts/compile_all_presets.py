@@ -514,12 +514,6 @@ def extract_freq(text):
         if unit == "khz" or (val < 22.0 and unit == "hz"):
             val *= 1000.0
         return val
-    fallback_match = re.search(r"\b(\d+(?:\.\d+)?)\b", text)
-    if fallback_match:
-        val = float(fallback_match.group(1))
-        if val < 22.0:
-            val *= 1000.0
-        return val
     return None
 
 def extract_slope(text):

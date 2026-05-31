@@ -7,7 +7,7 @@ guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
 tags: "boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob"
 tone-king-channel: bypassed
-amp: The Amp Snob
+amp: "Amp Snob"
 status: tested
 pickup_type: humbucker
 preset_data:

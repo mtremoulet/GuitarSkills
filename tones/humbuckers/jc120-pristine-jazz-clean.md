@@ -6,7 +6,7 @@ guitar: Epiphone Sheraton (humbuckers)
 target: "Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused"
 tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
 tone-king-channel: rhythm
-amp: JC120
+amp: "Jazz Chorus, Tone King Imperial Preamp"
 status: initial
 pickup_type: humbucker
 ---

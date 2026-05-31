@@ -20,7 +20,7 @@ There is no Mid, Presence, or Cut knob on either channel.
 
 **Framus Earl Slick Artist Series:** DiMarzio **P-90s** — single-coil wound pickups in soapbar housings, not traditional humbuckers. Brighter, spankier, and more mid-forward than humbuckers; need less Mid-Bite and treble than the LP to reach the same tonal target.
 
-**Scale:** All values use a 0–10 scale. 5.0 = noon/flat. Attenuation 5.0 = unity/moderate output.
+**Scale:** All values use the physical 1–9 pip scale. Pip 1 is fully left ("off"), Pip 5 is exactly at 12:00 (noon/flat), and Pip 9 is fully right ("on"). 5.0 = noon/flat (12:00). Attenuation 5.0 = unity/moderate output.
 
 ---
 

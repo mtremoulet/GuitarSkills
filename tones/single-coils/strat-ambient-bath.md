@@ -6,7 +6,7 @@ guitar: Squier Stratocaster (single coils)
 target: "Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and"
 tags: "ambient, lush, sound-bath, strat, clean, delay, reverb, modulation"
 tone-king-channel: rhythm
-amp: "Showtime '64"
+amp: "Showtime '64, Tone King Imperial Preamp"
 status: initial
 pickup_type: "single-coil"
 preset_data:

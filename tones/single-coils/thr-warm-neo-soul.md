@@ -7,7 +7,7 @@ guitar: "Squier Stratocaster (bridge + middle pickup position)"
 target: "A warm, compressed neo-soul clean tone for the Yamaha THR10ii with gentle chorus and slapback tape echo."
 tags: neo-soul, clean, warm, chorus, echo, thr10ii, single-coil
 tone-king-channel: bypassed
-amp: Yamaha THR10ii
+amp: "Yamaha THR10II"
 status: initial
 pickup_type: single-coil
 preset_data:

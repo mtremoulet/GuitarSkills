@@ -6,7 +6,7 @@ guitar: "Epiphone Les Paul Standard (humbuckers \u2014 bridge or neck-bridge ble
 target: "\"The Plexi \\"jumped channel\\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\"
 tags: "plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,"
 tone-king-channel: lead
-amp: "Lion '68"
+amp: "Lion '68, Tone King Imperial Preamp"
 status: tested
 pickup_type: humbucker
 preset_data:

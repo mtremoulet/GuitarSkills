@@ -7,7 +7,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
 tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
 tone-king-channel: bypassed
-amp: The Amp Snob
+amp: "Amp Snob"
 status: tested
 pickup_type: "p-90"
 preset_data:

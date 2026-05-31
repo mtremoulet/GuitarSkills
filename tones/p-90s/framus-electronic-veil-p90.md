@@ -6,7 +6,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Ed Bickert \\"Electronic Veil\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
 tags: "jazz, framus, p-90, dark, warm, bickert, veil"
 tone-king-channel: rhythm
-amp: "Showtime '64"
+amp: "Showtime '64, Tone King Imperial Preamp"
 status: initial
 pickup_type: "p-90"
 preset_data:

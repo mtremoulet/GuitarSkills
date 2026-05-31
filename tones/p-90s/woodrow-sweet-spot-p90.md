@@ -7,7 +7,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "The Tweed Deluxe \\"Sweet Spot\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
 tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
 tone-king-channel: rhythm
-amp: "Woodrow '55"
+amp: "Woodrow '55, Tone King Imperial Preamp"
 status: tested
 pickup_type: "p-90"
 preset_data:

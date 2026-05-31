@@ -7,7 +7,7 @@ guitar: "Squier Stratocaster (bridge + middle pickup position — \\"quack\\")"
 target: "Classic VOX AC30 Top Boost chime, shimmer, and modulated delay; optimized for the bright clarity of Squier Stratocaster single-coils, using Paradise Guitar Studio and bypassing the Tone King preamp."
 tags: "vox, ac30, ruby-63, strat, single-coil, chime, echo, paradise-studio, jangle, rock, post-punk"
 tone-king-channel: bypassed
-amp: "Ruby '63 (Paradise Guitar Studio)"
+amp: "Ruby '63"
 status: initial
 pickup_type: "single-coil"
 preset_overrides: 

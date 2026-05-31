@@ -6,7 +6,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Plexi jumped-channel vintage crunch optimized for P-90 growl — Zeppelin, Who, and classic British rock bite; tighter and throatier than humbuckers."
 tags: "plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall"
 tone-king-channel: lead
-amp: "Lion '68"
+amp: "Lion '68, Tone King Imperial Preamp"
 status: initial
 pickup_type: "p-90"
 preset_data:

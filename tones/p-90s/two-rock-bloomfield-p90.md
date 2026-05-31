@@ -7,7 +7,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "High-end boutique warm clean tailored for the Framus's resonant swamp ash snap and DiMarzio P-90 vocal midrange."
 tags: "boutique, clean, warm, framus, p-90, two-rock, jazz-blues, neo-soul, bloomfield"
 tone-king-channel: bypassed
-amp: Two Rock
+amp: "Two-Rock Bloomfield"
 status: initial
 pickup_type: "p-90"
 preset_data:

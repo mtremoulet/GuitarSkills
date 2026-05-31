@@ -2,12 +2,12 @@
 id: "jazz-clean-intimate-les-paul"
 preset_name: Showtime Jazz Clean Intimate HB
 created: "2026-04-16"
-updated: "2026-05-16"
+updated: "2026-05-30"
 guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close and present, no reverb wash"
 tags: "jazz, clean, warm, intimate, les-paul, humbucker"
 tone-king-channel: rhythm
-amp: "Showtime '64"
+amp: "Showtime '64, Tone King Imperial Preamp"
 status: tested
 pickup_type: humbucker
 preset_data:
@@ -19,8 +19,8 @@ preset_data:
     Bass: 5
     Bright: false
   la2a:
-    peak_reduction: 30
-    gain: 20
+    peak_reduction: 20
+    gain: 15
 ---
 
 # Jazz Clean — Intimate Les Paul
@@ -64,8 +64,8 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Peak Reduction | 30 | Very light optical compression — less than the Tele tone because the 490R neck is already smooth and even; this is sustain-oriented, not corrective |
-| Gain | 20 | Makeup gain — calibrated 2026-05-16; previous value of 50 confirmed clipping |
+| Peak Reduction | 20 | Light optical compression — dialed back from 30 after further gain stage levelling; sustain-oriented, not corrective |
+| Gain | 15 | Makeup gain — calibrated to 15 to prevent clipping and match levelling |
 | Mode | **Compress** (3:1) | Light touch; preserves jazz picking dynamics |
 
 ### 4. Logic Space Designer — small room ambience
@@ -90,6 +90,9 @@ High-headroom, neutral-character amp. Unlike the Dream '65, it doesn't impose a 
 ---
 
 ## Feedback History
+
+### 2026-05-30 — preset update & gain staging (Peak Reduction & Gain adjustment)
+Adjusted LA-2A Silver settings based on gain stage levelling: Peak Reduction reduced to 20, Gain reduced to 15 to prevent clipping and maintain perfect level matching. Rebuilt all presets and tone-viewer.
 
 ### 2026-05-16 — gain staging calibration (direct to iD14)
 Signal path changed: guitar now routes direct into iD14 instrument input (Tone King Imperial Preamp bypassed pending its own calibration pass). iD14 gain set to **0**. Guitar bus changed to **Mono** (was Stereo). Showtime '64 **Room set to 0** — was erroneously left at 30%; Space Designer handles the room, not the plugin's internal reverb. LA-2A **Gain pulled from 50 to 20** — confirmed clipping at 50 with the direct signal path; 30/20 now reads clean. Space Designer **Wet reduced to −30 dB** (from −22 dB) — the previous value felt too prominent without the TKIP's level shaping in the chain.

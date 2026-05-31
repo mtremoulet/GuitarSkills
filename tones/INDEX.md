@@ -18,6 +18,8 @@
 | Divided 11 Light Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/divided-11-light-blues-p90.md](p-90s/divided-11-light-blues-p90.md) | initial |
 | The Electronic Veil (P-90/Framus Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/framus-electronic-veil-p90.md](p-90s/framus-electronic-veil-p90.md) | initial |
 | Lion '68 — Jumped Plexi Crunch (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-jumped-plexi-crunch-p90.md](p-90s/lion-68-jumped-plexi-crunch-p90.md) | initial |
+| Lion '68 — Royal Velvet Jazz (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-royal-velvet-jazz-p90.md](p-90s/lion-68-royal-velvet-jazz-p90.md) | initial |
+| Lion '68 — Slick Growler Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-slick-growler-blues-p90.md](p-90s/lion-68-slick-growler-blues-p90.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-bloomfield-p90.md](p-90s/two-rock-bloomfield-p90.md) | initial |
 | Woodrow Sweet Spot (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-sweet-spot-p90.md](p-90s/woodrow-sweet-spot-p90.md) | tested |
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
@@ -26,6 +28,7 @@
 | Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
 | Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
 | Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
+| Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | initial |
 | The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
 | THR Warm Neo-Soul — Stratocaster | single-coil | Squier Stratocaster (bridge + middle pickup position) | [single-coils/thr-warm-neo-soul.md](single-coils/thr-warm-neo-soul.md) | initial |

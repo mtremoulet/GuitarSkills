@@ -6,7 +6,7 @@ guitar: Epiphone Sheraton (humbuckers)
 target: "\"Rebecca Mardal \\"Dancing in the Moonlight\\" \u2014 warm jazz clean with lush-not-ambient\"
 tags: "jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp"
 tone-king-channel: rhythm
-amp: Cory Wong X
+amp: "Amp Snob, Tone King Imperial Preamp"
 status: tested
 pickup_type: humbucker
 preset_data:

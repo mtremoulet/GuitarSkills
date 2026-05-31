@@ -483,6 +483,81 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if mid is not None: controls["showtime_middle"] = {"real_value": mid}
         if bass is not None: controls["showtime_bass"] = {"real_value": bass}
         if bright is not None: controls["showtime_bright"] = {"real_value": bright}
+    elif amp_type == "lion":
+        # Lion '68 Super Lead / Super Bass mapping
+        model = amp_settings.get("Model")
+        vol1 = amp_settings.get("Volume I (Bite)")
+        vol2 = amp_settings.get("Volume II (Body)")
+        treble_val = amp_settings.get("Treble")
+        mid_val = amp_settings.get("Middle")
+        bass_val = amp_settings.get("Bass")
+        presence_val = amp_settings.get("Presence")
+        input_routing = amp_settings.get("Input Routing")
+        ghost_notes = amp_settings.get("Ghost Notes")
+        bright_cap = amp_settings.get("Bright Cap")
+        boost_sw = amp_settings.get("Boost")
+        room_val = amp_settings.get("Room")
+        gate_val = amp_settings.get("Noise Gate")
+
+        # 1. Amp Model
+        if model is not None:
+            model_str = str(model).upper()
+            if "BASS" in model_str:
+                model_idx = 0
+            elif "BROWN" in model_str:
+                model_idx = 2
+            else:
+                model_idx = 1 # default LEAD
+            controls["lion_model"] = {"real_value": model_idx}
+
+        # 2. Volume Controls
+        if vol1 is not None: controls["lion_volume_1"] = {"real_value": float(vol1)}
+        if vol2 is not None: controls["lion_volume_2"] = {"real_value": float(vol2)}
+
+        # 3. EQ Controls
+        if treble_val is not None: controls["lion_treble"] = {"real_value": float(treble_val)}
+        if mid_val is not None: controls["lion_middle"] = {"real_value": float(mid_val)}
+        if bass_val is not None: controls["lion_bass"] = {"real_value": float(bass_val)}
+        if presence_val is not None: controls["lion_presence"] = {"real_value": float(presence_val)}
+
+        # 4. Input Routing
+        if input_routing is not None:
+            ir_str = str(input_routing).upper()
+            if "LOW" in ir_str:
+                ir_idx = 0
+            elif "JUMP" in ir_str:
+                ir_idx = 2
+            else:
+                ir_idx = 1 # HIGH
+            controls["lion_input_routing"] = {"real_value": ir_idx}
+
+        # 5. Ghost Notes
+        if ghost_notes is not None:
+            gn_bool = True if str(ghost_notes).upper() in ("ON", "TRUE", "1") else False
+            controls["lion_ghost_notes_mod"] = {"real_value": gn_bool}
+
+        # 6. Bright Cap
+        if bright_cap is not None:
+            bc_val = 1 if str(bright_cap).upper() in ("ON", "TRUE", "1") else 0
+            controls["lion_lead_amp_bright_cap"] = {"real_value": bc_val}
+            controls["lion_brown_amp_bright_cap"] = {"real_value": bc_val}
+
+        # 7. Boost Enable
+        if boost_sw is not None:
+            b_bool = True if str(boost_sw).upper() in ("ON", "TRUE", "1") else False
+            controls["lion_boost_enable"] = {"real_value": b_bool}
+
+        # 8. Room
+        if room_val is not None:
+            room_float = float(room_val)
+            if room_float <= 10.0:
+                room_float = room_float * 10.0 # scale 0-10 to 0-100%
+            controls["room"] = {"real_value": room_float}
+
+        # 9. Gate Controls
+        if gate_val is not None:
+            controls["gate_enable"] = {"real_value": True}
+            controls["gate_threshold"] = {"real_value": float(gate_val)}
 
     # Bypassed post-amp effects for clean platform comparison (defaults)
     controls["prefx_power"] = {"real_value": False}
@@ -789,13 +864,13 @@ def compile_la2a_toneprint(filepath, base_preset_path, output_name, frontmatter)
     chunk_bytes = bytearray(base64.b64decode(preset_data["chunk"]))
     
     # Surgically patch floats
-    # Float 10: Gain (0.0 to 1.0)
-    if gain is not None:
-        val_scaled = gain / 100.0 if gain > 1.0 else gain
-        struct.pack_into("f", chunk_bytes, 10 * 4, val_scaled)
-    # Float 11: Peak Reduction (0.0 to 1.0)
+    # Float 10: Peak Reduction (using correct offset scaling: (val + 4.0) / 100.0)
     if peak_reduction is not None:
-        val_scaled = peak_reduction / 100.0 if peak_reduction > 1.0 else peak_reduction
+        val_scaled = (peak_reduction + 4.0) / 100.0
+        struct.pack_into("f", chunk_bytes, 10 * 4, val_scaled)
+    # Float 11: Gain (using correct offset scaling: (val + 4.0) / 100.0)
+    if gain is not None:
+        val_scaled = (gain + 4.0) / 100.0
         struct.pack_into("f", chunk_bytes, 11 * 4, val_scaled)
     # Float 13: Mode (1.0 = Compress, 0.0 = Limit)
     if mode_compress is not None:

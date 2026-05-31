@@ -7,7 +7,7 @@ guitar: Squier Stratocaster (single coils)
 target: "The \\"Sweet Spot\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\"hairing up\\" beautifully when you dig in."
 tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
 tone-king-channel: rhythm
-amp: "Woodrow '55"
+amp: "Woodrow '55, Tone King Imperial Preamp"
 status: tested
 pickup_type: "single-coil"
 preset_data:

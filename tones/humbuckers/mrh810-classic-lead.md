@@ -6,7 +6,7 @@ guitar: Epiphone Les Paul Standard
 target: "\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\"
 tags: "lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain"
 tone-king-channel: rhythm/lead
-amp: MRH810 V2
+amp: "Mrh810 V2, Tone King Imperial Preamp"
 status: tested
 pickup_type: humbucker
 preset_data:

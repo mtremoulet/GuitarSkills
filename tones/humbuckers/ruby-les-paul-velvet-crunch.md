@@ -7,7 +7,7 @@ guitar: Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)
 target: "Warm, vocal Class A chime and creamy velvet crunch; a rich, touch-sensitive pairing of Les Paul humbuckers and Vox AC30 Top Boost."
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock"
 tone-king-channel: bypassed
-amp: "Ruby '63 (Paradise Guitar Studio)"
+amp: "Ruby '63"
 status: initial
 pickup_type: humbucker
 preset_data:

@@ -7,7 +7,7 @@ guitar: Gibson Les Paul Studio (490R neck pickup)
 target: "Warm jazz clean through the Dream '65 — Blackface character comparison to the Showtime-based Jazz Clean Intimate; how does the Deluxe Reverb's mid-scoop and spring reverb change the LP neck's jazz voice?"
 tags: "jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison"
 tone-king-channel: rhythm
-amp: "Dream '65"
+amp: "Dream '65, Tone King Imperial Preamp"
 status: tested
 pickup_type: humbucker
 preset_data:

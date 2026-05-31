@@ -7,7 +7,7 @@ guitar: "Fender Player II Telecaster (bridge pickup, roundwound strings)"
 target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
 tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
 tone-king-channel: rhythm
-amp: "Dream '65"
+amp: "Dream '65, Tone King Imperial Preamp"
 status: tested
 pickup_type: "single-coil"
 preset_data:

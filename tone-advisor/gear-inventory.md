@@ -8,7 +8,7 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 | Name | Maker | Description |
 |------|-------|-------------|
-| Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb) — controls: Volume, Attenuation, Bass, Treble. Lead channel: 50s Tweed + British rock character — controls: Volume, Attenuation, Tone (high-freq contour), Mid-Bite (simultaneously adds gain, tightens bass, boosts upper mids). No Mid, Presence, or Cut controls on either channel. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. |
+| Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb) — controls: Volume, Attenuation, Bass, Treble. Lead channel: 50s Tweed + British rock character — controls: Volume, Attenuation, Tone (high-freq contour), Mid-Bite (simultaneously adds gain, tightens bass, boosts upper mids). No Mid, Presence, or Cut controls on either channel. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. **Physical Knobs**: All knobs feature 9 pips (ticks) representing a continuous 1 to 9 scale. Pip 1 is fully left (minimum/off), Pip 5 is exactly at 12:00 (noon/flat), and Pip 9 is fully right (maximum/on). |
 | iD14 mkII | Audient | Desktop USB-C audio interface. 2 mic/line preamps (JFET discrete input stage), 2 instrument inputs, monitor control. Primary analog front-end before Logic. |
 
 ## Guitars

@@ -6,7 +6,7 @@ guitar: "Fender Player II Telecaster (Neck position, Flatwounds)"
 target: "\"Ed Bickert \\"Electronic Veil\\" \u2014 Extremely dark, warm, and intimate.\"
 tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
 tone-king-channel: rhythm
-amp: "Showtime '64"
+amp: "Showtime '64, Tone King Imperial Preamp"
 status: tested
 pickup_type: "single-coil"
 preset_data:

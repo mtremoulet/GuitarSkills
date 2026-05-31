@@ -6,7 +6,7 @@ guitar: "Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels)"
 target: "\"Larry Carlton \\"Singing Blues-Jazz\\" \u2014 Mellow chords with touch-sensitive,\"
 tags: "jazz, blues, telecaster, carlton, dumble, sustain"
 tone-king-channel: rhythm
-amp: "Enigmatic '82"
+amp: "Enigmatic '82, Tone King Imperial Preamp"
 status: initial
 pickup_type: "single-coil"
 preset_data:

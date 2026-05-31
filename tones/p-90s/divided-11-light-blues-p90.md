@@ -6,7 +6,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in."
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11, framus, p-90"
 tone-king-channel: rhythm
-amp: Divided 11
+amp: "Divided 11, Tone King Imperial Preamp"
 status: initial
 pickup_type: "p-90"
 preset_data:

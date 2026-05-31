@@ -6,7 +6,7 @@ guitar: Fender Player II Telecaster
 target: "\"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\"
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
 tone-king-channel: rhythm
-amp: Divided 11
+amp: "Divided 11, Tone King Imperial Preamp"
 status: tested
 pickup_type: "single-coil"
 preset_data:

@@ -170,12 +170,64 @@ body {
 }
 
 /* ── Filters ── */
-.filters {
-  padding: 8px 12px 10px;
+.filters-toggle-bar {
+  padding: 10px 16px;
+  background: rgba(0,0,0,0.06);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+}
+
+.filters-toggle-bar:hover {
+  background: var(--surface-alt);
+}
+
+.filters-toggle-bar:hover .filter-title-label {
+  color: var(--accent);
+}
+
+.filters-toggle-bar:hover .filters-toggle-icon {
+  color: var(--text);
+}
+
+.filter-title-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.filters-toggle-icon {
+  font-size: 9px;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.filters-toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.filters-container {
   display: flex;
   flex-direction: column;
   gap: 7px;
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  transition: max-height 0.25s ease-out, padding 0.25s ease-out, border-bottom-width 0.25s ease-out;
+  max-height: 500px;
+}
+
+.filters-container.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom-width: 0;
 }
 
 .filter-section {
@@ -820,9 +872,13 @@ em { color: var(--secondary); }
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">28 tones</div>
+      <div class="vault-count">31 tones</div>
     </div>
-    <div class="filters">
+    <div class="filters-toggle-bar" onclick="toggleFilters()">
+      <span class="filter-title-label">Filters</span>
+      <span class="filters-toggle-icon" id="filters-toggle-icon">&#x25BC;</span>
+    </div>
+    <div class="filters-container" id="filters-container">
       <div class="filter-section">
         <div class="filter-label">Status</div>
         <div class="filter-row">
@@ -868,48 +924,48 @@ em { color: var(--secondary); }
         <div class="filter-label">Amp</div>
         <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
           <option value="all">All amps</option>
-          <option value="Cory Wong X">Cory Wong X</option><option value="Divided 11">Divided 11</option><option value="Dream '65">Dream '65</option><option value="Enigmatic '82">Enigmatic '82</option><option value="JC120">JC120</option><option value="Lion '68">Lion '68</option><option value="MRH810 V2">MRH810 V2</option><option value="Ruby '63">Ruby '63</option><option value="Ruby '63 (Paradise Guitar Studio)">Ruby '63 (Paradise Guitar Studio)</option><option value="Showtime '64">Showtime '64</option><option value="The Amp Snob">The Amp Snob</option><option value="Two Rock">Two Rock</option><option value="Woodrow '55">Woodrow '55</option><option value="Yamaha THR10ii">Yamaha THR10ii</option>
+          <option value="Amp Snob">Amp Snob</option><option value="Divided 11">Divided 11</option><option value="Dream '65">Dream '65</option><option value="Enigmatic '82">Enigmatic '82</option><option value="Jazz Chorus">Jazz Chorus</option><option value="Lion '68">Lion '68</option><option value="Mrh810 V2">Mrh810 V2</option><option value="Ruby '63">Ruby '63</option><option value="Showtime '64">Showtime '64</option><option value="Tone King Imperial Preamp">Tone King Imperial Preamp</option><option value="Two-Rock Bloomfield">Two-Rock Bloomfield</option><option value="Woodrow '55">Woodrow '55</option><option value="Yamaha THR10II">Yamaha THR10II</option>
         </select>
       </div>
     </div>
     <div class="sidebar-list">
-<div class="sidebar-item active" onclick="showTone('cory-wong-amp-snob-boutique-clean')" data-id="cory-wong-amp-snob-boutique-clean" data-status="tested" data-genre="clean" data-guitar="les-paul" data-pickup="humbucker" data-amp="The Amp Snob" tabindex="0">
+<div class="sidebar-item active" onclick="showTone('cory-wong-amp-snob-boutique-clean')" data-id="cory-wong-amp-snob-boutique-clean" data-status="tested" data-genre="clean" data-guitar="les-paul" data-pickup="humbucker" data-amp="Amp Snob" tabindex="0">
   <div class="sidebar-title">Amp Snob — Boutique Warm Clean (Archetype Cory Wong X)</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('dream-65-blackface-jazz')" data-id="dream-65-blackface-jazz" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Dream '65" tabindex="0">
+<div class="sidebar-item" onclick="showTone('dream-65-blackface-jazz')" data-id="dream-65-blackface-jazz" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Dream '65, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Dream '65 — Blackface Jazz</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('jazz-clean-intimate-les-paul')" data-id="jazz-clean-intimate-les-paul" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Showtime '64" tabindex="0">
+<div class="sidebar-item" onclick="showTone('jazz-clean-intimate-les-paul')" data-id="jazz-clean-intimate-les-paul" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Showtime '64, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Jazz Clean — Intimate Les Paul</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('jc120-pristine-jazz-clean')" data-id="jc120-pristine-jazz-clean" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120" tabindex="0">
+<div class="sidebar-item" onclick="showTone('jc120-pristine-jazz-clean')" data-id="jc120-pristine-jazz-clean" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Jazz Chorus, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">JC120 Pristine Jazz Clean</div>
   <div class="sidebar-sub">Epiphone Sheraton</div>
   <div class="sidebar-tags">jazz, clean, solid-state</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('lion-68-jumped-plexi-crunch')" data-id="lion-68-jumped-plexi-crunch" data-status="tested" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Lion '68" tabindex="0">
+<div class="sidebar-item" onclick="showTone('lion-68-jumped-plexi-crunch')" data-id="lion-68-jumped-plexi-crunch" data-status="tested" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Lion '68, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Lion '68 — Jumped Plexi Crunch</div>
   <div class="sidebar-sub">Epiphone Les Paul Standard</div>
   <div class="sidebar-tags">plexi, british, crunch</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('mardal-dancing-moonlight')" data-id="mardal-dancing-moonlight" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Cory Wong X" tabindex="0">
+<div class="sidebar-item" onclick="showTone('mardal-dancing-moonlight')" data-id="mardal-dancing-moonlight" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Amp Snob, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Mardal &quot;Dancing in the Moonlight&quot;</div>
   <div class="sidebar-sub">Epiphone Sheraton</div>
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('mrh810-classic-lead')" data-id="mrh810-classic-lead" data-status="tested" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="MRH810 V2" tabindex="0">
+<div class="sidebar-item" onclick="showTone('mrh810-classic-lead')" data-id="mrh810-classic-lead" data-status="tested" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Mrh810 V2, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">MRH810 Classic Lead</div>
   <div class="sidebar-sub">Epiphone Les Paul Standard</div>
   <div class="sidebar-tags">lead, classic-rock, british</div>
@@ -927,7 +983,7 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">pedal-platform, paradise-studio, enigmatic-82</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('ruby-les-paul-velvet-crunch')" data-id="ruby-les-paul-velvet-crunch" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Ruby '63 (Paradise Guitar Studio)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('ruby-les-paul-velvet-crunch')" data-id="ruby-les-paul-velvet-crunch" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Ruby '63" tabindex="0">
   <div class="sidebar-title">Ruby '63 — Les Paul Velvet Crunch &amp; Chime</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
@@ -939,55 +995,67 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('two-rock-bloomfield-warm-clean')" data-id="two-rock-bloomfield-warm-clean" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Two Rock" tabindex="0">
+<div class="sidebar-item" onclick="showTone('two-rock-bloomfield-warm-clean')" data-id="two-rock-bloomfield-warm-clean" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Two-Rock Bloomfield, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Two Rock Bloomfield — Boutique Warm Clean</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('cory-wong-amp-snob-p90')" data-id="cory-wong-amp-snob-p90" data-status="tested" data-genre="clean" data-guitar="framus" data-pickup="p-90" data-amp="The Amp Snob" tabindex="0">
+<div class="sidebar-item" onclick="showTone('cory-wong-amp-snob-p90')" data-id="cory-wong-amp-snob-p90" data-status="tested" data-genre="clean" data-guitar="framus" data-pickup="p-90" data-amp="Amp Snob" tabindex="0">
   <div class="sidebar-title">Amp Snob — Boutique Warm Clean (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('divided-11-light-blues-p90')" data-id="divided-11-light-blues-p90" data-status="initial" data-genre="blues" data-guitar="framus" data-pickup="p-90" data-amp="Divided 11" tabindex="0">
+<div class="sidebar-item" onclick="showTone('divided-11-light-blues-p90')" data-id="divided-11-light-blues-p90" data-status="initial" data-genre="blues" data-guitar="framus" data-pickup="p-90" data-amp="Divided 11, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Divided 11 Light Blues (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">blues, dynamic, clean</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('framus-electronic-veil-p90')" data-id="framus-electronic-veil-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Showtime '64" tabindex="0">
+<div class="sidebar-item" onclick="showTone('framus-electronic-veil-p90')" data-id="framus-electronic-veil-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Showtime '64, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">The Electronic Veil (P-90/Framus Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">jazz, framus, p-90</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('lion-68-jumped-plexi-crunch-p90')" data-id="lion-68-jumped-plexi-crunch-p90" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Lion '68" tabindex="0">
+<div class="sidebar-item" onclick="showTone('lion-68-jumped-plexi-crunch-p90')" data-id="lion-68-jumped-plexi-crunch-p90" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Lion '68, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Lion '68 — Jumped Plexi Crunch (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">plexi, british, crunch</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('two-rock-bloomfield-p90')" data-id="two-rock-bloomfield-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Two Rock" tabindex="0">
+<div class="sidebar-item" onclick="showTone('lion-68-royal-velvet-jazz-p90')" data-id="lion-68-royal-velvet-jazz-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Lion '68, Tone King Imperial Preamp" tabindex="0">
+  <div class="sidebar-title">Lion '68 — Royal Velvet Jazz (P-90 Variant)</div>
+  <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
+  <div class="sidebar-tags">jazz, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('lion-68-slick-growler-blues-p90')" data-id="lion-68-slick-growler-blues-p90" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Lion '68, Tone King Imperial Preamp" tabindex="0">
+  <div class="sidebar-title">Lion '68 — Slick Growler Blues (P-90 Variant)</div>
+  <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
+  <div class="sidebar-tags">blues, edge-of-breakup, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('two-rock-bloomfield-p90')" data-id="two-rock-bloomfield-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Two-Rock Bloomfield" tabindex="0">
   <div class="sidebar-title">Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot-p90')" data-id="woodrow-sweet-spot-p90" data-status="tested" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Woodrow '55" tabindex="0">
+<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot-p90')" data-id="woodrow-sweet-spot-p90" data-status="tested" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Woodrow '55, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Woodrow Sweet Spot (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">tweed, woodrow, blues</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('divided-11-light-blues')" data-id="divided-11-light-blues" data-status="tested" data-genre="blues" data-guitar="telecaster" data-pickup="single-coil" data-amp="Divided 11" tabindex="0">
+<div class="sidebar-item" onclick="showTone('divided-11-light-blues')" data-id="divided-11-light-blues" data-status="tested" data-genre="blues" data-guitar="telecaster" data-pickup="single-coil" data-amp="Divided 11, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Divided 11 Light Blues</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">blues, dynamic, clean</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('dream-65-blackface-sparkle')" data-id="dream-65-blackface-sparkle" data-status="tested" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65" tabindex="0">
+<div class="sidebar-item" onclick="showTone('dream-65-blackface-sparkle')" data-id="dream-65-blackface-sparkle" data-status="tested" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Dream '65 — Blackface Sparkle</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">blackface, country, surf</div>
@@ -999,50 +1067,56 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">pedal-platform, paradise-studio, enigmatic-82</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('ruby-63-vox-jangle')" data-id="ruby-63-vox-jangle" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Ruby '63" tabindex="0">
+<div class="sidebar-item" onclick="showTone('ruby-63-vox-jangle')" data-id="ruby-63-vox-jangle" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Ruby '63, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Ruby '63 — Vox Top Boost Jangle</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">vox, jangle, british-invasion</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('ruby-paradise-strat-chime')" data-id="ruby-paradise-strat-chime" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Ruby '63 (Paradise Guitar Studio)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('ruby-paradise-strat-chime')" data-id="ruby-paradise-strat-chime" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Ruby '63" tabindex="0">
   <div class="sidebar-title">Ruby '63 — Stratocaster Chime &amp; Echo (Paradise Guitar Studio)</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('strat-ambient-bath')" data-id="strat-ambient-bath" data-status="initial" data-genre="ambient" data-guitar="strat" data-pickup="single-coil" data-amp="Showtime '64" tabindex="0">
+<div class="sidebar-item" onclick="showTone('strat-ambient-bath')" data-id="strat-ambient-bath" data-status="initial" data-genre="ambient" data-guitar="strat" data-pickup="single-coil" data-amp="Showtime '64, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Strat Ambient Bath</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">ambient, lush, sound-bath</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('tele-electronic-veil-bickert')" data-id="tele-electronic-veil-bickert" data-status="tested" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Showtime '64" tabindex="0">
+<div class="sidebar-item" onclick="showTone('strat-sleepwalk-carlton')" data-id="strat-sleepwalk-carlton" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Enigmatic '82, Tone King Imperial Preamp" tabindex="0">
+  <div class="sidebar-title">Strat Sleepwalk Carlton (Larry Carlton Style)</div>
+  <div class="sidebar-sub">Mid-1980s Squier Stratocaster Partscaster</div>
+  <div class="sidebar-tags">surf, clean, chorus</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('tele-electronic-veil-bickert')" data-id="tele-electronic-veil-bickert" data-status="tested" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Showtime '64, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">The Electronic Veil (Ed Bickert Style)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">jazz, telecaster, dark</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('tele-singing-blues-carlton')" data-id="tele-singing-blues-carlton" data-status="initial" data-genre="blues" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82" tabindex="0">
+<div class="sidebar-item" onclick="showTone('tele-singing-blues-carlton')" data-id="tele-singing-blues-carlton" data-status="initial" data-genre="blues" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Singing Blues-Jazz (Larry Carlton Style)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">jazz, blues, telecaster</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('thr-warm-neo-soul')" data-id="thr-warm-neo-soul" data-status="initial" data-genre="jazz" data-guitar="strat" data-pickup="single-coil" data-amp="Yamaha THR10ii" tabindex="0">
+<div class="sidebar-item" onclick="showTone('thr-warm-neo-soul')" data-id="thr-warm-neo-soul" data-status="initial" data-genre="jazz" data-guitar="strat" data-pickup="single-coil" data-amp="Yamaha THR10II" tabindex="0">
   <div class="sidebar-title">THR Warm Neo-Soul — Stratocaster</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">neo-soul, clean, warm</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot')" data-id="woodrow-sweet-spot" data-status="tested" data-genre="rock" data-guitar="strat" data-pickup="single-coil" data-amp="Woodrow '55" tabindex="0">
+<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot')" data-id="woodrow-sweet-spot" data-status="tested" data-genre="rock" data-guitar="strat" data-pickup="single-coil" data-amp="Woodrow '55, Tone King Imperial Preamp" tabindex="0">
   <div class="sidebar-title">Woodrow Sweet Spot</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">tweed, woodrow, blues</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
     </div>
-    <div class="sidebar-footer">Generated 2026-05-29 23:55</div>
+    <div class="sidebar-footer">Generated 2026-05-31 22:30</div>
   </aside>
 
   <main class="main-panel" id="main-panel">
@@ -1296,7 +1370,7 @@ The Dream '65 (Fender Blackface Deluxe Reverb '65) has a natural mid-scoop, spar
     </div>
   </div>
   
-  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">30</td><td class="col-purpose">Very light optical compression — less than the Tele tone because the 490R neck is already smooth and even; this is sustain-oriented, not corrective</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">20</td><td class="col-purpose">Makeup gain — calibrated 2026-05-16; previous value of 50 confirmed clipping</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Compress</strong> (3:1)</td><td class="col-purpose">Light touch; preserves jazz picking dynamics</td></tr></tbody></table></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">20</td><td class="col-purpose">Light optical compression — dialed back from 30 after further gain stage levelling; sustain-oriented, not corrective</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">15</td><td class="col-purpose">Makeup gain — calibrated to 15 to prevent clipping and match levelling</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Compress</strong> (3:1)</td><td class="col-purpose">Light touch; preserves jazz picking dynamics</td></tr></tbody></table></div>
   
 </div>
 <div class="plugin-section" id="plugin-jazz-clean-intimate-les-paul-4">
@@ -1321,6 +1395,13 @@ The Dream '65 (Fender Blackface Deluxe Reverb '65) has a natural mid-scoop, spar
 <section class="tone-section">
   <h2 class="section-header">Feedback History</h2>
   
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-05-30</span>
+    <span class="badge status-initial">preset update &amp; gain staging (Peak Reduction &amp; Gain adjustment)</span>
+  </div>
+  <p>Adjusted LA-2A Silver settings based on gain stage levelling: Peak Reduction reduced to 20, Gain reduced to 15 to prevent clipping and maintain perfect level matching. Rebuilt all presets and tone-viewer.</p>
+</div>
 <div class="feedback-entry">
   <div class="feedback-header">
     <span class="feedback-date">2026-05-16</span>
@@ -2863,6 +2944,250 @@ To optimize this for the Framus Earl Slick Artist Series, we make three main adj
 </section>
 </div>
 
+<div class="tone-detail" id="tone-lion-68-royal-velvet-jazz-p90" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Lion '68 — Royal Velvet Jazz (P-90 Variant)</h1>
+      <a href="../tones/p-90s/lion-68-royal-velvet-jazz-p90.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: rhythm</span>
+    </div>
+    <div class="tone-tags"><span class="tag">jazz</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">plexi</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">lion-68</span><span class="tag">marshall</span><span class="tag">dumble</span></div>
+    <p class="tone-target-desc">Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint turns the Marshall Super Lead Plexi (specifically the Super Bass variant inside Paradise Guitar Studio) into a stunning, high-fidelity clean jazz platform. While Marshalls are rarely the first choice for jazz, their massive power section headroom (100W running EL34s) delivers a tight, robust transient response that keeps complex chords and close-interval voicings perfectly clear and articulate. Combined with the mid-forward voicing of a Marshall, this toneprint delivers a gorgeous, woody &quot;thump&quot; with beautiful vocal warmth.
+
+To optimize this for the Framus Earl Slick Artist Series and its DiMarzio P-90s:
+1.  <strong>Tube Preamp Buffer:</strong> We use the physical Tone King Rhythm channel set to its &quot;Transparency Floor&quot; (Volume <strong>2.0</strong>, Attenuation <strong>5.0</strong>) as an analog tube buffer. This sweetens the single-coil direct signal, preventing it from sounding clinical before it hits Logic.
+2.  <strong>Dumble-style Pre-compression:</strong> We run the virtual TONEX plugin in Logic loaded with a <strong>Vertex SSS SRV (Steel String Supreme)</strong> stomp capture. This adds subtle, glassy tube sag and dynamic compression that responds beautifully to delicate fingerpicking.
+3.  <strong>Super Bass Platform:</strong> We load the <strong>BASS model</strong> of the Lion '68 using the <strong>LOW input routing</strong>. This provides the cleanest, roundest, and least aggressive voicing, and naturally removes the bright cap to keep the P-90 single coils smooth.
+4.  <strong>Jazz Middle Push:</strong> Following the &quot;Jazz Middle Rule,&quot; we push the amp's Middle control to <strong>7.5</strong> to fill in the midrange scoop, while applying the <strong>&quot;High-Cut Veil&quot;</strong> at <strong>4.5 kHz</strong> via Logic's EQ to round off modern transient click and simulate a classic vintage jazz box.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-1')">Tone King Imperial Preamp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-2')">IK Multimedia TONEX (Plugin)</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-3')">Paradise Guitar Studio: Li…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-4')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-5')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-royal-velvet-jazz-p90-6')">Hitsville Reverb Chambers</button></div>
+    
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Tone King Imperial Preamp</span>
+      <span class="plugin-role">physical front-end</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status:</strong> <strong>ACTIVE</strong> (analog tube buffer stage) </em>   <strong>Purpose:</strong> Enriches the Framus's direct signal with warm tube character and dynamic sensitivity.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Rhythm</strong></td><td class="col-purpose">60s Blackface character; clean, natural baseline</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>2.0</strong></td><td class="col-purpose">Transparency zone; keeps the preamp clean and dynamic</td></tr><tr class="row-norm"><td>Attenuation</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Unity output level driving the Audient iD14</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Noon (Flat EQ response)</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Noon (Flat EQ response)</td></tr><tr class="row-alt"><td>Reverb / Tremolo</td><td class="col-setting">Off</td><td class="col-purpose">Bypassed</td></tr><tr class="row-norm"><td>IR</td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Cabinet simulation handled downstream in Logic</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">IK Multimedia TONEX (Plugin)</span>
+      <span class="plugin-role">Dumble-style pre-compression</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed as the first insert on the Logic channel to shape the direct tube signal.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Capture</td><td class="col-setting"><strong>SSS SRV AlmostClean</strong></td><td class="col-purpose">Vertex Steel String Supreme; Dumble-style glassiness and body</td></tr><tr class="row-alt"><td>GUID</td><td class="col-setting">`c823f6ce-6820-1fe7-7000-3d20f31add5a`</td><td class="col-purpose">Authoritative factory model ID</td></tr><tr class="row-norm"><td>Gain</td><td class="col-setting"><strong>3.0</strong></td><td class="col-purpose">Kept low; acts as a clean boost and light optical-like leveler</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Balanced output level</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Neutral low end</td></tr><tr class="row-alt"><td>Mid</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Subtle mid push to round out single-coil thunk</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Slightly rolled back to prevent high-frequency glassiness</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Paradise Guitar Studio: Lion '68</span>
+      <span class="plugin-role">high-headroom platform</span>
+    </div>
+  </div>
+  <p class="plugin-note">We load the Lion '68 within the Paradise Guitar Studio environment and select the Bass amp variant.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Model</td><td class="col-setting"><strong>BASS</strong></td><td class="col-purpose">Classic 100W Super Bass; smooth, warm, and highly pedal-friendly</td></tr><tr class="row-alt"><td>Input Routing</td><td class="col-setting"><strong>LOW</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Utilizes Low inputs for a cleaner, darker, and rounder response</td></tr><tr class="row-norm"><td>Volume I (Bite)</td><td class="col-setting"><strong>3.0</strong></td><td class="col-purpose">High-frequency channel; kept low to maintain crystal-clean headroom</td></tr><tr class="row-alt"><td>Volume II (Body)</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Low-frequency channel; turned up to provide full, woody bass character</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Rolled back to smooth out the DiMarzio neck P-90's high end</td></tr><tr class="row-alt"><td>Middle</td><td class="col-setting"><strong>7.5</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Pushed to satisfy the &quot;Jazz Middle Rule,&quot; giving rich midrange body</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Pulled back slightly to prevent low-end mud in the swamp ash body</td></tr><tr class="row-alt"><td>Presence</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Smooths power amp brilliance; rounds off transient &quot;click&quot;</td></tr><tr class="row-norm"><td>Ghost Notes</td><td class="col-setting"><strong>OFF</strong></td><td class="col-purpose">Eliminates intermodulation hum for a modern, quiet clean floor</td></tr><tr class="row-alt"><td>Bright Cap</td><td class="col-setting"><strong>N/A</strong></td><td class="col-purpose">Bypassed by default on Bass model (protects P-90s from harshness)</td></tr><tr class="row-norm"><td>Boost</td><td class="col-setting"><strong>OFF</strong></td><td class="col-purpose">Bypassed (pre-comp handled by the TONEX Vertex SSS capture)</td></tr><tr class="row-alt"><td>Cabinet</td><td class="col-setting"><strong>EV12</strong></td><td class="col-purpose">200W Electro-Voice EVM12L 1x12; tight bottom-end and focused single-speaker thump</td></tr><tr class="row-norm"><td>Room</td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Subtle studio room microphones blend to add space without muddying</td></tr><tr class="row-alt"><td>Noise Gate</td><td class="col-setting"><strong>12.0</strong></td><td class="col-purpose">Light gate engaged to quiet idle single-coil hum</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">surgical shaping &amp; &quot;High-Cut Veil&quot;</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed inline on the channel insert to remove muddy sub-lows and round off modern digital fizz.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>State</th><th>Frequency</th><th>Setting / Slope</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1 (Low-Cut)</td><td>ON</td><td><strong>80.0 Hz</strong></td><td><strong>12 dB/oct</strong></td><td class="col-purpose">Filters out sub-frequency mud and low-end rumble</td></tr><tr class="row-alt"><td>Band 4 (Peak)</td><td>ON</td><td><strong>650.0 Hz</strong></td><td><strong>−1.5 dB</strong> (Q: 1.5)</td><td class="col-purpose">Gentle cut to clear up nasal cabinet honk</td></tr><tr class="row-norm"><td>Band 8 (High-Cut)</td><td>ON</td><td><strong>4500.0 Hz</strong></td><td><strong>24 dB/oct</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Engaging the &quot;High-Cut Veil&quot; to round off transients</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">optical leveling</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed inline after the EQ to provide warm tube leveling and musical dynamics.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting"><strong>25.0</strong></td><td class="col-purpose">Smooth, program-dependent optical leveling (~2 dB on firm chords)</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting"><strong>35.0</strong></td><td class="col-purpose">Balanced makeup gain</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Compress (3:1)</strong></td><td class="col-purpose">Soft-knee optical leveling; keeps the jazz rhythm perfectly even</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-royal-velvet-jazz-p90-6">
+  <div class="plugin-header">
+    <span class="plugin-num">6</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Hitsville Reverb Chambers</span>
+      <span class="plugin-role">vintage room (Bus Send)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed on a dedicated Aux Track (<strong>Bus 3</strong>) set to <strong>100% Wet</strong> to preserve dry transient punch. Track send level: <strong>−14.0 dB</strong>.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Chamber</td><td class="col-setting"><strong>2644 (Chamber 2)</strong></td><td class="col-purpose">Pentagonal room; extremely smooth, warm, and natural decay envelope</td></tr><tr class="row-alt"><td>Speaker</td><td class="col-setting"><strong>Altec 605A</strong></td><td class="col-purpose">Classic vintage duplex cabinet (15&quot; woofer + integrated horn) exclusive to Chamber 2</td></tr><tr class="row-norm"><td>Mic</td><td class="col-setting"><strong>Neumann KM86</strong></td><td class="col-purpose">Multi-pattern small-diaphragm condenser (Blumlein figure-8 pair) exclusive to Chamber 2</td></tr><tr class="row-alt"><td>Mix</td><td class="col-setting"><strong>Wet Solo (ON)</strong></td><td class="col-purpose">100% Wet output configuration on Bus</td></tr><tr class="row-norm"><td>Decay</td><td class="col-setting"><strong>1.5s</strong> (approx. 10:00)</td><td class="col-purpose">Short, intimate room space that provides three-dimensional depth</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting"><strong>15 ms</strong></td><td class="col-purpose">Natural gap letting the P-90 neck pick-attack stay completely dry and centered</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Physical Guitar Setup:</span><span class="guide-content">Switch your Framus to the <strong>Neck P-90</strong> pickup. Roll the guitar's physical Volume knob to <strong>8</strong> and the Tone knob to <strong>7</strong> (complying with the &quot;7/7 Baseline&quot;). This rolls off raw direct bite, sweetening the signal.</span></div><div class="guide-card"><span class="guide-label">Adjusting the Warmth:</span><span class="guide-content">If the tone feels too dark under late-night monitoring on your Sennheiser HD660S2s, do not increase the amp Treble; instead, raise the <strong>High-Cut frequency</strong> on Logic's EQ from `4.5 kHz` to `5.2 kHz`.</span></div><div class="guide-card"><span class="guide-label">String Interaction:</span><span class="guide-content">This setup is voiced beautifully for both flatwounds and roundwounds (like your Rotosound Yellows). The combination of the LOW-input Bass model, EV12 cab, and the 4.5 kHz high-cut keeps the roundwounds feeling highly warm and woody.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-05-30</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Created as the initial &quot;Royal Velvet&quot; jazz clean toneprint for the Framus and its DiMarzio P-90s. Employs the physical Tone King Rhythm channel as an active tube buffer, the TONEX plugin running the Vertex SSS SRV stomp capture in Logic for pre-compression, and UADx Lion '68 set to the Bass model with LOW input routing inside Paradise Guitar Studio. Post-processing includes an EQ &quot;High-Cut Veil&quot; at 4.5 kHz, LA-2A Silver optical glue, and Hitsville Reverb on Bus 3.</p>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-lion-68-slick-growler-blues-p90" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Lion '68 — Slick Growler Blues (P-90 Variant)</h1>
+      <a href="../tones/p-90s/lion-68-slick-growler-blues-p90.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: lead</span>
+    </div>
+    <div class="tone-tags"><span class="tag">blues</span><span class="tag">edge-of-breakup</span><span class="tag">warm</span><span class="tag">plexi</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">lion-68</span><span class="tag">marshall</span><span class="tag">klon</span></div>
+    <p class="tone-target-desc">Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed for a rich, organic, and highly touch-sensitive edge-of-breakup blues tone that showcases the grit and vocal midrange of the Framus's DiMarzio P-90s. 
+
+Rather than relying purely on software distortion, we leverage your physical signal chain's ultimate secret weapon: nesting a physical overdrive capture inside the TONEX One pedal to drive the physical tube preamp of the Tone King Lead channel, before sending that pre-saturated analog signal into the jumped-channel Marshall Plexi in Logic. 
+
+The result is a dynamic, multi-stage analog gain cascade: soft fingerpicking remains warm and clean, while dig-in picking blooms into a thick, singing blues growl with excellent sustain and note separation.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-1')">TONEX One (Physical Pedal)</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-2')">Tone King Imperial Preamp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-3')">Paradise Guitar Studio: Li…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-4')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-5')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-lion-68-slick-growler-blues-p90-6')">Capitol Chambers</button></div>
+    
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">TONEX One (Physical Pedal)</span>
+      <span class="plugin-role">transparent boost boost</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status:</strong> <strong>ACTIVE</strong> (placed physically first, before the Tone King Preamp) </em>   <strong>Purpose:</strong> Pushes the physical Tone King tube preamp into early saturation while retaining single-coil clarity.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Capture</td><td class="col-setting"><strong>KC Tmid Glow</strong></td><td class="col-purpose">Klon Centaur transparent overdrive capture</td></tr><tr class="row-alt"><td>GUID</td><td class="col-setting">`569c9910-1c55-b257-047e-1ed801dcbb05`</td><td class="col-purpose">Authoritative factory model ID</td></tr><tr class="row-norm"><td>Gain</td><td class="col-setting"><strong>2.5</strong> (approx. 9:00)</td><td class="col-purpose">Low gain; acts as a transparent, clean-to-mild boost</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>6.5</strong> (approx. 1:00)</td><td class="col-purpose">High output to push the Tone King's input tube stage</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Tone King Imperial Preamp</span>
+      <span class="plugin-role">physical tube pre-gain driver</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status:</strong> <strong>ACTIVE</strong> (Lead channel) </em>   <strong>Purpose:</strong> Takes the Klon-boosted signal and adds organic, physical tube preamp clipping.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Lead</strong></td><td class="col-purpose">50s Tweed + British rock character; adds rich harmonic weight</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Low volume; acts as a warm analog buffer and pre-gain saturator</td></tr><tr class="row-norm"><td>Attenuation</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">High output level driving the Audient iD14 interface</td></tr><tr class="row-alt"><td>Tone</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Noon (Flat EQ baseline)</td></tr><tr class="row-norm"><td>Mid-Bite</td><td class="col-setting"><strong>2.0</strong></td><td class="col-purpose">Subtle upper-mid push and compression; tightens the P-90 low-end</td></tr><tr class="row-alt"><td>Reverb / Tremolo</td><td class="col-setting">Off</td><td class="col-purpose">Bypassed</td></tr><tr class="row-norm"><td>IR</td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Cabinet simulation handled downstream in Logic</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Paradise Guitar Studio: Lion '68</span>
+      <span class="plugin-role">jumped Plexi crunch</span>
+    </div>
+  </div>
+  <p class="plugin-note">We load the Lion '68 within the Paradise Guitar Studio environment and select the Lead amp variant in jumped-channel routing.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Model</td><td class="col-setting"><strong>LEAD</strong></td><td class="col-purpose">Classic 100W Super Lead Plexi; bright, punchy, and aggressive</td></tr><tr class="row-alt"><td>Input Routing</td><td class="col-setting"><strong>JUMP</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Activates jumped-channel interaction, blending both volumes</td></tr><tr class="row-norm"><td>Volume I (Bite)</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Adjusts high-frequency drive; adds upper-mid bite and string articulation</td></tr><tr class="row-alt"><td>Volume II (Body)</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Adjusts low-mid drive; adds woodiness and muscular Plexi cabinet thump</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Slightly rolled back to prevent high-frequency single-coil fizz</td></tr><tr class="row-alt"><td>Middle</td><td class="col-setting"><strong>6.5</strong></td><td class="col-purpose">Pushed to focus the singing, vocal throatiness of the DiMarzio P-90s</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Rolled back to prevent low-end mud in the swamp ash swamp body</td></tr><tr class="row-alt"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Softens the extreme power-amp high-frequency cap</td></tr><tr class="row-norm"><td>Ghost Notes</td><td class="col-setting"><strong>ON</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Original transformer intermodulation adds harmonic &quot;scream&quot; to leads</td></tr><tr class="row-alt"><td>Bright Cap</td><td class="col-setting"><strong>OFF</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> Prevents roundwound strings from sounding glassy under gain</td></tr><tr class="row-norm"><td>Boost</td><td class="col-setting"><strong>OFF</strong></td><td class="col-purpose">Bypassed (gain cascading handled physically by TONEX + Tone King)</td></tr><tr class="row-alt"><td>Cabinet</td><td class="col-setting"><strong>D65</strong></td><td class="col-purpose">Custom 2x12 British 65W speakers; tight, woody, and favored by blues-rock players</td></tr><tr class="row-norm"><td>Mic L (Left)</td><td class="col-setting"><strong>Condenser 414</strong></td><td class="col-purpose">Placed detailed on-axis; captures the swamp ash body's organic acoustic snap</td></tr><tr class="row-alt"><td>Mic R (Right)</td><td class="col-setting"><strong>Ribbon 121</strong></td><td class="col-purpose">Placed off-axis; captures smooth, warm low-mid chest resonance</td></tr><tr class="row-norm"><td>Room</td><td class="col-setting"><strong>3.0</strong></td><td class="col-purpose">Subtle room sound to place the cabinet in a natural recording space</td></tr><tr class="row-alt"><td>Noise Gate</td><td class="col-setting"><strong>18.0</strong></td><td class="col-purpose">Gate engaged to suppress idle single-coil hum under dual analog gain stages</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">sub-bass cleanup</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed inline on the channel insert to keep the low end tight.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>State</th><th>Frequency</th><th>Setting / Slope</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1 (Low-Cut)</td><td>ON</td><td><strong>80.0 Hz</strong></td><td><strong>12 dB/oct</strong></td><td class="col-purpose">Filters out physical low-frequency cabinet rumble</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">optical leveling</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed inline after the EQ to provide warm tube compression and musical sustain.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting"><strong>28.0</strong></td><td class="col-purpose">Musical optical compression (~2-3 dB on firm digs); smooths pick transient</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting"><strong>32.0</strong></td><td class="col-purpose">Balanced makeup gain</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Compress (3:1)</strong></td><td class="col-purpose">Soft-knee optical leveling; adds natural, singing decay</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-lion-68-slick-growler-blues-p90-6">
+  <div class="plugin-header">
+    <span class="plugin-num">6</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Capitol Chambers</span>
+      <span class="plugin-role">premium studio space (Bus Send)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placed on a dedicated Aux Track (<strong>Bus 3</strong>) set to <strong>100% Wet</strong>. Track send level: <strong>−16.0 dB</strong>.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Chamber</td><td class="col-setting"><strong>Chamber 4</strong></td><td class="col-purpose">Historic warm, deep chamber space beneath Capitol Tower</td></tr><tr class="row-alt"><td>Speaker</td><td class="col-setting"><strong>Altec 605A</strong></td><td class="col-purpose">Coaxial speaker voicing with beautiful vintage midrange</td></tr><tr class="row-norm"><td>Mic</td><td class="col-setting"><strong>Unidyne 545</strong></td><td class="col-purpose">Detailed dynamic mic capture</td></tr><tr class="row-alt"><td>Mix</td><td class="col-setting"><strong>Wet Solo (ON)</strong></td><td class="col-purpose">100% Wet output configuration on Bus</td></tr><tr class="row-norm"><td>Decay</td><td class="col-setting"><strong>1.8s</strong> (approx. 11:00)</td><td class="col-purpose">Lush, spacious room decay that blooms behind your single notes</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting"><strong>10 ms</strong></td><td class="col-purpose">Natural gap letting your pick dynamics stay crisp and direct</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Physical Guitar Setup:</span><span class="guide-content">Switch your Framus to the <strong>Neck/Bridge blend</strong> (middle rotary position) for a beautifully balanced, wide, and snappy rhythm tone. For crying, singing blues leads, switch to the <strong>Neck P-90</strong> and roll the guitar's Tone knob to <strong>7</strong> (our classic <strong>7/7 Baseline</strong>).</span></div><div class="guide-card"><span class="guide-label">Gain Staging Interaction:</span><span class="guide-content">This setup is incredibly touch-sensitive. If you want a perfectly clean tone, simply pick lighter or roll your guitar's Volume knob back to <strong>6</strong>. When you need a singing solo voice, push your guitar Volume to <strong>8 or 9</strong> and dig in with your pick.</span></div><div class="guide-card"><span class="guide-label">Bigsby vibrato:</span><span class="guide-content">Let a chord ring out, let the physical tube preamp and the LA-2A compress and sustain the notes, and use your Bigsby arm for slow, expressive pitch sweeps that bloom beautifully in the Capitol Chambers decay.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-05-31</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Created as the initial &quot;Slick Growler&quot; edge-of-breakup blues toneprint for the Framus Earl Slick Artist Series and its DiMarzio P-90s. Implements a multi-stage gain cascade: physical TONEX One pedal running Klon Centaur stomp capture physically driving the Tone King Lead preamp channel, leading into the jumped-channel LEAD model of the UADx Lion '68 inside Paradise Guitar Studio. Post-processing includes an 80 Hz low-cut, LA-2A Silver leveling, and Capitol Chambers reverb on Bus 3.</p>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-two-rock-bloomfield-p90" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -3757,6 +4082,164 @@ Best played with the Neck pickup (Pos 5) or Neck/Middle (Pos 4) with the guitar'
 </section>
 </div>
 
+<div class="tone-detail" id="tone-strat-sleepwalk-carlton" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Strat Sleepwalk Carlton (Larry Carlton Style)</h1>
+      <a href="../tones/single-coils/strat-sleepwalk-carlton.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: rhythm</span>
+    </div>
+    <div class="tone-tags"><span class="tag">surf</span><span class="tag">clean</span><span class="tag">chorus</span><span class="tag">stratocaster</span><span class="tag">carlton</span><span class="tag">dumble</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">single-coil</span></div>
+    <p class="tone-target-desc">Larry Carlton 'Sleepwalk' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed specifically for the Squier Stratocaster (Neck or Neck+Middle pickup positions) to capture Larry Carlton's iconic 1981 recording of &quot;Sleepwalk.&quot; Since Carlton famously utilized a custom Valley Arts Stratocaster-style guitar for this session rather than his signature ES-335, this tone focuses on single-coil articulation, bell-like clarity, and woodiness, combined with a highly touch-sensitive, singing sustain that emulates slide guitar. 
+
+By utilizing the <strong>Enigmatic '82</strong> (Dumble Overdrive Special) within <strong>UADx Paradise Guitar Studio</strong>, this preset balances clean, pristine chords with a rich, mid-forward lead voice that blooms when you pick harder. Combined with a transparent peak limiter (LA-2A), a subtle non-warbling 3D chorus (Studio D), and a bused tape echo and chamber reverb, it creates a three-dimensional, &quot;sleepy&quot; studio landscape that responds beautifully to volume swells.
+
+<em>Required Physical Setup:</em> To get the intended response, roll the Squier's volume knob back to <strong>7 or 8</strong> for clean chord work, and push to <strong>10</strong> for leads. Keep the guitar's neck tone knob at <strong>7</strong> to round off the single-coil &quot;ice-pick&quot; high-end.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><button class="chain-chip" onclick="scrollToItem('plugin-strat-sleepwalk-carlton-1')">Tone King Imperial Preamp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-strat-sleepwalk-carlton-2')">Paradise Guitar Studio (En…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-strat-sleepwalk-carlton-3')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-strat-sleepwalk-carlton-4')">Studio D Chorus</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-strat-sleepwalk-carlton-5')">Galaxy Tape Echo</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-strat-sleepwalk-carlton-6')">Hitsville Reverb Chambers</button></div>
+    
+<div class="plugin-section" id="plugin-strat-sleepwalk-carlton-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Tone King Imperial Preamp</span>
+      <span class="plugin-role">physical front-end</span>
+    </div>
+  </div>
+  <p class="plugin-note">Used as a high-fidelity, transparent tube buffer before the DAW.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting">Rhythm</td><td class="col-purpose">Cleanest headroom; provides a transparent tube-buffered foundation</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting">2.5</td><td class="col-purpose">Transparency zone; minimal preamp coloration</td></tr><tr class="row-norm"><td>Attenuation</td><td class="col-setting">5.0</td><td class="col-purpose">Unity/moderate output</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting">5.0</td><td class="col-purpose">Flat EQ</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting">5.0</td><td class="col-purpose">Flat EQ</td></tr><tr class="row-alt"><td>IR</td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Cabinet simulation handled in Logic</td></tr><tr class="row-norm"><td>Effects</td><td class="col-setting">Off</td><td class="col-purpose">Reverb and tremolo bypassed</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-strat-sleepwalk-carlton-2">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">UADx Paradise Guitar Studio (Enigmatic '82)</span>
+      <span class="plugin-role">the amp &amp; cab</span>
+    </div>
+  </div>
+  <div class="track-note">The heart of the singing lead voice. Set to the <strong>Silver</strong> voice to provide high-end clarity and articulation that prevents single-coils from getting muddy, while using the <strong>Skyline</strong> tone stack mod to provide the vocal mid-range bloom.</div>
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-strat-sleepwalk-carlton-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Gallery Configuration &amp; Switches</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Amp Model</td><td class="col-setting"><strong>Enigmatic '82</strong></td><td class="col-purpose">Selected in the gallery</td></tr><tr class="row-alt"><td>Voice</td><td class="col-setting"><strong>Silver</strong></td><td class="col-purpose">Bright, articulate Dumble voicing; matches single-coil pickups</td></tr><tr class="row-norm"><td>Input Channel</td><td class="col-setting"><strong>NOR</strong> (Normal)</td><td class="col-purpose">Bypasses the clinical, transistor-based FET input for warm tube sag</td></tr><tr class="row-alt"><td>Bright Switch</td><td class="col-setting"><strong>Off</strong> (Down)</td><td class="col-purpose">Tames harsh single-coil transients and high-end sizzle</td></tr><tr class="row-norm"><td>Mid Switch</td><td class="col-setting"><strong>Off</strong> (Down)</td><td class="col-purpose">Natural midrange balance</td></tr><tr class="row-alt"><td>Deep Switch</td><td class="col-setting"><strong>Off</strong> (Down)</td><td class="col-purpose">Keeps the low-end tight and integrated</td></tr><tr class="row-norm"><td>Rock / Jazz</td><td class="col-setting"><strong>JAZZ</strong></td><td class="col-purpose">Smoother, rounder frequency response</td></tr><tr class="row-alt"><td>Preamp Mods</td><td class="col-setting"><strong>SKYLINE</strong></td><td class="col-purpose">Engages the legendary Dumble midrange bloom and vocal character</td></tr><tr class="row-norm"><td>Boost Button</td><td class="col-setting"><strong>OFF</strong></td><td class="col-purpose">Preserves headroom and dynamic range</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-strat-sleepwalk-carlton-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Amp Controls</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting">4.5</td><td class="col-purpose">Preamp sensitivity; sets the edge-of-breakup threshold</td></tr><tr class="row-alt"><td>Overdrive</td><td class="col-setting">4.0</td><td class="col-purpose">Engages the overdrive circuit for touch-sensitive sustain</td></tr><tr class="row-norm"><td>Ratio</td><td class="col-setting">4.0</td><td class="col-purpose">Blends clean and overdriven signals for dynamic pick response</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">4.5</td><td class="col-purpose">Slightly rolled back to smooth the Strat's high end</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting">7.0</td><td class="col-purpose"><strong>Jazz Middle:</strong> Fills in the single-coil scoop for a vocal sing</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting">4.5</td><td class="col-purpose">Warm but tight; prevents flubby low-frequency resonance</td></tr><tr class="row-norm"><td>Master (6.5)</td><td class="col-setting">6.5</td><td class="col-purpose">Simulates power tube saturation and bloom</td></tr><tr class="row-alt"><td>Presence</td><td class="col-setting">1.5</td><td class="col-purpose">Kept very low to smooth high frequencies and prevent fizz</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-strat-sleepwalk-carlton-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Cabinet &amp; Room (Amp Pane)</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Component</th><th class="col-setting">Setting</th><th>Sonic Character &amp; Aesthetic Profile</th></tr></thead><tbody><tr class="row-norm"><td>Cab &amp; Mics</td><td class="col-setting"><strong>2×12 Boutique D65</strong></td><td>Emulates a 2x12 cabinet with G12-65 speakers mic'd with a pre-blended SM57 and Royer 121 ribbon. Provides smooth treble compression and thick midrange body.</td></tr><tr class="row-alt"><td>Room Level</td><td class="col-setting"><strong>35%</strong></td><td>Introduces natural cabinet room reflections and air, taming the &quot;clinical precision&quot; of the model.</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div>
+<div class="plugin-section" id="plugin-strat-sleepwalk-carlton-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">peak leveling</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">35</td><td class="col-purpose">Yields `1 to 2dB` of smooth compression on hard picking; sustains the tail of volume swells</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">40</td><td class="col-purpose">Makeup gain</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress</td><td class="col-purpose">Natural, musical optical tube compression</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-strat-sleepwalk-carlton-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Studio D Chorus</span>
+      <span class="plugin-role">liquid width</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Mode 2</strong></td><td class="col-purpose">Subtle, 3D spatial widening; adds a &quot;liquid&quot; quality without warbling the pitch</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-strat-sleepwalk-carlton-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Galaxy Tape Echo</span>
+      <span class="plugin-role">slapback depth (Bus 4)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Set up on an Aux/Bus track to preserve dry signal punch.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>Mode 1</strong></td><td class="col-purpose">Single playback head tape echo</td></tr><tr class="row-alt"><td>Echo Rate</td><td class="col-setting">~120ms</td><td class="col-purpose">Short slapback to add physical, double-tracked depth</td></tr><tr class="row-norm"><td>Feedback</td><td class="col-setting">1.0</td><td class="col-purpose">Single repeat</td></tr><tr class="row-alt"><td>Mix / Wet Solo</td><td class="col-setting">100% / <strong>Wet Solo ON</strong></td><td class="col-purpose">Bypasses dry signal on the Aux track</td></tr><tr class="row-norm"><td>Send Level</td><td class="col-setting"><strong>−15 dB</strong></td><td class="col-purpose">Tucked subtly behind the primary guitar signal</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-strat-sleepwalk-carlton-6">
+  <div class="plugin-header">
+    <span class="plugin-num">6</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Hitsville Reverb Chambers</span>
+      <span class="plugin-role">studio space (Bus 3)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Bused to allow precise mix blending and maintain dry attack clarity.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Chamber</td><td class="col-setting"><strong>2648</strong></td><td class="col-purpose">Motown Studio chamber; bright, echo-like space with excellent depth</td></tr><tr class="row-alt"><td>Mix / Wet Solo</td><td class="col-setting">100% / <strong>Wet Solo ON</strong></td><td class="col-purpose">Bypasses dry signal on the Aux track</td></tr><tr class="row-norm"><td>Send Level</td><td class="col-setting"><strong>−12 dB</strong></td><td class="col-purpose">Provides the lush, &quot;sleepy,&quot; wet atmospheric landscape</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Volume Swell Technique</span><span class="guide-content">Coordinate your picking hand with your volume pedal (or physical volume knob). Strike the note with the volume at zero, then roll it up immediately to eliminate the pick transient and let the note bloom.</span></div><div class="guide-card"><span class="guide-label">Mid-Bite Adjustment</span><span class="guide-content">If your Squier's pickups sound too bright or &quot;hollow&quot; for the vocal melody, increase the <strong>Middle</strong> control on the Enigmatic '82 to <strong>7.5</strong> or <strong>8.0</strong> to add throaty body.</span></div><div class="guide-card"><span class="guide-label">Vibrato Timing</span><span class="guide-content">Let the note bloom clean first using your volume swell, and only begin your slow, wide hand-vibrato as the note begins to sustain. This mirrors Larry Carlton's vocal singing style.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-05-31</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Designed specifically for the mid-1980s Squier Stratocaster &quot;Partscaster&quot; neck pickup to replicate the custom Valley Arts Strat tone Carlton utilized on the original <em>Sleepwalk</em> title track recording. Configures Paradise Guitar Studio's Enigmatic '82 in the &quot;Silver&quot; ODS voice with a Skyline tone stack to balance single-coil chime with a rich, vocal midrange. Incorporates Studio D chorus for liquid width, and bused slapback tape echo and Hitsville reverb chambers to complete the 3D studio landscape.</p>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-tele-electronic-veil-bickert" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -4198,11 +4681,12 @@ function applyFilters() {
   var firstVisible = null;
   var activeVisible = false;
   items.forEach(function(el) {
+    var elAmps = el.dataset.amp ? el.dataset.amp.split(',').map(function(s) { return s.trim(); }) : [];
     var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
             && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
-            && (activeFilters.amp    === 'all' || el.dataset.amp    === activeFilters.amp);
+            && (activeFilters.amp    === 'all' || elAmps.includes(activeFilters.amp));
     el.style.display = show ? '' : 'none';
     if (show) {
       visibleCount++;
@@ -4255,11 +4739,27 @@ function toggleTheme() {
   if (btn) { btn.innerHTML = next === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
 }
 
-// Sync toggle button label on load
+function toggleFilters() {
+  var container = document.getElementById('filters-container');
+  var icon = document.getElementById('filters-toggle-icon');
+  var isCollapsed = container.classList.toggle('collapsed');
+  icon.classList.toggle('collapsed', isCollapsed);
+  localStorage.setItem('tv-filters-collapsed', isCollapsed ? 'true' : 'false');
+}
+
+// Sync toggle states on load
 (function() {
-  var saved = localStorage.getItem('tv-theme');
+  var savedTheme = localStorage.getItem('tv-theme');
   var btn = document.getElementById('theme-toggle');
-  if (saved && btn) { btn.innerHTML = saved === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+  if (savedTheme && btn) { btn.innerHTML = savedTheme === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+  
+  var collapsed = localStorage.getItem('tv-filters-collapsed');
+  if (collapsed === 'true') {
+    var container = document.getElementById('filters-container');
+    var icon = document.getElementById('filters-toggle-icon');
+    if (container) container.classList.add('collapsed');
+    if (icon) icon.classList.add('collapsed');
+  }
 }());
 
 showTone('cory-wong-amp-snob-boutique-clean');

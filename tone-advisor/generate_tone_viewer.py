@@ -267,7 +267,7 @@ def parse_tone_file(filepath):
         'tone_king_channel': fm.get('tone-king-channel', ''),
         'status': fm.get('status', 'initial'),
         'amp': fm.get('amp', '').strip(),
-        'genre': infer_genre(tags),
+        'genre': fm.get('genre', infer_genre(tags)).strip(),
         'guitar_type': infer_guitar_type(guitar),
         'pickup_type': fm.get('pickup_type', ''),
         'title': title,
@@ -731,12 +731,64 @@ body {
 }
 
 /* ── Filters ── */
-.filters {
-  padding: 8px 12px 10px;
+.filters-toggle-bar {
+  padding: 10px 16px;
+  background: rgba(0,0,0,0.06);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+}
+
+.filters-toggle-bar:hover {
+  background: var(--surface-alt);
+}
+
+.filters-toggle-bar:hover .filter-title-label {
+  color: var(--accent);
+}
+
+.filters-toggle-bar:hover .filters-toggle-icon {
+  color: var(--text);
+}
+
+.filter-title-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.filters-toggle-icon {
+  font-size: 9px;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.filters-toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.filters-container {
   display: flex;
   flex-direction: column;
   gap: 7px;
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  transition: max-height 0.25s ease-out, padding 0.25s ease-out, border-bottom-width 0.25s ease-out;
+  max-height: 500px;
+}
+
+.filters-container.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom-width: 0;
 }
 
 .filter-section {
@@ -1428,11 +1480,12 @@ function applyFilters() {
   var firstVisible = null;
   var activeVisible = false;
   items.forEach(function(el) {
+    var elAmps = el.dataset.amp ? el.dataset.amp.split(',').map(function(s) { return s.trim(); }) : [];
     var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
             && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
-            && (activeFilters.amp    === 'all' || el.dataset.amp    === activeFilters.amp);
+            && (activeFilters.amp    === 'all' || elAmps.includes(activeFilters.amp));
     el.style.display = show ? '' : 'none';
     if (show) {
       visibleCount++;
@@ -1485,11 +1538,27 @@ function toggleTheme() {
   if (btn) { btn.innerHTML = next === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
 }
 
-// Sync toggle button label on load
+function toggleFilters() {
+  var container = document.getElementById('filters-container');
+  var icon = document.getElementById('filters-toggle-icon');
+  var isCollapsed = container.classList.toggle('collapsed');
+  icon.classList.toggle('collapsed', isCollapsed);
+  localStorage.setItem('tv-filters-collapsed', isCollapsed ? 'true' : 'false');
+}
+
+// Sync toggle states on load
 (function() {
-  var saved = localStorage.getItem('tv-theme');
+  var savedTheme = localStorage.getItem('tv-theme');
   var btn = document.getElementById('theme-toggle');
-  if (saved && btn) { btn.innerHTML = saved === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+  if (savedTheme && btn) { btn.innerHTML = savedTheme === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
+  
+  var collapsed = localStorage.getItem('tv-filters-collapsed');
+  if (collapsed === 'true') {
+    var container = document.getElementById('filters-container');
+    var icon = document.getElementById('filters-toggle-icon');
+    if (container) container.classList.add('collapsed');
+    if (icon) icon.classList.add('collapsed');
+  }
 }());
 """
 
@@ -1544,7 +1613,12 @@ def main():
 
     first_id = tones[0]['id']
 
-    amp_values = sorted(set(t['amp'] for t in tones if t.get('amp')))
+    amp_set = set()
+    for t in tones:
+        if t.get('amp'):
+            for a in t['amp'].split(','):
+                amp_set.add(a.strip())
+    amp_values = sorted(list(amp_set))
     amp_options = ''.join(
         f'<option value="{h(a)}">{h(a)}</option>' for a in amp_values
     )
@@ -1578,7 +1652,11 @@ def main():
       </div>
       <div class="vault-count">{len(tones)} tone{'s' if len(tones) != 1 else ''}</div>
     </div>
-    <div class="filters">
+    <div class="filters-toggle-bar" onclick="toggleFilters()">
+      <span class="filter-title-label">Filters</span>
+      <span class="filters-toggle-icon" id="filters-toggle-icon">&#x25BC;</span>
+    </div>
+    <div class="filters-container" id="filters-container">
       <div class="filter-section">
         <div class="filter-label">Status</div>
         <div class="filter-row">

@@ -1,18 +1,30 @@
 ---
-id: "divided-11-light-blues-p90"
-created: "2026-05-26"
-updated: "2026-05-26"
+amp: "Divided 11"
+created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in."
-tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11, framus, p-90"
-tone-king-channel: rhythm
-amp: "Divided 11, Tone King Imperial Preamp"
+id: divided-11-light-blues-p90
+pickup_type: p-90
 status: initial
-pickup_type: "p-90"
+tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11, framus, p-90"
+target: "Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in."
+tone-king-channel: bypassed
+updated: 2026-05-26
 preset_data:
+  galaxy:
+    echo_rate: 6.5
+    echo_volume: 3.0
+    feedback: 1.5
+    head_select: 1
+    reverb_volume: 0.0
+    tape_age: Used
   la2a:
-    peak_reduction: 18
     gain: 42
+    peak_reduction: 18
+  nembrini_div11:
+    Bass: 4.5
+    Master: 5.0
+    Treble: 5.5
+    Volume: 4.5
 ---
 
 # Divided 11 Light Blues (P-90 Variant)
@@ -32,19 +44,9 @@ We pair this edge-of-breakup platform with a warm, subtle **Galaxy Tape Echo sla
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — transparent buffer front-end
-*   **Status:** **ACTIVE**
-*   **Purpose:** Acting as a high-quality hardware signal buffer driving the audio interface cleanly.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available Tone King voicing |
-| Volume | 2.0 | Kept very low to prevent any preamp coloration |
-| Attenuation | 5.0 | Moderate output |
-| Bass | 5.0 | Flat EQ |
-| Treble | 5.0 | Flat EQ |
-| Reverb / Tremolo | Off | Bypassed |
-| IR | **Bypassed** | Divided 11 handles the full amp + cab simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -133,3 +135,5 @@ Add an Aux channel strip with Input = Bus 3. On this Aux, add Space Designer.
 
 ### 2026-05-26 — initial
 Ported from single-coil Tele variant. Keeps Tone King active as a clean buffer. Utilizes the Divided 11 LOW input switch to pad the hot DiMarzio P-90s, backs Volume down to 4.5 to expand dynamic range, and smooths Treble to 5.5 to balance swamp ash snap. Sets LA-2A Peak Reduction to 18 to protect the Class A dynamics.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

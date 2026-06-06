@@ -1,28 +1,28 @@
 ---
-id: "lion-68-jumped-plexi-crunch"
-created: "2026-05-08"
-updated: "2026-05-16"
+amp: "Lion '68"
+created: 2026-05-08
 guitar: "Epiphone Les Paul Standard (humbuckers \u2014 bridge or neck-bridge blend)"
-target: "\"The Plexi \\"jumped channel\\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\"
-tags: "plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,"
-tone-king-channel: lead
-amp: "Lion '68, Tone King Imperial Preamp"
-status: tested
+id: lion-68-jumped-plexi-crunch
 pickup_type: humbucker
+status: tested
+tags: "plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,"
+target: "\\"The Plexi \\\"jumped channel\\\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\"
+tone-king-channel: bypassed
+updated: 2026-05-16
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 3
-    Treble: 5
+    Bass: 4.0
     Middle: 5
-    Bass: 5
     Presence: 5
+    Treble: 5
+    Volume: 3
   logic_compressor:
-    threshold: 20
-    ratio: 0
     attack: 4
-    release: 7
     makeup_gain: 68
+    ratio: 0
+    release: 7
+    threshold: 20
 ---
 
 # Lion '68 — Jumped Plexi Crunch
@@ -41,19 +41,9 @@ The key technique is **channel jumping** — connecting both channel inputs toge
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — lead channel drive
-
-Unlike the clean toneprints where the Tone King acts as a buffer, here the Lead channel provides useful front-end harmonic complexity before the Plexi. Vol 3 on the Lead channel adds subtle color that thickens the Plexi's response without pushing it into more gain.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | **Lead** | 50s Tweed + British rock character; adds body before the Plexi rather than acting as a neutral buffer |
-| Volume | 3 | Gentle front-end push — not trying to distort the Tone King's preamp, just adding harmonic weight |
-| Attenuation | 6 | Moderate-high output to drive the Plexi's input effectively |
-| Bass | 5 | Flat |
-| Treble | 5 | Flat |
-| Reverb | Off | Space Designer handles reverb post-amp |
-| IR | **Bypassed** | Lion '68 handles the full cab simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -143,3 +133,5 @@ Verified in DAW session. Key findings: **JUMP** input routing is mandatory. **11
 
 ### 2026-05-08 — initial
 Built to fill the Plexi gap in the toneprint library. Lion '68 chosen for its three Plexi variants (Lead/Bass/Brown), Ghost Notes switch, and authentic non-master-volume response. Jumped-channel configuration specified as the primary setup. 1176 Rev A (Bluestripe) chosen for its slower attack range and harmonic color, which complements rather than tames the Plexi character. Tone King Lead channel at Vol 3 specified for front-end harmonic complexity rather than the neutral buffer role it plays in jazz toneprints. TONEX Wampler Plexi Drive and Hudson Broadcast listed as optional boosts.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

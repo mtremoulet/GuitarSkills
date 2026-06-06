@@ -1,14 +1,22 @@
 ---
-id: "jc120-pristine-jazz-clean"
-created: "2026-05-09"
-updated: "2026-05-09"
-guitar: Epiphone Sheraton (humbuckers)
-target: "Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused"
-tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
-tone-king-channel: rhythm
-amp: "Jazz Chorus, Tone King Imperial Preamp"
-status: initial
+amp: "Jazz Chorus"
+created: 2026-05-09
+guitar: "Epiphone Sheraton (humbuckers)"
+id: jc120-pristine-jazz-clean
 pickup_type: humbucker
+status: initial
+tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
+target: "Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused"
+tone-king-channel: bypassed
+updated: 2026-05-09
+preset_data:
+  nembrini_jc120:
+    Bass: 5.0
+    Distortion: 0.0
+    Middle: 7.5
+    Reverb: 0.0
+    Treble: 4.0
+    Volume: 3.0
 ---
 
 # JC120 Pristine Jazz Clean
@@ -23,14 +31,8 @@ The goal is the "glassy" but warm clean tone synonymous with the Roland JC-120. 
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Transparent "Transparency Floor" setting |
-| Volume | 2.5 | Minimal preamp color |
-| Attenuation | 5 | Unity output to interface |
-| EQ | 5 (Noon) | Flat response |
-| IR | Bypassed | Nembrini JC120 handles the cab |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -93,3 +95,5 @@ The goal is the "glassy" but warm clean tone synonymous with the Roland JC-120. 
 
 ### 2026-05-09 — initial
 Designed to address Mike's request for a JC120 jazz tone with specific focus on Nembrini gain staging. Uses the "Jazz Middle" rule and Ribbon 121 mic choice to keep the solid-state character warm. Follows the "Bus-First" standard for spatial effects to avoid the sensitive UADx Mix dials.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

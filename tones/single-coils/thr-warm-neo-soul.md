@@ -1,55 +1,55 @@
 ---
-id: thr-warm-neo-soul
-preset_name: "THR Warm Neo Soul"
-created: 2026-05-29
-updated: 2026-05-29
-guitar: "Squier Stratocaster (bridge + middle pickup position)"
-target: "A warm, compressed neo-soul clean tone for the Yamaha THR10ii with gentle chorus and slapback tape echo."
-tags: neo-soul, clean, warm, chorus, echo, thr10ii, single-coil
-tone-king-channel: bypassed
 amp: "Yamaha THR10II"
-status: initial
+created: 2026-05-29
+guitar: "Squier Stratocaster (bridge + middle pickup position)"
+id: thr-warm-neo-soul
 pickup_type: single-coil
+preset_name: "THR Warm Neo Soul"
+status: initial
+tags: "neo-soul, clean, warm, chorus, echo, thr10ii, single-coil"
+target: "A warm, compressed neo-soul clean tone for the Yamaha THR10ii with gentle chorus and slapback tape echo."
+tone-king-channel: bypassed
+updated: 2026-05-29
 preset_data:
   amp_platform: yamaha_thr
   yamaha_thr:
     amp:
-      model: "Clean"
+      bass: 0.6
       drive: 0.35
-      bass: 0.60
-      mid: 0.50
+      master: 0.6
+      mid: 0.5
+      model: Clean
       treble: 0.45
-      master: 0.60
     cab:
-      model: "2x12"
+      model: 2x12
     compressor:
       enabled: true
-      model: "Stomp Comp"
       level: 0.55
-      sustain: 0.60
-    effect:
-      enabled: true
-      model: "Chorus"
-      wet_dry: 0.35
-      depth: 0.40
-      freq: 0.25
+      model: "Stomp Comp"
+      sustain: 0.6
     echo:
       enabled: true
+      feedback: 0.2
       model: "Tape Echo"
+      time: 0.3
       wet_dry: 0.25
-      time: 0.30
-      feedback: 0.20
-    reverb:
+    effect:
+      depth: 0.4
       enabled: true
-      model: "Hall"
-      wet_dry: 0.20
-      decay: 0.45
-      pre_delay: 0.05
-      tone: 0.50
+      freq: 0.25
+      model: Chorus
+      wet_dry: 0.35
     gate:
+      decay: 0.5
       enabled: true
       thresh: 0.12
-      decay: 0.50
+    reverb:
+      decay: 0.45
+      enabled: true
+      model: Hall
+      pre_delay: 0.05
+      tone: 0.5
+      wet_dry: 0.2
 ---
 
 # THR Warm Neo-Soul — Stratocaster

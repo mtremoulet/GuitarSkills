@@ -1,18 +1,25 @@
 ---
-id: "mrh810-classic-lead"
-created: "2026-04-30"
-updated: "2026-05-07"
-guitar: Epiphone Les Paul Standard
-target: "\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\"
-tags: "lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain"
-tone-king-channel: rhythm/lead
 amp: "Mrh810 V2, Tone King Imperial Preamp"
-status: tested
+created: 2026-04-30
+guitar: "Epiphone Les Paul Standard"
+id: mrh810-classic-lead
 pickup_type: humbucker
+status: tested
+tags: "lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain"
+target: "\\\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\"
+tone-king-channel: rhythm/lead
+updated: 2026-05-07
 preset_data:
+  galaxy:
+    echo_rate: 5.0
+    echo_volume: 3.5
+    feedback: 2.5
+    head_select: 3
+    reverb_volume: 0.0
+    tape_age: New
   la2a:
+    gain: 42
     peak_reduction: 25
-    gain: 5
 ---
 
 # MRH810 Classic Lead

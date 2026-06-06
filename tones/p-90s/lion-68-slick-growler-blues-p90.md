@@ -1,51 +1,51 @@
 ---
-id: "lion-68-slick-growler-blues-p90"
-preset_name: "Lion '68 — Slick Growler Blues P90"
-created: "2026-05-31"
-updated: "2026-05-31"
+amp: "Lion '68"
+created: 2026-05-31
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp."
-tags: "blues, edge-of-breakup, warm, plexi, framus, p-90, lion-68, marshall, klon"
-tone-king-channel: lead
-amp: "Lion '68, Tone King Imperial Preamp"
+id: lion-68-slick-growler-blues-p90
+pickup_type: p-90
+preset_name: "Lion '68 — Slick Growler Blues P90"
 status: initial
-pickup_type: "p-90"
+tags: "blues, edge-of-breakup, warm, plexi, framus, p-90, lion-68, marshall, klon"
+target: "Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp."
+tone-king-channel: bypassed
+updated: 2026-05-31
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Model: "LEAD"
+    Bass: 4.0
+    Boost: false
+    Bright Cap: OFF
+    Cabinet: D65
+    Ghost Notes: ON
+    Input Routing: JUMP
+    Middle: 6.5
+    Model: LEAD
+    Noise Gate: 18.0
+    Presence: 4.5
+    Room: 3.0
+    Treble: 4.5
     Volume I (Bite): 4.5
     Volume II (Body): 5.5
-    Treble: 4.5
-    Middle: 6.5
-    Bass: 4.0
-    Presence: 4.5
-    Input Routing: "JUMP"
-    Ghost Notes: "ON"
-    Bright Cap: "OFF"
-    Boost: "OFF"
-    Cabinet: "D65"
-    Room: 3.0
-    Noise Gate: 18.0
-  tonex_pedal:
-    capture: "Klon Centaur (KC Tmid Glow)"
-    guid: "569c9910-1c55-b257-047e-1ed801dcbb05"
-    type: "physical_stomp_before_preamp"
-    gain: 2.5
-    volume: 6.5
-  logic_eq:
-    band1:
-      on: true
-      freq: 80.0
-      slope: 12.0
-  la2a:
-    peak_reduction: 28.0
-    gain: 32.0
-    compress: true
   capitol_chambers:
+    decay: 1.8
     mix: 1.0
     pre_delay: 10.0
-    decay: 1.8
+  la2a:
+    compress: true
+    gain: 32.0
+    peak_reduction: 28.0
+  logic_eq:
+    band1:
+      freq: 80.0
+      on: true
+      slope: 12.0
+  tonex_pedal:
+    capture: "Klon Centaur (KC Tmid Glow)"
+    gain: 2.5
+    guid: 569c9910-1c55-b257-047e-1ed801dcbb05
+    type: physical_stomp_before_preamp
+    volume: 6.5
 ---
 
 # Lion '68 — Slick Growler Blues (P-90 Variant)
@@ -75,19 +75,9 @@ The result is a dynamic, multi-stage analog gain cascade: soft fingerpicking rem
 
 ---
 
-### 2. Tone King Imperial Preamp — physical tube pre-gain driver
-*   **Status:** **ACTIVE** (Lead channel)
-*   **Purpose:** Takes the Klon-boosted signal and adds organic, physical tube preamp clipping.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | **Lead** | 50s Tweed + British rock character; adds rich harmonic weight |
-| Volume | **2.5** | Low volume; acts as a warm analog buffer and pre-gain saturator |
-| Attenuation | **6.0** | High output level driving the Audient iD14 interface |
-| Tone | **5.0** | Noon (Flat EQ baseline) |
-| Mid-Bite | **2.0** | Subtle upper-mid push and compression; tightens the P-90 low-end |
-| Reverb / Tremolo | Off | Bypassed |
-| IR | **Bypassed** | Cabinet simulation handled downstream in Logic |
+### 2. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -162,3 +152,5 @@ Placed on a dedicated Aux Track (**Bus 3**) set to **100% Wet**. Track send leve
 
 ### 2026-05-31 — initial
 Created as the initial "Slick Growler" edge-of-breakup blues toneprint for the Framus Earl Slick Artist Series and its DiMarzio P-90s. Implements a multi-stage gain cascade: physical TONEX One pedal running Klon Centaur stomp capture physically driving the Tone King Lead preamp channel, leading into the jumped-channel LEAD model of the UADx Lion '68 inside Paradise Guitar Studio. Post-processing includes an 80 Hz low-cut, LA-2A Silver leveling, and Capitol Chambers reverb on Bus 3.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

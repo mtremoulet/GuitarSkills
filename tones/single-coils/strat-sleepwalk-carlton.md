@@ -1,40 +1,47 @@
 ---
-id: "strat-sleepwalk-carlton"
-preset_name: Strat Sleepwalk Carlton SC
-created: "2026-05-31"
-updated: "2026-05-31"
+amp: "Enigmatic '82"
+created: 2026-05-31
 guitar: "Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position)"
-target: "Larry Carlton 'Sleepwalk' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb."
-tags: "surf, clean, chorus, stratocaster, carlton, dumble, delay, reverb, single-coil"
-tone-king-channel: rhythm
-amp: "Enigmatic '82, Tone King Imperial Preamp"
+id: strat-sleepwalk-carlton
+pickup_type: single-coil
+preset_name: "Strat Sleepwalk Carlton SC"
 status: initial
-pickup_type: "single-coil"
+tags: "surf, clean, chorus, stratocaster, carlton, dumble, delay, reverb, single-coil"
+target: "Larry Carlton 'Sleepwalk' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb."
+tone-king-channel: bypassed
+updated: 2026-05-31
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
     Amp Model: "Enigmatic '82"
-    Voice: "Silver"
-    Input Channel: "NOR"
-    Bright Switch: "Off"
-    Mid Switch: "Off"
-    Deep Switch: "Off"
-    Rock/Jazz: "JAZZ"
-    Preamp Mods: "SKYLINE"
-    Boost Button: "OFF"
-    Volume: 4.5
-    Treble: 4.5
-    Middle: 7.0
     Bass: 4.5
-    Overdrive: 4.0
-    Ratio: 4.0
-    Master: 6.5
-    Presence: 1.5
+    Boost: false
+    Boost Button: OFF
+    Bright: false
+    Bright Switch: Off
     Cab & Mics: "2×12 Boutique D65"
+    Deep Switch: Off
+    Input Channel: NOR
+    Master: 6.5
+    Mid Switch: Off
+    Middle: 7.0
+    Overdrive: 4.0
+    Preamp Mods: SKYLINE
+    Presence: 1.5
+    Ratio: 4.0
+    Rock/Jazz: JAZZ
     Room Level: "35%"
+    Treble: 4.5
+    Voice: Silver
+    Volume: 4.5
+  galaxy:
+    echo_rate: 120.0
+    feedback: 1.0
   la2a:
-    peak_reduction: 35
     gain: 40
+    peak_reduction: 35
+  studio_d:
+    mode: "Mode 2"
 ---
 
 # Strat Sleepwalk Carlton (Larry Carlton Style)
@@ -52,18 +59,8 @@ By utilizing the **Enigmatic '82** (Dumble Overdrive Special) within **UADx Para
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-Used as a high-fidelity, transparent tube buffer before the DAW.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest headroom; provides a transparent tube-buffered foundation |
-| Volume | 2.5 | Transparency zone; minimal preamp coloration |
-| Attenuation | 5.0 | Unity/moderate output |
-| Bass | 5.0 | Flat EQ |
-| Treble | 5.0 | Flat EQ |
-| IR | **Bypassed** | Cabinet simulation handled in Logic |
-| Effects | Off | Reverb and tremolo bypassed |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -163,3 +160,5 @@ Bused to allow precise mix blending and maintain dry attack clarity.
 
 ### 2026-05-31 — initial
 Designed specifically for the mid-1980s Squier Stratocaster "Partscaster" neck pickup to replicate the custom Valley Arts Strat tone Carlton utilized on the original *Sleepwalk* title track recording. Configures Paradise Guitar Studio's Enigmatic '82 in the "Silver" ODS voice with a Skyline tone stack to balance single-coil chime with a rich, vocal midrange. Incorporates Studio D chorus for liquid width, and bused slapback tape echo and Hitsville reverb chambers to complete the 3D studio landscape.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

@@ -1,34 +1,38 @@
 ---
-id: "two-rock-bloomfield-warm-clean"
-preset_name: "Two-Rock Bloomfield Boutique Clean HB"
-created: "2026-05-08"
-updated: "2026-05-16"
-guitar: Gibson Les Paul Studio (490R neck pickup)
-target: "High-end boutique clean through the Two Rock Bloomfield Drive — late-night blues, sophisticated jazz-blues, and neo-soul warmth; hi-fi and polished where Fender is glassy and Marshall is aggressive"
-tags: "boutique, clean, warm, les-paul, humbucker, two-rock, jazz-blues, neo-soul, bloomfield"
-tone-king-channel: rhythm
-amp: "Two-Rock Bloomfield, Tone King Imperial Preamp"
-status: tested
+amp: "Two-Rock Bloomfield"
+created: 2026-05-08
+guitar: "Gibson Les Paul Studio (490R neck pickup)"
+id: two-rock-bloomfield-warm-clean
 pickup_type: humbucker
+preset_name: "Two-Rock Bloomfield Boutique Clean HB"
+status: tested
+tags: "boutique, clean, warm, les-paul, humbucker, two-rock, jazz-blues, neo-soul, bloomfield"
+target: "High-end boutique clean through the Two Rock Bloomfield Drive — late-night blues, sophisticated jazz-blues, and neo-soul warmth; hi-fi and polished where Fender is glassy and Marshall is aggressive"
+tone-king-channel: bypassed
+updated: 2026-05-16
 preset_data:
   amp_platform: mixwave
   amp_settings:
-    Gain: 5
-    Treble: 4
-    Middle: 5.5
     Bass: 5
-    Presence: 5
-    Master: 5
-    Reverb: 0
-    Vibe: 5
     Bright: false
-    Mid: false
     Deep: false
-    Tone Stack Bypass: false
+    Gain: 5
     Lead: false
+    Master: 5
+    Mid: false
+    Middle: 5.5
+    Presence: 5
+    Reverb: 0
+    Tone Stack Bypass: false
+    Treble: 4.5
+    Vibe: 5
+  hitsville:
+    decay: 2.0
+    mix: 1.0
+    pre_delay: 8.0
   la2a:
+    gain: 28
     peak_reduction: 35
-    gain: 5
 ---
 
 # Two Rock Bloomfield — Boutique Warm Clean
@@ -52,18 +56,9 @@ The goal here is not "jazz clean" in the Showtime '64 sense — the Two Rock is 
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — warm front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Blackface warmth; pairs well with the Two Rock's own warm character |
-| Volume | 3 | LP 490R output; same as Jazz Clean Intimate for comparison |
-| Attenuation | 5 | Moderate |
-| Bass | 5 | Neutral |
-| Treble | 4 | Slightly pulled back — the Two Rock + LP neck is already warm in the lows and lower-mids; the TK treble pullback gives the combination a smoky quality without making it dark |
-| Reverb | Off | Hitsville handles the space |
-| Tremolo | Off | — |
-| IR | **Bypassed** | Two Rock plugin handles its own cab response |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -184,4 +179,5 @@ Signal path changed: guitar now routes direct into iD14 instrument input (Tone K
 
 ### 2026-05-13 — reverb bus update
 Moved Hitsville Reverb to a dedicated Aux bus (Aux 2). Set plugin to **Wet Solo**, updated Decay to **9:00**. Configured send at **-20dB** and bus fader at **-8dB** for better spatial control and session organization.
-
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

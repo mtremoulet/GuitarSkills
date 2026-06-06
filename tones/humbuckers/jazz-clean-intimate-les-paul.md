@@ -1,26 +1,26 @@
 ---
-id: "jazz-clean-intimate-les-paul"
-preset_name: Showtime Jazz Clean Intimate HB
-created: "2026-04-16"
-updated: "2026-05-30"
-guitar: Gibson Les Paul Studio (490R neck pickup)
-target: "Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close and present, no reverb wash"
-tags: "jazz, clean, warm, intimate, les-paul, humbucker"
-tone-king-channel: rhythm
-amp: "Showtime '64, Tone King Imperial Preamp"
-status: tested
+amp: "Showtime '64"
+created: 2026-04-16
+guitar: "Gibson Les Paul Studio (490R neck pickup)"
+id: jazz-clean-intimate-les-paul
 pickup_type: humbucker
+preset_name: "Showtime Jazz Clean Intimate HB"
+status: tested
+tags: "jazz, clean, warm, intimate, les-paul, humbucker"
+target: "Pristine, warm jazz clean — jazz box intimacy through a transparent high-headroom platform; close and present, no reverb wash"
+tone-king-channel: bypassed
+updated: 2026-05-30
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 3
-    Treble: 5
-    Middle: 5
     Bass: 5
     Bright: false
+    Middle: 5
+    Treble: 4.0
+    Volume: 3
   la2a:
-    peak_reduction: 20
     gain: 15
+    peak_reduction: 20
 ---
 
 # Jazz Clean — Intimate Les Paul
@@ -31,17 +31,8 @@ The goal is a Henriksen Blu / archtop-through-clean-amp sound: full, warm, and c
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | 60s American blackface warmth; pairs naturally with the 490R's warm humbucker character |
-| Volume | 3 | LP 490R has more output than a Tele — lower setting achieves equivalent clean headroom |
-| Attenuation | 6 | Post-phase-inverter trim to compensate for the Showtime '64's low output at these clean settings |
-| Bass | 5 | Neutral — the 490R has substantial natural low end; don't push it further here |
-| Treble | 5 | Neutral — no extra sparkle needed from a warm humbucker |
-| Reverb | Off | Bypassed — space handled by Space Designer |
-| Tremolo | Off | Off |
-| IR | **Bypassed** | Showtime '64 handles cab simulation — do not double-cab |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 
@@ -108,3 +99,5 @@ Confirmed. Tone holds up in play — no changes needed.
 
 ### 2026-04-16 — initial
 Built targeting jazz box intimacy — Henriksen Blu / archtop reference. Les Paul Studio with 490R neck pickup. Showtime '64 chosen for its neutral transparent character (avoids stacking Blackface color on top of Tone King Rhythm). Condenser 414 chosen over Ribbon 160 to add note definition that the 490R's warmth would otherwise round off. Space Designer at 8% for minimal, present-feeling ambience only.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

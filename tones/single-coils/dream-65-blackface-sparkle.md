@@ -1,25 +1,25 @@
 ---
-id: "dream-65-blackface-sparkle"
-preset_name: Dream 65 Blackface Sparkle SC
-created: "2026-05-08"
-updated: "2026-05-08"
+amp: "Dream '65"
+created: 2026-05-08
 guitar: "Fender Player II Telecaster (bridge pickup, roundwound strings)"
-target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
-tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
-tone-king-channel: rhythm
-amp: "Dream '65, Tone King Imperial Preamp"
+id: dream-65-blackface-sparkle
+pickup_type: single-coil
+preset_name: "Dream 65 Blackface Sparkle SC"
 status: tested
-pickup_type: "single-coil"
+tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
+target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
+tone-king-channel: bypassed
+updated: 2026-05-08
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2
-    Treble: 5
     Bass: 5
     Bright: false
+    Treble: 4.0
+    Volume: 2.5
   la2a:
-    peak_reduction: 40
     gain: 20
+    peak_reduction: 40
 ---
 
 # Dream '65 — Blackface Sparkle
@@ -40,18 +40,9 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — passive front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available voicing |
-| Volume | 2 | Tele bridge has more output than Strat — keep TK in transparent buffer territory |
-| Attenuation | 5 | Moderate; let Dream '65 set the level |
-| Bass | 5 | Flat — Dream '65 handles its own EQ character |
-| Treble | 5 | Flat |
-| Reverb | Off | Dream '65 has its own spring reverb — avoid doubling |
-| Tremolo | Off | — |
-| IR | **Bypassed** | Dream '65 handles the cab simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -129,3 +120,5 @@ Verified in DAW session. Key findings: **Volume 2.5** on the amp is necessary fo
 
 ### 2026-05-08 — initial
 Designed around the Dream '65's Blackface character as a country/sparkle platform — filling the gap left by using Showtime '64 as a neutral amp for all clean work. Tele bridge specified as primary guitar; Strat noted as alternate with Bright switch and Treble 6. D-Tex mod circuit chosen for its harmonic warmth over Stock. Spring reverb retained as a feature, not fought against. TONEX ODR-1 and Tumnus Germanium DLX listed as optional pre-amp boosts.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

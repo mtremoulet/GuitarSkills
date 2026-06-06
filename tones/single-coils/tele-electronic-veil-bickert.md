@@ -1,36 +1,37 @@
 ---
-id: "tele-electronic-veil-bickert"
-created: "2026-05-02"
-updated: "2026-05-10"
+amp: "Showtime '64"
+created: 2026-05-02
 guitar: "Fender Player II Telecaster (Neck position, Flatwounds)"
-target: "\"Ed Bickert \\"Electronic Veil\\" \u2014 Extremely dark, warm, and intimate.\"
-tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
-tone-king-channel: rhythm
-amp: "Showtime '64, Tone King Imperial Preamp"
+id: tele-electronic-veil-bickert
+pickup_type: single-coil
 status: tested
-pickup_type: "single-coil"
+tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
+target: "\\"Ed Bickert \\\"Electronic Veil\\\" \u2014 Extremely dark, warm, and intimate.\"
+tone-king-channel: bypassed
+updated: 2026-05-10
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 6
-    Treble: 2
-    Middle: 5
-    Bass: 5
+    Bass: 4.0
     Bright: false
-  la2a:
-    peak_reduction: 32
-    gain: 25
+    Middle: 5
+    Treble: 3.0
+    Volume: 3.0
   hitsville:
+    decay: 2.0
     mix: 0.05
+  la2a:
+    gain: 25
+    peak_reduction: 32
   logic_eq:
     band4:
-      on: true
       freq: 250
       gain: 2
+      on: true
       q: 0.8
     band8:
-      on: true
       freq: 4000
+      on: true
       slope: 4
 ---
 
@@ -50,15 +51,8 @@ This tone works well in either physical routing:
 Character differs between the two (see Feedback History), but both are usable without any plugin changes.
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Clean Blackface foundation; used as a warm tube buffer |
-| Volume | 6 | Sets output level into the interface |
-| Attenuation | 7 | Controls preamp drive; compensates for pickup strength |
-| Bass | 5 | Neutral |
-| Treble | 2 | Significant treble rolloff; darkens the preamp path to match direct character |
-| IR | Bypassed | UAD Showtime '64 handles the cab |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 
@@ -142,3 +136,5 @@ Both direct (JFET only) and through-preamp (Tonex → TKIP → JFET) confirmed w
 
 ### 2026-05-10 — gain staging overhaul
 Resolved persistent zzZZZ buzz: source was Tonex/TKIP pedal chain interaction, not a ground loop. Switched Logic input to MONO (stereo input only carried signal on left channel). TKIP settings dialed in: Attenuation 7, Volume 6, Bass 5, Treble 4. LA-2A backed off to PR 32 / Gain 25 — gentler compression with no noise lifting. Showtime noise gate turned off (gate was masking the symptom; source fixed at hardware). Reverb corrected: Wet Solo ON (correct for bus setup), Decay to 9:00 for a shorter, more intimate tail. Gain staging now −21 to −12 dBFS E2E.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

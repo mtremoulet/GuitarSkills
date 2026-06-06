@@ -5,8 +5,8 @@ updated: "2026-05-16"
 guitar: Epiphone Sheraton (humbuckers)
 target: "\"Rebecca Mardal \\"Dancing in the Moonlight\\" \u2014 warm jazz clean with lush-not-ambient\"
 tags: "jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp"
-tone-king-channel: rhythm
-amp: "Amp Snob, Tone King Imperial Preamp"
+tone-king-channel: bypassed
+amp: "Amp Snob"
 status: tested
 pickup_type: humbucker
 preset_data:
@@ -54,13 +54,8 @@ The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonesta
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Clean blackface platform |
-| Volume | 2.5 | Minimal coloring; acts as a warm buffer |
-| Attenuation | 5 | Nominal output |
-| IR | Bypassed | Neural DSP provides the cab |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -129,3 +124,5 @@ Confirmed tested in previous version of this skill. Status updated to tested.
 
 ### 2026-05-02 — recreated
 Recreated from legacy "Mardal Dancing in the Moonlight" print. Sheraton II focused. Uses Archetype Cory Wong X for the "Clean Machine" amp and its integrated spatial effects.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

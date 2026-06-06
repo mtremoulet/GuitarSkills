@@ -21,8 +21,9 @@ PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio
 PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.json")
 
 LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
+LA2A_GRAY_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_gray/Mike - Adjusting Gain Staging.json")
 HITSVILLE_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_hitsville_chambers/Mike Live Strings.json")
-GALAXY_BASE = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins/uaudio_galaxy_tape_echo/Galaxy_BaseEchoRate0.json"
+GALAXY_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_galaxy_tape_echo/WhereAmI.json")
 STUDIO_D_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_studio_d_chorus/whereami.json")
 VALHALLA_BASE = "/Library/Application Support/Valhalla DSP, LLC/ValhallaSupermassive/Presets/User/whereami.vpreset"
 
@@ -159,26 +160,56 @@ def parse_yaml_frontmatter(content):
             key, _, val = line.partition(":")
             key = key.strip()
             val = val.strip()
-            if val.startswith('"') and val.endswith('"'):
-                val = val[1:-1]
-            elif val.startswith("'") and val.endswith("'"):
-                val = val[1:-1]
-            
-            # Type casting
-            if val == "":
-                val = None
-            elif val.lower() == "true":
-                val = True
-            elif val.lower() == "false":
-                val = False
+            if val.startswith('{') and val.endswith('}'):
+                # Parse inline dictionary
+                inner_dict = {}
+                pairs = val[1:-1].split(",")
+                for pair in pairs:
+                    if ":" in pair:
+                        pk, _, pv = pair.partition(":")
+                        pk = pk.strip()
+                        pv = pv.strip()
+                        if pv.startswith('"') and pv.endswith('"'):
+                            pv = pv[1:-1]
+                        elif pv.startswith("'") and pv.endswith("'"):
+                            pv = pv[1:-1]
+                        if pv == "":
+                            pv = None
+                        elif pv.lower() == "true":
+                            pv = True
+                        elif pv.lower() == "false":
+                            pv = False
+                        else:
+                            try:
+                                if "." in pv:
+                                    pv = float(pv)
+                                else:
+                                    pv = int(pv)
+                            except ValueError:
+                                pass
+                        inner_dict[pk] = pv
+                val = inner_dict
             else:
-                try:
-                    if "." in val:
-                        val = float(val)
-                    else:
-                        val = int(val)
-                except ValueError:
-                    pass
+                if val.startswith('"') and val.endswith('"'):
+                    val = val[1:-1]
+                elif val.startswith("'") and val.endswith("'"):
+                    val = val[1:-1]
+                
+                # Type casting
+                if val == "":
+                    val = None
+                elif isinstance(val, str) and val.lower() == "true":
+                    val = True
+                elif isinstance(val, str) and val.lower() == "false":
+                    val = False
+                elif isinstance(val, str):
+                    try:
+                        if "." in val:
+                            val = float(val)
+                        else:
+                            val = int(val)
+                    except ValueError:
+                        pass
             parsed_lines.append((indent, key, val))
             
     # Build tree from parsed_lines
@@ -925,10 +956,14 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
     if mix is not None:
         val_scaled = mix / 100.0 if mix > 1.0 else mix
         struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
-    # Float 12: Pre-Delay (ms scaled to 0.0-1.0, e.g. 8ms -> 0.08)
+    # Float 12: Pre-Delay (ms scaled to 0.0-1.0, e.g. 8ms -> 0.08, 15ms -> 0.15)
     if pre_delay is not None:
         val_scaled = pre_delay / 100.0
         struct.pack_into("f", chunk_bytes, 12 * 4, val_scaled)
+    # Float 20: Decay (0.0 to 1.0, e.g. 3.5s -> 0.35)
+    if decay is not None:
+        val_scaled = decay / 10.0
+        struct.pack_into("f", chunk_bytes, 20 * 4, val_scaled)
 
     preset_data["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
     preset_data["name"] = f"Toneprint - {output_name}"
@@ -1944,11 +1979,18 @@ def main():
                         compiled_uad += 1
 
             # Compile LA-2A Presets if UADx templates exist
-            if os.path.exists(LA2A_BASE):
-                # Only compile if LA-2A is in the toneprint content
-                if "la-2a" in content.lower():
-                    if compile_la2a_toneprint(filepath, LA2A_BASE, clean_name, frontmatter):
+            if "la-2a" in content.lower():
+                compiled_any_la2a = False
+                # Compile Gray if specified in the content
+                if ("gray" in content.lower() or "grey" in content.lower()) and os.path.exists(LA2A_GRAY_BASE):
+                    if compile_la2a_toneprint(filepath, LA2A_GRAY_BASE, clean_name, frontmatter):
                         compiled_la2a += 1
+                        compiled_any_la2a = True
+                # Compile Silver if specified, or as a default fallback
+                if "silver" in content.lower() or not compiled_any_la2a:
+                    if os.path.exists(LA2A_BASE):
+                        if compile_la2a_toneprint(filepath, LA2A_BASE, clean_name, frontmatter):
+                            compiled_la2a += 1
 
             # Compile Hitsville Reverb Presets if UADx templates exist
             if os.path.exists(HITSVILLE_BASE):
@@ -2005,7 +2047,7 @@ def main():
     print(f"  -> {compiled_neural} Neural DSP presets in {NEURAL_OUTPUT_DIR}")
     print(f"  -> {compiled_uad} UAD Paradise presets in {PARADISE_DIR}")
     print(f"  -> {compiled_mixwave} MixWave Two-Rock presets in {MIXWAVE_OUTPUT_DIR}")
-    print(f"  -> {compiled_la2a} UADx LA-2A presets in {os.path.dirname(LA2A_BASE)}")
+    print(f"  -> {compiled_la2a} UADx LA-2A presets in Silver/Gray folders")
     print(f"  -> {compiled_hitsville} UADx Hitsville presets in {os.path.dirname(HITSVILLE_BASE)}")
     print(f"  -> {compiled_logiceq} Logic Channel EQ presets in {os.path.dirname(LOGIC_EQ_BASE)}")
     print(f"  -> {compiled_logiccomp} Logic Compressor presets in {os.path.dirname(LOGIC_COMP_BASE)}")

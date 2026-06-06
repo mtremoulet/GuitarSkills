@@ -1,18 +1,30 @@
 ---
-id: "divided-11-light-blues"
-created: "2026-04-30"
-updated: "2026-05-03"
-guitar: Fender Player II Telecaster
-target: "\"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\"
-tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
-tone-king-channel: rhythm
-amp: "Divided 11, Tone King Imperial Preamp"
+amp: "Divided 11"
+created: 2026-04-30
+guitar: "Fender Player II Telecaster"
+id: divided-11-light-blues
+pickup_type: single-coil
 status: tested
-pickup_type: "single-coil"
+tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
+target: "\\\"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\"
+tone-king-channel: bypassed
+updated: 2026-05-03
 preset_data:
+  galaxy:
+    echo_rate: 6.5
+    echo_volume: 3.5
+    feedback: 1.5
+    head_select: 1
+    reverb_volume: 0.0
+    tape_age: Used
   la2a:
-    peak_reduction: 20
     gain: 42
+    peak_reduction: 20
+  nembrini_div11:
+    Bass: 5.0
+    Master: 5.0
+    Treble: 6.0
+    Volume: 5.0
 ---
 
 # Divided 11 Light Blues
@@ -29,20 +41,9 @@ A Galaxy Tape Echo slapback (single short repeat, ~85ms) adds the signature blue
 
 ## Signal Chain
 
-### Tone King Imperial Preamp — transparent front-end only
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available Tone King voicing |
-| Volume | 2 | Very low — the Tone King here is a signal buffer, not a character amp |
-| Attenuation | 5 | Moderate output to interface |
-| Bass | 5 (noon) | Flat |
-| Treble | 5 (noon) | Flat — no coloration intended |
-| Reverb | Off | — |
-| Tremolo | Off | — |
-| IR | Bypassed | Divided 11 handles the full amp + cab simulation |
-
-*At Volume 2, the Tone King Rhythm channel adds negligible preamp coloring — it's acting like a high-quality buffer driving the interface input cleanly.*
+### Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -156,3 +157,5 @@ Designed for Sheraton humbuckers into Divided 11 Class A boutique amp emulation.
 
 ### 2026-05-03 — first test (Gibson, THR10ii monitoring)
 Output is very hot — Mike pulled plugin Output slider to −8dB to prevent blowing out THR10ii. All Nembrini Audio plugins have plugin-level Input and Output sliders as transparent gain trims at the plugin boundary (not part of the amp or cab model). The tone file does not specify the Input slider value (likely defaulted to 0dB). Recommend pairing Input reduction (−4 to −6dB) with Output compensation rather than only trimming Output — this changes how hard the virtual preamp works and may lower the amp's own modeled noise floor. Boost switch confirmed non-starter: acts as a force multiplier on an already hot signal — reserve for high-headroom contexts only. Not much grit at Volume 5 with Low input for lead work; options are Volume 5.5–6 or switch to High input at Volume 3.5–4 for a different edge-of-breakup feel. Noise/hum present even with humbuckers: attributed to Class A / tube rectifier character modeled by Nembrini (amp self-noise, not pickup hum) — noise gate engaged and appropriate.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

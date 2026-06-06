@@ -1,63 +1,63 @@
 ---
-id: "lion-68-royal-velvet-jazz-p90"
-preset_name: "Lion '68 — Royal Velvet Jazz P90"
-created: "2026-05-30"
-updated: "2026-05-30"
+amp: "Lion '68"
+created: 2026-05-30
+genre: jazz
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room."
+id: lion-68-royal-velvet-jazz-p90
+pickup_type: p-90
+preset_name: "Lion '68 — Royal Velvet Jazz P90"
+status: tested
 tags: "jazz, clean, warm, plexi, framus, p-90, lion-68, marshall, dumble"
-tone-king-channel: rhythm
-amp: "Lion '68, Tone King Imperial Preamp"
-genre: "jazz"
-status: initial
-pickup_type: "p-90"
+target: "Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room."
+tone-king-channel: bypassed
+updated: 2026-05-30
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Model: "BASS"
+    Bass: 4.5
+    Boost: false
+    Bright Cap: N/A
+    Cabinet: EV12
+    Ghost Notes: OFF
+    Input Routing: LOW
+    Middle: 7.5
+    Model: BASS
+    Noise Gate: 12.0
+    Presence: 4.0
+    Room: 2.5
+    Treble: 4.5
     Volume I (Bite): 3.0
     Volume II (Body): 5.0
-    Treble: 4.5
-    Middle: 7.5
-    Bass: 4.5
-    Presence: 4.0
-    Input Routing: "LOW"
-    Ghost Notes: "OFF"
-    Bright Cap: "N/A"
-    Boost: "OFF"
-    Cabinet: "EV12"
-    Room: 2.5
-    Noise Gate: 12.0
-  tonex:
-    capture: "SSS SRV AlmostClean"
-    guid: "c823f6ce-6820-1fe7-7000-3d20f31add5a"
-    gain: 3.0
-    volume: 6.0
-    bass: 5.0
-    mid: 6.0
-    treble: 4.5
-  logic_eq:
-    band1:
-      on: true
-      freq: 80.0
-      slope: 12.0
-    band4:
-      on: true
-      freq: 650.0
-      gain: -1.5
-      q: 1.5
-    band8:
-      on: true
-      freq: 4500.0
-      slope: 24.0
-  la2a:
-    peak_reduction: 25.0
-    gain: 35.0
-    compress: true
   hitsville:
+    decay: 3.6
     mix: 1.0
     pre_delay: 15.0
-    decay: 1.5
+  la2a:
+    compress: true
+    gain: 30.0
+    peak_reduction: 35.0
+  logic_eq:
+    band1:
+      freq: 80.0
+      on: true
+      slope: 12.0
+    band4:
+      freq: 650.0
+      gain: -1.5
+      on: true
+      q: 1.5
+    band8:
+      freq: 4500.0
+      on: true
+      slope: 24.0
+  tonex:
+    bass: 5.0
+    capture: "SSS SRV AlmostClean"
+    gain: 3.0
+    guid: c823f6ce-6820-1fe7-7000-3d20f31add5a
+    mid: 6.0
+    treble: 4.5
+    volume: 6.0
 ---
 
 # Lion '68 — Royal Velvet Jazz (P-90 Variant)
@@ -77,18 +77,8 @@ To optimize this for the Framus Earl Slick Artist Series and its DiMarzio P-90s:
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-*   **Status:** **ACTIVE** (analog tube buffer stage)
-*   **Purpose:** Enriches the Framus's direct signal with warm tube character and dynamic sensitivity.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | **Rhythm** | 60s Blackface character; clean, natural baseline |
-| Volume | **2.0** | Transparency zone; keeps the preamp clean and dynamic |
-| Attenuation | **5.0** | Unity output level driving the Audient iD14 |
-| Bass | **5.0** | Noon (Flat EQ response) |
-| Treble | **5.0** | Noon (Flat EQ response) |
-| Reverb / Tremolo | Off | Bypassed |
-| IR | **Bypassed** | Cabinet simulation handled downstream in Logic |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -146,8 +136,8 @@ Placed inline after the EQ to provide warm tube leveling and musical dynamics.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Peak Reduction | **25.0** | Smooth, program-dependent optical leveling (~2 dB on firm chords) |
-| Gain | **35.0** | Balanced makeup gain |
+| Peak Reduction | **35.0** | Smooth, program-dependent optical leveling (~2 dB on firm chords) |
+| Gain | **30.0** | Balanced makeup gain |
 | Mode | **Compress (3:1)** | Soft-knee optical leveling; keeps the jazz rhythm perfectly even |
 
 ---
@@ -161,7 +151,7 @@ Placed on a dedicated Aux Track (**Bus 3**) set to **100% Wet** to preserve dry 
 | Speaker | **Altec 605A** | Classic vintage duplex cabinet (15" woofer + integrated horn) exclusive to Chamber 2 |
 | Mic | **Neumann KM86** | Multi-pattern small-diaphragm condenser (Blumlein figure-8 pair) exclusive to Chamber 2 |
 | Mix | **Wet Solo (ON)** | 100% Wet output configuration on Bus |
-| Decay | **1.5s** (approx. 10:00) | Short, intimate room space that provides three-dimensional depth |
+| Decay | **3.6s** (natural decay) | Intimate and lush room space that provides three-dimensional depth |
 | Pre-Delay | **15 ms** | Natural gap letting the P-90 neck pick-attack stay completely dry and centered |
 
 ---
@@ -178,3 +168,5 @@ Placed on a dedicated Aux Track (**Bus 3**) set to **100% Wet** to preserve dry 
 
 ### 2026-05-30 — initial
 Created as the initial "Royal Velvet" jazz clean toneprint for the Framus and its DiMarzio P-90s. Employs the physical Tone King Rhythm channel as an active tube buffer, the TONEX plugin running the Vertex SSS SRV stomp capture in Logic for pre-compression, and UADx Lion '68 set to the Bass model with LOW input routing inside Paradise Guitar Studio. Post-processing includes an EQ "High-Cut Veil" at 4.5 kHz, LA-2A Silver optical glue, and Hitsville Reverb on Bus 3.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

@@ -176,6 +176,27 @@ PARADISE_TONEPRINTS = [
         }
     },
     {
+        # Ported from Woodrow '55 EP3 P-90 Variant
+        "source": "tones/p-90s/woodrow-ep3-p90.md",
+        "preset_name": "Toneprint - Woodrow EP3 P90.json",
+        "amp_index": 5,        # Woodrow '55 is index 5
+        "cab_index": 32,
+        "controls": {
+            "amp": 5,
+            "woodrow_inst_volume": 3.15,
+            "woodrow_mic_volume": 1.93,
+            "woodrow_tone": 5.18,
+            "woodrow_boost_enable": True,
+            "woodrow_boost_type": 2,
+            "woodrow_boost_amount": 3.03,
+            "cab_and_mic": 32,
+            "room": 20.0,
+            "output": 3.84,
+            "prefx_power": True,
+            "postfx_power": True
+        }
+    },
+    {
         # Ported from standalone Showtime '64 Jazz Clean Intimate HB
         "source": "tones/humbuckers/jazz-clean-intimate-les-paul.md",
         "preset_name": "Toneprint - Showtime Jazz Clean Intimate HB.json",

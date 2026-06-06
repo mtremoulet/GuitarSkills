@@ -1,41 +1,53 @@
 ---
-id: "cory-wong-amp-snob-p90"
-preset_name: Amp Snob Boutique Clean P90
-created: "2026-05-26"
-updated: "2026-05-27"
-guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
-tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
-tone-king-channel: bypassed
 amp: "Amp Snob"
+created: 2026-05-26
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
+id: cory-wong-amp-snob-p90
+pickup_type: p-90
+preset_name: "Amp Snob Boutique Clean P90"
 status: tested
-pickup_type: "p-90"
+tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
+target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
+tone-king-channel: bypassed
+updated: 2026-05-27
 preset_data:
   amp_platform: neural_dsp
   amp_settings:
+    ampCabLinkedState: false
+    bigRigActive: false
+    chorusActive: false
+    delayActive: false
+    leftCab0MicType: 4
+    leftCabActive: true
+    leftCabDistance: 0.25
+    leftCabPosition: 0.5
+    leftRoomMicLevel: -28.0
+    postalActive: false
+    rightCabActive: false
     selectedAmp: 2
     selectedCab: 2
-    ampCabLinkedState: false
-    snobDrive: false
+    snobBass: 44.0
     snobBright: false
-    leftCabPosition: 0.50
-    leftCabDistance: 0.25
-    leftCabActive: true
-    leftCab0MicType: 4
-    rightCabActive: false
+    snobDrive: false
     snobEQActive: true
     snobEQHpf: 20.0
     snobEQLpf: 20000.0
+    snobMaster: 75.0
+    snobMid: 52.0
+    snobOutputLevel: 70.0
+    snobPresence: 50.0
+    snobTreble: 50.0
+    snobVolume: 38.0
     tuberActive: false
-    bigRigActive: false
-    postalActive: false
-    delayActive: false
     washActive: false
-    chorusActive: false
+  hitsville:
+    decay: 2.0
+    mix: 1.0
+    pre_delay: 8.0
   logic_compressor:
-    ratio: 1
     attack: 1
     makeup_gain: 2
+    ratio: 1
 ---
 
 # Amp Snob — Boutique Warm Clean (P-90 Variant)

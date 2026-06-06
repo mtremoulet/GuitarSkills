@@ -24,26 +24,21 @@ All supporting files are in `tone-advisor/` relative to the GuitarSkills project
 
 ## Physical signal chain
 
-```
-[Guitar] → [TONEX One pedal] → [Tone King Imperial Preamp] → [iD14 Input 1 + 2] → [Logic Pro]
-                                                                                          ↓
-                                                              [Sennheiser HD660S2] ← [iD14 Output]
-                                                                     OR
-                                                       [Yamaha THR10ii AUX input] ← [iD14 Output]
-```
+- **Default (Direct Input)**: [Guitar] → [iD14 Input 1] → [Logic Pro] (cleanest and most transparent path for software modeling).
+- **Tone King Routing (Optional Coloration)**: [Guitar] → [TONEX One pedal] → [Tone King Imperial Preamp] → [iD14 Input 1 + 2] → [Logic Pro] (used only when specific hardware preamp coloration is desired).
 
 **Primary monitoring:** Sennheiser HD660S2 headphones — used almost exclusively.
 
 **Alternate output:** Yamaha THR10ii via AUX input — treated as a powered monitor for the Logic output, not as an amp sim. When used this way, the THR10ii's own amp/FX modeling should be set to flat/clean/neutral.
 
-**Alternative input path (THR10ii direct):** Guitar can plug directly into the THR10ii, bypassing the entire hardware chain. Assume the full hardware chain unless stated otherwise.
+**Alternative input path (THR10ii direct):** Guitar can plug directly into the THR10ii, bypassing the entire hardware chain.
 
-The TONEX One is normally in **bypass** (Stomp setting). When active, it runs a capture before the Tone King — functioning like a hardware drive pedal or full rig in front of the amp.
+The TONEX One is normally in **bypass** (Stomp setting) if the Tone King routing is active. When active, it runs a capture before the Tone King.
 
-**TONEX One use cases:**
+**TONEX One use cases (only applicable if using Tone King route):**
 - **Drive/stomp capture active**: acts as a hardware overdrive/distortion/boost in front of the Tone King.
 - **Amp+Cab or ComplexRig capture active**: full amp character is baked in before the Tone King. This stacks amp characters unless the Tone King is kept very clean and quiet.
-- **Bypass (default)**: TONEX One is transparent; signal chain starts cleanly at the Tone King.
+- **Bypass (default)**: TONEX One is transparent.
 
 Always confirm whether the TONEX One is bypassed or loaded with a capture when building a tone recommendation.
 
@@ -173,8 +168,9 @@ WebSearch for plugin documentation; save complete parameter documentation to `to
 Ask clarifying questions. **Cap at 3 before attempting a recommendation.**
 
 Always ask or confirm:
-- **TONEX One**: bypassed, or loaded with a capture? If active, which capture and type (stomp, amp+cab, rig)?
-- Which **Tone King channel** (Rhythm or Lead)? Is the IR active or bypassed?
+- **Input Path**: Direct input to iD14 (default), or routing through physical Tone King Imperial Preamp (only if Rhythm/Lead preamp coloration is desired)?
+- **TONEX One**: bypassed, or loaded with a capture (if using Tone King routing)?
+- Which **Tone King channel** (Rhythm or Lead, if active)? Is the IR active or bypassed?
 - What **guitar** (Telecaster, Les Paul, Strat, etc.)?
 - What is the **sonic goal** — artist reference, genre, descriptor, or a problem to solve?
 
@@ -201,10 +197,12 @@ When using an Amp+Cab or ComplexRig capture, the Tone King IR must be bypassed (
 
 ### Step 4 — Build and present the full recommendation
 
-Signal chain always starts with the physical hardware:
+Signal chain starts with the selected hardware input path:
 
 ```
-[TONEX One (bypass or capture)] → [Tone King Imperial Preamp] → [Noise Gate if needed] → [Drive/Boost] → [Amp + Cab/Mics] → [Post-amp compression] → [EQ] → [Modulation] → [Delay] → [Reverb]
+[Guitar] → [Direct to iD14 (default)] or [TONEX One → Tone King Imperial Preamp] → [iD14]
+                                                                                    ↓
+                                                                                [Logic Pro]
 ```
 
 For every plugin:

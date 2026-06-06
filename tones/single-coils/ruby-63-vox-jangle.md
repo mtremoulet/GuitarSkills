@@ -1,22 +1,28 @@
 ---
-id: "ruby-63-vox-jangle"
-preset_name: Ruby 63 Vox Jangle SC
-created: "2026-05-08"
-updated: "2026-05-08"
-guitar: "Squier Stratocaster (bridge + middle pickup position — \\"quack\\")"
-target: "AC30 Top Boost chime and jangle — British Invasion, Byrds folk-rock, Tom Petty, and R.E.M. shimmer; the most tonally distinctive amp voicing in the UADx collection"
-tags: "vox, jangle, british-invasion, folk-rock, strat, single-coil, ruby-63, ac30, chime"
-tone-king-channel: rhythm
-amp: "Ruby '63, Tone King Imperial Preamp"
+amp: "Ruby '63"
+created: 2026-05-08
+guitar: "Squier Stratocaster (bridge + middle pickup position — \\\"quack\\\")"
+id: ruby-63-vox-jangle
+pickup_type: single-coil
+preset_name: "Ruby 63 Vox Jangle SC"
 status: initial
-pickup_type: "single-coil"
+tags: "vox, jangle, british-invasion, folk-rock, strat, single-coil, ruby-63, ac30, chime"
+target: "AC30 Top Boost chime and jangle — British Invasion, Byrds folk-rock, Tom Petty, and R.E.M. shimmer; the most tonally distinctive amp voicing in the UADx collection"
+tone-king-channel: bypassed
+updated: 2026-05-08
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2
-    Treble: 5
-    Bass: 4
+    Bass: 5.0
     Tone Cut: 6
+    Treble: 7.0
+    Volume: 4.0
+  galaxy:
+    echo_rate: 6.0
+    echo_volume: 2.5
+    feedback: 2.0
+    head_select: 1
+    tape_age: New
 ---
 
 # Ruby '63 — Vox Top Boost Jangle
@@ -35,19 +41,9 @@ The Strat in its bridge + middle "quack" position adds the upper-mid sparkle and
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — very passive front-end
-
-The Strat + AC30 combination is already bright. The Tone King here is as close to a bypass as it gets — just keeping it in the chain for interface gain staging consistency.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest voicing |
-| Volume | 2 | Strat output is low; keep TK at buffer level — any color here stacks on top of already-bright AC30 |
-| Attenuation | 4 | Slightly reduced output — the Ruby '63 runs hot and reaches its breakup threshold quickly |
-| Bass | 4 | Slightly pulled back — the AC30 can accumulate mud in the low-mids; preempt it here |
-| Treble | 5 | Flat |
-| Reverb | Off | Galaxy Tape Echo and ChromaVerb handle the space |
-| IR | **Bypassed** | Ruby '63 handles the full cab simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -122,3 +118,5 @@ The Ruby '63's VIB-TREM channel has built-in tremolo — a different approach fr
 
 ### 2026-05-08 — initial
 Built to fill the only distinctly "Vox" tone gap in the library — nothing else sounds like the AC30. BRILLIANT channel with Top Boost specified as the definitive AC30 voice. Tone Cut counterintuitive behavior called out prominently in both the toneprint and starting point guide (easy to misuse on first load). Strat bridge + middle specified for the "quack" position that adds upper-mid sparkle complementing the AC30 chime. Galaxy Tape Echo at very low levels for British Invasion "room" texture rather than echo effect. VIB-TREM channel noted as an optional variation for surf/tremolo exploration.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

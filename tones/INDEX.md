@@ -11,25 +11,38 @@
 | MRH810 Classic Lead | humbucker | Epiphone Les Paul Standard | [humbuckers/mrh810-classic-lead.md](humbuckers/mrh810-classic-lead.md) | tested |
 | Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-boutique-clean.md](humbuckers/paradise-enigmatic-boutique-clean.md) | refined |
 | Paradise Pedal Platform (Humbucker Variant) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton | [humbuckers/paradise-pedal-platform-hb.md](humbuckers/paradise-pedal-platform-hb.md) | initial |
+| Puretone Velvet Jazz — Sheraton II | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/puretone-velvet-jazz-sheraton.md](humbuckers/puretone-velvet-jazz-sheraton.md) | initial |
+| Ruby LP Velvet Blues HB | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard | [humbuckers/ruby-hb-velvet-blues.md](humbuckers/ruby-hb-velvet-blues.md) | initial |
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | Gibson Les Paul Studio (490R neck / 490T bridge humbuckers) | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
+| Sheraton OC-5 Bass Split | humbucker | Epiphone Sheraton II (humbuckers, neck position) | [humbuckers/sheraton-bass-split-oc5.md](humbuckers/sheraton-bass-split-oc5.md) | initial |
 | Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
+| TKIP LP 80s Rock Lead | humbucker | Gibson Les Paul Studio | [humbuckers/tkip-lp-80s-rock-lead.md](humbuckers/tkip-lp-80s-rock-lead.md) | initial |
+| TKIP Sheraton Jazz Clean | humbucker | Epiphone Sheraton II | [humbuckers/tkip-sheraton-jazz-clean.md](humbuckers/tkip-sheraton-jazz-clean.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
 | Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | tested |
 | Divided 11 Light Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/divided-11-light-blues-p90.md](p-90s/divided-11-light-blues-p90.md) | initial |
 | The Electronic Veil (P-90/Framus Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/framus-electronic-veil-p90.md](p-90s/framus-electronic-veil-p90.md) | initial |
 | Lion '68 — Jumped Plexi Crunch (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-jumped-plexi-crunch-p90.md](p-90s/lion-68-jumped-plexi-crunch-p90.md) | initial |
-| Lion '68 — Royal Velvet Jazz (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-royal-velvet-jazz-p90.md](p-90s/lion-68-royal-velvet-jazz-p90.md) | initial |
+| Lion '68 — Royal Velvet Jazz (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-royal-velvet-jazz-p90.md](p-90s/lion-68-royal-velvet-jazz-p90.md) | tested |
 | Lion '68 — Slick Growler Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-slick-growler-blues-p90.md](p-90s/lion-68-slick-growler-blues-p90.md) | initial |
+| Puretone Slick Growler — P-90s & Humbuckers | p-90 | Framus Earl Slick (DiMarzio P-90s) / Gibson LP Studio (490 series) | [p-90s/puretone-slick-growler-p90.md](p-90s/puretone-slick-growler-p90.md) | initial |
+| Ruby P-90 Growly Blues | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) | [p-90s/ruby-p90-growly-blues.md](p-90s/ruby-p90-growly-blues.md) | tested |
+| TKIP P-90 Blues Lead | p-90 | Framus Earl Slick Artist Series | [p-90s/tkip-p90-blues-lead.md](p-90s/tkip-p90-blues-lead.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-bloomfield-p90.md](p-90s/two-rock-bloomfield-p90.md) | initial |
+| Woodrow EP-III Sweet Spot (P-90) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-ep3-p90.md](p-90s/woodrow-ep3-p90.md) | tested |
 | Woodrow Sweet Spot (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-sweet-spot-p90.md](p-90s/woodrow-sweet-spot-p90.md) | tested |
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
 | Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | tested |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |
-| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
+| Puretone Bossa Fingerstyle — Single-Coils | single-coil | Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle) | [single-coils/puretone-bossa-fingerstyle-sc.md](single-coils/puretone-bossa-fingerstyle-sc.md) | initial |
+| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \\\"quack\\\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
 | Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
 | Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
 | Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | initial |
+| Telecaster OC-5 Bass Split | single-coil | Fender Player II Telecaster (single-coils, neck position) | [single-coils/tele-bass-split-oc5.md](single-coils/tele-bass-split-oc5.md) | initial |
 | The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
 | THR Warm Neo-Soul — Stratocaster | single-coil | Squier Stratocaster (bridge + middle pickup position) | [single-coils/thr-warm-neo-soul.md](single-coils/thr-warm-neo-soul.md) | initial |
+| TKIP Strat Funky Rhythm | single-coil | Squier Stratocaster | [single-coils/tkip-strat-funky-rhythm.md](single-coils/tkip-strat-funky-rhythm.md) | initial |
+| TKIP Tele Clean Rhythm | single-coil | Fender Player II Telecaster | [single-coils/tkip-tele-clean-rhythm.md](single-coils/tkip-tele-clean-rhythm.md) | initial |
 | Woodrow Sweet Spot | single-coil | Squier Stratocaster (single coils) | [single-coils/woodrow-sweet-spot.md](single-coils/woodrow-sweet-spot.md) | tested |

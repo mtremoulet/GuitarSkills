@@ -1,48 +1,49 @@
 ---
-id: "sheraton-jazz-acoustic"
-created: "2026-04-30"
-updated: "2026-04-30"
-guitar: Epiphone Sheraton (humbuckers)
-target: Warm clean jazz electric tone blended with an acoustic texture from Acoustic
-tags: "jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers"
-tone-king-channel: rhythm
 amp: "Showtime '64"
-status: tested
+created: 2026-04-30
+guitar: "Epiphone Sheraton (humbuckers)"
+id: sheraton-jazz-acoustic
 pickup_type: humbucker
+status: tested
+tags: "jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers"
+target: "Warm clean jazz electric tone blended with an acoustic texture from Acoustic"
+tone-king-channel: bypassed
+updated: 2026-04-30
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 3
+    Bass: 5.0
     Treble: 4
+    Volume: 3
   la2a:
-    peak_reduction: 28
     gain: 45
+    peak_reduction: 28
   logic_eq:
     band1:
-      on: true
       freq: 80
+      on: true
       slope: 4
     band4:
-      on: true
       freq: 650
       gain: -2
+      on: true
       q: 1.5
     band7:
-      on: true
       freq: 5000
       gain: -1.5
+      on: true
   nembrini_acoustic_voice:
-    DiPreampPower: true
-    DiPreampNotch: 360.0
+    CompressorPower: false
+    DelayPower: false
     DiPreampBlend: 60.0
     DiPreampGain: 0.0
+    DiPreampNotch: 360.0
     DiPreampOut: 1.0
-    CompressorPower: false
-    ReverbPower: false
-    DelayPower: false
-    ModPower: false
+    DiPreampPower: true
     InputMode: 0.0
     MicType: 4.0
+    ModPower: false
+    ReverbPower: false
 ---
 
 # Sheraton Jazz + Acoustic Blend
@@ -110,18 +111,9 @@ This tone requires three Aux channel strips fed from one Guitar Track. Here's ho
 
 ## Signal Chain
 
-### Tone King Imperial Preamp — hardware front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Blackface American clean character |
-| Volume | 3 | Low — keep the preamp from coloring the signal too much before Acoustic Voice Pro |
-| Attenuation | 5 | Moderate output level to interface |
-| Bass | 5 (noon) | Flat |
-| Treble | 4 | Slightly warm — removes a touch of hardness from the humbucker top end |
-| Reverb | Off | Reverb is on the bus |
-| Tremolo | Off | — |
-| IR | Bypassed | Both signal paths will be processed without cab IR baked in; this keeps the acoustic path cleaner |
+### Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -234,3 +226,5 @@ Capitol Chambers must be in **Wet Solo: ON** when on an aux return bus. The Mix 
 
 ### 2026-04-30 — initial → tested
 Designed for Sheraton humbuckers. Tone King Rhythm channel at very low Volume (3) to minimize preamp coloring going into Acoustic Voice Pro. Full Logic routing via Bus 1 → two parallel Aux strips → shared reverb bus. Acoustic Voice Pro is used as a texture blend, not a full acoustic emulation — at −8 dB it adds body and harmonic dimension without competing with the electric signal. 610-B HI Shelf at 10 kHz, −3 dB is the primary voicing choice for jazz warmth.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

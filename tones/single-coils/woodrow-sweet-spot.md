@@ -1,25 +1,32 @@
 ---
-id: "woodrow-sweet-spot"
-preset_name: Woodrow Sweet Spot SC
-created: "2026-05-02"
-updated: "2026-05-03"
-guitar: Squier Stratocaster (single coils)
-target: "The \\"Sweet Spot\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\"hairing up\\" beautifully when you dig in."
-tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
-tone-king-channel: rhythm
-amp: "Woodrow '55, Tone King Imperial Preamp"
+amp: "Woodrow '55"
+created: 2026-05-02
+guitar: "Squier Stratocaster (single coils)"
+id: woodrow-sweet-spot
+pickup_type: single-coil
+preset_name: "Woodrow Sweet Spot SC"
 status: tested
-pickup_type: "single-coil"
+tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
+target: "The \\\"Sweet Spot\\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\\"hairing up\\\" beautifully when you dig in."
+tone-king-channel: bypassed
+updated: 2026-05-03
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2
-    Volume (Mic): 3
-    Treble: 5
     Bass: 5
+    Boost: false
+    Treble: 5.5
+    Volume: 3.5
+    Volume (Mic): 3
+  galaxy:
+    echo_rate: 6.5
+    echo_volume: 2.0
+    feedback: 1.5
+    head_select: 1
+    tape_age: New
   la2a:
-    peak_reduction: 25
     gain: 35
+    peak_reduction: 25
 ---
 
 # Woodrow Sweet Spot
@@ -36,16 +43,9 @@ We're pairing this with your **Squier Strat**. The lower output of the single co
 
 ## Signal Chain
 
-### Tone King Imperial Preamp — transparent front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available Tone King voicing |
-| Volume | 2 | Acting as a buffer only |
-| Attenuation | 5 | Moderate output |
-| Bass | 5 | Flat |
-| Treble | 5 | Flat |
-| IR | Bypassed | Woodrow handles the full amp + cab |
+### Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -107,3 +107,5 @@ Designed to introduce Mike to the "Sweet Spot" of the Woodrow '55. Focuses on lo
 
 ### 2026-05-03 — tested
 Tested with Telecaster (single coils). Sounds excellent — clean but with real character. Surprised by the amount of headroom; may need to raise Tele pickups to get the amp into the compressing/hairing-up zone more easily. The preset was designed for the lower-output Squier Strat, so the Tele's slightly different output profile could explain the extra headroom.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

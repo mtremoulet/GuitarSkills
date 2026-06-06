@@ -1,28 +1,28 @@
 ---
-id: "lion-68-jumped-plexi-crunch-p90"
-created: "2026-05-26"
-updated: "2026-05-26"
+amp: "Lion '68"
+created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Plexi jumped-channel vintage crunch optimized for P-90 growl — Zeppelin, Who, and classic British rock bite; tighter and throatier than humbuckers."
-tags: "plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall"
-tone-king-channel: lead
-amp: "Lion '68, Tone King Imperial Preamp"
+id: lion-68-jumped-plexi-crunch-p90
+pickup_type: p-90
 status: initial
-pickup_type: "p-90"
+tags: "plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall"
+target: "Plexi jumped-channel vintage crunch optimized for P-90 growl — Zeppelin, Who, and classic British rock bite; tighter and throatier than humbuckers."
+tone-king-channel: bypassed
+updated: 2026-05-26
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2.5
-    Treble: 5
+    Bass: 4.0
     Middle: 5.5
-    Bass: 4.5
     Presence: 4.5
+    Treble: 4.5
+    Volume: 2.5
   logic_compressor:
-    threshold: 3
-    ratio: 1
     attack: 4
-    release: 7
     makeup_gain: 3
+    ratio: 4.0
+    release: 7
+    threshold: 3
 ---
 
 # Lion '68 — Jumped Plexi Crunch (P-90 Variant)
@@ -42,19 +42,9 @@ To optimize this for the Framus Earl Slick Artist Series, we make three main adj
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — Lead channel driver
-*   **Status:** **ACTIVE**
-*   **Purpose:** The Lead channel adds subtle analog preamp saturation that thickens the Plexi's response.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | **Lead** | 50s Tweed + British rock character; adds harmonic weight |
-| Volume | 2.5 | Gentle preamp push; adds texture without overloading the Plexi input |
-| Attenuation | 6.0 | Moderate-high output to drive the Plexi effectively |
-| Bass | 4.5 | Slightly pulled back to keep the low end tight |
-| Treble | 5.0 | Flat EQ baseline |
-| Reverb / Tremolo | Off | Bypassed |
-| IR | **Bypassed** | UAD Lion '68 handles the full cabinet simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -128,3 +118,5 @@ Place as the first insert on the Logic channel.
 
 ### 2026-05-26 — initial
 Ported from humbucker Les Paul variant. Keeps Tone King active on the Lead channel at Vol 2.5 to provide initial harmonic richness. Adjusts Lion '68 settings: Volume I down to 6.0 and Treble down to 4.5 to smooth out roundwound brightness, pushes Middle to 5.5 to capture vocal P-90 mids, and raises the noise gate to 25.0 to suppress single-coil hum under gain.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

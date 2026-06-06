@@ -13,10 +13,14 @@ Mike's rig is designed for high-fidelity monitoring (Sennheiser HD660S2). The go
 
 ## 2. Physical Hardware Standards
 
-### Tone King Imperial Preamp (The Front-End)
-Every signal passes through this hardware. Unless using it as the primary character source, follow these "Transparency Floor" settings:
+### Input Path Priority
+- **Default (Direct Input)**: Connect the guitar direct to the iD14 interface (bypassing the Tone King Imperial Preamp entirely). This is the cleanest, most neutral starting point for software amp modelers.
+- **Tone King Preamp (Optional Coloration)**: Only route through the physical Tone King Imperial Preamp if you explicitly want the natural scooped flavor of its Rhythm channel or the mid-forward tweed crunch of its Lead channel as a foundation.
+
+### Tone King Imperial Preamp (If Route Active)
+If the Tone King is necessary for the vibe of the toneprint, follow these settings:
 - **Channel**: Rhythm (cleanest headroom).
-- **Volume**: **2.0 to 3.0**. This is the transparency zone. Higher values start adding early Blackface preamp color.
+- **Volume**: **2.0 to 3.0**. This is the transparency zone; higher values start adding early Blackface preamp color.
 - **Attenuation**: **5.0** (unity/moderate).
 - **EQ**: **5.0 (Noon)** for flat response.
 - **IR**: **Bypassed** if using any Logic/UAD/Nembrini amp or cabinet simulation. Active ONLY if the Tone King is providing the final speaker character.

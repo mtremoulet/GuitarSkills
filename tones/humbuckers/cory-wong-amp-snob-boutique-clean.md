@@ -1,41 +1,53 @@
 ---
-id: "cory-wong-amp-snob-boutique-clean"
-preset_name: Amp Snob Boutique Clean HB
-created: "2026-05-24"
-updated: "2026-05-25"
-guitar: Gibson Les Paul Studio (490R neck pickup)
-target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
-tags: "boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob"
-tone-king-channel: bypassed
 amp: "Amp Snob"
-status: tested
+created: 2026-05-24
+guitar: "Gibson Les Paul Studio (490R neck pickup)"
+id: cory-wong-amp-snob-boutique-clean
 pickup_type: humbucker
+preset_name: "Amp Snob Boutique Clean HB"
+status: tested
+tags: "boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob"
+target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
+tone-king-channel: bypassed
+updated: 2026-05-25
 preset_data:
   amp_platform: neural_dsp
   amp_settings:
+    ampCabLinkedState: false
+    bigRigActive: false
+    chorusActive: false
+    delayActive: false
+    leftCab0MicType: 4
+    leftCabActive: true
+    leftCabDistance: 0.25
+    leftCabPosition: 0.48
+    leftRoomMicLevel: -28.0
+    postalActive: false
+    rightCabActive: false
     selectedAmp: 2
     selectedCab: 2
-    ampCabLinkedState: false
-    snobDrive: false
+    snobBass: 46.0
     snobBright: false
-    leftCabPosition: 0.48
-    leftCabDistance: 0.25
-    leftCabActive: true
-    leftCab0MicType: 4
-    rightCabActive: false
+    snobDrive: false
     snobEQActive: true
     snobEQHpf: 20.0
     snobEQLpf: 20000.0
+    snobMaster: 75.0
+    snobMid: 58.0
+    snobOutputLevel: 70.0
+    snobPresence: 50.0
+    snobTreble: 48.0
+    snobVolume: 42.0
     tuberActive: false
-    bigRigActive: false
-    postalActive: false
-    delayActive: false
     washActive: false
-    chorusActive: false
+  hitsville:
+    decay: 2.0
+    mix: 1.0
+    pre_delay: 8.0
   logic_compressor:
-    ratio: 75
     attack: -1
     makeup_gain: 14
+    ratio: 75
 ---
 
 # Amp Snob — Boutique Warm Clean (Archetype Cory Wong X)

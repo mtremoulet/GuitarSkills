@@ -1,26 +1,29 @@
 ---
-id: "tele-singing-blues-carlton"
-created: "2026-05-02"
-updated: "2026-05-02"
+amp: "Enigmatic '82"
+created: 2026-05-02
 guitar: "Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels)"
-target: "\"Larry Carlton \\"Singing Blues-Jazz\\" \u2014 Mellow chords with touch-sensitive,\"
-tags: "jazz, blues, telecaster, carlton, dumble, sustain"
-tone-king-channel: rhythm
-amp: "Enigmatic '82, Tone King Imperial Preamp"
+id: tele-singing-blues-carlton
+pickup_type: single-coil
 status: initial
-pickup_type: "single-coil"
+tags: "jazz, blues, telecaster, carlton, dumble, sustain"
+target: "\\"Larry Carlton \\\"Singing Blues-Jazz\\\" \u2014 Mellow chords with touch-sensitive,\"
+tone-king-channel: bypassed
+updated: 2026-05-02
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 3
-    Treble: 5
-    Middle: 7
     Bass: 4
+    Middle: 7
+    Treble: 5
+    Volume: 4.0
+  galaxy:
+    echo_rate: 120.0
+    feedback: 1.0
   hitsville:
-    mix: 0.1
+    mix: 0.08
   logic_compressor:
-    ratio: 4
     makeup_gain: 6
+    ratio: 4
 ---
 
 # Singing Blues-Jazz (Larry Carlton Style)
@@ -31,13 +34,8 @@ Targeting the "335 through an ODS" sound on a Telecaster platform. This tone is 
 ## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Clean Blackface foundation; used as a transparent tube buffer |
-| Volume | 3 | Slight color; provides a solid input for the Enigmatic '82 |
-| Attenuation | 5 | Nominal output level |
-| IR | Bypassed | Enigmatic '82 handles the cab |
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ### 2. UADx Enigmatic '82 Overdrive Special — the "Sing"
 
@@ -92,3 +90,5 @@ The heart of the tone. Set to the 'Suede' voicing for a warmer, rounder characte
 
 ### 2026-05-02 — initial
 Built for the BRG Player II Telecaster. Uses Enigmatic '82 'Suede' voice for Dumble-style touch sensitivity. 175-B added for tube warmth and Galaxy Tape Echo for subtle slapback depth.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

@@ -29,7 +29,11 @@ preset_data:
     Noise Gate: 0.38
   la2a:
     peak_reduction: 32
-    gain: 4.8
+    gain: 28
+  hitsville:
+    mix: 1.0
+    decay: 2.0
+    pre_delay: 8.0
 ---
 
 # Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant)

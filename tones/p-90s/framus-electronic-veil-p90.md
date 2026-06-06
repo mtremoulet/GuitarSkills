@@ -1,34 +1,37 @@
 ---
-id: "framus-electronic-veil-p90"
-created: "2026-05-26"
-updated: "2026-05-26"
+amp: "Showtime '64"
+created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "Ed Bickert \\"Electronic Veil\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
-tags: "jazz, framus, p-90, dark, warm, bickert, veil"
-tone-king-channel: rhythm
-amp: "Showtime '64, Tone King Imperial Preamp"
+id: framus-electronic-veil-p90
+pickup_type: p-90
 status: initial
-pickup_type: "p-90"
+tags: "jazz, framus, p-90, dark, warm, bickert, veil"
+target: "Ed Bickert \\\"Electronic Veil\\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
+tone-king-channel: bypassed
+updated: 2026-05-26
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2.5
-    Treble: 2
-    Middle: 5.5
-    Bass: 5
+    Bass: 4.0
     Bright: false
+    Middle: 5.5
+    Treble: 2.5
+    Volume: 3.0
+  hitsville:
+    decay: 2.0
+    mix: 1.0
   la2a:
-    peak_reduction: 36
     gain: 26
+    peak_reduction: 36
   logic_eq:
     band4:
-      on: true
       freq: 250
       gain: 2.5
+      on: true
       q: 0.8
     band8:
-      on: true
       freq: 3800
+      on: true
       slope: 4
 ---
 
@@ -58,20 +61,9 @@ The result is an incredibly intimate, thick, and woody jazz-box tone with the si
 
 ---
 
-### 1. Tone King Imperial Preamp — physical front-end & tube buffer
-*   **Status:** **ACTIVE**
-*   **Purpose:** Acts as a warm analog tube driver and high-frequency filter before the audio interface.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | **Rhythm** | Clean Blackface foundation; provides a warm tube buffer |
-| Volume | 2.5 | Transparency zone; keeps the hot P-90 neck pickup clean |
-| Attenuation | 5.0 | Unity/moderate output |
-| Bass | 5.0 | Flat EQ baseline |
-| Treble | **2.0** | **CRITICAL:** Strong physical treble rolloff; darkens the signal before the DAW |
-| Reverb | Off | Space handled by Hitsville Reverb |
-| Tremolo | Off | Bypassed |
-| IR | **Bypassed** | UAD Showtime '64 handles the cabinet simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -138,3 +130,5 @@ Placed on **Bus 2** (Reverb bus). Channel send: **−20 dB**, Aux Bus Fader: **�
 
 ### 2026-05-26 — initial
 Adapted for the Framus P-90 platform with roundwounds. Activates Tone King Rhythm channel as a warm analog hardware buffer (Volume 2.5, Treble 2.0). Lowers Showtime '64 Treble to 2.5, pushes Middle to 5.5. Pulls Logic High-Cut filter down to 3.8 kHz to veil roundwound string sizzle, and pushes LA-2A Gray Peak Reduction to 36 for a thicker, syrupy sustain. Recommends starting with physical guitar controls at Volume 6 / Tone 2.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

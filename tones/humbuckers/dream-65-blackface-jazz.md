@@ -1,25 +1,29 @@
 ---
-id: "dream-65-blackface-jazz"
-preset_name: Dream 65 Blackface Jazz HB
-created: "2026-05-08"
-updated: "2026-05-16"
-guitar: Gibson Les Paul Studio (490R neck pickup)
-target: "Warm jazz clean through the Dream '65 — Blackface character comparison to the Showtime-based Jazz Clean Intimate; how does the Deluxe Reverb's mid-scoop and spring reverb change the LP neck's jazz voice?"
-tags: "jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison"
-tone-king-channel: rhythm
-amp: "Dream '65, Tone King Imperial Preamp"
-status: tested
+amp: "Dream '65"
+created: 2026-05-08
+guitar: "Gibson Les Paul Studio (490R neck pickup)"
+id: dream-65-blackface-jazz
 pickup_type: humbucker
+preset_name: "Dream 65 Blackface Jazz HB"
+status: tested
+tags: "jazz, clean, warm, les-paul, humbucker, dream-65, blackface, comparison"
+target: "Warm jazz clean through the Dream '65 — Blackface character comparison to the Showtime-based Jazz Clean Intimate; how does the Deluxe Reverb's mid-scoop and spring reverb change the LP neck's jazz voice?"
+tone-king-channel: bypassed
+updated: 2026-05-16
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 3
-    Treble: 5
     Bass: 5
     Bright: false
+    Treble: 5
+    Volume: 2.5
+  hitsville:
+    decay: 2.0
+    mix: 0.08
+    pre_delay: 6.0
   la2a:
-    peak_reduction: 32
     gain: 25
+    peak_reduction: 32
 ---
 
 # Dream '65 — Blackface Jazz
@@ -38,20 +42,9 @@ The Dream '65 (Fender Blackface Deluxe Reverb '65) has a natural mid-scoop, spar
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — transparent front-end
-
-Matched to Jazz Clean Intimate settings for a controlled comparison.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Blackface warmth on the 490R neck — same as Jazz Clean Intimate |
-| Volume | 3 | LP 490R output; same as Jazz Clean Intimate starting point |
-| Attenuation | 5 | Moderate |
-| Bass | 5 | Flat |
-| Treble | 5 | Flat |
-| Reverb | Off | Dream '65 has spring reverb; don't layer Tone King reverb on top |
-| Tremolo | Off | — |
-| IR | **Bypassed** | Dream '65 handles the cab |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -120,3 +113,5 @@ Verified in DAW session. Key findings: The Deluxe Reverb is extremely sensitive;
 
 ### 2026-05-08 — initial
 Built as a deliberate comparison to Jazz Clean — Intimate Les Paul (Showtime '64). Signal chain parallels the Jazz Clean Intimate with matched Tone King settings and Hitsville chamber, so the only variable is the amp. Stock mod and Normal channel chosen to minimize imposed character while still testing what the Blackface voice does to the LP neck in a jazz context. Spring reverb at Reverb 2 — light enough to be a hint rather than a feature. No optional TONEX stomp; keep this clean for the comparison to mean something.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

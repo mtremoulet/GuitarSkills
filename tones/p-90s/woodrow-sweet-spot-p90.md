@@ -1,25 +1,32 @@
 ---
-id: "woodrow-sweet-spot-p90"
-preset_name: Woodrow Sweet Spot P90
-created: "2026-05-26"
-updated: "2026-05-27"
+amp: "Woodrow '55"
+created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "The Tweed Deluxe \\"Sweet Spot\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
-tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
-tone-king-channel: rhythm
-amp: "Woodrow '55, Tone King Imperial Preamp"
+id: woodrow-sweet-spot-p90
+pickup_type: p-90
+preset_name: "Woodrow Sweet Spot P90"
 status: tested
-pickup_type: "p-90"
+tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
+target: "The Tweed Deluxe \\\"Sweet Spot\\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
+tone-king-channel: bypassed
+updated: 2026-05-27
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2
-    Volume (Mic): 2.5
-    Treble: 5
     Bass: 5
+    Boost: false
+    Treble: 5
+    Volume: 3.0
+    Volume (Mic): 2.5
+  galaxy:
+    echo_rate: 6.5
+    echo_volume: 2.0
+    feedback: 1.5
+    head_select: 1
+    tape_age: New
   la2a:
-    peak_reduction: 30
     gain: 25
+    peak_reduction: 30
 ---
 
 # Woodrow Sweet Spot (P-90 Variant)
@@ -41,19 +48,9 @@ We pair this raw vintage head with a subtle **Galaxy Tape Echo** and a fast **LA
 
 ## Signal Chain
 
-### 1. Tone King Imperial Preamp — transparent buffer front-end
-*   **Status:** **ACTIVE**
-*   **Purpose:** Acting as a high-quality hardware signal buffer driving the audio interface cleanly.
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available Tone King voicing |
-| Volume | 2.0 | Kept very low to prevent preamp coloration |
-| Attenuation | 5.0 | Moderate output |
-| Bass | 5.0 | Flat EQ |
-| Treble | 5.0 | Flat EQ |
-| Reverb / Tremolo | Off | Bypassed |
-| IR | **Bypassed** | Woodrow handles the full amp + cab simulation |
+### 1. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -114,3 +111,5 @@ Tested by Mike. Amended the LA-2A Gray settings to **Peak Reduction 30** and **G
 
 ### 2026-05-26 — initial
 Ported from single-coil Strat variant. Keeps Tone King active as a transparent buffer. Tweaks Woodrow parameters: lowers Volume (Inst) to 3.0 to protect touch-sensitivity with the hotter P-90s, lowers Volume (Mic) to 2.5 to prevent low-end mud, and sets Tone to 5.0 (noon) to smooth out the swamp ash snap.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

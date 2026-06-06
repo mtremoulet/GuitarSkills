@@ -1,25 +1,39 @@
 ---
-id: "strat-ambient-bath"
-created: "2026-05-02"
-updated: "2026-05-02"
-guitar: Squier Stratocaster (single coils)
-target: "Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and"
-tags: "ambient, lush, sound-bath, strat, clean, delay, reverb, modulation"
-tone-king-channel: rhythm
-amp: "Showtime '64, Tone King Imperial Preamp"
+amp: "Showtime '64"
+created: 2026-05-02
+guitar: "Squier Stratocaster (single coils)"
+id: strat-ambient-bath
+pickup_type: single-coil
 status: initial
-pickup_type: "single-coil"
+tags: "ambient, lush, sound-bath, strat, clean, delay, reverb, modulation"
+target: "Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and"
+tone-king-channel: bypassed
+updated: 2026-05-02
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
-    Volume: 2
-    Treble: 5
-    Middle: 5
-    Bass: 5
+    Bass: 4.0
     Bright: true
+    Middle: 5
+    Treble: 6.0
+    Volume: 3.5
+  galaxy:
+    echo_rate: 5.0
+    echo_volume: 3.5
+    feedback: 6.0
+    head_select: 1+2+3
+    tape_age: Old
   la2a:
-    peak_reduction: 45
     gain: 40
+    peak_reduction: 45
+  studio_d:
+    mode: 4
+  supermassive:
+    delay: 800.0
+    density: 100.0
+    feedback: 85.0
+    mix: 45.0
+    warp: 50.0
 ---
 
 # Strat Ambient Bath
@@ -36,16 +50,9 @@ Best played with the Neck pickup (Pos 5) or Neck/Middle (Pos 4) with the guitar'
 
 ## Signal Chain
 
-### Tone King Imperial Preamp — transparent front-end
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Channel | Rhythm | Cleanest available Tone King voicing |
-| Volume | 2 | Acting as a high-quality buffer/DI |
-| Attenuation | 5 | Moderate output |
-| Bass | 5 | Flat |
-| Treble | 5 | Flat |
-| IR | Bypassed | Showtime '64 handles the cab |
+### Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
 
@@ -138,3 +145,5 @@ Best played with the Neck pickup (Pos 5) or Neck/Middle (Pos 4) with the guitar'
 
 ### 2026-05-02 — initial
 Designed for Squier Strat single coils. Focuses on high-headroom clean (Showtime '64) and massive spatial effects (Studio D + Galaxy + SuperMassive). Designed for "sound bath" experiences and slow, ambient playing.
+### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
+Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.

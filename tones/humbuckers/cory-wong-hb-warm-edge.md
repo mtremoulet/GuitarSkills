@@ -163,6 +163,8 @@ All parameters are specified in percentages (0–100%).
 
 - **Controlling the Breakup**: Humbuckers will drive this preset a bit harder than P-90s. Use your **Guitar Volume knob** (rolled back to **6 or 7**) to clean up the tone for a rounder, warm jazz-box sound, and raise it for a punchier, bluesy crunch.
 - **Tone Knob Calibration**: The '57CH neck humbucker is dark by nature. If the tone feels a bit too dark or compressed, roll your **Guitar Tone knob** up to **10**, or try bypassing the graphic EQ to let more high end breathe.
+- **Recovering Nuance (Compressor Trim)**: Because humbuckers naturally compress, the current parallel compressor settings (35% Blend, 48.6% Comp) can squash your picking dynamics. To let the LP's woodiness breathe, roll the **Blend back to 20-25%** and lower **Compression to 30%**.
+- **Gain-Staging Rollback**: Humbuckers run hotter than P-90s. If the tone breaks up too early, lower the Amp Snob **Volume (Gain)** from **38% to 32-35%** to recover headroom and restore touch-sensitive nuance.
 - **The Wash Bypass**: If you prefer to use external reverbs (like UAD Hitsville), bypass the internal **Wash** block and route the track to your shared reverb bus in Logic Pro.
 
 ---
@@ -170,4 +172,6 @@ All parameters are specified in percentages (0–100%).
 ## Feedback History
 
 ### 2026-06-07 — tested
-Tested on the Epiphone Les Paul Standard with the 57CH neck pickup. Sounds surprisingly good and full. The compression helps smooth out rougher playing edges, providing a very warm, thick, and responsive jazz-blues voice. articulation is slightly less clear than the Framus, but it has excellent body and warmth. Status set to `tested`.
+Tested on the Epiphone Les Paul Standard with the 57CH neck pickup. Sounds surprisingly good and full. The compression helps smooth out rougher playing edges, providing a very warm, thick, and responsive jazz-blues voice. Articulation is slightly less clear than the Framus, but it has excellent body and warmth. Status set to `tested`.
+
+*Note: Added tuning recommendations to Starting Point Guide to roll back parallel compression (Blend to 20-25%) and amp input gain (Volume to 32-35%) to avoid the "compression trap" and let the humbucker's natural woody character shine.*

@@ -3,6 +3,7 @@
 | Title | Pickup Type | Intended/Tested Guitar | File Path | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | Amp Snob — Boutique Warm Clean (Archetype Cory Wong X) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/cory-wong-amp-snob-boutique-clean.md](humbuckers/cory-wong-amp-snob-boutique-clean.md) | tested |
+| HB Warm Edge — Boutique Warm Clean (Humbucker Variant) | humbucker | Epiphone Les Paul Standard ('57CH neck pickup) / Epiphone Sheraton II | [humbuckers/cory-wong-hb-warm-edge.md](humbuckers/cory-wong-hb-warm-edge.md) | tested |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
 | Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
 | JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | initial |
@@ -20,6 +21,7 @@
 | TKIP Sheraton Jazz Clean | humbucker | Epiphone Sheraton II | [humbuckers/tkip-sheraton-jazz-clean.md](humbuckers/tkip-sheraton-jazz-clean.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
 | Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | tested |
+| P90 Warm Edge — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) / Revelation RFT DLX (H-90 pickups) | [p-90s/cory-wong-p90-warm-edge.md](p-90s/cory-wong-p90-warm-edge.md) | tested |
 | Divided 11 Light Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/divided-11-light-blues-p90.md](p-90s/divided-11-light-blues-p90.md) | initial |
 | The Electronic Veil (P-90/Framus Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/framus-electronic-veil-p90.md](p-90s/framus-electronic-veil-p90.md) | initial |
 | Lion '68 — Jumped Plexi Crunch (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/lion-68-jumped-plexi-crunch-p90.md](p-90s/lion-68-jumped-plexi-crunch-p90.md) | initial |

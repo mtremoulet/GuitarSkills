@@ -6,6 +6,13 @@ import uuid
 import xml.etree.ElementTree as ET
 import base64
 import struct
+import plistlib
+
+try:
+    from Foundation import NSURL, NSURLBookmarkCreationSuitableForBookmarkFile
+    FOUNDATION_AVAILABLE = True
+except ImportError:
+    FOUNDATION_AVAILABLE = False
 
 # Directories & Path Configurations
 TONES_DIR = "/Users/miketremoulet/claude-projects/GuitarSkills/tones"
@@ -32,6 +39,7 @@ LOGIC_EQ_BASE = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Ch
 LOGIC_COMP_BASE_ALT = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Compressor/CompThreshNeg35.pst"
 LOGIC_COMP_BASE_DEFAULT = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Compressor/DefaultComp.pst"
 LOGIC_COMP_BASE = LOGIC_COMP_BASE_ALT if os.path.exists(LOGIC_COMP_BASE_ALT) else LOGIC_COMP_BASE_DEFAULT
+LOGIC_SPACEDESIGNER_BASE = "/Users/miketremoulet/Music/Audio Music Apps/Plug-In Settings/Space Designer/TP-Wooden Studio Default.pst"
 
 # MixWave Paths
 MIXWAVE_TEMPLATE = "/Library/Audio/Presets/MixWave/MixWave Two-Rock Bloomfield Drive/Presets/User/ToneprintTemplate.xml"
@@ -52,73 +60,153 @@ NEMBRINI_TEMPLATES = {
     "puretone": os.path.join(NEMBRINI_DOCS_DIR, "HK Puretone/HK_Base.xml")
 }
 
-DEFAULT_THR_PRESET = {
-    "schema": "L6Preset",
-    "version": 5,
-    "data": {
-        "device": 48,
-        "device_version": 65536,
-        "meta": {
-            "name": "Default Name",
-            "tnid": 0
-        },
-        "tone": {
-            "THRGroupAmp": {
-                "@asset": "thr_clean",
-                "Bass": 0.5,
-                "Drive": 0.3,
-                "Master": 0.5,
-                "Mid": 0.5,
-                "Treble": 0.5
-            },
-            "THRGroupCab": {
-                "@asset": "thr_cab_2x12",
-                "SpkSimType": "Default"
-            },
-            "THRGroupFX1Compressor": {
-                "@asset": "thr_compressor",
-                "@enabled": False,
-                "Level": 0.5,
-                "Sustain": 0.5
-            },
-            "THRGroupFX2Effect": {
-                "@asset": "thr_chorus",
-                "@enabled": False,
-                "@wetDry": 0.5,
-                "Depth": 0.5,
-                "Feedback": 0.0,
-                "Freq": 0.3,
-                "Pre": 0.0
-            },
-            "THRGroupFX3EffectEcho": {
-                "@asset": "thr_tape_echo",
-                "@enabled": False,
-                "@wetDry": 0.3,
-                "Bass": 0.5,
-                "Feedback": 0.3,
-                "Time": 0.4,
-                "Treble": 0.5
-            },
-            "THRGroupFX4EffectReverb": {
-                "@asset": "thr_hall_reverb",
-                "@enabled": False,
-                "@wetDry": 0.3,
-                "Decay": 0.5,
-                "PreDelay": 0.1,
-                "Tone": 0.5
-            },
-            "THRGroupGate": {
-                "@asset": "thr_noise_gate",
-                "@enabled": False,
-                "Decay": 0.5,
-                "Thresh": 0.1
-            },
-            "global": {
-                "THRPresetParamTempo": 120.0
-            }
+THR_MODELS = {
+    "envelope": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "schema": "L6Preset",
+        "version": 5,
+        "outer_meta": { "original": 0, "pbn": 0, "premium": 0 },
+        "default_tempo": 110,
+        "gate_threshold_db": {
+            "slope": 0.96,
+            "ui_offset": 100,
+            "min_db": -96.0,
+            "max_db": 0.0,
+            "default_ui": 65
         }
+    },
+    "amps": {
+        "guitar": {
+            "Classic":  { "Clean": "THR10C_Deluxe",  "Crunch": "THR10C_DC30", "Lead": "THR10_Lead",    "Hi Gain": "THR10_Modern", "Special": "THR10X_Brown1" },
+            "Boutique": { "Clean": "THR10C_BJunior2", "Crunch": "THR30_SR101", "Lead": "THR30_Blondie", "Hi Gain": "THR30_FLead",  "Special": "THR10X_South" },
+            "Modern":   { "Clean": "THR30_Carmen",    "Crunch": "THR10C_Mini", "Lead": "THR10_Brit",    "Hi Gain": "THR10X_Brown2","Special": "THR30_Stealth" }
+        },
+        "bass": { "Classic": "THR10_Bass_Eden_Marcus", "Boutique": "THR10_Bass_Mesa", "Modern": "THR30_JKBass2" },
+        "acoustic": {
+            "Condenser": "THR10_Aco_Condenser1",
+            "Dynamic": "THR10_Aco_Dynamic1",
+            "Tube": "THR10_Aco_Tube1",
+            "Nylon": "THR10_Aco_Nylon1"
+        },
+        "flat": { "default": "THR10_Flat", "Classic": "THR10_Flat", "Boutique": "THR10_Flat_B", "Modern": "THR10_Flat_V", "V": "THR10_Flat_V", "A": "THR10_Flat_A", "B": "THR10_Flat_B", "plain": "THR10_Flat" }
+    },
+    "cabinets": {
+        "British 4x12": 0,
+        "American 4x12": 1,
+        "Brown 4x12": 2,
+        "Vintage 4x12": 3,
+        "Fuel 4x12": 4,
+        "Juicy 4x12": 5,
+        "Mods 4x12": 6,
+        "American 2x12": 7,
+        "British 2x12": 8,
+        "British Blues 2x12": 9,
+        "Boutique 2x12": 10,
+        "Yamaha 2x12": 11,
+        "California 1x12": 12,
+        "American 1x12": 13,
+        "American 4x10": 14,
+        "Boutique 1x12": 15,
+        "None": 16,
+        "Flat": 16,
+        "BYPASS": 16
+    },
+    "fx": {
+        "gate": {
+            "group": "THRGroupGate",
+            "asset": "noiseGate",
+            "params": ["Thresh", "Decay"]
+        },
+        "compressor": {
+            "group": "THRGroupFX1Compressor",
+            "asset": "RedComp",
+            "params": ["Sustain", "Level"]
+        },
+        "modulation": {
+            "group": "THRGroupFX2Effect",
+            "has_wetDry": True,
+            "types": {
+                "Chorus":   { "asset": "StereoSquareChorus", "params": ["Depth", "Feedback", "Freq", "Pre"] },
+                "Tremolo":  { "asset": "BiasTremolo",        "params": ["Depth", "Speed"] },
+                "Flanger":  { "asset": "L6Flanger",          "params": ["Depth", "Freq"] },
+                "Phaser":   { "asset": "Phaser",             "params": ["Feedback", "Speed"] }
+            }
+        },
+        "echo": {
+            "group": "THRGroupFX3EffectEcho",
+            "has_wetDry": True,
+            "types": {
+                "Tape":          { "asset": "TapeEcho",       "params": ["Time", "Bass", "Treble", "Feedback"] },
+                "Digital Delay": { "asset": "L6DigitalDelay", "params": ["Time", "Bass", "Treble", "Feedback"] }
+            }
+        },
+        "reverb": {
+            "group": "THRGroupFX4EffectReverb",
+            "has_wetDry": True,
+            "types": {
+                "Hall":   { "asset": "ReallyLargeHall", "params": ["Decay", "PreDelay", "Tone"] },
+                "Plate":  { "asset": "LargePlate1",     "params": ["Decay", "PreDelay", "Tone"] },
+                "Room":   { "asset": "SmallRoom1",      "params": ["Decay", "PreDelay", "Tone"] },
+                "Spring": { "asset": "StandardSpring",  "params": ["Time", "Tone"] }
+            }
+        },
+        "cab": {
+            "group": "THRGroupCab",
+            "asset": "speakerSimulator",
+            "params": ["SpkSimType"]
+        },
+        "amp": {
+            "group": "THRGroupAmp",
+            "params": ["Drive", "Bass", "Mid", "Treble", "Master"]
+        }
+    },
+    "all_known_assets": {
+        "amps": [
+            "THR10C_Deluxe", "THR10C_DC30", "THR10C_Mini", "THR10C_BJunior2",
+            "THR10X_Brown1", "THR10X_Brown2", "THR10X_South",
+            "THR10_Lead", "THR10_Modern", "THR10_Brit", "THR10_Flat", "THR10_Flat_A", "THR10_Flat_B", "THR10_Flat_V",
+            "THR10_Bass_Eden_Marcus", "THR10_Bass_Mesa",
+            "THR10_Aco_Condenser1", "THR10_Aco_Dynamic1", "THR10_Aco_Tube1", "THR10_Aco_Nylon1",
+            "THR30_Carmen", "THR30_SR101", "THR30_Blondie", "THR30_FLead", "THR30_Stealth", "THR30_JKBass2"
+        ],
+        "fx_assets": [
+            "noiseGate", "RedComp", "speakerSimulator",
+            "StereoSquareChorus", "L6SineChorus", "BiasTremolo", "L6Flanger", "Phaser",
+            "TapeEcho", "L6DigitalDelay",
+            "ReallyLargeHall", "LargePlate1", "SmallRoom1", "StandardSpring"
+        ]
     }
 }
+
+def detect_thr_device_id():
+    """Best-effort detection of the connected THR-II device id."""
+    rel = ["Yamaha", "THR Remote", "deviceConnection.json"]
+    paths = []
+    # Windows
+    for env in ("APPDATA", "LOCALAPPDATA", "USERPROFILE"):
+        base = os.environ.get(env)
+        if base:
+            paths.append(os.path.join(base, *rel))
+            paths.append(os.path.join(base, "AppData", "Roaming", *rel))
+    # macOS
+    home = os.path.expanduser("~")
+    paths.append(os.path.join(home, "Library", "Application Support", *rel))
+    # Linux
+    paths.append(os.path.join(home, ".config", *rel))
+
+    for p in paths:
+        try:
+            if os.path.isfile(p):
+                with open(p, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                dev = data.get("lastDeviceID")
+                if isinstance(dev, int):
+                    return dev
+        except Exception:
+            continue
+    return 2359296  # Default fallback
+
 
 # Custom Binary Parameter Replacer for Neural DSP (TLV format)
 def replace_binary_parameter(data, param_name, new_val_str):
@@ -242,6 +330,7 @@ def parse_yaml_frontmatter(content):
 
 # Robust Markdown Parameter Extractor
 def find_numeric_parameter(content, param_names):
+    content = content.replace("**", "")
     for name in param_names:
         # Match standard decimals like 5.5, 3.0, -1.5, −1.5 (with Unicode minus)
         # Put the hyphen at the end of the character class to prevent range interpretation
@@ -261,6 +350,7 @@ def find_numeric_parameter(content, param_names):
     return None
 
 def find_boolean_parameter(content, param_names):
+    content = content.replace("**", "")
     for name in param_names:
         pattern = r"\|\s*" + re.escape(name) + r"\s*\|\s*(?:\*\*)?([A-Za-z/ ]+)(?:\*\*)?\s*\|"
         match = re.search(pattern, content, re.IGNORECASE)
@@ -421,6 +511,16 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         
     if amp_type is None: return
 
+    boost_enable = None
+    boost_amount = None
+    reverb_val = None
+    mod_val = None
+
+    def to_bool(x):
+        if isinstance(x, bool):
+            return x
+        return str(x).upper() in ("ON", "TRUE", "1", "ACTIVE", "BRIGHT", "YES")
+
     if amp_settings and isinstance(amp_settings, dict):
         vol = amp_settings.get("Volume")
         vol_mic = amp_settings.get("Volume (Mic)")
@@ -431,8 +531,23 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         master = amp_settings.get("Master")
         tone_cut = amp_settings.get("Tone Cut")
         bright = amp_settings.get("Bright")
-        boost = amp_settings.get("Boost")
         cut_sw = amp_settings.get("Cut")
+        reverb_val = amp_settings.get("Reverb")
+        mod_val = amp_settings.get("Mod")
+
+        boost_raw = amp_settings.get("Boost")
+        boost_sw_raw = amp_settings.get("Boost Switch")
+
+        if boost_raw is not None:
+            try:
+                boost_amount = float(boost_raw)
+            except ValueError:
+                boost_enable = to_bool(boost_raw)
+
+        if boost_sw_raw is not None:
+            boost_enable = to_bool(boost_sw_raw)
+        elif boost_amount is not None:
+            boost_enable = boost_amount > 0.0
         
         # normalize types
         if vol is not None: vol = float(vol)
@@ -443,9 +558,8 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if presence is not None: presence = float(presence)
         if master is not None: master = float(master)
         if tone_cut is not None: tone_cut = float(tone_cut)
-        if bright is not None: bright = bool(bright)
-        if boost is not None: boost = bool(boost)
-        if cut_sw is not None: cut_sw = bool(cut_sw)
+        if bright is not None: bright = to_bool(bright)
+        if cut_sw is not None: cut_sw = to_bool(cut_sw)
     else:
         with open(filepath, "r") as f:
             content = f.read()
@@ -458,8 +572,13 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         master = find_numeric_parameter(content, ["Master (labeled 6.5)", "Master", "Master volume"])
         tone_cut = find_numeric_parameter(content, ["Tone Cut"])
         bright = find_boolean_parameter(content, ["Bright Switch", "Bright / Normal", "Bright"])
-        boost = find_boolean_parameter(content, ["Boost Button", "Boost Switch", "Boost (Stock)", "Boost"])
         cut_sw = find_boolean_parameter(content, ["Cut Switch", "Cut"])
+        reverb_val = find_numeric_parameter(content, ["Reverb"])
+
+        boost_amount = find_numeric_parameter(content, ["Boost Control", "Boost (Stock)", "Boost"])
+        boost_enable = find_boolean_parameter(content, ["Boost Switch", "Boost Button"])
+        if boost_enable is None and boost_amount is not None:
+            boost_enable = boost_amount > 0.0
 
     # Map settings into Paradise Guitar Studio JSON
     preset_data_json = json.loads(json.dumps(base_preset)) # deep copy
@@ -478,9 +597,18 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if treble is not None: controls["dream_treble"] = {"real_value": treble}
         if bass is not None: controls["dream_bass"] = {"real_value": bass}
         if bright is not None: controls["dream_bright"] = {"real_value": bright}
-        if boost is not None: controls["dream_boost_enable"] = {"real_value": boost}
+        if boost_enable is not None: controls["dream_boost_enable"] = {"real_value": boost_enable}
+        if boost_amount is not None: controls["dream_boost_amount"] = {"real_value": boost_amount}
         controls["dream_reverb_enable"] = {"real_value": True}
-        controls["dream_reverb"] = {"real_value": 2.5}
+        controls["dream_reverb"] = {"real_value": float(reverb_val) if reverb_val is not None else 2.5}
+        if mod_val is not None:
+            mod_str = str(mod_val).upper()
+            if "LEAD" in mod_str:
+                controls["dream_amp_mod"] = {"real_value": 1}
+            elif "TEX" in mod_str:
+                controls["dream_amp_mod"] = {"real_value": 2}
+            else:
+                controls["dream_amp_mod"] = {"real_value": 0}
     elif amp_type == "enigmatic":
         if vol is not None: controls["enigmatic_volume"] = {"real_value": vol}
         if treble is not None: controls["enigmatic_treble"] = {"real_value": treble}
@@ -489,7 +617,7 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if presence is not None: controls["enigmatic_presence"] = {"real_value": presence}
         if master is not None: controls["enigmatic_master_gain"] = {"real_value": master}
         if bright is not None: controls["enigmatic_bright_enable"] = {"real_value": bright}
-        if boost is not None: controls["enigmatic_boost_enable"] = {"real_value": boost}
+        if boost_enable is not None: controls["enigmatic_boost_enable"] = {"real_value": boost_enable}
         controls["enigmatic_model"] = {"real_value": 0}            # Suede
         controls["enigmatic_channel"] = {"real_value": 1}          # NOR
         controls["enigmatic_tone_stack_type"] = {"real_value": 0}  # Skyline
@@ -500,14 +628,16 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if treble is not None: controls["ruby_treble"] = {"real_value": treble}
         if bass is not None: controls["ruby_bass"] = {"real_value": bass}
         if tone_cut is not None: controls["ruby_tone_cut"] = {"real_value": tone_cut}
-        if boost is not None: controls["ruby_boost_enable"] = {"real_value": boost}
+        if boost_enable is not None: controls["ruby_boost_enable"] = {"real_value": boost_enable}
+        if boost_amount is not None: controls["ruby_boost_amount"] = {"real_value": boost_amount}
         controls["ruby_channel"] = {"real_value": 2} # Brilliant
         controls["ruby_cut"] = {"real_value": 5.0 if cut_sw else 0.0}
     elif amp_type == "woodrow":
         if vol is not None: controls["woodrow_inst_volume"] = {"real_value": vol}
         if vol_mic is not None: controls["woodrow_mic_volume"] = {"real_value": vol_mic}
         if treble is not None: controls["woodrow_tone"] = {"real_value": treble}
-        if boost is not None: controls["woodrow_boost_enable"] = {"real_value": boost}
+        if boost_enable is not None: controls["woodrow_boost_enable"] = {"real_value": boost_enable}
+        if boost_amount is not None: controls["woodrow_boost_amount"] = {"real_value": boost_amount}
     elif amp_type == "showtime":
         if vol is not None: controls["showtime_volume"] = {"real_value": vol}
         if treble is not None: controls["showtime_treble"] = {"real_value": treble}
@@ -697,7 +827,7 @@ def compile_mixwave_toneprint(filepath, base_xml_path, output_name, frontmatter)
         if mid_sw is not None: amp_vars.set("AmpMidOnOff", "1" if mid_sw else "0")
         if deep is not None: amp_vars.set("AmpDeepOnOff", "1" if deep else "0")
         if bypass_sw is not None: amp_vars.set("AmpToneBypassOnOff", "1" if bypass_sw else "0")
-        if lead_sw is not None: amp_vars.set("AmpType", "2" if lead_sw else "1")
+        if lead_sw is not None: amp_vars.set("AmpType", "1" if lead_sw else "0")
 
     # Map Vibe to Cab 1 Vibe in the cabinet section
     if cab_vars is not None and vibe is not None:
@@ -1527,96 +1657,427 @@ def compile_logic_compressor_toneprint(filepath, base_preset_path, output_name, 
     return True
 
 
+# Helper parsing and scanning functions for Logic Space Designer Compiler
+def parse_db_value(val_str):
+    if not val_str:
+        return None
+    val_str_clean = val_str.lower().replace("−", "-")
+    if "inf" in val_str_clean or "off" in val_str_clean or "∞" in val_str_clean:
+        return -80.0
+    match = re.search(r"([+-]?\d+(?:\.\d+)?)", val_str_clean)
+    if match:
+        return float(match.group(1))
+    return None
+
+def parse_space_designer_params(content):
+    params = {
+        "ir": None,
+        "predelay": None,
+        "size": None,
+        "dry": None,
+        "wet": None
+    }
+    in_section = False
+    for line in content.split("\n"):
+        line_lower = line.lower()
+        # Look for Space Designer sections
+        if "###" in line_lower and ("space designer" in line_lower or "reverb aux" in line_lower):
+            in_section = True
+            continue
+        elif in_section and "###" in line:
+            in_section = False
+            
+        if in_section and "|" in line:
+            parts = [p.strip() for p in line.split("|")]
+            if len(parts) >= 3:
+                key = parts[1].lower()
+                val_str = parts[2]
+                if "ir" in key:
+                    params["ir"] = val_str
+                elif "predelay" in key or "pre-delay" in key:
+                    params["predelay"] = val_str
+                elif "size" in key:
+                    params["size"] = val_str
+                elif "dry" in key:
+                    params["dry"] = val_str
+                elif "wet" in key:
+                    params["wet"] = val_str
+    return params
+
+def get_sdir_list():
+    base_dir = "/Users/miketremoulet/Music/Logic Pro Library.bundle/Impulse Responses"
+    if not os.path.exists(base_dir):
+        return []
+    sdir_files = []
+    for root, dirs, files in os.walk(base_dir):
+        for file in files:
+            if file.lower().endswith(".sdir"):
+                full_path = os.path.join(root, file)
+                rel_path = os.path.relpath(full_path, base_dir)
+                sdir_files.append((rel_path, full_path))
+    return sdir_files
+
+def find_matching_sdir(text, sdir_list):
+    if not text:
+        return None
+    text_lower = text.lower()
+    best_match = None
+    best_score = 0
+    for rel_path, full_path in sdir_list:
+        filename = os.path.basename(full_path).lower().replace(".sdir", "")
+        clean_filename = re.sub(r'^[0-9.]+\s*[a-z_-]*', '', filename).strip()
+        filename_words = set(re.findall(r'[a-z0-9]+', clean_filename))
+        text_words = set(re.findall(r'[a-z0-9]+', text_lower))
+        overlap = filename_words.intersection(text_words)
+        if len(overlap) > best_score:
+            best_score = len(overlap)
+            best_match = (rel_path, full_path)
+    return best_match
+
+# Dynamic Logic Pro Native Space Designer PST Compiler
+def compile_logic_space_designer_toneprint(filepath, base_preset_path, output_name, frontmatter):
+    if not FOUNDATION_AVAILABLE:
+        print("-> Warning: Foundation framework not available. Skipping Space Designer preset compilation.")
+        return False
+
+    with open(filepath, "r") as f:
+        content = f.read()
+
+    # Parse parameters from markdown table under Space Designer section
+    params = parse_space_designer_params(content)
+
+    # If no IR is specified, skip Space Designer generation
+    if not params["ir"]:
+        return False
+
+    # Get SDIR list and find matching file
+    sdirs = get_sdir_list()
+    matched = find_matching_sdir(params["ir"], sdirs)
+    if not matched:
+        print(f"-> Warning: Could not find matching SDIR file for description '{params['ir']}'")
+        return False
+
+    rel_path, full_path = matched
+    short_name = os.path.basename(full_path)
+    print(f"-> Space Designer SDIR matched: '{short_name}' at path '{full_path}'")
+
+    # Load base template preset
+    if not os.path.exists(base_preset_path):
+        print(f"-> Warning: Space Designer base template not found at {base_preset_path}")
+        return False
+        
+    with open(base_preset_path, "rb") as f:
+        template = bytearray(f.read())
+
+    # Surgically patch the header fields:
+    # 1. Filename length at offset 30
+    template[30] = len(short_name)
+
+    # 2. Short filename starting at 31
+    # Clear out the short filename space (from 31 to 100)
+    for i in range(31, 100):
+        template[i] = 0
+    template[31:31+len(short_name)] = short_name.encode('utf-8')
+
+    # 3. Category/Folder index at byte 26
+    byte26_val = 5
+    if "Indoor Spaces" in full_path:
+        byte26_val = 7
+    elif "Plate Reverbs" in full_path:
+        byte26_val = 3
+    elif "Halls" in full_path:
+        byte26_val = 2
+    template[26] = byte26_val
+
+    # 4. Surgically patch floats in header if specified in table
+    # Dry parameter (offset 104)
+    if params["dry"]:
+        dry_val = parse_db_value(params["dry"])
+        if dry_val is not None:
+            struct.pack_into("f", template, 104, dry_val)
+
+    # Wet parameter (offset 108)
+    if params["wet"]:
+        wet_val = parse_db_value(params["wet"])
+        if wet_val is not None:
+            struct.pack_into("f", template, 108, wet_val)
+
+    # Predelay parameter (offset 112)
+    if params["predelay"]:
+        pre_match = re.search(r"(\d+(?:\.\d+)?)", params["predelay"])
+        if pre_match:
+            pre_val = float(pre_match.group(1)) # in ms
+            struct.pack_into("f", template, 112, pre_val)
+
+    # 5. Generate URL Bookmark
+    try:
+        url = NSURL.fileURLWithPath_(full_path)
+        opt = NSURLBookmarkCreationSuitableForBookmarkFile
+        bookmark_data, error = url.bookmarkDataWithOptions_includingResourceValuesForKeys_relativeToURL_error_(opt, None, None, None)
+        if not bookmark_data:
+            print(f"-> Error: Failed to generate bookmark data: {error}")
+            return False
+        bookmark_bytes = bytes(bookmark_data)
+    except Exception as e:
+        print(f"-> Error generating bookmark: {e}")
+        return False
+
+    # 6. Create binary plist payload
+    plist_dict = {'CFileRef_Bookmark': bookmark_bytes}
+    plist_payload = plistlib.dumps(plist_dict, fmt=plistlib.FMT_BINARY)
+    plist_len = len(plist_payload)
+
+    # Write plist size at 1572 (4 bytes little-endian)
+    template[1572:1576] = struct.pack('<I', plist_len)
+
+    # Write path starting at 1576
+    # Clear out path space up to 3024
+    for i in range(1576, 3024):
+        template[i] = 0
+    template[1576:1576+len(full_path)] = full_path.encode('utf-8')
+
+    # 7. Assemble final bytes
+    out_data = bytearray(template[:3024])
+    out_data.extend(plist_payload)
+
+    # Padding to offset 4189 with zeros if plist is shorter than 1165
+    padding_len = 1165 - plist_len
+    if padding_len > 0:
+        out_data.extend(b'\x00' * padding_len)
+    elif padding_len < 0:
+        print(f"-> Warning: Plist length exceeds 1165 ({plist_len} bytes)")
+
+    # Append static footer from template (offset 4189 to end, length 6179)
+    footer = template[4189:]
+    out_data.extend(footer)
+
+    # 8. Patch Size float at offset 10196 in final file buffer (fixed size)
+    if params["size"]:
+        size_match = re.search(r"(\d+(?:\.\d+)?)", params["size"])
+        if size_match:
+            size_val = float(size_match.group(1)) # in percentage
+            struct.pack_into("f", out_data, 10196, size_val)
+
+    # Save to user presets folder
+    output_dir = os.path.dirname(base_preset_path)
+    os.makedirs(output_dir, exist_ok=True)
+    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.pst")
+    with open(out_path, "wb") as f:
+        f.write(out_data)
+
+    print(f"-> Compiled Logic Space Designer Preset: 'Toneprint - {output_name}'")
+    return True
+
+
 # Dynamic Yamaha THR-II JSON Compiler (.thrl6p)
 def compile_yamaha_thr_toneprint(filepath, output_name, frontmatter):
     preset_data = frontmatter.get("preset_data", {})
     thr_data = preset_data.get("yamaha_thr") if isinstance(preset_data, dict) else None
     
-    # Load base template structure
-    preset_json = json.loads(json.dumps(DEFAULT_THR_PRESET))
-    preset_json["data"]["meta"]["name"] = output_name
-    
-    if thr_data and isinstance(thr_data, dict):
-        tone = preset_json["data"]["tone"]
-        
-        # 1. Amp Settings
-        amp_data = thr_data.get("amp", {})
-        if isinstance(amp_data, dict):
-            if "model" in amp_data: tone["THRGroupAmp"]["@asset"] = str(amp_data["model"])
-            if "drive" in amp_data: tone["THRGroupAmp"]["Drive"] = float(amp_data["drive"])
-            if "bass" in amp_data: tone["THRGroupAmp"]["Bass"] = float(amp_data["bass"])
-            if "mid" in amp_data: tone["THRGroupAmp"]["Mid"] = float(amp_data["mid"])
-            if "treble" in amp_data: tone["THRGroupAmp"]["Treble"] = float(amp_data["treble"])
-            if "master" in amp_data: tone["THRGroupAmp"]["Master"] = float(amp_data["master"])
-            
-        # 2. Cabinet Settings
-        cab_data = thr_data.get("cab", {})
-        if isinstance(cab_data, dict):
-            if "model" in cab_data: tone["THRGroupCab"]["@asset"] = str(cab_data["model"])
-            if "sim_type" in cab_data: tone["THRGroupCab"]["SpkSimType"] = str(cab_data["sim_type"])
-            
-        # 3. Compressor
-        comp_data = thr_data.get("compressor", {})
-        if isinstance(comp_data, dict):
-            if "enabled" in comp_data: tone["THRGroupFX1Compressor"]["@enabled"] = bool(comp_data["enabled"])
-            if "model" in comp_data: tone["THRGroupFX1Compressor"]["@asset"] = str(comp_data["model"])
-            if "level" in comp_data: tone["THRGroupFX1Compressor"]["Level"] = float(comp_data["level"])
-            if "sustain" in comp_data: tone["THRGroupFX1Compressor"]["Sustain"] = float(comp_data["sustain"])
-            
-        # 4. Effect (Modulation)
-        fx_data = thr_data.get("effect", {})
-        if isinstance(fx_data, dict):
-            if "enabled" in fx_data: tone["THRGroupFX2Effect"]["@enabled"] = bool(fx_data["enabled"])
-            if "model" in fx_data: tone["THRGroupFX2Effect"]["@asset"] = str(fx_data["model"])
-            if "wet_dry" in fx_data: tone["THRGroupFX2Effect"]["@wetDry"] = float(fx_data["wet_dry"])
-            if "depth" in fx_data: tone["THRGroupFX2Effect"]["Depth"] = float(fx_data["depth"])
-            if "feedback" in fx_data: tone["THRGroupFX2Effect"]["Feedback"] = float(fx_data["feedback"])
-            if "freq" in fx_data: tone["THRGroupFX2Effect"]["Freq"] = float(fx_data["freq"])
-            if "pre" in fx_data: tone["THRGroupFX2Effect"]["Pre"] = float(fx_data["pre"])
-            
-        # 5. Echo (Delay)
-        echo_data = thr_data.get("echo", {})
-        if isinstance(echo_data, dict):
-            if "enabled" in echo_data: tone["THRGroupFX3EffectEcho"]["@enabled"] = bool(echo_data["enabled"])
-            if "model" in echo_data: tone["THRGroupFX3EffectEcho"]["@asset"] = str(echo_data["model"])
-            if "wet_dry" in echo_data: tone["THRGroupFX3EffectEcho"]["@wetDry"] = float(echo_data["wet_dry"])
-            if "bass" in echo_data: tone["THRGroupFX3EffectEcho"]["Bass"] = float(echo_data["bass"])
-            if "feedback" in echo_data: tone["THRGroupFX3EffectEcho"]["Feedback"] = float(echo_data["feedback"])
-            if "time" in echo_data: tone["THRGroupFX3EffectEcho"]["Time"] = float(echo_data["time"])
-            if "treble" in echo_data: tone["THRGroupFX3EffectEcho"]["Treble"] = float(echo_data["treble"])
-            
-        # 6. Reverb
-        rev_data = thr_data.get("reverb", {})
-        if isinstance(rev_data, dict):
-            if "enabled" in rev_data: tone["THRGroupFX4EffectReverb"]["@enabled"] = bool(rev_data["enabled"])
-            if "model" in rev_data: tone["THRGroupFX4EffectReverb"]["@asset"] = str(rev_data["model"])
-            if "wet_dry" in rev_data: tone["THRGroupFX4EffectReverb"]["@wetDry"] = float(rev_data["wet_dry"])
-            if "decay" in rev_data: tone["THRGroupFX4EffectReverb"]["Decay"] = float(rev_data["decay"])
-            if "pre_delay" in rev_data: tone["THRGroupFX4EffectReverb"]["PreDelay"] = float(rev_data["pre_delay"])
-            if "tone" in rev_data: tone["THRGroupFX4EffectReverb"]["Tone"] = float(rev_data["tone"])
-            
-        # 7. Gate
-        gate_data = thr_data.get("gate", {})
-        if isinstance(gate_data, dict):
-            if "enabled" in gate_data: tone["THRGroupGate"]["@enabled"] = bool(gate_data["enabled"])
-            if "model" in gate_data: tone["THRGroupGate"]["@asset"] = str(gate_data["model"])
-            if "decay" in gate_data: tone["THRGroupGate"]["Decay"] = float(gate_data["decay"])
-            if "thresh" in gate_data: tone["THRGroupGate"]["Thresh"] = float(gate_data["thresh"])
-            
-        # 8. Global Tempo
-        global_data = thr_data.get("global", {})
-        if isinstance(global_data, dict):
-            if "tempo" in global_data: tone["global"]["THRPresetParamTempo"] = float(global_data["tempo"])
+    if not thr_data or not isinstance(thr_data, dict):
+        return False
 
-    # Output directory
-    os.makedirs(YAMAHA_THR_OUTPUT_DIR, exist_ok=True)
-    out_path = os.path.join(YAMAHA_THR_OUTPUT_DIR, f"{output_name}.thrl6p")
+    # --------------------------------------------------------------------------- #
+    # Nested Helpers
+    # --------------------------------------------------------------------------- #
+    _DEFAULT = 50
     
-    with open(out_path, "w") as f:
-        json.dump(preset_json, f, indent=4)
+    def _norm(value) -> float:
+        """Map a 0-100 knob value to a clamped 0.0-1.0 float."""
+        try:
+            v = float(value)
+        except (TypeError, ValueError):
+            v = float(_DEFAULT)
+        return max(0.0, min(1.0, v / 100.0))
+
+    def _gate_thresh_db(ui_value) -> float:
+        """Map a 0-100 gate-threshold UI value to the dB value the device stores."""
+        cfg = THR_MODELS["envelope"]["gate_threshold_db"]
+        try:
+            ui = float(ui_value)
+        except (TypeError, ValueError):
+            ui = float(cfg["default_ui"])
+        db = (ui - cfg["ui_offset"]) * cfg["slope"]
+        return round(max(cfg["min_db"], min(cfg["max_db"], db)), 2)
+
+    def _canon_category(category: str) -> str:
+        table = {
+            "classic": "Classic", "boutique": "Boutique", "modern": "Modern",
+            "bass": "Bass", "acoustic": "Acoustic", "aco": "Acoustic", "flat": "Flat",
+        }
+        key = table.get(str(category).strip().lower())
+        if not key:
+            raise ValueError(f"Unknown amp category {category!r}")
+        return key
+
+    def _canon_model(model: str | None, models: dict) -> str:
+        if model is None:
+            raise ValueError(f"amp spec needs a 'model'")
+        aliases = {
+            "clean": "Clean", "crunch": "Crunch", "lead": "Lead",
+            "hi gain": "Hi Gain", "higain": "Hi Gain", "hi-gain": "Hi Gain",
+            "high gain": "Hi Gain", "special": "Special",
+        }
+        key = aliases.get(str(model).strip().lower())
+        if key is None or key not in models:
+            raise ValueError(f"Unknown amp model {model!r}")
+        return key
+
+    def resolve_amp(category: str | None = None, model: str | None = None, *,
+                    asset: str | None = None) -> str:
+        if asset:
+            if asset not in THR_MODELS["all_known_assets"]["amps"]:
+                raise ValueError(f"Unknown amp asset {asset!r}")
+            return asset
+
+        if not category:
+            raise ValueError("amp spec needs either 'asset' or 'category'")
+
+        cat = _canon_category(category)
+        amps = THR_MODELS["amps"]
+
+        if cat in amps["guitar"]:
+            models = amps["guitar"][cat]
+            key = _canon_model(model, models)
+            return models[key]
+        if cat == "Bass":
+            if model and model in amps["bass"]:
+                return amps["bass"][model]
+            return amps["bass"].get(_canon_category(model or "Classic"), amps["bass"]["Classic"])
+        if cat == "Acoustic":
+            return amps["acoustic"].get(model or "Condenser", amps["acoustic"]["Condenser"])
+        if cat == "Flat":
+            return amps["flat"].get(model or "default", amps["flat"]["default"])
+        raise ValueError(f"Unknown amp category {category!r}")
+
+    def resolve_cab(cab) -> int:
+        cabs = THR_MODELS["cabinets"]
+        if cab is None:
+            return cabs["None"]
+        if isinstance(cab, bool):
+            raise ValueError(f"Invalid cab value {cab!r}")
+        if isinstance(cab, int):
+            return cab
+        name = str(cab).strip()
+        for key, val in cabs.items():
+            if key.startswith("_"):
+                continue
+            if key.lower() == name.lower():
+                return val
+        raise ValueError(f"Unknown cabinet {cab!r}")
+
+    def _block_params(spec_block: dict, device_params: list[str]) -> dict:
+        out = {}
+        for dev_key in device_params:
+            out[dev_key] = _norm(spec_block.get(dev_key.lower(), _DEFAULT))
+        return out
+
+    def _match_type(name, types: dict) -> str:
+        for key in types:
+            if key.lower() == str(name).strip().lower():
+                return key
+        raise ValueError(f"Unknown FX type {name!r}")
+
+    def _build_typed_fx(spec_block: dict, fx_def: dict, default_type: str) -> dict:
+        types = fx_def["types"]
+        type_name = spec_block.get("type", default_type)
+        chosen = _match_type(type_name, types)
+        asset = types[chosen]["asset"]
+        block = {"@asset": asset, "@enabled": bool(spec_block.get("enabled", False))}
+        block.update(_block_params(spec_block, types[chosen]["params"]))
+        if fx_def.get("has_wetDry"):
+            block["@wetDry"] = _norm(spec_block.get("mix", _DEFAULT))
+        return block
+
+    # --------------------------------------------------------------------------- #
+    # Processing Spec
+    # --------------------------------------------------------------------------- #
+    try:
+        env = THR_MODELS["envelope"]
+        fx = THR_MODELS["fx"]
+
+        # Resolve Amp
+        amp_spec = thr_data.get("amp", {})
+        amp_asset = resolve_amp(
+            amp_spec.get("category"), amp_spec.get("model"), asset=amp_spec.get("asset")
+        )
+
+        # Resolve Cab
+        cab_type = resolve_cab(thr_data.get("cab"))
+
+        # Resolve EQ -> Amp Block
+        eq = thr_data.get("eq", {})
+        amp_block = {
+            "@asset": amp_asset,
+            "Drive": _norm(eq.get("gain", _DEFAULT)),
+            "Bass": _norm(eq.get("bass", _DEFAULT)),
+            "Mid": _norm(eq.get("mid", _DEFAULT)),
+            "Treble": _norm(eq.get("treble", _DEFAULT)),
+            "Master": _norm(eq.get("master", 70)),
+        }
+
+        # Compressor
+        comp_spec = thr_data.get("compressor", {})
+        comp_block = {
+            "@asset": fx["compressor"]["asset"],
+            "@enabled": bool(comp_spec.get("enabled", False)),
+            "Sustain": _norm(comp_spec.get("sustain", 30)),
+            "Level": _norm(comp_spec.get("level", 80)),
+        }
+
+        # Gate
+        gate_spec = thr_data.get("gate", {})
+        gate_block = {
+            "@asset": fx["gate"]["asset"],
+            "@enabled": bool(gate_spec.get("enabled", False)),
+            "Thresh": _gate_thresh_db(gate_spec.get("thresh", env["gate_threshold_db"]["default_ui"])),
+            "Decay": _norm(gate_spec.get("decay", 20)),
+        }
+
+        # Build complete JSON preset
+        device_id = detect_thr_device_id()
         
-    print(f"-> Compiled Yamaha THR Preset: '{output_name}'")
-    return True
+        preset_json = {
+            "schema": env["schema"],
+            "version": env["version"],
+            "data": {
+                "device": device_id,
+                "device_version": env["device_version"],
+                "meta": {
+                    "name": output_name,
+                    "tnid": 0
+                },
+                "tone": {
+                    "THRGroupGate": gate_block,
+                    "THRGroupFX1Compressor": comp_block,
+                    "THRGroupFX2Effect": _build_typed_fx(
+                        thr_data.get("modulation", {}), fx["modulation"], "Chorus"),
+                    "THRGroupFX3EffectEcho": _build_typed_fx(
+                        thr_data.get("echo", {}), fx["echo"], "Tape"),
+                    "THRGroupFX4EffectReverb": _build_typed_fx(
+                        thr_data.get("reverb", {}), fx["reverb"], "Hall"),
+                    "THRGroupCab": {"@asset": fx["cab"]["asset"], "SpkSimType": cab_type},
+                    "THRGroupAmp": amp_block,
+                    "global": {"THRPresetParamTempo": int(thr_data.get("tempo", env["default_tempo"]))},
+                }
+            },
+            "meta": env["outer_meta"]
+        }
+
+        # Output directory
+        os.makedirs(YAMAHA_THR_OUTPUT_DIR, exist_ok=True)
+        out_path = os.path.join(YAMAHA_THR_OUTPUT_DIR, f"{output_name}.thrl6p")
+        
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(preset_json, f, indent=4)
+            f.write("\n")
+            
+        print(f"-> Compiled Yamaha THR Preset: '{output_name}'")
+        return True
+
+    except Exception as e:
+        print(f"Error compiling Yamaha THR preset: {e}")
+        return False
 
 
 # Helper to extract a specific device's section from Markdown body
@@ -1915,6 +2376,7 @@ def main():
     compiled_galaxy = 0
     compiled_studiod = 0
     compiled_supermassive = 0
+    compiled_spacedesigner = 0
     
     for root, dirs, files in os.walk(TONES_DIR):
         for f in files:
@@ -2034,6 +2496,13 @@ def main():
                     if compile_logic_compressor_toneprint(filepath, LOGIC_COMP_BASE, clean_name, frontmatter):
                         compiled_logiccomp += 1
 
+            # Compile Logic Space Designer Presets if native templates exist
+            if os.path.exists(LOGIC_SPACEDESIGNER_BASE):
+                # Only compile if Space Designer is in toneprint
+                if "space designer" in content.lower() or "reverb aux" in content.lower():
+                    if compile_logic_space_designer_toneprint(filepath, LOGIC_SPACEDESIGNER_BASE, clean_name, frontmatter):
+                        compiled_spacedesigner += 1
+
             # Compile Nembrini Acoustic Voice Pro Presets if templates exist
             base_avp_path = NEMBRINI_TEMPLATES["acoustic_voice"]
             if os.path.exists(base_avp_path):
@@ -2051,6 +2520,7 @@ def main():
     print(f"  -> {compiled_hitsville} UADx Hitsville presets in {os.path.dirname(HITSVILLE_BASE)}")
     print(f"  -> {compiled_logiceq} Logic Channel EQ presets in {os.path.dirname(LOGIC_EQ_BASE)}")
     print(f"  -> {compiled_logiccomp} Logic Compressor presets in {os.path.dirname(LOGIC_COMP_BASE)}")
+    print(f"  -> {compiled_spacedesigner} Logic Space Designer presets in {os.path.dirname(LOGIC_SPACEDESIGNER_BASE)}")
     print(f"  -> {compiled_thr} Yamaha THR presets in {YAMAHA_THR_OUTPUT_DIR}")
     print(f"  -> {compiled_mrh810} Nembrini MRH810 XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['mrh810'])}")
     print(f"  -> {compiled_jc120} Nembrini Jazz Chorus XML presets in {os.path.dirname(NEMBRINI_TEMPLATES['jc120'])}")

@@ -33,6 +33,12 @@ rsync -av --delete \
 if [[ -f "$HTML_SRC" ]]; then
   cp -v "$HTML_SRC" "$DEST/"
 fi
+if [[ -f "$PROJ_ROOT/tone-advisor/eq-visualizer.html" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/eq-visualizer.html" "$DEST/"
+fi
+if [[ -f "$PROJ_ROOT/tone-advisor/tonex-stomp-viewer.html" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/tonex-stomp-viewer.html" "$DEST/"
+fi
 if [[ -f "$PROJ_ROOT/tone-advisor/universal-template-guide.md" ]]; then
   cp -v "$PROJ_ROOT/tone-advisor/universal-template-guide.md" "$DEST/"
 fi

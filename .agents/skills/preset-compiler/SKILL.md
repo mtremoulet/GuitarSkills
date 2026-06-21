@@ -119,6 +119,28 @@ Valhalla plugins save natively as simple, standard XML text files with attribute
 * **Mode**: Scaled by dividing active mode index by `24.0` (Andromeda at Index 6 = `0.25`).
 * **Modulation**: `ModRate` and `ModDepth` set to `"0.0"` in all generated presets to prevent detuning.
 
+### C. Logic Pro ProjectData Audio Unit Signatures
+When parsing the binary `ProjectData` file of a Logic Pro project/template package, the embedded Audio Unit plug-in descriptions use standard macOS Four-Character Codes (FourCC) encoded as big-endian integers. Below is the mapping of these signatures to the user's specific plugins:
+
+| Manufacturer Code | Subtype Code | Type | Plug-in Name |
+| :--- | :--- | :--- | :--- |
+| `Ikmm` | `Txmm` | `aufx` | IK Multimedia TONEX |
+| `UADx` | `UI24` | `aumf` | UADx Paradise Guitar Studio |
+| `MxWv` | `MTRA` | `aumf` | MixWave Two-Rock Bloomfield Drive |
+| `NDSP` | `NCWX` | `aumf` | Neural DSP Archetype: Cory Wong |
+| `NmAd` | `M812` | `aufx` | Nembrini MRH810 V2 (Marshall 800 style) |
+| `NmAd` | `JzCh` | `aumf` | Nembrini JC120 (Jazz Clean) |
+| `NmAd` | `Dv11` | `aumf` | Nembrini Divided 11 (Divided by 13 style) |
+| `NmAd` | `Prtn` | `aumf` | Nembrini HK Puretone (Hughes & Kettner style) |
+| `AhdS` | `TPie` | `aufx` | Audio Hertz Ten Piece (10-band saturator) |
+| `UADx` | `U3A9` | `aufx` | UADx LA-2A Gray/Silver Compressor |
+| `NmAd` | `Acvp` | `aufx` | Nembrini Acoustic Voice Pro |
+| `UADx` | `U3CI` | `aufx` | UADx Capitol Chambers |
+| `UADx` | `U3D7` | `aufx` | UADx Hitsville Reverb Chambers |
+| `UADx` | `U3DF` | `aufx` | UADx Sound City Studios |
+| `oDin` | `sMas` | `aufx` | Valhalla Supermassive |
+| `UADx` | `U3BK` | `aufx` | UADx Galaxy Tape Echo |
+
 ---
 
 ## 4. Backlog & Future Phases

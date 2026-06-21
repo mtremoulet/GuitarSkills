@@ -516,7 +516,8 @@ def fetch_data():
           tm.Tag_Description,
           tm.Tag_ModelComment,
           tm.DateTimeAdded,
-          nm.Nickname
+          nm.Nickname,
+          tm.Version
         FROM ToneModels tm
         LEFT JOIN ToneModelsUserIDMatch um ON tm.GUID = um.GUID
         LEFT JOIN UserIDNicknameMatch nm ON um.UserID = nm.UserID
@@ -530,7 +531,7 @@ def fetch_data():
     
     captures = []
     for r in rows:
-        guid, model_name, stomp_name, category, skin, factory, desc, comment, dt_added, nickname = r
+        guid, model_name, stomp_name, category, skin, factory, desc, comment, dt_added, nickname, version = r
         
         # Clean up category name (remove 'STOMP - ')
         cat_clean = category or ""
@@ -567,7 +568,8 @@ def fetch_data():
             "added": dt_added or "",
             "creator": creator,
             "file_path": file_path,
-            "file_exists": file_exists
+            "file_exists": file_exists,
+            "version": version
         })
         
     return captures
@@ -1711,10 +1713,11 @@ def generate_html(captures):
              ${{cap.comment || cap.description}}
            </div>` : "";
            
+        const versionBadge = `<span style="font-size: 10px; font-weight: 700; background-color: var(--border); color: var(--text-muted); padding: 2px 6px; border-radius: 4px; margin-left: 8px;">V${{cap.version}}</span>`;
         capturesHtml += `
           <div class="capture-row">
             <div class="capture-name-desc">
-              <span class="capture-title">${{cap.name}}</span>
+              <span class="capture-title">${{cap.name}}${{versionBadge}}</span>
             </div>
             
             <div class="capture-category">

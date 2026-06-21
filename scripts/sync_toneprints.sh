@@ -39,6 +39,9 @@ fi
 if [[ -f "$PROJ_ROOT/tone-advisor/tonex-stomp-viewer.html" ]]; then
   cp -v "$PROJ_ROOT/tone-advisor/tonex-stomp-viewer.html" "$DEST/"
 fi
+if [[ -f "$PROJ_ROOT/tone-advisor/tonex-amp-viewer.html" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/tonex-amp-viewer.html" "$DEST/"
+fi
 if [[ -f "$PROJ_ROOT/tone-advisor/universal-template-guide.md" ]]; then
   cp -v "$PROJ_ROOT/tone-advisor/universal-template-guide.md" "$DEST/"
 fi

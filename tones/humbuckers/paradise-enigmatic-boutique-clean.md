@@ -17,6 +17,7 @@ preset_data:
     Boost: false
     Bright: false
     Middle: 7.5
+    Master: 7
     Presence: 0.5
     Treble: 3.5
     Volume: 5.5

@@ -5,21 +5,22 @@ guitar: "Fender Player II Telecaster (bridge pickup, roundwound strings)"
 id: dream-65-blackface-sparkle
 pickup_type: single-coil
 preset_name: "Dream 65 Blackface Sparkle SC"
-status: tested
+status: refined
 tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
 target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
 tone-king-channel: bypassed
-updated: 2026-05-08
+updated: 2026-06-21
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
     Bass: 5
     Bright: false
+    Reverb: 3
     Treble: 4.0
     Volume: 2.5
   la2a:
     gain: 20
-    peak_reduction: 40
+    peak_reduction: 30
 ---
 
 # Dream '65 — Blackface Sparkle
@@ -32,7 +33,7 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 
 **This tone vs. similar toneprints:** Woodrow Sweet Spot (Tweed, mid-forward, low headroom, compresses into grit) is blues/rock territory. This is cleaner, more articulate, and brighter — country and pop clean territory. The Showtime-based toneprints are intentionally colorless; this one isn't.
 
-**Gain Staging & Future Optimization Note:** In testing, end-to-end levels were ~ `-19.8dB` input and ~ `-13.3dB` output. To manage the modeled noise floor, set the **Amp Volume to 2.5**. The inline reverb (Space Designer) should eventually be moved to a shared Aux 1 (Reverb Bus) with "100% Wet" to standardize the DAW template.
+**Gain Staging & Future Optimization Note:** In testing, end-to-end levels were ~ `-19.8dB` input and ~ `-13.3dB` output. To manage the modeled noise floor, set the **Amp Volume to 2.5**. The Space Designer reverb is placed on a dedicated parallel Delay/Aux track with "100% Wet" to preserve dry signal punch.
 
 **Note — Tele bridge vs. Strat adjustments:** If using the Squier Stratocaster instead, enable the Bright switch on the Dream '65 and raise Treble to 6. The Strat's lower-output single coils handle the added brightness without getting ice-picky. Strat bridge + middle ("quack" position) is the classic alternate pairing.
 
@@ -71,23 +72,25 @@ The Dream '65 is a low-headroom amp — the sweet spot for this tone is Vol 2.5�
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Peak Reduction | 40 | Yields `0 to 1dB` of reduction; prevents makeup gain from amplifying the amp's idle fizz during note decay |
-| Gain | 20 | Makeup gain for a healthy final output |
+| Peak Reduction | 30 | Pulled down to 30 (user feedback) to make compression less aggressive and avoid squashing dynamics |
+| Gain | 20 | Makeup gain for a healthy final output (user to verify in next test) |
 | Mode | Compress (3:1) | Preserve picking dynamics |
 
 ---
 
-### 4. Logic Space Designer — room supplement
+### 4. Logic Space Designer — dedicated Delay/Aux track room supplement
+
+Placed on a dedicated parallel track (Dry set to −∞ dB, Wet set to 0.0 dB for 100% wet output).
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | IR | Small studio room or small hall | Complements the spring reverb |
 | Pre-Delay | 5 ms | Keep the dry attack first |
 | Size | 65% | Short, tight room |
-| Dry | 0.0 dB | Unity |
-| Wet | −22 dB | ~8% — barely perceptible |
+| Dry | −∞ dB | Muted on parallel track |
+| Wet | 0.0 dB | 100% wet output |
 
-**Optimization Note:** Eventually move to a dedicated Aux Reverb Bus with "100% Wet".
+**Routing Note:** Moved to a dedicated parallel Delay/Aux track to preserve the dry signal's punch and clarity. Send level from the main channel strip starts at **−22 dB**.
 
 ---
 
@@ -114,6 +117,9 @@ Both options sit *before* the Tone King in the signal chain — either as the TO
 ---
 
 ## Feedback History
+
+### 2026-06-21 — refined
+Updated compressor Peak Reduction to 30 based on user feedback. Moved Space Designer to a dedicated parallel Delay/Aux track (Dry set to −∞ dB, Wet set to 0.0 dB), with starting send fader level at −22 dB. Status updated to `refined`.
 
 ### 2026-05-08 — tested
 Verified in DAW session. Key findings: **Volume 2.5** on the amp is necessary for clean headroom. **LA-2A at Peak Reduction 40 / Gain 20** yields minimal reduction but prevents "noise floor fizz" on decay. End-to-end: ~ -19.8dB in / -13.3dB out. Status updated to `tested`.

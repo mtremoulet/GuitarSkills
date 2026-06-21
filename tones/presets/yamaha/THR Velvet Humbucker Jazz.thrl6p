@@ -5,62 +5,62 @@
         "device": 2359296,
         "device_version": 22020194,
         "meta": {
-            "name": "THR Warm Neo Soul",
+            "name": "THR Velvet Humbucker Jazz",
             "tnid": 0
         },
         "tone": {
             "THRGroupGate": {
                 "@asset": "noiseGate",
                 "@enabled": true,
-                "Thresh": -84.48,
+                "Thresh": -86.4,
                 "Decay": 0.5
             },
             "THRGroupFX1Compressor": {
                 "@asset": "RedComp",
                 "@enabled": true,
-                "Sustain": 0.6,
+                "Sustain": 0.5,
                 "Level": 0.55
             },
             "THRGroupFX2Effect": {
                 "@asset": "StereoSquareChorus",
-                "@enabled": true,
-                "Depth": 0.4,
+                "@enabled": false,
+                "Depth": 0.0,
                 "Feedback": 0.5,
-                "Freq": 0.25,
-                "Pre": 0.5,
-                "@wetDry": 0.35
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
             },
             "THRGroupFX3EffectEcho": {
                 "@asset": "TapeEcho",
-                "@enabled": true,
-                "Time": 0.3,
-                "Bass": 0.3,
-                "Treble": 0.35,
-                "Feedback": 0.2,
-                "@wetDry": 0.25
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
             },
             "THRGroupFX4EffectReverb": {
-                "@asset": "ReallyLargeHall",
+                "@asset": "LargePlate1",
                 "@enabled": true,
-                "Decay": 0.45,
+                "Decay": 0.4,
                 "PreDelay": 0.05,
-                "Tone": 0.5,
+                "Tone": 0.4,
                 "@wetDry": 0.2
             },
             "THRGroupCab": {
                 "@asset": "speakerSimulator",
-                "SpkSimType": 10
+                "SpkSimType": 15
             },
             "THRGroupAmp": {
-                "@asset": "THR10C_BJunior2",
-                "Drive": 0.35,
-                "Bass": 0.6,
-                "Mid": 0.5,
-                "Treble": 0.45,
-                "Master": 0.6
+                "@asset": "THR10C_Deluxe",
+                "Drive": 0.3,
+                "Bass": 0.65,
+                "Mid": 0.45,
+                "Treble": 0.35,
+                "Master": 0.75
             },
             "global": {
-                "THRPresetParamTempo": 110
+                "THRPresetParamTempo": 120
             }
         }
     },

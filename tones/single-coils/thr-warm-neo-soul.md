@@ -14,42 +14,46 @@ preset_data:
   amp_platform: yamaha_thr
   yamaha_thr:
     amp:
-      bass: 0.6
-      drive: 0.35
-      master: 0.6
-      mid: 0.5
+      category: Boutique
       model: Clean
-      treble: 0.45
-    cab:
-      model: 2x12
+    cab: Boutique 2x12
+    eq:
+      gain: 35
+      bass: 60
+      mid: 50
+      treble: 45
+      master: 60
+    tempo: 110
     compressor:
       enabled: true
-      level: 0.55
-      model: "Stomp Comp"
-      sustain: 0.6
+      sustain: 60
+      level: 55
+    modulation:
+      enabled: true
+      type: Chorus
+      mix: 35
+      depth: 40
+      freq: 25
+      pre: 50
     echo:
       enabled: true
-      feedback: 0.2
-      model: "Tape Echo"
-      time: 0.3
-      wet_dry: 0.25
-    effect:
-      depth: 0.4
-      enabled: true
-      freq: 0.25
-      model: Chorus
-      wet_dry: 0.35
-    gate:
-      decay: 0.5
-      enabled: true
-      thresh: 0.12
+      type: Tape
+      mix: 25
+      feedback: 20
+      time: 30
+      bass: 30
+      treble: 35
     reverb:
-      decay: 0.45
       enabled: true
-      model: Hall
-      pre_delay: 0.05
-      tone: 0.5
-      wet_dry: 0.2
+      type: Hall
+      mix: 20
+      decay: 45
+      predelay: 5
+      tone: 50
+    gate:
+      enabled: true
+      thresh: 12
+      decay: 50
 ---
 
 # THR Warm Neo-Soul — Stratocaster

@@ -17,7 +17,7 @@ preset_data:
     Volume: 5.5
     Boost: 4.0
     Boost Switch: "ON"
-    Cut Switch: "OFF"
+    Cut: "OFF"
     Treble: 5.0
     Bass: 5.0
     Tone Cut: 6.5

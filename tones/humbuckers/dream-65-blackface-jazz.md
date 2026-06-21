@@ -15,6 +15,7 @@ preset_data:
   amp_settings:
     Bass: 5
     Bright: false
+    Reverb: 2
     Treble: 5
     Volume: 2.5
   hitsville:

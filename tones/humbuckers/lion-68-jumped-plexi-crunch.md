@@ -13,10 +13,17 @@ preset_data:
   amp_platform: uad_paradise
   amp_settings:
     Bass: 4.0
-    Middle: 5
-    Presence: 5
-    Treble: 5
-    Volume: 3
+    Middle: 5.0
+    Presence: 5.0
+    Treble: 5.0
+    Volume I (Bite): 6.5
+    Volume II (Body): 6.5
+    Model: LEAD
+    Input Routing: JUMP
+    Bright Cap: OFF
+    Ghost Notes: ON
+    Room: 0.0
+    Noise Gate: 20.0
   logic_compressor:
     attack: 4
     makeup_gain: 68

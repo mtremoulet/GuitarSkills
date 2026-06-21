@@ -16,7 +16,14 @@ preset_data:
     Middle: 5.5
     Presence: 4.5
     Treble: 4.5
-    Volume: 2.5
+    Volume I (Bite): 6.0
+    Volume II (Body): 6.2
+    Model: LEAD
+    Input Routing: JUMP
+    Bright Cap: OFF
+    Ghost Notes: ON
+    Room: 0.0
+    Noise Gate: 25.0
   logic_compressor:
     attack: 4
     makeup_gain: 3

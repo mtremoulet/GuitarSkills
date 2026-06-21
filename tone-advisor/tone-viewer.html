@@ -872,7 +872,7 @@ em { color: var(--secondary); }
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">46 tones</div>
+      <div class="vault-count">55 tones</div>
     </div>
     <div class="filters-toggle-bar" onclick="toggleFilters()">
       <span class="filter-title-label">Filters</span>
@@ -1019,6 +1019,24 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('soejima-neo-soul-hb')" data-id="soejima-neo-soul-hb" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Dream '65" tabindex="0">
+  <div class="sidebar-title">Soejima Neo-Soul Clean — Humbucker</div>
+  <div class="sidebar-sub">Epiphone Sheraton II / Gibson Les Paul Studio</div>
+  <div class="sidebar-tags">neo-soul, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-singing-lp-lead')" data-id="thr-singing-lp-lead" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR Singing LP Lead — Les Paul</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Les Paul Standard</div>
+  <div class="sidebar-tags">rock, lead, high-gain</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-velvet-hb-jazz')" data-id="thr-velvet-hb-jazz" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR Velvet Humbucker Jazz — Sheraton II</div>
+  <div class="sidebar-sub">Epiphone Sheraton II</div>
+  <div class="sidebar-tags">jazz, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
 <div class="sidebar-item" onclick="showTone('tkip-lp-80s-rock-lead')" data-id="tkip-lp-80s-rock-lead" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Tone King Imperial Preamp (Hardware)" tabindex="0">
   <div class="sidebar-title">TKIP LP 80s Rock Lead</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
@@ -1091,6 +1109,18 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('soejima-neo-soul-p90')" data-id="soejima-neo-soul-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Dream '65" tabindex="0">
+  <div class="sidebar-title">Soejima Neo-Soul Clean — P-90</div>
+  <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
+  <div class="sidebar-tags">neo-soul, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-p90-blues-drive')" data-id="thr-p90-blues-drive" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR P90 Blues Drive — Framus P-90s</div>
+  <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
+  <div class="sidebar-tags">blues, lead, crunch</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
 <div class="sidebar-item" onclick="showTone('tkip-p90-blues-lead')" data-id="tkip-p90-blues-lead" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Tone King Imperial Preamp (Hardware)" tabindex="0">
   <div class="sidebar-title">TKIP P-90 Blues Lead</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
@@ -1101,6 +1131,12 @@ em { color: var(--secondary); }
   <div class="sidebar-title">Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('two-rock-singing-blues-p90')" data-id="two-rock-singing-blues-p90" data-status="initial" data-genre="blues" data-guitar="framus" data-pickup="p-90" data-amp="Two-Rock Bloomfield" tabindex="0">
+  <div class="sidebar-title">Two Rock Bloomfield — Singing Blues (P-90 Variant)</div>
+  <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
+  <div class="sidebar-tags">boutique, clean, blues</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('woodrow-ep3-p90')" data-id="woodrow-ep3-p90" data-status="tested" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Woodrow '55" tabindex="0">
@@ -1121,11 +1157,17 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">blues, dynamic, clean</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('dream-65-blackface-sparkle')" data-id="dream-65-blackface-sparkle" data-status="tested" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65" tabindex="0">
+<div class="sidebar-item" onclick="showTone('dream-65-blackface-sparkle')" data-id="dream-65-blackface-sparkle" data-status="refined" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65" tabindex="0">
   <div class="sidebar-title">Dream '65 — Blackface Sparkle</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">blackface, country, surf</div>
-  <span class="badge status-tested sidebar-badge">tested</span>
+  <span class="badge status-refined sidebar-badge">refined</span>
+</div>
+<div class="sidebar-item" onclick="showTone('dream-65-srv-texas-growl')" data-id="dream-65-srv-texas-growl" data-status="initial" data-genre="blues" data-guitar="strat" data-pickup="single-coil" data-amp="Dream '65" tabindex="0">
+  <div class="sidebar-title">Dream '65 — SRV Texas Growl</div>
+  <div class="sidebar-sub">Squier Stratocaster</div>
+  <div class="sidebar-tags">blackface, srv, blues</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('paradise-pedal-platform-sc')" data-id="paradise-pedal-platform-sc" data-status="initial" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82" tabindex="0">
   <div class="sidebar-title">Paradise Pedal Platform (Single-Coil Variant)</div>
@@ -1149,6 +1191,12 @@ em { color: var(--secondary); }
   <div class="sidebar-title">Ruby '63 — Stratocaster Chime &amp; Echo (Paradise Guitar Studio)</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('soejima-neo-soul-sc')" data-id="soejima-neo-soul-sc" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65" tabindex="0">
+  <div class="sidebar-title">Soejima Neo-Soul Clean — Single-Coil</div>
+  <div class="sidebar-sub">Fender Player II Telecaster / Squier Stratocaster</div>
+  <div class="sidebar-tags">neo-soul, clean, warm</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('strat-ambient-bath')" data-id="strat-ambient-bath" data-status="initial" data-genre="ambient" data-guitar="strat" data-pickup="single-coil" data-amp="Showtime '64" tabindex="0">
@@ -1205,8 +1253,14 @@ em { color: var(--secondary); }
   <div class="sidebar-tags">tweed, woodrow, blues</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('dream-65-warm-clean')" data-id="dream-65-warm-clean" data-status="initial" data-genre="jazz" data-guitar="other" data-pickup="universal" data-amp="Dream '65" tabindex="0">
+  <div class="sidebar-title">Dream '65 — Warm Clean</div>
+  <div class="sidebar-sub">Universal</div>
+  <div class="sidebar-tags">blackface, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
     </div>
-    <div class="sidebar-footer">Generated 2026-06-07 23:57</div>
+    <div class="sidebar-footer">Generated 2026-06-21 14:54</div>
   </aside>
 
   <main class="main-panel" id="main-panel">
@@ -2906,6 +2960,200 @@ This creates a highly convincing &quot;hybrid&quot; instrument, allowing you to 
 </section>
 </div>
 
+<div class="tone-detail" id="tone-soejima-neo-soul-hb" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Soejima Neo-Soul Clean — Humbucker</h1>
+      <a href="../tones/humbuckers/soejima-neo-soul-hb.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Epiphone Sheraton II / Gibson Les Paul Studio</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">neo-soul</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">compressed</span><span class="tag">chorus</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">humbucker</span><span class="tag">dream-65</span></div>
+    <p class="tone-target-desc">Toshiki Soejima-style warm, articulate neo-soul clean tone for humbuckers using a low-gain Vemuram Jan Ray boost, Dream '65, and LA-2A.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to produce the warm, compressed, highly articulate &quot;Neo-Soul / J-Pop / City Pop&quot; clean tone signature of Toshiki Soejima, specifically calibrated for dual-humbucker guitars (like the Epiphone Sheraton II or Gibson Les Paul Studio). Humbuckers naturally output a warmer, thicker, mid-heavy signal with slower transients. In a neo-soul context, humbuckers risk sounding boxy, muddy, or pushing clean amps into clipping.
+
+To address this, the architecture uses a low-gain <strong>Vemuram Jan Ray</strong> capture in TONEX to add tube-like dynamic feel without distortion. The <strong>UADx Dream '65</strong>'s volume is backed down to <strong>2.2</strong> to preserve clean headroom, and the bright, articulate <strong>JBF120</strong> Twin Reverb cabinet is loaded. The <strong>UADx LA-2A Silver</strong> is set to light compression (Peak Reduction 20) to keep the humbuckers from sounding squeezed and flat, while Logic EQ cleans up the low-mid &quot;wooliness&quot; and boosts high-end definition to make neck-pickup arpeggios chime.
+
+<strong>Physical Setup &amp; Playing Tip:</strong> Select the neck pickup (or middle neck/bridge position for a woodier, funkier bounce). Roll the guitar volume knob to <strong>7 or 8</strong> to maximize touch sensitivity and headroom. Keep the tone knob around <strong>8</strong> to preserve high-end clarity.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">IK Multimedia TONEX</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-hb-3')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-hb-4')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-hb-5')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-soejima-neo-soul-hb-6')">Parallel Bus Processing</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).</span></div><div class="routing-note"><span class="routing-label">Route</span>IK Multimedia TONEX <span class="routing-detail">*   **Status:** **ON** *   **Capture**: `DPE JAN RAY - G1` (Vemuram Jan Ray - low gain) *   **Role**: Always-on transparent boost, kept low to prevent humbuckers from clipping the amp.</span></div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-hb-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">clean foundation</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Bright / Normal</td><td class="col-setting"><strong>Normal</strong></td><td class="col-purpose">Keeps the top-end organic</td></tr><tr class="row-alt"><td>Mod Circuit</td><td class="col-setting"><strong>Stock</strong></td><td class="col-purpose">Boost OFF. Highest clean headroom setting to prevent clipping</td></tr><tr class="row-norm"><td>Volume</td><td class="col-setting">2.2</td><td class="col-purpose">Calibrated for humbuckers; maximizes clean headroom</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">5.5</td><td class="col-purpose">Pushed slightly to add bite and chime to humbucker neck pickups</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting">4.0</td><td class="col-purpose">Rolled back to keep the low end tight and clean</td></tr><tr class="row-alt"><td>Reverb</td><td class="col-setting">0.0</td><td class="col-purpose">Off (reverb is handled on a dedicated parallel bus)</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>JBF120</strong></td><td class="col-purpose">1968 Twin Reverb 2x12 cabinet for bright, pristine note definition</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-hb-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">dynamic leveling</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">20</td><td class="col-purpose">Light compression to preserve humbucker dynamic range and prevent mud</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">20</td><td class="col-purpose">Makeup gain to normalize level going into Logic</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress</td><td class="col-purpose">Smooth 3:1 optical compression</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-hb-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">corrective shaping</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Type</th><th>Frequency</th><th>Gain / Slope</th><th>Q</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1</td><td>HPF (Low Cut)</td><td>90 Hz</td><td>24 dB/oct</td><td>—</td><td class="col-purpose">Cuts sub-bass mud and interface hum</td></tr><tr class="row-alt"><td>Band 4</td><td>Peaking</td><td>350 Hz</td><td>−2.0 dB</td><td>1.2</td><td class="col-purpose">Clears out the boxy &quot;wooliness&quot; of neck humbuckers</td></tr><tr class="row-norm"><td>Band 7</td><td>Peaking</td><td>4.0 kHz</td><td>+1.5 dB</td><td>1.0</td><td class="col-purpose">Restores pick attack and high-end string definition</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-soejima-neo-soul-hb-6">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Bus Processing</span>
+      <span class="plugin-role">time &amp; space</span>
+    </div>
+  </div>
+  <div class="track-note">Effects are routed via auxiliary channels to preserve the dry signal's punch and clarity.</div>
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-hb-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 5: Chorus</span>
+      <span class="plugin-role">UADx Studio D Chorus</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Push Button 1 (Dimension D mode) <em>   <strong>Send Level</strong>: −22 dB (slightly lower return to keep the thicker humbucker tone focused) </em>   <strong>Purpose</strong>: Subtle, wide spatial modulation that thickens the sound without warbling.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-hb-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 4: Delay</span>
+      <span class="plugin-role">UADx Galaxy Tape Echo</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Head Select: Position 1 (single head), Echo Rate: synced to host, Feedback: 12% (1 short repeat), Tape Age: New, Wet Solo: ON, Mix: 100% Wet. <em>   <strong>Send Level</strong>: −20 dB </em>   <strong>Purpose</strong>: Clean tape slapback to add body without muddying the decay.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-hb-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 3: Reverb</span>
+      <span class="plugin-role">UADx Hitsville Reverb Chambers</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Chamber: 2648 (Chamber 1), Speaker: Bozak 800, Mic: Unidyne 545, Decay: 9:00 (short/tight), Pre-Delay: 12 ms (slightly longer to separate humbucker attack), Wet Solo: ON. <em>   <strong>Send Level</strong>: −15 dB </em>   <strong>Purpose</strong>: Creates an intimate, polished room ambience.</p>
+  
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-06-21</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Proposed toneprint calibrated for humbucker pickups, featuring a low-volume UADx Dream '65 setting, light LA-2A Silver compression, low-mid EQ cuts, and parallel bus effects.</p>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-thr-singing-lp-lead" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR Singing LP Lead — Les Paul</h1>
+      <a href="../tones/humbuckers/thr-singing-lp-lead.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Les Paul Standard (bridge humbucker)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">rock</span><span class="tag">lead</span><span class="tag">high-gain</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">thr10ii</span></div>
+    <p class="tone-target-desc">A smooth, highly-sustaining, and smoothly distorted singing rock lead tone for a Les Paul.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to deliver a smooth, high-gain, singing rock lead tone directly out of the <strong>Yamaha THR10ii</strong>, optimized for a humbucker-equipped guitar (such as a <strong>Gibson Les Paul Studio</strong> or <strong>Epiphone Les Paul Standard</strong> in the bridge position). 
+
+Voiced after the classic hard rock lead sounds of Slash and Ritchie Sambora, it uses the <strong>Classic Special</strong> (`THR10X_Brown1` - EVH 5150-III Channel 2 &quot;Brown Sound&quot;) emulation. Rather than a harsh, scoopy metal distortion, this profile provides a saturated, rich, midrange-heavy sound that compresses naturally as you dig in, sustaining beautifully. Paired with a <strong>British 4x12</strong> (Marshall 1960A) cabinet and a polished digital delay, it creates a massive &quot;arena lead&quot; projection.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
+  
+</div>
+
+<div class="tone-detail" id="tone-thr-velvet-hb-jazz" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR Velvet Humbucker Jazz — Sheraton II</h1>
+      <a href="../tones/humbuckers/thr-velvet-hb-jazz.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Epiphone Sheraton II (neck humbucker, flatwound strings)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">jazz</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">plate</span><span class="tag">compressor</span><span class="tag">humbucker</span><span class="tag">semihollow</span><span class="tag">thr10ii</span></div>
+    <p class="tone-target-desc">A warm, woody, and mellow jazz clean tone for the semihollow Sheraton's neck humbucker.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to produce a warm, woody, and mellow jazz tone directly out of the <strong>Yamaha THR10ii</strong>, specifically voiced for the neck humbucker of the <strong>Epiphone Sheraton II</strong> semi-hollow body guitar fitted with flatwound strings. 
+
+Flatwounds naturally emphasize fundamental tones and roll off the top-end click, but can sometimes sound overly dark or tubby on a humbucker neck position. To combat this, we use the <strong>Classic Clean</strong> (Fender Deluxe Reverb) engine which has a natural midrange focus and slight scoop. When combined with a <strong>Boutique 1x12</strong> open-back cabinet emulation, the tone blooms with woody resonance and acoustic depth without becoming muddy.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
+  
+</div>
+
 <div class="tone-detail" id="tone-tkip-lp-80s-rock-lead" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -4159,6 +4407,168 @@ Session metering baseline:
 </section>
 </div>
 
+<div class="tone-detail" id="tone-soejima-neo-soul-p90" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Soejima Neo-Soul Clean — P-90</h1>
+      <a href="../tones/p-90s/soejima-neo-soul-p90.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">neo-soul</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">compressed</span><span class="tag">chorus</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">p-90</span><span class="tag">dream-65</span></div>
+    <p class="tone-target-desc">Toshiki Soejima-style warm, articulate neo-soul clean tone for P-90 pickups. Matches his primary tone profile, combining a Vemuram Jan Ray boost, clean Dream '65, and moderate LA-2A Silver compression.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to produce the warm, compressed, highly articulate &quot;Neo-Soul / J-Pop / City Pop&quot; clean tone signature of Toshiki Soejima, specifically calibrated for P-90 pickups (like your Framus Earl Slick Artist Series). P-90s are Soejima's favorite pickup type (he plays them on his Bruno Guitars TN-295). They combine the transient snap and chime of single-coils with the warmth, output, and mid-range growl of humbuckers.
+
+The P-90 hits the front-end of the transparent <strong>Vemuram Jan Ray</strong> capture in TONEX and the <strong>UADx Dream '65</strong> (Volume at 2.5) with exceptional touch-sensitivity. We select the <strong>Boutique D65</strong> (Two-Rock 2x12) cabinet to provide woody midrange warmth and smooth out any upper treble harshness. Moderate <strong>UADx LA-2A Silver</strong> compression (Peak Reduction 28) preserves the snappy &quot;thump&quot; of the P-90 pick attack while sustaining chord voices. A subtle mid-cut in the Logic EQ cleans up boxy nasal frequencies, keeping complex chord voicings transparent.
+
+<strong>Physical Setup &amp; Playing Tip:</strong> Play in the middle position (both P-90s) or neck position. Roll the guitar volume knob to <strong>8</strong> to clean up the input and maximize touch sensitivity. The neck P-90 is woody and vocal; the middle position is bouncey and clear.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">IK Multimedia TONEX</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-p90-3')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-p90-4')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-p90-5')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-soejima-neo-soul-p90-6')">Parallel Bus Processing</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).</span></div><div class="routing-note"><span class="routing-label">Route</span>IK Multimedia TONEX <span class="routing-detail">*   **Status:** **ON** *   **Capture**: `DPE JAN RAY - G1` (Vemuram Jan Ray - low gain) *   **Role**: Always-on transparent boost that highlights the woody organic growl of P-90s under a hard pick attack.</span></div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-p90-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">clean foundation</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Bright / Normal</td><td class="col-setting"><strong>Normal</strong></td><td class="col-purpose">Keeps P-90s warm and organic</td></tr><tr class="row-alt"><td>Mod Circuit</td><td class="col-setting"><strong>D-Tex</strong></td><td class="col-purpose">Boost OFF. Selected for its mid-range bloom and dynamic touch</td></tr><tr class="row-norm"><td>Volume</td><td class="col-setting">2.5</td><td class="col-purpose">Calibrated for P-90 output; provides a highly dynamic, touch-sensitive edge</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">5.0</td><td class="col-purpose">Neutral setting; lets the P-90's natural chime cut through</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting">4.5</td><td class="col-purpose">Slightly pulled back to prevent the thicker P-90 body from muddying</td></tr><tr class="row-alt"><td>Reverb</td><td class="col-setting">0.0</td><td class="col-purpose">Off (reverb is handled on a dedicated parallel bus)</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>Boutique D65</strong></td><td class="col-purpose">Two-Rock 2x12 cabinet with G12-65s for woody midrange and smooth HF roll-off</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-p90-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">transient control</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">28</td><td class="col-purpose">Moderate compression to balance snappy attack with humbucker-like sustain</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">22</td><td class="col-purpose">Makeup gain to normalize level going into Logic</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress</td><td class="col-purpose">Smooth 3:1 optical compression</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-p90-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">corrective shaping</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Type</th><th>Frequency</th><th>Gain / Slope</th><th>Q</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1</td><td>HPF (Low Cut)</td><td>85 Hz</td><td>24 dB/oct</td><td>—</td><td class="col-purpose">Cuts sub-bass rumble and interface hum</td></tr><tr class="row-alt"><td>Band 4</td><td>Peaking</td><td>500 Hz</td><td>−1.5 dB</td><td>1.5</td><td class="col-purpose">Removes the slight boxy/nasal midrange hump of P-90s</td></tr><tr class="row-norm"><td>Band 7</td><td>LPF (High Cut)</td><td>6.0 kHz</td><td>24 dB/oct</td><td>—</td><td class="col-purpose">Gently smooths out the top-end air for a warmer finish</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-soejima-neo-soul-p90-6">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Bus Processing</span>
+      <span class="plugin-role">time &amp; space</span>
+    </div>
+  </div>
+  <div class="track-note">Effects are routed via auxiliary channels to preserve the dry signal's punch and clarity.</div>
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-p90-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 5: Chorus</span>
+      <span class="plugin-role">UADx Studio D Chorus</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Push Button 1 (Dimension D mode) <em>   <strong>Send Level</strong>: −20 dB </em>   <strong>Purpose</strong>: Subtle, wide spatial modulation that thickens the sound without warbling.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-p90-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 4: Delay</span>
+      <span class="plugin-role">UADx Galaxy Tape Echo</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Head Select: Position 1 (single head), Echo Rate: synced to host, Feedback: 15% (1–2 repeats), Tape Age: Used (adds subtle wow/flutter for organic vintage vibe), Wet Solo: ON, Mix: 100% Wet. <em>   <strong>Send Level</strong>: −18 dB </em>   <strong>Purpose</strong>: Warm tape slapback repeats that sit neatly behind the dry signal.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-p90-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 3: Reverb</span>
+      <span class="plugin-role">UADx Hitsville Reverb Chambers</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Chamber: 2648 (Chamber 1), Speaker: Bozak 800, Mic: Unidyne 545, Decay: 9:30 (slightly longer room decay), Pre-Delay: 10 ms, Wet Solo: ON. <em>   <strong>Send Level</strong>: −16 dB </em>   <strong>Purpose</strong>: Creates an intimate, polished room ambience.</p>
+  
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-06-21</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Proposed toneprint calibrated for P-90 pickups, featuring a dynamic UADx Dream '65 setting, Two-Rock 2x12 cabinet emulation, moderate LA-2A Silver compression, and corrective EQ.</p>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-thr-p90-blues-drive" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR P90 Blues Drive — Framus P-90s</h1>
+      <a href="../tones/p-90s/thr-p90-blues-drive.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90 pickups)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">blues</span><span class="tag">lead</span><span class="tag">crunch</span><span class="tag">edge-of-breakup</span><span class="tag">spring</span><span class="tag">tape-echo</span><span class="tag">compressor</span><span class="tag">p90</span><span class="tag">framus</span><span class="tag">thr10ii</span></div>
+    <p class="tone-target-desc">A touch-sensitive, lightly broken up blues lead tone for the Framus P-90 single-coils.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is voiced to deliver a touch-sensitive, expressive, and lightly broken-up driving blues lead tone directly out of the <strong>Yamaha THR10ii</strong>, specifically tailored for the <strong>Framus Earl Slick Artist Series</strong> (or any guitar fitted with DiMarzio P-90 single-coil pickups).
+
+P-90s have a unique fat midrange and dynamic bite that sits perfectly between a single-coil and a humbucker. To capture this grit, we use the <strong>Boutique Clean</strong> (Fender Blues Junior Modded) engine pushed into the &quot;edge of breakup&quot; zone (Gain at 7.2). A built-in Compressor is enabled with low sustain and a high level, acting as a clean boost that pushes the preamp tubes into natural saturation. The <strong>Boutique 2x12</strong> (Matchless DC30) open-back cabinet emulation provides spacious chimes and bloom, while a splash of spring reverb and subtle tape echo complete the vintage blues vibe.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
+  
+</div>
+
 <div class="tone-detail" id="tone-tkip-p90-blues-lead" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -4343,6 +4753,101 @@ An active noise gate is essential to control the single-coil idle hum of the hot
     <span class="badge status-initial">initial</span>
   </div>
   <p>Ported from the humbucker LP variant. Bypasses Tone King to run direct JFET, lowers Two Rock Gain to 4.8 for the hotter P-90s, flattens Mid to 5.0, slightly boosts Treble to 4.8, and swaps the top cabinet mic to a Condenser 414 to capture the three-dimensional acoustic snap of the swamp ash body. Noise gate set to `0.380` to manage P-90 hum.</p>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-two-rock-singing-blues-p90" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Two Rock Bloomfield — Singing Blues (P-90 Variant)</h1>
+      <a href="../tones/p-90s/two-rock-singing-blues-p90.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">boutique</span><span class="tag">clean</span><span class="tag">blues</span><span class="tag">singing</span><span class="tag">compression</span><span class="tag">two-rock</span><span class="tag">p-90</span><span class="tag">framus</span><span class="tag">delay</span><span class="tag">reverb</span></div>
+    <p class="tone-target-desc">A singing, touch-sensitive Mayer-style blues tone with a compressed clean foundation, subtle edge-of-breakup, and lush spatial delay/reverb.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to capture a John Mayer-style &quot;singing blues&quot; tone—modeled after his live clean/lead dynamic balance in performances like &quot;Free Fallin'&quot; and &quot;Human Nature.&quot; The core philosophy is a high-fidelity, compressed clean platform that has just enough &quot;hair&quot; and sustain to sing like a lead voice, without turning into heavy overdrive.
+
+By pairing the MixWave Two-Rock Bloomfield Drive (EQ 2 structure) with the direct JFET input path of the Audient iD14, we retain the fast transient snap of the Framus's maple neck and swamp ash body. The built-in overdrive pedal is engaged with low gain and a blended mix (40% wet) to act as a parallel clean boost, adding vocal midrange focus and singing sustain. A post-amp LA-2A compressor glues the dynamics, while a bused Hitsville Reverb and Galaxy Tape Echo provide the lush, wide stereo wash typical of Mayer's live arenas.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-two-rock-singing-blues-p90-2')">MixWave Two-Rock Bloomfiel…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-two-rock-singing-blues-p90-3')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-two-rock-singing-blues-p90-4')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-two-rock-singing-blues-p90-5')">Reverb &amp; Delay Aux Sends</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** (direct JFET path for absolute transparency and dynamic range; iD14 Input 1 gain set to **0**; Guitar bus set to **Mono** in Logic Pro). *   **Physical Guitar Settings:** Set your Framus to the **neck/middle pickup blend** (or pure neck for more throatiness). Roll your guitar volume back to **8** to clean up the input gain and tone back to **7** to take the edge off the swamp ash high-end.</span></div>
+<div class="plugin-section" id="plugin-two-rock-singing-blues-p90-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">MixWave Two-Rock Bloomfield Drive</span>
+      <span class="plugin-role">boutique character source</span>
+    </div>
+  </div>
+  <p class="plugin-note">The settings utilize <strong>EQ 2</strong> to provide a touch more compression and preamp gain, letting notes compress and sing when dug into, while staying clean on soft fingerpicking. <strong>Switches and Configuration</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>EQ Selection</td><td class="col-setting"><strong>EQ 2</strong></td><td class="col-purpose">More available gain and earlier compression while retaining clean headroom</td></tr><tr class="row-alt"><td>Bright Switch</td><td class="col-setting">Off</td><td class="col-purpose">Keeps the high-end smooth; prevents the swamp ash spank from becoming glassy</td></tr><tr class="row-norm"><td>Mid Switch</td><td class="col-setting">Off</td><td class="col-purpose">Bypassed; the DiMarzio P-90s provide plenty of singing midrange on their own</td></tr><tr class="row-alt"><td>Deep Switch</td><td class="col-setting">Off</td><td class="col-purpose">Avoids low-mid boominess in the resonant swamp ash body</td></tr><tr class="row-norm"><td>Tone Stack Bypass</td><td class="col-setting">Off</td><td class="col-purpose">Keep the EQ knobs active</td></tr><tr class="row-alt"><td>Lead Switch</td><td class="col-setting">Off</td><td class="col-purpose">Clean channel only</td></tr><tr class="row-norm"><td>Tube Select</td><td class="col-setting"><strong>6L6</strong></td><td class="col-purpose">Big, bold American clean headroom and punchy bass</td></tr><tr class="row-alt"><td>Full/Half Power</td><td class="col-setting"><strong>Full (100w)</strong></td><td class="col-purpose">Maximum clean headroom and transient response</td></tr></tbody></table></div><div class="block-heading"><strong>Amp Controls</strong></div><div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Gain</td><td class="col-setting">5.5</td><td class="col-purpose">Touch-sensitive gain; light picking is clean, hard attack blooms and breaks up slightly</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">5.0</td><td class="col-purpose">Noon; allows the swamp ash snap to speak naturally</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting">5.2</td><td class="col-purpose">Slight boost to keep the P-90 vocal throatiness centered</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting">4.5</td><td class="col-purpose">Pulled back slightly to control the swamp ash body's resonant low end</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting">5.5</td><td class="col-purpose">Subtle high-frequency air to emulate the Strat-like clarity of &quot;Human Nature&quot;</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting">6.0</td><td class="col-purpose">Pushed to drive the power amp stage into natural tube compression</td></tr><tr class="row-norm"><td>Reverb</td><td class="col-setting">0</td><td class="col-purpose">Off — Hitsville handles the space</td></tr><tr class="row-alt"><td>Vibe</td><td class="col-setting">4.8</td><td class="col-purpose">Slightly reduced to roll off extreme high-frequency harmonics</td></tr><tr class="row-norm"><td>Noise Gate</td><td class="col-setting"><strong>0.350</strong></td><td class="col-purpose"><strong>CRITICAL:</strong> High-quality gate engaged to block idle P-90 single-coil hum</td></tr></tbody></table></div><div class="block-heading"><strong>Built-in Overdrive Pedal (The Parallel Boost)</strong></div><div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>OverdriveOnOff</td><td class="col-setting"><strong>On</strong></td><td class="col-purpose">Engaged</td></tr><tr class="row-alt"><td>OverdriveOverdrive</td><td class="col-setting"><strong>2.2</strong></td><td class="col-purpose">Very low gain; acts as a clean boost to extend note sustain</td></tr><tr class="row-norm"><td>OverdriveTone</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Slight midrange push to focus the blues lead</td></tr><tr class="row-alt"><td>OverdriveBalance</td><td class="col-setting"><strong>6.2</strong></td><td class="col-purpose">Boosts the level hitting the preamp</td></tr><tr class="row-norm"><td>OverdriveMix</td><td class="col-setting"><strong>4.0 (40%)</strong></td><td class="col-purpose">Blends 40% driven signal with 60% clean signal, preserving the snappy pick attack while extending the notes' decay</td></tr></tbody></table></div><div class="block-heading"><strong>Cabinet and Mic</strong></div><div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Cabinet</td><td class="col-setting">2x12 Two-Rock Vertical</td><td class="col-purpose">Standard vertical cab pairing</td></tr><tr class="row-alt"><td>Mic L (Bottom)</td><td class="col-setting"><strong>Ribbon 122</strong></td><td class="col-purpose">Royer-style ribbon on-axis; captures warm low-mids and provides a smooth high-frequency roll-off</td></tr><tr class="row-norm"><td>Mic R (Top)</td><td class="col-setting"><strong>Dynamic 57</strong></td><td class="col-purpose">SM57-style off-axis; captures the biting, throatier upper-mid punch of the P-90s</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-two-rock-singing-blues-p90-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">post-amp organic glue (Insert 1)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placing the compressor <em>after</em> the amp model is critical. It acts as a &quot;studio mix compressor&quot; to glue the overall recorded sound of the mic'd amplifier. Placing it before the amp would squash your guitar's direct signal, reducing your control over the touch-sensitive breakup of the amp. Placing it after the amp allows you to dig in for natural amp grit while keeping the overall signal leveled and adding vocal-like sustain.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">35</td><td class="col-purpose">Gentle optical smoothing (~2-3 dB of reduction on firm picks)</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">28</td><td class="col-purpose">Calibrated makeup gain</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress (3:1)</td><td class="col-purpose">Slower, musical optical compression</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-two-rock-singing-blues-p90-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">post-amp / post-comp corrective shaping (Insert 2)</span>
+    </div>
+  </div>
+  <p class="plugin-note">Placing the EQ at the very end of the insert chain allows you to cleanly roll off subsonic rumble and high-frequency digital fizz / P-90 single-coil buzz generated by both the amp modeler and the compressor.</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Frequency</th><th>Setting / Gain</th><th>Q</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1 (HPF)</td><td>80 Hz</td><td>On (18 dB/oct slope)</td><td>—</td><td class="col-purpose">Cleans up subsonic rumble and low-end mud</td></tr><tr class="row-alt"><td>Band 4 (Notch)</td><td>400 Hz</td><td>−1.5 dB</td><td>1.0</td><td class="col-purpose">Removes slight boxiness from the swamp ash wood resonance</td></tr><tr class="row-norm"><td>Band 8 (LPF)</td><td>6.8 kHz</td><td>On (24 dB/oct slope)</td><td>—</td><td class="col-purpose">The &quot;high-cut veil&quot;; rolls off P-90 single-coil buzz and high-frequency digital fizz</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-two-rock-singing-blues-p90-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Reverb &amp; Delay Aux Sends</span>
+      <span class="plugin-role">lush space</span>
+    </div>
+  </div>
+  <p class="plugin-note"><strong>Aux 2: UADx Hitsville Reverb Chambers — shared room space</strong> <em>   <strong>Logic Send Level (Aux 2):</strong> −12 dB </em>   <strong>Bus Fader (Aux 2):</strong> −8 dB</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Chamber</td><td class="col-setting"><strong>2648 (Chamber 1)</strong></td><td class="col-purpose">Present, rich room reflections</td></tr><tr class="row-alt"><td>Speaker</td><td class="col-setting"><strong>Bozak 800</strong></td><td class="col-purpose">Classic Detroit chamber speaker setup</td></tr><tr class="row-norm"><td>Mic</td><td class="col-setting"><strong>Unidyne 545</strong></td><td class="col-purpose">Articulate guitar reverb mic</td></tr><tr class="row-alt"><td>Mix</td><td class="col-setting"><strong>Wet Solo (100%)</strong></td><td class="col-purpose">Aux send configuration</td></tr><tr class="row-norm"><td>Decay</td><td class="col-setting"><strong>10:30 (~2.4s)</strong></td><td class="col-purpose">Lush, three-dimensional room bloom</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting">15 ms</td><td class="col-purpose">Dynamic separation between pick attack and room response</td></tr></tbody></table></div><div class="block-heading"><strong>Aux 3: UADx Galaxy Tape Echo (Optional &quot;Human Nature&quot; Wash)</strong> <em>   <strong>Logic Send Level (Aux 3):</strong> −18 dB </em>   <strong>Bus Fader (Aux 3):</strong> 100% Wet on Bus</div><div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Mode</td><td class="col-setting"><strong>5 (Echo Only)</strong></td><td class="col-purpose">Tape Heads 1 &amp; 2 active</td></tr><tr class="row-alt"><td>Echo Rate</td><td class="col-setting"><strong>420 ms</strong></td><td class="col-purpose">Sycned to 1/4 note for rhythmic depth</td></tr><tr class="row-norm"><td>Feedback</td><td class="col-setting"><strong>3.5</strong></td><td class="col-purpose">Emits 3-4 soft, analog repeats</td></tr><tr class="row-alt"><td>Tape Age</td><td class="col-setting"><strong>New</strong></td><td class="col-purpose">Keeps the repeats clean and clear</td></tr><tr class="row-norm"><td>Wet Solo</td><td class="col-setting"><strong>ON</strong></td><td class="col-purpose">Placed on Aux Bus</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Physical Pick Dynamics</span><span class="guide-content">The magic of this tone lies in your hands. Pick lightly to let the delay and reverb carry a glassy, ambient bed (like the &quot;Human Nature&quot; verses). Dig in firmly to force the Two-Rock's EQ 2 preamp and the parallel overdrive pedal to compress and &quot;sing&quot; for lead lines.</span></div><div class="guide-card"><span class="guide-label">The &quot;Mayer Stack&quot; Overdrive</span><span class="guide-content">If you want more growl, increase the <strong>OverdriveMix</strong> to `5.5 (55%)` or push the <strong>OverdriveOverdrive</strong> (Gain) control to `3.5`. This increases the presence of the overdrive circuit relative to your clean tone.</span></div><div class="guide-card"><span class="guide-label">Taming the High-End Chime</span><span class="guide-content">If the bridge pickup is too bright, check that your physical guitar tone knob is rolled back to `7`. You can also lower the Two-Rock <strong>Vibe</strong> control to `4.0` or roll the Logic EQ LPF back to `6.0 kHz`.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-06-18</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Created to capture a John Mayer-style clean-to-singing-edge tone for the Framus Earl Slick. Uses the Mixwave Two-Rock Bloomfield on EQ 2 with the built-in overdrive engaged at 40% mix for a parallel clean boost. Placed UADx LA-2A Silver and Logic EQ post-amp in the inserts chain to ensure transparent picking dynamics and corrective cleanup of P-90 hum. Added a UADx Galaxy Tape Echo bus alongside Hitsville Reverb to replicate the lush live ambiance of &quot;Human Nature.&quot;</p>
 </div>
 </section>
 </div>
@@ -4684,7 +5189,7 @@ A Galaxy Tape Echo slapback (single short repeat, ~85ms) adds the signature blue
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Fender Player II Telecaster (bridge pickup, roundwound strings)</span>
-      <span class="badge status-tested">tested</span>
+      <span class="badge status-refined">refined</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">blackface</span><span class="tag">country</span><span class="tag">surf</span><span class="tag">sparkle</span><span class="tag">telecaster</span><span class="tag">single-coil</span><span class="tag">dream-65</span><span class="tag">spring-reverb</span></div>
@@ -4699,7 +5204,7 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 
 <strong>This tone vs. similar toneprints:</strong> Woodrow Sweet Spot (Tweed, mid-forward, low headroom, compresses into grit) is blues/rock territory. This is cleaner, more articulate, and brighter — country and pop clean territory. The Showtime-based toneprints are intentionally colorless; this one isn't.
 
-<strong>Gain Staging &amp; Future Optimization Note:</strong> In testing, end-to-end levels were ~ `-19.8dB` input and ~ `-13.3dB` output. To manage the modeled noise floor, set the <strong>Amp Volume to 2.5</strong>. The inline reverb (Space Designer) should eventually be moved to a shared Aux 1 (Reverb Bus) with &quot;100% Wet&quot; to standardize the DAW template.
+<strong>Gain Staging &amp; Future Optimization Note:</strong> In testing, end-to-end levels were ~ `-19.8dB` input and ~ `-13.3dB` output. To manage the modeled noise floor, set the <strong>Amp Volume to 2.5</strong>. The Space Designer reverb is placed on a dedicated parallel Delay/Aux track with &quot;100% Wet&quot; to preserve dry signal punch.
 
 <strong>Note — Tele bridge vs. Strat adjustments:</strong> If using the Squier Stratocaster instead, enable the Bright switch on the Dream '65 and raise Treble to 6. The Strat's lower-output single coils handle the added brightness without getting ice-picky. Strat bridge + middle (&quot;quack&quot; position) is the classic alternate pairing.
 
@@ -4730,7 +5235,7 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
     </div>
   </div>
   
-  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">40</td><td class="col-purpose">Yields `0 to 1dB` of reduction; prevents makeup gain from amplifying the amp's idle fizz during note decay</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">20</td><td class="col-purpose">Makeup gain for a healthy final output</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress (3:1)</td><td class="col-purpose">Preserve picking dynamics</td></tr></tbody></table></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">30</td><td class="col-purpose">Pulled down to 30 (user feedback) to make compression less aggressive and avoid squashing dynamics</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">20</td><td class="col-purpose">Makeup gain for a healthy final output (user to verify in next test)</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress (3:1)</td><td class="col-purpose">Preserve picking dynamics</td></tr></tbody></table></div>
   
 </div>
 <div class="plugin-section" id="plugin-dream-65-blackface-sparkle-4">
@@ -4738,12 +5243,12 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
     <span class="plugin-num">4</span>
     <div class="plugin-title-block">
       <span class="plugin-name">Logic Space Designer</span>
-      <span class="plugin-role">room supplement</span>
+      <span class="plugin-role">dedicated Delay/Aux track room supplement</span>
     </div>
   </div>
-  
-  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>IR</td><td class="col-setting">Small studio room or small hall</td><td class="col-purpose">Complements the spring reverb</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting">5 ms</td><td class="col-purpose">Keep the dry attack first</td></tr><tr class="row-norm"><td>Size</td><td class="col-setting">65%</td><td class="col-purpose">Short, tight room</td></tr><tr class="row-alt"><td>Dry</td><td class="col-setting">0.0 dB</td><td class="col-purpose">Unity</td></tr><tr class="row-norm"><td>Wet</td><td class="col-setting">−22 dB</td><td class="col-purpose">~8% — barely perceptible</td></tr></tbody></table></div>
-  <p class="interaction-note"><strong>Optimization Note:</strong> Eventually move to a dedicated Aux Reverb Bus with &quot;100% Wet&quot;.</p>
+  <p class="plugin-note">Placed on a dedicated parallel track (Dry set to −∞ dB, Wet set to 0.0 dB for 100% wet output).</p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>IR</td><td class="col-setting">Small studio room or small hall</td><td class="col-purpose">Complements the spring reverb</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting">5 ms</td><td class="col-purpose">Keep the dry attack first</td></tr><tr class="row-norm"><td>Size</td><td class="col-setting">65%</td><td class="col-purpose">Short, tight room</td></tr><tr class="row-alt"><td>Dry</td><td class="col-setting">−∞ dB</td><td class="col-purpose">Muted on parallel track</td></tr><tr class="row-norm"><td>Wet</td><td class="col-setting">0.0 dB</td><td class="col-purpose">100% wet output</td></tr></tbody></table></div>
+  <p class="interaction-note"><strong>Routing Note:</strong> Moved to a dedicated parallel Delay/Aux track to preserve the dry signal's punch and clarity. Send level from the main channel strip starts at <strong>−22 dB</strong>.</p>
 </div>
   </section>
   
@@ -4755,6 +5260,13 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 <section class="tone-section">
   <h2 class="section-header">Feedback History</h2>
   
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-06-21</span>
+    <span class="badge status-refined">refined</span>
+  </div>
+  <p>Updated compressor Peak Reduction to 30 based on user feedback. Moved Space Designer to a dedicated parallel Delay/Aux track (Dry set to −∞ dB, Wet set to 0.0 dB), with starting send fader level at −22 dB. Status updated to `refined`.</p>
+</div>
 <div class="feedback-entry">
   <div class="feedback-header">
     <span class="feedback-date">2026-05-08</span>
@@ -4777,6 +5289,69 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
   <p>Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.</p>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-dream-65-srv-texas-growl" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Dream '65 — SRV Texas Growl</h1>
+      <a href="../tones/single-coils/dream-65-srv-texas-growl.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Squier Stratocaster (neck or neck/middle positions)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">blackface</span><span class="tag">srv</span><span class="tag">blues</span><span class="tag">texas-blues</span><span class="tag">single-coil</span><span class="tag">dream-65</span><span class="tag">d-tex</span><span class="tag">spring-reverb</span></div>
+    <p class="tone-target-desc">Fat, midrange-forward Texas blues tone with dynamic edge-of-breakup response and lush spring reverb</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">The <strong>SRV Texas Growl</strong> is designed to capture the iconic &quot;Texas Blues&quot; tone associated with Stevie Ray Vaughan. It uses the Dream '65's <strong>D-TEX</strong> modification, which emulates a classic Texas-blues style amp mod that boosts midrange, fatness, and gain sensitivity. 
+
+While the stock Deluxe Reverb is known for its mid-scoop and glassy top-end, this preset reshapes the amp into a mid-forward, punchy blues machine that growls when you dig in with single-coil pickups (specifically a Stratocaster in the neck or neck/middle position). 
+
+### Nudges from the Visual Guess
+To make this tone more authentic and dynamic:
+*   <strong>Volume Nudge (from 10:00 to 11:00/11:30 - ~4.0):</strong> Raising the preamp volume slightly past the edge-of-breakup allows the amp model to compress and bloom organically under a heavy picking attack.
+*   <strong>Reverb Nudge (from 1:00 to 11:30 - ~4.0):</strong> Deluxe Reverb spring tanks get splashy quickly. Bringing this back slightly keeps the notes clear and punchy while retaining a warm, ambient space.
+*   <strong>Bass Nudge (to 10:30 - ~3.5):</strong> Kept tight to prevent the low-end from flubbing out under the high boost level.
+*   <strong>Treble Nudge (to 12:30 - ~5.5):</strong> Adds just enough snap to cut through the heavy midrange boost of the D-TEX circuit.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-dream-65-srv-texas-growl-2')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-dream-65-srv-texas-growl-3')">LA-2A Silver Compressor</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom).</span></div>
+<div class="plugin-section" id="plugin-dream-65-srv-texas-growl-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">character source</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th>Clock Setting</th><th>Value (0-10)</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Volume</strong></td><td>11:30</td><td>4.0</td><td class="col-purpose">Pushes the preamp to the edge of breakup</td></tr><tr class="row-alt"><td><strong>Reverb</strong></td><td>11:30</td><td>4.0</td><td class="col-purpose">Lush spring reverb decay without drowning the notes</td></tr><tr class="row-norm"><td><strong>Output</strong></td><td>2:00</td><td>7.0</td><td class="col-purpose">Master output level to feed downstream effects</td></tr><tr class="row-alt"><td><strong>Bass</strong></td><td>10:30</td><td>3.5</td><td class="col-purpose">Rolled back to keep the low end tight</td></tr><tr class="row-norm"><td><strong>Treble</strong></td><td>12:30</td><td>5.5</td><td class="col-purpose">Brightness and snap to balance the mid-heavy boost</td></tr><tr class="row-alt"><td><strong>Boost</strong></td><td>2:00</td><td>7.0</td><td class="col-purpose">Controls the D-TEX modification's gain/mid push</td></tr><tr class="row-norm"><td><strong>Speaker</strong></td><td>UP (Red LED)</td><td>GB25</td><td class="col-purpose">1x12 Greenback cab adds woody midrange and smooths highs</td></tr><tr class="row-alt"><td><strong>Mod</strong></td><td>DOWN</td><td>D-TEX</td><td class="col-purpose">Engages the Texas mid-boost circuit modification</td></tr><tr class="row-norm"><td><strong>ALT</strong></td><td>Center (AMP)</td><td>Off</td><td class="col-purpose">Standard knob controls active</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-dream-65-srv-texas-growl-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">optical sustain</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Peak Reduction</strong></td><td class="col-setting">40</td><td class="col-purpose">Yields subtle `0 to 1dB` of compression, smoothing out transients and extending sustain</td></tr><tr class="row-alt"><td><strong>Gain</strong></td><td class="col-setting">20</td><td class="col-purpose">Makeup gain</td></tr><tr class="row-norm"><td><strong>Mode</strong></td><td class="col-setting">Compress (3:1)</td><td class="col-purpose">Retains pick dynamics</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+  
 </div>
 
 <div class="tone-detail" id="tone-paradise-pedal-platform-sc" style="display:none">
@@ -5190,6 +5765,136 @@ By using the all-in-one environment of <strong>Paradise Guitar Studio</strong>, 
     <span class="badge status-initial">initial</span>
   </div>
   <p>Created specifically for the Squier Stratocaster (single-coils) paired with the Ruby '63 engine inside Paradise Guitar Studio. Bypassed the Tone King preamp entirely, plugging straight into the Audient iD14's JFET DI to allow the raw Strat single-coils to drive the EL84 virtual power section directly. Selected the AC30 2x12 Celestion Blue cabinet mic'd with a Ribbon 121 and Condenser 414. Configured the onboard Pre-FX and Post-FX menus within Paradise, utilizing the 1176 compressor for post-amp studio glue, a plate reverb for depth, and an optional vintage tape delay for iconic echo rhythms.</p>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-soejima-neo-soul-sc" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Soejima Neo-Soul Clean — Single-Coil</h1>
+      <a href="../tones/single-coils/soejima-neo-soul-sc.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Fender Player II Telecaster / Squier Stratocaster</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">neo-soul</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">compressed</span><span class="tag">chorus</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">single-coil</span><span class="tag">dream-65</span></div>
+    <p class="tone-target-desc">Toshiki Soejima-style warm, compressed, and articulate neo-soul clean tone for single-coils using a Vemuram Jan Ray boost, Dream '65, and LA-2A.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">This toneprint is designed to produce the warm, compressed, highly articulate &quot;Neo-Soul / J-Pop / City Pop&quot; clean tone signature of Toshiki Soejima, specifically calibrated for single-coil pickups (like the Fender Player II Telecaster or Squier Stratocaster). Single-coils have rapid, snappy pick transients and a natural mid-scoop that can sound cold or glassy in digital environments. 
+
+To counteract this, the architecture uses an always-on <strong>Vemuram Jan Ray</strong> capture in TONEX to thicken the lower-mids and add subtle harmonic sweetness. The <strong>UADx Dream '65</strong> runs on the cleaner, high-headroom <strong>JBF120</strong> Twin Reverb cabinet, while a fast-reacting <strong>UADx LA-2A Silver</strong> compressor rounds off transient spikes into a smooth, percussive &quot;pop.&quot; Subtle Dimension D chorus, tape echo, and chamber reverb are placed on parallel buses to create a lush, spacious halo around the dry signal.
+
+<strong>Physical Setup &amp; Playing Tip:</strong> Play in Strat Position 4 (bridge + middle) or Tele neck position. Roll the guitar volume knob to <strong>8</strong> to clean up the input and maximize touch sensitivity, and the tone knob to <strong>7</strong> (the &quot;7/7 Baseline&quot;) to take the edge off the high frequencies.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">IK Multimedia TONEX</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-sc-3')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-sc-4')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-soejima-neo-soul-sc-5')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-soejima-neo-soul-sc-6')">Parallel Bus Processing</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).</span></div><div class="routing-note"><span class="routing-label">Route</span>IK Multimedia TONEX <span class="routing-detail">*   **Status:** **ON** *   **Capture**: `DPE JAN RAY - G1` (Vemuram Jan Ray - low gain) *   **Role**: Always-on transparent saturation to add harmonic warmth and compression before the amplifier.</span></div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-sc-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">clean foundation</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Bright / Normal</td><td class="col-setting"><strong>Normal</strong></td><td class="col-purpose">Keeps single-coils from getting ice-picky</td></tr><tr class="row-alt"><td>Mod Circuit</td><td class="col-setting"><strong>D-Tex</strong></td><td class="col-purpose">Boost OFF. Selected for its richer midrange profile</td></tr><tr class="row-norm"><td>Volume</td><td class="col-setting">2.8</td><td class="col-purpose">Calibrated for single-coils; high-headroom clean with dynamic bloom</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">4.5</td><td class="col-purpose">Pulled back slightly from noon to smooth the high end</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting">5.0</td><td class="col-purpose">Neutral baseline</td></tr><tr class="row-alt"><td>Reverb</td><td class="col-setting">0.0</td><td class="col-purpose">Off (reverb is handled on a dedicated parallel bus)</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>JBF120</strong></td><td class="col-purpose">1968 Twin Reverb 2x12 cabinet for wide, clean fingerstyle projection</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-sc-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">transient smoothing</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">35</td><td class="col-purpose">Fast optical compression to tame sharp single-coil pick attacks</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">24</td><td class="col-purpose">Makeup gain to normalize level going into Logic</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress</td><td class="col-purpose">Smooth 3:1 optical compression</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-soejima-neo-soul-sc-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">corrective shaping</span>
+    </div>
+  </div>
+  <p class="plugin-note">*   <strong>Status:</strong> <strong>ON</strong></p>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Type</th><th>Frequency</th><th>Gain / Slope</th><th>Q</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Band 1</td><td>HPF (Low Cut)</td><td>80 Hz</td><td>24 dB/oct</td><td>—</td><td class="col-purpose">Cuts sub-bass rumble and interface hum</td></tr><tr class="row-alt"><td>Band 4</td><td>Peaking</td><td>400 Hz</td><td>−1.0 dB</td><td>1.0</td><td class="col-purpose">Subtle cleanup of lower-mid mud</td></tr><tr class="row-norm"><td>Band 5</td><td>Peaking</td><td>1.5 kHz</td><td>+1.5 dB</td><td>0.8</td><td class="col-purpose">Gentle midrange push to counteract Fender scoop and define chords</td></tr><tr class="row-alt"><td>Band 7</td><td>LPF (High Cut)</td><td>5.0 kHz</td><td>24 dB/oct</td><td>—</td><td class="col-purpose">Smooths out harsh digital &quot;air&quot; and fizz</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-soejima-neo-soul-sc-6">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Bus Processing</span>
+      <span class="plugin-role">time &amp; space</span>
+    </div>
+  </div>
+  <div class="track-note">Effects are routed via auxiliary channels to preserve the dry signal's punch and clarity.</div>
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-sc-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 5: Chorus</span>
+      <span class="plugin-role">UADx Studio D Chorus</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Push Button 1 (Dimension D mode) <em>   <strong>Send Level</strong>: −20 dB </em>   <strong>Purpose</strong>: Subtle, wide spatial modulation that thickens the sound without warbling.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-sc-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 4: Delay</span>
+      <span class="plugin-role">UADx Galaxy Tape Echo</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Head Select: Position 1 (single head), Echo Rate: synced to host (e.g. 1/8 note), Feedback: 15% (1–2 repeats), Tape Age: New, Wet Solo: ON, Mix: 100% Wet. <em>   <strong>Send Level</strong>: −18 dB </em>   <strong>Purpose</strong>: Warm tape slapback repeats that sit neatly behind the dry signal.</p>
+  
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-soejima-neo-soul-sc-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 3: Reverb</span>
+      <span class="plugin-role">UADx Hitsville Reverb Chambers</span>
+    </div>
+  </div>
+  <p class="plugin-note"><em>   <strong>Status</strong>: <strong>ON</strong> </em>   <strong>Setting</strong>: Chamber: 2648 (Chamber 1), Speaker: Bozak 800, Mic: Unidyne 545, Decay: 9:00 (short/tight), Pre-Delay: 10 ms, Wet Solo: ON. <em>   <strong>Send Level</strong>: −16 dB </em>   <strong>Purpose</strong>: Creates an intimate, polished room ambience.</p>
+  
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-06-21</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <p>Proposed toneprint calibrated for single-coil pickups, featuring an always-on Vemuram Jan Ray TONEX capture, UADx Dream '65 (JBF120 cab), LA-2A Silver compression, and bus-routed chorus, delay, and reverb.</p>
 </div>
 </section>
 </div>
@@ -6186,6 +6891,68 @@ We're pairing this with your <strong>Squier Strat</strong>. The lower output of 
   <p>Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.</p>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-dream-65-warm-clean" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Dream '65 — Warm Clean</h1>
+      <a href="../tones/universal/dream-65-warm-clean.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Universal (Tested with Archtop/Humbucker jazz guitars and Single-Coils)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">blackface</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">jazz</span><span class="tag">dream-65</span><span class="tag">ev12</span><span class="tag">universal</span></div>
+    <p class="tone-target-desc">Warm, high-headroom clean tone with rolled-off treble and the linear, neutral EV12 cabinet</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <p class="target-sound">The <strong>Dream '65 Warm Clean</strong> is a linear, high-headroom, warm clean platform designed for jazz, fingerstyle, and clean comparison work. It is inspired by settings used to compare the UAFX Dream '65 pedal directly to solid-state jazz amplification (like a Henriksen).
+
+Unlike the classic scooped, sparkly Fender Blackface sound, this preset configures the Dream '65 to be as flat and neutral as possible. It is highly responsive to the guitar's natural tone, absorbing harsh transients and delivering a thick, warm, woody voice.
+
+### Key Settings &amp; Design Decisions
+*   <strong>Maximum Headroom (Volume 10:00 / ~2.5, Boost 7:00 / Off):</strong> Preserves the pure clean signal of the preamp. Any breakup or compression is avoided.
+*   <strong>The Treble Roll-Off (Treble 10:00 / ~3.0):</strong> Pulls back the typical Deluxe Reverb high-end &quot;chime&quot; and &quot;glassiness.&quot; This rounds off the top end of the notes, giving single-coils a warm warmth and humbuckers/archtops a deep, smoky jazz voice.
+*   <strong>Flat Low-End (Bass 11:30-12:00 / ~4.5-5.0):</strong> Maintains a solid, supportive bass response without pushing the amp into boomy or flubby territory.
+*   <strong>The EV12 Cabinet (Speaker Switch DOWN / Red LED):</strong> The Electro-Voice EVM12L speaker emulation is the backbone of this tone. It provides massive clean headroom, tight and deep bass response, and a very flat, uncolored frequency curve that prevents the typical speaker breakup or mid-scoop of standard Fender cabinets.
+
+---</p>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-dream-65-warm-clean-2')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-dream-65-warm-clean-3')">LA-2A Silver Compressor</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">*   **Status:** **Bypassed** *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom).</span></div>
+<div class="plugin-section" id="plugin-dream-65-warm-clean-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">character source</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th>Clock Setting</th><th>Value (0-10)</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Volume</strong></td><td>10:00</td><td>2.5</td><td class="col-purpose">Kept low for maximum clean preamp headroom</td></tr><tr class="row-alt"><td><strong>Reverb</strong></td><td>7:00</td><td>0.0</td><td class="col-purpose">Turned off for direct dry comparison (add external reverb as desired)</td></tr><tr class="row-norm"><td><strong>Output</strong></td><td>2:30</td><td>7.5</td><td class="col-purpose">Pushed past noon to compensate for low preamp gain and boost overall signal</td></tr><tr class="row-alt"><td><strong>Bass</strong></td><td>11:30</td><td>4.8</td><td class="col-purpose">Flat/neutral response for a full-bodied low end</td></tr><tr class="row-norm"><td><strong>Treble</strong></td><td>10:00</td><td>3.0</td><td class="col-purpose">Rolled off to warm up the highs and remove glassy chime</td></tr><tr class="row-alt"><td><strong>Boost</strong></td><td>7:00</td><td>0.0</td><td class="col-purpose">Turned off to ensure no preamp color or mid-hump</td></tr><tr class="row-norm"><td><strong>Speaker</strong></td><td>DOWN (Red LED)</td><td>EV12</td><td class="col-purpose">1x12 Electro-Voice speaker for flat, clean, linear response</td></tr><tr class="row-alt"><td><strong>Mod</strong></td><td>Center/UP</td><td>Stock</td><td class="col-purpose">Stock circuit for the most uncolored response</td></tr><tr class="row-norm"><td><strong>ALT</strong></td><td>Center (AMP)</td><td>Off</td><td class="col-purpose">Standard knob controls active</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-dream-65-warm-clean-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">optical dynamics</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Peak Reduction</strong></td><td class="col-setting">40</td><td class="col-purpose">Gentle peak control (0-1dB reduction) to smooth out picking attack transients</td></tr><tr class="row-alt"><td><strong>Gain</strong></td><td class="col-setting">20</td><td class="col-purpose">Makeup gain</td></tr><tr class="row-norm"><td><strong>Mode</strong></td><td class="col-setting">Compress (3:1)</td><td class="col-purpose">Retains acoustic pick dynamics</td></tr></tbody></table></div>
+  
+</div>
+  </section>
+  
+  
 </div>
     <div class="empty-state" id="empty-state" style="display:none">
       <div class="empty-icon">&#x2B21;</div>

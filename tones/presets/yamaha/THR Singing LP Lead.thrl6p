@@ -5,58 +5,58 @@
         "device": 2359296,
         "device_version": 22020194,
         "meta": {
-            "name": "THR Warm Neo Soul",
+            "name": "THR Singing LP Lead",
             "tnid": 0
         },
         "tone": {
             "THRGroupGate": {
                 "@asset": "noiseGate",
                 "@enabled": true,
-                "Thresh": -84.48,
+                "Thresh": -72.0,
                 "Decay": 0.5
             },
             "THRGroupFX1Compressor": {
                 "@asset": "RedComp",
-                "@enabled": true,
-                "Sustain": 0.6,
-                "Level": 0.55
+                "@enabled": false,
+                "Sustain": 0.0,
+                "Level": 0.0
             },
             "THRGroupFX2Effect": {
                 "@asset": "StereoSquareChorus",
-                "@enabled": true,
-                "Depth": 0.4,
+                "@enabled": false,
+                "Depth": 0.0,
                 "Feedback": 0.5,
-                "Freq": 0.25,
-                "Pre": 0.5,
-                "@wetDry": 0.35
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
             },
             "THRGroupFX3EffectEcho": {
-                "@asset": "TapeEcho",
+                "@asset": "L6DigitalDelay",
                 "@enabled": true,
-                "Time": 0.3,
-                "Bass": 0.3,
+                "Time": 0.4,
+                "Bass": 0.35,
                 "Treble": 0.35,
-                "Feedback": 0.2,
-                "@wetDry": 0.25
+                "Feedback": 0.25,
+                "@wetDry": 0.24
             },
             "THRGroupFX4EffectReverb": {
                 "@asset": "ReallyLargeHall",
                 "@enabled": true,
-                "Decay": 0.45,
+                "Decay": 0.5,
                 "PreDelay": 0.05,
-                "Tone": 0.5,
+                "Tone": 0.4,
                 "@wetDry": 0.2
             },
             "THRGroupCab": {
                 "@asset": "speakerSimulator",
-                "SpkSimType": 10
+                "SpkSimType": 0
             },
             "THRGroupAmp": {
-                "@asset": "THR10C_BJunior2",
-                "Drive": 0.35,
-                "Bass": 0.6,
-                "Mid": 0.5,
-                "Treble": 0.45,
+                "@asset": "THR10X_Brown1",
+                "Drive": 0.62,
+                "Bass": 0.5,
+                "Mid": 0.72,
+                "Treble": 0.48,
                 "Master": 0.6
             },
             "global": {

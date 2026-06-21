@@ -1590,10 +1590,10 @@ def main():
     output_path = script_dir / 'tone-viewer.html'
     index_path = tones_dir / 'INDEX.md'
 
-    # Find all .md files in tones/ and its subdirectories, excluding INDEX.md
+    # Find all .md files in tones/ and its subdirectories, excluding INDEX.md and eqprints
     all_tone_files = sorted([
         f for f in tones_dir.rglob('*.md') 
-        if f.name != 'INDEX.md'
+        if f.name != 'INDEX.md' and 'eqprints' not in f.parts
     ])
 
     if not all_tone_files:

@@ -1,5 +1,5 @@
 ---
-amp: "Enigmatic '82"
+amp: "Enigmatic '82 (UADx)"
 created: 2026-05-24
 guitar: "Gibson Les Paul Studio (490R neck pickup)"
 id: paradise-enigmatic-boutique-clean
@@ -9,10 +9,11 @@ status: refined
 tags: "boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82"
 target: "Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield."
 tone-king-channel: bypassed
-updated: 2026-05-25
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
+    Voice: Cream
     Bass: 7
     Boost: false
     Bright: false
@@ -21,6 +22,11 @@ preset_data:
     Presence: 0.5
     Treble: 3.5
     Volume: 5.5
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   hitsville:
     decay: 2.0
     mix: 1.0
@@ -36,7 +42,7 @@ preset_data:
 
 The Universal Audio Paradise Guitar Studio contains the **Enigmatic '82**, an incredible emulation of the legendary Dumble Overdrive Special (ODS) boutique amplifier. Since Two Rock's amplifier designs are heavily inspired by classic Dumble ODS and Steel String Singer circuits, the Enigmatic '82 is the perfect candidate to capture the Two Rock's signature "saturated but clean" boutique ethos.
 
-The goal of this toneprint is a rich, three-dimensional, and touch-sensitive boutique clean. It provides a fat, warm lower-midrange that fills out the Les Paul Studio's 490R neck humbucker without becoming muddy or boomy. By running the Enigmatic '82 on the **Suede** voice (known for its smooth, round preamp compression) and pushing the Master volume, we achieve that "maxed-out power amp bloom" feeling where notes stay clean but feel incredibly thick and vocal.
+The goal of this toneprint is a rich, three-dimensional, and touch-sensitive boutique clean. It provides a fat, warm lower-midrange that fills out the Les Paul Studio's 490R neck humbucker without becoming muddy or boomy. By running the Enigmatic '82 on the **Cream** voice (known for its extended low-end response and singing upper-mid push) and pushing the Master volume, we achieve that "maxed-out power amp bloom" feeling where notes stay clean but feel incredibly thick and vocal.
 
 This toneprint is designed for direct-in recording (bypassing the Tone King preamp and TONEX One) and pairs with our favorite post-amp optical compression and space plugins.
 
@@ -52,14 +58,24 @@ This toneprint is designed for direct-in recording (bypassing the Tone King prea
 
 ### 2. UADx Paradise Guitar Studio — boutique character source
 
-To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) and rely on the standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.
+To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the transparent boost option on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.
+
+**Pre-FX / Pre-Amp Stompbox**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 **Switches and Gallery Configuration**
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Amp Model | **Enigmatic '82** | Selected in the amp gallery |
-| Voice | **Suede** | "Warm, round, and smooth" boutique character; ideal for rounding off humbucker harshness and adding low-mid weight |
+| Voice | **Cream** | Extended low-end response with a singing upper-mid push; ideal for vocal sustain and rich bloom on Les Paul neck humbucker |
 | Input Channel | **NOR** (Normal Jack) | **CRITICAL:** Use the bottom **NOR** input jack. The top **FET** jack is a solid-state transistor-based boost that injects clinical, razor-sharp transients and high-end focus. The Normal input runs directly into warm, saggy tube circuits. |
 | Bright Switch | **Off** (Normal) | Down position; tames high-end sizzle and harshness for a smooth, smoky character |
 | Mid Switch | **Off** (Normal) | Down position; keeps the midrange balanced and natural |
@@ -67,7 +83,7 @@ To keep the comparison with our Two Rock toneprint completely fair and transpare
 | Rock / Jazz Switch | **JAZZ** | Down position; provides a smoother, rounder frequency response than the aggressive, mid-forward Rock setting |
 | Preamp Mods (Tone Stack) | **SKYLINE** | **CRITICAL:** Use **Skyline** under PREAMP MODS. Skyline contains the famous Dumble ODS midrange bloom that glues the highs and lows together. *Note: If Skyline feels "quieter" or "thinner" than Classic, it is because it rounds off the artificial bass/treble scoop of the Classic stack. We compensate for this by pushing the preamp Volume and Bass EQ (see below).* |
 | Boost Button | **OFF** | Disengaged; maintains clean headroom and dynamic range |
-| Overdrive Section | **OFF** | Level & Ratio bypassed; we are strictly in the high-headroom Clean channel |
+| Overdrive Section | **OFF** | Level & Ratio bypassed; we are strictly in the highheadroom Clean channel |
 
 **Amp Controls**
 
@@ -88,7 +104,7 @@ In Universal Audio plugins, the Cabinet and Mic combinations are a single, fixed
 | Component | Setting (PGS Label) | Sonic Character & Aesthetic Profile |
 |-----------|---------------------|-------------------------------------|
 | Cab & Mics Preset | **2×12 Boutique D65** | **The Dumble/Two-Rock Sweet Spot:** Emulates a 2x12 cabinet with Celestion G12-65 speakers mic'd with a pre-blended Shure SM57 (dynamic) and Royer 121 (ribbon). Provides dense lower-midrange "meat," smooth treble compression, and an organic, chewy feel that perfectly matches our Two Rock target. |
-| Room Level | **32%** | **CRITICAL:** Set the Room dial to **32%** (as discovered in feedback). This introduces natural cabinet room reflections and air, blending the pre-blended mics together in an organic acoustic space and taming the "clinical precision." |
+| Room Level | **10%** | **CRITICAL:** Set the Room dial to **10%** (dialed back from 32% per feedback). Provides subtle organic acoustic space without washing out pick attack. |
 
 ---
 
@@ -127,11 +143,14 @@ By using the exact same reverb auxiliary bus as our Two Rock Bloomfield print, y
 
 - **First adjustment (Bloom / Headroom):** The **Master** control on the Enigmatic '82 (labeled **6.5** on the faceplate). If the tone feels too stiff or direct, push the Master to **7.0** or **7.5** and pull back the plugin's Output Trim to compensate. Pushing the Master increases the virtual power tube compression.
 - **Taming Humbucker Boom:** If the low-end feels "flubby" on low E-string chords, roll the **Bass** control back to **4.0** or make a small 2-3dB cut at 125 Hz in your Logic channel EQ.
-- **The Voice Switch Alternative:** While **Suede** is the default for this warm, smoky vibe, switching to the **Cream** voice will push the midrange focus slightly higher, creating a singing, vocal quality that is incredible for melodic lead playing or bossa nova chord voicings.
+- **The Voice Switch Alternative:** While **Cream** is now the default for its rich low-end and singing upper-mid bloom, switching back to **Suede** offers a slightly rounder, darker, highly compressed vintage Santa Cruz vibe.
 
 ---
 
 ## Feedback History
+
+### 2026-06-28 — refined (Room Level & Cream Voicing Update)
+Dialed the Cabinet Room level back from 32% to **10%** per feedback to restore clarity and tighten pick attack. Updated primary amp Voice from Suede to **Cream** to take advantage of its extended low-end response and vocal upper-mid bloom on the Les Paul Studio's 490R neck humbucker. Added disabled Gold Overdrive pre-amp option (`Gain 0.0`, `Output 7.5`, `Treble 4.5`) to `preset_data` and signal chain documentation.
 
 ### 2026-05-25 — refined (addressing high-frequency harshness)
 Tested in session. Bypassed internal Reverb, Compressor, and EQ pedals in PGS to isolate the amp circuit. Added **Room level at 32%** to blend the mics together and soften the DAW clinical precision. Addressed a major "high-frequency harshness / over-sharpened photo" issue through a calibration loop:
@@ -143,3 +162,4 @@ Tested in session. Bypassed internal Reverb, Compressor, and EQ pedals in PGS to
 
 ### 2026-05-24 — initial
 Created as part of a dual-preset boutique Dumble-style clean exploration. Bypasses physical front-end (Tone King & TONEX One) to run direct into the iD14 interface. Uses Paradise Guitar Studio's Enigmatic '82 on the Suede voice to match the warm, saturated-but-clean ethos of the Two Rock Bloomfield. Bypasses all internal plugin effects to isolate the amp circuit, using our signature standalone LA-2A Silver and Hitsville Reverb Aux bus for an exact, fair comparison against the Two Rock.
+

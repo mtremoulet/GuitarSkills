@@ -1,5 +1,5 @@
 ---
-amp: "Showtime '64"
+amp: "Showtime '64 (UADx)"
 created: 2026-05-02
 guitar: "Fender Player II Telecaster (Neck position, Flatwounds)"
 id: tele-electronic-veil-bickert
@@ -8,9 +8,14 @@ status: tested
 tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
 target: "\\"Ed Bickert \\\"Electronic Veil\\\" \u2014 Extremely dark, warm, and intimate.\"
 tone-king-channel: bypassed
-updated: 2026-05-10
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.0
     Bright: false
@@ -53,6 +58,16 @@ Character differs between the two (see Feedback History), but both are usable wi
 ### 1. Tone King Imperial Preamp — physical front-end
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 

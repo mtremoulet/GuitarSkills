@@ -1,15 +1,17 @@
 ---
-amp: "Amp Snob"
+amp: "Amp Snob (Archetype Cory Wong X)"
 created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: cory-wong-amp-snob-p90
 pickup_type: p-90
 preset_name: "Amp Snob Boutique Clean P90"
-status: tested
+status: refined
 tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
 target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
 tone-king-channel: bypassed
-updated: 2026-05-27
+updated: 2026-06-30
+preset_overrides:
+  outputGain: 4.6
 preset_data:
   amp_platform: neural_dsp
   amp_settings:
@@ -26,12 +28,26 @@ preset_data:
     rightCabActive: false
     selectedAmp: 2
     selectedCab: 2
+    compressorActive: true
+    compressorVolume: 55.0
+    compressorCompression: 30.0
+    compressorTone: 50.0
+    compressorBlend: 35.0
     snobBass: 44.0
     snobBright: false
     snobDrive: false
     snobEQActive: true
     snobEQHpf: 20.0
     snobEQLpf: 20000.0
+    snobEQBand1: 0.0
+    snobEQBand2: 0.0
+    snobEQBand3: -1.0
+    snobEQBand4: 0.5
+    snobEQBand5: 1.0
+    snobEQBand6: -1.5
+    snobEQBand7: 0.5
+    snobEQBand8: 0.0
+    snobEQBand9: 0.0
     snobMaster: 75.0
     snobMid: 52.0
     snobOutputLevel: 70.0
@@ -130,6 +146,13 @@ All parameters are specified in percentages (0–100%).
 | 16 kHz | 0.0 dB | Neutral |
 | HPF / LPF | Default | 20 Hz High-Pass / 20.0 kHz Low-Pass |
 
+**Plugin I/O Settings**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Plugin Input Gain | 0.0 dB | Standard unity input level |
+| Plugin Output Gain | +4.6 dB | **Pushed**: Compensates for lower overall clean level to prevent the preset from being too quiet on its own |
+
 ---
 
 ### 3. UADx Hitsville Reverb Chambers — shared room space (Aux 2)
@@ -155,6 +178,9 @@ Placed on **Bus 2** (Reverb bus). Channel send: **−12 dB**, Aux Bus Fader: **�
 ---
 
 ## Feedback History
+
+### 2026-06-30 — refined
+Raised outer plugin output gain to +4.6 dB via preset overrides to compensate for lower overall level.
 
 ### 2026-05-27 — tested
 Tested by Mike with no notes. Nailed the boutique clean sound on the Framus P-90. Status updated to `tested`.

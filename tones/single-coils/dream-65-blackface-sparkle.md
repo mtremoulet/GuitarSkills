@@ -1,5 +1,5 @@
 ---
-amp: "Dream '65"
+amp: "Dream '65 (UADx)"
 created: 2026-05-08
 guitar: "Fender Player II Telecaster (bridge pickup, roundwound strings)"
 id: dream-65-blackface-sparkle
@@ -9,9 +9,14 @@ status: refined
 tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
 target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
 tone-king-channel: bypassed
-updated: 2026-06-21
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 5
     Bright: false
@@ -46,6 +51,16 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Dream '65 Reverb Amp — character source
 

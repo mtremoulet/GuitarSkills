@@ -2,16 +2,21 @@
 id: "ruby-p90-growly-blues"
 preset_name: "Ruby P-90 Growly Blues"
 created: "2026-06-01"
-updated: "2026-06-01"
+updated: 2026-06-28
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
 target: "Raw, woody, mid-forward growly blues with a classic Germanium treble-booster bite; optimized for dynamic P-90 pickups."
 tags: "vox, ac30, ruby-63, framus, p-90, edge-of-breakup, overdrive, blues, blues-rock, growly, germanium"
 tone-king-channel: "bypassed"
-amp: "Ruby '63"
+amp: "Ruby '63 (UADx)"
 status: "tested"
 pickup_type: "p-90"
 preset_data:
   amp_platform: "uad_paradise"
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Channel: "Normal"
     Volume: 5.5
@@ -75,6 +80,16 @@ To get the pure, dynamic midrange interaction of your P-90s and the AC30, plug y
 | **TONEX One** | **Bypassed** | Bypassed — transparent signal path starting at the interface DI |
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx LA-2A Silver Compressor — dynamic smoothing
 

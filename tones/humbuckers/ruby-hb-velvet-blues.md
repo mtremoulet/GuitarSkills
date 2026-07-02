@@ -2,16 +2,21 @@
 id: "ruby-hb-velvet-blues"
 preset_name: "Ruby LP Velvet Blues HB"
 created: "2026-06-01"
-updated: "2026-06-01"
+updated: 2026-06-28
 guitar: "Gibson Les Paul Studio / Epiphone Les Paul Standard"
 target: "Warm, vocal Class A overdrive with smooth tape compression; optimized for expressive humbucker blues-rock leads."
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, overdrive, blues, blues-rock, velvet"
 tone-king-channel: "bypassed"
-amp: "Ruby '63"
+amp: "Ruby '63 (UADx)"
 status: "initial"
 pickup_type: "humbucker"
 preset_data:
   amp_platform: "uad_paradise"
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Channel: "Brilliant"
     Volume: 4.8
@@ -78,9 +83,19 @@ To get the pure, dynamic midrange interaction of your humbuckers and the AC30, p
 
 ---
 
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 ### 2. UADx LA-2A Gray Compressor — dynamic smoothing
 
-Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly faster, smoother response that is perfect for humbucker instruments.
+Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly slower, smoother recovery response that is perfect for sustaining humbucker instruments.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

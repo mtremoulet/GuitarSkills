@@ -1,5 +1,5 @@
 ---
-amp: "Two-Rock Bloomfield"
+amp: "Two-Rock Bloomfield (MixWave)"
 created: 2026-05-08
 guitar: "Gibson Les Paul Studio (490R neck pickup)"
 id: two-rock-bloomfield-warm-clean

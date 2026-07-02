@@ -2,17 +2,19 @@
 id: "two-rock-bloomfield-p90"
 preset_name: "Two-Rock Bloomfield Boutique Clean P90"
 created: "2026-05-26"
-updated: "2026-05-26"
+updated: "2026-06-30"
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "High-end boutique warm clean tailored for the Framus's resonant swamp ash snap and DiMarzio P-90 vocal midrange."
 tags: "boutique, clean, warm, framus, p-90, two-rock, jazz-blues, neo-soul, bloomfield"
 tone-king-channel: bypassed
-amp: "Two-Rock Bloomfield"
-status: initial
+amp: "Two-Rock Bloomfield (MixWave)"
+status: refined
 pickup_type: "p-90"
 preset_data:
   amp_platform: mixwave
   amp_settings:
+    Input Trim: 0.0
+    Output Trim: -6.25
     Gain: 4.8
     Treble: 4.8
     Middle: 5
@@ -89,7 +91,7 @@ Small EQ adjustments have noticeable effects. The settings below are balanced to
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Input Trim | −8.0 dB | Virtual preamp input pad; keeps the hot P-90s from early preamp clipping |
+| Input Trim | 0.0 dB | Standard preamp input level |
 | Output Trim | −6.25 dB | Calibrated output trim for a targeted −12 dBFS level |
 | Noise Gate | **0.380** | **CRITICAL:** High-quality gate engaged to block idle P-90 single-coil hum |
 
@@ -138,6 +140,9 @@ Placed on **Bus 2** (Reverb bus). Channel send: **−12 dB**, Aux Bus Fader: **�
 ---
 
 ## Feedback History
+
+### 2026-06-30 — refined
+Updated plugin input trim to 0.0 dB. Output trim remains at -6.25 dB.
 
 ### 2026-05-26 — initial
 Ported from the humbucker LP variant. Bypasses Tone King to run direct JFET, lowers Two Rock Gain to 4.8 for the hotter P-90s, flattens Mid to 5.0, slightly boosts Treble to 4.8, and swaps the top cabinet mic to a Condenser 414 to capture the three-dimensional acoustic snap of the swamp ash body. Noise gate set to `0.380` to manage P-90 hum.

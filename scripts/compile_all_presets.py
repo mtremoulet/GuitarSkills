@@ -7,6 +7,8 @@ import xml.etree.ElementTree as ET
 import base64
 import struct
 import plistlib
+import argparse
+import math
 
 try:
     from Foundation import NSURL, NSURLBookmarkCreationSuitableForBookmarkFile
@@ -25,7 +27,7 @@ NEURAL_OUTPUT_DIR = "/Library/Audio/Presets/Neural DSP/Archetype Cory Wong X/Ton
 # Universal Audio Paths
 BASE_UAD_PRESETS_DIR = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins"
 PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio")
-PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.json")
+PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Non-Toneprints", "Boutique Warm Clean - Enigmatic.json")
 
 LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
 LA2A_GRAY_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_gray/Mike - Adjusting Gain Staging.json")
@@ -371,9 +373,26 @@ def compile_neural_toneprint(filepath, base_data, output_name, frontmatter):
     settings["name"] = output_name
 
     if amp_settings and isinstance(amp_settings, dict):
+        PERCENTAGE_KEYS = {
+            "compressorBlend", "compressorCompression", "compressorVolume", "compressorTone",
+            "bigRigDrive", "bigRigLevel", "bigRigTone",
+            "tuberLevel", "tuberDrive", "tuberTone",
+            "washMix", "washDecay", "washLowCut", "washHighCut",
+            "snobVolume", "snobMaster", "snobBass", "snobMid", "snobTreble", "snobPresence", "snobOutputLevel",
+            "cleanVolume", "cleanBass", "cleanMid", "cleanTreble", "cleanPresence", "cleanOutputLevel",
+            "funkVolume", "funkTubeSat", "funkComp",
+            "chorusMix", "chorusWidth", "chorusRate",
+            "delayMix", "delayFeedback"
+        }
         for k, v in amp_settings.items():
             if isinstance(v, bool):
                 settings[k] = "true" if v else "false"
+            elif isinstance(v, (int, float)) and k in PERCENTAGE_KEYS:
+                # If value is greater than 1.0, scale it down to 0.0 - 1.0 (assuming it is on a 0-100 scale)
+                if v > 1.0:
+                    settings[k] = f"{float(v) / 100.0:.4f}"
+                else:
+                    settings[k] = f"{float(v):.4f}"
             else:
                 settings[k] = str(v)
     else:
@@ -449,6 +468,10 @@ def compile_neural_toneprint(filepath, base_data, output_name, frontmatter):
         # 5. Default bypassed pedals
         for pedal in ["tuberActive", "bigRigActive", "postalActive", "delayActive", "washActive", "chorusActive"]:
             settings[pedal] = "false"
+
+    # Enforce outer plugin input and output gain to 0.0 dB for gain staging
+    settings["inputGain"] = "0.0"
+    settings["outputGain"] = "0.0"
 
     # Inject overrides from frontmatter (supporting custom studio FX/cabs/etc.)
     overrides = frontmatter.get("preset_overrides", {})
@@ -618,7 +641,20 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if master is not None: controls["enigmatic_master_gain"] = {"real_value": master}
         if bright is not None: controls["enigmatic_bright_enable"] = {"real_value": bright}
         if boost_enable is not None: controls["enigmatic_boost_enable"] = {"real_value": boost_enable}
-        controls["enigmatic_model"] = {"real_value": 0}            # Suede
+        voice_val = (amp_settings.get("Voice") or amp_settings.get("Model") or frontmatter.get("voice") if amp_settings else None)
+        if voice_val:
+            v_str = str(voice_val).upper()
+            if "CREAM" in v_str:
+                v_idx = 2
+            elif "SANTA" in v_str:
+                v_idx = 1
+            elif "HRM" in v_str:
+                v_idx = 3
+            else:
+                v_idx = 0 # Suede
+        else:
+            v_idx = 0
+        controls["enigmatic_model"] = {"real_value": v_idx}
         controls["enigmatic_channel"] = {"real_value": 1}          # NOR
         controls["enigmatic_tone_stack_type"] = {"real_value": 0}  # Skyline
         controls["enigmatic_tone_stack_eq"] = {"real_value": 0}    # Jazz
@@ -646,30 +682,32 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if bright is not None: controls["showtime_bright"] = {"real_value": bright}
     elif amp_type == "lion":
         # Lion '68 Super Lead / Super Bass mapping
-        model = amp_settings.get("Model")
-        vol1 = amp_settings.get("Volume I (Bite)")
-        vol2 = amp_settings.get("Volume II (Body)")
-        treble_val = amp_settings.get("Treble")
-        mid_val = amp_settings.get("Middle")
-        bass_val = amp_settings.get("Bass")
-        presence_val = amp_settings.get("Presence")
-        input_routing = amp_settings.get("Input Routing")
-        ghost_notes = amp_settings.get("Ghost Notes")
-        bright_cap = amp_settings.get("Bright Cap")
-        boost_sw = amp_settings.get("Boost")
-        room_val = amp_settings.get("Room")
-        gate_val = amp_settings.get("Noise Gate")
+        model = amp_settings.get("Model") if amp_settings else None
+        vol1 = amp_settings.get("Volume I (Bite)") or amp_settings.get("Volume 1") or amp_settings.get("Volume_1") or amp_settings.get("Volume I") if amp_settings else None
+        vol2 = amp_settings.get("Volume II (Body)") or amp_settings.get("Volume 2") or amp_settings.get("Volume_2") or amp_settings.get("Volume II") if amp_settings else None
+        treble_val = amp_settings.get("Treble") if amp_settings else None
+        mid_val = amp_settings.get("Middle") if amp_settings else None
+        bass_val = amp_settings.get("Bass") if amp_settings else None
+        presence_val = amp_settings.get("Presence") if amp_settings else None
+        input_routing = amp_settings.get("Input Routing") or amp_settings.get("input_routing") or amp_settings.get("Input_Routing") or amp_settings.get("Input") if amp_settings else None
+        ghost_notes = amp_settings.get("Ghost Notes") if amp_settings else None
+        bright_cap = amp_settings.get("Bright Cap") if amp_settings else None
+        boost_sw = amp_settings.get("Boost") if amp_settings else None
+        room_val = amp_settings.get("Room") if amp_settings else None
+        gate_val = amp_settings.get("Noise Gate") if amp_settings else None
 
-        # 1. Amp Model
+        # 1. Amp Model (0 = LEAD, 1 = BASS, 2 = BROWN)
         if model is not None:
             model_str = str(model).upper()
             if "BASS" in model_str:
-                model_idx = 0
+                model_idx = 1
             elif "BROWN" in model_str:
                 model_idx = 2
             else:
-                model_idx = 1 # default LEAD
+                model_idx = 0 # default LEAD
             controls["lion_model"] = {"real_value": model_idx}
+        else:
+            controls["lion_model"] = {"real_value": 0} # default LEAD
 
         # 2. Volume Controls
         if vol1 is not None: controls["lion_volume_1"] = {"real_value": float(vol1)}
@@ -682,8 +720,9 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if presence_val is not None: controls["lion_presence"] = {"real_value": float(presence_val)}
 
         # 4. Input Routing
-        if input_routing is not None:
-            ir_str = str(input_routing).upper()
+        ir_val = input_routing or (amp_settings.get("Input Routing") if amp_settings else None) or frontmatter.get("input_routing")
+        if ir_val is not None:
+            ir_str = str(ir_val).upper()
             if "LOW" in ir_str:
                 ir_idx = 0
             elif "JUMP" in ir_str:
@@ -691,6 +730,8 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
             else:
                 ir_idx = 1 # HIGH
             controls["lion_input_routing"] = {"real_value": ir_idx}
+        else:
+            controls["lion_input_routing"] = {"real_value": 0} # default to Low for clean headroom
 
         # 5. Ghost Notes
         if ghost_notes is not None:
@@ -720,9 +761,39 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
             controls["gate_enable"] = {"real_value": True}
             controls["gate_threshold"] = {"real_value": float(gate_val)}
 
-    # Bypassed post-amp effects for clean platform comparison (defaults)
-    controls["prefx_power"] = {"real_value": False}
-    controls["postfx_power"] = {"real_value": False}
+    # Enable prefx and postfx power racks and reset slots
+    controls["prefx_power"] = {"real_value": True}
+    controls["postfx_power"] = {"real_value": True}
+
+    for s in range(1, 6):
+        controls[f"prefx_{s}"] = {"real_value": 0}
+        controls[f"prefx_{s}_power"] = {"real_value": False}
+        controls[f"postfx_{s}"] = {"real_value": 0}
+        controls[f"postfx_{s}_power"] = {"real_value": False}
+
+    # Dynamic Pre-FX & Post-FX slot mapping from preset_data
+    if isinstance(preset_data, dict):
+        if "gold_overdrive" in preset_data:
+            controls["prefx_1"] = {"real_value": 2} # Gold Overdrive ID = 2
+            gold_info = preset_data["gold_overdrive"]
+            if isinstance(gold_info, dict):
+                controls["prefx_1_power"] = {"real_value": gold_info.get("enabled", False)}
+                if "gain" in gold_info: controls["prefx_gold_overdrive_gain"] = {"real_value": float(gold_info["gain"])}
+                if "output" in gold_info: controls["prefx_gold_overdrive_output"] = {"real_value": float(gold_info["output"])}
+                if "treble" in gold_info: controls["prefx_gold_overdrive_treble"] = {"real_value": float(gold_info["treble"])}
+        if "ep3_boost" in preset_data or "ep_iii" in preset_data:
+            controls["prefx_2"] = {"real_value": 18} # EP-III Tape Echo ID = 18
+            ep3_info = preset_data.get("ep3_boost") or preset_data.get("ep_iii")
+            if isinstance(ep3_info, dict):
+                controls["prefx_2_power"] = {"real_value": ep3_info.get("enabled", True)}
+                controls["prefx_ep_iii_tape_echo_preamp_color"] = {"real_value": True}
+        if "pgs_1176" in preset_data or "1176" in preset_data:
+            controls["postfx_1"] = {"real_value": 14} # 1176 Compressor ID = 14
+            c1176_info = preset_data.get("pgs_1176") or preset_data.get("1176")
+            if isinstance(c1176_info, dict):
+                controls["postfx_1_power"] = {"real_value": c1176_info.get("enabled", True)}
+                controls["postfx_1176_compressor_input"] = {"real_value": float(c1176_info.get("input", -30.0))}
+                controls["postfx_1176_compressor_output"] = {"real_value": float(c1176_info.get("output", -15.0))}
 
     # Inject overrides from frontmatter (supporting 1176, delays, plate reverbs, etc.)
     overrides = frontmatter.get("preset_overrides", {})
@@ -730,9 +801,19 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         for k, v in overrides.items():
             controls[k] = {"real_value": v}
 
-    # Write output JSON preset file
-    os.makedirs(PARADISE_DIR, exist_ok=True)
-    out_path = os.path.join(PARADISE_DIR, f"Toneprint - {output_name}.json")
+    # Write output JSON preset file into model sub-directory
+    model_subdirs = {
+        0: "Dream '65",
+        1: "Enigmatic '82",
+        2: "Lion '68",
+        3: "Ruby '63",
+        4: "Showtime '64",
+        5: "Woodrow '55"
+    }
+    model_subdir = model_subdirs.get(amp_index, "")
+    out_dir = os.path.join(PARADISE_DIR, model_subdir) if model_subdir else PARADISE_DIR
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, f"Toneprint - {output_name}.json")
     with open(out_path, "w") as f:
         json.dump(preset_data_json, f, indent=4)
         
@@ -1025,13 +1106,13 @@ def compile_la2a_toneprint(filepath, base_preset_path, output_name, frontmatter)
     chunk_bytes = bytearray(base64.b64decode(preset_data["chunk"]))
     
     # Surgically patch floats
-    # Float 10: Peak Reduction (using correct offset scaling: (val + 4.0) / 100.0)
+    # Float 10: Peak Reduction (scaled 0.0 to 1.0)
     if peak_reduction is not None:
-        val_scaled = (peak_reduction + 4.0) / 100.0
+        val_scaled = peak_reduction / 100.0
         struct.pack_into("f", chunk_bytes, 10 * 4, val_scaled)
-    # Float 11: Gain (using correct offset scaling: (val + 4.0) / 100.0)
+    # Float 11: Gain (scaled 0.0 to 1.0)
     if gain is not None:
-        val_scaled = (gain + 4.0) / 100.0
+        val_scaled = gain / 100.0
         struct.pack_into("f", chunk_bytes, 11 * 4, val_scaled)
     # Float 13: Mode (1.0 = Compress, 0.0 = Limit)
     if mode_compress is not None:
@@ -1056,10 +1137,14 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
     preset_data = frontmatter.get("preset_data", {})
     hitsville_data = preset_data.get("hitsville") if isinstance(preset_data, dict) else None
 
+    # Default values from text parsing or frontmatter
     if hitsville_data and isinstance(hitsville_data, dict):
         mix = hitsville_data.get("mix")
         pre_delay = hitsville_data.get("pre_delay")
         decay = hitsville_data.get("decay")
+        chamber = hitsville_data.get("chamber")
+        speaker = hitsville_data.get("speaker")
+        mic = hitsville_data.get("mic")
         
         # normalize
         if mix is not None: mix = float(mix)
@@ -1071,8 +1156,24 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
         mix = find_numeric_parameter(content, ["Mix", "Room Mix"])
         pre_delay = find_numeric_parameter(content, ["Pre-Delay"])
         decay = find_numeric_parameter(content, ["Decay"])
+        
+        # Parse Chamber, Speaker, Mic from text
+        chamber = None
+        chamber_match = re.search(r"\|\s*Chamber\s*\|\s*\*\*([A-Za-z0-9/ ]+)\*\*", content, re.IGNORECASE)
+        if chamber_match:
+            chamber = chamber_match.group(1).strip()
+            
+        speaker = None
+        speaker_match = re.search(r"\|\s*Speaker\s*\|\s*\*\*([A-Za-z0-9/ ]+)\*\*", content, re.IGNORECASE)
+        if speaker_match:
+            speaker = speaker_match.group(1).strip()
+            
+        mic = None
+        mic_match = re.search(r"\|\s*Mic\s*\|\s*\*\*([A-Za-z0-9/ ]+)\*\*", content, re.IGNORECASE)
+        if mic_match:
+            mic = mic_match.group(1).strip()
 
-    if mix is None and pre_delay is None and decay is None:
+    if mix is None and pre_delay is None and decay is None and chamber is None and speaker is None and mic is None:
         return False
 
     # Load base template JSON
@@ -1082,18 +1183,66 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
     # Decode chunk
     chunk_bytes = bytearray(base64.b64decode(preset_data["chunk"]))
 
-    # Float 21: Mix (0.0 to 1.0)
-    if mix is not None:
-        val_scaled = mix / 100.0 if mix > 1.0 else mix
-        struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
-    # Float 12: Pre-Delay (ms scaled to 0.0-1.0, e.g. 8ms -> 0.08, 15ms -> 0.15)
+    # 1. Chamber Select (Float 10: 0.0 = Chamber 1 / 2648, 1.0 = Chamber 2 / 2644)
+    if chamber is not None:
+        chamber_str = str(chamber).lower()
+        if "2648" in chamber_str or "1" in chamber_str:
+            val = 0.0
+        elif "2644" in chamber_str or "2" in chamber_str:
+            val = 1.0
+        else:
+            val = 0.0 # default Chamber 1
+        struct.pack_into("f", chunk_bytes, 10 * 4, val)
+
+    # 2. Speaker Select (Float 13: 0.0 = Set 1, 1.0 = Set 2)
+    if speaker is not None:
+        speaker_str = str(speaker).lower()
+        if "bozak" in speaker_str or "altec" in speaker_str or "1" in speaker_str or "set 1" in speaker_str:
+            val = 0.0
+        elif "jbl" in speaker_str or "bose" in speaker_str or "2" in speaker_str or "set 2" in speaker_str:
+            val = 1.0
+        else:
+            val = 0.0 # default Set 1
+        struct.pack_into("f", chunk_bytes, 13 * 4, val)
+
+    # 3. Microphone Select (Float 14: 0.0 = Unidyne 545, 1/3 = RCA 44-BX, 2/3 = EV 631, 1.0 = KM86)
+    if mic is not None:
+        mic_str = str(mic).lower()
+        if "545" in mic_str or "unidyne" in mic_str or mic_str == "1":
+            val = 0.0
+        elif "rca" in mic_str or "44" in mic_str or mic_str == "2":
+            val = 1.0 / 3.0
+        elif "ev" in mic_str or "631" in mic_str or mic_str == "3":
+            val = 2.0 / 3.0
+        elif "km86" in mic_str or "km 86" in mic_str or mic_str == "4":
+            val = 1.0
+        else:
+            val = 0.0 # default Unidyne 545
+        struct.pack_into("f", chunk_bytes, 14 * 4, val)
+
+    # 4. Pre-Delay (Float 17: logarithmic scaling)
     if pre_delay is not None:
-        val_scaled = pre_delay / 100.0
-        struct.pack_into("f", chunk_bytes, 12 * 4, val_scaled)
-    # Float 20: Decay (0.0 to 1.0, e.g. 3.5s -> 0.35)
+        # Range: 0 to 250 ms. Using verified logarithmic scaling:
+        # val_scaled = log(pre_delay / 22.9 + 1.0) / log(250.0 / 22.9 + 1.0)
+        val_scaled = math.log(pre_delay / 22.9 + 1.0) / math.log(250.0 / 22.9 + 1.0)
+        struct.pack_into("f", chunk_bytes, 17 * 4, val_scaled)
+
+    # 5. Decay (Float 20: 0.0 to 1.0, e.g. 3.5s -> 0.35)
     if decay is not None:
         val_scaled = decay / 10.0
         struct.pack_into("f", chunk_bytes, 20 * 4, val_scaled)
+
+    # 6. Mix (Float 21: 0.0 to 1.0)
+    if mix is not None:
+        val_scaled = mix / 100.0 if mix > 1.0 else mix
+        struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
+
+    # 7. Internal Power Switch (Float 22: always force to 1.0 / On)
+    struct.pack_into("f", chunk_bytes, 22 * 4, 1.0)
+
+    # 8. EQ Low & High (Float 18 & 19: force to 0.5 / 0 dB midpoint)
+    struct.pack_into("f", chunk_bytes, 18 * 4, 0.5)
+    struct.pack_into("f", chunk_bytes, 19 * 4, 0.5)
 
     preset_data["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
     preset_data["name"] = f"Toneprint - {output_name}"
@@ -2296,6 +2445,48 @@ def compile_nembrini_xml_preset(filepath, base_preset_path, output_name, frontma
     if not plugin_settings:
         return False
 
+    # Normalize alias keys and special value types for Nembrini Audio plugins
+    alias_map = {
+        "puretone": {
+            "DelayMix": "Mix",
+            "DelayTime": "Time",
+            "DelayFeedback": "Feedback",
+            "DelaySpread": "Spread",
+            "DelayNote": "Note",
+            "DelayHostSync": "Sync",
+            "EqHighPass": "EqHp",
+            "EqLowPass": "EqLp",
+            "NoiseGateRelease": "NoiseGateGate",
+            "InputLevel": "InLevel",
+            "Mic1Distance": "Mic1Dist",
+            "Mic1Position": "Mic1Pos",
+            "Mic2Distance": "Mic2Dist",
+            "Mic2Position": "Mic2Pos",
+            "CabinetMode": "CabMode",
+            "CabinetType": "CabType"
+        }
+    }
+    
+    plugin_aliases = alias_map.get(plugin_type, {})
+    normalized_settings = {}
+    for k, v in plugin_settings.items():
+        target_k = plugin_aliases.get(k, k)
+        
+        if target_k == "Feedback" and isinstance(v, str):
+            if v.lower() in ["off", "none", "0", "0.0"]:
+                v = 0.0
+        elif target_k in ["CabMode", "CabinetMode"] and isinstance(v, str):
+            v = 0.0 if v.lower() == "cabinet" else 1.0
+        elif target_k in ["Mic1Type", "Mic2Type"] and isinstance(v, str):
+            if "57" in v: v = 0.0
+            elif "121" in v: v = 1.0
+        elif target_k in ["CabType", "CabinetType"] and isinstance(v, str):
+            if "tc 412" in v.lower() or "real" in v.lower() or "hughes" in v.lower():
+                v = 1.0
+        
+        normalized_settings[target_k] = v
+    plugin_settings = normalized_settings
+
     # Standardize values to float types and strings
     mapped_settings = {}
     for k, v in plugin_settings.items():
@@ -2329,8 +2520,19 @@ def compile_nembrini_xml_preset(filepath, base_preset_path, output_name, frontma
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Compile guitar toneprints into DAW plugin presets.")
+    parser.add_argument("-f", "--filter", help="Filter target toneprints by filename, path, ID, or preset name substring (case-insensitive).")
+    parser.add_argument("--file", help="Compile only a single specific toneprint file path (e.g. tones/humbuckers/my-tone.md).")
+    args = parser.parse_args()
+    filter_arg = args.filter.lower() if args.filter else None
+    file_arg = args.file if args.file else None
+
     print("==================================================")
     print("RIG-WIDE TONEPRINT COMPILER & PRESET GENERATOR (V2)")
+    if filter_arg:
+        print(f"Filter active: compiling matching '{filter_arg}'")
+    if file_arg:
+        print(f"File active: compiling only '{file_arg}'")
     print("==================================================")
     
     # 1. Load Neural DSP Base DNA Data
@@ -2384,6 +2586,10 @@ def main():
                 continue
             
             filepath = os.path.join(root, f)
+            if file_arg:
+                if os.path.abspath(filepath) != os.path.abspath(file_arg):
+                    continue
+
             with open(filepath, "r") as file:
                 content = file.read()
                 
@@ -2401,6 +2607,11 @@ def main():
                 name_parts = f.replace(".md", "").split("-")
                 clean_name = " ".join([p.capitalize() for p in name_parts])
                 
+            if filter_arg:
+                t_id = frontmatter.get("id", "").lower()
+                if filter_arg not in f.lower() and filter_arg not in filepath.lower() and filter_arg not in clean_name.lower() and filter_arg not in t_id:
+                    continue
+                
             # Compile based on target amp platform
             if "Cory Wong" in amp_str or "Amp Snob" in amp_str:
                 if neural_base_data:
@@ -2413,7 +2624,7 @@ def main():
             elif any(x in amp_str for x in ["THR10", "THR30", "Yamaha THR", "THR-II", "THR II"]):
                 if compile_yamaha_thr_toneprint(filepath, clean_name, frontmatter):
                     compiled_thr += 1
-            elif "MRH810" in amp_str or "JCM800" in amp_str:
+            elif any(x in amp_str.lower() for x in ["mrh810", "jcm800", "mrh"]):
                 base_path = NEMBRINI_TEMPLATES["mrh810"]
                 if compile_nembrini_xml_preset(filepath, base_path, clean_name, frontmatter, "mrh810"):
                     compiled_mrh810 += 1

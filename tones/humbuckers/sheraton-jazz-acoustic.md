@@ -1,5 +1,5 @@
 ---
-amp: "Showtime '64"
+amp: "Showtime '64 (UADx)"
 created: 2026-04-30
 guitar: "Epiphone Sheraton (humbuckers)"
 id: sheraton-jazz-acoustic
@@ -8,9 +8,14 @@ status: tested
 tags: "jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers"
 target: "Warm clean jazz electric tone blended with an acoustic texture from Acoustic"
 tone-king-channel: bypassed
-updated: 2026-04-30
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 5.0
     Treble: 4
@@ -135,16 +140,27 @@ No plugins. Signal router only.
 
 *Note: For Band 1 HPF, the "Gain/Slope" field controls filter steepness, not boost — 24 dB/oct gives a clean, modern roll-off.*
 
-#### 2. LA-2A Tube Compressor
+#**Pre-FX / Pre-Amp Stompbox Option**
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Compress/Limit | Compress (~3:1) | Gentle optical compression — natural, musical response |
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
+### 2. UADx LA-2A Silver Compressor — optical sustain glue
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Mode | Compress | Gentle optical compression — natural, musical response |
 | Peak Reduction | 28 | Light compression; just evening out the dynamics of chord playing |
 | Gain | 45 | Makeup gain to restore level post-compression |
+| Emphasis / HF | ~75% (3:00) | Rolled back slightly to prevent low E/A strings from over-triggering the compression |
 | Meter | Gain Reduction | Shows you how much the compressor is working |
 
-*The T4 optical response suits jazz well: it doesn't clamp transients like an 1176 would. You want the pick attack to come through — the compressor smooths out the sustain tail, not the attack.*
+*The T4 optical response of the Silver model suits jazz well: its faster time constants recover quickly to keep pick attack articulate, while the Emphasis control prevents low-frequency chords from choking the treble melody strings.*
 
 #### 3. UA 610-B Tube Preamp & EQ
 

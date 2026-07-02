@@ -1,5 +1,5 @@
 ---
-amp: "Divided 11"
+amp: "Divided 11 (Nembrini)"
 created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: divided-11-light-blues-p90
@@ -74,7 +74,7 @@ We pair this edge-of-breakup platform with a warm, subtle **Galaxy Tape Echo sla
 
 ---
 
-### 3. UADx LA-2A Tube Compressor — light peak-leveling
+### 3. UADx LA-2A Silver Compressor — light peak-leveling
 
 **CRITICAL NOTE:** We keep the compressor's Peak Reduction extremely low. The Divided 11's dynamic response is the entire point of this toneprint — over-compressing will squash the clean-to-grit pick transition.
 
@@ -83,6 +83,7 @@ We pair this edge-of-breakup platform with a warm, subtle **Galaxy Tape Echo sla
 | Mode | Compress | Gentle 3:1 optical ratio |
 | Peak Reduction | **18** | Very light leveling (~1–2 dB of reduction on hard picks only) |
 | Gain | 42 | Makeup gain |
+| Emphasis / HF | Fully Clockwise (default) | Equal frequency sensitivity in the sidechain |
 | Meter | Gain Reduction | Watch for very subtle movement on hard strums |
 
 ---

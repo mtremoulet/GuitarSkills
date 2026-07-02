@@ -1,5 +1,5 @@
 ---
-amp: "Jazz Chorus"
+amp: "JC120 Jazz Chorus (Nembrini)"
 created: 2026-05-09
 guitar: "Epiphone Sheraton (humbuckers)"
 id: jc120-pristine-jazz-clean

@@ -1,5 +1,5 @@
 ---
-amp: "Lion '68"
+amp: "Lion '68 (UADx)"
 created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: lion-68-jumped-plexi-crunch-p90
@@ -8,9 +8,14 @@ status: initial
 tags: "plexi, british, crunch, classic-rock, framus, p-90, zeppelin, lion-68, marshall"
 target: "Plexi jumped-channel vintage crunch optimized for P-90 growl — Zeppelin, Who, and classic British rock bite; tighter and throatier than humbuckers."
 tone-king-channel: bypassed
-updated: 2026-05-26
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.0
     Middle: 5.5
@@ -54,6 +59,16 @@ To optimize this for the Framus Earl Slick Artist Series, we make three main adj
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Lion '68 Super Lead Amp — Plexi crunch
 

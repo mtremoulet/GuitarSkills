@@ -1,5 +1,5 @@
 ---
-amp: "Dream '65"
+amp: "Dream '65 (UADx)"
 created: 2026-06-21
 guitar: "Fender Player II Telecaster / Squier Stratocaster"
 id: soejima-neo-soul-sc
@@ -9,9 +9,14 @@ status: initial
 tags: "neo-soul, clean, warm, compressed, chorus, delay, reverb, single-coil, dream-65"
 target: "Toshiki Soejima-style warm, compressed, and articulate neo-soul clean tone for single-coils using a Vemuram Jan Ray boost, Dream '65, and LA-2A."
 tone-king-channel: bypassed
-updated: 2026-06-21
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 5.0
     Bright: false
@@ -52,6 +57,16 @@ To counteract this, the architecture uses an always-on **Vemuram Jan Ray** captu
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. IK Multimedia TONEX — pre-amp drive
 *   **Status:** **ON**

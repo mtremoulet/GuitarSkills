@@ -1,5 +1,5 @@
 ---
-amp: "Lion '68"
+amp: "Lion '68 (UADx)"
 created: 2026-05-31
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: lion-68-slick-growler-blues-p90
@@ -9,9 +9,14 @@ status: initial
 tags: "blues, edge-of-breakup, warm, plexi, framus, p-90, lion-68, marshall, klon"
 target: "Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp."
 tone-king-channel: bypassed
-updated: 2026-05-31
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.0
     Boost: false
@@ -74,6 +79,16 @@ The result is a dynamic, multi-stage analog gain cascade: soft fingerpicking rem
 | Volume | **6.5** (approx. 1:00) | High output to push the Tone King's input tube stage |
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. Tone King Imperial Preamp — physical front-end
 *   **Status:** **Bypassed**

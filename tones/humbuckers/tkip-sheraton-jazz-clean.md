@@ -22,7 +22,7 @@ preset_data:
     Tremolo: Off
     IR: Active (Imperial 1x12 TK1660)
   logic_enveloper:
-    attack_gain: -6.0
+    attack_gain: -30.0
     attack_time: 20.0
     release_gain: 0.0
     release_time: 150.0
@@ -71,9 +71,9 @@ Placed first in the DAW insert chain to round off the sharp pick attack and crea
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Attack Gain | −6.0 dB | Clamps down on the initial pick transient |
+| Attack Gain | −30% | Clamps down on the initial pick transient |
 | Attack Time | 20 ms | Quick reaction window to target the attack |
-| Release Gain | 0.0 dB | Preserves the natural ring and decay of the chord |
+| Release Gain | 0% | Preserves the natural ring and decay of the chord |
 | Release Time | 150 ms | Smooth return to unity |
 
 ### 3. Logic Compressor — dynamic smoothing
@@ -113,7 +113,7 @@ Set on Bus 3 at **100% Wet** (Wet Solo ON) to keep the dry tone close and intima
 
 ## Starting Point Guide
 - **First adjustment:** Guitar Volume & Tone controls. Roll guitar Volume to **7** and Tone to **6** to activate the touch-sensitivity of the Tone King preamp and round off the top end.
-- **Key interaction:** If the pick attack still feels too sharp, increase the Enveloper's Attack Gain reduction (e.g., to **−8.0 dB**). If it feels too dead, raise it toward **−4.0 dB**.
+- **Key interaction:** If the pick attack still feels too sharp, increase the Enveloper's Attack Gain reduction (e.g., to **−45%**). If it feels too dead, raise it toward **−20%**.
 - **Variations:** To get an even warmer, acoustic-leaning tone, blend in a very low parallel dry track, but ensure the high-cut veil remains active on the primary electric track.
 
 ---

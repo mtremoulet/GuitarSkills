@@ -221,9 +221,17 @@ Engage in dialogue. Adjust based on feedback. Offer alternatives if the directio
 ### Step 6 — Save when agreed
 
 When Mike signals he's happy or asks to save:
-- Write the tone file to `tones/` using the format below
-- Run `python3 tone-advisor/generate_tone_viewer.py --build-only` to update the viewer
-- Confirm with the filename and a one-sentence summary, noting that `tone-advisor/tone-viewer.html` has been updated.
+1. Write the tone file to `tones/` using the format below.
+2. Rebuild the viewer and sync markdown files to iCloud by running:
+   ```bash
+   python3 tone-advisor/generate_tone_viewer.py --build-only
+   ```
+3. Compile the preset for the new/updated toneprint specifically (so that bugs do not spread to unchanged presets):
+   ```bash
+   python3 scripts/compile_all_presets.py --file tones/path/to/my-tone.md
+   ```
+   *(Run this command for each new/changed toneprint).*
+4. Confirm with the filename and a one-sentence summary, noting that the specific preset has been compiled, and the viewer HTML has been updated and synced to iCloud.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-amp: "Divided 11"
+amp: "Divided 11 (Nembrini)"
 created: 2026-04-30
 guitar: "Fender Player II Telecaster"
 id: divided-11-light-blues
@@ -84,13 +84,14 @@ Plugins on the guitar track directly (no Bus routing needed — this tone is a s
 
 ---
 
-#### 2. LA-2A Tube Compressor — light optical smoothing
+#### 2. UADx LA-2A Silver Compressor — light optical smoothing
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Compress/Limit | Compress | Gentle 3:1 optical ratio — the T4 photocell won't clamp the attack the way an 1176 would |
+| Mode | Compress | Gentle 3:1 optical ratio — the T4 photocell won't clamp the attack the way an 1176 would |
 | Peak Reduction | 20 | Light compression — the goal is to smooth note-to-note level differences, not to squash the dynamic range that makes this tone work |
 | Gain | 42 | Makeup gain |
+| Emphasis / HF | Fully Clockwise (default) | Equal frequency sensitivity in the sidechain |
 | Meter | Gain Reduction | Watch the meter: at these settings you should see 2–4 dB of reduction on hard picks — more than that and you're squashing the grit response |
 
 *The single most important thing about this compressor in this chain: keep Peak Reduction low. The Divided 11's dynamics are the whole point — compress too much and you lose the clean-to-gritty response.*

@@ -1,5 +1,5 @@
 ---
-amp: "Enigmatic '82"
+amp: "Enigmatic '82 (UADx)"
 created: 2026-05-31
 guitar: "Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position)"
 id: strat-sleepwalk-carlton
@@ -9,9 +9,14 @@ status: initial
 tags: "surf, clean, chorus, stratocaster, carlton, dumble, delay, reverb, single-coil"
 target: "Larry Carlton 'Sleepwalk' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb."
 tone-king-channel: bypassed
-updated: 2026-05-31
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Amp Model: "Enigmatic '82"
     Bass: 4.5
@@ -63,6 +68,16 @@ By utilizing the **Enigmatic '82** (Dumble Overdrive Special) within **UADx Para
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Paradise Guitar Studio (Enigmatic '82) — the amp & cab
 

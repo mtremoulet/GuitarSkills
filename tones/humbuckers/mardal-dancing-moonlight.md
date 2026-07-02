@@ -6,35 +6,44 @@ guitar: Epiphone Sheraton (humbuckers)
 target: "\"Rebecca Mardal \\"Dancing in the Moonlight\\" \u2014 warm jazz clean with lush-not-ambient\"
 tags: "jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp"
 tone-king-channel: bypassed
-amp: "Amp Snob"
+amp: "The Clean Machine (Archetype Cory Wong X)"
 status: tested
 pickup_type: humbucker
 preset_data:
   amp_platform: neural_dsp
   amp_settings:
-    compressorBlend: 0.55
-    compressorCompression: 0.40
-    compressorVolume: 2.50
-    selectedAmp: 2
-    selectedCab: 2
     ampCabLinkedState: false
-    snobMid: 0.70
-    snobTreble: 0.40
-    snobPresence: 0.30
-    snobVolume: 2.50
-    snobBright: false
-    leftCabPosition: 0.50
-    leftCabDistance: 0.22
+    selectedAmp: 1
+    selectedCab: 1
+    compressorActive: true
+    compressorBlend: 55.0
+    compressorCompression: 40.0
+    compressorTone: 50.0
+    compressorVolume: 55.0
+    cleanVolume: 30.0
+    cleanBright: false
+    cleanBass: 50.0
+    cleanMid: 70.0
+    cleanTreble: 40.0
+    cleanPresence: 30.0
+    cleanOutputLevel: 70.0
     leftCabActive: true
     leftCab0MicType: 4
+    leftCabPosition: 0.50
+    leftCabDistance: 0.22
+    leftRoomMicLevel: -12.0
     rightCabActive: false
-    snobEQHpf: 20.0
-    snobEQLpf: 20000.0
+    washActive: true
+    washMix: 10.0
+    washDecay: 55.0
+    washLowCut: 27.0
+    washHighCut: 60.0
+    washShimmer: false
+    outputGain: 0.0
     tuberActive: false
     bigRigActive: false
     postalActive: false
     delayActive: false
-    washActive: false
     chorusActive: false
   logic_compressor:
     ratio: 2026
@@ -89,7 +98,7 @@ The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonesta
 | Mic Type | Ribbon 121 | Warm, dark character |
 | Position | 0.50 | Balanced response |
 | Distance | 0.22 | Slight air around the speaker |
-| Output Trim | −7.5 dB | Plugin output trim — calibrated 2026-05-16 to hit −12 dBFS |
+| Output Trim | 0.0 dB | Plugin outer output trim — set to 0.0 dB per gain staging standards |
 | Room Send | −12.0 dB | Reduced from −3.0 dB; previous value was too hot/washed |
 
 ---
@@ -115,6 +124,9 @@ The Cory Wong X amp adds back the mids that the Tone King's Fender-style tonesta
 ---
 
 ## Feedback History
+
+### 2026-06-26 — gain staging update
+Outer plugin input and output gain set to 0.0 dB in compliance with updated gain staging standards.
 
 ### 2026-05-16 — gain staging calibration (direct to iD14)
 Signal path changed: guitar now routes direct into iD14 instrument input (Tone King Imperial Preamp bypassed pending its own calibration pass). iD14 gain set to **0**. Guitar bus changed to **Mono** (was Stereo). Archetype Cory Wong X **Output Trim set to −7.5 dB** to hit −12 dBFS target. **Room Send reduced from −3.0 dB to −12.0 dB** — the previous −3 dB was producing too much room wash with the direct signal path.

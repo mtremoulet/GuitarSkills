@@ -2,16 +2,21 @@
 id: sheraton-bass-split-oc5
 preset_name: "Sheraton OC-5 Bass Split"
 created: 2026-06-06
-updated: 2026-06-06
+updated: 2026-06-28
 guitar: "Epiphone Sheraton II (humbuckers, neck position)"
 target: "A polyphonic octave-split signal chain replicating the Boss OC-5 pedal range setting to direct the lower two strings (E and A) to a bass path."
 tags: "jazz, hybrid, octave-split, bass, humbuckers, sheraton"
 tone-king-channel: bypassed
-amp: "Dream '65 (UADx) & Bass Amp Designer (Logic)"
+amp: "Dream '65 (UADx), Bass Amp Designer (Logic)"
 status: initial
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Volume: 4.5
     Treble: 4.0
@@ -77,7 +82,7 @@ This setup uses two physical Audio Tracks in Logic Pro routed to the same physic
 4. Add the plugins (detailed below) to its inserts:
    - **Insert 1**: Channel EQ (HPF at 100 Hz to clear space for the bass).
    - **Insert 2**: Dream '65 Amp (UADx) (classic clean jazz platform).
-   - **Insert 3**: Teletronix LA-2A Tube Compressor (UADx) (smooth dynamics).
+   - **Insert 3**: Teletronix LA-2A Silver Compressor (UADx) (smooth dynamics).
 5. Set the fader to **0 dB**.
 
 ### Step 2 — Create and Configure the "Bass Track"
@@ -118,6 +123,16 @@ This setup uses two physical Audio Tracks in Logic Pro routed to the same physic
 
 ---
 
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 ### 2. "Guitar Track" Inserts
 
 #### I. Channel EQ (High-Pass & Warmth)
@@ -138,13 +153,14 @@ This setup uses two physical Audio Tracks in Logic Pro routed to the same physic
 | Bright / Boost | Off | Keeps the tone round and clean |
 | Cab / Mic | GB25 / Ribbon 121 | Warm speaker voicing with ribbon mic warmth |
 
-#### III. LA-2A Tube Compressor (UADx)
+#### III. LA-2A Silver Compressor (UADx)
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Peak Reduction | 25 | Light compression to smooth out pick dynamics |
 | Gain | 40 | Restores level post-compression |
-| Compress/Limit | Compress | Standard optical compression curves |
+| Mode | Compress | Standard optical compression curves |
+| Emphasis / HF | ~75% (3:00) | Rolled back slightly to prevent low-end humbucker thump from over-compressing high strings |
 
 ---
 

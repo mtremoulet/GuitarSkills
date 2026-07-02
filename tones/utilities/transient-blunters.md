@@ -22,10 +22,10 @@ This preset provides level-independent pick softening, transparently shaving off
 * **File Path**: `~/Music/Audio Music Apps/Plug-In Settings/Enveloper/Transient Softener.pst`
 * **Configuration**:
   * **Attack Time**: `12.0 ms` (captures the duration of the pick strike)
-  * **Attack Gain**: `-4.0 dB` (reduces the pick click amplitude)
+  * **Attack Gain**: `-30.0%` (reduces pick click amplitude; values around -30% to -40% provide clear softening, whereas smaller values like -4% are extremely subtle)
   * **Lookahead**: `2.0 ms` (forces the enveloper to scan ahead to catch the transient perfectly)
   * **Release Time**: `200.0 ms` (default, leaves note decay untouched)
-  * **Release Gain**: `0.0 dB` (leaves sustain untouched)
+  * **Release Gain**: `0.0%` (leaves sustain untouched)
   * **Threshold**: `-100.0 dB` (default, ensures it triggers on all notes)
   * **Out Level**: `0.0 dB` (unity gain)
 
@@ -57,7 +57,7 @@ A stock Logic alternative that emulates the 1176 FET circuit topology.
 
 ### A. Logic Enveloper `.pst` (Little-Endian)
 * `offset 28 (Param 1)`: Attack time (`12.0`)
-* `offset 32 (Param 2)`: Attack Gain (`-4.0`)
+* `offset 32 (Param 2)`: Attack Gain (`-30.0`)
 * `offset 48 (Param 6)`: Lookahead (`2.0`)
 
 ### B. Logic Compressor `.pst` (Little-Endian)

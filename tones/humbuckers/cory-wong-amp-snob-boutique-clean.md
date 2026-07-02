@@ -1,5 +1,5 @@
 ---
-amp: "Amp Snob"
+amp: "Amp Snob (Archetype Cory Wong X)"
 created: 2026-05-24
 guitar: "Gibson Les Paul Studio (490R neck pickup)"
 id: cory-wong-amp-snob-boutique-clean
@@ -26,12 +26,26 @@ preset_data:
     rightCabActive: false
     selectedAmp: 2
     selectedCab: 2
+    compressorActive: true
+    compressorVolume: 55.0
+    compressorCompression: 35.0
+    compressorTone: 50.0
+    compressorBlend: 40.0
     snobBass: 46.0
     snobBright: false
     snobDrive: false
     snobEQActive: true
     snobEQHpf: 20.0
     snobEQLpf: 20000.0
+    snobEQBand1: 0.0
+    snobEQBand2: -0.5
+    snobEQBand3: -1.5
+    snobEQBand4: 1.0
+    snobEQBand5: 1.5
+    snobEQBand6: -1.0
+    snobEQBand7: 0.0
+    snobEQBand8: 0.0
+    snobEQBand9: 0.0
     snobMaster: 75.0
     snobMid: 58.0
     snobOutputLevel: 70.0

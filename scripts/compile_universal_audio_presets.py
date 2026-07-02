@@ -7,7 +7,17 @@ import uuid
 # Base paths for Universal Audio presets on macOS
 BASE_UAD_PRESETS_DIR = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins"
 PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio")
-PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Boutique Warm Clean - Enigmatic.json")
+PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Non-Toneprints", "Boutique Warm Clean - Enigmatic.json")
+
+MODEL_SUBDIRS = {
+    0: "Dream '65",
+    1: "Enigmatic '82",
+    2: "Lion '68",
+    3: "Ruby '63",
+    4: "Showtime '64",
+    5: "Woodrow '55"
+}
+
 
 # List of all toneprints mapped exclusively to Paradise Guitar Studio
 PARADISE_TONEPRINTS = [
@@ -274,9 +284,12 @@ def main():
         for key, val in preset_controls.items():
             controls[key] = {"real_value": val}
             
-        # Write directly to Paradise presets directory
-        os.makedirs(PARADISE_DIR, exist_ok=True)
-        output_path = os.path.join(PARADISE_DIR, preset_name)
+        # Write directly to Paradise presets model sub-directory
+        amp_idx = tp["amp_index"]
+        model_subdir = MODEL_SUBDIRS.get(amp_idx, "")
+        target_dir = os.path.join(PARADISE_DIR, model_subdir) if model_subdir else PARADISE_DIR
+        os.makedirs(target_dir, exist_ok=True)
+        output_path = os.path.join(target_dir, preset_name)
         
         with open(output_path, "w") as f:
             json.dump(preset_data, f, indent=4)

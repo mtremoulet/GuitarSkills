@@ -1,5 +1,5 @@
 ---
-amp: "Ruby '63"
+amp: "Ruby '63 (UADx)"
 created: 2026-05-20
 guitar: "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)"
 id: ruby-les-paul-velvet-crunch
@@ -9,9 +9,14 @@ status: initial
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock"
 target: "Warm, vocal Class A chime and creamy velvet crunch; a rich, touch-sensitive pairing of Les Paul humbuckers and Vox AC30 Top Boost."
 tone-king-channel: bypassed
-updated: 2026-05-20
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.2
     Cut: true
@@ -70,9 +75,19 @@ To get the pure, dynamic midrange interaction of your Les Paul's humbuckers and 
 
 ---
 
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 ### 2. UADx LA-2A Gray Compressor — dynamic smoothing
 
-Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly faster, smoother response that is perfect for humbucker instruments.
+Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly slower, smoother recovery response that is perfect for sustaining humbucker instruments.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

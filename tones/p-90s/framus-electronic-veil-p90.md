@@ -1,5 +1,5 @@
 ---
-amp: "Showtime '64"
+amp: "Showtime '64 (UADx)"
 created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: framus-electronic-veil-p90
@@ -8,9 +8,14 @@ status: initial
 tags: "jazz, framus, p-90, dark, warm, bickert, veil"
 target: "Ed Bickert \\\"Electronic Veil\\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
 tone-king-channel: bypassed
-updated: 2026-05-26
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.0
     Bright: false
@@ -67,6 +72,16 @@ The result is an incredibly intimate, thick, and woody jazz-box tone with the si
 
 ---
 
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 Chosen for its high headroom and neutral, non-scooped midrange character, which allows the woody P-90 neck pickup resonance to stand out.
 
@@ -96,7 +111,7 @@ Chosen for its high headroom and neutral, non-scooped midrange character, which 
 ---
 
 ### 4. UADx LA-2A Gray Compressor — syrupy optical glue
-We use the LA-2A Gray (which has a slightly faster recovery curve) but push the peak reduction to clamp down on transients and elongate the note decay.
+We use the LA-2A Gray (which has a slightly slower, spongier recovery curve) but push the peak reduction to clamp down on transients and elongate the note decay.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

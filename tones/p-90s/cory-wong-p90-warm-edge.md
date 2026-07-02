@@ -1,5 +1,5 @@
 ---
-amp: "Amp Snob"
+amp: "Amp Snob (Archetype Cory Wong X)"
 created: 2026-06-07
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s) / Revelation RFT DLX (H-90 pickups)"
 id: cory-wong-p90-warm-edge

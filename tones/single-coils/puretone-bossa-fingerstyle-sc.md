@@ -7,7 +7,7 @@ guitar: "Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/m
 target: "Sparkling, pristine, touch-sensitive clean for bossa nova chord plucking and modern chillhop/folk fingerstyle."
 tags: "boutique, clean, sparkle, single-coil, telecaster, stratocaster, fingerstyle, bossa, chillhop"
 tone-king-channel: bypassed
-amp: "Nembrini H&K Puretone"
+amp: "H&K Puretone (Nembrini)"
 status: initial
 pickup_type: single-coil
 preset_data:

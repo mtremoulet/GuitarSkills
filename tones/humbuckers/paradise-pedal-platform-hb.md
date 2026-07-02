@@ -1,15 +1,20 @@
 ---
 id: "paradise-pedal-platform-hb"
 created: "2026-05-04"
-updated: "2026-05-11"
+updated: 2026-06-28
 guitar: Gibson Les Paul Studio / Epiphone Sheraton
 target: "Humbucker-optimized high-headroom \"pedal platform\" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups."
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker"
-amp: "Enigmatic '82"
+amp: "Enigmatic '82 (UADx)"
 status: initial
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Treble: 6.5
     Bass: 3.5
@@ -35,6 +40,16 @@ Optimized for the thicker, warmer output of humbuckers. The **Enigmatic '82** (D
 | Treble | 6.5 | Pushed slightly for added snap |
 | Presence | 6.0 | Top-end "air" and string definition |
 | Master | 7.0 | High output for a "big" feel |
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. Cabinet & Room — Space
 | Component | Setting | Purpose |

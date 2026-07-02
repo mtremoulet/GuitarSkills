@@ -1,5 +1,5 @@
 ---
-amp: "Dream '65"
+amp: "Dream '65 (UADx)"
 created: 2026-06-10
 guitar: "Universal (Tested with Archtop/Humbucker jazz guitars and Single-Coils)"
 id: dream-65-warm-clean
@@ -9,9 +9,14 @@ status: initial
 tags: "blackface, clean, warm, jazz, dream-65, ev12, universal"
 target: "Warm, high-headroom clean tone with rolled-off treble and the linear, neutral EV12 cabinet"
 tone-king-channel: bypassed
-updated: 2026-06-10
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Volume: 2.5
     Reverb: 0.0
@@ -50,6 +55,16 @@ Unlike the classic scooped, sparkly Fender Blackface sound, this preset configur
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Dream '65 Reverb Amp — character source
 

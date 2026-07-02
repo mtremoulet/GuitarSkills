@@ -2,13 +2,13 @@
 id: two-rock-singing-blues-p90
 preset_name: "Two-Rock Singing Blues P90"
 created: "2026-06-18"
-updated: "2026-06-18"
+updated: "2026-06-29"
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 target: "A singing, touch-sensitive Mayer-style blues tone with a compressed clean foundation, subtle edge-of-breakup, and lush spatial delay/reverb."
 tags: "boutique, clean, blues, singing, compression, two-rock, p-90, framus, delay, reverb"
 tone-king-channel: bypassed
-amp: "Two-Rock Bloomfield"
-status: initial
+amp: "Two-Rock Bloomfield (MixWave)"
+status: refined
 pickup_type: "p-90"
 preset_data:
   amp_platform: mixwave
@@ -27,14 +27,19 @@ preset_data:
     Tone Stack Bypass: false
     Lead: false
     Noise Gate: 0.35
+    Input Trim: 0.0
+    Output Trim: -8.25
   la2a:
-    peak_reduction: 35.0
-    gain: 28.0
+    peak_reduction: 45.0
+    gain: 22.0
     compress: true
   hitsville:
     mix: 1.0
     decay: 2.4
     pre_delay: 15.0
+    chamber: "2648"
+    speaker: "Bozak 800"
+    mic: "Unidyne 545"
   logic_eq:
     band1: {on: true, freq: 80.0, slope: 18.0}
     band4: {on: true, freq: 400.0, gain: -1.5, q: 1.0}
@@ -100,6 +105,8 @@ The settings utilize **EQ 2** to provide a touch more compression and preamp gai
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
+| Input Trim | **0.0 dB** | Universal calibrated input baseline |
+| Output Trim | **−8.25 dB** | Calibrated to target −18 dBFS peak on single-note lines, preventing compressor clipping |
 | Gain | 5.5 | Touch-sensitive gain; light picking is clean, hard attack blooms and breaks up slightly |
 | Treble | 5.0 | Noon; allows the swamp ash snap to speak naturally |
 | Middle | 5.2 | Slight boost to keep the P-90 vocal throatiness centered |
@@ -135,8 +142,8 @@ Placing the compressor *after* the amp model is critical. It acts as a "studio m
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Peak Reduction | 35 | Gentle optical smoothing (~2-3 dB of reduction on firm picks) |
-| Gain | 28 | Calibrated makeup gain |
+| Peak Reduction | 45 | Gentle optical leveling (~1-2 dB of reduction on single-note lines) |
+| Gain | 22 | Calibrated to unity gain / parity with bypass |
 | Mode | Compress (3:1) | Slower, musical optical compression |
 
 ---
@@ -190,6 +197,9 @@ Placing the EQ at the very end of the insert chain allows you to cleanly roll of
 ---
 
 ## Feedback History
+
+### 2026-06-29 — refined
+Adjusted buffer size to 128 to eliminate random processing crackles. Calibrated gain staging to resolve harsh input/output distortion in the LA-2A Silver plugin. Set MixWave Bloomfield global Output Trim to -8.25 dB (with Input Trim at 0.0 dB) to target -18 dBFS peak on single-note lines (-12 dBFS on strums). Re-calibrated LA-2A Silver with Peak Reduction at 45 (for 1-2 dB of compression on single-notes) and Gain at 22 for unity gain / bypass parity. Sound is significantly cleaner and smoother.
 
 ### 2026-06-18 — initial
 Created to capture a John Mayer-style clean-to-singing-edge tone for the Framus Earl Slick. Uses the Mixwave Two-Rock Bloomfield on EQ 2 with the built-in overdrive engaged at 40% mix for a parallel clean boost. Placed UADx LA-2A Silver and Logic EQ post-amp in the inserts chain to ensure transparent picking dynamics and corrective cleanup of P-90 hum. Added a UADx Galaxy Tape Echo bus alongside Hitsville Reverb to replicate the lush live ambiance of "Human Nature."

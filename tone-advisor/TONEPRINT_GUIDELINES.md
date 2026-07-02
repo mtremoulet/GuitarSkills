@@ -36,9 +36,22 @@ If the Tone King is necessary for the vibe of the toneprint, follow these settin
 While preventing clipping across the Logic signal chain is a priority, Mike manages plugin-level gain stages (Input/Output sliders) manually during the session. These utility trims **should not** be included as fixed settings in the toneprint's Signal Chain tables unless specifically requested to solve a unique interaction.
 
 ### Target Baselines (For Reference)
-- **Interface Input (iD14)**: Aim for peaks around **−18 dBFS**.
+- **Interface Input (iD14)**: Aim for peaks around **−18 dBFS** for raw DI tracks.
 - **DAW Track Output**: Aim for **−12 dBFS** to **−10 dBFS** on hard strums.
 - **Plugin Context**: When recommending a tone, the advisor should focus on the **character controls** (Volume, Master, Drive, EQ). If a model is known to run hot (e.g., Nembrini or Ruby '63), simply add a brief note: *"Note: This model runs hot; check plugin output levels to ensure headroom in Logic."*
+
+### Audio Interface Calibration Offsets (D.I. Route)
+Amp sim manufacturers model their virtual components based on a specific analog-to-digital hardware reference level.
+- **Neural DSP & UADx Standard**: Modeled around a **+12.2 dBu** clipping point (matching UAD Apollo Twin Hi-Z input at minimum gain).
+- **Audient iD14 D.I. Input**: Clips at **+9.0 dBu** at minimum gain.
+- **Calibration Correction**: The Audient iD14 D.I. input delivers a digital signal that is **3.2 dB hotter** than the plugins expect. To achieve a true 1:1 hardware-accurate response:
+  - **Neural DSP & UADx Plugins**: Set the plugin's internal **Input Gain (IN)** control to **-3.2 dB**.
+  - **IK Multimedia (TONEX)**: Offset the typical input trim (use **-3 dB to 0 dB** for humbuckers, and **+2 dB to +5 dB** for single-coils).
+  
+### Tone King Preamp Routing (Hardware Preamp Route)
+The Tone King Imperial Preamp output is a balanced, line-level signal.
+- **Connection**: Connect the Tone King's XLR balanced output to the back combo jacks of the iD14 using an **XLR-to-TRS (1/4") cable**. This forces the iD14 to treat the signal as a **Line input**, bypassing the microphone preamp circuitry.
+- **Gain Staging**: Set the iD14 input gain to **minimum (unity/0 dB)**. Control the signal level exclusively from the Tone King's **Volume** and **Attenuation** dials, aiming for peaks between **-12 dBFS and -10 dBFS** in Logic.
 
 ---
 

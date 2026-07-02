@@ -1,5 +1,5 @@
 ---
-amp: "Mrh810 V2, Tone King Imperial Preamp"
+amp: "MRH810 V2 (Nembrini), Tone King Imperial Preamp (Hardware)"
 created: 2026-04-30
 guitar: "Epiphone Les Paul Standard"
 id: mrh810-classic-lead
@@ -10,6 +10,32 @@ target: "\\\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articula
 tone-king-channel: rhythm/lead
 updated: 2026-05-07
 preset_data:
+  nembrini_mrh810:
+    ChSel: 1.0
+    LeadGain: 5.0
+    LeadVolume: 5.0
+    LeadBass: 4.0
+    LeadMid: 5.0
+    LeadTreble: 6.0
+    Master: 2.5
+    Presence: 5.0
+    Reverb: 0.0
+    OutLevel: -4.0
+    InLevel: 0.0
+    NgPower: 1.0
+    NgThreshold: -80.0
+    NgRange: 30.0
+    CabMode: 0.0
+    CabType: 0.0
+    Mic1Type: 0.0
+    Mic1OffAxis: 0.0
+    Mic1Pos: 5.0
+    Mic1Dist: 4.0
+    Mic1Gain: 0.0
+    Mic2Type: 1.0
+    Mic2OffAxis: 1.0
+    Mic2Gain: -6.0
+    AmbientGain: -12.0
   galaxy:
     echo_rate: 5.0
     echo_volume: 3.5
@@ -135,13 +161,14 @@ This is the canonical Marshall 4x12 sound — what the JCM800 was designed aroun
 
 ---
 
-#### LA-2A Tube Compressor — sustain smoothing
+#### UADx LA-2A Silver Compressor — sustain smoothing
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Compress/Limit | Compress | Gentle 3:1 optical — smooths note-to-note level variation without killing dynamics |
+| Mode | Compress | Gentle 3:1 optical — smooths note-to-note level variation without killing dynamics |
 | Peak Reduction | 25 | Very light. The JCM800 preamp is already compressing the signal — this is just evening out the sustain tail. More than 30 and you'll start to hear the compressor working against the amp's natural feel. |
 | Gain | 42 | Makeup gain |
+| Emphasis / HF | Fully Clockwise (default) | Equal frequency sensitivity in the sidechain |
 | Meter | Gain Reduction | Watch for 2–3 dB on attack — if you're seeing more, back off Peak Reduction |
 
 ---

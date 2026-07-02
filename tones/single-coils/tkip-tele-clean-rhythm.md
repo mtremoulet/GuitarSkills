@@ -40,7 +40,7 @@ preset_data:
 # TKIP Tele Clean Rhythm
 
 ## Target Sound
-An ultra-clean, pristine rhythm tone featuring the chime and clarity of the Fender Player II Telecaster. The hardware Tone King Rhythm channel is dialed for maximum headroom and transparency (Volume 2.5, Attenuation 5.0, Bass 5.5, Treble 5.0) with the built-in Imperial 1x12 speaker IR (OH 112 Imperial TK1660) active for intimate, close-mic'd warmth. Logic processing uses the UADx LA-2A Gray Compressor to smooth out pick transients with slow, musical optical compression. A touch of Studio D chorus adds subtle stereophonic width, while the Hitsville chamber reverb places the guitar in a beautiful, open studio space.
+An ultra-clean, pristine rhythm tone featuring the chime and clarity of the Fender Player II Telecaster. The hardware Tone King Rhythm channel is dialed for maximum headroom and transparency (Volume 2.5, Attenuation 5.0, Bass 5.5, Treble 5.0) with the built-in Imperial 1x12 speaker IR (OH 112 Imperial TK1660) active for intimate, close-mic'd warmth. Logic processing uses the UADx LA-2A Silver Compressor to smooth out pick transients with fast, clean, and transparent optical compression. A touch of Studio D chorus adds subtle stereophonic width, while the Hitsville chamber reverb places the guitar in a beautiful, open studio space.
 
 ## Signal Chain
 
@@ -58,8 +58,8 @@ Provides the pristine, high-headroom blackface clean platform and warm speaker c
 | Tremolo | Off | Disabled |
 | IR | Active (Imperial 1x12 TK1660) | Voiced for intimate warmth and balanced midrange |
 
-### 2. UADx LA-2A Gray Compressor — smooth optical leveler
-Placed inline in Logic to smooth out dynamic peaks musically without changing the Tele's transparent chime.
+### 2. UADx LA-2A Silver Compressor — smooth optical leveler
+Placed inline in Logic to smooth out dynamic peaks transparently without changing the Tele's transparent chime or slowing down picking transients.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

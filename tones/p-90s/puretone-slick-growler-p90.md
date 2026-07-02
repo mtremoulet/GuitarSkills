@@ -7,7 +7,7 @@ guitar: "Framus Earl Slick (DiMarzio P-90s) / Gibson LP Studio (490 series)"
 target: "Organic, touch-sensitive edge-of-breakup grit using the Puretone's tone stack bypass, delivering a roaring, singing vintage lead and woody chord melody."
 tags: "boutique, edge-of-breakup, grit, p-90, framus, les-paul, humbucker, blues, rock"
 tone-king-channel: bypassed
-amp: "Nembrini H&K Puretone"
+amp: "H&K Puretone (Nembrini)"
 status: initial
 pickup_type: p-90
 preset_data:

@@ -2,17 +2,22 @@
 id: "ruby-paradise-strat-chime"
 preset_name: Ruby Strat Chime Paradise
 created: "2026-05-20"
-updated: "2026-05-20"
+updated: 2026-06-28
 guitar: "Squier Stratocaster (bridge + middle pickup position — \\"quack\\")"
 target: "Classic VOX AC30 Top Boost chime, shimmer, and modulated delay; optimized for the bright clarity of Squier Stratocaster single-coils, using Paradise Guitar Studio and bypassing the Tone King preamp."
 tags: "vox, ac30, ruby-63, strat, single-coil, chime, echo, paradise-studio, jangle, rock, post-punk"
 tone-king-channel: bypassed
-amp: "Ruby '63"
+amp: "Ruby '63 (UADx)"
 status: initial
 pickup_type: "single-coil"
 preset_overrides: 
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Volume: 4.5
     Treble: 6.5
@@ -55,6 +60,16 @@ Plugging your Strat straight into the high-headroom JFET DI input preserves the 
 | **Tone King Imperial** | **Bypassed** | Bypassed entirely — preserves the raw, crystalline Strat treble and midrange, letting the single-coils drive the AC30 model directly |
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Paradise Guitar Studio — All-In-One Signal Path
 

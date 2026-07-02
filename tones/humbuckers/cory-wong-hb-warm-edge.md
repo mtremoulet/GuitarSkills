@@ -1,5 +1,5 @@
 ---
-amp: "Amp Snob"
+amp: "Amp Snob (Archetype Cory Wong X)"
 created: 2026-06-07
 guitar: "Epiphone Les Paul Standard ('57CH neck pickup) / Epiphone Sheraton II"
 id: cory-wong-hb-warm-edge

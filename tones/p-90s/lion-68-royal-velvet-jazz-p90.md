@@ -1,5 +1,5 @@
 ---
-amp: "Lion '68"
+amp: "Lion '68 (UADx)"
 created: 2026-05-30
 genre: jazz
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
@@ -10,9 +10,14 @@ status: tested
 tags: "jazz, clean, warm, plexi, framus, p-90, lion-68, marshall, dumble"
 target: "Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room."
 tone-king-channel: bypassed
-updated: 2026-05-30
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 4.5
     Boost: false
@@ -81,6 +86,16 @@ To optimize this for the Framus Earl Slick Artist Series and its DiMarzio P-90s:
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
 ---
+
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. IK Multimedia TONEX (Plugin) — Dumble-style pre-compression
 Placed as the first insert on the Logic channel to shape the direct tube signal.

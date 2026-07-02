@@ -1,5 +1,5 @@
 ---
-amp: "Woodrow '55"
+amp: "Woodrow '55 (UADx)"
 created: 2026-05-02
 guitar: "Squier Stratocaster (single coils)"
 id: woodrow-sweet-spot
@@ -9,9 +9,14 @@ status: tested
 tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
 target: "The \\\"Sweet Spot\\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\\"hairing up\\\" beautifully when you dig in."
 tone-king-channel: bypassed
-updated: 2026-05-03
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 5
     Boost: false
@@ -67,7 +72,17 @@ The key here is "jumping" the channels (simulating a patch cable between the Mic
 
 ---
 
-#### 2. Galaxy Tape Echo — Subtle Hair & Space
+#**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
+### 2. Galaxy Tape Echo — Subtle Hair & Space
 
 Tweed amps and Tape Echoes are a match made in heaven. The tape saturation complements the amp's midrange.
 
@@ -81,9 +96,9 @@ Tweed amps and Tape Echoes are a match made in heaven. The tape saturation compl
 
 ---
 
-#### 3. LA-2A Gray Compressor — Post-Amp Glue
+#### 3. LA-2A Silver Compressor — Post-Amp Glue
 
-Since the Woodrow is already compressing naturally, we use the Gray LA-2A (which is a bit "faster" and "clearer" than the Silver) just to catch any stray peaks and glue the tape echo to the amp sound.
+Since the Woodrow is already compressing naturally, we use the Silver LA-2A (which has the fastest response in the collection) to catch stray peaks cleanly and glue the tape echo to the amp sound without introducing sluggish recovery.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

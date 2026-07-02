@@ -1,5 +1,5 @@
 ---
-amp: "Woodrow '55"
+amp: "Woodrow '55 (UADx)"
 created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: woodrow-sweet-spot-p90
@@ -9,9 +9,14 @@ status: tested
 tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
 target: "The Tweed Deluxe \\\"Sweet Spot\\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
 tone-king-channel: bypassed
-updated: 2026-05-27
+updated: 2026-06-28
 preset_data:
   amp_platform: uad_paradise
+  gold_overdrive:
+    enabled: false
+    gain: 0.0
+    output: 7.5
+    treble: 4.5
   amp_settings:
     Bass: 5
     Boost: false
@@ -54,6 +59,16 @@ We pair this raw vintage head with a subtle **Galaxy Tape Echo** and a fast **LA
 
 ---
 
+**Pre-FX / Pre-Amp Stompbox Option**
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 ### 2. Guitar Track → UADx Woodrow '55
 
 We jump the channels by running both Volume controls simultaneously above 0. Input is set to High (Input 1) for the primary gain stage.
@@ -84,9 +99,9 @@ Tweed amps and tape echo are a match made in heaven. The tape saturation complem
 
 ---
 
-### 4. UADx LA-2A Gray Compressor — post-amp glue
+### 4. UADx LA-2A Silver Compressor — post-amp glue
 
-Because the Woodrow is already compressing heavily in its virtual power tubes, we use the faster Gray LA-2A very lightly, just to catch any stray peaks and glue the tape echo to the amp decay.
+Because the Woodrow is already compressing heavily in its virtual power tubes, we use the Silver LA-2A (which has the fastest response in the collection) very lightly, just to catch any stray peaks and glue the tape echo to the amp decay without introducing sluggish recovery.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

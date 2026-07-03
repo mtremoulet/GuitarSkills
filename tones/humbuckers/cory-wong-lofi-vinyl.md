@@ -7,7 +7,7 @@ guitar: "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)"
 target: "Bandpass-filtered lo-fi clean tone resembling a sampled vinyl record, using active chorus and slapback delay for neo-soul chord loops."
 tags: "clean, lo-fi, chillhop, delay, eq, humbucker, les-paul"
 tone-king-channel: bypassed
-amp: "Snarky Amp (Archetype Cory Wong X)"
+amp: "D.I. Funk Console (Archetype Cory Wong X)"
 status: initial
 pickup_type: humbucker
 preset_data:
@@ -62,7 +62,7 @@ preset_data:
 
 This toneprint is designed for lo-fi beats, chillhop, and neo-soul chord looping. It mimics the restricted frequency range and slight warble of a sampled vintage vinyl record. 
 
-By applying an aggressive bandpass filter curve on **The Snarky Amp's Graphic EQ** (rolling off everything below 150 Hz and above 4 kHz), we strip out the modern hi-fi bass and treble. We then pair it with a light chorus (to simulate vinyl pitch warble/wow-and-flutter) and a short 200ms slapback delay to add spatial depth.
+By applying an aggressive bandpass filter curve on **The D.I. Funk Console's Graphic EQ** (rolling off everything below 150 Hz and above 4 kHz), we strip out the modern hi-fi bass and treble. We then pair it with a light chorus (to simulate vinyl pitch warble/wow-and-flutter) and a short 200ms slapback delay to add spatial depth.
 
 ---
 
@@ -87,11 +87,11 @@ By applying an aggressive bandpass filter curve on **The Snarky Amp's Graphic EQ
 
 *All other Pre FX are **BYPASSED**.*
 
-**Amp Section — "The Snarky Amp"**
+**Amp Section — "The D.I. Funk Console"**
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Amp Model | **The Snarky Amp** | Snarky clean head |
+| Amp Model | **D.I. Funk Console** | Analog channel strip |
 | Volume (Gain) | **45%** | Keeps the preamp clean with the hotter humbuckers |
 | Tube Saturation | **25%** | Adds subtle analog harmonic warmth |
 | Compression | **20%** | Light power amp squash |
@@ -102,9 +102,9 @@ By applying an aggressive bandpass filter curve on **The Snarky Amp's Graphic EQ
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Amp/Cab Link | **On** | Matches cabinet to Snarky Amp |
+| Amp/Cab Link | **On** | Matches cabinet to D.I. Funk Console |
 
-**EQ Section (Snarky Amp 9-Band Graphic EQ)**
+**EQ Section (D.I. Funk Console 9-Band Graphic EQ)**
 
 We use the EQ to establish a radio/vinyl bandpass filter:
 *   **65 Hz:** `−12.0 dB` (Maximum cut to remove sub-bass rumble)
@@ -136,4 +136,4 @@ We use the EQ to establish a radio/vinyl bandpass filter:
 ## Starting Point Guide
 
 - **Guitar Pickups:** The **Middle position** (both humbuckers combined) is excellent for this tone, but the **Neck pickup** rolled back to **8** volume gives an incredibly warm, round, lo-fi jazz-box vibe.
-- **Adjusting the Lo-Fi filter:** If the tone feels *too* thin or restricted, bypass the **Graphic EQ** block. This restores the full bandwidth of the Snarky amp while keeping the delay/chorus effects active.
+- **Adjusting the Lo-Fi filter:** If the tone feels *too* thin or restricted, bypass the **Graphic EQ** block. This restores the full bandwidth of the D.I. Funk Console while keeping the delay/chorus effects active.

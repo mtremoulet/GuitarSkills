@@ -7,7 +7,7 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
 target: "Bright, tight, and highly compressed chorused clean tone for fast 16th-note rhythm work, J-Pop/City Pop, and modern neo-soul."
 tags: "clean, chorus, compression, city-pop, neo-soul, p-90, framus"
 tone-king-channel: bypassed
-amp: "Snarky Amp (Archetype Cory Wong X)"
+amp: "D.I. Funk Console (Archetype Cory Wong X)"
 status: initial
 pickup_type: p-90
 preset_data:
@@ -46,7 +46,7 @@ preset_data:
 
 This toneprint is designed to capture the classic chorused rhythm chime of late-70s and 80s City Pop (Tatsuro Yamashita style) and modern neo-soul. The goal is a highly compressed, bright, and percussive clean sound that keeps fast 16th-note scratch parts and complex chord grips (like major 9ths and minor 11ths) extremely balanced.
 
-We pair the **Framus P-90s** (middle selector position is highly recommended for that twin-pickup chime) with **The Snarky Amp** (Amp 2), which has a naturally fast, punchy transient response. We stack the compressor heavily at 60% Blend to squash dynamics and sustain the tail, and color it with the lush, Dimension-style chorus.
+We pair the **Framus P-90s** (middle selector position is highly recommended for that twin-pickup chime) with **The D.I. Funk Console** (Amp 1), which has a naturally fast, punchy transient response. We stack the compressor heavily at 60% Blend to squash dynamics and sustain the tail, and color it with the lush, Dimension-style chorus.
 
 ---
 
@@ -71,11 +71,11 @@ We pair the **Framus P-90s** (middle selector position is highly recommended for
 
 *All other Pre FX are **BYPASSED**.*
 
-**Amp Section — "The Snarky Amp"**
+**Amp Section — "The D.I. Funk Console"**
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Amp Model | **The Snarky Amp** | British/funk clean-to-crunch head |
+| Amp Model | **D.I. Funk Console** | Analog channel strip |
 | Volume (Gain) | **50%** | Clean headroom sweet spot |
 | Tube Saturation | **30%** | Adds subtle harmonic grit and sag |
 | Compression | **20%** | Pushes power-amp compression |
@@ -87,8 +87,8 @@ We pair the **Framus P-90s** (middle selector position is highly recommended for
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Amp/Cab Link | **On** | Matches cabinet to Snarky Amp |
-| Cab Type | **Snarky** | Matching 1x12 open-back cabinet |
+| Amp/Cab Link | **On** | Matches cabinet to D.I. Funk Console |
+| Cab Type | **D.I. Funk Console Cabinet** | Matching console/D.I. cabinet |
 
 **Post FX Section**
 

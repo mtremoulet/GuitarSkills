@@ -8,6 +8,7 @@
 | Lofi Vinyl — Sampled Chillhop Clean | humbucker | Gibson Les Paul Studio (490R neck / 498T bridge humbuckers) | [humbuckers/cory-wong-lofi-vinyl.md](humbuckers/cory-wong-lofi-vinyl.md) | initial |
 | Velvet Jazz Sheraton — Archetype Cory Wong X | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/cory-wong-velvet-jazz-sheraton.md](humbuckers/cory-wong-velvet-jazz-sheraton.md) | initial |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
+| Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | initial |
 | Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
 | JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | initial |
 | Lion '68 — Eric Clapton "Woman Tone" (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Neck Humbucker, Vol 10, Tone 0) | [humbuckers/lion-68-clapton-woman-tone.md](humbuckers/lion-68-clapton-woman-tone.md) | initial |

@@ -4,7 +4,7 @@ preset_name: "Lofi Vinyl"
 created: 2026-06-23
 updated: 2026-06-23
 guitar: "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)"
-target: "Bandpass-filtered lo-fi clean tone resembling a sampled vinyl record, using active chorus and slapback delay for neo-soul chord loops."
+target: 'Bandpass-filtered lo-fi clean tone resembling a sampled vinyl record, using active chorus and slapback delay for neo-soul chord loops.'
 tags: "clean, lo-fi, chillhop, delay, eq, humbucker, les-paul"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"

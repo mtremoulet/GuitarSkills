@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "THR Singing LP Lead"
 status: initial
 tags: "rock, lead, high-gain, delay, reverb, humbucker, les-paul, thr10ii"
-target: "A smooth, highly-sustaining, and smoothly distorted singing rock lead tone for a Les Paul."
+target: 'A smooth, highly-sustaining, and smoothly distorted singing rock lead tone for a Les Paul.'
 tone-king-channel: bypassed
 updated: 2026-06-09
 preset_data:

@@ -4,7 +4,7 @@ preset_name: "TKIP P-90 Blues Lead"
 created: 2026-06-06
 updated: 2026-06-06
 guitar: "Framus Earl Slick Artist Series"
-target: "A warm, dynamic, responsive blues lead tone with tweed-like edge of breakup."
+target: 'A warm, dynamic, responsive blues lead tone with tweed-like edge of breakup.'
 tags: "blues, lead, p-90, dynamic, crunch, warm"
 tone-king-channel: lead
 amp: "Tone King Imperial Preamp (Hardware)"

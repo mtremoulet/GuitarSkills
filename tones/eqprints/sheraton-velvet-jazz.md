@@ -4,7 +4,7 @@ title: "Velvet Sheraton Humbucker"
 pedal: "Toneshaper 3000"
 pickup_type: humbucker
 guitar: "Epiphone Sheraton II (neck humbucker, flatwounds)"
-target: "Tames low-end mud in neck humbuckers while boosting vocal mid-range definition for chord-melody playing."
+target: 'Tames low-end mud in neck humbuckers while boosting vocal mid-range definition for chord-melody playing.'
 tags: "jazz, clean, warm, clarity, humbucker"
 pedal_placement: "post-amp"
 bands:

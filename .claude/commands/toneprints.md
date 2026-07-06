@@ -98,6 +98,9 @@ The installed plugin list is in `tone-advisor/plugin_index_with_manuals.csv`. Ne
 - Logic: Amp Designer, Bass Amp Designer, Pedalboard, Channel EQ, Compressor, ChromaGlow, Space Designer, ChromaVerb, Delay Designer, Tape Delay, Stereo Delay, Echo, Chorus, Flanger, Phaser, Tremolo, Ensemble, Rotor Cabinet, and all others in the CSV
 - Neural DSP: Archetype Cory Wong X
 - IK Multimedia: AmpliTube 5, TONEX
+- Kuassa: Efektor Blues Barker (Marshall Bluesbreaker v1 & mods), Efektor Blues River (Boss BD-2 Blues Driver & mods)
+- Nembrini Audio: Jazz Chorus (JC120), Mrh810 V2 (JCM800), Divided 11, HK Puretone, Acoustic Voice Pro, Clon Minotaur (Klon Centaur), 808 (Tube Screamer TS-808), Big Stuff, Black (Pro Co RAT)
+
 
 ---
 

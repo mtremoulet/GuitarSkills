@@ -6,7 +6,7 @@ id: framus-electronic-veil-p90
 pickup_type: p-90
 status: initial
 tags: "jazz, framus, p-90, dark, warm, bickert, veil"
-target: "Ed Bickert \\\"Electronic Veil\\\" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box."
+target: 'Ed Bickert "Electronic Veil" — Adapted for hot P-90s and roundwound strings: extremely dark, warm, and syrupy, emulating a traditional hollowbody jazz box.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -70,21 +70,11 @@ The result is an incredibly intimate, thick, and woody jazz-box tone with the si
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 Chosen for its high headroom and neutral, non-scooped midrange character, which allows the woody P-90 neck pickup resonance to stand out.
 
+#### Amp Settings
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | In | HI-Z | |
@@ -100,6 +90,16 @@ Chosen for its high headroom and neutral, non-scooped midrange character, which 
 | Output Trim | +12 dB | Compensates for the padded input path |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. Logic Channel EQ — surgical shaping & "The Veil"
 

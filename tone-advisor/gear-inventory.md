@@ -138,6 +138,16 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 | Clon Minotaur | Nembrini Audio | Klon Centaur transparent overdrive emulation. Adds gain without significantly altering the underlying guitar tone. |
 | Wah | Nembrini Audio | Wah pedal. |
 
+  
+---
+
+## Kuassa — Stomp Effects
+
+| Name | Maker | Description |
+|------|-------|-------------|
+| Efektor Blues Barker | Kuassa | Marshall Bluesbreaker-style overdrive pedal emulation. Provides smooth, dynamic, tube-like overdrive with high touch-sensitivity. Retains the guitar's natural tone and dynamics while adding warm grit. |
+| Efektor Blues River | Kuassa | Ibanez TS-9 / Tube Screamer-style overdrive pedal emulation. Features the classic mid-range hump, low-end roll-off, and smooth clipping. Ideal for boosting amp stages or adding singing vocal sustain to lead lines. |
+
 ---
 
 ## IK Multimedia

@@ -6,7 +6,7 @@ id: divided-11-light-blues-p90
 pickup_type: p-90
 status: initial
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11, framus, p-90"
-target: "Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in."
+target: 'Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in.'
 tone-king-channel: bypassed
 updated: 2026-05-26
 preset_data:

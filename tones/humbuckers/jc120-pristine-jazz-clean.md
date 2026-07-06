@@ -6,7 +6,7 @@ id: jc120-pristine-jazz-clean
 pickup_type: humbucker
 status: initial
 tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
-target: "Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused"
+target: 'Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused'
 tone-king-channel: bypassed
 updated: 2026-05-09
 preset_data:

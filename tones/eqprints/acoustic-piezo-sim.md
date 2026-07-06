@@ -4,7 +4,7 @@ title: "Acoustic Piezo Simulator"
 pedal: "Toneshaper 3000"
 pickup_type: single-coil
 guitar: "Fender Player II Telecaster (middle/neck blend) / Stratocaster"
-target: "Transforms an electric guitar's clean signal into a sparkling, scooped acoustic piezo-like texture."
+target: 'Transforms an electric guitar''s clean signal into a sparkling, scooped acoustic piezo-like texture.'
 tags: "acoustic, clean, scoop, sparkle, universal"
 pedal_placement: "pre-amp"
 bands:

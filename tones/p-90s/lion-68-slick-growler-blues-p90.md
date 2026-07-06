@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "Lion '68 — Slick Growler Blues P90"
 status: initial
 tags: "blues, edge-of-breakup, warm, plexi, framus, p-90, lion-68, marshall, klon"
-target: "Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp."
+target: 'Dynamic jumped Plexi edge-of-breakup blues growl, utilizing a nested physical TONEX Klon Centaur boost driving the real Tone King Lead tube preamp.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -78,9 +78,15 @@ The result is a dynamic, multi-stage analog gain cascade: soft fingerpicking rem
 | Gain | **2.5** (approx. 9:00) | Low gain; acts as a transparent, clean-to-mild boost |
 | Volume | **6.5** (approx. 1:00) | High output to push the Tone King's input tube stage |
 
+
+### 2. Tone King Imperial Preamp — physical front-end
+*   **Status:** **Bypassed**
+*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
+
+#### Amp Settings
 ---
 
-**Pre-FX / Pre-Amp Stompbox Option**
+#### Pre-FX Option: Gold Overdrive
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -89,12 +95,6 @@ The result is a dynamic, multi-stage analog gain cascade: soft fingerpicking rem
 | Gain | **0.0** | Zero added distortion; pure clean boost |
 | Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
 | Treble | **4.5** | Slightly rounded high end for smooth boost response |
-
-### 2. Tone King Imperial Preamp — physical front-end
-*   **Status:** **Bypassed**
-*   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
-
----
 
 ### 3. UADx Paradise Guitar Studio: Lion '68 — jumped Plexi crunch
 

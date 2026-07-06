@@ -6,7 +6,7 @@ id: divided-11-light-blues
 pickup_type: single-coil
 status: tested
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
-target: "\\\"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\"
+target: '"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\'
 tone-king-channel: bypassed
 updated: 2026-05-03
 preset_data:

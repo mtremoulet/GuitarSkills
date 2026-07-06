@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "Strat Sleepwalk Carlton SC"
 status: initial
 tags: "surf, clean, chorus, stratocaster, carlton, dumble, delay, reverb, single-coil"
-target: "Larry Carlton 'Sleepwalk' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb."
+target: 'Larry Carlton ''Sleepwalk'' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -67,17 +67,6 @@ By utilizing the **Enigmatic '82** (Dumble Overdrive Special) within **UADx Para
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Paradise Guitar Studio (Enigmatic '82) — the amp & cab
 
@@ -118,6 +107,16 @@ The heart of the singing lead voice. Set to the **Silver** voice to provide high
 | Room Level | **35%** | Introduces natural cabinet room reflections and air, taming the "clinical precision" of the model. |
 
 ---
+
+#### 2. Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx LA-2A Silver Compressor — peak leveling
 

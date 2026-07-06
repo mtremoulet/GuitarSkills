@@ -7,7 +7,7 @@ pickup_type: universal
 preset_name: "Dream 65 Warm Clean"
 status: initial
 tags: "blackface, clean, warm, jazz, dream-65, ev12, universal"
-target: "Warm, high-headroom clean tone with rolled-off treble and the linear, neutral EV12 cabinet"
+target: 'Warm, high-headroom clean tone with rolled-off treble and the linear, neutral EV12 cabinet'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -54,20 +54,10 @@ Unlike the classic scooped, sparkly Fender Blackface sound, this preset configur
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Dream '65 Reverb Amp — character source
 
+#### Amp Settings
 | Control | Clock Setting | Value (0-10) | Purpose |
 |---------|---------------|--------------|---------|
 | **Volume** | 10:00 | 2.5 | Kept low for maximum clean preamp headroom |
@@ -81,6 +71,16 @@ Unlike the classic scooped, sparkly Fender Blackface sound, this preset configur
 | **ALT** | Center (AMP) | Off | Standard knob controls active |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx LA-2A Silver Compressor — optical dynamics
 

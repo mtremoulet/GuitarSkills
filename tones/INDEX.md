@@ -57,8 +57,8 @@
 | Dream '65 — SRV Texas Growl | single-coil | Squier Stratocaster (neck or neck/middle positions) | [single-coils/dream-65-srv-texas-growl.md](single-coils/dream-65-srv-texas-growl.md) | initial |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |
 | Puretone Bossa Fingerstyle — Single-Coils | single-coil | Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle) | [single-coils/puretone-bossa-fingerstyle-sc.md](single-coils/puretone-bossa-fingerstyle-sc.md) | initial |
-| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — \\\"quack\\\") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
-| Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — \\"quack\\") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
+| Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — "quack") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
+| Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — "quack") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
 | Soejima Neo-Soul Clean — Single-Coil | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/soejima-neo-soul-sc.md](single-coils/soejima-neo-soul-sc.md) | initial |
 | Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
 | Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | initial |

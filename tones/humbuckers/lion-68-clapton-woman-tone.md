@@ -4,7 +4,7 @@ preset_name: "Lion '68 Clapton Woman Tone"
 created: "2026-06-28"
 updated: "2026-06-28"
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II (Neck Humbucker, Vol 10, Tone 0)"
-target: "Iconic 1967–1968 Eric Clapton Cream 'Woman Tone' using cranked Marshall Plexi saturation, EP-3 preamp boost, 1176 sustain glue, and rolled-off guitar tone control."
+target: 'Iconic 1967–1968 Eric Clapton Cream ''Woman Tone'' using cranked Marshall Plexi saturation, EP-3 preamp boost, 1176 sustain glue, and rolled-off guitar tone control.'
 tags: "clapton, cream, woman-tone, humbucker, plexi, marshall, lion-68, paradise-studio, uad_paradise"
 tone-king-channel: bypassed
 amp: "Lion '68 (UADx)"
@@ -73,8 +73,27 @@ To achieve the Woman Tone, the physical guitar setup is **non-negotiable**:
 
 ---
 
-### 2. Pre-FX Menu Options (Front-End Boosts)
+### 2. UADx Lion '68 Super Lead — character source
 
+#### Amp & Cabinet Settings
+(UADx Lion '68 Super Lead)
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Amp Model | **Lion '68 (LEAD)** | 100W Super Lead Plexi model |
+| Input Routing | **HIGH** | High-sensitivity input for maximum saturation |
+| Volume 1 (Bright) | **8.0** | **Pushed to 8.0:** Drives virtual power tubes into thick, singing saturation |
+| Volume 2 (Normal) | **6.0** | **Pushed to 6.0:** Blends in deep low-end body and sustain |
+| Treble | **6.0** | High-frequency tone stack contour |
+| Middle | **7.5** | **Pushed to 7.5:** Provides dense vocal midrange weight |
+| Bass | **5.0** | Keeps low end tight and controlled |
+| Presence | **6.0** | Adds power-amp brilliance to balance the zeroed guitar tone knob |
+| Cabinet | **4×12 Stripped On-Axis** | Celestion Greenbacks mic'd with Ribbon 160 + Dynamic 57 blend |
+| Room Level | **25%** (`2.5`) | Integrated room acoustic reflections; provides natural spatial air without external reverbs |
+
+---
+
+#### Pre-FX Option: Gold Overdrive & EP-3 Boost
 We configure two classic pre-amp drive options in the Pre-FX slots so you can toggle between them:
 
 | Control | Setting | Default State | Purpose & Aesthetic Profile |
@@ -85,6 +104,7 @@ We configure two classic pre-amp drive options in the Pre-FX slots so you can to
 *Note: For authentic Cream tone, keep EP-3 Boost ON and Gold Overdrive OFF.*
 
 ---
+
 
 ### 3. Amp & Cabinet Pane (UADx Lion '68 Super Lead)
 

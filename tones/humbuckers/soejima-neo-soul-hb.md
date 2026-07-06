@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "Soejima Neo-Soul HB"
 status: initial
 tags: "neo-soul, clean, warm, compressed, chorus, delay, reverb, humbucker, dream-65"
-target: "Toshiki Soejima-style warm, articulate neo-soul clean tone for humbuckers using a low-gain Vemuram Jan Ray boost, Dream '65, and LA-2A."
+target: 'Toshiki Soejima-style warm, articulate neo-soul clean tone for humbuckers using a low-gain Vemuram Jan Ray boost, Dream ''65, and LA-2A.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -55,27 +55,20 @@ To address this, the architecture uses a low-gain **Vemuram Jan Ray** capture in
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. IK Multimedia TONEX — pre-amp drive
 *   **Status:** **ON**
 *   **Capture**: `DPE JAN RAY - G1` (Vemuram Jan Ray - low gain)
 *   **Role**: Always-on transparent boost, kept low to prevent humbuckers from clipping the amp.
 
----
+
+
 
 ### 3. UADx Dream '65 Reverb Amp — clean foundation
+
 *   **Status:** **ON**
+
+#### Amp Settings
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -88,6 +81,16 @@ To address this, the architecture uses a low-gain **Vemuram Jan Ray** capture in
 | Cab | **JBF120** | 1968 Twin Reverb 2x12 cabinet for bright, pristine note definition |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 4. UADx LA-2A Silver Compressor — dynamic leveling
 *   **Status:** **ON**

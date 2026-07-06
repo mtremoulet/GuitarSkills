@@ -4,7 +4,7 @@ preset_name: "Two-Rock Singing Blues P90"
 created: "2026-06-18"
 updated: "2026-06-29"
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
-target: "A singing, touch-sensitive Mayer-style blues tone with a compressed clean foundation, subtle edge-of-breakup, and lush spatial delay/reverb."
+target: 'A singing, touch-sensitive Mayer-style blues tone with a compressed clean foundation, subtle edge-of-breakup, and lush spatial delay/reverb.'
 tags: "boutique, clean, blues, singing, compression, two-rock, p-90, framus, delay, reverb"
 tone-king-channel: bypassed
 amp: "Two-Rock Bloomfield (MixWave)"

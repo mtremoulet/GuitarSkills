@@ -3,7 +3,7 @@ id: "paradise-pedal-platform-hb"
 created: "2026-05-04"
 updated: 2026-06-28
 guitar: Gibson Les Paul Studio / Epiphone Sheraton
-target: "Humbucker-optimized high-headroom \"pedal platform\" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups."
+target: 'Humbucker-optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups.'
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker"
 amp: "Enigmatic '82 (UADx)"
 status: initial
@@ -41,7 +41,18 @@ Optimized for the thicker, warmer output of humbuckers. The **Enigmatic '82** (D
 | Presence | 6.0 | Top-end "air" and string definition |
 | Master | 7.0 | High output for a "big" feel |
 
-**Pre-FX / Pre-Amp Stompbox Option**
+
+### 2. Cabinet & Room — Space
+| Component | Setting | Purpose |
+|-----------|---------|---------|
+| Cabinet | 1x12 EV12 | Flat, wide-range response |
+| Room | Studio A | Small, controlled space |
+| Room Mix | 12% | Subtly less mix to keep the humbucker focus tight |
+
+#### Amp Settings
+
+
+#### Pre-FX Option: Gold Overdrive
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -50,13 +61,6 @@ Optimized for the thicker, warmer output of humbuckers. The **Enigmatic '82** (D
 | Gain | **0.0** | Zero added distortion; pure clean boost |
 | Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
 | Treble | **4.5** | Slightly rounded high end for smooth boost response |
-
-### 2. Cabinet & Room — Space
-| Component | Setting | Purpose |
-|-----------|---------|---------|
-| Cabinet | 1x12 EV12 | Flat, wide-range response |
-| Room | Studio A | Small, controlled space |
-| Room Mix | 12% | Subtly less mix to keep the humbucker focus tight |
 
 ### 3. Pre-FX Pedal Menu (Humbucker Voiced)
 *Turn only **ONE** on at a time.*

@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "THR Warm Neo Soul"
 status: initial
 tags: "neo-soul, clean, warm, chorus, echo, thr10ii, single-coil"
-target: "A warm, compressed neo-soul clean tone for the Yamaha THR10ii with gentle chorus and slapback tape echo."
+target: 'A warm, compressed neo-soul clean tone for the Yamaha THR10ii with gentle chorus and slapback tape echo.'
 tone-king-channel: bypassed
 updated: 2026-05-29
 preset_data:

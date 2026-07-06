@@ -4,7 +4,7 @@ preset_name: "Bill Withers 70s Soul Rhythm"
 created: "2026-06-28"
 updated: "2026-06-28"
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II (Neck or Neck+Bridge blend)"
-target: "Warm, percussive 1970s soul and funk rhythm guitar tone ('Use Me', 'Lean On Me') featuring organic Tweed/Blackface warmth, smooth optical compression, and tight rhythmic definition."
+target: 'Warm, percussive 1970s soul and funk rhythm guitar tone (''Use Me'', ''Lean On Me'') featuring organic Tweed/Blackface warmth, smooth optical compression, and tight rhythmic definition.'
 tags: "bill-withers, soul, funk, rhythm, humbucker, les-paul, sheraton, 70s, uad_paradise"
 tone-king-channel: bypassed
 amp: "Woodrow '55 (UADx)"
@@ -53,9 +53,7 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 
 ### 2. UADx Paradise Guitar Studio / Woodrow '55 — Tweed soul foundation
 
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
+#### Amp Settings
 |---------|---------|---------|
 | Pedal | **Gold Overdrive** | Transparent clean boost on hand |
 | State | **Disabled** (Off) | Bypass by default; engage for solo lift |
@@ -75,6 +73,10 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 | Room Level | **10%** | Subtle room air |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
 
 ### 3. UADx LA-2A Silver Compressor — organic optical glue
 

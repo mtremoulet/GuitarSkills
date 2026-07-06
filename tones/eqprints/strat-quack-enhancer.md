@@ -4,7 +4,7 @@ title: "Glassy Strat Quack"
 pedal: "Toneshaper 3000"
 pickup_type: single-coil
 guitar: "Squier Stratocaster (bridge + middle position)"
-target: "Accentuates the glassy, out-of-phase 'quack' and chime of Stratocaster positions 2 and 4."
+target: 'Accentuates the glassy, out-of-phase ''quack'' and chime of Stratocaster positions 2 and 4.'
 tags: "chime, clean, scoop, glassy, single-coil"
 pedal_placement: "post-amp"
 bands:

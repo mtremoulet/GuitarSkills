@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "Dream 65 Blackface Sparkle SC"
 status: refined
 tags: "blackface, country, surf, sparkle, telecaster, single-coil, dream-65, spring-reverb"
-target: "Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream '65 Deluxe Reverb"
+target: 'Classic Blackface sparkle and country spank — chicken-picking, surf, 60s soul/R&B, and yacht rock shimmer through the Dream ''65 Deluxe Reverb'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -50,20 +50,10 @@ The D-Tex mod circuit adds harmonic richness that keeps the Blackface sparkle mu
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Dream '65 Reverb Amp — character source
 
+#### Amp Settings
 The Dream '65 is a low-headroom amp — the sweet spot for this tone is Vol 2.5–3. Light touch stays clean; harder attack gets a small bloom of harmonic color.
 
 | Control | Setting | Purpose |
@@ -82,6 +72,16 @@ The Dream '65 is a low-headroom amp — the sweet spot for this tone is Vol 2.5�
 **Cab and mic selection:** Start with the 1x12 internal option. 
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx LA-2A Silver Compressor — dynamics control
 

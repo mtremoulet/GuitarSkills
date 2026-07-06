@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "The Electronic Veil ACWX"
 status: initial
 tags: "jazz, telecaster, dark, warm, bickert, flatwounds, neural-dsp, cory-wong"
-target: "Ed Bickert 'Electronic Veil' in ACWX — extremely dark, warm, and intimate jazz clean with severe high-cut and transient blunting."
+target: 'Ed Bickert ''Electronic Veil'' in ACWX — extremely dark, warm, and intimate jazz clean with severe high-cut and transient blunting.'
 tone-king-channel: bypassed
 updated: 2026-07-02
 preset_data:

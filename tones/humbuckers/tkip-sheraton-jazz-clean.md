@@ -4,7 +4,7 @@ preset_name: "TKIP Sheraton Jazz Clean"
 created: 2026-06-06
 updated: 2026-06-06
 guitar: "Epiphone Sheraton II"
-target: "A warm, dark, woody jazz tone with suppressed transients and a rolled-off high end."
+target: 'A warm, dark, woody jazz tone with suppressed transients and a rolled-off high end.'
 tags: "jazz, clean, humbucker, warm, dark, mellow"
 tone-king-channel: rhythm
 amp: "Tone King Imperial Preamp (Hardware)"

@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "Ten Piece Bell P90"
 status: initial
 tags: "solid-state, decade, clean, chime, lo-fi, p-90, bright"
-target: "A glassy, clean, and articulate tone modeled on the Peavey Decade's clean channel, optimized for snappy P-90 transients."
+target: 'A glassy, clean, and articulate tone modeled on the Peavey Decade''s clean channel, optimized for snappy P-90 transients.'
 tone-king-channel: bypassed
 updated: 2026-06-26
 preset_data:

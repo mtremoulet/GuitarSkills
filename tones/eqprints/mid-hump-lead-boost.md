@@ -4,7 +4,7 @@ title: "Mid-Hump Lead Boost"
 pedal: "Toneshaper 3000"
 pickup_type: humbucker
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II"
-target: "Recreates the classic mid-focused hump of a TS-style overdrive to push solos to the front of a mix."
+target: 'Recreates the classic mid-focused hump of a TS-style overdrive to push solos to the front of a mix.'
 tags: "lead, boost, mid-hump, drive, universal"
 pedal_placement: "pre-amp"
 bands:

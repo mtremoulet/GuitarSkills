@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "Dire Straits Sultans Clean ACWX"
 status: initial
 tags: "dire-straits, single-coil, stratocaster, clean, fingerstyle, rock, knopfler, neural-dsp, cory-wong"
-target: "Mark Knopfler 1978 fingerstyle clean quack in ACWX — highly compressed, bright, and articulate standalone tone for single-coils."
+target: 'Mark Knopfler 1978 fingerstyle clean quack in ACWX — highly compressed, bright, and articulate standalone tone for single-coils.'
 tone-king-channel: bypassed
 updated: 2026-07-02
 preset_data:

@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "Two-Rock Bloomfield Boutique Clean HB"
 status: tested
 tags: "boutique, clean, warm, les-paul, humbucker, two-rock, jazz-blues, neo-soul, bloomfield"
-target: "High-end boutique clean through the Two Rock Bloomfield Drive — late-night blues, sophisticated jazz-blues, and neo-soul warmth; hi-fi and polished where Fender is glassy and Marshall is aggressive"
+target: 'High-end boutique clean through the Two Rock Bloomfield Drive — late-night blues, sophisticated jazz-blues, and neo-soul warmth; hi-fi and polished where Fender is glassy and Marshall is aggressive'
 tone-king-channel: bypassed
 updated: 2026-05-16
 preset_data:

@@ -6,7 +6,7 @@ id: lion-68-jumped-plexi-crunch
 pickup_type: humbucker
 status: tested
 tags: "plexi, british, crunch, classic-rock, les-paul, humbucker, zeppelin, lion-68,"
-target: "\\"The Plexi \\\"jumped channel\\\" sweet crunch \u2014 Zeppelin, Cream, and mid-period\"
+target: '"The Plexi "jumped channel" sweet crunch \u2014 Zeppelin, Cream, and mid-period\'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -57,20 +57,10 @@ The key technique is **channel jumping** — connecting both channel inputs toge
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Lion '68 Super Lead Amp — Plexi crunch
 
+#### Amp Settings
 The Lion '68 is a non-master-volume amp — the Volume knobs are where the character lives. Below 5, the amp is clean but rich. At 6–7, the crunch sweet spot appears.
 
 **Channel jumping:** Set both Vol I and Vol II above 0 simultaneously. This activates the jumped configuration — the two channels interact to create a tone fuller than either alone. In the original hardware, you achieve this with a patch cable between the channels; the plugin implements it by running both volumes together.
@@ -93,6 +83,16 @@ The Lion '68 is a non-master-volume amp — the Volume knobs are where the chara
 | Output Trim | +10.0 dB | Makeup gain to restore −12 dBFS after amp model |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx 1176 Rev A (Bluestripe) — FET character compression
 

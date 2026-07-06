@@ -8,7 +8,7 @@ pickup_type: p-90
 preset_name: "Lion '68 — Royal Velvet Jazz P90"
 status: tested
 tags: "jazz, clean, warm, plexi, framus, p-90, lion-68, marshall, dumble"
-target: "Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room."
+target: 'Warm, woody Marshall Plexi high-headroom jazz clean optimized for P-90 detail, touch-sensitive Dumble-style pre-compression, and a vintage chamber room.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -85,21 +85,11 @@ To optimize this for the Framus Earl Slick Artist Series and its DiMarzio P-90s:
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. IK Multimedia TONEX (Plugin) — Dumble-style pre-compression
 Placed as the first insert on the Logic channel to shape the direct tube signal.
 
+#### Amp Settings
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Capture | **SSS SRV AlmostClean** | Vertex Steel String Supreme; Dumble-style glassiness and body |
@@ -112,9 +102,12 @@ Placed as the first insert on the Logic channel to shape the direct tube signal.
 
 ---
 
+
 ### 3. UADx Paradise Guitar Studio: Lion '68 — high-headroom platform
 
 We load the Lion '68 within the Paradise Guitar Studio environment and select the Bass amp variant.
+
+#### Amp Settings
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -134,6 +127,16 @@ We load the Lion '68 within the Paradise Guitar Studio environment and select th
 | Noise Gate | **12.0** | Light gate engaged to quiet idle single-coil hum |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 4. Logic Channel EQ — surgical shaping & "High-Cut Veil"
 Placed inline on the channel insert to remove muddy sub-lows and round off modern digital fizz.

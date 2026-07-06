@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "THR Velvet Humbucker Jazz"
 status: initial
 tags: "jazz, clean, warm, plate, compressor, humbucker, semihollow, thr10ii"
-target: "A warm, woody, and mellow jazz clean tone for the semihollow Sheraton's neck humbucker."
+target: 'A warm, woody, and mellow jazz clean tone for the semihollow Sheraton''s neck humbucker.'
 tone-king-channel: bypassed
 updated: 2026-06-09
 preset_data:

@@ -4,7 +4,7 @@ title: "Warm Jazz Bickert Veil"
 pedal: "Toneshaper 3000"
 pickup_type: single-coil
 guitar: "Fender Player II Telecaster (neck pickup)"
-target: "Transforms a Telecaster neck single-coil into a warm, smoky, Ed Bickert-style jazz box sound."
+target: 'Transforms a Telecaster neck single-coil into a warm, smoky, Ed Bickert-style jazz box sound.'
 tags: "jazz, clean, warm, dark, single-coil"
 pedal_placement: "pre-amp"
 bands:

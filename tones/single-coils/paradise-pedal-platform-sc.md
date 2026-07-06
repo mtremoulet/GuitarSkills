@@ -3,7 +3,7 @@ id: "paradise-pedal-platform-sc"
 created: "2026-05-04"
 updated: 2026-06-28
 guitar: Fender Player II Telecaster / Squier Stratocaster
-target: "Single-coil optimized high-headroom \"pedal platform\" using Paradise Guitar Studio; Silver voice with fuller low-mid response."
+target: 'Single-coil optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice with fuller low-mid response.'
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, single-coil"
 amp: "Enigmatic '82 (UADx)"
 status: initial
@@ -41,7 +41,18 @@ Optimized for the chime and lower output of single-coils. The **Enigmatic '82** 
 | Presence | 5.0 | Balanced |
 | Master | 7.5 | Pushed slightly more for power |
 
-**Pre-FX / Pre-Amp Stompbox Option**
+
+### 2. Cabinet & Room — Space
+| Component | Setting | Purpose |
+|-----------|---------|---------|
+| Cabinet | 1x12 EV12 | Flat, wide-range response |
+| Room | Studio A | Small, controlled space |
+| Room Mix | 18% | Slightly more mix for single-coil "bloom" |
+
+#### Amp Settings
+
+
+#### Pre-FX Option: Gold Overdrive
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -50,13 +61,6 @@ Optimized for the chime and lower output of single-coils. The **Enigmatic '82** 
 | Gain | **0.0** | Zero added distortion; pure clean boost |
 | Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
 | Treble | **4.5** | Slightly rounded high end for smooth boost response |
-
-### 2. Cabinet & Room — Space
-| Component | Setting | Purpose |
-|-----------|---------|---------|
-| Cabinet | 1x12 EV12 | Flat, wide-range response |
-| Room | Studio A | Small, controlled space |
-| Room Mix | 18% | Slightly more mix for single-coil "bloom" |
 
 ### 3. Pre-FX Pedal Menu (Single-Coil Voiced)
 *Turn only **ONE** on at a time.*

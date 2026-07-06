@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "Soejima Neo-Soul P90"
 status: initial
 tags: "neo-soul, clean, warm, compressed, chorus, delay, reverb, p-90, dream-65"
-target: "Toshiki Soejima-style warm, articulate neo-soul clean tone for P-90 pickups. Matches his primary tone profile, combining a Vemuram Jan Ray boost, clean Dream '65, and moderate LA-2A Silver compression."
+target: 'Toshiki Soejima-style warm, articulate neo-soul clean tone for P-90 pickups. Matches his primary tone profile, combining a Vemuram Jan Ray boost, clean Dream ''65, and moderate LA-2A Silver compression.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -55,27 +55,20 @@ The P-90 hits the front-end of the transparent **Vemuram Jan Ray** capture in TO
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. IK Multimedia TONEX — pre-amp drive
 *   **Status:** **ON**
 *   **Capture**: `DPE JAN RAY - G1` (Vemuram Jan Ray - low gain)
 *   **Role**: Always-on transparent boost that highlights the woody organic growl of P-90s under a hard pick attack.
 
----
+
+
 
 ### 3. UADx Dream '65 Reverb Amp — clean foundation
+
 *   **Status:** **ON**
+
+#### Amp Settings
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -88,6 +81,16 @@ The P-90 hits the front-end of the transparent **Vemuram Jan Ray** capture in TO
 | Cab | **Boutique D65** | Two-Rock 2x12 cabinet with G12-65s for woody midrange and smooth HF roll-off |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 4. UADx LA-2A Silver Compressor — transient control
 *   **Status:** **ON**

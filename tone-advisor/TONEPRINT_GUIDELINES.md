@@ -133,12 +133,15 @@ Every toneprint MUST include the following metadata in its YAML frontmatter to s
 - **`preset_data`**: A structured, machine-readable YAML block serving as the single source of truth for the automated preset compilers. If this block is missing or incomplete, compilers will fall back to their regex engines to extract parameters from the Markdown body.
 
 Schema structure under `preset_data`:
-* `amp_platform`: Platforms include `uad_paradise`, `neural_dsp`, or `mixwave`.
+* `amp_platform`: Platforms include `uad_paradise`, `neural_dsp`, `mixwave`, or Nembrini platforms (`nembrini_jc120`, `nembrini_mrh810`, `nembrini_div11`, `nembrini_puretone`, `nembrini_acoustic_voice`).
 * `amp_settings`: Key-value control mappings corresponding to the platform's specific amp model controls.
 * `la2a`: Custom settings for UADx Teletronix LA-2A (keys: `peak_reduction`, `gain`, `compress`).
 * `hitsville`: Custom settings for UADx Hitsville Reverb (keys: `mix`, `pre_delay`, `decay`).
 * `logic_eq`: Logic native Channel EQ bands (keys: `band1` to `band8`, each specifying `on`, `freq`, `gain` or `slope`, and optionally `q` for bands 2–7).
 * `logic_compressor`: Logic native Compressor controls (keys: `threshold`, `ratio`, `attack`, `release`, `makeup_gain`, `knee`).
+* `kuassa_blues_barker`: Custom settings for Kuassa Efektor Blues Barker (keys: `gain`, `tone`, `level`, `type`).
+* `kuassa_blues_river`: Custom settings for Kuassa Efektor Blues River (keys: `gain`, `tone`, `level`, `type`).
+* `clon_minotaur` / `gold_overdrive`: Custom settings for Nembrini Clon Minotaur Klon emulation (keys: `gain`, `tone`, `level`).
 
 ### Signal Chain Format
 Always present the chain in order:

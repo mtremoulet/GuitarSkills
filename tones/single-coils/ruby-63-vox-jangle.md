@@ -1,13 +1,13 @@
 ---
 amp: "Ruby '63 (UADx)"
 created: 2026-05-08
-guitar: "Squier Stratocaster (bridge + middle pickup position — \\\"quack\\\")"
+guitar: 'Squier Stratocaster (bridge + middle pickup position — "quack")'
 id: ruby-63-vox-jangle
 pickup_type: single-coil
 preset_name: "Ruby 63 Vox Jangle SC"
 status: initial
 tags: "vox, jangle, british-invasion, folk-rock, strat, single-coil, ruby-63, ac30, chime"
-target: "AC30 Top Boost chime and jangle — British Invasion, Byrds folk-rock, Tom Petty, and R.E.M. shimmer; the most tonally distinctive amp voicing in the UADx collection"
+target: 'AC30 Top Boost chime and jangle — British Invasion, Byrds folk-rock, Tom Petty, and R.E.M. shimmer; the most tonally distinctive amp voicing in the UADx collection'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -50,20 +50,10 @@ The Strat in its bridge + middle "quack" position adds the upper-mid sparkle and
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Ruby '63 Top Boost Amp — chime source
 
+#### Amp Settings
 The Ruby '63 has three independent channels: VIB-TREM (tremolo), NORMAL, and BRILLIANT. The **BRILLIANT** channel is the one with the Top Boost EQ (Treble + Bass controls) and the definitive AC30 voice. Low headroom — this amp compresses and blooms at moderate volume levels.
 
 | Control | Setting | Purpose |
@@ -77,6 +67,16 @@ The Ruby '63 has three independent channels: VIB-TREM (tremolo), NORMAL, and BRI
 **Cab note:** The Ruby '63 cab options range from the original AC30 Celestion Blue 2x12 (full, warm chime) to brighter, more modern-voiced options. Start with the Celestion Blue configuration — that's the British Invasion reference. If the chime is too pronounced, try a more neutral option.
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx Galaxy Tape Echo — space and texture
 

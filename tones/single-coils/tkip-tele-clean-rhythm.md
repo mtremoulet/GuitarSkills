@@ -4,7 +4,7 @@ preset_name: "TKIP Tele Clean Rhythm"
 created: 2026-06-06
 updated: 2026-06-06
 guitar: "Fender Player II Telecaster"
-target: "An ultra-clean, transparent, high-headroom rhythm tone with sweet, warm optical compression."
+target: 'An ultra-clean, transparent, high-headroom rhythm tone with sweet, warm optical compression.'
 tags: "country, clean, rhythm, single-coil, telecaster, transparent"
 tone-king-channel: rhythm
 amp: "Tone King Imperial Preamp (Hardware)"

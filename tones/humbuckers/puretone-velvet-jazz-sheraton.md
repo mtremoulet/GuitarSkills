@@ -4,7 +4,7 @@ preset_name: "Puretone Velvet Jazz Sheraton"
 created: "2026-06-02"
 updated: "2026-06-02"
 guitar: "Epiphone Sheraton II (neck humbucker, flatwounds)"
-target: "Warm, ultra-clear hi-fi jazz clean using the Hughes & Kettner Puretone platform — smooth note definition, organic woody resonance, and flatwound warmth with pristine note separation."
+target: 'Warm, ultra-clear hi-fi jazz clean using the Hughes & Kettner Puretone platform — smooth note definition, organic woody resonance, and flatwound warmth with pristine note separation.'
 tags: "boutique, clean, warm, humbucker, flatwounds, puretone, jazz, bossa"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"

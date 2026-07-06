@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "HB Warm Edge"
 status: tested
 tags: "clean, edge-of-breakup, warm, les-paul, sheraton, humbucker, neural-dsp, cory-wong, amp-snob"
-target: "Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for dual-humbucker guitars like the Epiphone Les Paul and Sheraton."
+target: 'Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for dual-humbucker guitars like the Epiphone Les Paul and Sheraton.'
 tone-king-channel: bypassed
 updated: 2026-06-07
 preset_data:

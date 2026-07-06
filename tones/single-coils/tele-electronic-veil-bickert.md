@@ -6,7 +6,7 @@ id: tele-electronic-veil-bickert
 pickup_type: single-coil
 status: tested
 tags: "jazz, telecaster, dark, warm, bickert, flatwounds"
-target: "\\"Ed Bickert \\\"Electronic Veil\\\" \u2014 Extremely dark, warm, and intimate.\"
+target: '"Ed Bickert "Electronic Veil" \u2014 Extremely dark, warm, and intimate.\'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -59,18 +59,10 @@ Character differs between the two (see Feedback History), but both are usable wi
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx Showtime '64 Tube Amp — clean platform
 
+#### Amp Settings
 Chosen for its extreme headroom and neutral character. Unlike a Deluxe Reverb, it doesn't impose a mid-scoop, allowing the "woodiness" of the neck pickup to stay forward.
 
 | Control | Setting | Purpose |
@@ -87,6 +79,16 @@ Chosen for its extreme headroom and neutral character. Unlike a Deluxe Reverb, i
 | Noise Gate | Off | Gate masks the buzz symptom without fixing it; source noise resolved at TKIP/interface instead |
 | Input Trim | 0 dB | |
 | Output Trim | +12 dB | Compensates for quiet signal into Showtime |
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. Logic Channel EQ — surgical shaping
 

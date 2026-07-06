@@ -4,7 +4,7 @@ preset_name: "Ruby LP Velvet Blues HB"
 created: "2026-06-01"
 updated: 2026-06-28
 guitar: "Gibson Les Paul Studio / Epiphone Les Paul Standard"
-target: "Warm, vocal Class A overdrive with smooth tape compression; optimized for expressive humbucker blues-rock leads."
+target: 'Warm, vocal Class A overdrive with smooth tape compression; optimized for expressive humbucker blues-rock leads.'
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, overdrive, blues, blues-rock, velvet"
 tone-king-channel: "bypassed"
 amp: "Ruby '63 (UADx)"
@@ -81,20 +81,10 @@ To get the pure, dynamic midrange interaction of your humbuckers and the AC30, p
 | **Tone King Imperial** | **Bypassed** | Preserves the natural humbucker midrange rather than pre-scooping it |
 | **TONEX One** | **Bypassed** | Bypassed — transparent signal path starting at the interface DI |
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. UADx LA-2A Gray Compressor — dynamic smoothing
 
+#### Amp Settings
 Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly slower, smoother recovery response that is perfect for sustaining humbucker instruments.
 
 | Control | Setting | Purpose |
@@ -104,6 +94,16 @@ Placed before the amp to tame humbucker transients and add singing sustain. The 
 | Gain | 40 | Makeup gain to restore unity level into the amp plugin |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx Ruby '63 Brilliant Channel — chime & velvet overdrive
 

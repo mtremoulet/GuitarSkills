@@ -4,7 +4,7 @@ preset_name: "Puretone Velvet Humbucker Clean"
 created: "2026-06-27"
 updated: "2026-06-27"
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers)"
-target: "Lush, ultra-clear hi-fi humbucker clean with integrated 150ms slap echo, transient softening, and an optional Klon-style clean boost for polished studio clarity."
+target: 'Lush, ultra-clear hi-fi humbucker clean with integrated 150ms slap echo, transient softening, and an optional Klon-style clean boost for polished studio clarity.'
 tags: "boutique, clean, warm, humbucker, puretone, delay, slapback, clon, transient-softener"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"

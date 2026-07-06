@@ -6,7 +6,7 @@ id: strat-ambient-bath
 pickup_type: single-coil
 status: initial
 tags: "ambient, lush, sound-bath, strat, clean, delay, reverb, modulation"
-target: "Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and"
+target: 'Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -74,16 +74,7 @@ Best played with the Neck pickup (Pos 5) or Neck/Middle (Pos 4) with the guitar'
 
 ---
 
-#**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
-
+#
 ### 2. Showtime '64 — Transparent Clean Platform
 
 | Control | Setting | Purpose |
@@ -132,6 +123,16 @@ Best played with the Neck pickup (Pos 5) or Neck/Middle (Pos 4) with the guitar'
 | Density | 100% | Maximum smoothness |
 
 ---
+
+#### 6. Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### Send from Guitar Track → Bus 4 (Capitol Chambers): −12 dB
 

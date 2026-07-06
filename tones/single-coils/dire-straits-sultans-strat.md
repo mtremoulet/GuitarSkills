@@ -4,7 +4,7 @@ preset_name: "Dire Straits Sultans Strat"
 created: "2026-06-28"
 updated: "2026-06-28"
 guitar: "Fender Player II Telecaster / Squier Stratocaster (Middle + Bridge or Neck + Middle position — 'quack')"
-target: "Pristine 1978 Mark Knopfler fingerstyle clean quack on single-coils ('Sultans of Swing'), with dynamic peak leveling and articulate high-end response."
+target: 'Pristine 1978 Mark Knopfler fingerstyle clean quack on single-coils (''Sultans of Swing''), with dynamic peak leveling and articulate high-end response.'
 tags: "dire-straits, single-coil, stratocaster, clean, fingerstyle, rock, knopfler, uad_paradise"
 tone-king-channel: bypassed
 amp: "Dream '65 (UADx)"
@@ -54,9 +54,7 @@ Running into high-headroom Fender Blackface circuitry (emulated by the **UADx Dr
 
 ### 2. UADx Paradise Guitar Studio / Dream '65 — pristine clean platform
 
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
+#### Amp Settings
 |---------|---------|---------|
 | Pedal | **Gold Overdrive** | Transparent clean boost on hand |
 | State | **Disabled** (Off) | Bypass by default; engage for solo lift |
@@ -77,6 +75,10 @@ Running into high-headroom Fender Blackface circuitry (emulated by the **UADx Dr
 | Room Level | **10%** | Subtle room air to blend mics |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
 
 ### 3. UADx LA-2A Silver Compressor — peak leveling for fingerstyle
 

@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "Soejima Neo-Soul Clean ACWX"
 status: initial
 tags: "neo-soul, clean, warm, compressed, chorus, delay, reverb, single-coil, neural-dsp, cory-wong"
-target: "Toshiki Soejima-style warm, compressed, and articulate neo-soul clean tone for single-coils using a simulated Jan Ray boost, Clean Machine, compression, chorus, delay, and reverb in ACWX."
+target: 'Toshiki Soejima-style warm, compressed, and articulate neo-soul clean tone for single-coils using a simulated Jan Ray boost, Clean Machine, compression, chorus, delay, and reverb in ACWX.'
 tone-king-channel: bypassed
 updated: 2026-07-02
 preset_data:

@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "P90 Warm Edge"
 status: tested
 tags: "clean, edge-of-breakup, warm, framus, p-90, revelation, neural-dsp, cory-wong, amp-snob"
-target: "Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series and Revelation RFT DLX."
+target: 'Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series and Revelation RFT DLX.'
 tone-king-channel: bypassed
 updated: 2026-06-07
 preset_data:

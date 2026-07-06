@@ -7,7 +7,7 @@ pickup_type: single-coil
 preset_name: "Woodrow Sweet Spot SC"
 status: tested
 tags: "tweed, woodrow, blues, classic-rock, strat, compressed, mid-forward"
-target: "The \\\"Sweet Spot\\\" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and \\\"hairing up\\\" beautifully when you dig in."
+target: 'The "Sweet Spot" — vocal, mid-forward Tweed character; clean-ish with a light touch, compressing and "hairing up" beautifully when you dig in.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -72,16 +72,7 @@ The key here is "jumping" the channels (simulating a patch cable between the Mic
 
 ---
 
-#**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
-
+#
 ### 2. Galaxy Tape Echo — Subtle Hair & Space
 
 Tweed amps and Tape Echoes are a match made in heaven. The tape saturation complements the amp's midrange.
@@ -116,6 +107,16 @@ Since the Woodrow is already compressing naturally, we use the Silver LA-2A (whi
 ---
 
 ## Feedback History
+
+#### 4. Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2026-05-02 — initial
 Designed to introduce Mike to the "Sweet Spot" of the Woodrow '55. Focuses on low-gain, jumped-channel settings paired with a Squier Strat to maximize dynamic headroom and vocal midrange. Corrected for UADx plugin interface (fixed GB25 cabinet, 0.0-10.0 Galaxy scales).

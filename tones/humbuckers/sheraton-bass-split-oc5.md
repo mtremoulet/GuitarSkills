@@ -4,7 +4,7 @@ preset_name: "Sheraton OC-5 Bass Split"
 created: 2026-06-06
 updated: 2026-06-28
 guitar: "Epiphone Sheraton II (humbuckers, neck position)"
-target: "A polyphonic octave-split signal chain replicating the Boss OC-5 pedal range setting to direct the lower two strings (E and A) to a bass path."
+target: 'A polyphonic octave-split signal chain replicating the Boss OC-5 pedal range setting to direct the lower two strings (E and A) to a bass path.'
 tags: "jazz, hybrid, octave-split, bass, humbuckers, sheraton"
 tone-king-channel: bypassed
 amp: "Dream '65 (UADx), Bass Amp Designer (Logic)"
@@ -121,17 +121,6 @@ This setup uses two physical Audio Tracks in Logic Pro routed to the same physic
 | IR | Bypassed | Essential since Logic handles cab emulations |
 | Effects | Off | — |
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. "Guitar Track" Inserts
 
@@ -163,6 +152,16 @@ This setup uses two physical Audio Tracks in Logic Pro routed to the same physic
 | Emphasis / HF | ~75% (3:00) | Rolled back slightly to prevent low-end humbucker thump from over-compressing high strings |
 
 ---
+
+#### IV. Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. "Bass Track" Inserts
 

@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "Amp Snob Boutique Clean P90"
 status: refined
 tags: "boutique, clean, warm, framus, p-90, dumble, neural-dsp, cory-wong, amp-snob"
-target: "Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus's fast swamp ash transients and singing DiMarzio P-90 midrange."
+target: 'Boutique Dumble-style ODS warmth inside Archetype Cory Wong X — adapted for the Framus''s fast swamp ash transients and singing DiMarzio P-90 midrange.'
 tone-king-channel: bypassed
 updated: 2026-06-30
 preset_overrides:

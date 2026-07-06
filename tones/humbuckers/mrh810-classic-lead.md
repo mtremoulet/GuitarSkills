@@ -6,7 +6,7 @@ id: mrh810-classic-lead
 pickup_type: humbucker
 status: tested
 tags: "lead, classic-rock, british, jcm800, moderate-gain, ballad, sustain"
-target: "\\\"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\"
+target: '"Moderate-gain JCM800 lead \u2014 singing sustain and clear articulation in\'
 tone-king-channel: rhythm/lead
 updated: 2026-05-07
 preset_data:

@@ -4,7 +4,7 @@ preset_name: "Funk Envelope"
 created: 2026-06-23
 updated: 2026-06-23
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
-target: "Percussive, dynamic funk and R&B tone featuring an active envelope filter ('The Postal Service') that triggers based on your picking velocity."
+target: 'Percussive, dynamic funk and R&B tone featuring an active envelope filter (''The Postal Service'') that triggers based on your picking velocity.'
 tags: "clean, funk, envelope-filter, r&b, p-90, framus"
 tone-king-channel: bypassed
 amp: "The Clean Machine (Archetype Cory Wong X)"

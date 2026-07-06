@@ -4,7 +4,7 @@ title: "Ambient Bath Scoop"
 pedal: "Toneshaper 3000"
 pickup_type: humbucker
 guitar: "Squier Stratocaster / Epiphone Sheraton II"
-target: "Carves out midrange frequencies to leave space for lush reverb decays while highlighting high-end shimmer."
+target: 'Carves out midrange frequencies to leave space for lush reverb decays while highlighting high-end shimmer.'
 tags: "ambient, clean, scoop, shimmer, reverb-platform"
 pedal_placement: "post-amp"
 bands:

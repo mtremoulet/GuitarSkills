@@ -4,7 +4,7 @@ preset_name: "TKIP LP 80s Rock Lead"
 created: 2026-06-06
 updated: 2026-06-06
 guitar: "Gibson Les Paul Studio"
-target: "Pushed, singing 80s rock lead with classic Marshall 4x12 girth, rich midrange, and warm analog tape delay."
+target: 'Pushed, singing 80s rock lead with classic Marshall 4x12 girth, rich midrange, and warm analog tape delay.'
 tags: "classic-rock, lead, humbucker, marshall, crunch, gain"
 tone-king-channel: lead
 amp: "Tone King Imperial Preamp (Hardware)"

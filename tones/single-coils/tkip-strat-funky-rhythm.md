@@ -4,7 +4,7 @@ preset_name: "TKIP Strat Funky Rhythm"
 created: 2026-06-06
 updated: 2026-06-06
 guitar: "Squier Stratocaster"
-target: "A bright, punchy, percussive funk rhythm tone featuring classic Stratocaster quack and fast FET compression."
+target: 'A bright, punchy, percussive funk rhythm tone featuring classic Stratocaster quack and fast FET compression.'
 tags: "funk, rhythm, single-coil, stratocaster, clean, punchy"
 tone-king-channel: rhythm
 amp: "Tone King Imperial Preamp (Hardware)"

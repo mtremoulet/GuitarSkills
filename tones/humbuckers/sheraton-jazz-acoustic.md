@@ -6,7 +6,7 @@ id: sheraton-jazz-acoustic
 pickup_type: humbucker
 status: tested
 tags: "jazz, clean, warm, acoustic-blend, semi-hollow, humbuckers"
-target: "Warm clean jazz electric tone blended with an acoustic texture from Acoustic"
+target: 'Warm clean jazz electric tone blended with an acoustic texture from Acoustic'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -140,7 +140,7 @@ No plugins. Signal router only.
 
 *Note: For Band 1 HPF, the "Gain/Slope" field controls filter steepness, not boost — 24 dB/oct gives a clean, modern roll-off.*
 
-#**Pre-FX / Pre-Amp Stompbox Option**
+#### Pre-FX Option: Gold Overdrive
 
 | Control | Setting | Purpose |
 |---------|---------|---------|

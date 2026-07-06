@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "Enigmatic Boutique Clean HB"
 status: refined
 tags: "boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82"
-target: "Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield."
+target: 'Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -60,15 +60,7 @@ This toneprint is designed for direct-in recording (bypassing the Tone King prea
 
 To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the transparent boost option on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.
 
-**Pre-FX / Pre-Amp Stompbox**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+#### Amp Settings
 
 **Switches and Gallery Configuration**
 
@@ -107,6 +99,17 @@ In Universal Audio plugins, the Cabinet and Mic combinations are a single, fixed
 | Room Level | **10%** | **CRITICAL:** Set the Room dial to **10%** (dialed back from 32% per feedback). Provides subtle organic acoustic space without washing out pick attack. |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+
 
 ### 3. UADx LA-2A Silver Compressor — organic optical glue
 

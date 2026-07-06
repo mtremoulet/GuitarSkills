@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "Woodrow Sweet Spot P90"
 status: tested
 tags: "tweed, woodrow, blues, classic-rock, framus, p-90, compressed, mid-forward"
-target: "The Tweed Deluxe \\\"Sweet Spot\\\" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw."
+target: 'The Tweed Deluxe "Sweet Spot" — optimized for P-90s: vocal, mid-forward crunch that is highly touch-sensitive, woody, and raw.'
 tone-king-channel: bypassed
 updated: 2026-06-28
 preset_data:
@@ -57,20 +57,10 @@ We pair this raw vintage head with a subtle **Galaxy Tape Echo** and a fast **LA
 *   **Status:** **Bypassed**
 *   **Signal Path:** Guitar direct into Audient iD14 Instrument Input 1 (Preamp gain set to **0** for clean, uncolored headroom; Guitar bus set to **Mono** in Logic Pro).
 
----
-
-**Pre-FX / Pre-Amp Stompbox Option**
-
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 2. Guitar Track → UADx Woodrow '55
 
+#### Amp Settings
 We jump the channels by running both Volume controls simultaneously above 0. Input is set to High (Input 1) for the primary gain stage.
 
 | Control | Setting | Purpose |
@@ -84,6 +74,16 @@ We jump the channels by running both Volume controls simultaneously above 0. Inp
 | Cabinet | **GB25** | **Fixed Cabinet**: Celestion Greenback + 57; provides classic mid-forward bark |
 
 ---
+
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
+|---------|---------|---------|
+| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
+| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Gain | **0.0** | Zero added distortion; pure clean boost |
+| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
+| Treble | **4.5** | Slightly rounded high end for smooth boost response |
 
 ### 3. UADx Galaxy Tape Echo — subtle depth
 

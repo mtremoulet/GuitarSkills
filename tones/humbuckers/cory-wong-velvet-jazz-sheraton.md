@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "Velvet Jazz Sheraton ACWX"
 status: initial
 tags: "boutique, clean, warm, humbucker, flatwounds, jazz, bossa, neural-dsp, cory-wong"
-target: "Pristine, high-fidelity jazz clean using Archetype Cory Wong X's Clean Machine — warm, articulate humbucker response with flatwound smoothness and optical leveling."
+target: 'Pristine, high-fidelity jazz clean using Archetype Cory Wong X''s Clean Machine — warm, articulate humbucker response with flatwound smoothness and optical leveling.'
 tone-king-channel: bypassed
 updated: 2026-07-02
 preset_data:

@@ -3,7 +3,7 @@ id: "mardal-dancing-moonlight"
 created: "2026-05-02"
 updated: "2026-05-16"
 guitar: Epiphone Sheraton (humbuckers)
-target: "\"Rebecca Mardal \\"Dancing in the Moonlight\\" \u2014 warm jazz clean with lush-not-ambient\"
+target: '"Rebecca Mardal "Dancing in the Moonlight" \u2014 warm jazz clean with lush-not-ambient\'
 tags: "jazz, clean, warm, lush, semi-hollow, neo-soul, neural-dsp"
 tone-king-channel: bypassed
 amp: "The Clean Machine (Archetype Cory Wong X)"

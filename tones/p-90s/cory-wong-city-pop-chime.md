@@ -4,7 +4,7 @@ preset_name: "City Pop Chime"
 created: 2026-06-23
 updated: 2026-06-23
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
-target: "Bright, tight, and highly compressed chorused clean tone for fast 16th-note rhythm work, J-Pop/City Pop, and modern neo-soul."
+target: 'Bright, tight, and highly compressed chorused clean tone for fast 16th-note rhythm work, J-Pop/City Pop, and modern neo-soul.'
 tags: "clean, chorus, compression, city-pop, neo-soul, p-90, framus"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"

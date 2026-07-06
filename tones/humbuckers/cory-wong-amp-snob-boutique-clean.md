@@ -7,7 +7,7 @@ pickup_type: humbucker
 preset_name: "Amp Snob Boutique Clean HB"
 status: tested
 tags: "boutique, clean, warm, les-paul, humbucker, dumble, neural-dsp, cory-wong, amp-snob"
-target: "Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom."
+target: 'Boutique ODS warmth inside Archetype Cory Wong X — rich, touch-sensitive clean using the Amp Snob with a pushed power-amp Master for that saturated-but-clean harmonic bloom.'
 tone-king-channel: bypassed
 updated: 2026-05-25
 preset_data:

@@ -7,7 +7,7 @@ pickup_type: p-90
 preset_name: "THR P90 Blues Drive"
 status: initial
 tags: "blues, lead, crunch, edge-of-breakup, spring, tape-echo, compressor, p90, framus, thr10ii"
-target: "A touch-sensitive, lightly broken up blues lead tone for the Framus P-90 single-coils."
+target: 'A touch-sensitive, lightly broken up blues lead tone for the Framus P-90 single-coils.'
 tone-king-channel: bypassed
 updated: 2026-06-09
 preset_data:

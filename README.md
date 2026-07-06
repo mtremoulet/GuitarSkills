@@ -38,6 +38,17 @@ Generates and archives highly structured practice sessions, daily etudes, and de
 * **Autonomous Standard Studies**: Comprehensive breakdowns of jazz standards, complete with fingerings, harmonic explanations, and history.
 * **Integrated Spotify Playlists**: Matches practice sessions with curated real-world reference recordings and play-along tracks.
 
+### 5. 🎛️ Kushview Element Session Compiler
+In addition to Logic Pro, the ecosystem supports **Kushview Element** as a lightweight, modular VST/AU plugin host. 
+* **Dynamic compilation:** A Python-based script (`scripts/compile_element_session.py`) compiles the Markdown tone profiles in `tones/` directly into fully-wired, ready-to-play `.els` session files.
+* **Smart Routing:**
+  * **UADx Wrapper:** Automatically routes UADx pedal/amp platforms to the parent **UADx Paradise Guitar Studio** plugin instead of standalone instances.
+  * **Third-Party Mappings:** Resolves and wires third-party models (Nembrini amps/pedals, IK Multimedia TONEX, Valhalla Supermassive, Kuassa overdrives) and native macOS effects (Apple AUNBandEQ, AUDynamicsProcessor).
+  * **Parallel Summing Mixer:** Programmatically inserts a summing mixer to run spatial effects (reverbs/delays) on parallel wet/dry chains, preserving dry transient punch.
+  * **Input Calibration:** Hardcodes the exact Base64 state string for the `iD14 Input Pad` set to `-3.44 dB` to guarantee input calibration.
+  * **Clean Canvas:** Auto-hides up to 300 control parameter symbols on each node to keep the modular graph clean and readable.
+  * **CPU Protection:** Configures host-level oversampling to `1` (bypassed) to prevent double-oversampling when plugins run internal high-sample-rate DSP (e.g. Kuassa running at 8x).
+
 ---
 
 ## 📂 Project Structure
@@ -55,6 +66,8 @@ GuitarSkills/
 │   └── INDEX.md            # Programmatically updated master catalog of all tones
 ├── chord-library/          # Extensible Python chord voicing library & CLI tool
 ├── scripts/                # Programmatic tab construction and verification scripts
+│   ├── compile_element_session.py # Dynamic compiler from markdown profiles to .els files
+│   └── fix_yaml_quotes.py  # Markdown frontmatter syntax sanitizer
 ├── templates/              # Standardized Markdown templates for etudes and practice plans
 ├── references/             # Chord sheets, common progressions, and ASCII notation guides
 ├── guitar-coach-library/   # Practice plans and custom daily sessions populated over time
@@ -98,5 +111,24 @@ GuitarSkills is customized around a real-world stable of physical instruments, a
 6. **Revelation RFT DLX** (Thinline, Entwistle H90 Pickups, D'Addario XS 10-46)
 7. **Framus Earl Slick Artist Series** (Matte Black, DiMarzio P90s, Rotosound Yellows 10-46)
 8. **Cort Standard AD Mini** (3/4 Dreadnought, Steel Strings)
-9. **Washburn D-12** (Sentimental Dreadnought)
-10. **1978 Fender Precision Bass** (3-Color Sunburst)
+9. Washburn D-12 (Sentimental Dreadnought)
+10. 1978 Fender Precision Bass (3-Color Sunburst)
+
+---
+
+## 📅 Project Backlog & Future Directions
+
+The following items are active priorities for future revisions and development phases:
+
+### 1. Preset Compiler Mappings
+* **UADx Capitol Chambers:** Add full control parameter mapping in the compiler (including Chamber Select, Mic Type/Position, Decay time, Pre-delay, EQ, Wet Solo).
+* **UADx UA 610-B Tube Preamp & EQ:** Map input gain, low/high shelf boosts/cuts, and output levels.
+
+### 2. Toneprint Retrofits & Refinements
+* **Kuassa Pedals:** Retrofit existing single-coil, humbucker, and P-90 profiles with the newly integrated **Efektor Blues Barker** and **Efektor Blues River** overdrive models to capture classic boutique drive flavors.
+* **Toneprint Schema Upgrades:** Review the proposed drive pedal mapping in [drive_pedal_mapping.md](file:///Users/miketremoulet/.gemini/antigravity/brain/5be0d9a2-2dca-4383-a809-89a1e6312036/drive_pedal_mapping.md) and build drive pedal configuration blocks directly into the toneprint Markdown frontmatter schemas (under `preset_data:`), updating the compiler to wire them dynamically.
+* **Volume/Gain staging audits:** Review profiles that run hot into amp blocks and refine native input/output gain structures.
+
+### 3. Fretboard Fluency & Coaching
+* Expand daily jazz standard studies and etudes using the strict playability tab verification pipeline.
+

@@ -26,7 +26,10 @@ One of the most powerful features of GuitarSkills is its zero-tolerance policy f
   ```
   Only tabs that exit with code `0` are ever presented to the player.
 
-### 3. 📐 Programmatic Chord Voicing Library
+### 3. 📐 Programmatic Chord Voicing Library (DEPRECATED)
+> [!WARNING]
+> This library is deprecated due to ongoing maintenance issues and the availability of better-suited open-source chord voicing models. The primary focus of this project is on Toneprint generation and the generated toneprints.
+
 An exhaustive Python-based chord theory library (`chord-library/`) allowing instant CLI queries of voicings, shapes, fingerings, drop-chords, and inversions.
 * Query voicings by name (e.g. `C7`, `Am9`, `Gm7b5`).
 * Analyze voice leading and interval structures programmatically to translate advanced vocal/arranging instincts onto the fretboard.
@@ -64,7 +67,7 @@ GuitarSkills/
 │   ├── humbuckers/         # Les Paul, Sheraton semi-hollow profiles
 │   ├── p-90s/              # Framus Earl Slick (DiMarzio P-90s) profiles
 │   └── INDEX.md            # Programmatically updated master catalog of all tones
-├── chord-library/          # Extensible Python chord voicing library & CLI tool
+├── chord-library/          # (DEPRECATED) Extensible Python chord voicing library & CLI tool
 ├── scripts/                # Programmatic tab construction and verification scripts
 │   ├── compile_element_session.py # Dynamic compiler from markdown profiles to .els files
 │   └── fix_yaml_quotes.py  # Markdown frontmatter syntax sanitizer

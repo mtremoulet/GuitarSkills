@@ -5,11 +5,11 @@ guitar: "Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position
 id: strat-sleepwalk-carlton
 pickup_type: single-coil
 preset_name: "Strat Sleepwalk Carlton SC"
-status: initial
+status: tested
 tags: "surf, clean, chorus, stratocaster, carlton, dumble, delay, reverb, single-coil"
 target: 'Larry Carlton ''Sleepwalk'' — Liquid, singing Stratocaster neck tone with touch-sensitive Dumble-style sustain, 3D chorus, and lush studio chamber reverb.'
 tone-king-channel: bypassed
-updated: 2026-06-28
+updated: 2026-07-20
 preset_data:
   amp_platform: uad_paradise
   gold_overdrive:
@@ -176,3 +176,6 @@ Bused to allow precise mix blending and maintain dry attack clarity.
 Designed specifically for the mid-1980s Squier Stratocaster "Partscaster" neck pickup to replicate the custom Valley Arts Strat tone Carlton utilized on the original *Sleepwalk* title track recording. Configures Paradise Guitar Studio's Enigmatic '82 in the "Silver" ODS voice with a Skyline tone stack to balance single-coil chime with a rich, vocal midrange. Incorporates Studio D chorus for liquid width, and bused slapback tape echo and Hitsville reverb chambers to complete the 3D studio landscape.
 ### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
 Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.
+### 2026-07-20 — tested on Strat (good, no notes)
+Tested on Stratocaster. Working well as configured despite Carlton's signature 335 association. No edits required; retaining current settings.
+

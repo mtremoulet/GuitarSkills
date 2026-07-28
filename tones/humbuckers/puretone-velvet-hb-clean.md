@@ -2,13 +2,13 @@
 id: "puretone-velvet-hb-clean"
 preset_name: "Puretone Velvet Humbucker Clean"
 created: "2026-06-27"
-updated: "2026-06-27"
+updated: "2026-07-06"
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers)"
-target: 'Lush, ultra-clear hi-fi humbucker clean with integrated 150ms slap echo, transient softening, and an optional Klon-style clean boost for polished studio clarity.'
+target: 'Lush, ultra-clear hi-fi humbucker clean with integrated 67ms slap echo, transient softening, and an optional Klon-style clean boost for polished studio clarity.'
 tags: "boutique, clean, warm, humbucker, puretone, delay, slapback, clon, transient-softener"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"
-status: initial
+status: refined
 pickup_type: humbucker
 preset_data:
   logic_enveloper:
@@ -45,7 +45,7 @@ preset_data:
     DelaySpread: 54.0
     DelayNote: "1/4"
     DelayHostSync: false
-    DelayTime: 150.0
+    DelayTime: 67.0
     DelayTone: 5.0
     DelayFeedback: "Off"
     ReverbPower: true
@@ -76,7 +76,7 @@ The signal chain incorporates two key front-end elements:
 1. **Logic Enveloper (Transient Softener)**: Transparently shaves off the initial pick click spike (-30% Attack Gain, 12ms attack) so DI pick strikes never sound clicky or synthetic.
 2. **Nembrini NA Clon Minotaur (Clean Boost Buffer)**: Positioned right before the amp with Gain at `0.0`, Output pushed to `7.6`, and Treble warmed to `3.8`. This acts as a classic transparent buffer, adding subtle mid-harmonic density and driving the Puretone's front end with effortless touch sensitivity.
 
-Inside the Puretone engine, a meticulously dialed built-in FX section provides a 15% mix, 150ms single-repeat slap delay (54% stereo spread) alongside a smooth 15% reverb chamber bloom. An 80Hz HPF and 10kHz LPF ensure high-end fizziness and low-end thrum are kept completely out of your DAW mix.
+Inside the Puretone engine, a meticulously dialed built-in FX section provides a 15% mix, 67ms single-repeat slap delay (54% stereo spread) alongside a smooth 15% reverb chamber bloom. An 80Hz HPF and 10kHz LPF ensure high-end fizziness and low-end thrum are kept completely out of your DAW mix.
 
 ---
 
@@ -128,7 +128,7 @@ The primary boutique amp platform. The Growl knob is kept at zero to keep the to
 #### Internal FX & Filters Section:
 *   **Noise Gate**: On | Threshold: `-89.7 dB` | Range: `40.5 dB` | Gate/Release: `38.7 %`
 *   **EQ Filters**: On | High Pass: `80.0 Hz` (cleans sub-bass) | Low Pass: `10002.0 Hz` (10 kHz smooth air cap)
-*   **Delay**: On | Mix: `15.0 %` | Spread: `54.0 %` | Note: `1/4` (Sync Off) | Time: `150.0 ms` | Tone: `5.0` | Feedback: `Off`
+*   **Delay**: On | Mix: `15.0 %` | Spread: `54.0 %` | Note: `1/4` (Sync Off) | Time: `67.0 ms` | Tone: `5.0` | Feedback: `Off`
 *   **Reverb**: On | Mix: `15.0 %` | Size: `2.5` | Tone: `3.5`
 
 #### Cabinet & Dual-Microphone Selection:
@@ -150,3 +150,6 @@ The primary boutique amp platform. The Growl knob is kept at zero to keep the to
 
 ### YYYY-MM-DD — initial (2026-06-27)
 Created custom humbucker toneprint based on Mike's tuned H&K Puretone settings. Integrates 150ms 1/4 slap delay (15% mix), 15% reverb chamber bloom, 80Hz/10kHz filtering, front-end Enveloper Transient Softener (-30%), and NA Clon Minotaur clean boost (Gain 0.0, Output 7.6, Treble 3.8).
+
+### 2026-07-06 — refined
+Turned the delay time down from 150ms to 67ms in the preset.

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Session version="1" name="Cory-Wong Amp Snob Clean" tempo="120.0" notes=""
+         beatsPerBar="4" beatDivisor="2">
+  <graphs active="0">
+    <Node version="1" type="Graph" uuid="cory_wong_amp_snob_clean_graph_uuid"
+          name="Graph" bypass="0" persistent="1" renderMode="single" keyStart="0"
+          keyEnd="127" transpose="0" delayCompensation="0" tempo="120.0">
+      <nodes>
+        <Node id="1" format="Internal" identifier="audio.input" type="plugin"
+              name="" relativeX="0.08" relativeY="0.32" pluginIdentifierString="Internal--da9d27b2-0"
+              uuid="input_uuid_node_1" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="50.0" y="200.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block displayMode="compact" portAlignment="before"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="Audio In 1" symbol="audio_in_1"
+                  flow="output" hiddenOnBlock="0"/>
+          </ports>
+        </Node>
+        <Node id="7" format="Element" identifier="element.volume.stereo" type="plugin"
+              name="iD14 Input Pad" relativeX="0.18" relativeY="0.32" pluginIdentifierString="Element-Volume-b98d75da-0"
+              uuid="volume_pad_node_uuid" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="180.0" y="200.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" windowX="533" windowY="357" windowVisible="0" state="84.VMjLgrD....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOyQWXzUFH18Fa00VY8HRKy3BMz.CLv.SMyPCL0biMwbiHu3C."
+              programState="84.VMjLgrD....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOyQWXzUFH18Fa00VY8HRKy3BMz.CLv.SMyPCL0biMwbiHu3C."
+              program="1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="52.3o8Jnn7SunDysXFXfQFK.BaFXjY3rXkQF.BxKwbSkAFYhUFJtjDKAHKVX0.8XfA.h2YCaB">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block portAlignment="before" hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,control_36,control_37,control_38,control_39,control_40,control_41,control_42,control_43,control_44,control_45,control_46,control_47,control_48,control_49,control_50,control_51,control_52,control_53,control_54,control_55,control_56,control_57,control_58,control_59,control_60,control_61,control_62,control_63,control_64,control_65,control_66,control_67,control_68,control_69,control_70,control_71,control_72,control_73,control_74,control_75,control_76,control_77,control_78,control_79,control_80,control_81,control_82,control_83,control_84,control_85,control_86,control_87,control_88,control_89,control_90,control_91,control_92,control_93,control_94,control_95,control_96,control_97,control_98,control_99,control_100,control_101,control_102,control_103,control_104,control_105,control_106,control_107,control_108,control_109,control_110,control_111,control_112,control_113,control_114,control_115,control_116,control_117,control_118,control_119,control_120,control_121,control_122,control_123,control_124,control_125,control_126,control_127,control_128,control_129,control_130,control_131,control_132,control_133,control_134,control_135,control_136,control_137,control_138,control_139,control_140,control_141,control_142,control_143,control_144,control_145,control_146,control_147,control_148,control_149,control_150,control_151,control_152,control_153,control_154,control_155,control_156,control_157,control_158,control_159,control_160,control_161,control_162,control_163,control_164,control_165,control_166,control_167,control_168,control_169,control_170,control_171,control_172,control_173,control_174,control_175,control_176,control_177,control_178,control_179,control_180,control_181,control_182,control_183,control_184,control_185,control_186,control_187,control_188,control_189,control_190,control_191,control_192,control_193,control_194,control_195,control_196,control_197,control_198,control_199,control_200,control_201,control_202,control_203,control_204,control_205,control_206,control_207,control_208,control_209,control_210,control_211,control_212,control_213,control_214,control_215,control_216,control_217,control_218,control_219,control_220,control_221,control_222,control_223,control_224,control_225,control_226,control_227,control_228,control_229,control_230,control_231,control_232,control_233,control_234,control_235,control_236,control_237,control_238,control_239,control_240,control_241,control_242,control_243,control_244,control_245,control_246,control_247,control_248,control_249,control_250,control_251,control_252,control_253,control_254,control_255,control_256,control_257,control_258,control_259,control_260,control_261,control_262,control_263,control_264,control_265,control_266,control_267,control_268,control_269,control_270,control_271,control_272,control_273,control_274,control_275,control_276,control_277,control_278,control_279,control_280,control_281,control_282,control_283,control_284,control_285,control_286,control_287,control_288,control_289,control_290,control_291,control_292,control_293,control_294,control_295,control_296,control_297,control_298,control_299,midi_in_0,midi_out_0,midi_in_1,midi_out_1,element_midi_input,element_midi_output"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="Main 1" symbol="audio_in_1"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="1" channel="1" type="audio" name="Main 2" symbol="audio_in_2"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="2" channel="0" type="audio" name="Main 1" symbol="audio_out_1"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="3" channel="1" type="audio" name="Main 2" symbol="audio_out_2"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="4" channel="0" type="control" name="Volume" symbol="control_0"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="5" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+                  flow="input" hiddenOnBlock="1"/>
+          </ports>
+          <buses>
+            <inputs>
+              <AudioChannelSet arrangement="L R"/>
+            </inputs>
+            <outputs>
+              <AudioChannelSet arrangement="L R"/>
+            </outputs>
+          </buses>
+        </Node>
+        <Node id="3" format="AudioUnit" identifier="AudioUnit:Effects/aumf,NCWX,NDSP"
+              type="plugin" name="Archetype Cory Wong X" relativeX="0.35" relativeY="0.32"
+              pluginIdentifierString="AudioUnit-Archetype Cory Wong X-57d7af7-6172696e"
+              uuid="cory_wong_node_uuid" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="330.0" y="200.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" state="6169.hAGaoMGcv.C1AHv.DTfAGfPBJrvDTTgEWvUag4VclE1XzUmbkIGUjEFcgwUYrUVak4Fcs3VXsU1UyUmXzkGbkckckI2bo8laTQWdvU1WP7fZ0MVYPwVcmklaSQWXzUFUtEVakIgSDMETOEAAzB..............UB..............A.........f..........L..........D.........PA.........X..........G..........B.........j..........J.........vB.........v..........M.........fC.........7..........P.........PD.........HA.........S..........E.........TA.........V.........vE.........fA.........Y.........fF.........rA.........b.........PG.........3A.........e..........H.........DB.........h.........vH.........PB.........k.........fI.........bB.........n.........PJ.........nB.........q..........K.........zB.........t.........vK..........C.........w.........fL.........LC.........z.........PM.........XC.........2..........N.........jC.........5.........vN.........vC.........8.........fO.........7C..........A........PP.........HD.........CA.........Q.........TD.........FA........vQ.........fD.........IA........fR.........rD.........LA........PS.........3D.........OA.........T.........DE.........RA........vT.........PE.........UA........fU.........bE.........XA........PV.........nE.........aA.........W.........zE.........dA........vW..........F.........gA........fX.........LF.........jA........PY.........XF.........mA.........Z.........jF.........pA........vZ.........vF.........sA........fa.........7F.........vA........Pb.........HG.........yA.........c.........TG.........1A........vc.........fG.........4A........fd.........rG.........7A........Pe.........3G.........+A.........f.........DH.........BB........vf.........PH.........EB........fg.........bH.........HB........Ph.........nH.........KB.........i.........zH.........NB........vi..........I.........QB........fj.........LI.........TB....fzLzfCQDULQISzO.QTvTURtAWczE8CRX0S0QGb0QmDNMzUXAA.RDVcsY1SQHQbVMjLgflD...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOgAGbM8FYkwFHvIWYyUFcCgVXtcVYj0iHlEFayUlHfDVavMTXhwTZtsVYjMEcgQWY8HhYgw1bkIBHyUFakMFckQVSuQVY8HhYgw1bkIBHyUFakMFckQ1PgIVOhHiHfLWYrU1XzUFYSU1Xzk1at0iHxHBHyUFakMFckQVPsAWOhHiHf.Ga0cVZtYUYxMWZu4VOhDiKv3RLh.BbxU1bkQWUoQVOhzxMzPSM2.CNzLiM3bCNxHSNzTCLh3COyUmXM8FYkw1b9viYogWYjAUXxEVakQWYxMmO7LWch0zajUFay8hO77hYogWYjAUXxEVakQWYxMmO7zVYzUlby4COyUmXM8FYkw1bu3COuzVYzUlby4COvIWYyUFcf.mbkMWYzMDZg41YkQVOhXVXrMWYh3COyUmXM8FYkw1bu3COu.mbkMWYz4COvElbg0VYzUlbyABcgAGUk0FbuIDbs0iHwHCLh.BYuUmXrUlbSAmbkEFY8HhMh.BYuUmXrUlbAMFcoYWY8HhYgw1bkIBHmEFckQEZxU1bn8Faj0iHsfCLh.xYgQWYAMFcoYWY8HBcxUWYh.BcxElayA2ayUVOh.iHf7VczAWczcTXo4VOh.iHfjlavUGcGEVZt0iHvHhO7LWch0zajUFay4COzUmakIGTgIWXsUFckI2bfPWctUlbP8Fb0AWS0QWYAMFcoYWY8HBcxUWYh.xbn81cHUlbzomUgwVck0iHlEFayUlHfPWctUlbRUlYkIWYtMVYFIWYwUWYtMVd8HBMz.iH9vyb0IVSuQVYrM2K9vyKzUmakIGTgIWXsUFckI2b9vCbuMGcFgETgIWXsUFckI2bfLWYiQWZu4VPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrMmO7PVYrEVdfPVYrEVdTkVakwTOhPCLvHBHjUFagkWPiQWZ1UVOhXVXrMWYh.BYkwVX4wDTF0iHwfyM0HBHjUFagkmSuQWYR0iHw.iHfPVYrEVdN8FckwTOhDyLh.BYkwVX4QUZsUlT8HBMv.iHfPVYrEVdFUVYjIVXisVOh.iKyjCMh.BYkwVX40zajUVOhPmb0UlHfPVYrEVdTUVav8VOhDiLvHBHjUFagk2T441X8HRLh.BYkwVX4gDTF0iHzHCLh.BYkwVX40TZ30iHv3xL4HiH9vyb0IVSuQVYrM2K9vyKjUFagkmO7bWXygFH2E1bnEzXzklck0iHlEFayUlHfbWXyg1TnkVasUlb8HhYgw1bkIBH2E1bnwza2MTcz0iHv3BMwLiHfbWXygFRocFZCUGc8HBLtTSM0HBH2E1bnQTYiEVd8HBLtXSN1HBH2E1bn0TZ30iHv3hLzTiH9vyb0IVSuQVYrM2K9vyK2E1bn4COig1axU2bfLFZuIWcyEzXzklck0iHlEFayUlHfLFZuIWcycUZjQGZ8HBLtTiHfLFZuIWcyIUXzUVOhDiK1TiHfLFZuIWcy0TZ30iHwHhO7LWch0zajUFay8hO77xXn8lb0MmO77xb0IVSuQVYrMmO77BbuMGcFgETgIWXsUFckI2b9vyXgIFTgIWXsUFckI2bfHWZmgFcR81asEzXzklck0iHlEFayUlHfHWZmgFcCElXSQWYxU1a8HhYgw1bkIBHxk1YnQ2PgIFTg4VOh.iHfHWZmgFcCElXDk1bzElaiUVOh.iHfHWZmgFcCElXPgVXyUVOhXVXrMWYh.hbocFZzMTXhA0aykFco8la8HBLtTSMh.hbocFZzMTXhIyPn81bk4VRRYTZrUFTgQGZ8HhHfHWZmgFcCElXvLDZuMWYtkjTFkFakAUXzgVOhHBHxk1YnQ2PgIlLMk1XTkGbk0iHwHBHxk1YnQmTu8VaMk1XLUlckwVOhzhMh.hbocFZzMTXhASSoMFU4AWY8HRLh.hbocFZzMTXhEzXzklck0iHlEFayUlHfvVYlQ2PgIFTnE1bk0iHlEFayUlHfHWZmgFcCElXwzTZiQUdvUVOhDiHfvVYlQ2PgIVSoMFSkYWYr0iHxHBHrUlYzMTXhQTZyQWXtMVY8HBLh.BakYFcCElXP81boQWZu4VOh.iK0TiHfvVYlQ2PgIlLCg1ayUlaIIkQowVYPEFcn0iHh.BakYFcCElXSQWYxU1a8HhYgw1bkIBHrUlYzMTXhESSoMFU4AWY8HBMh.hbocFZzMTXh0TZiwTY1UFa8HBLh.BakYFcCElXvLDZuMWYtkjTFkFakAUXzgVOhHBHyU1Xzk1atEzXzklck0iHzIWckIBHrUlYzMTXhISSoMFU4AWY8HBMh.hbocFZzMTXhEyPn81bk4VRRYTZrUFTgQGZ8HhHfvVYlQ2PgIFLMk1XTkGbk0iHzHBHrUlYzI0au0VPiQWZ1UVOhXVXrMWYh.BakYFcCElXwLDZuMWYtkjTFkFakAUXzgVOhHBHrUlYzI0au0VSoMFSkYWYr0iHsXiHfvVYlQ2PgIFTg4VOh.iHfvVYlQ2PgIVPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrM2K9vyKiElXPElbg0VYzUlby4COsUFcx8lau0VYPElbg0VYzUlbyARakQmbu41asU1TzUFb4LEcgQWY8HBLh.RakQmbu41asU1TzUFb3LEcgQWY8HBLh.RakQmbu41asU1TzUFbwLyTzEFck0iHvHBHsUFcx8lau0VYSQWYvYyTzEFck0iHvHBHsUFcx8lau0VYSQWYvESLSQWXzUVOh.iHfzVYzI2at8VakMEckAGMSQWXzUVOh.iHfzVYzI2at8VakMEckAWLvLEcgQWY8HBLh.RakQmbu41asU1TzUFbyLEcgQWY8HBLh.RakQmbu41asU1TzUFbwHyTzEFck0iHvHBHsUFcx8lau0VYSQWYvUyTzEFck0iHvHBHsUFcx8lau0VYV8Fa00VY8HBLh.RakQmbu41asU1TuUmajMUYz0iHvHBHsUFcx8lau0VYSQWYvcyTzEFck0iHvHBHsUFcx8lau0VYN8FckwTYtcFcn0iHvHBHsUFcx8lau0VYTkVakMUZm4VXzUmbk0iHxHBHsUFcx8lau0VYSQWYvIyTzEFck0iHvHBHsUFcx8lau0VYPEla8HBLh.RakQmbu41asU1TzUFbwLEcgQWY8HhLh3COyUmXM8FYkw1bu3COuzVYzI2at8VakAUXxEVakQWYxMmO7DVavAUXxEVakQWYxMGHyU1Xzk1atEzXzklck0iHzIWckIhO7LWch0zajUFay4COy41ahETavAxbt8lXOUGcvUGcLUlckwVOh.iK4.yMh.xbt8lXME1bzUlb8HRLh.xbt8lXDIWZ1UVOhXVXrMWYh.xbt8lXBIWZmgFc8HhYgw1bkIBHy41ahQkbkIFak0iHv3RMh.xbt8lXPIWYyUlaiUVOh.iKzHiHfLmauIlPgM2b8HBLtTiHfLmauIVSoQVOh.iKzXiHfLmauIlUuwVcsUVOh.iKwbiH9vyb0IVSuQVYrM2K9vyKy41ahETav4COiwVYg4VPsAGHiwVYg41S0QGb0QGSkYWYr0iHv3RNwjiLzTiHfLFakElaPIWYyUlaiUVOh.iKyHBHiwVYg4lPxk1YnQWOhXVXrMWYh.xXrUVXtQkbkIFak0iHv3BMyHBHiwVYg4VSoQVOh.iK0HiHfLFakElaBE1by0iHv3RMh.xXrUVXtY0arUWak0iHv3xLxHhO7LWch0zajUFay8hO77xXrUVXtETav4COlUmaqETavAhY041ZHk1YnMmQxUVb8HRLh.hY041ZHk1YnMWOh.iHfXVctsFSucGTgM2b8HRLvTCLvHBHlUmaq0TZjMWOh.iHfXVctsFSuc2b8HBLh.hY041ZL81cyYjbkEWOh.iHfXVcts1TvUVYj0iHvHBHlUmaqgTZmgFTgM2b8HRMxHBHlUmaq0TZjMmQxUVb8HRLh.hY041ZV8Fa00VY8HBLtjSLxbyLzHBHlUmaqQUchU1TgQWOh.iKzfiHfXVcts1Pu0Fb8HBLtHyLh3COyUmXM8FYkw1bu3COuXVctsVPsAmO77xb0IVSuQVYrMmO77RXsAGTgIWXsUFckI2b9vSYwAUXxEVakQWYxMGHyU1Xzk1atEzXzklck0iHzIWckIhO7LWch0zajUFay4COy41ahUTTfLmauIVQQITXtQVN8HBLh.xbt8lXEEERvYVOhHCLh.xbt8lXEEkPg4FY3ziHvHBHy41ahUTTBElajcSOhzRLtPiHfLmauIVQQITXtQlM8HRKxHBHy41ahUTTLAmY8HhLv.CLvHBHy41ahUTTBElajUSOhzhLtPiHfLmauIVQQEzXzklck0iHzIWckIBHy41ahUTTBElajQSOhzBLtTSN4jSN4HBHy41ahUTTBElajMSOh.iHfLmauIVQQITXtQlL8HBLh.xbt8lXEEkPg4FYwziHsDiK4HhO7LWch0zajUFay8hO77xbt8lXEEkO7LFakElaEEEHiwVYg4VQQEzXzklck0iHzIWckIBHiwVYg4VQQITXtQVN8HBLh.xXrUVXtUTTBElajgSOh.iKxHBHiwVYg4VQQITXtQ1M8HBLh.xXrUVXtUTTLAmY8HhLv.CLvHBHiwVYg4VQQITXtQlM8HRKw3BMh.xXrUVXtUTTBElajUSOhDiKwHBHiwVYg4VQQITXtQFM8HRLtXiHfLFakElaEEkPg4FYxziHw3xLh.xXrUVXtUTTHAmY8HhLvHBHiwVYg4VQQITXtQVL8HRKx3BMh.xXrUVXtUTTBElajMSOhDiK1HhO7LWch0zajUFay8hO77xXrUVXtUTT9viY041ZEEEHlUmaqUTTBElajkSOh.iHfXVctsVQQEzXzklck0iHzIWckIBHlUmaqUTTBElajcSOh.iHfXVctsVQQITXtQlM8HBLh.hY041ZEEkPg4FY0ziHvHBHlUmaqUTTBElajQSOh.iHfXVctsVQQITXtQ1L8HBLh.hY041ZEEkPg4FYwziHvHBHlUmaqUTTLAmY8HhLv.CLvHBHlUmaqUTTBElajISOh.iHfXVctsVQQITXtQFN8HBLh.hY041ZEEERvYVOhHCLh3COyUmXM8FYkw1bu3COuXVctsVQQ4COuLWch0zajUFay4COuTVbPElbg0VYzUlby4COvIWYFgETgIWXsUFckI2bfLWYiQWZu4VPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrMmO7HVZmIUZmAhXoclTocVPiQWZ1UVOhXVXrMWYh.hXoclTocFQxklck0iHv3RMyHBHhk1YRk1YLUlckwVOh.iKzTiHfHVZmIUZmQ0atUVOh.iK0HhO7LWch0zajUFay8hO77hXoclToclO7PWchUlbfPWchUlbAMFcoYWY8HhYgw1bkIBHzUmXkIGSkYWYr0iHv3RMh.Bc0IVYxQjboYWY8HBLtTiHfPWchUlbT8lak0iHv3RMh3COyUmXM8FYkw1bu3COuPWchUlb9vyXu0FbxU1by8lbfL1asAmbkM2buIWPiQWZ1UVOhPmb0UlHfL1asAmbkM2buImUuwVcsUVOh.iK0HSMh.xXu0FbxU1by8lbC8VavIWYyMWZu4VOh.iKzbiHfL1asAmbkM2buIGUu4VY8HBLtTiLvfyLyHBHi8VavIWYyM2axIDak4FY8HBLtLiMh3COyUmXM8FYkw1bu3COuL1asAmbkM2buImO7.2ayQWXrABbuMGcgwVPiQWZ1UVOhXVXrMWYh.BbuMGcgwFQkMVX40iHyDCLh.BbuMGcgw1Tk41boQWZ1kFc40iHyLiKyHBHv81bzEFaAQGcgM1Z8HhL1TiHf.2ayQWXrIUXtcVY8HRNx.iH9vyb0IVSuQVYrM2K9vyKv81bzEFa9vyKyUmXM8FYkw1b9vyKvIWYFgETgIWXsUFckI2b9vycggFTgIWXsUFckI2bfbWXnMUYtMWZzklcoQWd8HxLwHBH2EFZRUFakE1bk0iH2.CLh.xcggFTuMWZzk1at0iHvHBH2EFZAQGcgM1Z8HhMv.iHfbWXnETcz81UggVOh.iHfLWYiQWZu4VPiQWZ1UVOhXVXrMWYh3COyUmXM8FYkw1bu3COubWXnAUXxEVakQWYxMmO77xb0IVSuQVYrMmO77BbgIWXsUFckI2b9vSaoQVZMEFb9vyb0IVSuQVYrM2K9vCaoMGcEwVYsUlazM2K9vyKskFYo0TXv4COuLWch0zajUFay4COuDFbv0zajUFa9..VU4FcoQGakQF.H.PF.XB.q..N..D.HAPS.7E.jAPZEDRAlT.JEnRAsTvKETSA3TvOEPTAFUvRW.L.......f.A..........F..................vEIC"
+              programState="6169.hAGaoMGcv.C1AHv.DTfAGfPBJrvDTTgEWvUag4VclE1XzUmbkIGUjEFcgwUYrUVak4Fcs3VXsU1UyUmXzkGbkckckI2bo8laTQWdvU1WP7fZ0MVYPwVcmklaSQWXzUFUtEVakIgSDMETOEAAzB..............UB..............A.........f..........L..........D.........PA.........X..........G..........B.........j..........J.........vB.........v..........M.........fC.........7..........P.........PD.........HA.........S..........E.........TA.........V.........vE.........fA.........Y.........fF.........rA.........b.........PG.........3A.........e..........H.........DB.........h.........vH.........PB.........k.........fI.........bB.........n.........PJ.........nB.........q..........K.........zB.........t.........vK..........C.........w.........fL.........LC.........z.........PM.........XC.........2..........N.........jC.........5.........vN.........vC.........8.........fO.........7C..........A........PP.........HD.........CA.........Q.........TD.........FA........vQ.........fD.........IA........fR.........rD.........LA........PS.........3D.........OA.........T.........DE.........RA........vT.........PE.........UA........fU.........bE.........XA........PV.........nE.........aA.........W.........zE.........dA........vW..........F.........gA........fX.........LF.........jA........PY.........XF.........mA.........Z.........jF.........pA........vZ.........vF.........sA........fa.........7F.........vA........Pb.........HG.........yA.........c.........TG.........1A........vc.........fG.........4A........fd.........rG.........7A........Pe.........3G.........+A.........f.........DH.........BB........vf.........PH.........EB........fg.........bH.........HB........Ph.........nH.........KB.........i.........zH.........NB........vi..........I.........QB........fj.........LI.........TB....fzLzfCQDULQISzO.QTvTURtAWczE8CRX0S0QGb0QmDNMzUXAA.RDVcsY1SQHQbVMjLgflD...O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOgAGbM8FYkwFHvIWYyUFcCgVXtcVYj0iHlEFayUlHfDVavMTXhwTZtsVYjMEcgQWY8HhYgw1bkIBHyUFakMFckQVSuQVY8HhYgw1bkIBHyUFakMFckQ1PgIVOhHiHfLWYrU1XzUFYSU1Xzk1at0iHxHBHyUFakMFckQVPsAWOhHiHf.Ga0cVZtYUYxMWZu4VOhDiKv3RLh.BbxU1bkQWUoQVOhzxMzPSM2.CNzLiM3bCNxHSNzTCLh3COyUmXM8FYkw1b9viYogWYjAUXxEVakQWYxMmO7LWch0zajUFay8hO77hYogWYjAUXxEVakQWYxMmO7zVYzUlby4COyUmXM8FYkw1bu3COuzVYzUlby4COvIWYyUFcf.mbkMWYzMDZg41YkQVOhXVXrMWYh3COyUmXM8FYkw1bu3COu.mbkMWYz4COvElbg0VYzUlbyABcgAGUk0FbuIDbs0iHwHCLh.BYuUmXrUlbSAmbkEFY8HhMh.BYuUmXrUlbAMFcoYWY8HhYgw1bkIBHmEFckQEZxU1bn8Faj0iHsfCLh.xYgQWYAMFcoYWY8HBcxUWYh.BcxElayA2ayUVOh.iHf7VczAWczcTXo4VOh.iHfjlavUGcGEVZt0iHvHhO7LWch0zajUFay4COzUmakIGTgIWXsUFckI2bfPWctUlbP8Fb0AWS0QWYAMFcoYWY8HBcxUWYh.xbn81cHUlbzomUgwVck0iHlEFayUlHfPWctUlbRUlYkIWYtMVYFIWYwUWYtMVd8HBMz.iH9vyb0IVSuQVYrM2K9vyKzUmakIGTgIWXsUFckI2b9vCbuMGcFgETgIWXsUFckI2bfLWYiQWZu4VPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrMmO7PVYrEVdfPVYrEVdTkVakwTOhPCLvHBHjUFagkWPiQWZ1UVOhXVXrMWYh.BYkwVX4wDTF0iHwfyM0HBHjUFagkmSuQWYR0iHw.iHfPVYrEVdN8FckwTOhDyLh.BYkwVX4QUZsUlT8HBMv.iHfPVYrEVdFUVYjIVXisVOh.iKyjCMh.BYkwVX40zajUVOhPmb0UlHfPVYrEVdTUVav8VOhDiLvHBHjUFagk2T441X8HRLh.BYkwVX4gDTF0iHzHCLh.BYkwVX40TZ30iHv3xL4HiH9vyb0IVSuQVYrM2K9vyKjUFagkmO7bWXygFH2E1bnEzXzklck0iHlEFayUlHfbWXyg1TnkVasUlb8HhYgw1bkIBH2E1bnwza2MTcz0iHv3BMwLiHfbWXygFRocFZCUGc8HBLtTSM0HBH2E1bnQTYiEVd8HBLtXSN1HBH2E1bn0TZ30iHv3hLzTiH9vyb0IVSuQVYrM2K9vyK2E1bn4COig1axU2bfLFZuIWcyEzXzklck0iHlEFayUlHfLFZuIWcycUZjQGZ8HBLtTiHfLFZuIWcyIUXzUVOhDiK1TiHfLFZuIWcy0TZ30iHwHhO7LWch0zajUFay8hO77xXn8lb0MmO77xb0IVSuQVYrMmO77BbuMGcFgETgIWXsUFckI2b9vyXgIFTgIWXsUFckI2bfHWZmgFcR81asEzXzklck0iHlEFayUlHfHWZmgFcCElXSQWYxU1a8HhYgw1bkIBHxk1YnQ2PgIFTg4VOh.iHfHWZmgFcCElXDk1bzElaiUVOh.iHfHWZmgFcCElXPgVXyUVOhXVXrMWYh.hbocFZzMTXhA0aykFco8la8HBLtTSMh.hbocFZzMTXhIyPn81bk4VRRYTZrUFTgQGZ8HhHfHWZmgFcCElXvLDZuMWYtkjTFkFakAUXzgVOhHBHxk1YnQ2PgIlLMk1XTkGbk0iHwHBHxk1YnQmTu8VaMk1XLUlckwVOhzhMh.hbocFZzMTXhASSoMFU4AWY8HRLh.hbocFZzMTXhEzXzklck0iHlEFayUlHfvVYlQ2PgIFTnE1bk0iHlEFayUlHfHWZmgFcCElXwzTZiQUdvUVOhDiHfvVYlQ2PgIVSoMFSkYWYr0iHxHBHrUlYzMTXhQTZyQWXtMVY8HBLh.BakYFcCElXP81boQWZu4VOh.iK0TiHfvVYlQ2PgIlLCg1ayUlaIIkQowVYPEFcn0iHh.BakYFcCElXSQWYxU1a8HhYgw1bkIBHrUlYzMTXhESSoMFU4AWY8HBMh.hbocFZzMTXh0TZiwTY1UFa8HBLh.BakYFcCElXvLDZuMWYtkjTFkFakAUXzgVOhHBHyU1Xzk1atEzXzklck0iHzIWckIBHrUlYzMTXhISSoMFU4AWY8HBMh.hbocFZzMTXhEyPn81bk4VRRYTZrUFTgQGZ8HhHfvVYlQ2PgIFLMk1XTkGbk0iHzHBHrUlYzI0au0VPiQWZ1UVOhXVXrMWYh.BakYFcCElXwLDZuMWYtkjTFkFakAUXzgVOhHBHrUlYzI0au0VSoMFSkYWYr0iHsXiHfvVYlQ2PgIFTg4VOh.iHfvVYlQ2PgIVPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrM2K9vyKiElXPElbg0VYzUlby4COsUFcx8lau0VYPElbg0VYzUlbyARakQmbu41asU1TzUFb4LEcgQWY8HBLh.RakQmbu41asU1TzUFb3LEcgQWY8HBLh.RakQmbu41asU1TzUFbwLyTzEFck0iHvHBHsUFcx8lau0VYSQWYvYyTzEFck0iHvHBHsUFcx8lau0VYSQWYvESLSQWXzUVOh.iHfzVYzI2at8VakMEckAGMSQWXzUVOh.iHfzVYzI2at8VakMEckAWLvLEcgQWY8HBLh.RakQmbu41asU1TzUFbyLEcgQWY8HBLh.RakQmbu41asU1TzUFbwHyTzEFck0iHvHBHsUFcx8lau0VYSQWYvUyTzEFck0iHvHBHsUFcx8lau0VYV8Fa00VY8HBLh.RakQmbu41asU1TuUmajMUYz0iHvHBHsUFcx8lau0VYSQWYvcyTzEFck0iHvHBHsUFcx8lau0VYN8FckwTYtcFcn0iHvHBHsUFcx8lau0VYTkVakMUZm4VXzUmbk0iHxHBHsUFcx8lau0VYSQWYvIyTzEFck0iHvHBHsUFcx8lau0VYPEla8HBLh.RakQmbu41asU1TzUFbwLEcgQWY8HhLh3COyUmXM8FYkw1bu3COuzVYzI2at8VakAUXxEVakQWYxMmO7DVavAUXxEVakQWYxMGHyU1Xzk1atEzXzklck0iHzIWckIhO7LWch0zajUFay4COy41ahETavAxbt8lXOUGcvUGcLUlckwVOh.iK4.yMh.xbt8lXME1bzUlb8HRLh.xbt8lXDIWZ1UVOhXVXrMWYh.xbt8lXBIWZmgFc8HhYgw1bkIBHy41ahQkbkIFak0iHv3RMh.xbt8lXPIWYyUlaiUVOh.iKzHiHfLmauIlPgM2b8HBLtTiHfLmauIVSoQVOh.iKzXiHfLmauIlUuwVcsUVOh.iKwbiH9vyb0IVSuQVYrM2K9vyKy41ahETav4COiwVYg4VPsAGHiwVYg41S0QGb0QGSkYWYr0iHv3RNwjiLzTiHfLFakElaPIWYyUlaiUVOh.iKyHBHiwVYg4lPxk1YnQWOhXVXrMWYh.xXrUVXtQkbkIFak0iHv3BMyHBHiwVYg4VSoQVOh.iK0HiHfLFakElaBE1by0iHv3RMh.xXrUVXtY0arUWak0iHv3xLxHhO7LWch0zajUFay8hO77xXrUVXtETav4COlUmaqETavAhY041ZHk1YnMmQxUVb8HRLh.hY041ZHk1YnMWOh.iHfXVctsFSucGTgM2b8HRLvTCLvHBHlUmaq0TZjMWOh.iHfXVctsFSuc2b8HBLh.hY041ZL81cyYjbkEWOh.iHfXVcts1TvUVYj0iHvHBHlUmaqgTZmgFTgM2b8HRMxHBHlUmaq0TZjMmQxUVb8HRLh.hY041ZV8Fa00VY8HBLtjSLxbyLzHBHlUmaqQUchU1TgQWOh.iKzfiHfXVcts1Pu0Fb8HBLtHyLh3COyUmXM8FYkw1bu3COuXVctsVPsAmO77xb0IVSuQVYrMmO77RXsAGTgIWXsUFckI2b9vSYwAUXxEVakQWYxMGHyU1Xzk1atEzXzklck0iHzIWckIhO7LWch0zajUFay4COy41ahUTTfLmauIVQQITXtQVN8HBLh.xbt8lXEEERvYVOhHCLh.xbt8lXEEkPg4FY3ziHvHBHy41ahUTTBElajcSOhzRLtPiHfLmauIVQQITXtQlM8HRKxHBHy41ahUTTLAmY8HhLv.CLvHBHy41ahUTTBElajUSOhzhLtPiHfLmauIVQQEzXzklck0iHzIWckIBHy41ahUTTBElajQSOhzBLtTSN4jSN4HBHy41ahUTTBElajMSOh.iHfLmauIVQQITXtQlL8HBLh.xbt8lXEEkPg4FYwziHsDiK4HhO7LWch0zajUFay8hO77xbt8lXEEkO7LFakElaEEEHiwVYg4VQQEzXzklck0iHzIWckIBHiwVYg4VQQITXtQVN8HBLh.xXrUVXtUTTBElajgSOh.iKxHBHiwVYg4VQQITXtQ1M8HBLh.xXrUVXtUTTLAmY8HhLv.CLvHBHiwVYg4VQQITXtQlM8HRKw3BMh.xXrUVXtUTTBElajUSOhDiKwHBHiwVYg4VQQITXtQFM8HRLtXiHfLFakElaEEkPg4FYxziHw3xLh.xXrUVXtUTTHAmY8HhLvHBHiwVYg4VQQITXtQVL8HRKx3BMh.xXrUVXtUTTBElajMSOhDiK1HhO7LWch0zajUFay8hO77xXrUVXtUTT9viY041ZEEEHlUmaqUTTBElajkSOh.iHfXVctsVQQEzXzklck0iHzIWckIBHlUmaqUTTBElajcSOh.iHfXVctsVQQITXtQlM8HBLh.hY041ZEEkPg4FY0ziHvHBHlUmaqUTTBElajQSOh.iHfXVctsVQQITXtQ1L8HBLh.hY041ZEEkPg4FYwziHvHBHlUmaqUTTLAmY8HhLv.CLvHBHlUmaqUTTBElajISOh.iHfXVctsVQQITXtQFN8HBLh.hY041ZEEERvYVOhHCLh3COyUmXM8FYkw1bu3COuXVctsVQQ4COuLWch0zajUFay4COuTVbPElbg0VYzUlby4COvIWYFgETgIWXsUFckI2bfLWYiQWZu4VPiQWZ1UVOhPmb0UlH9vyb0IVSuQVYrMmO7HVZmIUZmAhXoclTocVPiQWZ1UVOhXVXrMWYh.hXoclTocFQxklck0iHv3RMyHBHhk1YRk1YLUlckwVOh.iKzTiHfHVZmIUZmQ0atUVOh.iK0HhO7LWch0zajUFay8hO77hXoclToclO7PWchUlbfPWchUlbAMFcoYWY8HhYgw1bkIBHzUmXkIGSkYWYr0iHv3RMh.Bc0IVYxQjboYWY8HBLtTiHfPWchUlbT8lak0iHv3RMh3COyUmXM8FYkw1bu3COuPWchUlb9vyXu0FbxU1by8lbfL1asAmbkM2buIWPiQWZ1UVOhPmb0UlHfL1asAmbkM2buImUuwVcsUVOh.iK0HSMh.xXu0FbxU1by8lbC8VavIWYyMWZu4VOh.iKzbiHfL1asAmbkM2buIGUu4VY8HBLtTiLvfyLyHBHi8VavIWYyM2axIDak4FY8HBLtLiMh3COyUmXM8FYkw1bu3COuL1asAmbkM2buImO7.2ayQWXrABbuMGcgwVPiQWZ1UVOhXVXrMWYh.BbuMGcgwFQkMVX40iHyDCLh.BbuMGcgw1Tk41boQWZ1kFc40iHyLiKyHBHv81bzEFaAQGcgM1Z8HhL1TiHf.2ayQWXrIUXtcVY8HRNx.iH9vyb0IVSuQVYrM2K9vyKv81bzEFa9vyKyUmXM8FYkw1b9vyKvIWYFgETgIWXsUFckI2b9vycggFTgIWXsUFckI2bfbWXnMUYtMWZzklcoQWd8HxLwHBH2EFZRUFakE1bk0iH2.CLh.xcggFTuMWZzk1at0iHvHBH2EFZAQGcgM1Z8HhMv.iHfbWXnETcz81UggVOh.iHfLWYiQWZu4VPiQWZ1UVOhXVXrMWYh3COyUmXM8FYkw1bu3COubWXnAUXxEVakQWYxMmO77xb0IVSuQVYrMmO77BbgIWXsUFckI2b9vSaoQVZMEFb9vyb0IVSuQVYrM2K9vCaoMGcEwVYsUlazM2K9vyKskFYo0TXv4COuLWch0zajUFay4COuDFbv0zajUFa9..VU4FcoQGakQF.H.PF.XB.q..N..D.HAPS.7E.jAPZEDRAlT.JEnRAsTvKETSA3TvOEPTAFUvRW.L.......f.A..........F..................vEIC"
+              program="-1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block portAlignment="before" hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,control_36,control_37,control_38,control_39,control_40,control_41,control_42,control_43,control_44,control_45,control_46,control_47,control_48,control_49,control_50,control_51,control_52,control_53,control_54,control_55,control_56,control_57,control_58,control_59,control_60,control_61,control_62,control_63,control_64,control_65,control_66,control_67,control_68,control_69,control_70,control_71,control_72,control_73,control_74,control_75,control_76,control_77,control_78,control_79,control_80,control_81,control_82,control_83,control_84,control_85,control_86,control_87,control_88,control_89,control_90,control_91,control_92,control_93,control_94,control_95,control_96,control_97,control_98,control_99,control_100,control_101,control_102,control_103,control_104,control_105,control_106,control_107,control_108,control_109,control_110,control_111,control_112,control_113,control_114,control_115,control_116,control_117,control_118,control_119,control_120,control_121,control_122,control_123,control_124,control_125,control_126,control_127,control_128,control_129,control_130,control_131,control_132,control_133,control_134,control_135,control_136,control_137,control_138,control_139,control_140,control_141,control_142,control_143,control_144,control_145,control_146,control_147,control_148,control_149,control_150,control_151,control_152,control_153,control_154,control_155,control_156,control_157,control_158,control_159,control_160,control_161,control_162,control_163,control_164,control_165,control_166,control_167,control_168,control_169,control_170,control_171,control_172,control_173,control_174,control_175,control_176,control_177,control_178,control_179,control_180,control_181,control_182,control_183,control_184,control_185,control_186,control_187,control_188,control_189,control_190,control_191,control_192,control_193,control_194,control_195,control_196,control_197,control_198,control_199,control_200,control_201,control_202,control_203,control_204,control_205,control_206,control_207,control_208,control_209,control_210,control_211,control_212,control_213,control_214,control_215,control_216,control_217,control_218,control_219,control_220,control_221,control_222,control_223,control_224,control_225,control_226,control_227,control_228,control_229,control_230,control_231,control_232,control_233,control_234,control_235,control_236,control_237,control_238,control_239,control_240,control_241,control_242,control_243,control_244,control_245,control_246,control_247,control_248,control_249,control_250,control_251,control_252,control_253,control_254,control_255,control_256,control_257,control_258,control_259,control_260,control_261,control_262,control_263,control_264,control_265,control_266,control_267,control_268,control_269,control_270,control_271,control_272,control_273,control_274,control_275,control_276,control_277,control_278,control_279,control_280,control_281,control_282,control_283,control_284,control_285,control_286,control_287,control_288,control_289,control_290,control_291,control_292,control_293,control_294,control_295,control_296,control_297,control_298,control_299,midi_in_0,midi_out_0,midi_in_1,midi_out_1,element_midi_input,element_midi_output"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="1" channel="1" type="audio" name="Input 2" symbol="audio_in_2"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="2" channel="0" type="audio" name="Output 1" symbol="audio_out_1"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="3" channel="1" type="audio" name="Output 2" symbol="audio_out_2"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="4" channel="0" type="control" name="Input Gain" symbol="control_0"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="5" channel="1" type="control" name="Output Gain" symbol="control_1"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="6" channel="2" type="control" name="Gate Active" symbol="control_2"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="7" channel="3" type="control" name="Gate Threshold" symbol="control_3"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="8" channel="4" type="control" name="Transpose" symbol="control_4"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="9" channel="5" type="control" name="Doubler Active" symbol="control_5"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="10" channel="6" type="control" name="Doubler Spread" symbol="control_6"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="11" channel="7" type="control" name="Active Wah Section"
+                  symbol="control_7" flow="input" hiddenOnBlock="1"/>
+            <Port index="12" channel="8" type="control" name="Wah Position" symbol="control_8"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="13" channel="9" type="control" name="Wah Mode" symbol="control_9"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="14" channel="10" type="control" name="Auto Wah Attack"
+                  symbol="control_10" flow="input" hiddenOnBlock="1"/>
+            <Port index="15" channel="11" type="control" name="Auto Wah Release"
+                  symbol="control_11" flow="input" hiddenOnBlock="1"/>
+            <Port index="16" channel="12" type="control" name="Auto Wah Sensitivity"
+                  symbol="control_12" flow="input" hiddenOnBlock="1"/>
+            <Port index="17" channel="13" type="control" name="Active Pre FX Section"
+                  symbol="control_13" flow="input" hiddenOnBlock="1"/>
+            <Port index="18" channel="14" type="control" name="The Postal Service Range"
+                  symbol="control_14" flow="input" hiddenOnBlock="1"/>
+            <Port index="19" channel="15" type="control" name="The Postal Service Sensitivity"
+                  symbol="control_15" flow="input" hiddenOnBlock="1"/>
+            <Port index="20" channel="16" type="control" name="The Postal Service Attack"
+                  symbol="control_16" flow="input" hiddenOnBlock="1"/>
+            <Port index="21" channel="17" type="control" name="The Postal Service Decay"
+                  symbol="control_17" flow="input" hiddenOnBlock="1"/>
+            <Port index="22" channel="18" type="control" name="The Postal Service Active"
+                  symbol="control_18" flow="input" hiddenOnBlock="1"/>
+            <Port index="23" channel="19" type="control" name="The 4th Position Comp Blend"
+                  symbol="control_19" flow="input" hiddenOnBlock="1"/>
+            <Port index="24" channel="20" type="control" name="The 4th Position Comp Tone"
+                  symbol="control_20" flow="input" hiddenOnBlock="1"/>
+            <Port index="25" channel="21" type="control" name="The 4th Position Comp Compression"
+                  symbol="control_21" flow="input" hiddenOnBlock="1"/>
+            <Port index="26" channel="22" type="control" name="The 4th Position Comp Volume"
+                  symbol="control_22" flow="input" hiddenOnBlock="1"/>
+            <Port index="27" channel="23" type="control" name="The 4th Position Comp Active"
+                  symbol="control_23" flow="input" hiddenOnBlock="1"/>
+            <Port index="28" channel="24" type="control" name="The Tuber Tone"
+                  symbol="control_24" flow="input" hiddenOnBlock="1"/>
+            <Port index="29" channel="25" type="control" name="The Tuber Drive"
+                  symbol="control_25" flow="input" hiddenOnBlock="1"/>
+            <Port index="30" channel="26" type="control" name="The Tuber Level"
+                  symbol="control_26" flow="input" hiddenOnBlock="1"/>
+            <Port index="31" channel="27" type="control" name="The Tuber Active"
+                  symbol="control_27" flow="input" hiddenOnBlock="1"/>
+            <Port index="32" channel="28" type="control" name="The Big Rig Overdrive Tone"
+                  symbol="control_28" flow="input" hiddenOnBlock="1"/>
+            <Port index="33" channel="29" type="control" name="The Big Rig Overdrive Drive"
+                  symbol="control_29" flow="input" hiddenOnBlock="1"/>
+            <Port index="34" channel="30" type="control" name="The Big Rig Overdrive Level"
+                  symbol="control_30" flow="input" hiddenOnBlock="1"/>
+            <Port index="35" channel="31" type="control" name="The Big Rig Overdrive Active"
+                  symbol="control_31" flow="input" hiddenOnBlock="1"/>
+            <Port index="36" channel="32" type="control" name="Active Amp Section"
+                  symbol="control_32" flow="input" hiddenOnBlock="1"/>
+            <Port index="37" channel="33" type="control" name="Amp/Cab Linked"
+                  symbol="control_33" flow="input" hiddenOnBlock="1"/>
+            <Port index="38" channel="34" type="control" name="Amp Type" symbol="control_34"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="39" channel="35" type="control" name="D.I. Funk Console Comp"
+                  symbol="control_35" flow="input" hiddenOnBlock="1"/>
+            <Port index="40" channel="36" type="control" name="D.I. Funk Console Comp Attack"
+                  symbol="control_36" flow="input" hiddenOnBlock="1"/>
+            <Port index="41" channel="37" type="control" name="D.I. Funk Console Tube Sat"
+                  symbol="control_37" flow="input" hiddenOnBlock="1"/>
+            <Port index="42" channel="38" type="control" name="D.I. Funk Console High Pass"
+                  symbol="control_38" flow="input" hiddenOnBlock="1"/>
+            <Port index="43" channel="39" type="control" name="D.I. Funk Console Low Pass"
+                  symbol="control_39" flow="input" hiddenOnBlock="1"/>
+            <Port index="44" channel="40" type="control" name="D.I. Funk Console Lows"
+                  symbol="control_40" flow="input" hiddenOnBlock="1"/>
+            <Port index="45" channel="41" type="control" name="D.I. Funk Console Lows Freq"
+                  symbol="control_41" flow="input" hiddenOnBlock="1"/>
+            <Port index="46" channel="42" type="control" name="D.I. Funk Console Mids"
+                  symbol="control_42" flow="input" hiddenOnBlock="1"/>
+            <Port index="47" channel="43" type="control" name="D.I. Funk Console Mids Freq"
+                  symbol="control_43" flow="input" hiddenOnBlock="1"/>
+            <Port index="48" channel="44" type="control" name="D.I. Funk Console Highs"
+                  symbol="control_44" flow="input" hiddenOnBlock="1"/>
+            <Port index="49" channel="45" type="control" name="D.I. Funk Console Highs Freq"
+                  symbol="control_45" flow="input" hiddenOnBlock="1"/>
+            <Port index="50" channel="46" type="control" name="D.I. Funk Console Output"
+                  symbol="control_46" flow="input" hiddenOnBlock="1"/>
+            <Port index="51" channel="47" type="control" name="The Clean Machine Volume"
+                  symbol="control_47" flow="input" hiddenOnBlock="1"/>
+            <Port index="52" channel="48" type="control" name="The Clean Machine Bright"
+                  symbol="control_48" flow="input" hiddenOnBlock="1"/>
+            <Port index="53" channel="49" type="control" name="The Clean Machine Bass"
+                  symbol="control_49" flow="input" hiddenOnBlock="1"/>
+            <Port index="54" channel="50" type="control" name="The Clean Machine Middle"
+                  symbol="control_50" flow="input" hiddenOnBlock="1"/>
+            <Port index="55" channel="51" type="control" name="The Clean Machine Treble"
+                  symbol="control_51" flow="input" hiddenOnBlock="1"/>
+            <Port index="56" channel="52" type="control" name="The Clean Machine Presence"
+                  symbol="control_52" flow="input" hiddenOnBlock="1"/>
+            <Port index="57" channel="53" type="control" name="The Clean Machine Output"
+                  symbol="control_53" flow="input" hiddenOnBlock="1"/>
+            <Port index="58" channel="54" type="control" name="The Amp Snob Volume"
+                  symbol="control_54" flow="input" hiddenOnBlock="1"/>
+            <Port index="59" channel="55" type="control" name="The Amp Snob Bright"
+                  symbol="control_55" flow="input" hiddenOnBlock="1"/>
+            <Port index="60" channel="56" type="control" name="The Amp Snob Bass"
+                  symbol="control_56" flow="input" hiddenOnBlock="1"/>
+            <Port index="61" channel="57" type="control" name="The Amp Snob Middle"
+                  symbol="control_57" flow="input" hiddenOnBlock="1"/>
+            <Port index="62" channel="58" type="control" name="The Amp Snob Treble"
+                  symbol="control_58" flow="input" hiddenOnBlock="1"/>
+            <Port index="63" channel="59" type="control" name="The Amp Snob Master"
+                  symbol="control_59" flow="input" hiddenOnBlock="1"/>
+            <Port index="64" channel="60" type="control" name="The Amp Snob Presence"
+                  symbol="control_60" flow="input" hiddenOnBlock="1"/>
+            <Port index="65" channel="61" type="control" name="The Amp Snob Output"
+                  symbol="control_61" flow="input" hiddenOnBlock="1"/>
+            <Port index="66" channel="62" type="control" name="The Amp Snob Drive"
+                  symbol="control_62" flow="input" hiddenOnBlock="1"/>
+            <Port index="67" channel="63" type="control" name="Active Cab Section"
+                  symbol="control_63" flow="input" hiddenOnBlock="1"/>
+            <Port index="68" channel="64" type="control" name="Cab Type (Unlinked)"
+                  symbol="control_64" flow="input" hiddenOnBlock="1"/>
+            <Port index="69" channel="65" type="control" name="Cab L Active" symbol="control_65"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="70" channel="66" type="control" name="D.I. Funk Console Cab Mic L Type"
+                  symbol="control_66" flow="input" hiddenOnBlock="1"/>
+            <Port index="71" channel="67" type="control" name="The Clean Machine Cab Mic L Type"
+                  symbol="control_67" flow="input" hiddenOnBlock="1"/>
+            <Port index="72" channel="68" type="control" name="The Amp Snob Cab Mic L Type"
+                  symbol="control_68" flow="input" hiddenOnBlock="1"/>
+            <Port index="73" channel="69" type="control" name="Cab L Position"
+                  symbol="control_69" flow="input" hiddenOnBlock="1"/>
+            <Port index="74" channel="70" type="control" name="Cab L Distance"
+                  symbol="control_70" flow="input" hiddenOnBlock="1"/>
+            <Port index="75" channel="71" type="control" name="Cab L Level" symbol="control_71"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="76" channel="72" type="control" name="Cab L Pan" symbol="control_72"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="77" channel="73" type="control" name="Cab L Phase" symbol="control_73"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="78" channel="74" type="control" name="Room L Active" symbol="control_74"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="79" channel="75" type="control" name="Room L Send" symbol="control_75"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="80" channel="76" type="control" name="Cab R Active" symbol="control_76"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="81" channel="77" type="control" name="D.I. Funk Console Cab Mic R Type"
+                  symbol="control_77" flow="input" hiddenOnBlock="1"/>
+            <Port index="82" channel="78" type="control" name="The Clean Machine Cab Mic R Type"
+                  symbol="control_78" flow="input" hiddenOnBlock="1"/>
+            <Port index="83" channel="79" type="control" name="The Amp Snob Cab Mic R Type"
+                  symbol="control_79" flow="input" hiddenOnBlock="1"/>
+            <Port index="84" channel="80" type="control" name="Cab R Position"
+                  symbol="control_80" flow="input" hiddenOnBlock="1"/>
+            <Port index="85" channel="81" type="control" name="Cab R Distance"
+                  symbol="control_81" flow="input" hiddenOnBlock="1"/>
+            <Port index="86" channel="82" type="control" name="Cab R Level" symbol="control_82"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="87" channel="83" type="control" name="Cab R Pan" symbol="control_83"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="88" channel="84" type="control" name="Cab R Phase" symbol="control_84"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="89" channel="85" type="control" name="Room R Active" symbol="control_85"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="90" channel="86" type="control" name="Room R Send" symbol="control_86"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="91" channel="87" type="control" name="Active EQ Section"
+                  symbol="control_87" flow="input" hiddenOnBlock="1"/>
+            <Port index="92" channel="88" type="control" name="D.I. Funk Console EQ Active"
+                  symbol="control_88" flow="input" hiddenOnBlock="1"/>
+            <Port index="93" channel="89" type="control" name="D.I. Funk Console EQ 65 Hz"
+                  symbol="control_89" flow="input" hiddenOnBlock="1"/>
+            <Port index="94" channel="90" type="control" name="D.I. Funk Console EQ 125 Hz"
+                  symbol="control_90" flow="input" hiddenOnBlock="1"/>
+            <Port index="95" channel="91" type="control" name="D.I. Funk Console EQ 250 Hz"
+                  symbol="control_91" flow="input" hiddenOnBlock="1"/>
+            <Port index="96" channel="92" type="control" name="D.I. Funk Console EQ 500 Hz"
+                  symbol="control_92" flow="input" hiddenOnBlock="1"/>
+            <Port index="97" channel="93" type="control" name="D.I. Funk Console EQ 1 kHz"
+                  symbol="control_93" flow="input" hiddenOnBlock="1"/>
+            <Port index="98" channel="94" type="control" name="D.I. Funk Console EQ 2 kHz"
+                  symbol="control_94" flow="input" hiddenOnBlock="1"/>
+            <Port index="99" channel="95" type="control" name="D.I. Funk Console EQ 4 kHz"
+                  symbol="control_95" flow="input" hiddenOnBlock="1"/>
+            <Port index="100" channel="96" type="control" name="D.I. Funk Console EQ 8 kHz"
+                  symbol="control_96" flow="input" hiddenOnBlock="1"/>
+            <Port index="101" channel="97" type="control" name="D.I. Funk Console EQ 16 kHz"
+                  symbol="control_97" flow="input" hiddenOnBlock="1"/>
+            <Port index="102" channel="98" type="control" name="D.I. Funk Console EQ High Pass"
+                  symbol="control_98" flow="input" hiddenOnBlock="1"/>
+            <Port index="103" channel="99" type="control" name="D.I. Funk Console EQ Low Pass"
+                  symbol="control_99" flow="input" hiddenOnBlock="1"/>
+            <Port index="104" channel="100" type="control" name="The Clean Machine EQ Active"
+                  symbol="control_100" flow="input" hiddenOnBlock="1"/>
+            <Port index="105" channel="101" type="control" name="The Clean Machine EQ 65 Hz"
+                  symbol="control_101" flow="input" hiddenOnBlock="1"/>
+            <Port index="106" channel="102" type="control" name="The Clean Machine EQ 125 Hz"
+                  symbol="control_102" flow="input" hiddenOnBlock="1"/>
+            <Port index="107" channel="103" type="control" name="The Clean Machine EQ 250 Hz"
+                  symbol="control_103" flow="input" hiddenOnBlock="1"/>
+            <Port index="108" channel="104" type="control" name="The Clean Machine EQ 500 Hz"
+                  symbol="control_104" flow="input" hiddenOnBlock="1"/>
+            <Port index="109" channel="105" type="control" name="The Clean Machine EQ 1 kHz"
+                  symbol="control_105" flow="input" hiddenOnBlock="1"/>
+            <Port index="110" channel="106" type="control" name="The Clean Machine EQ 2 kHz"
+                  symbol="control_106" flow="input" hiddenOnBlock="1"/>
+            <Port index="111" channel="107" type="control" name="The Clean Machine EQ 4 kHz"
+                  symbol="control_107" flow="input" hiddenOnBlock="1"/>
+            <Port index="112" channel="108" type="control" name="The Clean Machine EQ 8 kHz"
+                  symbol="control_108" flow="input" hiddenOnBlock="1"/>
+            <Port index="113" channel="109" type="control" name="The Clean Machine EQ 16 kHz"
+                  symbol="control_109" flow="input" hiddenOnBlock="1"/>
+            <Port index="114" channel="110" type="control" name="The Clean Machine EQ High Pass"
+                  symbol="control_110" flow="input" hiddenOnBlock="1"/>
+            <Port index="115" channel="111" type="control" name="The Clean Machine EQ Low Pass"
+                  symbol="control_111" flow="input" hiddenOnBlock="1"/>
+            <Port index="116" channel="112" type="control" name="The Amp Snob EQ Active"
+                  symbol="control_112" flow="input" hiddenOnBlock="1"/>
+            <Port index="117" channel="113" type="control" name="The Amp Snob EQ 65 Hz"
+                  symbol="control_113" flow="input" hiddenOnBlock="1"/>
+            <Port index="118" channel="114" type="control" name="The Amp Snob EQ 125 Hz"
+                  symbol="control_114" flow="input" hiddenOnBlock="1"/>
+            <Port index="119" channel="115" type="control" name="The Amp Snob EQ 250 Hz"
+                  symbol="control_115" flow="input" hiddenOnBlock="1"/>
+            <Port index="120" channel="116" type="control" name="The Amp Snob EQ 500 Hz"
+                  symbol="control_116" flow="input" hiddenOnBlock="1"/>
+            <Port index="121" channel="117" type="control" name="The Amp Snob EQ 1 kHz"
+                  symbol="control_117" flow="input" hiddenOnBlock="1"/>
+            <Port index="122" channel="118" type="control" name="The Amp Snob EQ 2 kHz"
+                  symbol="control_118" flow="input" hiddenOnBlock="1"/>
+            <Port index="123" channel="119" type="control" name="The Amp Snob EQ 4 kHz"
+                  symbol="control_119" flow="input" hiddenOnBlock="1"/>
+            <Port index="124" channel="120" type="control" name="The Amp Snob EQ 8 kHz"
+                  symbol="control_120" flow="input" hiddenOnBlock="1"/>
+            <Port index="125" channel="121" type="control" name="The Amp Snob EQ 16 kHz"
+                  symbol="control_121" flow="input" hiddenOnBlock="1"/>
+            <Port index="126" channel="122" type="control" name="The Amp Snob EQ High Pass"
+                  symbol="control_122" flow="input" hiddenOnBlock="1"/>
+            <Port index="127" channel="123" type="control" name="The Amp Snob EQ Low Pass"
+                  symbol="control_123" flow="input" hiddenOnBlock="1"/>
+            <Port index="128" channel="124" type="control" name="Active Post FX Section"
+                  symbol="control_124" flow="input" hiddenOnBlock="1"/>
+            <Port index="129" channel="125" type="control" name="The 80s Chorus Mix"
+                  symbol="control_125" flow="input" hiddenOnBlock="1"/>
+            <Port index="130" channel="126" type="control" name="The 80s Chorus Rate"
+                  symbol="control_126" flow="input" hiddenOnBlock="1"/>
+            <Port index="131" channel="127" type="control" name="The 80s Chorus Width"
+                  symbol="control_127" flow="input" hiddenOnBlock="1"/>
+            <Port index="132" channel="128" type="control" name="The 80s Chorus Active"
+                  symbol="control_128" flow="input" hiddenOnBlock="1"/>
+            <Port index="133" channel="129" type="control" name="Delay-y-y Mix"
+                  symbol="control_129" flow="input" hiddenOnBlock="1"/>
+            <Port index="134" channel="130" type="control" name="Delay-y-y Sync"
+                  symbol="control_130" flow="input" hiddenOnBlock="1"/>
+            <Port index="135" channel="131" type="control" name="Delay-y-y Mode"
+                  symbol="control_131" flow="input" hiddenOnBlock="1"/>
+            <Port index="136" channel="132" type="control" name="Delay-y-y Feedback"
+                  symbol="control_132" flow="input" hiddenOnBlock="1"/>
+            <Port index="137" channel="133" type="control" name="Delay-y-y HPF"
+                  symbol="control_133" flow="input" hiddenOnBlock="1"/>
+            <Port index="138" channel="134" type="control" name="Delay-y-y Time L"
+                  symbol="control_134" flow="input" hiddenOnBlock="1"/>
+            <Port index="139" channel="135" type="control" name="Delay-y-y Time R"
+                  symbol="control_135" flow="input" hiddenOnBlock="1"/>
+            <Port index="140" channel="136" type="control" name="Delay-y-y Note L"
+                  symbol="control_136" flow="input" hiddenOnBlock="1"/>
+            <Port index="141" channel="137" type="control" name="Delay-y-y Note R"
+                  symbol="control_137" flow="input" hiddenOnBlock="1"/>
+            <Port index="142" channel="138" type="control" name="Delay-y-y LPF"
+                  symbol="control_138" flow="input" hiddenOnBlock="1"/>
+            <Port index="143" channel="139" type="control" name="Delay-y-y Tempo"
+                  symbol="control_139" flow="input" hiddenOnBlock="1"/>
+            <Port index="144" channel="140" type="control" name="Delay-y-y Active"
+                  symbol="control_140" flow="input" hiddenOnBlock="1"/>
+            <Port index="145" channel="141" type="control" name="The Wash Mix"
+                  symbol="control_141" flow="input" hiddenOnBlock="1"/>
+            <Port index="146" channel="142" type="control" name="The Wash Shimmer"
+                  symbol="control_142" flow="input" hiddenOnBlock="1"/>
+            <Port index="147" channel="143" type="control" name="The Wash Decay"
+                  symbol="control_143" flow="input" hiddenOnBlock="1"/>
+            <Port index="148" channel="144" type="control" name="The Wash Low Cut"
+                  symbol="control_144" flow="input" hiddenOnBlock="1"/>
+            <Port index="149" channel="145" type="control" name="The Wash High Cut"
+                  symbol="control_145" flow="input" hiddenOnBlock="1"/>
+            <Port index="150" channel="146" type="control" name="The Wash Active"
+                  symbol="control_146" flow="input" hiddenOnBlock="1"/>
+            <Port index="151" channel="147" type="control" name="Preset Previous"
+                  symbol="control_147" flow="input" hiddenOnBlock="1"/>
+            <Port index="152" channel="148" type="control" name="Preset Next" symbol="control_148"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="153" channel="0" type="midi" name="MIDI" symbol="midi_in_0"
+                  flow="input" hiddenOnBlock="1"/>
+          </ports>
+          <buses>
+            <inputs>
+              <AudioChannelSet arrangement="L R"/>
+            </inputs>
+            <outputs>
+              <AudioChannelSet arrangement="L R"/>
+            </outputs>
+          </buses>
+        </Node>
+        <Node id="4" format="AudioUnit" identifier="AudioUnit:Effects/aufx,U3D7,UADx"
+              type="plugin" name="UADx Hitsville Reverb Chambers" relativeX="0.35"
+              relativeY="0.6" pluginIdentifierString="AudioUnit-UADx Hitsville Reverb Chambers-b21f9162-61076637"
+              uuid="hitsville_node_uuid" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="330.0" y="380.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" state="3790.hAGaoMGcv.S1AHv.DTfAGfPBJr.CSPwDUXwEb0VXtUmYgMFc0IWYxQEYgQWXbUFak0VYtQWKtEVaksEbx81YxEVae4Vcsc0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOnVciUFTrU2Yo41TzEFckQkag0VYRTUPDg2SPvG..............3.....L.........DC.........x7C.......vL.........PC.........07Cf......fM.........bC.........37C.......PN+.......F7wO.B....fAf7C......XPH+.H.....FHxO.B..R2fCOHQTwDkLQCQDQAyUvIWZsElb4EMDQ.A.RT0LDciDgUmY38TDMX0dijlBoIQcgA2ceMFZ041ZeYWYxMWZu4VZBj1BgMFcoYWYeMGauQ2ToEPPos.bxU1bkQ2WtEVakMUZGPTYlEVcrQWZL.mbkMWYz8EYoIGc4YTZJ.mbkMWYz8UcoQ1ToAxLjMSXyPiX2PyLlkCMiYSLhUVMhUCNvDFMkYiY3fCLjkFEvwVcmklaeMGcgQWYeAWX4w1agQ1Vjj1HIs.kA..........H.......f+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3Oo8PXrQWYx4VXzU1WyQWXzU1dijFAow.bxU1bkQ2WjklbzkmQos.bxU1bkQ2WtEVakMUZGPTYlEVcrQWZJ.mbkMWYz8UcoQ1ToAxLjMSXyPiX2PyLlkCMiYSLhUVMhUCNvDFMkYiY3fCLjkFEvwVcmklaeMGcgQWYeAWX4w1agQ1Vjj1HowU...................................................................vO..............3O..............vO....+....9C...vO...f+j1CvI2aiU1byklam8UauQVYSkFAUEDQyjVDykFYkMFZgklaeUlagIFakQlQoQAYgc2Wx8VczUFYeMWZjU1XnEVZtYDVU4FcoQGakQF.H.vF.fB.s.fN.XD.NAfU.rE.sAfb.bG.1Cv9.zO.+Gf.APP.LDvCADQ.VDvFNTG.......f.A..........F..................fC9A"
+              programState="3790.hAGaoMGcv.S1AHv.DTfAGfPBJr.CSPwDUXwEb0VXtUmYgMFc0IWYxQEYgQWXbUFak0VYtQWKtEVaksEbx81YxEVae4Vcsc0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOnVciUFTrU2Yo41TzEFckQkag0VYRTUPDg2SPvG..............3.....L.........DC.........x7C.......vL.........PC.........07Cf......fM.........bC.........37C.......PN+.......F7wO.B....fAf7C......XPH+.H.....FHxO.B..R2fCOHQTwDkLQCQDQAyUvIWZsElb4EMDQ.A.RT0LDciDgUmY38TDMX0dijlBoIQcgA2ceMFZ041ZeYWYxMWZu4VZBj1BgMFcoYWYeMGauQ2ToEPPos.bxU1bkQ2WtEVakMUZGPTYlEVcrQWZL.mbkMWYz8EYoIGc4YTZJ.mbkMWYz8UcoQ1ToAxLjMSXyPiX2PyLlkCMiYSLhUVMhUCNvDFMkYiY3fCLjkFEvwVcmklaeMGcgQWYeAWX4w1agQ1Vjj1HIs.kA..........H.......f+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3OA...................................................................+..............f+...............+....7C...3O....+....9S...................................................................vO..............3O..............vO....+....9C...vO...f+D...................................................................7C..............9C..............7C...vO...f+....7C...3Oo8PXrQWYx4VXzU1WyQWXzU1dijFAow.bxU1bkQ2WjklbzkmQos.bxU1bkQ2WtEVakMUZGPTYlEVcrQWZJ.mbkMWYz8UcoQ1ToAxLjMSXyPiX2PyLlkCMiYSLhUVMhUCNvDFMkYiY3fCLjkFEvwVcmklaeMGcgQWYeAWX4w1agQ1Vjj1HowU...................................................................vO..............3O..............vO....+....9C...vO...f+j1CvI2aiU1byklam8UauQVYSkFAUEDQyjVDykFYkMFZgklaeUlagIFakQlQoQAYgc2Wx8VczUFYeMWZjU1XnEVZtYDVU4FcoQGakQF.H.vF.fB.s.fN.XD.NAfU.rE.sAfb.bG.1Cv9.zO.+Gf.APP.LDvCADQ.VDvFNTG.......f.A..........F..................fC9A"
+              program="-1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block portAlignment="before" hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,control_36,control_37,control_38,control_39,control_40,control_41,control_42,control_43,control_44,control_45,control_46,control_47,control_48,control_49,control_50,control_51,control_52,control_53,control_54,control_55,control_56,control_57,control_58,control_59,control_60,control_61,control_62,control_63,control_64,control_65,control_66,control_67,control_68,control_69,control_70,control_71,control_72,control_73,control_74,control_75,control_76,control_77,control_78,control_79,control_80,control_81,control_82,control_83,control_84,control_85,control_86,control_87,control_88,control_89,control_90,control_91,control_92,control_93,control_94,control_95,control_96,control_97,control_98,control_99,control_100,control_101,control_102,control_103,control_104,control_105,control_106,control_107,control_108,control_109,control_110,control_111,control_112,control_113,control_114,control_115,control_116,control_117,control_118,control_119,control_120,control_121,control_122,control_123,control_124,control_125,control_126,control_127,control_128,control_129,control_130,control_131,control_132,control_133,control_134,control_135,control_136,control_137,control_138,control_139,control_140,control_141,control_142,control_143,control_144,control_145,control_146,control_147,control_148,control_149,control_150,control_151,control_152,control_153,control_154,control_155,control_156,control_157,control_158,control_159,control_160,control_161,control_162,control_163,control_164,control_165,control_166,control_167,control_168,control_169,control_170,control_171,control_172,control_173,control_174,control_175,control_176,control_177,control_178,control_179,control_180,control_181,control_182,control_183,control_184,control_185,control_186,control_187,control_188,control_189,control_190,control_191,control_192,control_193,control_194,control_195,control_196,control_197,control_198,control_199,control_200,control_201,control_202,control_203,control_204,control_205,control_206,control_207,control_208,control_209,control_210,control_211,control_212,control_213,control_214,control_215,control_216,control_217,control_218,control_219,control_220,control_221,control_222,control_223,control_224,control_225,control_226,control_227,control_228,control_229,control_230,control_231,control_232,control_233,control_234,control_235,control_236,control_237,control_238,control_239,control_240,control_241,control_242,control_243,control_244,control_245,control_246,control_247,control_248,control_249,control_250,control_251,control_252,control_253,control_254,control_255,control_256,control_257,control_258,control_259,control_260,control_261,control_262,control_263,control_264,control_265,control_266,control_267,control_268,control_269,control_270,control_271,control_272,control_273,control_274,control_275,control_276,control_277,control_278,control_279,control_280,control_281,control_282,control_283,control_284,control_285,control_286,control_287,control_288,control_289,control_290,control_291,control_292,control_293,control_294,control_295,control_296,control_297,control_298,control_299,midi_in_0,midi_out_0,midi_in_1,midi_out_1,element_midi_input,element_midi_output"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="primary 1" symbol="audio_in_1"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="1" channel="1" type="audio" name="primary 2" symbol="audio_in_2"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="2" channel="0" type="audio" name="primary 1" symbol="audio_out_1"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="3" channel="1" type="audio" name="primary 2" symbol="audio_out_2"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="4" channel="0" type="control" name="Chamber" symbol="control_0"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="5" channel="1" type="control" name="Dist 2648" symbol="control_1"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="6" channel="2" type="control" name="Dist 2644" symbol="control_2"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="7" channel="3" type="control" name="Speakers" symbol="control_3"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="8" channel="4" type="control" name="Microphones" symbol="control_4"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="9" channel="5" type="control" name="Width" symbol="control_5"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="10" channel="6" type="control" name="Mono" symbol="control_6"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="11" channel="7" type="control" name="Predelay" symbol="control_7"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="12" channel="8" type="control" name="Low" symbol="control_8"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="13" channel="9" type="control" name="High" symbol="control_9"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="14" channel="10" type="control" name="Decay" symbol="control_10"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="15" channel="11" type="control" name="Mix" symbol="control_11"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="16" channel="12" type="control" name="Wet Solo" symbol="control_12"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="17" channel="13" type="control" name="Power" symbol="control_13"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="18" channel="0" type="midi" name="MIDI" symbol="midi_out_0"
+                  flow="output" hiddenOnBlock="1"/>
+            <Port index="19" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+                  flow="input" hiddenOnBlock="1"/>
+          </ports>
+          <buses>
+            <inputs>
+              <AudioChannelSet arrangement="L R"/>
+            </inputs>
+            <outputs>
+              <AudioChannelSet arrangement="L R"/>
+            </outputs>
+          </buses>
+        </Node>
+        <Node id="5" format="Element" identifier="element.audioMixer" type="plugin"
+              name="Audio Mixer" relativeX="0.55" relativeY="0.32" pluginIdentifierString="Element-Audio Mixer-7ec0005-0"
+              uuid="mixer_node_uuid" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="480.0" y="200.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" state="407.VMjLg3X....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOgUGYo8VaogWYxAhcuwVcsUVOh.iKvHBHsUGck0iHvHhO7PmbgM1ZfjlajUFd8HBLh.hX0MWRjgWOh.iHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HRLh.hX0MWRjgWOhDiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HhLh.hX0MWRjgWOhHiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HxLh.hX0MWRjgWOhLiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO77RX0QVZu0VZ3Ulb9.."
+              programState="407.VMjLg3X....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOgUGYo8VaogWYxAhcuwVcsUVOh.iKvHBHsUGck0iHvHhO7PmbgM1ZfjlajUFd8HBLh.hX0MWRjgWOh.iHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HRLh.hX0MWRjgWOhDiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HhLh.hX0MWRjgWOhHiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO7PmbgM1ZfjlajUFd8HxLh.hX0MWRjgWOhLiHf3VcskjavUGcy0iHxHBHtUWaOUGcvUGcy0iHxHBHmEVZt0iHw3BLh.Ra0QWY8HBLh7hO77RX0QVZu0VZ3Ulb9.."
+              program="1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block portAlignment="before" hiddenPorts="control_0,control_1,control_2,control_3,control_4,control_5,control_6,control_7,control_8,control_9,control_10,control_11,control_12,control_13,control_14,control_15,control_16,control_17,control_18,control_19,control_20,control_21,control_22,control_23,control_24,control_25,control_26,control_27,control_28,control_29,control_30,control_31,control_32,control_33,control_34,control_35,control_36,control_37,control_38,control_39,control_40,control_41,control_42,control_43,control_44,control_45,control_46,control_47,control_48,control_49,control_50,control_51,control_52,control_53,control_54,control_55,control_56,control_57,control_58,control_59,control_60,control_61,control_62,control_63,control_64,control_65,control_66,control_67,control_68,control_69,control_70,control_71,control_72,control_73,control_74,control_75,control_76,control_77,control_78,control_79,control_80,control_81,control_82,control_83,control_84,control_85,control_86,control_87,control_88,control_89,control_90,control_91,control_92,control_93,control_94,control_95,control_96,control_97,control_98,control_99,control_100,control_101,control_102,control_103,control_104,control_105,control_106,control_107,control_108,control_109,control_110,control_111,control_112,control_113,control_114,control_115,control_116,control_117,control_118,control_119,control_120,control_121,control_122,control_123,control_124,control_125,control_126,control_127,control_128,control_129,control_130,control_131,control_132,control_133,control_134,control_135,control_136,control_137,control_138,control_139,control_140,control_141,control_142,control_143,control_144,control_145,control_146,control_147,control_148,control_149,control_150,control_151,control_152,control_153,control_154,control_155,control_156,control_157,control_158,control_159,control_160,control_161,control_162,control_163,control_164,control_165,control_166,control_167,control_168,control_169,control_170,control_171,control_172,control_173,control_174,control_175,control_176,control_177,control_178,control_179,control_180,control_181,control_182,control_183,control_184,control_185,control_186,control_187,control_188,control_189,control_190,control_191,control_192,control_193,control_194,control_195,control_196,control_197,control_198,control_199,control_200,control_201,control_202,control_203,control_204,control_205,control_206,control_207,control_208,control_209,control_210,control_211,control_212,control_213,control_214,control_215,control_216,control_217,control_218,control_219,control_220,control_221,control_222,control_223,control_224,control_225,control_226,control_227,control_228,control_229,control_230,control_231,control_232,control_233,control_234,control_235,control_236,control_237,control_238,control_239,control_240,control_241,control_242,control_243,control_244,control_245,control_246,control_247,control_248,control_249,control_250,control_251,control_252,control_253,control_254,control_255,control_256,control_257,control_258,control_259,control_260,control_261,control_262,control_263,control_264,control_265,control_266,control_267,control_268,control_269,control_270,control_271,control_272,control_273,control_274,control_275,control_276,control_277,control_278,control_279,control_280,control_281,control_282,control_283,control_284,control_285,control_286,control_287,control_288,control_289,control_290,control_291,control_292,control_293,control_294,control_295,control_296,control_297,control_298,control_299,midi_in_0,midi_out_0,midi_in_1,midi_out_1,element_midi_input,element_midi_output"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="Input #0 1" symbol="audio_in_1"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="1" channel="1" type="audio" name="Input #0 2" symbol="audio_in_2"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="2" channel="2" type="audio" name="Input #1 3" symbol="audio_in_3"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="3" channel="3" type="audio" name="Input #1 4" symbol="audio_in_4"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="4" channel="4" type="audio" name="Input #2 5" symbol="audio_in_5"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="5" channel="5" type="audio" name="Input #2 6" symbol="audio_in_6"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="6" channel="6" type="audio" name="Input #3 7" symbol="audio_in_7"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="7" channel="7" type="audio" name="Input #3 8" symbol="audio_in_8"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="8" channel="0" type="audio" name="Master 1" symbol="audio_out_1"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="9" channel="1" type="audio" name="Master 2" symbol="audio_out_2"
+                  flow="output" hiddenOnBlock="0"/>
+            <Port index="10" channel="0" type="control" name="Master Mute" symbol="control_0"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="11" channel="1" type="control" name="Master Volume" symbol="control_1"
+                  flow="input" hiddenOnBlock="1"/>
+            <Port index="12" channel="0" type="midi" name="MIDI In" symbol="element_midi_input"
+                  flow="input" hiddenOnBlock="1"/>
+          </ports>
+          <buses>
+            <inputs>
+              <AudioChannelSet arrangement="L R"/>
+              <AudioChannelSet arrangement="L R"/>
+              <AudioChannelSet arrangement="L R"/>
+              <AudioChannelSet arrangement="L R"/>
+            </inputs>
+            <outputs>
+              <AudioChannelSet arrangement="L R"/>
+            </outputs>
+          </buses>
+        </Node>
+        <Node id="2" format="Internal" identifier="audio.output" type="plugin"
+              name="" relativeX="0.75" relativeY="0.32" pluginIdentifierString="Internal--83a94619-0"
+              uuid="output_uuid_node_2" bypass="0" persistent="1" renderMode="single"
+              keyStart="0" keyEnd="127" transpose="0" delayCompensation="0.0"
+              tempo="120.0" x="630.0" y="200.0" mute="0" muteInput="0" oversamplingFactor="1"
+              enabled="1" midiProgram="0" globalMidiPrograms="0" midiProgramsEnabled="0"
+              midiProgramsState="">
+          <nodes/>
+          <scripts/>
+          <ui>
+            <Block displayMode="compact" portAlignment="before"/>
+          </ui>
+          <ports>
+            <Port index="0" channel="0" type="audio" name="Audio Out 1" symbol="audio_out_1"
+                  flow="input" hiddenOnBlock="0"/>
+            <Port index="1" channel="1" type="audio" name="Audio Out 2" symbol="audio_out_2"
+                  flow="input" hiddenOnBlock="0"/>
+          </ports>
+        </Node>
+      </nodes>
+      <scripts/>
+      <ui>
+        <Block/>
+        <GraphEditorView width="985" height="788"/>
+      </ui>
+      <arcs>
+        <Arc sourceNode="1" sourcePort="0" destNode="7" destPort="0"/>
+        <Arc sourceNode="1" sourcePort="0" destNode="7" destPort="1"/>
+        <Arc sourceNode="3" sourcePort="2" destNode="4" destPort="0"/>
+        <Arc sourceNode="3" sourcePort="3" destNode="4" destPort="1"/>
+        <Arc sourceNode="3" sourcePort="2" destNode="5" destPort="0"/>
+        <Arc sourceNode="3" sourcePort="3" destNode="5" destPort="1"/>
+        <Arc sourceNode="4" sourcePort="2" destNode="5" destPort="2"/>
+        <Arc sourceNode="4" sourcePort="3" destNode="5" destPort="3"/>
+        <Arc sourceNode="5" sourcePort="8" destNode="2" destPort="0"/>
+        <Arc sourceNode="5" sourcePort="9" destNode="2" destPort="1"/>
+        <Arc sourceNode="7" sourcePort="2" destNode="3" destPort="0"/>
+        <Arc sourceNode="7" sourcePort="3" destNode="3" destPort="1"/>
+      </arcs>
+      <ports>
+        <Port index="0" channel="0" type="audio" name="Audio In 1" symbol="audio_in_1"
+              flow="input"/>
+        <Port index="1" channel="0" type="audio" name="Audio Out 1" symbol="audio_out_1"
+              flow="output"/>
+        <Port index="2" channel="1" type="audio" name="Audio Out 2" symbol="audio_out_2"
+              flow="output"/>
+      </ports>
+    </Node>
+  </graphs>
+  <controllers/>
+  <maps/>
+  <ui content="122.3o8JtjDKIUFXjI+xOkTcMkLKI+hBKyTKmAF8lUSMROiy2BuJIKW71yPcKhrx27J720zBIixiJRSxM37MImnL20rhvqxcNn7L16hqxmfSO8L71yJypxRBBnpCLmH0SOixOcm8xYF.Y1ATT9EjZQkjYpES8MeF.Xdx.8G"/>
+</Session>

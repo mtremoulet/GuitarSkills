@@ -37,14 +37,18 @@ def parse_plugins_xml():
                 'name': name,
                 'format': format_val,
                 'identifier': plugin.get('file'),
-                'uniqueId': plugin.get('uniqueId')
+                'uniqueId': plugin.get('uniqueId'),
+                'numInputs': int(plugin.get('numInputs', '2')),
+                'numOutputs': int(plugin.get('numOutputs', '2'))
             }
         elif name not in db: # Fallback to VST3/VST
             db[name] = {
                 'name': name,
                 'format': format_val,
                 'identifier': plugin.get('file'),
-                'uniqueId': plugin.get('uniqueId')
+                'uniqueId': plugin.get('uniqueId'),
+                'numInputs': int(plugin.get('numInputs', '2')),
+                'numOutputs': int(plugin.get('numOutputs', '2'))
             }
             
     # Manually add internal/built-in Element plugins since they might not be in the scanned list
@@ -52,13 +56,17 @@ def parse_plugins_xml():
         'name': 'Audio Mixer',
         'format': 'Element',
         'identifier': 'element.audioMixer',
-        'uniqueId': '0'
+        'uniqueId': '0',
+        'numInputs': 8,
+        'numOutputs': 2
     }
     db['Volume'] = {
         'name': 'Volume',
         'format': 'Element',
         'identifier': 'element.volume.stereo',
-        'uniqueId': '0'
+        'uniqueId': '0',
+        'numInputs': 2,
+        'numOutputs': 2
     }
     return db
 
@@ -137,69 +145,134 @@ def compile_session(md_path, db):
     parallel_plugins = []
     
     # 1. Drive Pedal (Boost/OD)
+    drive_plugins = []
     if 'clon_minotaur' in preset_data:
         clon_plugin = db.get("NA Clon Minotaur")
         if clon_plugin:
-            series_plugins.append(clon_plugin)
+            drive_plugins.append(clon_plugin)
             
     if 'kuassa_blues_barker' in preset_data:
         barker_plugin = db.get("Efektor Blues Barker")
         if barker_plugin:
-            series_plugins.append(barker_plugin)
+            drive_plugins.append(barker_plugin)
             
     if 'kuassa_blues_river' in preset_data:
         river_plugin = db.get("Efektor Blues River")
         if river_plugin:
-            series_plugins.append(river_plugin)
+            drive_plugins.append(river_plugin)
             
-    # Preamp Stage (UADx 610-B)
-    if 'ua_610b' in preset_data:
-        preamp_plugin = db.get("UADx 610-B Preamp and EQ")
-        if preamp_plugin:
-            series_plugins.append(preamp_plugin)
-            
-    # 2. Amp Simulator
-    amp_plugin = map_amp_plugin(preset_data, amp_name, db)
-    if amp_plugin:
-        series_plugins.append(amp_plugin)
-    elif preset_data.get('amp_platform') == 'tonex' or 'tonex' in preset_data or 'tonex_pedal' in preset_data:
-        # Resolve TONEX amp simulator
-        tonex_plugin = db.get("TONEX")
-        if tonex_plugin:
-            series_plugins.append(tonex_plugin)
-        
-    # 3. Compressor (LA-2A / 1176 / AUDynamicsProcessor)
+    # 2. Compressor (LA-2A / 1176 / AUDynamicsProcessor)
+    comp_plugins = []
     has_comp = False
     if 'la2a' in preset_data:
         la2a_plugin = db.get("UADx LA-2A Silver Compressor")
         if la2a_plugin:
-            series_plugins.append(la2a_plugin)
+            comp_plugins.append(la2a_plugin)
             has_comp = True
             
     if '1176' in preset_data or 'pgs_1176' in preset_data or 'standalone_1176' in preset_data:
         fet_plugin = db.get("UADx 1176LN Rev E Compressor")
         if fet_plugin:
-            series_plugins.append(fet_plugin)
+            comp_plugins.append(fet_plugin)
             has_comp = True
             
     if 'logic_compressor' in preset_data and not has_comp:
         au_comp = db.get("AUDynamicsProcessor")
         if au_comp:
-            series_plugins.append(au_comp)
+            comp_plugins.append(au_comp)
             
-    # 4. Modulation (Studio D)
+    # 3. Preamp Stage (UADx 610-B)
+    preamp_plugins = []
+    if 'ua_610b' in preset_data:
+        preamp_plugin = db.get("UADx 610-B Preamp and EQ")
+        if preamp_plugin:
+            preamp_plugins.append(preamp_plugin)
+            
+    # 4. Amp Simulator
+    amp_plugins = []
+    amp_plugin = map_amp_plugin(preset_data, amp_name, db)
+    if amp_plugin:
+        amp_plugins.append(amp_plugin)
+    elif preset_data.get('amp_platform') == 'tonex' or 'tonex' in preset_data or 'tonex_pedal' in preset_data:
+        # Resolve TONEX amp simulator
+        tonex_plugin = db.get("TONEX")
+        if tonex_plugin:
+            amp_plugins.append(tonex_plugin)
+
+    # Auto-detect if compressor should go before amp
+    comp_before_amp = False
+    if has_comp or 'logic_compressor' in preset_data:
+        if data.get('la2a_before_amp') or preset_data.get('la2a_before_amp') or data.get('compressor_before_amp') or preset_data.get('compressor_before_amp'):
+            comp_before_amp = True
+        else:
+            try:
+                with open(md_path, 'r') as f:
+                    content = f.read()
+                
+                headers = re.findall(r'^###\s+(.*)$', content, re.MULTILINE)
+                comp_idx = -1
+                amp_idx = -1
+                
+                comp_keywords = ['la-2a', 'la2a', 'compressor', '1176', 'comp']
+                amp_keywords = [
+                    'ruby', 'two rock', 'bloomfield', 'cory wong', 'showtime', 
+                    'dream', 'lion', 'woodrow', 'jazz chorus', 'mrh810', 
+                    'divided 11', 'puretone', 'acoustic voice', 'tonex', 'paradise'
+                ]
+                
+                for idx, header in enumerate(headers):
+                    header_lower = header.lower()
+                    if any(kw in header_lower for kw in comp_keywords) and comp_idx == -1:
+                        comp_idx = idx
+                    if any(kw in header_lower for kw in amp_keywords) and amp_idx == -1:
+                        amp_idx = idx
+                        
+                if comp_idx != -1 and amp_idx != -1:
+                    comp_before_amp = comp_idx < amp_idx
+                else:
+                    # Fallback to signal chain line check
+                    for line in content.splitlines():
+                        if '→' in line or '->' in line:
+                            comp_pos = -1
+                            amp_pos = -1
+                            for kw in comp_keywords:
+                                pos = line.lower().find(kw)
+                                if pos != -1 and (comp_pos == -1 or pos < comp_pos):
+                                    comp_pos = pos
+                            for kw in amp_keywords:
+                                pos = line.lower().find(kw)
+                                if pos != -1 and (amp_pos == -1 or pos < amp_pos):
+                                    amp_pos = pos
+                            if comp_pos != -1 and amp_pos != -1:
+                                comp_before_amp = comp_pos < amp_pos
+                                break
+            except Exception as e:
+                print(f"Error auto-detecting plugin ordering: {e}")
+
+    # Assemble series signal chain in correct order
+    series_plugins.extend(drive_plugins)
+    if comp_before_amp:
+        series_plugins.extend(comp_plugins)
+        series_plugins.extend(preamp_plugins)
+        series_plugins.extend(amp_plugins)
+    else:
+        series_plugins.extend(preamp_plugins)
+        series_plugins.extend(amp_plugins)
+        series_plugins.extend(comp_plugins)
+            
+    # 5. Modulation (Studio D)
     if 'studio_d' in preset_data or 'studio_d_chorus' in preset_data:
         chorus_plugin = db.get("UADx Studio D Chorus")
         if chorus_plugin:
             series_plugins.append(chorus_plugin)
             
-    # 5. Equalizer (Logic EQ / AUNBandEQ)
+    # 6. Equalizer (Logic EQ / TDR Nova / MEqualizer / AUNBandEQ)
     if 'logic_eq' in preset_data:
-        eq_plugin = db.get("AUNBandEQ")
+        eq_plugin = db.get("TDR Nova") or db.get("Nova") or db.get("MEqualizer") or db.get("AUNBandEQ")
         if eq_plugin:
             series_plugins.append(eq_plugin)
             
-    # 6. Studer Tape
+    # 7. Studer Tape
     if 'studer' in preset_data:
         studer_plugin = db.get("UADx Studer A800 Tape Recorder")
         if studer_plugin:
@@ -261,13 +334,18 @@ def compile_session(md_path, db):
           </ports>
         </Node>""")
         
-    # Node 7: iD14 Input Pad (Volume)
+    # Set starting ID for plugins (leaving 1 for Input, 2 for Output)
+    next_node_id = 3
+    pad_node_id = next_node_id
+    next_node_id += 1
+
+    # Node: iD14 Input Pad (Volume)
     volume_plugin = db.get("Volume")
     volume_plugin['hash'] = java_hash(volume_plugin['identifier'])
     volume_plugin['pluginIdentifierString'] = f"{volume_plugin['format']}-{volume_plugin['name']}-{volume_plugin['hash']}-{volume_plugin['uniqueId']}"
     
     nodes_xml.append(f"""        <!-- iD14 Input Pad -->
-        <Node id="7" format="{volume_plugin['format']}" identifier="{volume_plugin['identifier']}" type="plugin"
+        <Node id="{pad_node_id}" format="{volume_plugin['format']}" identifier="{volume_plugin['identifier']}" type="plugin"
               name="iD14 Input Pad" relativeX="0.15" relativeY="0.32"
               pluginIdentifierString="{volume_plugin['pluginIdentifierString']}"
               uuid="volume_pad_node_uuid" bypass="0" persistent="1"
@@ -288,15 +366,14 @@ def compile_session(md_path, db):
         </Node>""")
         
     # Connect input to pad
-    arcs_xml.append('        <Arc sourceNode="1" sourcePort="0" destNode="7" destPort="0"/>')
-    arcs_xml.append('        <Arc sourceNode="1" sourcePort="0" destNode="7" destPort="1"/>')
+    arcs_xml.append(f'        <Arc sourceNode="1" sourcePort="0" destNode="{pad_node_id}" destPort="0"/>')
+    arcs_xml.append(f'        <Arc sourceNode="1" sourcePort="0" destNode="{pad_node_id}" destPort="1"/>')
     
-    current_src_node = 7
+    current_src_node = pad_node_id
     current_src_port_l = 2
     current_src_port_r = 3
     
     # Add series plugins
-    next_node_id = 3
     for i, plugin in enumerate(series_plugins):
         plugin['hash'] = java_hash(plugin['identifier'])
         plugin['pluginIdentifierString'] = f"{plugin['format']}-{plugin['name']}-{plugin['hash']}-{plugin['uniqueId']}"
@@ -308,6 +385,16 @@ def compile_session(md_path, db):
         oversample_factor = "1"
         if any(keyword in plugin['name'] for keyword in ["Bloomfield", "Efektor", "Minotaur", "808"]):
             oversample_factor = "8"
+            
+        num_in = plugin.get('numInputs', 2)
+        num_out = plugin.get('numOutputs', 2)
+        
+        ports_list = []
+        for p_idx in range(num_in):
+            ports_list.append(f'            <Port index="{p_idx}" channel="{p_idx}" type="audio" name="Input {p_idx+1}" symbol="audio_in_{p_idx+1}" flow="input" hiddenOnBlock="0"/>')
+        for p_idx in range(num_out):
+            ports_list.append(f'            <Port index="{num_in + p_idx}" channel="{p_idx}" type="audio" name="Output {p_idx+1}" symbol="audio_out_{p_idx+1}" flow="output" hiddenOnBlock="0"/>')
+        ports_str = "\n".join(ports_list)
             
         nodes_xml.append(f"""        <!-- {plugin['name']} -->
         <Node id="{node_id}" format="{plugin['format']}" identifier="{plugin['identifier']}" type="plugin"
@@ -322,10 +409,7 @@ def compile_session(md_path, db):
             <Block portAlignment="before" hiddenPorts="{hidden_ports}"/>
           </ui>
           <ports>
-            <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1" flow="input" hiddenOnBlock="0"/>
-            <Port index="1" channel="1" type="audio" name="Input 2" symbol="audio_in_2" flow="input" hiddenOnBlock="0"/>
-            <Port index="2" channel="0" type="audio" name="Output 1" symbol="audio_out_1" flow="output" hiddenOnBlock="0"/>
-            <Port index="3" channel="1" type="audio" name="Output 2" symbol="audio_out_2" flow="output" hiddenOnBlock="0"/>
+{ports_str}
           </ports>
         </Node>""")
         
@@ -334,8 +418,8 @@ def compile_session(md_path, db):
         arcs_xml.append(f'        <Arc sourceNode="{current_src_node}" sourcePort="{current_src_port_r}" destNode="{node_id}" destPort="1"/>')
         
         current_src_node = node_id
-        current_src_port_l = 2
-        current_src_port_r = 3
+        current_src_port_l = num_in
+        current_src_port_r = num_in + 1
         
     last_series_x = 180 + len(series_plugins) * 150
     mixer_needed = len(parallel_plugins) > 0
@@ -356,6 +440,16 @@ def compile_session(md_path, db):
             if any(keyword in plugin['name'] for keyword in ["Bloomfield", "Efektor", "Minotaur", "808"]):
                 oversample_factor = "8"
                 
+            num_in = plugin.get('numInputs', 2)
+            num_out = plugin.get('numOutputs', 2)
+            
+            ports_list = []
+            for p_idx in range(num_in):
+                ports_list.append(f'            <Port index="{p_idx}" channel="{p_idx}" type="audio" name="Input {p_idx+1}" symbol="audio_in_{p_idx+1}" flow="input" hiddenOnBlock="0"/>')
+            for p_idx in range(num_out):
+                ports_list.append(f'            <Port index="{num_in + p_idx}" channel="{p_idx}" type="audio" name="Output {p_idx+1}" symbol="audio_out_{p_idx+1}" flow="output" hiddenOnBlock="0"/>')
+            ports_str = "\n".join(ports_list)
+                
             nodes_xml.append(f"""        <!-- Parallel {plugin['name']} -->
         <Node id="{node_id}" format="{plugin['format']}" identifier="{plugin['identifier']}" type="plugin"
               name="{plugin['name']}" relativeX="{(x_pos/1000):.2f}" relativeY="0.6"
@@ -369,10 +463,7 @@ def compile_session(md_path, db):
             <Block portAlignment="before" hiddenPorts="{hidden_ports}"/>
           </ui>
           <ports>
-            <Port index="0" channel="0" type="audio" name="Input 1" symbol="audio_in_1" flow="input" hiddenOnBlock="0"/>
-            <Port index="1" channel="1" type="audio" name="Input 2" symbol="audio_in_2" flow="input" hiddenOnBlock="0"/>
-            <Port index="2" channel="0" type="audio" name="Output 1" symbol="audio_out_1" flow="output" hiddenOnBlock="0"/>
-            <Port index="3" channel="1" type="audio" name="Output 2" symbol="audio_out_2" flow="output" hiddenOnBlock="0"/>
+{ports_str}
           </ports>
         </Node>""")
         
@@ -416,11 +507,12 @@ def compile_session(md_path, db):
         arcs_xml.append(f'        <Arc sourceNode="{current_src_node}" sourcePort="{current_src_port_r}" destNode="{mixer_node_id}" destPort="1"/>')
         
         # Connect parallel outputs to Mixer Channels 2 & 3
-        for idx, p_node in enumerate(parallel_nodes):
+        for idx, (p_node, p_plugin) in enumerate(zip(parallel_nodes, parallel_plugins)):
             dest_port_l = 2 + idx * 2
             dest_port_r = 3 + idx * 2
-            arcs_xml.append(f'        <Arc sourceNode="{p_node}" sourcePort="2" destNode="{mixer_node_id}" destPort="{dest_port_l}"/>')
-            arcs_xml.append(f'        <Arc sourceNode="{p_node}" sourcePort="3" destNode="{mixer_node_id}" destPort="{dest_port_r}"/>')
+            p_in = p_plugin.get('numInputs', 2)
+            arcs_xml.append(f'        <Arc sourceNode="{p_node}" sourcePort="{p_in}" destNode="{mixer_node_id}" destPort="{dest_port_l}"/>')
+            arcs_xml.append(f'        <Arc sourceNode="{p_node}" sourcePort="{p_in + 1}" destNode="{mixer_node_id}" destPort="{dest_port_r}"/>')
             
         output_x = mixer_x + 150
         

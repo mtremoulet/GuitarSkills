@@ -2,13 +2,13 @@
 id: bill-withers-soul-rhythm
 preset_name: "Bill Withers 70s Soul Rhythm"
 created: "2026-06-28"
-updated: "2026-06-28"
+updated: "2026-07-13"
 guitar: "Gibson Les Paul Studio / Epiphone Sheraton II (Neck or Neck+Bridge blend)"
 target: 'Warm, percussive 1970s soul and funk rhythm guitar tone (''Use Me'', ''Lean On Me'') featuring organic Tweed/Blackface warmth, smooth optical compression, and tight rhythmic definition.'
 tags: "bill-withers, soul, funk, rhythm, humbucker, les-paul, sheraton, 70s, uad_paradise"
 tone-king-channel: bypassed
 amp: "Woodrow '55 (UADx)"
-status: initial
+status: refined
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise
@@ -82,7 +82,7 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Peak Reduction | **35** | Targets `1–3 dB` of smooth optical compression on rhythm chops |
+| Peak Reduction | **35** | Targets `1–3 dB` of smooth optical compression; just nudges off peak spikes |
 | Gain | **28** | Makeup gain calibrated for healthy DAW level (~ −12 dBFS) |
 | Mode | **Compress** (3:1) | Keeps rhythm strums balanced and even |
 
@@ -103,10 +103,14 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 
 - **Pickup Selection & Controls:** Switch to your **Epiphone Sheraton II** or **Les Paul Studio** neck pickup (or neck + bridge blend). Set the guitar volume to **8** and guitar tone to **7** for that iconic muted 70s soul warmth.
 - **Rhythmic Technique:** Perfect for muted funk scratches and syncopated chord stabs (like the iconic riff in "Use Me"). Keep your picking hand relaxed to allow the natural tube sag and optical compression to bounce with the tempo.
+- **Dynamics & Breakup:** The tone is clean with a hint of breakup if you really dig in. For an extra gain push and breakup, kick in the **Gold Overdrive** pedal in the Pre-FX slot.
 
 ---
 
 ## Feedback History
+
+### 2026-07-13 — refined
+Tested with Gibson Les Paul Studio. The calibration is perfect—no notes. The post-amp LA-2A is set to just nudge off peak spikes. The baseline tone is clean with a hint of breakup when digging in, or if the Gold Overdrive is kicked in.
 
 ### 2026-06-28 — initial
 Created as a dedicated humbucker toneprint for 70s soul/funk rhythm guitar inspired by Bill Withers ("Use Me", "Lean On Me"). Uses Woodrow '55 Tweed Deluxe platform, LA-2A Silver optical compression, Hitsville chamber reverb, and disabled Gold Overdrive pre-amp option.

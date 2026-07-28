@@ -69,7 +69,14 @@ To match the software plugins' expected analog input level (+12.2 dBu clipping p
 
 ---
 
-## 4. Software Plugin Inventory (Logic Pro Rig)
+## 4. Software Host & Plugin Inventory
+
+### Software Hosts & Workflow
+* **Kushview Element (Daily Driver):** Lightweight, modular VST/AU plugin host graph environment. Used for daily practice, quick preset recall, low-latency monitoring, and modular signal chain experimentation. Primary environment for fast configuration loading.
+* **Logic Pro (Production & High-Horsepower DAW):** Reserved for multi-track recording, complex bused routing (e.g. Aux sends, spatial mixing), heavy production, or when maximum processing horsepower is required.
+
+> [!NOTE]
+> **Host File Format Note:** Logic Pro project templates (`.logicx`) are binary/proprietary macOS bundle packages that cannot be programmatically generated via scripts. Host configurations for daily practice are managed via Kushview Element graphs or target plugin preset definitions.
 
 ### Amp Emulations
 

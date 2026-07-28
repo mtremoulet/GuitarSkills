@@ -2,18 +2,18 @@
 id: "ruby-hb-velvet-blues"
 preset_name: "Ruby LP Velvet Blues HB"
 created: "2026-06-01"
-updated: 2026-06-28
+updated: 2026-07-12
 guitar: "Gibson Les Paul Studio / Epiphone Les Paul Standard"
 target: 'Warm, vocal Class A overdrive with smooth tape compression; optimized for expressive humbucker blues-rock leads.'
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, overdrive, blues, blues-rock, velvet"
 tone-king-channel: "bypassed"
 amp: "Ruby '63 (UADx)"
-status: "initial"
+status: "refined"
 pickup_type: "humbucker"
 preset_data:
   amp_platform: "uad_paradise"
   gold_overdrive:
-    enabled: false
+    enabled: true
     gain: 0.0
     output: 7.5
     treble: 4.5
@@ -23,15 +23,16 @@ preset_data:
     Boost: 3.0
     Boost Switch: "ON"
     Cut: "ON"
-    Treble: 5.5
+    Treble: 5.0
     Bass: 5.2
-    Tone Cut: 6.0
-    Cabinet: "Silver"
+    Tone Cut: 6.4
+    Cabinet: "Green"
     Room: 4.5
-  la2a:
-    peak_reduction: 38.0
-    gain: 40.0
-    compress: true
+  red_comp:
+    enabled: true
+    output: 1.0
+    mix: 80.0
+    sensitivity: 2.5
   logic_eq:
     band1:
       on: true
@@ -67,7 +68,7 @@ By leveraging the **Brilliant channel** with a low-gain **EP-III tape echo pream
 ## Signal Chain
 
 ```
-[Les Paul] → [Audient iD14 (JFET DI)] → [LA-2A Gray Comp] → [Ruby '63 (Brilliant)] → [2x12 Silver Cab] → [Post-EQ] → [Aux Spatial Buses]
+[Les Paul] → [Audient iD14 (JFET DI)] → [Red Comp (PGS Pre-FX 5)] → [Ruby '63 (Brilliant)] → [2x12 Silver Cab] → [Post-EQ] → [Aux Spatial Buses]
 ```
 
 ### 1. Physical Hardware & Interface Front-End — Audient iD14 mkII
@@ -82,25 +83,26 @@ To get the pure, dynamic midrange interaction of your humbuckers and the AC30, p
 | **TONEX One** | **Bypassed** | Bypassed — transparent signal path starting at the interface DI |
 
 
-### 2. UADx LA-2A Gray Compressor — dynamic smoothing
+### 2. Pre-FX: Red Comp Compressor (Paradise Guitar Studio) — dynamic smoothing
 
-#### Amp Settings
-Placed before the amp to tame humbucker transients and add singing sustain. The Gray variant has a slightly slower, smoother recovery response that is perfect for sustaining humbucker instruments.
+Placed in the final pre-FX slot (Slot 5) of Paradise Guitar Studio to tame humbucker transients and add singing sustain. It runs parallel with a mix of 80% to keep a little dry signal in and maintain picking dynamics.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Mode | Compress | Gentle 3:1 optical compression ratio |
-| Peak Reduction | 38 | Target 2–3 dB of gain reduction on hard strums. Smooths out heavy humbucker attack peaks. |
-| Gain | 40 | Makeup gain to restore unity level into the amp plugin |
+| Output | 1.0 | Low output to prevent immediately pushing the amp into harsh clipping |
+| Sensitivity | 2.5 | Fairly low sensitivity for a natural, dynamic compression response |
+| Mix | 80% | Parallel compression: retains 20% dry transient detail |
 
 ---
 
-#### Pre-FX Option: Gold Overdrive
+### 3. Pre-FX Option: Gold Overdrive
+
+Loaded in pre-FX Slot 1. Enabled by default for a bit of clean boost/sustain.
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
+| Pedal | **Gold Overdrive** | Transparent clean boost |
+| State | **Enabled** (On) | Can be bypassed if a completely clean response is desired |
 | Gain | **0.0** | Zero added distortion; pure clean boost |
 | Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
 | Treble | **4.5** | Slightly rounded high end for smooth boost response |
@@ -116,10 +118,10 @@ The Brilliant channel engages the classic '63 Top Boost preamp. We balance this 
 | **Boost Switch** | **ON** | Engages the EP-III Tape Echo preamp model |
 | **Boost Control** | **3.0** | Adds a smooth, warm tape saturation that rounds out humbucker transients |
 | **Cut Switch** | **ON** | Low-frequency cut. **CRITICAL for humbuckers** — filters out flubby bass before the preamp to prevent mud. |
-| **Top Boost Treble** | **5.5** | *Inverse control (clockwise = cut)*. Counterclockwise boost set to 5.5 to retain top-end definition. |
+| **Top Boost Treble** | **5.0** | *Inverse control (clockwise = cut)*. Counterclockwise boost set to 5.0 to tame high-end spikes. |
 | **Top Boost Bass** | **5.2** | *Inverse control (clockwise = cut)*. Set to 5.2 to subtly roll off low-end mud under high-output strumming. |
-| **Tone Cut** | **6.0** | *Inverse control (clockwise = cut)*. Set to 6.0 to roll off digital "fizz" and soften transients on your HD660S2 headphones. |
-| **Cabinet** | **Silver** | Rare 2x12 Celestion Silver Bulldogs. High-end warmth and sheen, open midrange; smoother and more organic for humbucker blues than the vintage Blue cab. |
+| **Tone Cut** | **6.4** | *Inverse control (clockwise = cut)*. Set to 6.4 to roll off digital "fizz" and soften transients on your HD660S2 headphones. |
+| **Cabinet** | **Green** | Modern 2x12 Celestion G12H speakers, mic'd with M160 ribbon. Tames Vox high-end harshness, adds midrange warmth, and thickens the tone. |
 | **Room** | **4.5** | Adds a natural acoustic room reflection, essential for a premium headphone experience |
 
 ---
@@ -153,9 +155,9 @@ To maintain maximum clarity and prevent the Les Paul's thick midrange from getti
 
 ## Starting Point Guide
 
-- **First adjustment**: If the tone feels a bit too dark or muffled, roll the **Tone Cut** counterclockwise to **5.0** to open up the high-mids, or lower the **Boost control** to **2.0**.
+- **First adjustment**: If the tone feels a bit too dark or muffled, roll the **Tone Cut** counterclockwise (e.g., to **5.5**) to open up the high-mids, or lower the **Boost control** to **2.0**.
 - **Key interaction**: Set your physical **Guitar Volume to 7** and **Tone to 7** on the neck pickup. This takes the high-output "edge" off the humbuckers, expanding the clean headroom and bringing out a glassy, woody quality. Roll it up to 10 for thick, creamy, singing leads.
-- **Variations**: For a brighter, more classic rock "jangle" crunch, switch the cabinet to **Blue** or **Blue Mod**.
+- **Variations**: For a brighter, more classic rock "jangle" crunch, switch the cabinet to **Silver**, **Blue**, or **Blue Mod**.
 
 ---
 
@@ -163,3 +165,6 @@ To maintain maximum clarity and prevent the Les Paul's thick midrange from getti
 
 ### 2026-06-01 — initial
 Created specifically for the Gibson/Epiphone Les Paul Standard to find the bluesy "sweet spot" on the Ruby's Brilliant channel. Uses the JFET DI input directly. Blends a gentle LA-2A Gray Compressor, a low EP-III tape boost (3.0), and a smooth 2x12 Silver cabinet to create a creamy, singing velvet overdrive that cleans up beautifully by rolling back the guitar's volume. Optimized for the Sennheiser HD660S2 headphones.
+
+### 2026-07-12 — refined
+Refined the toneprint based on testing. The previous standalone LA-2A placement before the amp was very loud and required an unusually high Peak Reduction (77) and very low Gain (19) to tame the picking attack without immediate harsh breakup. Switched to the built-in Red Comp compressor pedal inside Paradise Guitar Studio (placed in the final pre-FX slot 5). Dialed with low output (1.0) and sensitivity (2.5) at an 80% mix to keep dry dynamics. Enabled the Gold Overdrive in Slot 1 for a clean boost. To address the Ruby's brightness, swapped the speaker cabinet from Silver to Green (Celestion G12Hs mic'd with an M160 ribbon microphone), rolled Treble back to 5.0, and dialed the Tone Cut to 6.4. This creates a much warmer, vocal overdrive that is smoother on headphones.

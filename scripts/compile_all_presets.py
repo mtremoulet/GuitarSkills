@@ -663,11 +663,11 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
         if vol is not None: controls["ruby_volume"] = {"real_value": vol}
         if treble is not None: controls["ruby_treble"] = {"real_value": treble}
         if bass is not None: controls["ruby_bass"] = {"real_value": bass}
-        if tone_cut is not None: controls["ruby_tone_cut"] = {"real_value": tone_cut}
+        if tone_cut is not None: controls["ruby_cut"] = {"real_value": tone_cut}
         if boost_enable is not None: controls["ruby_boost_enable"] = {"real_value": boost_enable}
         if boost_amount is not None: controls["ruby_boost_amount"] = {"real_value": boost_amount}
         controls["ruby_channel"] = {"real_value": 2} # Brilliant
-        controls["ruby_cut"] = {"real_value": 5.0 if cut_sw else 0.0}
+        controls["ruby_tone_cut"] = {"real_value": 5.0 if cut_sw else 0.0}
     elif amp_type == "woodrow":
         if vol is not None: controls["woodrow_inst_volume"] = {"real_value": vol}
         if vol_mic is not None: controls["woodrow_mic_volume"] = {"real_value": vol_mic}
@@ -773,20 +773,60 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
 
     # Dynamic Pre-FX & Post-FX slot mapping from preset_data
     if isinstance(preset_data, dict):
-        if "gold_overdrive" in preset_data:
-            controls["prefx_1"] = {"real_value": 2} # Gold Overdrive ID = 2
+        current_prefx_slot = 1
+
+        # Stage 1 / Soft Overdrive: Nashville Overdrive (ID 3)
+        if "nashville_overdrive" in preset_data and current_prefx_slot <= 5:
+            slot = current_prefx_slot
+            controls[f"prefx_{slot}"] = {"real_value": 3} # Nashville OD ID = 3
+            nash_info = preset_data["nashville_overdrive"]
+            if isinstance(nash_info, dict):
+                controls[f"prefx_{slot}_power"] = {"real_value": nash_info.get("enabled", False)}
+                if "gain" in nash_info or "drive" in nash_info:
+                    controls["prefx_nashville_overdrive_drive"] = {"real_value": float(nash_info.get("gain", nash_info.get("drive", 5.0)))}
+                if "output" in nash_info or "level" in nash_info:
+                    controls["prefx_nashville_overdrive_level"] = {"real_value": float(nash_info.get("output", nash_info.get("level", 6.0)))}
+                if "tone" in nash_info or "spectrum" in nash_info:
+                    controls["prefx_nashville_overdrive_spectrum"] = {"real_value": float(nash_info.get("tone", nash_info.get("spectrum", 5.0)))}
+            current_prefx_slot += 1
+
+        # Stage 2 / Klon Boost: Gold Overdrive (ID 2)
+        if "gold_overdrive" in preset_data and current_prefx_slot <= 5:
+            slot = current_prefx_slot
+            controls[f"prefx_{slot}"] = {"real_value": 2} # Gold Overdrive ID = 2
             gold_info = preset_data["gold_overdrive"]
             if isinstance(gold_info, dict):
-                controls["prefx_1_power"] = {"real_value": gold_info.get("enabled", False)}
+                controls[f"prefx_{slot}_power"] = {"real_value": gold_info.get("enabled", False)}
                 if "gain" in gold_info: controls["prefx_gold_overdrive_gain"] = {"real_value": float(gold_info["gain"])}
                 if "output" in gold_info: controls["prefx_gold_overdrive_output"] = {"real_value": float(gold_info["output"])}
                 if "treble" in gold_info: controls["prefx_gold_overdrive_treble"] = {"real_value": float(gold_info["treble"])}
+            current_prefx_slot += 1
+
+        # Stage 3 / TS Boost: TS Overdrive (ID 5)
+        if "ts_overdrive" in preset_data and current_prefx_slot <= 5:
+            slot = current_prefx_slot
+            controls[f"prefx_{slot}"] = {"real_value": 5} # TS Overdrive ID = 5
+            ts_info = preset_data["ts_overdrive"]
+            if isinstance(ts_info, dict):
+                controls[f"prefx_{slot}_power"] = {"real_value": ts_info.get("enabled", False)}
+                if "drive" in ts_info or "gain" in ts_info:
+                    controls["prefx_ts_overdrive_overdrive"] = {"real_value": float(ts_info.get("drive", ts_info.get("gain", 3.0)))}
+                if "level" in ts_info or "output" in ts_info:
+                    controls["prefx_ts_overdrive_level"] = {"real_value": float(ts_info.get("level", ts_info.get("output", 7.0)))}
+                if "tone" in ts_info:
+                    controls["prefx_ts_overdrive_tone"] = {"real_value": float(ts_info["tone"])}
+            current_prefx_slot += 1
+
         if "ep3_boost" in preset_data or "ep_iii" in preset_data:
-            controls["prefx_2"] = {"real_value": 18} # EP-III Tape Echo ID = 18
-            ep3_info = preset_data.get("ep3_boost") or preset_data.get("ep_iii")
-            if isinstance(ep3_info, dict):
-                controls["prefx_2_power"] = {"real_value": ep3_info.get("enabled", True)}
-                controls["prefx_ep_iii_tape_echo_preamp_color"] = {"real_value": True}
+            if current_prefx_slot <= 5:
+                slot = current_prefx_slot
+                controls[f"prefx_{slot}"] = {"real_value": 18} # EP-III Tape Echo ID = 18
+                ep3_info = preset_data.get("ep3_boost") or preset_data.get("ep_iii")
+                if isinstance(ep3_info, dict):
+                    controls[f"prefx_{slot}_power"] = {"real_value": ep3_info.get("enabled", True)}
+                    controls["prefx_ep_iii_tape_echo_preamp_color"] = {"real_value": True}
+                current_prefx_slot += 1
+
         if "pgs_1176" in preset_data or "1176" in preset_data:
             controls["postfx_1"] = {"real_value": 14} # 1176 Compressor ID = 14
             c1176_info = preset_data.get("pgs_1176") or preset_data.get("1176")
@@ -794,6 +834,15 @@ def compile_uad_toneprint(filepath, base_preset, output_name, frontmatter):
                 controls["postfx_1_power"] = {"real_value": c1176_info.get("enabled", True)}
                 controls["postfx_1176_compressor_input"] = {"real_value": float(c1176_info.get("input", -30.0))}
                 controls["postfx_1176_compressor_output"] = {"real_value": float(c1176_info.get("output", -15.0))}
+
+        if "red_comp" in preset_data:
+            controls["prefx_5"] = {"real_value": 15} # Red Comp ID = 15
+            red_info = preset_data["red_comp"]
+            if isinstance(red_info, dict):
+                controls["prefx_5_power"] = {"real_value": red_info.get("enabled", True)}
+                if "output" in red_info: controls["prefx_red_comp_output"] = {"real_value": float(red_info["output"])}
+                if "mix" in red_info: controls["prefx_red_comp_mix"] = {"real_value": float(red_info["mix"])}
+                if "sensitivity" in red_info: controls["prefx_red_comp_sensitivity"] = {"real_value": float(red_info["sensitivity"])}
 
     # Inject overrides from frontmatter (supporting 1176, delays, plate reverbs, etc.)
     overrides = frontmatter.get("preset_overrides", {})
@@ -1257,48 +1306,184 @@ def compile_hitsville_toneprint(filepath, base_preset_path, output_name, frontma
     print(f"-> Compiled UADx Hitsville Reverb Preset: 'Toneprint - {output_name}'")
     return True
 
+# Helper functions for Galaxy Tape Echo preset compilation
+def isolate_galaxy_section(content):
+    lines = content.splitlines()
+    section_lines = []
+    in_section = False
+    for line in lines:
+        stripped = line.strip()
+        if not stripped.startswith("|") and not stripped.startswith("[") and "galaxy" in stripped.lower() and (stripped.startswith("#") or (stripped.startswith("**") and stripped.endswith("**")) or stripped.startswith("##") or stripped.startswith("###")):
+            in_section = True
+            section_lines = [line]
+            continue
+        if in_section:
+            if stripped.startswith("---") or (not stripped.startswith("|") and not stripped.startswith("[") and (stripped.startswith("#") or (stripped.startswith("**") and stripped.endswith("**")) or stripped.startswith("##") or stripped.startswith("###"))):
+                if "hitsville" in stripped.lower() or "la-2a" in stripped.lower() or "eq" in stripped.lower() or "compressor" in stripped.lower() or "starting point" in stripped.lower() or stripped.startswith("---") or "reverb" in stripped.lower():
+                    break
+            section_lines.append(line)
+    if section_lines:
+        return "\n".join(section_lines)
+    return content
+
+def ms_to_galaxy_knob(ms_val, head_mode):
+    mode_heads = {
+        1: [1], 2: [2], 3: [3], 4: [1, 2], 5: [1, 2],
+        6: [3], 7: [1, 3], 8: [2, 3], 9: [1], 10: [1, 2, 3],
+        11: [2], 12: []
+    }
+    heads_in_mode = mode_heads.get(head_mode, [1])
+    ranges = {
+        1: (69.0, 177.0),
+        2: (131.0, 337.0),
+        3: (189.0, 489.0)
+    }
+    target_head = None
+    for h in heads_in_mode:
+        r_min, r_max = ranges[h]
+        if r_min <= ms_val <= r_max:
+            target_head = h
+            break
+    if target_head is None:
+        for h in [1, 2, 3]:
+            r_min, r_max = ranges[h]
+            if r_min <= ms_val <= r_max:
+                target_head = h
+                break
+    if target_head is None:
+        target_head = heads_in_mode[0] if heads_in_mode else 1
+        
+    r_min, r_max = ranges[target_head]
+    knob = (r_max - ms_val) / (r_max - r_min)
+    return max(0.0, min(1.0, knob))
+
+def scale_galaxy_value(val_raw, is_rate=False, head_mode=1):
+    if val_raw is None:
+        return None
+    val_str = str(val_raw).strip()
+    if "%" in val_str:
+        match = re.search(r"([-+]?[0-9]*\.?[0-9]+)", val_str)
+        if match:
+            return float(match.group(1)) / 100.0
+    if "ms" in val_str.lower() or "sec" in val_str.lower() or ("s" in val_str.lower() and "ms" not in val_str.lower()):
+        match = re.search(r"([~0-9.+−-]+)", val_str)
+        if match:
+            ms_val = float(match.group(1).replace("−", "-").replace("~", ""))
+            if ("s" in val_str.lower() or "sec" in val_str.lower()) and "ms" not in val_str.lower():
+                ms_val *= 1000.0
+            return ms_to_galaxy_knob(ms_val, head_mode)
+    match = re.search(r"([-+]?[0-9]*\.?[0-9]+)", val_str)
+    if match:
+        val = float(match.group(1))
+        if is_rate:
+            if val > 10.0:
+                return ms_to_galaxy_knob(val, head_mode)
+            else:
+                return val / 10.0
+        else:
+            return val / 10.0
+    return None
+
+def find_table_cell(content, param_names):
+    content = content.replace("**", "")
+    for name in param_names:
+        pattern = r"\|\s*" + re.escape(name) + r"\s*\|\s*([^|]+)\s*\|"
+        match = re.search(pattern, content, re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return None
+
 # Dynamic UADx Galaxy Tape Echo JSON Preset Compiler
 def compile_galaxy_toneprint(filepath, base_preset_path, output_name, frontmatter):
     preset_data = frontmatter.get("preset_data", {})
     galaxy_data = preset_data.get("galaxy") if isinstance(preset_data, dict) else None
 
-    if galaxy_data and isinstance(galaxy_data, dict):
-        echo_rate = galaxy_data.get("echo_rate")
-        feedback = galaxy_data.get("feedback")
-        echo_volume = galaxy_data.get("echo_volume")
-        reverb_volume = galaxy_data.get("reverb_volume")
-        head_select = galaxy_data.get("head_select")
-        tape_age = galaxy_data.get("tape_age")
-        
-        # normalize types
-        if echo_rate is not None: echo_rate = float(echo_rate)
-        if feedback is not None: feedback = float(feedback)
-        if echo_volume is not None: echo_volume = float(echo_volume)
-        if reverb_volume is not None: reverb_volume = float(reverb_volume)
-        if head_select is not None: head_select = str(head_select)
-        if tape_age is not None: tape_age = str(tape_age)
-    else:
+    # Load file content to extract markdown table values
+    try:
         with open(filepath, "r") as f:
             full_content = f.read()
-            
-        # Isolate to Galaxy section to prevent parameter collision
-        content = extract_markdown_section(full_content, ["Galaxy Tape Echo", "Galaxy Echo", "Galaxy"])
-        
-        echo_rate = find_numeric_parameter(content, ["Echo Rate", "Rate"])
-        feedback = find_numeric_parameter(content, ["Feedback"])
-        echo_volume = find_numeric_parameter(content, ["Echo Volume", "Volume (Echo)", "Echo Vol"])
-        reverb_volume = find_numeric_parameter(content, ["Reverb Volume", "Reverb Vol"])
-        
-        # Head Select can be integer or string; prioritize string cell first
-        hs_match = re.search(r"\|\s*Head Select\s*\|\s*(?:\*\*)?([^|]+?)(?:\*\*)?\s*\|", content, re.IGNORECASE)
-        if hs_match:
-            head_select = hs_match.group(1).strip()
+        content = isolate_galaxy_section(full_content)
+    except Exception as e:
+        print(f"Error reading tone file for Galaxy parsing: {e}")
+        content = ""
+
+    # Initialize raw parameter values
+    echo_rate_raw = None
+    feedback_raw = None
+    echo_volume_raw = None
+    reverb_volume_raw = None
+    head_select_raw = None
+    tape_age_raw = None
+
+    # 1. Pull from frontmatter first if available
+    if galaxy_data and isinstance(galaxy_data, dict):
+        echo_rate_raw = galaxy_data.get("echo_rate")
+        feedback_raw = galaxy_data.get("feedback")
+        echo_volume_raw = galaxy_data.get("echo_volume")
+        reverb_volume_raw = galaxy_data.get("reverb_volume")
+        head_select_raw = galaxy_data.get("head_select")
+        tape_age_raw = galaxy_data.get("tape_age")
+
+    # 2. Fall back to markdown table if frontmatter is missing values
+    if echo_rate_raw is None:
+        echo_rate_raw = find_table_cell(content, ["Echo Rate", "Rate"])
+    if feedback_raw is None:
+        feedback_raw = find_table_cell(content, ["Feedback"])
+    if echo_volume_raw is None:
+        echo_volume_raw = find_table_cell(content, ["Echo Volume", "Volume (Echo)", "Echo Vol", "Mix / Wet Solo", "Mix / Wet", "Mix"])
+    if reverb_volume_raw is None:
+        reverb_volume_raw = find_table_cell(content, ["Reverb Volume", "Reverb Vol"])
+    if head_select_raw is None:
+        head_select_raw = find_table_cell(content, ["Head Select", "Head", "Mode"])
+    if tape_age_raw is None:
+        tape_age_raw = find_table_cell(content, ["Tape Age"])
+
+    # Determine head_mode (1 to 12)
+    head_mode = 1 # Default to Head Select 1
+    if head_select_raw is not None:
+        hs_str = str(head_select_raw).lower()
+        if "1+2+3" in hs_str or "1,2,3" in hs_str or "all" in hs_str:
+            head_mode = 10
+        elif "1+3" in hs_str or "1,3" in hs_str:
+            head_mode = 7
+        elif "2+3" in hs_str or "2,3" in hs_str:
+            head_mode = 8
+        elif "1+2" in hs_str or "1,2" in hs_str:
+            if "reverb" in hs_str or "rev" in hs_str:
+                head_mode = 5
+            else:
+                head_mode = 4
+        elif "reverb only" in hs_str or "only reverb" in hs_str or hs_str == "reverb":
+            head_mode = 12
         else:
-            head_select_raw = find_numeric_parameter(content, ["Head Select", "Head"])
-            head_select = str(int(head_select_raw)) if head_select_raw is not None else None
-            
-        ta_match = re.search(r"\|\s*Tape Age\s*\|\s*(?:\*\%)?([A-Za-z]+)(?:\*\%)?\s*\|", content, re.IGNORECASE)
-        tape_age = ta_match.group(1).strip() if ta_match else None
+            clean_hs = "".join(c for c in hs_str if c.isdigit() or c == ".")
+            if clean_hs:
+                try:
+                    head_mode = int(float(clean_hs))
+                except ValueError:
+                    head_mode = 1
+
+    # Map the raw values to float 0.0 - 1.0 using the scaled helper
+    echo_rate = scale_galaxy_value(echo_rate_raw, is_rate=True, head_mode=head_mode)
+    feedback = scale_galaxy_value(feedback_raw, is_rate=False, head_mode=head_mode)
+    echo_volume = scale_galaxy_value(echo_volume_raw, is_rate=False, head_mode=head_mode)
+    reverb_volume = scale_galaxy_value(reverb_volume_raw, is_rate=False, head_mode=head_mode)
+
+    # Decode tape_age
+    tape_age = None
+    if tape_age_raw is not None:
+        ta_lower = str(tape_age_raw).lower()
+        if "new" in ta_lower:
+            tape_age = 0.0
+        elif "used" in ta_lower:
+            tape_age = 0.5
+        elif "old" in ta_lower:
+            tape_age = 1.0
+        else:
+            try:
+                tape_age = float(tape_age_raw)
+            except ValueError:
+                tape_age = 0.0
 
     # If all critical controls are None, skip
     if echo_rate is None and feedback is None and echo_volume is None:
@@ -1314,62 +1499,30 @@ def compile_galaxy_toneprint(filepath, base_preset_path, output_name, frontmatte
 
     # Decode chunk
     chunk_bytes = bytearray(base64.b64decode(preset_data_json["chunk"]))
-    
+
     # 1. Echo Rate: Float Index 19 (Offset 76)
     if echo_rate is not None:
-        val_scaled = echo_rate / 10.0 if echo_rate > 1.0 else echo_rate
-        struct.pack_into("f", chunk_bytes, 19 * 4, val_scaled)
-        
+        struct.pack_into("f", chunk_bytes, 19 * 4, echo_rate)
+
     # 2. Reverb Volume: Float Index 20 (Offset 80)
     if reverb_volume is not None:
-        val_scaled = reverb_volume / 10.0 if reverb_volume > 1.0 else reverb_volume
-        struct.pack_into("f", chunk_bytes, 20 * 4, val_scaled)
-        
+        struct.pack_into("f", chunk_bytes, 20 * 4, reverb_volume)
+
     # 3. Feedback: Float Index 21 (Offset 84)
     if feedback is not None:
-        val_scaled = feedback / 10.0 if feedback > 1.0 else feedback
-        struct.pack_into("f", chunk_bytes, 21 * 4, val_scaled)
-        
+        struct.pack_into("f", chunk_bytes, 21 * 4, feedback)
+
     # 4. Echo Volume: Float Index 22 (Offset 88)
     if echo_volume is not None:
-        val_scaled = echo_volume / 10.0 if echo_volume > 1.0 else echo_volume
-        struct.pack_into("f", chunk_bytes, 22 * 4, val_scaled)
-        
-    # 5. Tape Age: Float Index 23 (Offset 92) (New=0.0, Used=0.5, Old=1.0)
+        struct.pack_into("f", chunk_bytes, 22 * 4, echo_volume)
+
+    # 5. Tape Age: Float Index 23 (Offset 92)
     if tape_age is not None:
-        ta_lower = tape_age.lower()
-        if "new" in ta_lower:
-            val = 0.0
-        elif "used" in ta_lower:
-            val = 0.5
-        elif "old" in ta_lower:
-            val = 1.0
-        else:
-            try:
-                val = float(tape_age)
-            except ValueError:
-                val = 0.0
-        struct.pack_into("f", chunk_bytes, 23 * 4, val)
-        
+        struct.pack_into("f", chunk_bytes, 23 * 4, tape_age)
+
     # 6. Head Select: Float Index 14 (Offset 56)
-    if head_select is not None:
-        hs_val = 0.0 # Default to Repeat 1
-        try:
-            hs_str = str(head_select).lower()
-            if "1+2+3" in hs_str or "1,2,3" in hs_str or "all" in hs_str:
-                hs_val = 10.0 / 11.0 # Reverb+Repeat 7 (Heads 1+2+3)
-            elif "1+3" in hs_str or "1,3" in hs_str:
-                hs_val = 9.0 / 11.0 # Reverb+Repeat 6 (Heads 1+3)
-            elif "reverb only" in hs_str or "only reverb" in hs_str:
-                hs_val = 1.0 # Reverb Only
-            else:
-                clean_hs = "".join(c for c in hs_str if c.isdigit() or c == ".")
-                if clean_hs:
-                    hs_num = int(float(clean_hs))
-                    if 1 <= hs_num <= 12:
-                        hs_val = (hs_num - 1) / 11.0
-        except ValueError:
-            pass
+    if head_select_raw is not None:
+        hs_val = (head_mode - 1) / 11.0
         struct.pack_into("f", chunk_bytes, 14 * 4, hs_val)
 
     # Re-encode chunk
@@ -1380,7 +1533,7 @@ def compile_galaxy_toneprint(filepath, base_preset_path, output_name, frontmatte
     # Output directory: standard documents plugin presets folder for UADx
     output_dir = os.path.dirname(base_preset_path)
     out_path = os.path.join(output_dir, f"Toneprint - {output_name}.json")
-    
+
     try:
         with open(out_path, "w") as f:
             json.dump(preset_data_json, f, indent=4)
@@ -2519,6 +2672,146 @@ def compile_nembrini_xml_preset(filepath, base_preset_path, output_name, frontma
     return True
 
 
+def compile_nembrini_stomp_presets(filepath, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    if not isinstance(preset_data, dict):
+        return False
+        
+    compiled_any = False
+    
+    # 1. Nembrini Clon Minotaur
+    if "clon_minotaur" in preset_data:
+        clon_info = preset_data["clon_minotaur"]
+        if isinstance(clon_info, dict):
+            out_dir = "/Users/miketremoulet/Documents/Nembrini Audio/NA Clon Minotaur"
+            os.makedirs(out_dir, exist_ok=True)
+            out_path = os.path.join(out_dir, f"Toneprint - {output_name}.xml")
+            
+            gain_val = float(clon_info.get("gain", 0.0))
+            treble_val = float(clon_info.get("treble", 4.5))
+            output_val = float(clon_info.get("output", 7.5))
+            
+            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<ClonMinotaur version="1.0.0">
+  <PARAM id="Gain" value="{gain_val}"/>
+  <PARAM id="Treble" value="{treble_val}"/>
+  <PARAM id="Output" value="{output_val}"/>
+  <PARAM id="power" value="1.0"/>
+</ClonMinotaur>
+"""
+            with open(out_path, "w") as f:
+                f.write(xml_content)
+            print(f"-> Compiled Nembrini Clon Minotaur XML Preset: 'Toneprint - {output_name}.xml'")
+            compiled_any = True
+
+    # 2. Nembrini 808
+    if "nembrini_808" in preset_data or "808" in preset_data:
+        t808_info = preset_data.get("nembrini_808") or preset_data.get("808")
+        if isinstance(t808_info, dict):
+            out_dir = "/Users/miketremoulet/Documents/Nembrini Audio/NA 808"
+            os.makedirs(out_dir, exist_ok=True)
+            out_path = os.path.join(out_dir, f"Toneprint - {output_name}.xml")
+            
+            drive_val = float(t808_info.get("drive", t808_info.get("gain", 3.0)))
+            tone_val = float(t808_info.get("tone", 5.0))
+            level_val = float(t808_info.get("level", t808_info.get("output", 7.0)))
+            
+            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<Nembrini808 version="1.0.0">
+  <PARAM id="Overdrive" value="{drive_val}"/>
+  <PARAM id="Tone" value="{tone_val}"/>
+  <PARAM id="Level" value="{level_val}"/>
+  <PARAM id="power" value="1.0"/>
+</Nembrini808>
+"""
+            with open(out_path, "w") as f:
+                f.write(xml_content)
+            print(f"-> Compiled Nembrini 808 XML Preset: 'Toneprint - {output_name}.xml'")
+            compiled_any = True
+            
+    return compiled_any
+
+
+def compile_kuassa_stomp_presets(filepath, output_name, frontmatter):
+    preset_data = frontmatter.get("preset_data", {})
+    if not isinstance(preset_data, dict):
+        return False
+        
+    compiled_any = False
+    
+    # 1. Kuassa Efektor Blues Barker (.kebbp)
+    if "kuassa_blues_barker" in preset_data or "blues_barker" in preset_data:
+        barker_info = preset_data.get("kuassa_blues_barker") or preset_data.get("blues_barker")
+        if isinstance(barker_info, dict):
+            out_dir = "/Users/miketremoulet/Music/Kuassa/Presets/EfektorBluesBarker"
+            os.makedirs(out_dir, exist_ok=True)
+            out_path = os.path.join(out_dir, f"Toneprint - {output_name}.kebbp")
+            
+            gain_val = float(barker_info.get("gain", 3.5)) / 10.0
+            tone_val = float(barker_info.get("tone", 5.0)) / 10.0
+            level_val = float(barker_info.get("level", 6.0)) / 10.0
+            bypass_val = "true" if not barker_info.get("enabled", False) else "false"
+            
+            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+
+<kuassaPatch version="1.0">
+  <DeviceName>Efektor BluesBarker</DeviceName>
+  <Properties deviceProductID="com.kuassa.EfektorBluesBarker" deviceVersion="1.0.0"
+              presetVersion="1.0">
+    <Value property="onBypass" type="boolean">{bypass_val}</Value>
+    <Value property="inputVol" type="number">0.50000</Value>
+    <Value property="type" type="number">0</Value>
+    <Value property="gain" type="number">{gain_val:.5f}</Value>
+    <Value property="tone" type="number">{tone_val:.5f}</Value>
+    <Value property="level" type="number">{level_val:.5f}</Value>
+    <Value property="dryWet" type="number">1.00000</Value>
+    <Value property="oversampling" type="number">0</Value>
+  </Properties>
+</kuassaPatch>
+"""
+            with open(out_path, "w") as f:
+                f.write(xml_content)
+            print(f"-> Compiled Kuassa Efektor Blues Barker Preset: 'Toneprint - {output_name}.kebbp'")
+            compiled_any = True
+
+    # 2. Kuassa Efektor Blues River (.kebrp)
+    if "kuassa_blues_river" in preset_data or "blues_river" in preset_data:
+        river_info = preset_data.get("kuassa_blues_river") or preset_data.get("blues_river")
+        if isinstance(river_info, dict):
+            out_dir = "/Users/miketremoulet/Music/Kuassa/Presets/EfektorBluesRiver"
+            os.makedirs(out_dir, exist_ok=True)
+            out_path = os.path.join(out_dir, f"Toneprint - {output_name}.kebrp")
+            
+            gain_val = float(river_info.get("gain", 3.0)) / 10.0
+            tone_val = float(river_info.get("tone", 5.0)) / 10.0
+            level_val = float(river_info.get("level", 7.0)) / 10.0
+            bypass_val = "true" if not river_info.get("enabled", False) else "false"
+            
+            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+
+<kuassaPatch version="1.0">
+  <DeviceName>Efektor BluesRiver</DeviceName>
+  <Properties deviceProductID="com.kuassa.EfektorBluesRiver" deviceVersion="1.0.0"
+              presetVersion="1.0">
+    <Value property="onBypass" type="boolean">{bypass_val}</Value>
+    <Value property="inputVol" type="number">0.50000</Value>
+    <Value property="type" type="number">0</Value>
+    <Value property="gain" type="number">{gain_val:.5f}</Value>
+    <Value property="tone" type="number">{tone_val:.5f}</Value>
+    <Value property="level" type="number">{level_val:.5f}</Value>
+    <Value property="dryWet" type="number">1.00000</Value>
+    <Value property="oversampling" type="number">0</Value>
+  </Properties>
+</kuassaPatch>
+"""
+            with open(out_path, "w") as f:
+                f.write(xml_content)
+            print(f"-> Compiled Kuassa Efektor Blues River Preset: 'Toneprint - {output_name}.kebrp'")
+            compiled_any = True
+            
+    return compiled_any
+
+
 def main():
     parser = argparse.ArgumentParser(description="Compile guitar toneprints into DAW plugin presets.")
     parser.add_argument("-f", "--filter", help="Filter target toneprints by filename, path, ID, or preset name substring (case-insensitive).")
@@ -2721,6 +3014,12 @@ def main():
                 if "acoustic voice" in content.lower():
                     if compile_nembrini_xml_preset(filepath, base_avp_path, clean_name, frontmatter, "acoustic_voice"):
                         compiled_acoustic += 1
+
+            # Compile Nembrini Stompbox Presets (Clon Minotaur & 808)
+            compile_nembrini_stomp_presets(filepath, clean_name, frontmatter)
+
+            # Compile Kuassa Stompbox Presets (Efektor Blues Barker & Blues River)
+            compile_kuassa_stomp_presets(filepath, clean_name, frontmatter)
 
     print("\n==================================================")
     print(f"Rig Compilation Complete! Injected:")

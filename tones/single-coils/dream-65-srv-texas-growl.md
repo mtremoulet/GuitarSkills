@@ -5,11 +5,11 @@ guitar: "Squier Stratocaster (neck or neck/middle positions)"
 id: dream-65-srv-texas-growl
 pickup_type: single-coil
 preset_name: "Dream 65 SRV Texas Growl"
-status: initial
+status: tested
 tags: "blackface, srv, blues, texas-blues, single-coil, dream-65, d-tex, spring-reverb"
 target: 'Fat, midrange-forward Texas blues tone with dynamic edge-of-breakup response and lush spring reverb'
 tone-king-channel: bypassed
-updated: 2026-06-28
+updated: 2026-07-20
 preset_data:
   amp_platform: uad_paradise
   gold_overdrive:
@@ -98,3 +98,11 @@ To make this tone more authentic and dynamic:
 *   **Guitar Position:** Use a Stratocaster. The neck pickup (Position 5) is the primary target for that fat, woody rhythm growl. Switch to the neck/middle blend (Position 4) for a hollower, quackier blues tone.
 *   **Alternative Speaker Choice:** If you want a tighter, cleaner, and louder response with massive headroom (similar to SRV's actual JBL/EV speaker setups), toggle the **Speaker Switch DOWN** to select the **EV12** cabinet.
 *   **Dynamics Control:** Control your gain with your hand. Soft fingerpicking stays warm and clean; digging in with a heavy pick will activate the D-TEX growl.
+
+---
+
+## Feedback History
+
+### 2026-07-20 — tested on Strat (good starting point)
+Tested on Stratocaster. Good starting point for Texas blues growl — no signal chain edits required now. Will revisit and fine-tune when digging deeper into hard blues repertoire.
+

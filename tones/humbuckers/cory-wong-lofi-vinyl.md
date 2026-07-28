@@ -2,13 +2,13 @@
 id: cory-wong-lofi-vinyl
 preset_name: "Lofi Vinyl"
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-07-12
 guitar: "Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)"
 target: 'Bandpass-filtered lo-fi clean tone resembling a sampled vinyl record, using active chorus and slapback delay for neo-soul chord loops.'
 tags: "clean, lo-fi, chillhop, delay, eq, humbucker, les-paul"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"
-status: initial
+status: tested
 pickup_type: humbucker
 preset_data:
   amp_platform: neural_dsp
@@ -137,3 +137,10 @@ We use the EQ to establish a radio/vinyl bandpass filter:
 
 - **Guitar Pickups:** The **Middle position** (both humbuckers combined) is excellent for this tone, but the **Neck pickup** rolled back to **8** volume gives an incredibly warm, round, lo-fi jazz-box vibe.
 - **Adjusting the Lo-Fi filter:** If the tone feels *too* thin or restricted, bypass the **Graphic EQ** block. This restores the full bandwidth of the D.I. Funk Console while keeping the delay/chorus effects active.
+
+---
+
+## Feedback History
+
+### 2026-07-12 — tested
+Tested. No refinements yet. Still need to figure out exactly what this sound is or could be, but it is good for now and marked past initial.

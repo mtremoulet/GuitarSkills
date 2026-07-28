@@ -2,13 +2,13 @@
 id: "puretone-bossa-fingerstyle-sc"
 preset_name: "Puretone Bossa Fingerstyle SC"
 created: "2026-06-02"
-updated: "2026-06-02"
+updated: "2026-07-20"
 guitar: "Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle)"
 target: 'Sparkling, pristine, touch-sensitive clean for bossa nova chord plucking and modern chillhop/folk fingerstyle.'
 tags: "boutique, clean, sparkle, single-coil, telecaster, stratocaster, fingerstyle, bossa, chillhop"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"
-status: initial
+status: tested
 pickup_type: single-coil
 preset_data:
   nembrini_puretone:
@@ -18,7 +18,10 @@ preset_data:
     Mid: 4.5
     Treble: 6.0
     Tone: 5.0
-    OutLevel: -4.0
+    OutLevel: -2.0
+    DelayPower: 0.0
+    ReverbPower: 0.0
+    Mix: 0.0
   la2a:
     peak_reduction: 20
     gain: 12
@@ -118,3 +121,6 @@ Reverb applied via parallel Send on Bus 3.
 Toneprint created for single-coil bossa plucking and fingerstyle folk. Configured with a transparent Clon boost in front of a slightly growling H&K Puretone (Growl 2.0) and UAD dynamics.
 ### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
 Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.
+### 2026-07-20 — tested on Strat (quiet level + repeating delay bug identified)
+Tested on Strat. Identified that Nembrini's internal FX rack (`DelayPower`) was defaulting to ON in the base XML template (`HK_Base.xml`), introducing an unrequested 477 ms repeating delay on top of the UAD Capitol Chambers bus. Updated `preset_data` to explicitly set `DelayPower: 0.0`, `ReverbPower: 0.0`, `Mix: 0.0` to bypass Nembrini internal FX. Also bumped `OutLevel` from −4.0 to −2.0 dB to address the low level on lower-output Strat single-coils.
+

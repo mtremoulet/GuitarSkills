@@ -108,7 +108,7 @@ def parse_plugin_block(content):
         pending_heading_lines = []
 
     return {
-        'pre_text': ' '.join(pre_lines),
+        'pre_text': '\n'.join(pre_lines),
         'blocks': blocks,
         'note': '\n'.join(pending_heading_lines),
         'headers': blocks[0]['headers'] if blocks else [],
@@ -287,10 +287,89 @@ def h(s):
 
 
 def inline_md(text):
-    """Convert **bold** and *italic* markers to HTML. Input should be already HTML-escaped."""
+    """Convert **bold**, *italic*, and `code` markers to HTML. Input should be already HTML-escaped."""
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
     return text
+
+
+def render_markdown_content(text):
+    if not text:
+        return ''
+    
+    # Split text into lines
+    lines = text.split('\n')
+    
+    html_parts = []
+    current_block = []
+    block_type = None  # None, 'table', 'ul', 'ol', 'p'
+    
+    def close_block():
+        nonlocal block_type, current_block
+        if not current_block:
+            return
+        
+        if block_type == 'table':
+            headers, rows = parse_md_table(current_block)
+            html_parts.append(render_table(headers, rows))
+        elif block_type == 'ul':
+            html_parts.append('<ul class="markdown-ul">')
+            for item in current_block:
+                html_parts.append(f'<li>{inline_md(h(item))}</li>')
+            html_parts.append('</ul>')
+        elif block_type == 'ol':
+            html_parts.append('<ol class="markdown-ol">')
+            for item in current_block:
+                html_parts.append(f'<li>{inline_md(h(item))}</li>')
+            html_parts.append('</ol>')
+        elif block_type == 'p':
+            p_text = ' '.join(current_block)
+            html_parts.append(f'<p class="markdown-p">{inline_md(h(p_text))}</p>')
+        
+        current_block = []
+        block_type = None
+
+    for line in lines:
+        stripped = line.strip()
+        
+        if not stripped:
+            close_block()
+            continue
+            
+        # Detect table
+        if stripped.startswith('|'):
+            if block_type != 'table':
+                close_block()
+                block_type = 'table'
+            current_block.append(stripped)
+            
+        # Detect bullet list
+        elif re.match(r'^[\*\-\+]\s+', stripped):
+            if block_type != 'ul':
+                close_block()
+                block_type = 'ul'
+            item_text = re.sub(r'^[\*\-\+]\s+', '', stripped)
+            current_block.append(item_text)
+            
+        # Detect numbered list
+        elif re.match(r'^\d+\.\s+', stripped):
+            if block_type != 'ol':
+                close_block()
+                block_type = 'ol'
+            item_text = re.sub(r'^\d+\.\s+', '', stripped)
+            current_block.append(item_text)
+            
+        # Paragraph
+        else:
+            if block_type in ('table', 'ul', 'ol'):
+                close_block()
+            if block_type is None:
+                block_type = 'p'
+            current_block.append(stripped)
+            
+    close_block()
+    return '\n'.join(html_parts)
 
 
 def chip_name(plugin_name):
@@ -324,7 +403,7 @@ def render_plugin_card(p, tone_id, is_nested=False):
 
     pre_html = ''
     if p.get('pre_text'):
-        pre_html = f'<p class="plugin-note">{inline_md(h(p["pre_text"]))}</p>'
+        pre_html = f'<div class="plugin-note">{render_markdown_content(p["pre_text"])}</div>'
 
     tables_html = render_block_tables(p.get('blocks', []))
     if not tables_html:
@@ -335,8 +414,7 @@ def render_plugin_card(p, tone_id, is_nested=False):
         note_text = note_text[1:-1]
     note_html = ''
     if note_text:
-        note_lines = [inline_md(h(ln)) for ln in note_text.split('\n') if ln.strip()]
-        note_html = f'<p class="interaction-note">{"<br>".join(note_lines)}</p>'
+        note_html = f'<div class="interaction-note">{render_markdown_content(note_text)}</div>'
 
     extra_cls = ' nested-plugin' if is_nested else ''
     return f'''
@@ -361,8 +439,7 @@ def render_track_group(track, tone_id):
 
     track_note_html = ''
     if track.get('track_note'):
-        note_lines = [inline_md(h(ln)) for ln in track['track_note'].split('\n') if ln.strip()]
-        track_note_html = f'<div class="track-note">{"<br>".join(note_lines)}</div>'
+        track_note_html = f'<div class="track-note">{render_markdown_content(track["track_note"])}</div>'
 
     nested_html = ''.join(render_plugin_card(cp, tone_id, is_nested=True) for cp in track['plugins'])
 
@@ -501,7 +578,7 @@ def render_tone(tone):
         entries = []
         for fb in tone['feedback']:
             fb_scls = STATUS_CLS.get(fb['status'], 'status-initial')
-            content_p = f'<p>{inline_md(h(fb["content"]))}</p>' if fb['content'] else ''
+            content_p = f'<div class="feedback-content">{render_markdown_content(fb["content"])}</div>' if fb['content'] else ''
             entries.append(f'''
 <div class="feedback-entry">
   <div class="feedback-header">
@@ -521,7 +598,7 @@ def render_tone(tone):
         target_sound_html = f'''
 <section class="tone-section">
   <h2 class="section-header">Target Sound</h2>
-  <p class="target-sound">{inline_md(h(tone["target_sound"]))}</p>
+  <div class="target-sound">{render_markdown_content(tone["target_sound"])}</div>
 </section>'''
 
     return f'''
@@ -1417,6 +1494,39 @@ em { color: var(--secondary); }
   color: var(--secondary);
   background: rgba(0,0,0,0.12);
   border-top: 1px solid var(--border);
+}
+
+/* ── Code blocks ── */
+code {
+  font-family: 'SF Mono', 'Menlo', monospace;
+  background: rgba(255,255,255,0.08);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+[data-theme="light"] code {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ── Markdown styling within parsed notes/text ── */
+.plugin-note p, .interaction-note p, .track-note p, .target-sound p, .feedback-content p {
+  margin-bottom: 8px;
+}
+.plugin-note p:last-child, .interaction-note p:last-child, .track-note p:last-child, .target-sound p:last-child, .feedback-content p:last-child {
+  margin-bottom: 0;
+}
+.plugin-note ul, .plugin-note ol, .interaction-note ul, .interaction-note ol, .track-note ul, .track-note ol, .target-sound ul, .target-sound ol, .feedback-content ul, .feedback-content ol {
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.plugin-note li, .interaction-note li, .track-note li, .target-sound li, .feedback-content li {
+  margin-bottom: 2px;
+}
+.track-note table {
+  font-style: normal;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 """
 

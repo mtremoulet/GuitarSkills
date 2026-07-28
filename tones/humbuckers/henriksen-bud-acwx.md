@@ -8,7 +8,7 @@ target: 'Henriksen Bud 6 simulation using ACWX D.I. Funk Console and Logic Chann
 tags: "clean, warm, humbucker, flatwounds, jazz, neural-dsp, cory-wong, henriksen"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"
-status: initial
+status: verified
 pickup_type: humbucker
 preset_data:
   amp_platform: neural_dsp
@@ -29,12 +29,12 @@ preset_data:
     delayActive: false
     washActive: false
     funkVolume: 50.0
-    funkTubeSat: 0.0
-    funkComp: 0.0
+    funkTubeSat: 15.0
+    funkComp: 10.0
     funkHighPass: 20.0
     funkLowPass: 17000.0
     funkLows: 0.0
-    funkMids: 0.0
+    funkMids: 1.0
     funkHighs: 0.0
     funkEQActive: false
   logic_eq:
@@ -44,7 +44,7 @@ preset_data:
     band4: {on: true, freq: 1600.0, gain: 0.0, q: 1.2}
     band5: {on: true, freq: 3500.0, gain: -2.0, q: 1.0}
     band6: {on: true, freq: 7280.0, gain: -5.0, q: 1.0}
-    band8: {on: true, freq: 5500.0, slope: 12.0}
+    band8: {on: true, freq: 10000.0, slope: 12.0}
 ---
 
 # Henriksen Bud 6 — D.I. Funk Console (ACWX)
@@ -77,12 +77,12 @@ The analog console channel strip is kept flat and linear, delegating all surgica
 |---------|---------|---------|
 | **Selected Amp** | D.I. Funk Console | Selects the clean solid-state channel strip (preamp stage) |
 | **Output Volume** | 50% | Set to unity gain for clean headroom |
-| **Compressor (Comp)** | 0% (Bypassed) | Bypassed to maintain natural string dynamics |
-| **Tube Saturation** | 0% (Bypassed) | Bypassed to keep the signal linear and free of distortion |
+| **Compressor (Comp)** | 1.0 (10%) | Adds subtle dynamic cushion to soften JFET pick transients |
+| **Tube Saturation** | 1.5 (15%) | Soft solid-state saturation to warm up JFET direct-wire stiffness |
 | **High Pass Filter** | 20 Hz (Open) | High-pass filter kept wide open |
 | **Low Pass Filter** | 17.0 kHz (Open) | Low-pass filter kept wide open |
 | **Lows (Preamp EQ)** | 0.0 (Flat) | Channel strip low EQ set to neutral |
-| **Mids (Preamp EQ)** | 0.0 (Flat) | Channel strip mid EQ set to neutral |
+| **Mids (Preamp EQ)** | 1.0 | Subtle mid-range push modeling the 6.5" speaker projection |
 | **Highs (Preamp EQ)** | 0.0 (Flat) | Channel strip high EQ set to neutral |
 | **Console EQ Active** | Off (Bypassed) | Preamp graphic EQ bypassed (handled downstream) |
 
@@ -109,7 +109,7 @@ Insert **two Channel EQ plugins back-to-back**. This bypasses the shelving bands
 **EQ Plugin 2: Highs & Cabinet Roll-off**
 *   **Band 3 (Peak)**: On | **3.5 kHz** | Gain: **-2.0 dB** | Q: `1.0` (High-Mid Dial)
 *   **Band 4 (Peak)**: On | **7.28 kHz** | Gain: **-5.0 dB** | Q: `1.0` (Treble/Tweeter Dial)
-*   **Band 8 (LPF)**: On | **5.5 kHz** | 12 dB/Oct slope (Cabinet roll-off/Tweeter Defeat)
+*   **Band 8 (LPF)**: On | **10.0 kHz** | 12 dB/Oct slope (High-frequency sheen filter / Tweeter Active)
 
 #### Option B: The "Single EQ" Hybrid Chain (Compiled Preset Default)
 A single Channel EQ plugin where the $80\text{ Hz}$ band is mapped to Band 2 (Low Shelf) and kept flat (0 dB). The remaining four bands are mapped to peaking bands:
@@ -119,7 +119,7 @@ A single Channel EQ plugin where the $80\text{ Hz}$ band is mapped to Band 2 (Lo
 *   **Band 4 (Peak)**: On | **1.6 kHz** | Gain: **0.0 dB** | Q: `1.2` (Mid/Definition Dial)
 *   **Band 5 (Peak)**: On | **3.5 kHz** | Gain: **-2.0 dB** | Q: `1.0` (High-Mid Dial)
 *   **Band 6 (Peak)**: On | **7.28 kHz** | Gain: **-5.0 dB** | Q: `1.0` (Treble/Tweeter Dial)
-*   **Band 8 (LPF)**: On | **5.5 kHz** | 12 dB/Oct slope (Cabinet roll-off/Tweeter Defeat)
+*   **Band 8 (LPF)**: On | **10.0 kHz** | 12 dB/Oct slope (High-frequency sheen filter / Tweeter Active)
 
 ---
 

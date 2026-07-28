@@ -8,7 +8,7 @@ status: tested
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
 target: '"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\'
 tone-king-channel: bypassed
-updated: 2026-05-03
+updated: 2026-07-20
 preset_data:
   galaxy:
     echo_rate: 6.5
@@ -160,3 +160,6 @@ Designed for Sheraton humbuckers into Divided 11 Class A boutique amp emulation.
 Output is very hot — Mike pulled plugin Output slider to −8dB to prevent blowing out THR10ii. All Nembrini Audio plugins have plugin-level Input and Output sliders as transparent gain trims at the plugin boundary (not part of the amp or cab model). The tone file does not specify the Input slider value (likely defaulted to 0dB). Recommend pairing Input reduction (−4 to −6dB) with Output compensation rather than only trimming Output — this changes how hard the virtual preamp works and may lower the amp's own modeled noise floor. Boost switch confirmed non-starter: acts as a force multiplier on an already hot signal — reserve for high-headroom contexts only. Not much grit at Volume 5 with Low input for lead work; options are Volume 5.5–6 or switch to High input at Volume 3.5–4 for a different edge-of-breakup feel. Noise/hum present even with humbuckers: attributed to Class A / tube rectifier character modeled by Nembrini (amp self-noise, not pickup hum) — noise gate engaged and appropriate.
 ### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
 Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.
+### 2026-07-20 — re-tested on Strat (borderline unusably bad/hot)
+Re-tested on Strat single-coils. Tone is super hot, distorted, and unpleasant. Nembrini's modeling of this Class A Divided by 13 circuit is aggressively gain-staged by default. Requires heavy internal Input trim (−6 to −10 dB) or lower preamp Volume (2.5–3.5) if retained, or pivoting to a smoother Class A / tweed alternative (e.g. Woodrow '55 or Dream '65).
+

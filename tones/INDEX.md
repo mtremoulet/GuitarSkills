@@ -2,13 +2,14 @@
 
 | Title | Pickup Type | Intended/Tested Guitar | File Path | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| Bill Withers — 70s Soul & Funk Rhythm | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Neck or Neck+Bridge blend) | [humbuckers/bill-withers-soul-rhythm.md](humbuckers/bill-withers-soul-rhythm.md) | initial |
+| Bill Withers — 70s Soul & Funk Rhythm | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Neck or Neck+Bridge blend) | [humbuckers/bill-withers-soul-rhythm.md](humbuckers/bill-withers-soul-rhythm.md) | refined |
 | Amp Snob — Boutique Warm Clean (Archetype Cory Wong X) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/cory-wong-amp-snob-boutique-clean.md](humbuckers/cory-wong-amp-snob-boutique-clean.md) | tested |
 | HB Warm Edge — Boutique Warm Clean (Humbucker Variant) | humbucker | Epiphone Les Paul Standard ('57CH neck pickup) / Epiphone Sheraton II | [humbuckers/cory-wong-hb-warm-edge.md](humbuckers/cory-wong-hb-warm-edge.md) | tested |
-| Lofi Vinyl — Sampled Chillhop Clean | humbucker | Gibson Les Paul Studio (490R neck / 498T bridge humbuckers) | [humbuckers/cory-wong-lofi-vinyl.md](humbuckers/cory-wong-lofi-vinyl.md) | initial |
+| Lofi Vinyl — Sampled Chillhop Clean | humbucker | Gibson Les Paul Studio (490R neck / 498T bridge humbuckers) | [humbuckers/cory-wong-lofi-vinyl.md](humbuckers/cory-wong-lofi-vinyl.md) | tested |
 | Velvet Jazz Sheraton — Archetype Cory Wong X | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/cory-wong-velvet-jazz-sheraton.md](humbuckers/cory-wong-velvet-jazz-sheraton.md) | initial |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
-| Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | initial |
+| Dream '65 — Dual Rig Clean Foundation | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-dual-rig-clean.md](humbuckers/dream-65-dual-rig-clean.md) | initial |
+| Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | verified |
 | Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
 | JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | initial |
 | Lion '68 — Eric Clapton "Woman Tone" (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Neck Humbucker, Vol 10, Tone 0) | [humbuckers/lion-68-clapton-woman-tone.md](humbuckers/lion-68-clapton-woman-tone.md) | initial |
@@ -16,10 +17,11 @@
 | Mardal "Dancing in the Moonlight" | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/mardal-dancing-moonlight.md](humbuckers/mardal-dancing-moonlight.md) | tested |
 | MRH810 Classic Lead | humbucker | Epiphone Les Paul Standard | [humbuckers/mrh810-classic-lead.md](humbuckers/mrh810-classic-lead.md) | tested |
 | Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio) | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-boutique-clean.md](humbuckers/paradise-enigmatic-boutique-clean.md) | refined |
+| Enigmatic '82 — Dual Rig Driven & Vocal Mids | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/paradise-enigmatic-dual-rig-driven.md](humbuckers/paradise-enigmatic-dual-rig-driven.md) | initial |
 | Paradise Pedal Platform (Humbucker Variant) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton | [humbuckers/paradise-pedal-platform-hb.md](humbuckers/paradise-pedal-platform-hb.md) | initial |
-| Puretone Velvet Humbucker Clean | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers) | [humbuckers/puretone-velvet-hb-clean.md](humbuckers/puretone-velvet-hb-clean.md) | initial |
+| Puretone Velvet Humbucker Clean | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers) | [humbuckers/puretone-velvet-hb-clean.md](humbuckers/puretone-velvet-hb-clean.md) | refined |
 | Puretone Velvet Jazz — Sheraton II | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/puretone-velvet-jazz-sheraton.md](humbuckers/puretone-velvet-jazz-sheraton.md) | initial |
-| Ruby LP Velvet Blues HB | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard | [humbuckers/ruby-hb-velvet-blues.md](humbuckers/ruby-hb-velvet-blues.md) | initial |
+| Ruby LP Velvet Blues HB | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard | [humbuckers/ruby-hb-velvet-blues.md](humbuckers/ruby-hb-velvet-blues.md) | refined |
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | Gibson Les Paul Studio (490R neck / 490T bridge humbuckers) | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | initial |
 | Sheraton OC-5 Bass Split | humbucker | Epiphone Sheraton II (humbuckers, neck position) | [humbuckers/sheraton-bass-split-oc5.md](humbuckers/sheraton-bass-split-oc5.md) | initial |
 | Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
@@ -54,14 +56,14 @@
 | Dire Straits — Sultans Strat Fingerstyle Clean | single-coil | Fender Player II Telecaster / Squier Stratocaster (Middle + Bridge or Neck + Middle position — 'quack') | [single-coils/dire-straits-sultans-strat.md](single-coils/dire-straits-sultans-strat.md) | initial |
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
 | Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | refined |
-| Dream '65 — SRV Texas Growl | single-coil | Squier Stratocaster (neck or neck/middle positions) | [single-coils/dream-65-srv-texas-growl.md](single-coils/dream-65-srv-texas-growl.md) | initial |
+| Dream '65 — SRV Texas Growl | single-coil | Squier Stratocaster (neck or neck/middle positions) | [single-coils/dream-65-srv-texas-growl.md](single-coils/dream-65-srv-texas-growl.md) | tested |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | initial |
-| Puretone Bossa Fingerstyle — Single-Coils | single-coil | Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle) | [single-coils/puretone-bossa-fingerstyle-sc.md](single-coils/puretone-bossa-fingerstyle-sc.md) | initial |
+| Puretone Bossa Fingerstyle — Single-Coils | single-coil | Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle) | [single-coils/puretone-bossa-fingerstyle-sc.md](single-coils/puretone-bossa-fingerstyle-sc.md) | tested |
 | Ruby '63 — Vox Top Boost Jangle | single-coil | Squier Stratocaster (bridge + middle pickup position — "quack") | [single-coils/ruby-63-vox-jangle.md](single-coils/ruby-63-vox-jangle.md) | initial |
 | Ruby '63 — Stratocaster Chime & Echo (Paradise Guitar Studio) | single-coil | Squier Stratocaster (bridge + middle pickup position — "quack") | [single-coils/ruby-paradise-strat-chime.md](single-coils/ruby-paradise-strat-chime.md) | initial |
 | Soejima Neo-Soul Clean — Single-Coil | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/soejima-neo-soul-sc.md](single-coils/soejima-neo-soul-sc.md) | initial |
 | Strat Ambient Bath | single-coil | Squier Stratocaster (single coils) | [single-coils/strat-ambient-bath.md](single-coils/strat-ambient-bath.md) | initial |
-| Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | initial |
+| Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | tested |
 | Telecaster OC-5 Bass Split | single-coil | Fender Player II Telecaster (single-coils, neck position) | [single-coils/tele-bass-split-oc5.md](single-coils/tele-bass-split-oc5.md) | initial |
 | The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |

@@ -18,7 +18,7 @@ preset_data:
     Boost: false
     Bright: false
     Middle: 7.5
-    Master: 7.0
+    Master: 6.0
     Presence: 0.5
     Treble: 3.5
     Volume: 5.5
@@ -106,7 +106,7 @@ Hosted inside **UAD Paradise Guitar Studio**, the **Enigmatic '82** (Dumble Over
 | Bass | **7.0** | Deep lower-mid weight |
 | Middle | **7.5** | Heavily boosted midrange body (fills in Dream '65 scoop) |
 | Treble | **3.5** | Smooths top end and tames harshness |
-| Master | **7.0** | Power-amp tube bloom and sustain |
+| Master | **6.0** | Power-amp tube bloom and sustain |
 | Presence | **0.5** | Keeps top end round and silky |
 | Cab | **2x12 Boutique D65** | Celestion G12-65 2x12 cab (SM57 + R121 mic blend) |
 | Room Level | **10%** | Subtle room acoustics |

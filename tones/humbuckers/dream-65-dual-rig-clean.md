@@ -18,7 +18,7 @@ preset_data:
     Cab: "2x12 JBF120"
     Reverb: 0.0
     Treble: 5.0
-    Volume: 2.8
+    Volume: 2.2
   nashville_overdrive:
     enabled: false
     gain: 2.5
@@ -67,7 +67,7 @@ While Amp B (Enigmatic '82 inside Paradise) handles driven warmth, mid-range bod
 |---------|---------|---------|
 | Bright / Normal | **Normal** | Keeps top end smooth and prevents harshness with humbuckers |
 | Mod Circuit | **Stock** | Cleanest, most linear Deluxe Reverb response |
-| Volume | **2.8** | Maximum clean headroom; zero breakup |
+| Volume | **2.2** | Maximum clean headroom; zero breakup |
 | Treble | **5.0** | Crystalline top-end air |
 | Bass | **5.5** | Tight, authoritative low-end fundamental |
 | Reverb | **0.0** (Off) | Internal spring reverb off (relying on shared post-summing room reverb) |

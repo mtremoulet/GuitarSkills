@@ -26,12 +26,12 @@ preset_data:
     enabled: false
     gain: 5.5
     tone: 5.0
-    level: 1.5
+    level: 2.73
   kuassa_blues_river:
     enabled: false
     gain: 4.5
     tone: 5.0
-    level: 1.5
+    level: 2.57
   clon_minotaur:
     enabled: false
     gain: 7.5
@@ -50,12 +50,12 @@ preset_data:
   nashville_overdrive:
     enabled: false
     gain: 5.5
-    output: 1.5
+    output: 2.73
     tone: 5.0
   ts_overdrive:
     enabled: false
     drive: 7.0
-    level: 3.0
+    level: 2.57
     tone: 5.0
   hitsville:
     decay: 2.0

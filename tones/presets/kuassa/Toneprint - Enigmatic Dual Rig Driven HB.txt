@@ -5,13 +5,13 @@ Kuassa Efektor Stompbox Presets: Enigmatic Dual Rig Driven HB
 1. Efektor Blues Barker (Marshall Bluesbreaker Style - Soft Overdrive)
 -------------------------------------------------------------------
 State: Disabled (Bypassed by default)
-Gain:  5.5  (Harmonic saturation and breakup)
-Tone:  5.0  (Neutral, transparent top end)
-Level: 1.5  (Unity gain output into Enigmatic front end)
+Gain:  5.5   (Harmonic saturation and breakup)
+Tone:  5.0   (Neutral, transparent top end)
+Level: 2.73  (Balanced output level into Enigmatic front end)
 
 2. Efektor Blues River (TS-9 Tube Screamer Style - Mid-Push Overdrive)
 -------------------------------------------------------------------
 State: Disabled (Bypassed by default)
-Gain:  4.5  (Rich mid-range overdrive)
-Tone:  5.0  (Balanced high-frequency contour)
-Level: 1.5  (Unity gain output into Enigmatic front end)
+Gain:  4.5   (Rich mid-range overdrive)
+Tone:  5.0   (Balanced high-frequency contour)
+Level: 2.57  (Balanced output level into Enigmatic front end)

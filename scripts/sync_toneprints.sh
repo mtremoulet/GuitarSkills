@@ -42,6 +42,12 @@ fi
 if [[ -f "$PROJ_ROOT/tone-advisor/tonex-amp-viewer.html" ]]; then
   cp -v "$PROJ_ROOT/tone-advisor/tonex-amp-viewer.html" "$DEST/"
 fi
+if [[ -f "$PROJ_ROOT/tone-advisor/dual-tone-viewer.html" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/dual-tone-viewer.html" "$DEST/"
+fi
+if [[ -f "$PROJ_ROOT/tone-advisor/PARALLEL_AMP_GUIDE.md" ]]; then
+  cp -v "$PROJ_ROOT/tone-advisor/PARALLEL_AMP_GUIDE.md" "$DEST/"
+fi
 if [[ -f "$PROJ_ROOT/tone-advisor/universal-template-guide.md" ]]; then
   cp -v "$PROJ_ROOT/tone-advisor/universal-template-guide.md" "$DEST/"
 fi

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Dual-Amp Rig Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0d12;
+            --surface: #131722;
+            --surface-card: #1a202c;
+            --surface-border: #2a3245;
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.25);
+            --accent-a: #ec4899;
+            --accent-b: #06b6d4;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --badge-bg: #222938;
+            --code-bg: #0f131d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .header {
+            max-width: 1300px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a5b4fc, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem; }
+
+        .search-bar {
+            max-width: 1300px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 300px;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            color: var(--text);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .filter-btn {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            color: var(--text-muted);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .rig-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .rig-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .rig-title { font-size: 1.5rem; font-weight: 600; color: #ffffff; }
+        .rig-guitar { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem; }
+
+        .badge-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .badge {
+            background: var(--badge-bg);
+            border: 1px solid var(--surface-border);
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .target-box {
+            background: var(--code-bg);
+            border-left: 4px solid var(--primary);
+            padding: 0.85rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .amp-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .amp-matrix { grid-template-columns: 1fr; }
+        }
+
+        .amp-card {
+            background: var(--surface-card);
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .amp-card.amp-a { border-top: 4px solid var(--accent-a); }
+        .amp-card.amp-b { border-top: 4px solid var(--accent-b); }
+
+        .amp-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .amp-name { font-size: 1.15rem; font-weight: 600; color: #fff; }
+        .pan-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .amp-a .pan-tag { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+        .amp-b .pan-tag { background: rgba(6, 182, 212, 0.15); color: #38bdf8; }
+
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .param-table th {
+            text-align: left;
+            padding: 0.4rem 0.6rem;
+            background: rgba(0,0,0,0.2);
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .param-table td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .param-name { font-weight: 500; color: #e5e7eb; }
+        .param-val { font-family: 'JetBrains Mono', monospace; color: #38bdf8; text-align: right; }
+
+        .copy-btn {
+            width: 100%;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            color: #a5b4fc;
+            padding: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .bus-section {
+            background: rgba(15, 19, 29, 0.6);
+            border: 1px dashed var(--surface-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .bus-title { font-size: 0.95rem; font-weight: 600; color: #e5e7eb; }
+        .bus-details { font-size: 0.85rem; color: var(--text-muted); }
+
+        .preset-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>Parallel Dual-Amp Rig Vault</h1>
+            <p>Dedicated Dual-Amp Platform & Side-by-Side Parameter Matrix</p>
+        </div>
+        <div style="text-align: right;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">4</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Dual Rigs Active</div>
+        </div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search dual rigs by guitar, amp models, or sound target...">
+        <button class="filter-btn active" onclick="filterPickup('all')">All Pickups</button>
+        <button class="filter-btn" onclick="filterPickup('humbucker')">Humbuckers</button>
+        <button class="filter-btn" onclick="filterPickup('single-coil')">Single Coils</button>
+        <button class="filter-btn" onclick="filterPickup('p-90')">P-90s</button>
+    </div>
+
+    <div class="grid" id="rigGrid">
+        <!-- JS Rendered -->
+    </div>
+
+    <script>
+        const rigs = [
+  {
+    "file": "p-90s/framus-dual-woodrow-p90.md",
+    "title": "Framus Dual Woodrow Sweet Spot P90",
+    "guitar": "Framus Earl Slick Artist Series (DiMarzio P-90s)",
+    "pickup_type": "p-90",
+    "target": "Dual same-amp differential split pairing a dry fat Tweed (Woodrow 55) with a pushed bright slapback Tweed for Framus P-90s.",
+    "status": "initial",
+    "tags": "dual-amp, p-90, framus, tweed, woodrow, dual-same-amp, wet-dry, slapback, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Woodrow '55 (Dry Fat Tweed)",
+      "model": "Woodrow '55 (UADx)",
+      "platform": "uad_paradise",
+      "pan": -12,
+      "amp_settings": {
+        "Volume": 4.6,
+        "Tone": 4.5,
+        "Boost": false,
+        "Cab": "1x12 Tweed Deluxe"
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Woodrow '55 (Wet Saturated Tweed)",
+      "model": "Woodrow '55 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 6.2,
+        "Tone": 6.5,
+        "Boost": true,
+        "Cab": "1x12 Tweed Deluxe"
+      }
+    },
+    "shared_fx": {
+      "galaxy_echo": {
+        "feedback": 20.0,
+        "mix": 0.25,
+        "time": 110.0
+      },
+      "la2a": {
+        "gain": 28.0,
+        "peak_reduction": 26.0
+      },
+      "hitsville": {
+        "decay": 1.6,
+        "mix": 0.08,
+        "pre_delay": 6.0
+      }
+    },
+    "amp_a_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Amp A (Woodrow)",
+    "amp_b_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Amp B (Woodrow)",
+    "bus_la2a_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Bus Hitsville",
+    "target_sound_md": "\nThis toneprint implements **Approach 4 (Dual Same-Amp Differential Split)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for the **Framus Earl Slick Artist Series (DiMarzio P-90s)**.\n\nBy running **two instances of the UAD Woodrow '55** with differential settings and wet/dry FX separation, this rig amplifies the raw, growling character of P-90 pickups without phase mismatches or muddy frequency overlap.\n\n* **Amp A (Left, Pan -12 - Dry Fat Tweed)**: Woodrow '55 tuned for dark, woody low-mids and clean punch. 100% bone-dry.\n* **Amp B (Right, Pan +12 - Wet Bright Tweed & Slapback)**: Woodrow '55 pushed into edge-of-breakup saturation, brighter Tone contour, and fed by a vintage **UAD Galaxy Tape Echo** slapback delay (`110ms`).\n\n---\n",
+    "starting_point_md": "\n- **Guitar Tone Knob**: Roll the Framus tone knob to **7.5** to round off high-end bite when playing on the bridge P-90 pickup.\n- **Slapback Width**: Adjust the Galaxy Tape Echo mix on Amp B to control how far the spatial delay spreads out behind Amp A's dry fundamental.\n- **Dynamic Drive**: Dig in hard with your pick to make Amp B jump into Tweed crunch while Amp A keeps your low end tight and clear."
+  },
+  {
+    "file": "humbuckers/paradise-enigmatic-ruby-dual-rig.md",
+    "title": "Enigmatic Ruby Dual Rig HB",
+    "guitar": "Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)",
+    "pickup_type": "humbucker",
+    "target": "Boutique dual rig pairing Dumble liquid sustain (Enigmatic 82) with Vox Top Boost harmonic chime (Ruby 63) for humbucker guitars.",
+    "status": "tested",
+    "tags": "dual-amp, humbucker, dumble, vox, enigmatic, ruby, sustain, chime, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Enigmatic '82 (Liquid Sustain)",
+      "model": "Enigmatic '82 (UADx)",
+      "platform": "uad_paradise",
+      "pan": -12,
+      "amp_settings": {
+        "Volume": 4.5,
+        "Treble": 5.0,
+        "Middle": 5.5,
+        "Bass": 5.0,
+        "Presence": 4.5,
+        "Master": 6.0,
+        "Bright": true,
+        "Voice": "Suede",
+        "Cab": "2x12 Boutique D65"
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Ruby '63 (Vox Chime)",
+      "model": "Ruby '63 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 3.5,
+        "Treble": 5.5,
+        "Bass": 4.5,
+        "Tone Cut": 4.0,
+        "Cut": false,
+        "Boost": false,
+        "Cab": "2x12 Silver 15",
+        "Output Gain": 8.0
+      }
+    },
+    "shared_fx": {
+      "la2a": {
+        "gain": 30.0,
+        "peak_reduction": 40.0
+      },
+      "hitsville": {
+        "decay": 2.0,
+        "mix": 0.12,
+        "pre_delay": 10.0
+      },
+      "kuassa_blues_barker": {
+        "gain": 3.5,
+        "tone": 5.0,
+        "level": 2.75
+      },
+      "kuassa_blues_river": {
+        "gain": 3.0,
+        "tone": 5.0,
+        "level": 2.2
+      },
+      "clon_minotaur": {
+        "gain": 6.0,
+        "treble": 4.5,
+        "output": 4.5
+      },
+      "nembrini_808": {
+        "drive": 5.4,
+        "tone": 5.0,
+        "level": 3.5
+      }
+    },
+    "amp_a_preset": "Toneprint - Enigmatic Ruby Dual Rig HB - Amp A (Enigmatic)",
+    "amp_b_preset": "Toneprint - Enigmatic Ruby Dual Rig HB - Amp B (Ruby)",
+    "bus_la2a_preset": "Toneprint - Enigmatic Ruby Dual Rig HB - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Enigmatic Ruby Dual Rig HB - Bus Hitsville",
+    "target_sound_md": "\nThis toneprint implements **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for humbucker guitars (**Gibson Les Paul Studio** and **Epiphone Sheraton II**).\n\n* **Amp A (Left, Pan -12)**: The **UAD Enigmatic '82** (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics.\n* **Amp B (Right, Pan +12)**: The **UAD Ruby '63** (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.\n\nTogether, they eliminate humbucker dark mud while giving single notes a soaring, singing lead quality inspired by John Mayer and Robben Ford.\n\n---\n",
+    "starting_point_md": "\n- **Guitar Volume Knob**: Set Les Paul neck pickup volume to **8.0** for clean rhythm, and roll up to **10** for singing lead sustain.\n- **Spectrum Balance**: If the Ruby dominates the right ear, roll the Ruby's `Tone Cut` up to **5.0**.\n- **Drive Staging**: For leads, feed a Klon/Centaur (Clon Minotaur) into **both** amps to push Enigmatic into overdrive while keeping Ruby punchy.\n\n---\n"
+  },
+  {
+    "file": "single-coils/strat-lion-dream-dual-rig.md",
+    "title": "Strat Lion Dream Dual Rig SC",
+    "guitar": "Squier Stratocaster (Single-Coils)",
+    "pickup_type": "single-coil",
+    "target": "Mayer and Eric Johnson-inspired Texas-Plexi dual rig pairing British Marshall crunch (Lion 68) with American high-headroom clean (Dream 65) for Stratocaster.",
+    "status": "initial",
+    "tags": "dual-amp, stratocaster, single-coil, plexi, blackface, lion-68, dream-65, john-mayer, eric-johnson, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Lion '68 (Plexi Crunch)",
+      "model": "Lion '68 (UADx)",
+      "platform": "uad_paradise",
+      "pan": -12,
+      "amp_settings": {
+        "Model": "Super Lead",
+        "Volume I (Bite)": 4.2,
+        "Volume II (Body)": 3.8,
+        "Input Routing": "Low",
+        "Treble": 5.5,
+        "Middle": 5.2,
+        "Bass": 4.5,
+        "Presence": 4.0,
+        "Cab": "4x12 GB25"
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Dream '65 (Fender Clean)",
+      "model": "Dream '65 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 2.8,
+        "Treble": 5.0,
+        "Bass": 5.2,
+        "Bright": false,
+        "Reverb": 0.0,
+        "Cab": "2x12 JBF120"
+      }
+    },
+    "shared_fx": {
+      "la2a": {
+        "gain": 30.0,
+        "peak_reduction": 30.0
+      },
+      "hitsville": {
+        "decay": 2.2,
+        "mix": 0.12,
+        "pre_delay": 12.0
+      }
+    },
+    "amp_a_preset": "Toneprint - Strat Lion Dream Dual Rig SC - Amp A (Lion)",
+    "amp_b_preset": "Toneprint - Strat Lion Dream Dual Rig SC - Amp B (Dream)",
+    "bus_la2a_preset": "Toneprint - Strat Lion Dream Dual Rig SC - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Strat Lion Dream Dual Rig SC - Bus Hitsville",
+    "target_sound_md": "\nThis toneprint implements **Approach 3 (British Plexi Crunch + High-Headroom American Clean)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored for the **Squier Stratocaster** (Neck & \"Quack\" positions).\n\nInspired by the dual-rig architecture of **John Mayer**, **Eric Johnson**, and **Stevie Ray Vaughan**, this setup merges heavy British Plexi wallop with pristine Fender Blackface headroom.\n\n* **Amp A (Left, Pan -12)**: **UAD Lion '68** (Super Lead Plexi) delivers punchy mid-range growl, dynamic distortion, and rich harmonic overtones.\n* **Amp B (Right, Pan +12)**: **UAD Dream '65** (Deluxe Reverb) stays wide open, providing 3D spatial depth, tight low end, and articulate pick snapping.\n\n---\n",
+    "starting_point_md": "\n- **Pickup Selection**: Use **Position 4 (Neck + Middle \"quack\")** for funk/rhythm, and **Position 1 (Neck)** for bold Texas blues leads.\n- **Single-Amp Drive Staging**: Feed a Klon Centaur (Clon Minotaur) into **Lion '68 (Amp A) only** to turn Amp A into a high-gain lead voice while Amp B maintains clean string definition."
+  },
+  {
+    "file": "single-coils/tele-woodrow-dream-dual-rig.md",
+    "title": "Tele Woodrow Dream Dual Rig SC",
+    "guitar": "Fender Player II Telecaster (Single-Coils)",
+    "pickup_type": "single-coil",
+    "target": "Chris Buck-inspired Telecaster dual rig balancing woody Tweed edge-of-breakup mids (Woodrow 55) with pristine Fender Blackface glass (Dream 65).",
+    "status": "initial",
+    "tags": "dual-amp, telecaster, single-coil, tweed, blackface, woodrow, dream-65, chris-buck, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Woodrow '55 (Tweed Breakup)",
+      "model": "Woodrow '55 (UADx)",
+      "platform": "uad_paradise",
+      "pan": -12,
+      "amp_settings": {
+        "Volume": 5.2,
+        "Volume (Mic)": 0.0,
+        "Treble": 5.8,
+        "Boost": false,
+        "Cab": "1x12 Tweed Deluxe"
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Dream '65 (Blackface Clean)",
+      "model": "Dream '65 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 2.5,
+        "Treble": 5.5,
+        "Bass": 5.0,
+        "Bright": false,
+        "Reverb": 0.0,
+        "Cab": "2x12 JBF120"
+      }
+    },
+    "shared_fx": {
+      "la2a": {
+        "gain": 28.0,
+        "peak_reduction": 25.0
+      },
+      "hitsville": {
+        "decay": 1.8,
+        "mix": 0.1,
+        "pre_delay": 8.0
+      }
+    },
+    "amp_a_preset": "Toneprint - Tele Woodrow Dream Dual Rig SC - Amp A (Woodrow)",
+    "amp_b_preset": "Toneprint - Tele Woodrow Dream Dual Rig SC - Amp B (Dream)",
+    "bus_la2a_preset": "Toneprint - Tele Woodrow Dream Dual Rig SC - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Tele Woodrow Dream Dual Rig SC - Bus Hitsville",
+    "target_sound_md": "\nThis toneprint implements **Approach 1 (Tweed Mid-Punch + Blackface Glass)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), optimized for the **Fender Player II Telecaster**.\n\nInspired by **Chris Buck (Cardinal Black)**, this setup pairs a warm, woody Tweed Deluxe right at the edge of breakup with a pristine, uncompressed Blackface Deluxe Reverb clean foundation.\n\n* **Amp A (Left, Pan -12)**: **UAD Woodrow '55** delivers organic Tweed compression, raw midrange punch, and dynamic sag when picking aggressively.\n* **Amp B (Right, Pan +12)**: **UAD Dream '65** stays wide open and clean, ensuring pick attacks, string separation, and high-frequency sparkle are preserved.\n\n---\n",
+    "starting_point_md": "\n- **Pickup Selector**: Start on **Position 2 (Neck + Bridge parallel)** or **Neck pickup** for soulful blues and fingerstyle rhythm.\n- **Dynamic Control**: Use pick attack to drive the Woodrow into crunch while the Dream stays crystal clear.\n- **Drive Pedal Pairing**: Run a TS-808 (Nembrini 808) into **Amp A only** for searing lead tone while keeping **Amp B** clean."
+  }
+];
+        let currentPickup = 'all';
+
+        function renderRigs() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const grid = document.getElementById('rigGrid');
+            grid.innerHTML = '';
+
+            const filtered = rigs.filter(r => {
+                const matchesPickup = (currentPickup === 'all' || r.pickup_type === currentPickup);
+                const matchesSearch = r.title.toLowerCase().includes(query) ||
+                                      r.guitar.toLowerCase().includes(query) ||
+                                      r.target.toLowerCase().includes(query) ||
+                                      r.tags.toLowerCase().includes(query);
+                return matchesPickup && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; color: var(--text-muted); padding: 3rem;">No matching dual-amp rigs found.</p>';
+                return;
+            }
+
+            filtered.forEach(r => {
+                const ampA = r.amp_a || {};
+                const ampB = r.amp_b || {};
+                const shared = r.shared_fx || {};
+
+                const card = document.createElement('div');
+                card.className = 'rig-card';
+                card.innerHTML = `
+                    <div class="rig-header">
+                        <div>
+                            <div class="rig-title">${r.title}</div>
+                            <div class="rig-guitar">${r.guitar}</div>
+                        </div>
+                        <div class="badge-list">
+                            <span class="badge" style="color: #60a5fa;">${r.pickup_type}</span>
+                            <span class="badge" style="color: #34d399;">${r.status}</span>
+                        </div>
+                    </div>
+
+                    <div class="target-box">
+                        ${r.target}
+                    </div>
+
+                    <div class="amp-matrix">
+                        <div class="amp-card amp-a">
+                            <div class="amp-card-head">
+                                <div class="amp-name">${ampA.name || 'Amp A'}</div>
+                                <div class="pan-tag">PAN: ${ampA.pan || -12} (L)</div>
+                            </div>
+                            ${renderParams(ampA.amp_settings)}
+                            <button class="copy-btn" onclick="copyPreset('${r.amp_a_preset}')">📋 Copy Amp A Preset Name</button>
+                        </div>
+
+                        <div class="amp-card amp-b">
+                            <div class="amp-card-head">
+                                <div class="amp-name">${ampB.name || 'Amp B'}</div>
+                                <div class="pan-tag">PAN: +${ampB.pan || 12} (R)</div>
+                            </div>
+                            ${renderParams(ampB.amp_settings)}
+                            <button class="copy-btn" onclick="copyPreset('${r.amp_b_preset}')">📋 Copy Amp B Preset Name</button>
+                        </div>
+                    </div>
+
+                    <div class="bus-section">
+                        <div>
+                            <div class="bus-title">Parallel Submix Bus & Shared FX</div>
+                            <div class="bus-details">
+                                LA-2A: GR Peak Red ${shared.la2a?.peak_reduction || 28}, Gain ${shared.la2a?.gain || 30} |
+                                Reverb: Hitsville Decay ${shared.hitsville?.decay || 2.0}s, Mix ${shared.hitsville?.mix || 0.1}
+                            </div>
+                        </div>
+                        <div class="preset-pills">
+                            <button class="copy-btn" style="width: auto;" onclick="copyPreset('${r.bus_la2a_preset}')">Copy Bus LA-2A</button>
+                            <button class="copy-btn" style="width: auto;" onclick="copyPreset('${r.bus_hits_preset}')">Copy Bus Reverb</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderParams(settings) {
+            if (!settings) return '<p style="color:var(--text-muted); font-size:0.8rem;">No settings</p>';
+            let rows = '';
+            for (let [k, v] of Object.entries(settings)) {
+                let displayVal = (v === true) ? 'ON' : ((v === false) ? 'OFF' : v);
+                rows += `<tr><td class="param-name">${k}</td><td class="param-val">${displayVal}</td></tr>`;
+            }
+            return `<table class="param-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>${rows}</tbody></table>`;
+        }
+
+        function copyPreset(text) {
+            navigator.clipboard.writeText(text);
+            alert('Copied to clipboard: ' + text);
+        }
+
+        function filterPickup(pickup) {
+            currentPickup = pickup;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderRigs();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', renderRigs);
+        renderRigs();
+    </script>
+</body>
+</html>

@@ -905,7 +905,7 @@ code {
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">77 tones</div>
+      <div class="vault-count">80 tones</div>
     </div>
     <div class="filters-toggle-bar" onclick="toggleFilters()">
       <span class="filter-title-label">Filters</span>
@@ -957,7 +957,7 @@ code {
         <div class="filter-label">Amp</div>
         <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
           <option value="all">All amps</option>
-          <option value="Amp Snob (Archetype Cory Wong X)">Amp Snob (Archetype Cory Wong X)</option><option value="Bass Amp Designer (Logic)">Bass Amp Designer (Logic)</option><option value="D.I. Funk Console (Archetype Cory Wong X)">D.I. Funk Console (Archetype Cory Wong X)</option><option value="Divided 11 (Nembrini)">Divided 11 (Nembrini)</option><option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Dual Woodrow '55 Differential (UADx)">Dual Woodrow '55 Differential (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Enigmatic '82 + Ruby '63 (UADx)">Enigmatic '82 + Ruby '63 (UADx)</option><option value="H&amp;K Puretone (Nembrini)">H&amp;K Puretone (Nembrini)</option><option value="JC120 Jazz Chorus (Nembrini)">JC120 Jazz Chorus (Nembrini)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Lion '68 + Dream '65 (UADx)">Lion '68 + Dream '65 (UADx)</option><option value="MRH810 V2 (Nembrini)">MRH810 V2 (Nembrini)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="Showtime '64 (UADx)">Showtime '64 (UADx)</option><option value="Ten Piece (Audio Hertz)">Ten Piece (Audio Hertz)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Tone King Imperial Preamp (Hardware)">Tone King Imperial Preamp (Hardware)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="UA 610-B Tube Preamp (Console Direct DI)">UA 610-B Tube Preamp (Console Direct DI)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option><option value="Woodrow '55 + Dream '65 (UADx)">Woodrow '55 + Dream '65 (UADx)</option><option value="Yamaha THR10II">Yamaha THR10II</option>
+          <option value="Amp Snob (Archetype Cory Wong X)">Amp Snob (Archetype Cory Wong X)</option><option value="Archetype Cory Wong X + Woodrow '55 (UADx)">Archetype Cory Wong X + Woodrow '55 (UADx)</option><option value="Bass Amp Designer (Logic)">Bass Amp Designer (Logic)</option><option value="D.I. Funk Console (Archetype Cory Wong X)">D.I. Funk Console (Archetype Cory Wong X)</option><option value="Divided 11 (Nembrini)">Divided 11 (Nembrini)</option><option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Dual Woodrow '55 Differential (UADx)">Dual Woodrow '55 Differential (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Enigmatic '82 + Ruby '63 (UADx)">Enigmatic '82 + Ruby '63 (UADx)</option><option value="H&amp;K Puretone (Nembrini)">H&amp;K Puretone (Nembrini)</option><option value="JC120 Jazz Chorus (Nembrini)">JC120 Jazz Chorus (Nembrini)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Lion '68 + Dream '65 (UADx)">Lion '68 + Dream '65 (UADx)</option><option value="MRH810 V2 (Nembrini)">MRH810 V2 (Nembrini)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="Showtime '64 (UADx)">Showtime '64 (UADx)</option><option value="Ten Piece (Audio Hertz)">Ten Piece (Audio Hertz)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Tone King Imperial Preamp (Hardware)">Tone King Imperial Preamp (Hardware)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)">Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)</option><option value="UA 610-B Tube Preamp (Console Direct DI)">UA 610-B Tube Preamp (Console Direct DI)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option><option value="Woodrow '55 + Dream '65 (UADx)">Woodrow '55 + Dream '65 (UADx)</option><option value="Yamaha THR10II">Yamaha THR10II</option>
         </select>
       </div>
     </div>
@@ -990,6 +990,12 @@ code {
   <div class="sidebar-title">Velvet Jazz Sheraton — Archetype Cory Wong X</div>
   <div class="sidebar-sub">Epiphone Sheraton II</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('deja-hifi-jazz-humbucker')" data-id="deja-hifi-jazz-humbucker" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120 Jazz Chorus (Nembrini)" tabindex="0">
+  <div class="sidebar-title">Deja HiFi Jazz Clean HB</div>
+  <div class="sidebar-sub">Gibson Les Paul / Epiphone Sheraton II</div>
+  <div class="sidebar-tags">jazz, hifi, solid-state</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('dream-65-blackface-jazz')" data-id="dream-65-blackface-jazz" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Dream '65 (UADx)" tabindex="0">
@@ -1141,6 +1147,12 @@ code {
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
+</div>
+<div class="sidebar-item" onclick="showTone('two-rock-ruby-dual-rig')" data-id="two-rock-ruby-dual-rig" data-status="initial" data-genre="country" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)" tabindex="0">
+  <div class="sidebar-title">Two-Rock Bloomfield + Ruby '63 — Boutique Velvet &amp; Vox Chime Dual Rig (Humbuckers)</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton II</div>
+  <div class="sidebar-tags">dual-amp, humbucker, les-paul</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('audio-hertz-ten-piece-bell')" data-id="audio-hertz-ten-piece-bell" data-status="initial" data-genre="country" data-guitar="framus" data-pickup="p-90" data-amp="Ten Piece (Audio Hertz)" tabindex="0">
   <div class="sidebar-title">Ten Piece Bell (P-90 Variant)</div>
@@ -1358,6 +1370,12 @@ code {
   <div class="sidebar-tags">jazz, hybrid, octave-split</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
+<div class="sidebar-item" onclick="showTone('tele-cory-woodrow-dual-rig')" data-id="tele-cory-woodrow-dual-rig" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Archetype Cory Wong X + Woodrow '55 (UADx)" tabindex="0">
+  <div class="sidebar-title">Archetype Cory Wong X + Woodrow '55 — Hi-Fi &amp; Tweed Dual Rig (Single-Coils)</div>
+  <div class="sidebar-sub">Fender Player II Telecaster / Squier Stratocaster</div>
+  <div class="sidebar-tags">dual-amp, single-coil, telecaster</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
 <div class="sidebar-item" onclick="showTone('tele-electronic-veil-bickert')" data-id="tele-electronic-veil-bickert" data-status="tested" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Showtime '64 (UADx)" tabindex="0">
   <div class="sidebar-title">The Electronic Veil (Ed Bickert Style)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
@@ -1425,7 +1443,7 @@ code {
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
     </div>
-    <div class="sidebar-footer">Generated 2026-08-08 20:20</div>
+    <div class="sidebar-footer">Generated 2026-08-08 22:07</div>
   </aside>
 
   <main class="main-panel" id="main-panel">
@@ -1796,6 +1814,139 @@ code {
   <div class="feedback-content"><p class="markdown-p">Created as the ACWX standalone counterpart to the Puretone Velvet Jazz Sheraton preset. Modeled on &quot;The Clean Machine&quot; with corrective mid-boost EQ, parallel optical compression, a Ribbon 121 mic model, and warm room reverb.</p></div>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-deja-hifi-jazz-humbucker" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Deja HiFi Jazz Clean HB</h1>
+      <a href="../tones/humbuckers/deja-hifi-jazz-humbucker.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul / Epiphone Sheraton II (humbuckers)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">jazz</span><span class="tag">hifi</span><span class="tag">solid-state</span><span class="tag">humbucker</span><span class="tag">deja</span><span class="tag">les-paul</span><span class="tag">sheraton</span><span class="tag">cheek-to-cheek</span><span class="tag">nembrini</span><span class="tag">jc120</span></div>
+    <p class="tone-target-desc">Hi-fi, well-rounded, precise jazz warmth inspired by 'Deja' (Dancing Cheek to Cheek). High clarity solid-state response with zero clack or brittleness for Les Paul &amp; Sheraton II humbuckers.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">Inspired by the lush, sophisticated French jazz arrangement of <em>&quot;Déjà&quot;</em> (<em>Dancing Cheek to Cheek</em>). Designed specifically for humbucker instruments (<strong>Gibson Les Paul</strong> on the neck/middle positions and <strong>Epiphone Sheraton II</strong> semi-hollowbody).</p>
+<p class="markdown-p">The goal is to recreate the sound of a premium archtop/hollowbody playing through a pristine, high-headroom solid-state jazz amplifier:</p>
+<ul class="markdown-ul">
+<li><strong>Hi-Fi Precision</strong>: Every note in complex 4-note jazz voicings (ma7, m9, 13b9) is distinct, balanced, and articulate without sagging into tube saturation.</li>
+<li><strong>Controlled Transients</strong>: Softens initial pick click (&quot;clacking trebleness&quot;) using gentle LA-2A optical peak reduction before the amp, while retaining note attack.</li>
+<li><strong>Round &amp; Warm Midrange</strong>: Uses a dedicated 280 Hz low-mid bloom and a smooth 5.8 kHz high-cut filter to eliminate glassy digital top-end without dampening overall clarity.</li>
+</ul>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Hardware Interface &amp; Front…</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-deja-hifi-jazz-humbucker-2')">Teletronix LA-2A Silver</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-deja-hifi-jazz-humbucker-3')">Nembrini JC120 (Roland Jaz…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-deja-hifi-jazz-humbucker-4')">Channel EQ</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-deja-hifi-jazz-humbucker-5')">Hitsville Reverb Chambers</button></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Hardware Interface &amp; Front-End <span class="routing-detail">*   **Physical Setup:** Guitar connected directly to **Audient iD14 Instrument Input 1** (D.I. Route). *   **Tone King Imperial Preamp:** **Bypassed** (clean, transparent digital signal path). *   **iD14 Calibration Offset:** Set plugin Input Gain (IN) to **−3.2 dB** (or compensate via track input trim) to align Audient D.I. headroom (+9 dBu) with plugin modeling standards (+12.2 dBu).</span></div>
+<div class="plugin-section" id="plugin-deja-hifi-jazz-humbucker-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Teletronix LA-2A Silver</span>
+      <span class="plugin-role">Pre-Amp Dynamics</span>
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p"><em>Smooths sharp pick attacks and rounds transient clicks before the solid-state input stage.</em></p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Peak Reduction</td><td class="col-setting">30.0 (30%)</td><td>Soft 1.5–2.0 dB peak leveling on initial pick contact to remove &quot;clack&quot;</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting">35.0 (35%)</td><td>Unity gain makeup matching dry bypass level</td></tr><tr class="row-norm"><td>Mode</td><td class="col-setting">Compress</td><td>Smooth 3:1 optical compression curve rather than hard limiting</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-deja-hifi-jazz-humbucker-3">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Nembrini JC120 (Roland Jazz Chorus 120)</span>
+      <span class="plugin-role">Primary Amplifier</span>
+    </div>
+  </div>
+  <div class="track-note"><p class="markdown-p"><em>Pristine, zero-sag solid-state clean engine providing fast note separation and hi-fi detail.</em></p></div>
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-deja-hifi-jazz-humbucker-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Gain Staging &amp; Input/Output</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Input Slider</td><td class="col-setting">−3.2 dB</td><td>Level matching for humbuckers</td></tr><tr class="row-alt"><td>Output Slider</td><td class="col-setting">−6.0 dB</td><td>Headroom protection for downstream DAW &amp; Sennheiser HD660S2 monitoring</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-deja-hifi-jazz-humbucker-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Amp Controls</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting">3.5</td><td>Clean, linear headroom; zero power section breakdown</td></tr><tr class="row-alt"><td>Bright Switch</td><td class="col-setting">OFF</td><td>Prevents harsh glassy top-end; warmth is prioritized</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting">6.8</td><td><strong>Jazz Middle Rule</strong>: Fills in natural humbucker body and vocal midrange</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting">4.2</td><td>Softened high-end; clear without sizzle</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting">5.5</td><td>Tight, well-rounded low end; avoids boominess on low E/A strings</td></tr><tr class="row-alt"><td>Distortion</td><td class="col-setting">0.0</td><td>OFF</td></tr><tr class="row-norm"><td>Reverb</td><td class="col-setting">0.0</td><td>OFF (using Hitsville Reverb on Bus 3)</td></tr><tr class="row-alt"><td>Mode</td><td class="col-setting">OFF / CHORUS</td><td>OFF for intimate solo/duo work; switch to CHORUS for subtle stereo width</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-deja-hifi-jazz-humbucker-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Cabinet &amp; Microphone</span>
+      
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Cabinet</td><td class="col-setting">RLD 2x12 JC120</td><td>Factory 2x12 aluminum-cap speaker cabinet</td></tr><tr class="row-alt"><td>Microphone</td><td class="col-setting">Ribbon 121</td><td><strong>Dark/Warm choice</strong>: High-frequency roll-off native to ribbon capsule</td></tr><tr class="row-norm"><td>Position</td><td class="col-setting">0.40</td><td>Off-center positioning to smooth out direct cone sizzle</td></tr><tr class="row-alt"><td>Distance</td><td class="col-setting">0.25</td><td>Balanced proximity effect</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div>
+<div class="plugin-section" id="plugin-deja-hifi-jazz-humbucker-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Logic Channel EQ</span>
+      <span class="plugin-role">Post-Amp Sculpting</span>
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p"><em>Polishes the solid-state response to deliver a dark, hi-fi archtop acoustic veil.</em></p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Type</th><th>Frequency</th><th>Gain / Slope</th><th>Q</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Band 1</td><td>High-Pass (Low Cut)</td><td>80 Hz</td><td>12 dB/oct</td><td>—</td><td>Cleans up sub-bass rumble below low E (82 Hz)</td></tr><tr class="row-alt"><td>Band 4</td><td>Low-Mid Bell</td><td>280 Hz</td><td>+1.8 dB</td><td>1.0</td><td>Enhances woody body resonance of Les Paul / Sheraton body</td></tr><tr class="row-norm"><td>Band 8</td><td>Low-Pass (High Cut)</td><td>5.8 kHz</td><td>12 dB/oct</td><td>—</td><td><strong>The High-Cut Veil</strong>: Removes clacking digital glassiness above 6 kHz</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-deja-hifi-jazz-humbucker-5">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">UADx Hitsville Reverb Chambers</span>
+      <span class="plugin-role">Spatial Environment (Bus 3 Send)</span>
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-deja-hifi-jazz-humbucker-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Aux Track Plugin</span>
+      <span class="plugin-role">UADx Hitsville Reverb Chambers</span>
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p"><em>Creates the acoustic illusion of an un-miked hollowbody guitar in Motown's historic Studio A.</em></p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th>Technical Rationale</th></tr></thead><tbody><tr class="row-norm"><td>Chamber</td><td class="col-setting">Chamber 1 (2648)</td><td>Warm, dense natural reverb chamber</td></tr><tr class="row-alt"><td>Speaker</td><td class="col-setting">Set 1 (Altec/Bozak)</td><td>Smooth frequency decay</td></tr><tr class="row-norm"><td>Mic</td><td class="col-setting">Unidyne 545</td><td>Dynamic microphone character for controlled upper-end decay</td></tr><tr class="row-alt"><td>Pre-Delay</td><td class="col-setting">20 ms</td><td>Separates direct pick articulation from chamber bloom</td></tr><tr class="row-norm"><td>Decay</td><td class="col-setting">2.8 s</td><td>Moderate tail length that doesn't muddy chord changes</td></tr><tr class="row-alt"><td>Mix</td><td class="col-setting">100%</td><td><strong>Bus-First Standard</strong>: Full wet signal on Aux bus</td></tr><tr class="row-norm"><td>Wet Solo</td><td class="col-setting">ON</td><td>Fader controls send balance</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+  
 </div>
 
 <div class="tone-detail" id="tone-dream-65-blackface-jazz" style="display:none">
@@ -4677,6 +4828,81 @@ code {
   <div class="feedback-content"><p class="markdown-p">Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.</p></div>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-two-rock-ruby-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Two-Rock Bloomfield + Ruby '63 — Boutique Velvet &amp; Vox Chime Dual Rig (Humbuckers)</h1>
+      <a href="../tones/humbuckers/two-rock-ruby-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">sheraton</span><span class="tag">mixwave</span><span class="tag">two-rock</span><span class="tag">bloomfield</span><span class="tag">ruby</span><span class="tag">vox</span><span class="tag">chime</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">High-contrast dual rig pairing plush boutique Dumble-style clean depth (Two-Rock Bloomfield) with glassy upper-mid Vox AC30 Top Boost chime (Ruby 63).</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint pairs two iconic boutique and vintage amplifier voices for humbucker guitars (<strong>Gibson Les Paul Studio</strong> and <strong>Epiphone Sheraton II</strong>):</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Plush Boutique Clean Anchor)</strong>: The <strong>MixWave Two-Rock Bloomfield Drive</strong> supplies a deep, plush lower-midrange foundation, smooth note separation, and high-headroom Dumble-style warmth.</li>
+<li><strong>Amp B (Right, Pan +12 — Glassy Vox Harmonic Halo)</strong>: The <strong>UAD Ruby '63</strong> (Vox AC30 Top Boost) adds brilliant high-frequency chime, upper-mid bite, and immediate pick attack.</li>
+</ul>
+<p class="markdown-p">Together, the Two-Rock eliminates humbucker dark mud while the Vox supplies a sparkling harmonic halo around every note.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-two-rock-ruby-dual-rig-2')">Parallel Amp Configuration</button><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">Parallel Submix Bus &amp; Leve…</span></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">* **Status:** **Bypassed** * **Signal Path:** Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</span></div>
+<div class="track-group" id="track-two-rock-ruby-dual-rig-2">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Amp Configuration</span>
+      
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-two-rock-ruby-dual-rig-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip A: Two-Rock Bloomfield Drive</span>
+      <span class="plugin-role">Boutique Clean (Pan: -12 L)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Clean</strong></td><td class="col-purpose">High-headroom boutique clean platform</td></tr><tr class="row-alt"><td>Gain</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive warm clean</td></tr><tr class="row-norm"><td>Master</td><td class="col-setting"><strong>6.5</strong></td><td class="col-purpose">Clean power amp drive</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Smooth, unharsh top end</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Rich, vocal lower-mid body</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Deep, tight fundamental</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Natural air</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-two-rock-ruby-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip B: Ruby '63</span>
+      <span class="plugin-role">Vox Top Boost Chime (Pan: +12 R)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Top Boost</strong></td><td class="col-purpose">Brilliant harmonic chime</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>3.2</strong></td><td class="col-purpose">Clean Top Boost sweet spot for humbuckers</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">High-frequency jangle and string definition</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Tightened low end</td></tr><tr class="row-norm"><td>Tone Cut</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Smooths out top-end glass</td></tr><tr class="row-alt"><td>Boost</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Linear headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Silver 15</strong></td><td class="col-purpose">Vintage Vox Silver Bulldog cab</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Trimmed -4.0 dB inside Paradise plugin to match Amp A</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div><div class="routing-note"><span class="routing-label">Route</span>Parallel Submix Bus &amp; Level Parity <span class="routing-detail">* **Short-Term LUFS Metering**: Solo Amp A and Amp B independently using Logic's Loudness Meter. Adjust Amp B output so both read **-20.0 Short-Term LUFS**. * **Submix Bus Compressor**: UAD LA-2A Silver (Peak Reduction **40.0**, Gain **30.0**) pulling **-1.5 to -3.0 dB GR**. * **Spatial Reverb**: UAD Hitsville Chambers (Mix **12%**, Pre-Delay **10ms**) on parallel aux send.</span></div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Les Paul Neck Pickup</span><span class="guide-content">Set neck volume to <strong>8.0</strong> for warm jazz-blues rhythm, roll up to <strong>10</strong> for singing lead notes.</span></div><div class="guide-card"><span class="guide-label">Sheraton Flatwounds</span><span class="guide-content">The Vox Top Boost on Amp B restores string clarity and harmonic air to flatwound strings without needing treble boost on the amp.</span></div></div>
+</section>
+  
 </div>
 
 <div class="tone-detail" id="tone-audio-hertz-ten-piece-bell" style="display:none">
@@ -8655,6 +8881,81 @@ code {
   <div class="feedback-content"><p class="markdown-p">Initial dual-track hybrid design. Voiced specifically for single-coil Telecaster pickups. Features a default direct-input path to the iD14, steep LPF filtering on the bass path, Logic's Pitch Shifter, and a warm B-15 Bass Amp Designer setup with boosted bass and gain parameters to compensate for single-coil leanness.</p></div>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-tele-cory-woodrow-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Archetype Cory Wong X + Woodrow '55 — Hi-Fi &amp; Tweed Dual Rig (Single-Coils)</h1>
+      <a href="../tones/single-coils/tele-cory-woodrow-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Fender Player II Telecaster / Squier Stratocaster (Single-Coils)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">single-coil</span><span class="tag">telecaster</span><span class="tag">stratocaster</span><span class="tag">neural-dsp</span><span class="tag">cory-wong</span><span class="tag">woodrow</span><span class="tag">tweed</span><span class="tag">clean-machine</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">High-contrast dual rig pairing pristine solid-state precision (Cory Wong Clean Machine) with organic 1950s tube sag and saturation (Woodrow 55 Tweed).</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint pairs two completely contrasting amplifier architectures to create a dynamic, 3D soundstage for single-coil guitars (<strong>Fender Telecaster</strong> and <strong>Squier Stratocaster</strong>):</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Hi-Fi Solid-State Precision)</strong>: <strong>Archetype Cory Wong X — &quot;The Clean Machine&quot;</strong> provides hyper-articulate, ultra-fast transient pick response, pristine top-end air, and 100% linear clean headroom with zero tube distortion.</li>
+<li><strong>Amp B (Right, Pan +12 — Vintage Tweed Tube Sag)</strong>: The <strong>UAD Woodrow '55</strong> (5E3 Tweed Deluxe) supplies organic tube compression, woody lower-mid body, and soft edge-of-breakup saturation.</li>
+</ul>
+<p class="markdown-p">Together, soft fingerpicking receives crystalline string clarity on the left, while aggressive pick attack makes the right channel bloom into raw Tweed tube crunch without muddying the low end.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-tele-cory-woodrow-dual-rig-2')">Parallel Amp Configuration</button><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">Parallel Submix Bus &amp; Leve…</span></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">* **Status:** **Bypassed** * **Signal Path:** Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</span></div>
+<div class="track-group" id="track-tele-cory-woodrow-dual-rig-2">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Amp Configuration</span>
+      
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-tele-cory-woodrow-dual-rig-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip A: Archetype Cory Wong X</span>
+      <span class="plugin-role">Clean Machine (Pan: -12 L)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Amplifier</td><td class="col-setting"><strong>The Clean Machine</strong></td><td class="col-purpose">Ultra-transparent clean platform</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Pristine headroom</td></tr><tr class="row-norm"><td>Master</td><td class="col-setting"><strong>6.5</strong></td><td class="col-purpose">Dynamic power section response</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Crystalline top-end jangle</td></tr><tr class="row-norm"><td>Mid</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Balanced R&amp;B/funk midrange</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Tight, uncompressed low-end</td></tr><tr class="row-norm"><td>4th Pos Compressor</td><td class="col-setting"><strong>On (Vol 50, Comp 30)</strong></td><td class="col-purpose">Smooths out single-coil pick spikes</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-tele-cory-woodrow-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip B: Woodrow '55</span>
+      <span class="plugin-role">Tweed Tube Saturation (Pan: +12 R)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>5.4</strong></td><td class="col-purpose">Edge-of-breakup Tweed tube saturation</td></tr><tr class="row-alt"><td>Tone</td><td class="col-setting"><strong>5.8</strong></td><td class="col-purpose">Bright top-end air to complement Amp A</td></tr><tr class="row-norm"><td>Boost</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Linear dynamic response</td></tr><tr class="row-alt"><td>Cab</td><td class="col-setting"><strong>1x12 5E3</strong></td><td class="col-purpose">Stock 12&quot; Jensen P12R speaker</td></tr><tr class="row-norm"><td>Output Gain</td><td class="col-setting"><strong>10.0 dB</strong></td><td class="col-purpose">Levels plugin output to match Amp A</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div><div class="routing-note"><span class="routing-label">Route</span>Parallel Submix Bus &amp; Level Parity <span class="routing-detail">* **Short-Term LUFS Metering**: Solo Amp A and Amp B independently using Logic's Loudness Meter. Adjust Amp B output so both read **-20.0 Short-Term LUFS**. * **Submix Bus Compressor**: UAD LA-2A Silver (Peak Reduction **38.0**, Gain **30.0**) on the submix bus pulling **-1.5 dB GR** on strum peaks. * **Spatial Reverb**: UAD Hitsville Chambers (Mix **12%**, Pre-Delay **10ms**) on parallel aux send.</span></div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Telecaster Pickup Selector</span><span class="guide-content">Position 2 (Middle - Neck + Bridge) gives ultra-funky R&amp;B rhythm snap on Amp A with warm Tweed body on Amp B.</span></div><div class="guide-card"><span class="guide-label">Stratocaster Position 4</span><span class="guide-content">Position 4 (Neck + Middle) yields classic Mayer/Wong neo-soul chime across both channels.</span></div></div>
+</section>
+  
 </div>
 
 <div class="tone-detail" id="tone-tele-electronic-veil-bickert" style="display:none">

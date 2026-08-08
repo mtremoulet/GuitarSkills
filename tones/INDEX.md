@@ -7,6 +7,7 @@
 | HB Warm Edge — Boutique Warm Clean (Humbucker Variant) | humbucker | Epiphone Les Paul Standard ('57CH neck pickup) / Epiphone Sheraton II | [humbuckers/cory-wong-hb-warm-edge.md](humbuckers/cory-wong-hb-warm-edge.md) | tested |
 | Lofi Vinyl — Sampled Chillhop Clean | humbucker | Gibson Les Paul Studio (490R neck / 498T bridge humbuckers) | [humbuckers/cory-wong-lofi-vinyl.md](humbuckers/cory-wong-lofi-vinyl.md) | tested |
 | Velvet Jazz Sheraton — Archetype Cory Wong X | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/cory-wong-velvet-jazz-sheraton.md](humbuckers/cory-wong-velvet-jazz-sheraton.md) | initial |
+| Deja HiFi Jazz Clean HB | humbucker | Gibson Les Paul / Epiphone Sheraton II (humbuckers) | [humbuckers/deja-hifi-jazz-humbucker.md](humbuckers/deja-hifi-jazz-humbucker.md) | initial |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
 | Dream '65 — Dual Rig Clean Foundation | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-dual-rig-clean.md](humbuckers/dream-65-dual-rig-clean.md) | initial |
 | Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | verified |
@@ -31,8 +32,8 @@
 | THR Velvet Humbucker Jazz — Sheraton II | humbucker | Epiphone Sheraton II (neck humbucker, flatwound strings) | [humbuckers/thr-velvet-hb-jazz.md](humbuckers/thr-velvet-hb-jazz.md) | initial |
 | TKIP LP 80s Rock Lead | humbucker | Gibson Les Paul Studio | [humbuckers/tkip-lp-80s-rock-lead.md](humbuckers/tkip-lp-80s-rock-lead.md) | initial |
 | TKIP Sheraton Jazz Clean | humbucker | Epiphone Sheraton II | [humbuckers/tkip-sheraton-jazz-clean.md](humbuckers/tkip-sheraton-jazz-clean.md) | initial |
-| Two-Rock Bloomfield + Ruby '63 — Boutique Velvet & Vox Chime Dual Rig (Humbuckers) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers) | [humbuckers/two-rock-ruby-dual-rig.md](humbuckers/two-rock-ruby-dual-rig.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
+| Two-Rock Bloomfield + Ruby '63 — Boutique Velvet & Vox Chime Dual Rig (Humbuckers) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers) | [humbuckers/two-rock-ruby-dual-rig.md](humbuckers/two-rock-ruby-dual-rig.md) | initial |
 | Ten Piece Bell (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/audio-hertz-ten-piece-bell.md](p-90s/audio-hertz-ten-piece-bell.md) | initial |
 | Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | refined |
 | City Pop Chime — Chorused Rhythm Clean | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) | [p-90s/cory-wong-city-pop-chime.md](p-90s/cory-wong-city-pop-chime.md) | initial |
@@ -53,7 +54,6 @@
 | Two Rock Bloomfield — Singing Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-singing-blues-p90.md](p-90s/two-rock-singing-blues-p90.md) | refined |
 | Woodrow EP-III Sweet Spot (P-90) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-ep3-p90.md](p-90s/woodrow-ep3-p90.md) | tested |
 | Woodrow Sweet Spot (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/woodrow-sweet-spot-p90.md](p-90s/woodrow-sweet-spot-p90.md) | tested |
-| Archetype Cory Wong X + Woodrow '55 — Hi-Fi & Tweed Dual Rig (Single-Coils) | single-coil | Fender Player II Telecaster / Squier Stratocaster (Single-Coils) | [single-coils/tele-cory-woodrow-dual-rig.md](single-coils/tele-cory-woodrow-dual-rig.md) | initial |
 | Dire Straits — Sultans Clean (Archetype Cory Wong X) | single-coil | Fender Player II Telecaster / Squier Stratocaster (Middle + Bridge or Neck + Middle position — 'quack') | [single-coils/cory-wong-dire-straits-sultans.md](single-coils/cory-wong-dire-straits-sultans.md) | initial |
 | The Electronic Veil — Archetype Cory Wong X | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/cory-wong-electronic-veil.md](single-coils/cory-wong-electronic-veil.md) | initial |
 | Soejima Neo-Soul Clean — Archetype Cory Wong X | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/cory-wong-soejima-neo-soul.md](single-coils/cory-wong-soejima-neo-soul.md) | initial |
@@ -70,6 +70,7 @@
 | Lion '68 + Dream '65 — Stratocaster Dual Rig (Single-Coils) | single-coil | Squier Stratocaster (Single-Coils) | [single-coils/strat-lion-dream-dual-rig.md](single-coils/strat-lion-dream-dual-rig.md) | initial |
 | Strat Sleepwalk Carlton (Larry Carlton Style) | single-coil | Mid-1980s Squier Stratocaster Partscaster (Neck or Neck+Middle position) | [single-coils/strat-sleepwalk-carlton.md](single-coils/strat-sleepwalk-carlton.md) | tested |
 | Telecaster OC-5 Bass Split | single-coil | Fender Player II Telecaster (single-coils, neck position) | [single-coils/tele-bass-split-oc5.md](single-coils/tele-bass-split-oc5.md) | initial |
+| Archetype Cory Wong X + Woodrow '55 — Hi-Fi & Tweed Dual Rig (Single-Coils) | single-coil | Fender Player II Telecaster / Squier Stratocaster (Single-Coils) | [single-coils/tele-cory-woodrow-dual-rig.md](single-coils/tele-cory-woodrow-dual-rig.md) | initial |
 | The Electronic Veil (Ed Bickert Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds) | [single-coils/tele-electronic-veil-bickert.md](single-coils/tele-electronic-veil-bickert.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
 | Woodrow '55 + Dream '65 — Telecaster Dual Rig (Single-Coils) | single-coil | Fender Player II Telecaster (Single-Coils) | [single-coils/tele-woodrow-dream-dual-rig.md](single-coils/tele-woodrow-dream-dual-rig.md) | initial |

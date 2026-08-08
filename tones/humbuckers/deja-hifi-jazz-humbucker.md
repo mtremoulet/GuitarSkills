@@ -73,7 +73,7 @@ The goal is to recreate the sound of a premium archtop/hollowbody playing throug
 
 ---
 
-### 2. Pre-Amp Dynamics — UADx Teletronix LA-2A Silver
+### 2. UADx Teletronix LA-2A Silver — Pre-Amp Dynamics
 *Smooths sharp pick attacks and rounds transient clicks before the solid-state input stage.*
 
 | Control | Setting | Technical Rationale |
@@ -84,7 +84,7 @@ The goal is to recreate the sound of a premium archtop/hollowbody playing throug
 
 ---
 
-### 3. Primary Amplifier — Nembrini JC120 (Roland Jazz Chorus 120)
+### 3. Nembrini JC120 (Roland Jazz Chorus 120) — Primary Amplifier
 *Pristine, zero-sag solid-state clean engine providing fast note separation and hi-fi detail.*
 
 #### Gain Staging & Input/Output
@@ -115,7 +115,7 @@ The goal is to recreate the sound of a premium archtop/hollowbody playing throug
 
 ---
 
-### 4. Post-Amp Sculpting — Logic Channel EQ
+### 4. Logic Channel EQ — Post-Amp Sculpting
 *Polishes the solid-state response to deliver a dark, hi-fi archtop acoustic veil.*
 
 | Band | Type | Frequency | Gain / Slope | Q | Technical Rationale |
@@ -126,7 +126,7 @@ The goal is to recreate the sound of a premium archtop/hollowbody playing throug
 
 ---
 
-### 5. Spatial Environment — Send to Bus 3 (Reverb): −16 dB
+### 5. UADx Hitsville Reverb Chambers — Spatial Environment (Bus 3 Send)
 
 #### Aux Track Plugin — UADx Hitsville Reverb Chambers
 *Creates the acoustic illusion of an un-miked hollowbody guitar in Motown's historic Studio A.*

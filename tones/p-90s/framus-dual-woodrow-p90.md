@@ -5,11 +5,11 @@ guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
 id: framus-dual-woodrow-p90
 pickup_type: p-90
 preset_name: "Framus Dual Woodrow Sweet Spot P90"
-status: initial
+status: tested
 tags: "dual-amp, p-90, framus, tweed, woodrow, dual-same-amp, wet-dry, slapback, parallel"
 target: 'Dual same-amp differential split pairing a dry fat Tweed (Woodrow 55) with a pushed bright slapback Tweed for Framus P-90s.'
 tone-king-channel: bypassed
-updated: 2026-08-02
+updated: 2026-08-08
 dual_rig: true
 amp_a:
   name: "Amp A — Woodrow '55 (Dry Fat Tweed)"
@@ -103,3 +103,10 @@ By running **two instances of the UAD Woodrow '55** with differential settings a
 - **Guitar Tone Knob**: Roll the Framus tone knob to **7.5** to round off high-end bite when playing on the bridge P-90 pickup.
 - **Slapback Width**: Adjust the Galaxy Tape Echo mix on Amp B to control how far the spatial delay spreads out behind Amp A's dry fundamental.
 - **Dynamic Drive**: Dig in hard with your pick to make Amp B jump into Tweed crunch while Amp A keeps your low end tight and clear.
+
+---
+
+## Feedback History
+
+### 2026-08-08 — tested
+* **User Testing**: Confirmed the setup sounds good with Framus P-90s. Noted that dual same-amp setups (two Woodrow '55s) are subtle and lean toward wet/dry slapback differentiation rather than distinct tonal contrast. Moving toward pairing contrasting amp families (e.g. Tweed + Dumble/Vox/Two-Rock) for stronger 3D character.

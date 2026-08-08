@@ -366,6 +366,10 @@ def find_boolean_parameter(content, param_names):
 
 # Dynamic Neural DSP Parser & Compiler
 def compile_neural_toneprint(filepath, base_data, output_name, frontmatter):
+    if isinstance(base_data, str) and os.path.exists(base_data):
+        with open(base_data, "rb") as f:
+            base_data = f.read()
+
     preset_data = frontmatter.get("preset_data", {})
     amp_settings = preset_data.get("amp_settings") if isinstance(preset_data, dict) else None
 

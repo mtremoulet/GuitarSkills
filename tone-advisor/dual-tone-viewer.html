@@ -252,7 +252,7 @@
             <p>Dedicated Dual-Amp Platform & Side-by-Side Parameter Matrix</p>
         </div>
         <div style="text-align: right;">
-            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">4</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">6</div>
             <div style="font-size: 0.8rem; color: var(--text-muted);">Dual Rigs Active</div>
         </div>
     </div>
@@ -277,7 +277,7 @@
     "guitar": "Framus Earl Slick Artist Series (DiMarzio P-90s)",
     "pickup_type": "p-90",
     "target": "Dual same-amp differential split pairing a dry fat Tweed (Woodrow 55) with a pushed bright slapback Tweed for Framus P-90s.",
-    "status": "initial",
+    "status": "tested",
     "tags": "dual-amp, p-90, framus, tweed, woodrow, dual-same-amp, wet-dry, slapback, parallel",
     "amp_a": {
       "name": "Amp A \u2014 Woodrow '55 (Dry Fat Tweed)",
@@ -324,7 +324,7 @@
     "bus_la2a_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Bus LA-2A",
     "bus_hits_preset": "Toneprint - Framus Dual Woodrow Sweet Spot P90 - Bus Hitsville",
     "target_sound_md": "\nThis toneprint implements **Approach 4 (Dual Same-Amp Differential Split)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for the **Framus Earl Slick Artist Series (DiMarzio P-90s)**.\n\nBy running **two instances of the UAD Woodrow '55** with differential settings and wet/dry FX separation, this rig amplifies the raw, growling character of P-90 pickups without phase mismatches or muddy frequency overlap.\n\n* **Amp A (Left, Pan -12 - Dry Fat Tweed)**: Woodrow '55 tuned for dark, woody low-mids and clean punch. 100% bone-dry.\n* **Amp B (Right, Pan +12 - Wet Bright Tweed & Slapback)**: Woodrow '55 pushed into edge-of-breakup saturation, brighter Tone contour, and fed by a vintage **UAD Galaxy Tape Echo** slapback delay (`110ms`).\n\n---\n",
-    "starting_point_md": "\n- **Guitar Tone Knob**: Roll the Framus tone knob to **7.5** to round off high-end bite when playing on the bridge P-90 pickup.\n- **Slapback Width**: Adjust the Galaxy Tape Echo mix on Amp B to control how far the spatial delay spreads out behind Amp A's dry fundamental.\n- **Dynamic Drive**: Dig in hard with your pick to make Amp B jump into Tweed crunch while Amp A keeps your low end tight and clear."
+    "starting_point_md": "\n- **Guitar Tone Knob**: Roll the Framus tone knob to **7.5** to round off high-end bite when playing on the bridge P-90 pickup.\n- **Slapback Width**: Adjust the Galaxy Tape Echo mix on Amp B to control how far the spatial delay spreads out behind Amp A's dry fundamental.\n- **Dynamic Drive**: Dig in hard with your pick to make Amp B jump into Tweed crunch while Amp A keeps your low end tight and clear.\n\n---\n"
   },
   {
     "file": "humbuckers/paradise-enigmatic-ruby-dual-rig.md",
@@ -404,6 +404,66 @@
     "bus_hits_preset": "Toneprint - Enigmatic Ruby Dual Rig HB - Bus Hitsville",
     "target_sound_md": "\nThis toneprint implements **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for humbucker guitars (**Gibson Les Paul Studio** and **Epiphone Sheraton II**).\n\n* **Amp A (Left, Pan -12)**: The **UAD Enigmatic '82** (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics.\n* **Amp B (Right, Pan +12)**: The **UAD Ruby '63** (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.\n\nTogether, they eliminate humbucker dark mud while giving single notes a soaring, singing lead quality inspired by John Mayer and Robben Ford.\n\n---\n",
     "starting_point_md": "\n- **Guitar Volume Knob**: Set Les Paul neck pickup volume to **8.0** for clean rhythm, and roll up to **10** for singing lead sustain.\n- **Spectrum Balance**: If the Ruby dominates the right ear, roll the Ruby's `Tone Cut` up to **5.0**.\n- **Drive Staging**: For leads, feed a Klon/Centaur (Clon Minotaur) into **both** amps to push Enigmatic into overdrive while keeping Ruby punchy.\n\n---\n"
+  },
+  {
+    "file": "humbuckers/two-rock-ruby-dual-rig.md",
+    "title": "Two-Rock Ruby Dual Rig HB",
+    "guitar": "Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)",
+    "pickup_type": "humbucker",
+    "target": "High-contrast dual rig pairing plush boutique Dumble-style clean depth (Two-Rock Bloomfield) with glassy upper-mid Vox AC30 Top Boost chime (Ruby 63).",
+    "status": "initial",
+    "tags": "dual-amp, humbucker, les-paul, sheraton, mixwave, two-rock, bloomfield, ruby, vox, chime, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Two-Rock Bloomfield Drive (Boutique Clean)",
+      "model": "Two-Rock Bloomfield (MixWave)",
+      "platform": "mixwave",
+      "pan": -12,
+      "amp_settings": {
+        "Gain": 4.5,
+        "Master": 6.5,
+        "Treble": 4.5,
+        "Middle": 5.5,
+        "Bass": 5.0,
+        "Presence": 5.0,
+        "Reverb": 0,
+        "Bright": false,
+        "Deep": false,
+        "Mid": false
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Ruby '63 (Vox Top Boost Chime)",
+      "model": "Ruby '63 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 3.2,
+        "Treble": 5.5,
+        "Bass": 4.5,
+        "Tone Cut": 4.5,
+        "Cut": false,
+        "Boost": false,
+        "Cab": "2x12 Silver 15",
+        "Output Gain": 8.0
+      }
+    },
+    "shared_fx": {
+      "la2a": {
+        "gain": 30.0,
+        "peak_reduction": 40.0
+      },
+      "hitsville": {
+        "decay": 2.0,
+        "mix": 0.12,
+        "pre_delay": 10.0
+      }
+    },
+    "amp_a_preset": "Toneprint - Two-Rock Ruby Dual Rig HB - Amp A (Two-Rock)",
+    "amp_b_preset": "Toneprint - Two-Rock Ruby Dual Rig HB - Amp B (Ruby)",
+    "bus_la2a_preset": "Toneprint - Two-Rock Ruby Dual Rig HB - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Two-Rock Ruby Dual Rig HB - Bus Hitsville",
+    "target_sound_md": "\nThis dual-rig toneprint pairs two iconic boutique and vintage amplifier voices for humbucker guitars (**Gibson Les Paul Studio** and **Epiphone Sheraton II**):\n\n* **Amp A (Left, Pan -12 \u2014 Plush Boutique Clean Anchor)**: The **MixWave Two-Rock Bloomfield Drive** supplies a deep, plush lower-midrange foundation, smooth note separation, and high-headroom Dumble-style warmth.\n* **Amp B (Right, Pan +12 \u2014 Glassy Vox Harmonic Halo)**: The **UAD Ruby '63** (Vox AC30 Top Boost) adds brilliant high-frequency chime, upper-mid bite, and immediate pick attack.\n\nTogether, the Two-Rock eliminates humbucker dark mud while the Vox supplies a sparkling harmonic halo around every note.\n\n---\n",
+    "starting_point_md": "\n- **Les Paul Neck Pickup**: Set neck volume to **8.0** for warm jazz-blues rhythm, roll up to **10** for singing lead notes.\n- **Sheraton Flatwounds**: The Vox Top Boost on Amp B restores string clarity and harmonic air to flatwound strings without needing treble boost on the amp."
   },
   {
     "file": "single-coils/strat-lion-dream-dual-rig.md",
@@ -514,6 +574,63 @@
     "bus_hits_preset": "Toneprint - Tele Woodrow Dream Dual Rig SC - Bus Hitsville",
     "target_sound_md": "\nThis toneprint implements **Approach 1 (Tweed Mid-Punch + Blackface Glass)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), optimized for the **Fender Player II Telecaster**.\n\nInspired by **Chris Buck (Cardinal Black)**, this setup pairs a warm, woody Tweed Deluxe right at the edge of breakup with a pristine, uncompressed Blackface Deluxe Reverb clean foundation.\n\n* **Amp A (Left, Pan -12)**: **UAD Woodrow '55** delivers organic Tweed compression, raw midrange punch, and dynamic sag when picking aggressively.\n* **Amp B (Right, Pan +12)**: **UAD Dream '65** stays wide open and clean, ensuring pick attacks, string separation, and high-frequency sparkle are preserved.\n\n---\n",
     "starting_point_md": "\n- **Pickup Selector**: Start on **Position 2 (Neck + Bridge parallel)** or **Neck pickup** for soulful blues and fingerstyle rhythm.\n- **Dynamic Control**: Use pick attack to drive the Woodrow into crunch while the Dream stays crystal clear.\n- **Drive Pedal Pairing**: Run a TS-808 (Nembrini 808) into **Amp A only** for searing lead tone while keeping **Amp B** clean."
+  },
+  {
+    "file": "single-coils/tele-cory-woodrow-dual-rig.md",
+    "title": "Cory Woodrow Dual Rig SC",
+    "guitar": "Fender Player II Telecaster / Squier Stratocaster (Single-Coils)",
+    "pickup_type": "single-coil",
+    "target": "High-contrast dual rig pairing pristine solid-state precision (Cory Wong Clean Machine) with organic 1950s tube sag and saturation (Woodrow 55 Tweed).",
+    "status": "initial",
+    "tags": "dual-amp, single-coil, telecaster, stratocaster, neural-dsp, cory-wong, woodrow, tweed, clean-machine, parallel",
+    "amp_a": {
+      "name": "Amp A \u2014 Archetype Cory Wong X (Clean Machine)",
+      "model": "The Clean Machine (Archetype Cory Wong X)",
+      "platform": "neural_dsp",
+      "pan": -12,
+      "amp_settings": {
+        "selectedAmp": 0,
+        "cleanBass": 5.0,
+        "cleanMid": 5.5,
+        "cleanTreble": 6.0,
+        "cleanVolume": 5.0,
+        "cleanMaster": 6.5,
+        "cleanCut": 0.0,
+        "compressorActive": true,
+        "compressorVolume": 50.0,
+        "compressorCompression": 30.0
+      }
+    },
+    "amp_b": {
+      "name": "Amp B \u2014 Woodrow '55 (Tweed Saturation)",
+      "model": "Woodrow '55 (UADx)",
+      "platform": "uad_paradise",
+      "pan": 12,
+      "amp_settings": {
+        "Volume": 5.4,
+        "Tone": 5.8,
+        "Boost": false,
+        "Cab": "1x12 Tweed Deluxe",
+        "Output Gain": 10.0
+      }
+    },
+    "shared_fx": {
+      "la2a": {
+        "gain": 30.0,
+        "peak_reduction": 38.0
+      },
+      "hitsville": {
+        "decay": 2.0,
+        "mix": 0.12,
+        "pre_delay": 10.0
+      }
+    },
+    "amp_a_preset": "Toneprint - Cory Woodrow Dual Rig SC - Amp A (The)",
+    "amp_b_preset": "Toneprint - Cory Woodrow Dual Rig SC - Amp B (Woodrow)",
+    "bus_la2a_preset": "Toneprint - Cory Woodrow Dual Rig SC - Bus LA-2A",
+    "bus_hits_preset": "Toneprint - Cory Woodrow Dual Rig SC - Bus Hitsville",
+    "target_sound_md": "\nThis dual-rig toneprint pairs two completely contrasting amplifier architectures to create a dynamic, 3D soundstage for single-coil guitars (**Fender Telecaster** and **Squier Stratocaster**):\n\n* **Amp A (Left, Pan -12 \u2014 Hi-Fi Solid-State Precision)**: **Archetype Cory Wong X \u2014 \"The Clean Machine\"** provides hyper-articulate, ultra-fast transient pick response, pristine top-end air, and 100% linear clean headroom with zero tube distortion.\n* **Amp B (Right, Pan +12 \u2014 Vintage Tweed Tube Sag)**: The **UAD Woodrow '55** (5E3 Tweed Deluxe) supplies organic tube compression, woody lower-mid body, and soft edge-of-breakup saturation.\n\nTogether, soft fingerpicking receives crystalline string clarity on the left, while aggressive pick attack makes the right channel bloom into raw Tweed tube crunch without muddying the low end.\n\n---\n",
+    "starting_point_md": "\n- **Telecaster Pickup Selector**: Position 2 (Middle - Neck + Bridge) gives ultra-funky R&B rhythm snap on Amp A with warm Tweed body on Amp B.\n- **Stratocaster Position 4**: Position 4 (Neck + Middle) yields classic Mayer/Wong neo-soul chime across both channels."
   }
 ];
         let currentPickup = 'all';

@@ -26,6 +26,21 @@ BASE_UAD_PRESETS_DIR = "/Users/miketremoulet/Documents/Universal Audio/Presets/P
 PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio")
 PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Non-Toneprints", "Boutique Warm Clean - Enigmatic.json")
 
+try:
+    from scripts.compile_all_presets import (
+        compile_neural_toneprint,
+        compile_mixwave_toneprint,
+        NEURAL_TEMPLATE_ALT,
+        MIXWAVE_TEMPLATE_FACTORY
+    )
+except ImportError:
+    from compile_all_presets import (
+        compile_neural_toneprint,
+        compile_mixwave_toneprint,
+        NEURAL_TEMPLATE_ALT,
+        MIXWAVE_TEMPLATE_FACTORY
+    )
+
 LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
 HITSVILLE_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_hitsville_chambers/Mike Live Strings.json")
 
@@ -208,17 +223,33 @@ def compile_dual_rig_file(filepath, paradise_base):
 
     # 1. Compile Amp A Preset
     if amp_a:
+        platform_a = amp_a.get("platform", "uad_paradise").lower()
         amp_a_model = amp_a.get("model", "Dream '65")
-        amp_a_info = get_amp_info(amp_a_model)
-        title_a = f"Toneprint - {preset_name} - Amp A ({amp_a_info[2]})"
-        build_paradise_json(paradise_base, amp_a_info, amp_a, title_a)
+        if "neural" in platform_a:
+            title_a = f"{preset_name} - Amp A"
+            compile_neural_toneprint(filepath, NEURAL_TEMPLATE_ALT, title_a, {"preset_data": amp_a})
+        elif "mixwave" in platform_a:
+            title_a = f"{preset_name} - Amp A"
+            compile_mixwave_toneprint(filepath, MIXWAVE_TEMPLATE_FACTORY, title_a, {"preset_data": amp_a})
+        else:
+            amp_a_info = get_amp_info(amp_a_model)
+            title_a = f"Toneprint - {preset_name} - Amp A ({amp_a_info[2]})"
+            build_paradise_json(paradise_base, amp_a_info, amp_a, title_a)
 
     # 2. Compile Amp B Preset
     if amp_b:
+        platform_b = amp_b.get("platform", "uad_paradise").lower()
         amp_b_model = amp_b.get("model", "Ruby '63")
-        amp_b_info = get_amp_info(amp_b_model)
-        title_b = f"Toneprint - {preset_name} - Amp B ({amp_b_info[2]})"
-        build_paradise_json(paradise_base, amp_b_info, amp_b, title_b)
+        if "neural" in platform_b:
+            title_b = f"{preset_name} - Amp B"
+            compile_neural_toneprint(filepath, NEURAL_TEMPLATE_ALT, title_b, {"preset_data": amp_b})
+        elif "mixwave" in platform_b:
+            title_b = f"{preset_name} - Amp B"
+            compile_mixwave_toneprint(filepath, MIXWAVE_TEMPLATE_FACTORY, title_b, {"preset_data": amp_b})
+        else:
+            amp_b_info = get_amp_info(amp_b_model)
+            title_b = f"Toneprint - {preset_name} - Amp B ({amp_b_info[2]})"
+            build_paradise_json(paradise_base, amp_b_info, amp_b, title_b)
 
     # 3. Shared Bus LA-2A
     if shared_fx and isinstance(shared_fx, dict):

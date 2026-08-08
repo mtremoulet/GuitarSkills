@@ -7,10 +7,14 @@ import sys
 import pytest
 
 
+from pathlib import Path
+
+CHORD_CLI_PATH = Path(__file__).resolve().parent.parent / "chord_cli.py"
+
 def run_cli(*args):
     """Run chord_cli.py and return (stdout, stderr, returncode)."""
     result = subprocess.run(
-        [sys.executable, "chord_cli.py"] + list(args),
+        [sys.executable, str(CHORD_CLI_PATH)] + list(args),
         capture_output=True, text=True, timeout=30,
     )
     return result.stdout, result.stderr, result.returncode

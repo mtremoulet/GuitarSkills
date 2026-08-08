@@ -11,9 +11,10 @@ allowed-tools: Read, Write, Edit, Glob, Bash
 
 This skill documents and codifies the technical playbook for the rig-wide dynamic preset generation system in Mike's `GuitarSkills` project. Use this guide whenever you need to:
 1. Map a new plugin's parameters (finding float/int offsets).
-2. Write a new compiler function in `scripts/compile_all_presets.py`.
-3. Understand binary, JSON, or XML-based preset structures.
-4. Reference the future backlog for UADx Capitol Chambers and UA 610-B.
+2. Add support for a new plugin or format in `scripts/preset_compiler/`.
+3. Use standardized parameter converters from `scripts.utils.param_types`.
+4. Understand binary, JSON, or XML-based preset structures.
+5. Reference the future backlog for UADx Capitol Chambers and UA 610-B.
 
 ---
 
@@ -22,70 +23,78 @@ This skill documents and codifies the technical playbook for the rig-wide dynami
 The core objective of the preset compiler is **rig-wide automation staging**: taking a single descriptive markdown toneprint (under `tones/`) and automatically compiling native user presets for every plugin in the track's signal chain. This allows Mike to load a single tone index and instantly stage all amplifiers, dynamic controllers, EQ settings, and spatial effects in Logic Pro.
 
 ```
-                  +-------------------------+
-                  |  tones/[toneprint].md   |
-                  +------------+------------+
-                               |
-                   (Recursive Scan Loop)
-                               v
-               +---------------+---------------+
-               | scripts/compile_all_presets.py |
-               +---------------+---------------+
-                               |
-       +-----------------------+-----------------------+
-       |                       |                       |
-       v                       v                       v
-[UADx Native JSON]     [Valhalla Plain XML]     [Nembrini Plain XML]
-(Galaxy, Studio D)        (Supermassive)       (JC120, MRH810, AVP)
-       |                       |                       |
-       v                       v                       v
-~/Documents/Universal   /Library/Application   ~/Documents/Nembrini
-  Audio/Presets/...       Support/Valhalla...       Audio/...
+                      +-------------------------+
+                      |  tones/[toneprint].md   |
+                      +------------+------------+
+                                   |
+                       (Recursive Scan Loop)
+                                   v
+                   +---------------+---------------+
+                   | scripts/compile_all_presets.py|
+                   +---------------+---------------+
+                                   |
+       +---------------------------+---------------------------+
+       |                           |                           |
+       v                           v                           v
+ [scripts/preset_compiler/   [scripts/preset_compiler/   [scripts/preset_compiler/
+    uad.py, neural.py]          valhalla.py]               nembrini.py, etc.]
+       |                           |                           |
+       v                           v                           v
+[UADx Native JSON]         [Valhalla Plain XML]       [Nembrini Plain XML]
+(Galaxy, Studio D)            (Supermassive)         (JC120, MRH810, AVP)
+       |                           |                           |
+       v                           v                           v
+~/Documents/Universal       /Library/Application       ~/Documents/Nembrini
+  Audio/Presets/...           Support/Valhalla...           Audio/...
 ```
 
 ---
 
-## 2. Playbook for Mapping a New Plugin
+## 2. Parameter Normalization (`scripts.utils.param_types`)
 
-Whenever Mike purchases a new plugin or wants to add a new device to the compiler, follow this standard, structured mapping workflow:
+Always use `scripts.utils.param_types` for safe, strongly-typed parameter parsing in all compiler handlers:
+
+- **`to_float(val, default=0.0, min_val=None, max_val=None, scale_percent=False)`**: Strips units (`dB`, `%`, `Hz`, `ms`), converts unicode minus (`−`), scales percentages (if `scale_percent=True`), handles strings/floats/ints.
+- **`to_bool(val, default=False)`**: Safely converts `"ON"`, `"OFF"`, `"TRUE"`, `"FALSE"`, `"BRIGHT"`, `"NORMAL"`, `"YES"`, `"NO"`, `1`, `0` to boolean.
+- **`to_db(val, default=0.0)`**: Strips `"dB"`, `"db"`, `"+"`, returning float dB.
+- **`to_freq(val, default=1000.0)`**: Parses `"1.5 kHz"`, `"800 Hz"`, returning Hz.
+- **`find_numeric_param(content, param_names)`**: Finds table cells matching `param_names` and parses float value with auto percentage scaling.
+- **`find_boolean_param(content, param_names)`**: Finds table cells matching `param_names` and parses boolean state.
+
+---
+
+## 3. Playbook for Mapping & Adding a New Plugin
+
+Whenever Mike purchases a new plugin or wants to add a new device to the compiler, follow this standard workflow:
 
 ### Step 1: Save Diagnostic Presets
-Open **Logic Pro**, load the plugin on a track, and save a series of custom baseline presets **using the plugin's internal preset menu** (not Logic's frame). This ensures the preset is written natively in the plugin's native user folder. Save exactly:
-1. `Plugin_Base`: A default, basic setting.
-2. `Plugin_Control10`: Change only **Control 1** to its maximum value (`10` or `100%`).
-3. `Plugin_Control20`: Revert Control 1, and change only **Control 2** to its maximum value.
-4. `Plugin_PowerOff`: Keep all controls at default, but toggle the plugin's main **Power/Bypass** switch to **OFF**.
+Open **Logic Pro**, load the plugin on a track, and save a series of custom baseline presets **using the plugin's internal preset menu** (not Logic's frame). Save:
+1. `Plugin_Base`: Default setting.
+2. `Plugin_Control10`: Change only **Control 1** to max value (`10` or `100%`).
+3. `Plugin_Control20`: Revert Control 1, change only **Control 2** to max value.
+4. `Plugin_PowerOff`: Keep default controls, set main **Power/Bypass** to **OFF**.
 
-### Step 2: Locate User Preset Folder
-Natively saved user presets reside in standard macOS folders:
-* **UADx (Native JSON)**: `~/Documents/Universal Audio/Presets/Plug-Ins/uaudio_[plugin_name]/`
-* **Valhalla DSP (Plain XML)**: `/Library/Application Support/Valhalla DSP, LLC/[PluginName]/Presets/User/`
-* **Nembrini Audio (Plain XML)**: `~/Documents/Nembrini Audio/[PluginName]/`
-* **Logic Pro (Binary PST)**: `~/Music/Audio Music Apps/Plug-In Settings/[PluginName]/`
+### Step 2: Locate User Preset Folder & Config Paths
+Locate standard macOS preset directories in `scripts/utils/config.py`:
+* **UADx (Native JSON)**: `BASE_UAD_PRESETS_DIR / "uaudio_[plugin_name]"`
+* **Valhalla DSP (Plain XML)**: `SYSTEM_APP_SUPPORT / "Valhalla DSP, LLC/[PluginName]/Presets/User/"`
+* **Nembrini Audio (Plain XML)**: `NEMBRINI_DOCS_DIR / "[PluginName]"`
+* **Logic Pro (Binary PST)**: `LOGIC_SETTINGS_DIR / "[PluginName]"`
 
 ### Step 3: Run Binary / Text Diagnostics
-Write a targeted mapping script (like `scripts/map_studio_d.py`) to parse and compare your diagnostic files.
-* **If Plaintext XML (Valhalla/Nembrini)**: Open the files in a text editor and diff them. Look for attribute changes (e.g. `Mix="0.5"` vs `Mix="1.0"`).
-* **If Binary/JSON Chunks (UADx)**: Decode the base64 `"chunk"` string into a bytearray, unpack it into an array of floats/ints using Python's `struct.unpack()`, and print index differences:
-```python
-# Unpacking 4-byte floating point offsets
-for offset in range(0, len(bytes_payload), 4):
-    val_f = struct.unpack("f", bytes_payload[offset:offset+4])[0]
-```
+Write a targeted mapping script (e.g. `scripts/map_studio_d.py`) to parse diagnostic files:
+* **Plaintext XML**: Diff text files to find attribute changes.
+* **Binary/JSON Chunks (UADx)**: Decode base64 `"chunk"` string into bytearray, unpack floats with `struct.unpack("f", chunk[offset:offset+4])[0]`, and record offset indices.
 
-### Step 4: Write and Hook the Compiler
-Add the template configuration and compiler routine in `scripts/compile_all_presets.py`:
-1. **Declare the Base Path**: Add the path to `whereami` template under global configurations (e.g. `STUDIO_D_BASE`).
-2. **Implement Parameter Extractors**: Use `extract_markdown_section()` to isolate the plugin's table in the markdown file to prevent collisions. Use `find_numeric_parameter()` and `find_boolean_parameter()` for quick, standard table parsing.
-3. **Scale Values Safely**:
-   * Scale percentages: `val = percent / 100.0`
-   * Handle unit suffixes (like `ms`, `s`, `dB`) using custom regex (e.g., `re.search(r"([0-9.]+)\s*ms", ...)`).
-4. **Serialize the Output**: Generate a unique UUID (`uid = uuid.uuid4().hex`) for JSON presets, rebuild the base64 payload or XML tree, and write out to the native directory under the name `Toneprint - [Tone Name]`.
-5. **Register in `main()`**: Increment the counters, hook the scanner into the recursive directory traversal, and print the success summary at completion.
+### Step 4: Implement Compiler Handler in `scripts/preset_compiler/`
+1. Create or extend a module in `scripts/preset_compiler/` (e.g., `uad.py`, `neural.py`, `my_vendor.py`).
+2. Use `scripts.utils.param_types` to extract parameters cleanly from frontmatter or Markdown sections (`extract_markdown_section()`).
+3. Serialize output preset, write to target path, and export function in `scripts/preset_compiler/__init__.py`.
+4. Register call in `scripts/compile_all_presets.py`.
 
 ---
 
-## 3. Format Blueprint & Reference Mappings
+## 4. Format Blueprint & Reference Mappings
 
 ### A. UADx Native JSON Format
 UADx plugins use a lightweight JSON wrapper containing metadata (`plugin_id`, `version`, `uid`, `name`) and a base64-encoded `"chunk"` representing a binary array of Float32/Int32 values.
@@ -120,7 +129,7 @@ Valhalla plugins save natively as simple, standard XML text files with attribute
 * **Modulation**: `ModRate` and `ModDepth` set to `"0.0"` in all generated presets to prevent detuning.
 
 ### C. Logic Pro ProjectData Audio Unit Signatures
-When parsing the binary `ProjectData` file of a Logic Pro project/template package, the embedded Audio Unit plug-in descriptions use standard macOS Four-Character Codes (FourCC) encoded as big-endian integers. Below is the mapping of these signatures to the user's specific plugins:
+When parsing the binary `ProjectData` file of a Logic Pro project/template package, the embedded Audio Unit plug-in descriptions use standard macOS Four-Character Codes (FourCC) encoded as big-endian integers:
 
 | Manufacturer Code | Subtype Code | Type | Plug-in Name |
 | :--- | :--- | :--- | :--- |
@@ -143,7 +152,7 @@ When parsing the binary `ProjectData` file of a Logic Pro project/template packa
 
 ---
 
-## 4. Backlog & Future Phases
+## 5. Backlog & Future Phases
 
 The following plugins are noted on the project backlog for future preset compilation phases:
 

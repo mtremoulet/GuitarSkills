@@ -4,7 +4,7 @@ created: 2026-05-02
 guitar: "Squier Stratocaster (single coils)"
 id: strat-ambient-bath
 pickup_type: single-coil
-status: initial
+status: archived
 tags: "ambient, lush, sound-bath, strat, clean, delay, reverb, modulation"
 target: 'Lush, lingering ambient soundscape; massive reverb wash, stereo chorus, and'
 tone-king-channel: bypassed

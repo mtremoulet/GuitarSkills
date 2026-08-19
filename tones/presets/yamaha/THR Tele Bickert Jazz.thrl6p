@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Tele Bickert Jazz",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -84.48,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.45,
+                "Level": 0.58
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": false,
+                "Depth": 0.0,
+                "Feedback": 0.5,
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "LargePlate1",
+                "@enabled": true,
+                "Decay": 0.38,
+                "PreDelay": 0.05,
+                "Tone": 0.35,
+                "@wetDry": 0.18
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 13
+            },
+            "THRGroupAmp": {
+                "@asset": "THR30_Carmen",
+                "Drive": 0.32,
+                "Bass": 0.62,
+                "Mid": 0.7,
+                "Treble": 0.32,
+                "Master": 0.78
+            },
+            "global": {
+                "THRPresetParamTempo": 110
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

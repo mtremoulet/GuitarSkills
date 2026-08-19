@@ -12,6 +12,7 @@ import re
 from typing import Dict, Any, Optional
 
 from scripts.utils.param_types import to_float, to_bool, find_numeric_param, find_boolean_param
+from scripts.utils.config import PARADISE_DIR
 from .base import extract_markdown_section
 
 
@@ -195,6 +196,72 @@ def compile_uad_toneprint(
         if bass is not None: controls["showtime_bass"] = {"real_value": bass}
         if bright is not None: controls["showtime_bright"] = {"real_value": bright}
 
+    # Process Pre-FX pedals if defined in preset_data
+    prefx_data = preset_data.get("prefx") if isinstance(preset_data, dict) else None
+    pedal_id_map = {
+        "none": 0,
+        "big_fuzz": 1,
+        "gold_overdrive": 2,
+        "ts_overdrive": 3,
+        "raw_distortion": 4,
+        "nashville_overdrive": 5,
+        "vintage_fuzz": 6,
+        "blue_flanger": 7,
+        "brigade_chorus": 8,
+        "orange_phaser": 9,
+        "trem_65": 10,
+        "ep_iii_tape_echo": 11,
+        "memory_delay": 12,
+        "digital_delay": 13,
+        "pitch_shift_delay": 14,
+        "micropitch_shifter": 15,
+        "multi_chorus": 16,
+        "vintage_vibrato": 17,
+        "red_comp": 18,
+        "1176_compressor": 19,
+        "10_band_graphic_eq": 20,
+        "studio_eq": 21,
+        "volume_pedal": 22,
+        "drip_spring_65_reverb": 23,
+        "plate_140_reverb": 24,
+        "digital_reverb": 25,
+        "reverb_224": 26,
+    }
+
+    if prefx_data and isinstance(prefx_data, dict):
+        for slot_num in range(1, 6):
+            slot_key = f"slot{slot_num}"
+            if slot_key in prefx_data:
+                slot_info = prefx_data[slot_key]
+                p_name = slot_info.get("pedal", "").lower().strip()
+                p_id = pedal_id_map.get(p_name, 0)
+                p_enabled = to_bool(slot_info.get("enabled", False))
+                controls[f"prefx_{slot_num}"] = {"real_value": p_id}
+                controls[f"prefx_{slot_num}_power"] = {"real_value": p_enabled}
+
+                # Update pedal-specific parameters
+                for param_k, param_v in slot_info.items():
+                    if param_k in ("pedal", "enabled"):
+                        continue
+                    control_key = f"prefx_{p_name}_{param_k}"
+                    if control_key in controls:
+                        controls[control_key] = {"real_value": float(param_v) if isinstance(param_v, (int, float)) else to_float(param_v)}
+
+    folder_map = {
+        "dream": "Dream '65",
+        "enigmatic": "Enigmatic '82",
+        "lion": "Lion '68",
+        "ruby": "Ruby '63",
+        "showtime": "Showtime '64",
+        "woodrow": "Woodrow '55",
+    }
+    folder_name = folder_map.get(amp_type, "")
+    out_dir = os.path.join(PARADISE_DIR, folder_name) if folder_name else str(PARADISE_DIR)
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, f"Toneprint - {output_name}.json")
+    with open(out_path, "w") as f:
+        json.dump(preset_data_json, f, indent=4)
+    print(f"-> Compiled UAD Paradise Amp Preset: 'Toneprint - {output_name}' in '{folder_name}'")
     return True
 
 

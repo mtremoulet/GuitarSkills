@@ -4,7 +4,7 @@ created: 2026-05-09
 guitar: "Epiphone Sheraton (humbuckers)"
 id: jc120-pristine-jazz-clean
 pickup_type: humbucker
-status: initial
+status: archived
 tags: "jazz, clean, solid-state, chorus, jc120, nembrini, pristine"
 target: 'Pristine, glassy solid-state jazz clean through the Nembrini JC120; focused'
 tone-king-channel: bypassed

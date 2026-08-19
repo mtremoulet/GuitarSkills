@@ -179,6 +179,12 @@ def build_paradise_json(base_preset, amp_info, amp_block, preset_title):
             if vol_mic is not None: controls["woodrow_mic_volume"] = {"real_value": float(vol_mic)}
             if treble is not None: controls["woodrow_tone"] = {"real_value": float(treble)}
             if "Boost" in amp_settings: controls["woodrow_boost_enable"] = {"real_value": bool(amp_settings["Boost"])}
+        elif key_name == "showtime":
+            if vol is not None: controls["showtime_volume"] = {"real_value": float(vol)}
+            if treble is not None: controls["showtime_treble"] = {"real_value": float(treble)}
+            if mid is not None: controls["showtime_middle"] = {"real_value": float(mid)}
+            if bass is not None: controls["showtime_bass"] = {"real_value": float(bass)}
+            if bright is not None: controls["showtime_bright"] = {"real_value": bool(bright)}
         elif key_name == "lion":
             vol1 = amp_settings.get("Volume I (Bite)") or amp_settings.get("Volume 1") or amp_settings.get("Volume I")
             vol2 = amp_settings.get("Volume II (Body)") or amp_settings.get("Volume 2") or amp_settings.get("Volume II")
@@ -313,10 +319,11 @@ def compile_dual_rig_file(filepath, paradise_base):
             c_title = f"Toneprint - {preset_name}"
             c_path = os.path.join(c_dir, f"{c_title}.xml")
             c_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-<ClonMinotaur version="1.0.0">
+
+<ClonMinotaur version="1.0.5" lastUIWidth="667" lastUIHeight="467" CurrentPreset="{c_path}">
   <PARAM id="Gain" value="{float(c_info.get('gain', 6.0))}"/>
-  <PARAM id="Treble" value="{float(c_info.get('treble', 4.5))}"/>
   <PARAM id="Output" value="{float(c_info.get('output', 4.5))}"/>
+  <PARAM id="Treble" value="{float(c_info.get('treble', 4.5))}"/>
   <PARAM id="power" value="1.0"/>
 </ClonMinotaur>
 """
@@ -332,12 +339,14 @@ def compile_dual_rig_file(filepath, paradise_base):
             n_title = f"Toneprint - {preset_name}"
             n_path = os.path.join(n_dir, f"{n_title}.xml")
             n_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-<Nembrini808 version="1.0.0">
+
+<NA808 lastUIWidth="536" lastUIHeight="605" CurrentPreset="{n_path}"
+       version="1.0.6">
   <PARAM id="Drive" value="{float(n_info.get('drive', 5.4))}"/>
-  <PARAM id="Tone" value="{float(n_info.get('tone', 5.0))}"/>
   <PARAM id="Level" value="{float(n_info.get('level', 3.5))}"/>
+  <PARAM id="Tone" value="{float(n_info.get('tone', 5.0))}"/>
   <PARAM id="power" value="1.0"/>
-</Nembrini808>
+</NA808>
 """
             with open(n_path, "w") as f: f.write(n_xml)
             print(f"-> Compiled Nembrini 808 Preset: '{n_title}'")

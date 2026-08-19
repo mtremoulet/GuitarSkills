@@ -5,7 +5,7 @@ guitar: "Universal (Tested with Archtop/Humbucker jazz guitars and Single-Coils)
 id: dream-65-warm-clean
 pickup_type: universal
 preset_name: "Dream 65 Warm Clean"
-status: initial
+status: archived
 tags: "blackface, clean, warm, jazz, dream-65, ev12, universal"
 target: 'Warm, high-headroom clean tone with rolled-off treble and the linear, neutral EV12 cabinet'
 tone-king-channel: bypassed

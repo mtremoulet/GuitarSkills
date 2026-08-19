@@ -5,7 +5,7 @@ guitar: "Gibson Les Paul / Epiphone Sheraton II (humbuckers)"
 id: deja-hifi-jazz-humbucker
 pickup_type: humbucker
 preset_name: "Deja HiFi Jazz Clean HB"
-status: initial
+status: archived
 tags: "jazz, hifi, solid-state, humbucker, deja, les-paul, sheraton, cheek-to-cheek, nembrini, jc120"
 target: "Hi-fi, well-rounded, precise jazz warmth inspired by 'Deja' (Dancing Cheek to Cheek). High clarity solid-state response with zero clack or brittleness for Les Paul & Sheraton II humbuckers."
 tone-king-channel: bypassed

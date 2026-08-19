@@ -1,0 +1,1394 @@
+{
+    "chunk": {
+        "controls": {
+            "output": {
+                "real_value": 12.0
+            },
+            "tempo_tap": {
+                "real_value": false
+            },
+            "prefx_1": {
+                "real_value": 2
+            },
+            "prefx_2": {
+                "real_value": 0
+            },
+            "prefx_3": {
+                "real_value": 0
+            },
+            "prefx_4": {
+                "real_value": 0
+            },
+            "prefx_5": {
+                "real_value": 0
+            },
+            "prefx_1_power": {
+                "real_value": false
+            },
+            "prefx_2_power": {
+                "real_value": false
+            },
+            "prefx_3_power": {
+                "real_value": false
+            },
+            "prefx_4_power": {
+                "real_value": false
+            },
+            "prefx_5_power": {
+                "real_value": false
+            },
+            "prefx_power": {
+                "real_value": true
+            },
+            "prefx_output": {
+                "real_value": 0.0
+            },
+            "postfx_1": {
+                "real_value": 0
+            },
+            "postfx_2": {
+                "real_value": 0
+            },
+            "postfx_3": {
+                "real_value": 0
+            },
+            "postfx_4": {
+                "real_value": 0
+            },
+            "postfx_5": {
+                "real_value": 0
+            },
+            "postfx_1_power": {
+                "real_value": false
+            },
+            "postfx_2_power": {
+                "real_value": false
+            },
+            "postfx_3_power": {
+                "real_value": false
+            },
+            "postfx_4_power": {
+                "real_value": false
+            },
+            "postfx_5_power": {
+                "real_value": false
+            },
+            "postfx_power": {
+                "real_value": true
+            },
+            "dream_volume": {
+                "real_value": 3.5
+            },
+            "dream_treble": {
+                "real_value": 5.199999809265137
+            },
+            "dream_bass": {
+                "real_value": 4.0
+            },
+            "dream_reverb_enable": {
+                "real_value": true
+            },
+            "dream_reverb": {
+                "real_value": 3.700000047683716
+            },
+            "dream_vibrato_enable": {
+                "real_value": false
+            },
+            "dream_speed": {
+                "real_value": 1.0
+            },
+            "dream_intensity": {
+                "real_value": 1.0
+            },
+            "dream_amp_mod": {
+                "real_value": 0
+            },
+            "dream_boost_enable": {
+                "real_value": false
+            },
+            "dream_boost_amount": {
+                "real_value": 1.0
+            },
+            "dream_bright": {
+                "real_value": true
+            },
+            "ruby_channel": {
+                "real_value": 2
+            },
+            "ruby_volume": {
+                "real_value": 2.5
+            },
+            "ruby_treble": {
+                "real_value": 4.0
+            },
+            "ruby_bass": {
+                "real_value": 4.0
+            },
+            "ruby_cut": {
+                "real_value": 5.0
+            },
+            "ruby_vib_trem_enable": {
+                "real_value": true
+            },
+            "ruby_speed": {
+                "real_value": 4.0
+            },
+            "ruby_vib_trem": {
+                "real_value": 8.115743637084961
+            },
+            "ruby_boost_enable": {
+                "real_value": false
+            },
+            "ruby_boost_amount": {
+                "real_value": 1.0
+            },
+            "lion_model": {
+                "real_value": 1
+            },
+            "lion_presence": {
+                "real_value": 5.0
+            },
+            "lion_bass": {
+                "real_value": 10.0
+            },
+            "lion_middle": {
+                "real_value": 7.0
+            },
+            "lion_treble": {
+                "real_value": 7.0
+            },
+            "lion_volume_1": {
+                "real_value": 6.0
+            },
+            "lion_volume_2": {
+                "real_value": 0.0
+            },
+            "lion_input_routing": {
+                "real_value": 1
+            },
+            "lion_ghost_notes_mod": {
+                "real_value": true
+            },
+            "lion_lead_amp_bright_cap": {
+                "real_value": 1
+            },
+            "lion_brown_amp_bright_cap": {
+                "real_value": 0
+            },
+            "lion_boost_enable": {
+                "real_value": false
+            },
+            "lion_boost_amount": {
+                "real_value": 1.0
+            },
+            "woodrow_inst_volume": {
+                "real_value": 7.199999809265137
+            },
+            "woodrow_mic_volume": {
+                "real_value": 1.0
+            },
+            "woodrow_tone": {
+                "real_value": 7.0
+            },
+            "woodrow_input_routing": {
+                "real_value": 1
+            },
+            "woodrow_boost_enable": {
+                "real_value": false
+            },
+            "woodrow_boost_type": {
+                "real_value": 0
+            },
+            "woodrow_boost_amount": {
+                "real_value": 1.0
+            },
+            "showtime_volume": {
+                "real_value": 3.0
+            },
+            "showtime_treble": {
+                "real_value": 2.5
+            },
+            "showtime_middle": {
+                "real_value": 5.5
+            },
+            "showtime_bass": {
+                "real_value": 4.0
+            },
+            "showtime_vibrato_enable": {
+                "real_value": false
+            },
+            "showtime_speed": {
+                "real_value": 3.0
+            },
+            "showtime_intensity": {
+                "real_value": 5.0
+            },
+            "showtime_bright": {
+                "real_value": false
+            },
+            "enigmatic_model": {
+                "real_value": 0
+            },
+            "enigmatic_channel": {
+                "real_value": 1
+            },
+            "enigmatic_volume": {
+                "real_value": 5.5
+            },
+            "enigmatic_boost_enable": {
+                "real_value": false
+            },
+            "enigmatic_bright_enable": {
+                "real_value": false
+            },
+            "enigmatic_deep_mid": {
+                "real_value": false
+            },
+            "enigmatic_tone_stack_eq": {
+                "real_value": 0
+            },
+            "enigmatic_treble": {
+                "real_value": 3.450000047683716
+            },
+            "enigmatic_middle": {
+                "real_value": 7.5
+            },
+            "enigmatic_bass": {
+                "real_value": 7.0
+            },
+            "enigmatic_overdrive_enable": {
+                "real_value": false
+            },
+            "enigmatic_overdrive_level": {
+                "real_value": 3.0
+            },
+            "enigmatic_overdrive_ratio": {
+                "real_value": 4.5
+            },
+            "enigmatic_master_gain": {
+                "real_value": 9.199999809265137
+            },
+            "enigmatic_presence": {
+                "real_value": 0.5
+            },
+            "enigmatic_fet_trim": {
+                "real_value": 5.0
+            },
+            "enigmatic_bright_cap": {
+                "real_value": 1
+            },
+            "enigmatic_tone_stack_type": {
+                "real_value": 0
+            },
+            "enigmatic_hrm_overdrive_eq": {
+                "real_value": false
+            },
+            "enigmatic_hrm_eq_treble": {
+                "real_value": 5.0
+            },
+            "enigmatic_hrm_eq_mid": {
+                "real_value": 5.0
+            },
+            "enigmatic_hrm_eq_bass": {
+                "real_value": 5.0
+            },
+            "enigmatic_od_trim": {
+                "real_value": 5.0
+            },
+            "gate_enable": {
+                "real_value": false
+            },
+            "gate_threshold": {
+                "real_value": 40.0
+            },
+            "gate_attack": {
+                "real_value": 4.0
+            },
+            "gate_release": {
+                "real_value": 20.0
+            },
+            "gate_attenuation": {
+                "real_value": 100.0
+            },
+            "gate_hold": {
+                "real_value": 0.0
+            },
+            "cab_and_mic": {
+                "real_value": 29
+            },
+            "amp_output": {
+                "real_value": 0.0
+            },
+            "room": {
+                "real_value": 31.5
+            },
+            "amp_power": {
+                "real_value": true
+            },
+            "amp": {
+                "real_value": 4
+            },
+            "prefx_ts_overdrive_overdrive": {
+                "real_value": 10.0
+            },
+            "postfx_ts_overdrive_overdrive": {
+                "real_value": 10.0
+            },
+            "prefx_ts_overdrive_tone": {
+                "real_value": 1.700000047683716
+            },
+            "postfx_ts_overdrive_tone": {
+                "real_value": 1.700000047683716
+            },
+            "prefx_ts_overdrive_level": {
+                "real_value": 7.699999809265137
+            },
+            "postfx_ts_overdrive_level": {
+                "real_value": 7.699999809265137
+            },
+            "prefx_gold_overdrive_gain": {
+                "real_value": 0.0
+            },
+            "postfx_gold_overdrive_gain": {
+                "real_value": 7.300000190734863
+            },
+            "prefx_gold_overdrive_treble": {
+                "real_value": 4.5
+            },
+            "postfx_gold_overdrive_treble": {
+                "real_value": 5.5
+            },
+            "prefx_gold_overdrive_output": {
+                "real_value": 7.5
+            },
+            "postfx_gold_overdrive_output": {
+                "real_value": 1.399999976158142
+            },
+            "prefx_big_fuzz_volume": {
+                "real_value": 5.699999809265137
+            },
+            "postfx_big_fuzz_volume": {
+                "real_value": 5.699999809265137
+            },
+            "prefx_big_fuzz_tone": {
+                "real_value": 4.5
+            },
+            "postfx_big_fuzz_tone": {
+                "real_value": 4.5
+            },
+            "prefx_big_fuzz_tone_enable": {
+                "real_value": 0
+            },
+            "postfx_big_fuzz_tone_enable": {
+                "real_value": 0
+            },
+            "prefx_big_fuzz_sustain": {
+                "real_value": 6.699999809265137
+            },
+            "postfx_big_fuzz_sustain": {
+                "real_value": 6.699999809265137
+            },
+            "prefx_raw_distortion_distortion": {
+                "real_value": 5.5
+            },
+            "postfx_raw_distortion_distortion": {
+                "real_value": 5.5
+            },
+            "prefx_raw_distortion_filter": {
+                "real_value": 7.0
+            },
+            "postfx_raw_distortion_filter": {
+                "real_value": 7.0
+            },
+            "prefx_raw_distortion_volume": {
+                "real_value": 6.400000095367432
+            },
+            "postfx_raw_distortion_volume": {
+                "real_value": 6.400000095367432
+            },
+            "prefx_nashville_overdrive_drive": {
+                "real_value": 5.900000095367432
+            },
+            "postfx_nashville_overdrive_drive": {
+                "real_value": 5.900000095367432
+            },
+            "prefx_nashville_overdrive_spectrum": {
+                "real_value": 4.0
+            },
+            "postfx_nashville_overdrive_spectrum": {
+                "real_value": 4.0
+            },
+            "prefx_nashville_overdrive_level": {
+                "real_value": 7.199999809265137
+            },
+            "postfx_nashville_overdrive_level": {
+                "real_value": 7.199999809265137
+            },
+            "prefx_nashville_overdrive_bass": {
+                "real_value": 10.0
+            },
+            "postfx_nashville_overdrive_bass": {
+                "real_value": 10.0
+            },
+            "prefx_vintage_fuzz_volume": {
+                "real_value": 8.199999809265137
+            },
+            "postfx_vintage_fuzz_volume": {
+                "real_value": 8.199999809265137
+            },
+            "prefx_vintage_fuzz_fuzz": {
+                "real_value": 7.5
+            },
+            "postfx_vintage_fuzz_fuzz": {
+                "real_value": 7.5
+            },
+            "prefx_vintage_fuzz_sputter": {
+                "real_value": 0.0
+            },
+            "postfx_vintage_fuzz_sputter": {
+                "real_value": 0.0
+            },
+            "prefx_brigade_chorus_level": {
+                "real_value": 2.700000047683716
+            },
+            "postfx_brigade_chorus_level": {
+                "real_value": 2.700000047683716
+            },
+            "prefx_brigade_chorus_intensity": {
+                "real_value": 2.5
+            },
+            "postfx_brigade_chorus_intensity": {
+                "real_value": 2.5
+            },
+            "prefx_brigade_chorus_vibrato_depth": {
+                "real_value": 5.0
+            },
+            "postfx_brigade_chorus_vibrato_depth": {
+                "real_value": 5.0
+            },
+            "prefx_brigade_chorus_vibrato_rate": {
+                "real_value": 0.0
+            },
+            "postfx_brigade_chorus_vibrato_rate": {
+                "real_value": 0.0
+            },
+            "prefx_brigade_chorus_mod_select": {
+                "real_value": 0
+            },
+            "postfx_brigade_chorus_mod_select": {
+                "real_value": 0
+            },
+            "prefx_brigade_chorus_stereo_mode": {
+                "real_value": 1
+            },
+            "postfx_brigade_chorus_stereo_mode": {
+                "real_value": 1
+            },
+            "prefx_orange_phaser_speed": {
+                "real_value": 3.0
+            },
+            "postfx_orange_phaser_speed": {
+                "real_value": 3.0
+            },
+            "prefx_orange_phaser_era": {
+                "real_value": 1
+            },
+            "postfx_orange_phaser_era": {
+                "real_value": 1
+            },
+            "prefx_10_band_graphic_eq_31hz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_31hz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_62hz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_62hz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_125hz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_125hz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_250hz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_250hz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_500hz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_500hz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_1khz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_1khz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_2khz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_2khz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_4khz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_4khz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_8khz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_8khz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_16khz": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_16khz": {
+                "real_value": 0.0
+            },
+            "prefx_10_band_graphic_eq_phase": {
+                "real_value": 0
+            },
+            "postfx_10_band_graphic_eq_phase": {
+                "real_value": 0
+            },
+            "prefx_10_band_graphic_eq_mono": {
+                "real_value": 0
+            },
+            "postfx_10_band_graphic_eq_mono": {
+                "real_value": 0
+            },
+            "prefx_10_band_graphic_eq_output": {
+                "real_value": 0.0
+            },
+            "postfx_10_band_graphic_eq_output": {
+                "real_value": 0.0
+            },
+            "prefx_studio_eq_low_gain": {
+                "real_value": 0.0
+            },
+            "postfx_studio_eq_low_gain": {
+                "real_value": 0.0
+            },
+            "prefx_studio_eq_low_frequency": {
+                "real_value": 120.0
+            },
+            "postfx_studio_eq_low_frequency": {
+                "real_value": 120.0
+            },
+            "prefx_studio_eq_low_mid_gain": {
+                "real_value": 0.0
+            },
+            "postfx_studio_eq_low_mid_gain": {
+                "real_value": 0.0
+            },
+            "prefx_studio_eq_low_mid_frequency": {
+                "real_value": 400.0
+            },
+            "postfx_studio_eq_low_mid_frequency": {
+                "real_value": 400.0
+            },
+            "prefx_studio_eq_mid_gain": {
+                "real_value": 0.0
+            },
+            "postfx_studio_eq_mid_gain": {
+                "real_value": 0.5
+            },
+            "prefx_studio_eq_mid_frequency": {
+                "real_value": 1000.0
+            },
+            "postfx_studio_eq_mid_frequency": {
+                "real_value": 1000.0
+            },
+            "prefx_studio_eq_high_gain": {
+                "real_value": 0.0
+            },
+            "postfx_studio_eq_high_gain": {
+                "real_value": 2.0
+            },
+            "prefx_studio_eq_high_frequency": {
+                "real_value": 7000.0
+            },
+            "postfx_studio_eq_high_frequency": {
+                "real_value": 7000.0
+            },
+            "prefx_studio_eq_high_cut_filter": {
+                "real_value": 20000.0
+            },
+            "postfx_studio_eq_high_cut_filter": {
+                "real_value": 20000.0
+            },
+            "prefx_studio_eq_low_cut_filter": {
+                "real_value": 20.0
+            },
+            "postfx_studio_eq_low_cut_filter": {
+                "real_value": 20.0
+            },
+            "prefx_studio_eq_output": {
+                "real_value": 0.0
+            },
+            "postfx_studio_eq_output": {
+                "real_value": 0.0
+            },
+            "prefx_trem_65_speed": {
+                "real_value": 0.07741935551166534
+            },
+            "postfx_trem_65_speed": {
+                "real_value": 0.07741935551166534
+            },
+            "prefx_trem_65_sync": {
+                "real_value": false
+            },
+            "postfx_trem_65_sync": {
+                "real_value": false
+            },
+            "prefx_trem_65_intensity": {
+                "real_value": 8.0
+            },
+            "postfx_trem_65_intensity": {
+                "real_value": 8.0
+            },
+            "prefx_trem_65_shape": {
+                "real_value": 0
+            },
+            "postfx_trem_65_shape": {
+                "real_value": 0
+            },
+            "prefx_trem_65_stereo_mod": {
+                "real_value": 0
+            },
+            "postfx_trem_65_stereo_mod": {
+                "real_value": 0
+            },
+            "prefx_trem_65_output": {
+                "real_value": 0.0
+            },
+            "postfx_trem_65_output": {
+                "real_value": 0.0
+            },
+            "prefx_blue_flanger_mix": {
+                "real_value": 50.0
+            },
+            "postfx_blue_flanger_mix": {
+                "real_value": 50.0
+            },
+            "prefx_blue_flanger_mode": {
+                "real_value": 1
+            },
+            "postfx_blue_flanger_mode": {
+                "real_value": 1
+            },
+            "prefx_blue_flanger_stereo": {
+                "real_value": 0
+            },
+            "postfx_blue_flanger_stereo": {
+                "real_value": 0
+            },
+            "prefx_blue_flanger_manual": {
+                "real_value": 25.0
+            },
+            "postfx_blue_flanger_manual": {
+                "real_value": 25.0
+            },
+            "prefx_blue_flanger_width": {
+                "real_value": 85.0
+            },
+            "postfx_blue_flanger_width": {
+                "real_value": 85.0
+            },
+            "prefx_blue_flanger_speed": {
+                "real_value": 0.41233769059181213
+            },
+            "postfx_blue_flanger_speed": {
+                "real_value": 0.41233769059181213
+            },
+            "prefx_blue_flanger_sync": {
+                "real_value": false
+            },
+            "postfx_blue_flanger_sync": {
+                "real_value": false
+            },
+            "prefx_blue_flanger_regen": {
+                "real_value": 75.0
+            },
+            "postfx_blue_flanger_regen": {
+                "real_value": 75.0
+            },
+            "prefx_blue_flanger_invert": {
+                "real_value": 0
+            },
+            "postfx_blue_flanger_invert": {
+                "real_value": 0
+            },
+            "prefx_multi_chorus_mix": {
+                "real_value": 45.0
+            },
+            "postfx_multi_chorus_mix": {
+                "real_value": 45.0
+            },
+            "prefx_multi_chorus_level": {
+                "real_value": -8.800000190734863
+            },
+            "postfx_multi_chorus_level": {
+                "real_value": -8.800000190734863
+            },
+            "prefx_multi_chorus_regen": {
+                "real_value": 0.0
+            },
+            "postfx_multi_chorus_regen": {
+                "real_value": 0.0
+            },
+            "prefx_multi_chorus_taps": {
+                "real_value": 2
+            },
+            "postfx_multi_chorus_taps": {
+                "real_value": 2
+            },
+            "prefx_multi_chorus_filter": {
+                "real_value": 0.0
+            },
+            "postfx_multi_chorus_filter": {
+                "real_value": 0.0
+            },
+            "prefx_multi_chorus_delay": {
+                "real_value": 5.0
+            },
+            "postfx_multi_chorus_delay": {
+                "real_value": 5.0
+            },
+            "prefx_multi_chorus_mod_type": {
+                "real_value": 0
+            },
+            "postfx_multi_chorus_mod_type": {
+                "real_value": 0
+            },
+            "prefx_multi_chorus_depth": {
+                "real_value": 47.0
+            },
+            "postfx_multi_chorus_depth": {
+                "real_value": 47.0
+            },
+            "prefx_multi_chorus_sync": {
+                "real_value": false
+            },
+            "postfx_multi_chorus_sync": {
+                "real_value": false
+            },
+            "prefx_multi_chorus_rate": {
+                "real_value": 0.25
+            },
+            "postfx_multi_chorus_rate": {
+                "real_value": 0.25
+            },
+            "prefx_vintage_vibrato_output": {
+                "real_value": -1.5
+            },
+            "postfx_vintage_vibrato_output": {
+                "real_value": -1.5
+            },
+            "prefx_vintage_vibrato_mode": {
+                "real_value": 0
+            },
+            "postfx_vintage_vibrato_mode": {
+                "real_value": 0
+            },
+            "prefx_vintage_vibrato_depth": {
+                "real_value": 45.0
+            },
+            "postfx_vintage_vibrato_depth": {
+                "real_value": 45.0
+            },
+            "prefx_vintage_vibrato_rate": {
+                "real_value": 0.25
+            },
+            "postfx_vintage_vibrato_rate": {
+                "real_value": 0.25
+            },
+            "prefx_vintage_vibrato_sync": {
+                "real_value": 0
+            },
+            "postfx_vintage_vibrato_sync": {
+                "real_value": 0
+            },
+            "prefx_vintage_vibrato_filter": {
+                "real_value": 0.0
+            },
+            "postfx_vintage_vibrato_filter": {
+                "real_value": 0.0
+            },
+            "prefx_vintage_vibrato_wave": {
+                "real_value": 0
+            },
+            "postfx_vintage_vibrato_wave": {
+                "real_value": 0
+            },
+            "prefx_vintage_vibrato_stereo_mod": {
+                "real_value": 0
+            },
+            "postfx_vintage_vibrato_stereo_mod": {
+                "real_value": 0
+            },
+            "prefx_red_comp_output": {
+                "real_value": 4.5
+            },
+            "postfx_red_comp_output": {
+                "real_value": 4.5
+            },
+            "prefx_red_comp_mix": {
+                "real_value": 100.0
+            },
+            "postfx_red_comp_mix": {
+                "real_value": 100.0
+            },
+            "prefx_red_comp_sensitivity": {
+                "real_value": 5.0
+            },
+            "postfx_red_comp_sensitivity": {
+                "real_value": 5.0
+            },
+            "prefx_1176_compressor_input": {
+                "real_value": -45.0
+            },
+            "postfx_1176_compressor_input": {
+                "real_value": -55.20000076293945
+            },
+            "prefx_1176_compressor_output": {
+                "real_value": -15.0
+            },
+            "postfx_1176_compressor_output": {
+                "real_value": -7.199999809265137
+            },
+            "prefx_1176_compressor_attack": {
+                "real_value": 3.5
+            },
+            "postfx_1176_compressor_attack": {
+                "real_value": 3.0
+            },
+            "prefx_1176_compressor_release": {
+                "real_value": 6.5
+            },
+            "postfx_1176_compressor_release": {
+                "real_value": 6.5
+            },
+            "prefx_1176_compressor_ratio": {
+                "real_value": 1
+            },
+            "postfx_1176_compressor_ratio": {
+                "real_value": 1
+            },
+            "prefx_memory_delay_level": {
+                "real_value": 5.0
+            },
+            "postfx_memory_delay_level": {
+                "real_value": 5.0
+            },
+            "prefx_memory_delay_blend": {
+                "real_value": 2.5999999046325684
+            },
+            "postfx_memory_delay_blend": {
+                "real_value": 2.700000047683716
+            },
+            "prefx_memory_delay_feedback": {
+                "real_value": 0.0
+            },
+            "postfx_memory_delay_feedback": {
+                "real_value": 6.5
+            },
+            "prefx_memory_delay_sync": {
+                "real_value": false
+            },
+            "postfx_memory_delay_sync": {
+                "real_value": false
+            },
+            "prefx_memory_delay_time": {
+                "real_value": 0.17025640606880188
+            },
+            "postfx_memory_delay_time": {
+                "real_value": 0.4225640892982483
+            },
+            "prefx_memory_delay_tone": {
+                "real_value": 4.5
+            },
+            "postfx_memory_delay_tone": {
+                "real_value": 4.5
+            },
+            "prefx_memory_delay_mod_depth": {
+                "real_value": 0.0
+            },
+            "postfx_memory_delay_mod_depth": {
+                "real_value": 18.0
+            },
+            "prefx_memory_delay_mod_speed": {
+                "real_value": 6.300000190734863
+            },
+            "postfx_memory_delay_mod_speed": {
+                "real_value": 6.300000190734863
+            },
+            "prefx_memory_delay_cho_vib": {
+                "real_value": 1
+            },
+            "postfx_memory_delay_cho_vib": {
+                "real_value": 1
+            },
+            "prefx_memory_delay_preamp_color": {
+                "real_value": 0
+            },
+            "postfx_memory_delay_preamp_color": {
+                "real_value": 0
+            },
+            "prefx_pitch_shift_delay_mix": {
+                "real_value": 27.0
+            },
+            "postfx_pitch_shift_delay_mix": {
+                "real_value": 27.0
+            },
+            "prefx_pitch_shift_delay_feedback": {
+                "real_value": 6.300000190734863
+            },
+            "postfx_pitch_shift_delay_feedback": {
+                "real_value": 6.300000190734863
+            },
+            "prefx_pitch_shift_delay_time": {
+                "real_value": 0.800000011920929
+            },
+            "postfx_pitch_shift_delay_time": {
+                "real_value": 0.800000011920929
+            },
+            "prefx_pitch_shift_delay_sync": {
+                "real_value": true
+            },
+            "postfx_pitch_shift_delay_sync": {
+                "real_value": true
+            },
+            "prefx_pitch_shift_delay_sync_pitch": {
+                "real_value": 7
+            },
+            "postfx_pitch_shift_delay_sync_pitch": {
+                "real_value": 7
+            },
+            "prefx_pitch_shift_delay_mod_depth": {
+                "real_value": 5.0
+            },
+            "postfx_pitch_shift_delay_mod_depth": {
+                "real_value": 5.0
+            },
+            "prefx_pitch_shift_delay_mod_speed": {
+                "real_value": 2.0
+            },
+            "postfx_pitch_shift_delay_mod_speed": {
+                "real_value": 2.0
+            },
+            "prefx_pitch_shift_delay_cho_vib": {
+                "real_value": 0
+            },
+            "postfx_pitch_shift_delay_cho_vib": {
+                "real_value": 0
+            },
+            "prefx_pitch_shift_delay_lfo_type": {
+                "real_value": 1
+            },
+            "postfx_pitch_shift_delay_lfo_type": {
+                "real_value": 1
+            },
+            "prefx_pitch_shift_delay_dirt": {
+                "real_value": 1
+            },
+            "postfx_pitch_shift_delay_dirt": {
+                "real_value": 1
+            },
+            "prefx_pitch_shift_delay_low": {
+                "real_value": 3.0
+            },
+            "postfx_pitch_shift_delay_low": {
+                "real_value": 3.0
+            },
+            "prefx_pitch_shift_delay_high": {
+                "real_value": 5.0
+            },
+            "postfx_pitch_shift_delay_high": {
+                "real_value": 5.0
+            },
+            "prefx_ep_iii_tape_echo_sync": {
+                "real_value": false
+            },
+            "postfx_ep_iii_tape_echo_sync": {
+                "real_value": false
+            },
+            "prefx_ep_iii_tape_echo_time": {
+                "real_value": 0.2451612949371338
+            },
+            "postfx_ep_iii_tape_echo_time": {
+                "real_value": 0.2451612949371338
+            },
+            "prefx_ep_iii_tape_echo_feedback": {
+                "real_value": 15.0
+            },
+            "postfx_ep_iii_tape_echo_feedback": {
+                "real_value": 15.0
+            },
+            "prefx_ep_iii_tape_echo_wonk": {
+                "real_value": 5.0
+            },
+            "postfx_ep_iii_tape_echo_wonk": {
+                "real_value": 5.0
+            },
+            "prefx_ep_iii_tape_echo_rec_level": {
+                "real_value": -2.0
+            },
+            "postfx_ep_iii_tape_echo_rec_level": {
+                "real_value": -2.0
+            },
+            "prefx_ep_iii_tape_echo_age": {
+                "real_value": 2
+            },
+            "postfx_ep_iii_tape_echo_age": {
+                "real_value": 2
+            },
+            "prefx_ep_iii_tape_echo_tone": {
+                "real_value": -5.0
+            },
+            "postfx_ep_iii_tape_echo_tone": {
+                "real_value": -5.0
+            },
+            "prefx_ep_iii_tape_echo_mix": {
+                "real_value": 20.0
+            },
+            "postfx_ep_iii_tape_echo_mix": {
+                "real_value": 20.0
+            },
+            "prefx_ep_iii_tape_echo_preamp_color": {
+                "real_value": false
+            },
+            "postfx_ep_iii_tape_echo_preamp_color": {
+                "real_value": false
+            },
+            "prefx_digital_delay_mode": {
+                "real_value": 1
+            },
+            "postfx_digital_delay_mode": {
+                "real_value": 1
+            },
+            "prefx_digital_delay_mix": {
+                "real_value": 17.0
+            },
+            "postfx_digital_delay_mix": {
+                "real_value": 17.0
+            },
+            "prefx_digital_delay_feedback": {
+                "real_value": 44.0
+            },
+            "postfx_digital_delay_feedback": {
+                "real_value": 44.0
+            },
+            "prefx_digital_delay_sync": {
+                "real_value": true
+            },
+            "postfx_digital_delay_sync": {
+                "real_value": true
+            },
+            "prefx_digital_delay_time_a": {
+                "real_value": 0.7857142686843872
+            },
+            "postfx_digital_delay_time_a": {
+                "real_value": 0.7857142686843872
+            },
+            "prefx_digital_delay_time_b": {
+                "real_value": 0.7142857313156128
+            },
+            "postfx_digital_delay_time_b": {
+                "real_value": 0.7142857313156128
+            },
+            "prefx_digital_delay_link": {
+                "real_value": false
+            },
+            "postfx_digital_delay_link": {
+                "real_value": false
+            },
+            "prefx_digital_delay_low_cut": {
+                "real_value": 22.0
+            },
+            "postfx_digital_delay_low_cut": {
+                "real_value": 22.0
+            },
+            "prefx_digital_delay_high_cut": {
+                "real_value": 7050.0
+            },
+            "postfx_digital_delay_high_cut": {
+                "real_value": 7050.0
+            },
+            "prefx_digital_delay_modulation_rate": {
+                "real_value": 0.01249999925494194
+            },
+            "postfx_digital_delay_modulation_rate": {
+                "real_value": 0.01249999925494194
+            },
+            "prefx_digital_delay_modulation_depth": {
+                "real_value": 0.0
+            },
+            "postfx_digital_delay_modulation_depth": {
+                "real_value": 0.0
+            },
+            "prefx_digital_delay_modulation_wide": {
+                "real_value": false
+            },
+            "postfx_digital_delay_modulation_wide": {
+                "real_value": false
+            },
+            "prefx_drip_spring_65_reverb_mix": {
+                "real_value": 25.0
+            },
+            "postfx_drip_spring_65_reverb_mix": {
+                "real_value": 25.0
+            },
+            "prefx_drip_spring_65_reverb_bass": {
+                "real_value": 0.0
+            },
+            "postfx_drip_spring_65_reverb_bass": {
+                "real_value": 0.0
+            },
+            "prefx_drip_spring_65_reverb_treble": {
+                "real_value": 0.0
+            },
+            "postfx_drip_spring_65_reverb_treble": {
+                "real_value": 0.0
+            },
+            "prefx_drip_spring_65_reverb_tank": {
+                "real_value": 1
+            },
+            "postfx_drip_spring_65_reverb_tank": {
+                "real_value": 1
+            },
+            "prefx_digital_reverb_mode": {
+                "real_value": 0
+            },
+            "postfx_digital_reverb_mode": {
+                "real_value": 0
+            },
+            "prefx_digital_reverb_decay": {
+                "real_value": 5.0
+            },
+            "postfx_digital_reverb_decay": {
+                "real_value": 5.0
+            },
+            "prefx_digital_reverb_predelay": {
+                "real_value": 12.0
+            },
+            "postfx_digital_reverb_predelay": {
+                "real_value": 12.0
+            },
+            "prefx_digital_reverb_mix": {
+                "real_value": 27.0
+            },
+            "postfx_digital_reverb_mix": {
+                "real_value": 27.0
+            },
+            "prefx_digital_reverb_brightness": {
+                "real_value": 50.0
+            },
+            "postfx_digital_reverb_brightness": {
+                "real_value": 50.0
+            },
+            "prefx_plate_140_reverb_decay": {
+                "real_value": 2.5
+            },
+            "postfx_plate_140_reverb_decay": {
+                "real_value": 2.5
+            },
+            "prefx_plate_140_reverb_mix": {
+                "real_value": 45.0
+            },
+            "postfx_plate_140_reverb_mix": {
+                "real_value": 45.0
+            },
+            "prefx_plate_140_reverb_predelay": {
+                "real_value": 0.0
+            },
+            "postfx_plate_140_reverb_predelay": {
+                "real_value": 0.0
+            },
+            "prefx_plate_140_reverb_bass": {
+                "real_value": -2.0
+            },
+            "postfx_plate_140_reverb_bass": {
+                "real_value": -2.0
+            },
+            "prefx_plate_140_reverb_treble": {
+                "real_value": 5.0
+            },
+            "postfx_plate_140_reverb_treble": {
+                "real_value": 5.0
+            },
+            "prefx_plate_140_reverb_low_cut": {
+                "real_value": 1
+            },
+            "postfx_plate_140_reverb_low_cut": {
+                "real_value": 1
+            },
+            "prefx_plate_140_reverb_mod_depth": {
+                "real_value": 0.0
+            },
+            "postfx_plate_140_reverb_mod_depth": {
+                "real_value": 0.0
+            },
+            "prefx_plate_140_reverb_mod_rate": {
+                "real_value": 0.009999999776482582
+            },
+            "postfx_plate_140_reverb_mod_rate": {
+                "real_value": 0.009999999776482582
+            },
+            "prefx_micropitch_shifter_mix": {
+                "real_value": 50.0
+            },
+            "postfx_micropitch_shifter_mix": {
+                "real_value": 50.0
+            },
+            "prefx_micropitch_shifter_a_b_blend": {
+                "real_value": 0.0
+            },
+            "postfx_micropitch_shifter_a_b_blend": {
+                "real_value": 0.0
+            },
+            "prefx_micropitch_shifter_pitch_a": {
+                "real_value": -3.0
+            },
+            "postfx_micropitch_shifter_pitch_a": {
+                "real_value": -3.0
+            },
+            "prefx_micropitch_shifter_pitch_b": {
+                "real_value": 3.0
+            },
+            "postfx_micropitch_shifter_pitch_b": {
+                "real_value": 3.0
+            },
+            "prefx_micropitch_shifter_delay_a": {
+                "real_value": 0.0
+            },
+            "postfx_micropitch_shifter_delay_a": {
+                "real_value": 0.0
+            },
+            "prefx_micropitch_shifter_delay_b": {
+                "real_value": 0.0
+            },
+            "postfx_micropitch_shifter_delay_b": {
+                "real_value": 0.0
+            },
+            "prefx_micropitch_shifter_mod_depth": {
+                "real_value": 0.0
+            },
+            "postfx_micropitch_shifter_mod_depth": {
+                "real_value": 0.0
+            },
+            "prefx_micropitch_shifter_mod_rate": {
+                "real_value": 0.10000000149011612
+            },
+            "postfx_micropitch_shifter_mod_rate": {
+                "real_value": 0.10000000149011612
+            },
+            "prefx_micropitch_shifter_stereo_mod": {
+                "real_value": true
+            },
+            "postfx_micropitch_shifter_stereo_mod": {
+                "real_value": true
+            },
+            "prefx_micropitch_shifter_filter": {
+                "real_value": 10.0
+            },
+            "postfx_micropitch_shifter_filter": {
+                "real_value": 10.0
+            },
+            "prefx_reverb_224_program": {
+                "real_value": 1
+            },
+            "postfx_reverb_224_program": {
+                "real_value": 1
+            },
+            "prefx_reverb_224_bass_reverb_time": {
+                "real_value": 16384
+            },
+            "postfx_reverb_224_bass_reverb_time": {
+                "real_value": 16384
+            },
+            "prefx_reverb_224_mid_reverb_time": {
+                "real_value": 11264
+            },
+            "postfx_reverb_224_mid_reverb_time": {
+                "real_value": 11264
+            },
+            "prefx_reverb_224_treble_reverb_time": {
+                "real_value": 28672
+            },
+            "postfx_reverb_224_treble_reverb_time": {
+                "real_value": 28672
+            },
+            "prefx_reverb_224_pre_delay": {
+                "real_value": 1152
+            },
+            "postfx_reverb_224_pre_delay": {
+                "real_value": 1152
+            },
+            "prefx_reverb_224_mix": {
+                "real_value": 16384
+            },
+            "postfx_reverb_224_mix": {
+                "real_value": 16384
+            },
+            "prefx_reverb_224_pitch": {
+                "real_value": 1
+            },
+            "postfx_reverb_224_pitch": {
+                "real_value": 1
+            },
+            "prefx_reverb_224_input": {
+                "real_value": 3.0
+            },
+            "postfx_reverb_224_input": {
+                "real_value": 3.0
+            },
+            "prefx_reverb_224_output": {
+                "real_value": 3.0
+            },
+            "postfx_reverb_224_output": {
+                "real_value": 3.0
+            },
+            "prefx_volume_pedal_amount": {
+                "real_value": 100.0
+            },
+            "postfx_volume_pedal_amount": {
+                "real_value": 100.0
+            },
+            "prefx_volume_pedal_min": {
+                "real_value": -30.0
+            },
+            "postfx_volume_pedal_min": {
+                "real_value": -30.0
+            },
+            "prefx_volume_pedal_max": {
+                "real_value": 0.0
+            },
+            "postfx_volume_pedal_max": {
+                "real_value": 0.0
+            },
+            "prefx_volume_pedal_shape": {
+                "real_value": 50.0
+            },
+            "postfx_volume_pedal_shape": {
+                "real_value": 50.0
+            }
+        },
+        "ua_chunk_version": 1
+    },
+    "plugin_id": "uaudio_paradise_guitar_studio",
+    "version": 1,
+    "uid": "67d168749e274ecfb63384feba7695b0",
+    "name": "Toneprint - Framus Electronic Veil P90"
+}

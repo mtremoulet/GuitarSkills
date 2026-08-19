@@ -329,9 +329,11 @@ body {
   white-space: nowrap;
 }
 
-.status-initial { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
-.status-tested  { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
-.status-refined { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-initial  { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
+.status-tested   { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
+.status-refined  { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-archived { background: rgba(142,142,147,0.18); color: #98989f; border: 1px solid #48484a; }
+[data-theme="light"] .status-archived { background: rgba(142,142,147,0.14); color: #636366; border: 1px solid #c7c7cc; }
 
 /* ── Detail view ── */
 .tone-header {
@@ -640,7 +642,7 @@ code {
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">6 dual rigs</div>
+      <div class="vault-count">9 dual rigs</div>
     </div>
 
     <div class="filters-toggle-bar" onclick="toggleFilters()">
@@ -703,7 +705,7 @@ code {
         <div class="filter-label">Amp Model</div>
         <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
           <option value="all">All amps</option>
-          <option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option>
+          <option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="Showtime '64 (UADx)">Showtime '64 (UADx)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option>
         </select>
       </div>
     </div>
@@ -715,10 +717,22 @@ code {
   <div class="sidebar-tags">dual-amp, p-90, framus</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('paradise-dream-enigmatic-dual-rig')" data-id="paradise-dream-enigmatic-dual-rig" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Dream '65 (UADx),Enigmatic '82 (UADx)" tabindex="0">
+  <div class="sidebar-title">Dream '65 + Enigmatic '82 — Vintage Deluxe &amp; ODS Dual Rig (Humbuckers)</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio</div>
+  <div class="sidebar-tags">dual-amp, humbucker, les-paul</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
 <div class="sidebar-item" onclick="showTone('paradise-enigmatic-ruby-dual-rig')" data-id="paradise-enigmatic-ruby-dual-rig" data-status="tested" data-genre="country" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx),Ruby '63 (UADx)" tabindex="0">
   <div class="sidebar-title">Enigmatic '82 + Ruby '63 — Boutique Dual Rig (Humbuckers)</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">dual-amp, humbucker, dumble</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
+<div class="sidebar-item" onclick="showTone('paradise-showtime-enigmatic-dual-rig')" data-id="paradise-showtime-enigmatic-dual-rig" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Showtime '64 (UADx),Enigmatic '82 (UADx)" tabindex="0">
+  <div class="sidebar-title">Showtime '64 + Enigmatic '82 — SSS &amp; ODS Boutique Dual Rig (Humbuckers)</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio</div>
+  <div class="sidebar-tags">dual-amp, humbucker, les-paul</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
 <div class="sidebar-item" onclick="showTone('two-rock-ruby-dual-rig')" data-id="two-rock-ruby-dual-rig" data-status="initial" data-genre="country" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Two-Rock Bloomfield (MixWave),Ruby '63 (UADx)" tabindex="0">
@@ -739,6 +753,12 @@ code {
   <div class="sidebar-tags">dual-amp, single-coil, telecaster</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
+<div class="sidebar-item" onclick="showTone('tele-enigmatic-ruby-dual-rig')" data-id="tele-enigmatic-ruby-dual-rig" data-status="tested" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82 (UADx),Ruby '63 (UADx)" tabindex="0">
+  <div class="sidebar-title">Enigmatic '82 + Ruby '63 — Telecaster Dual Rig (Single-Coils)</div>
+  <div class="sidebar-sub">Fender Player II Telecaster</div>
+  <div class="sidebar-tags">dual-amp, telecaster, single-coil</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
 <div class="sidebar-item" onclick="showTone('tele-woodrow-dream-dual-rig')" data-id="tele-woodrow-dream-dual-rig" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Woodrow '55 (UADx),Dream '65 (UADx)" tabindex="0">
   <div class="sidebar-title">Woodrow '55 + Dream '65 — Telecaster Dual Rig (Single-Coils)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
@@ -747,7 +767,7 @@ code {
 </div>
     </div>
 
-    <div class="sidebar-footer">Generated 2026-08-08 20:53</div>
+    <div class="sidebar-footer">Generated 2026-08-19 13:41</div>
   </aside>
 
   <main class="main-panel" id="main-panel">
@@ -871,6 +891,134 @@ code {
 </section>
 </div>
 
+<div class="tone-detail" id="rig-paradise-dream-enigmatic-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Dream '65 + Enigmatic '82 — Vintage Deluxe &amp; ODS Dual Rig (Humbuckers)</h1>
+      <a href="../tones/humbuckers/paradise-dream-enigmatic-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="badge" style="background:rgba(96,165,250,0.15); color:#60a5fa; border:1px solid #3b82f6;">humbucker</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">dumble</span><span class="tag">dream</span><span class="tag">deluxe-reverb</span><span class="tag">enigmatic</span><span class="tag">ods</span><span class="tag">blackface</span><span class="tag">spring-reverb</span><span class="tag">warm-clean</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">Vintage boutique dual rig pairing spongy 6V6 Deluxe Reverb clean bloom and spring reverb (Dream 65) with thick Dumble ODS vocal sustain (Enigmatic 82) for humbuckers.</p>
+  </div>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint pairs two legendary American tube voices for humbucker guitars (<strong>Gibson Les Paul Studio</strong> and <strong>Epiphone Sheraton II</strong>), blending vintage small-club warmth with boutique high-gain refinement:</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Dream '65 Deluxe Reverb Foundation)</strong>: Delivers warm 6V6 power amp sag, a pillowy bottom end, gentle blooming compression, and lush tube-driven spring reverb (pulled back to <strong>2.2</strong> for optimal mix definition). Paired with the <strong>1x12 EV12</strong> cabinet to keep humbucker low-end tight, fast, and articulate.</li>
+<li><strong>Amp B (Right, Pan +12 — Enigmatic '82 Dumble ODS Singing Mids)</strong>: Provides rich 800 Hz–2 kHz vocal midrange sustain, smooth overdrive compression, and touch-sensitive harmonic bite.</li>
+</ul>
+<p class="markdown-p">The Dream '65 gives chords an organic, three-dimensional acoustic bloom and sweet top end, while the Enigmatic ensures single-note leads sing with thick, creamy Dumble sustain.</p>
+<p class="markdown-p">---</p></div>
+</section>
+
+  <section class="tone-section">
+    <h2 class="section-header">Parallel Amp Matrix</h2>
+    <div class="amp-matrix">
+      <div class="amp-card amp-a">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp A — Dream '65 (Vintage Deluxe Reverb Bloom)</div>
+          <div class="pan-tag">PAN: -12 (L)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">4.0</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">4.8</td></tr><tr class="row-norm"><td class="param-name">Bass</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Bright</td><td class="param-val">OFF</td></tr><tr class="row-norm"><td class="param-name">Reverb</td><td class="param-val">2.2</td></tr><tr class="row-alt"><td class="param-name">Boost</td><td class="param-val">OFF</td></tr><tr class="row-norm"><td class="param-name">Cab</td><td class="param-val">1x12 EV12</td></tr><tr class="row-alt"><td class="param-name">Output Gain</td><td class="param-val">8.0</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Dream Enigmatic Dual Rig HB - Amp A (Dream)')">📋 Copy Amp A Preset Name</button>
+      </div>
+
+      <div class="amp-card amp-b">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp B — Enigmatic '82 (Dumble ODS Vocal Mids)</div>
+          <div class="pan-tag">PAN: +12 (R)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">5.0</td></tr><tr class="row-norm"><td class="param-name">Middle</td><td class="param-val">5.8</td></tr><tr class="row-alt"><td class="param-name">Bass</td><td class="param-val">4.8</td></tr><tr class="row-norm"><td class="param-name">Presence</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Master</td><td class="param-val">6.0</td></tr><tr class="row-norm"><td class="param-name">Bright</td><td class="param-val">ON</td></tr><tr class="row-alt"><td class="param-name">Voice</td><td class="param-val">Suede</td></tr><tr class="row-norm"><td class="param-name">Cab</td><td class="param-val">2x12 Boutique D65</td></tr><tr class="row-alt"><td class="param-name">Output Gain</td><td class="param-val">8.0</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Dream Enigmatic Dual Rig HB - Amp B (Enigmatic)')">📋 Copy Amp B Preset Name</button>
+      </div>
+    </div>
+
+    <div class="bus-section">
+      <div>
+        <div class="bus-title">Parallel Submix Bus & Shared FX</div>
+        <div class="bus-details">
+          LA-2A: Peak Red <strong>40.0</strong>, Gain <strong>30.0</strong> |
+          Reverb: Hitsville Decay <strong>2.0s</strong>, Mix <strong>0.1</strong>
+        </div>
+      </div>
+      <div class="preset-pills">
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Dream Enigmatic Dual Rig HB - Bus LA-2A')">Copy Bus LA-2A</button>
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Dream Enigmatic Dual Rig HB - Bus Hitsville')">Copy Bus Reverb</button>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Signal Chain Breakdown</h2>
+  <div class="target-sound"><h3 class="markdown-h3">1. Tone King Imperial Preamp — physical front-end</h3>
+<ul class="markdown-ul">
+<li><strong>Status:</strong> <strong>Bypassed</strong></li>
+<li><strong>Signal Path:</strong> Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</li>
+</ul>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">2. Pre-Split Overdrive Staging (Guitar Input Track)</h3>
+<p class="markdown-p">Tested and dialed specifically for humbuckers pushing the parallel amp pair:</p>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>2.2 / 4.6 / 6.1</strong></td><td class="col-purpose">Transparent low-gain push; lifts amp front-end without mid-hump congestion</td></tr><tr class="row-alt"><td><strong>Nembrini NA 808</strong></td><td>Drive / Tone / Level</td><td class="col-setting"><strong>2.0 / 3.9 / 4.1</strong></td><td class="col-purpose">Low-drive vocal boost; smooth rounded top end</td></tr><tr class="row-norm"><td><strong>Kuassa Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>2.9 / 5.5 / 3.3</strong></td><td class="col-purpose">Transparent Bluesbreaker dynamic crunch with open upper-mid bite</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">3. Parallel Amp Configuration (UADx Paradise / Plugin Suite)</h3>
+<h4 class="markdown-h4">Channel Strip A: Dream '65 — Vintage Deluxe Reverb Bloom (Pan: -12 L)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Clean edge-of-bloom sweet spot for humbuckers</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Smooth high-frequency sheen without bright cap harshness</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Controlled low end to prevent 6V6 mud on neck humbucker</td></tr><tr class="row-alt"><td>Bright</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Warmer, rounder tone stack response</td></tr><tr class="row-norm"><td>Reverb</td><td class="col-setting"><strong>2.2</strong></td><td class="col-purpose">Tuned spring reverb level — provides transient &quot;gloss&quot; without muddying bus reverb</td></tr><tr class="row-alt"><td>Boost</td><td class="col-setting"><strong>Off (Stock)</strong></td><td class="col-purpose">Preserves clean headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>1x12 EV12</strong></td><td class="col-purpose">High-headroom EVM-12L speaker keeps humbucker bass tight and punchy</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Trimmed to match Enigmatic channel level</td></tr></tbody></table></div>
+<h4 class="markdown-h4">Channel Strip B: Enigmatic '82 — Dumble ODS Vocal Mids (Pan: +12 R)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive warm overdrive</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Articulate high-end extension</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.8</strong></td><td class="col-purpose">Thick vocal core filling the Deluxe Reverb's natural mid-scoop</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tight low-end response</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Upper-harmonic clarity</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Power section saturation and sustain</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Deep, uncompressed headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Two-Rock Celestion G12-65 response</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Level matched for stereo parity</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">4. Parallel Submix Bus &amp; Level Parity</h3>
+<ul class="markdown-ul">
+<li><strong>Short-Term LUFS Metering</strong>: Solo Amp A and Amp B independently using Logic's Loudness Meter. Confirm both read <strong>-20.0 Short-Term LUFS</strong>.</li>
+<li><strong>Submix Bus Compressor</strong>: UAD LA-2A Silver (Peak Reduction <strong>40.0</strong>, Gain <strong>30.0</strong>) pulling <strong>-1.5 to -2.5 dB GR</strong> to glue the parallel soundstage.</li>
+<li><strong>Spatial Reverb</strong>: UAD Hitsville / Capitol Chambers (Mix <strong>10%</strong>, Decay <strong>2.0s</strong>, Pre-Delay <strong>10ms</strong>) on parallel aux send (kept at 10% to complement the Dream's onboard spring reverb).</li>
+</ul>
+<p class="markdown-p">---</p></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Spring vs. Room Reverb Balance</span><span class="guide-content">With the Dream '65 spring reverb tuned to <strong>2.2</strong>, it provides mechanical string rattle and transient smoothing on the left channel, while the Hitsville bus reverb (10% mix) creates the 3D room glue across the stereo field.</span></div><div class="guide-card"><span class="guide-label">Overdrive Staging</span><span class="guide-content">Place a Klon (Nembrini Clon Minotaur), 808 (Nembrini NA 808), or Bluesbreaker (Kuassa Efektor Blues Barker) on the <strong>Guitar Input Track</strong> (pre-split). Pushing low-drive boosts with higher output levels preserves the Deluxe Reverb's clean bloom while driving the Enigmatic into thick, singing Dumble saturation.</span></div><div class="guide-card"><span class="guide-label">Neck Humbucker Clarity</span><span class="guide-content">If the neck pickup feels too dark, flip the Dream '65 Bright switch to <strong>On</strong> or switch the Cab to the <strong>2x12 JBF120 (Twin JBLs)</strong>.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-18</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Reverb Calibration</strong>: Adjusted Dream '65 onboard spring reverb from 2.8 down to <strong>2.2</strong> based on session listening. Eliminates low-mid wash while preserving authentic mechanical spring transient gloss.</li>
+<li><strong>Pre-Split Drive Calibration</strong>: Encoded fine-tuned pedal settings (&quot;Showtime Enigmatic Tuning&quot;):</li>
+<li><strong>Nembrini Clon Minotaur</strong>: Gain 2.2, Treble 4.6, Output 6.1 (transparent clean boost driving front-end headroom).</li>
+<li><strong>Nembrini NA 808</strong>: Drive 2.0, Tone 3.9, Level 4.1 (smooth low-gain vocal push).</li>
+<li><strong>Kuassa Blues Barker</strong>: Gain 2.9, Tone 5.5, Level 3.3 (open Bluesbreaker texture).</li>
+<li>Recompiled presets for Amp A, Amp B, Submix Bus, and all three overdrive pedals.</li>
+</ul></div>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="rig-paradise-enigmatic-ruby-dual-rig" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -972,12 +1120,22 @@ code {
   
 <section class="tone-section">
   <h2 class="section-header">Starting Point Guide</h2>
-  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Knob</span><span class="guide-content">Set Les Paul neck pickup volume to <strong>8.0</strong> for clean rhythm, and roll up to <strong>10</strong> for singing lead sustain.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Ruby dominates the right ear, roll the Ruby's <code>Tone Cut</code> up to <strong>5.0</strong>.</span></div><div class="guide-card"><span class="guide-label">Drive Staging</span><span class="guide-content">For leads, feed a Klon/Centaur (Clon Minotaur) into <strong>both</strong> amps to push Enigmatic into overdrive while keeping Ruby punchy.</span></div></div>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Knob</span><span class="guide-content">Set Les Paul neck pickup volume to <strong>8.0</strong> for clean rhythm, and roll up to <strong>10</strong> for singing lead sustain.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Ruby dominates the right ear, roll the Ruby's <code>Tone Cut</code> up to <strong>5.0</strong>.</span></div><div class="guide-card"><span class="guide-label">Drive Staging (Input Track Insertion)</span><span class="guide-content">Place the Klon/Centaur (Nembrini Clon Minotaur) or Bluesbreaker (Kuassa Efektor Blues Barker) directly on the primary <strong>Guitar Input Track</strong> (pre-split) to push both amps into overdrive simultaneously, preventing stereo imbalance and preserving punch across both channels.</span></div></div>
 </section>
   
 <section class="tone-section">
   <h2 class="section-header">Feedback History</h2>
   
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Input Channel Drive Staging</strong>: Confirmed high utility of running overdrive pedals (Nembrini Clon Minotaur, Kuassa Blues Barker) directly on the Guitar Input Channel (alongside the -3.2 dB offset fader). Pushing drive pre-split into both amps eliminates stereo lopsidedness and ensures unified harmonic crunch.</li>
+<li><strong>Single-Coil / Telecaster Performance</strong>: Tested and verified that the Enigmatic '82 + Ruby '63 pairing translates outstandingly to the Fender Telecaster, prompting the creation of the dedicated single-coil dual-rig toneprint (<code>tele-enigmatic-ruby-dual-rig.md</code>).</li>
+</ul></div>
+</div>
 <div class="feedback-entry">
   <div class="feedback-header">
     <span class="feedback-date">2026-08-02</span>
@@ -987,6 +1145,134 @@ code {
 <li><strong>User Testing</strong>: Pairing works extremely well. Reduced Ruby Volume from 4.0 down to 3.5 to clean up unwanted fuzz/saturation when thumb picking with humbuckers while preserving Vox chime and clarity.</li>
 <li><strong>Gain Staging Refinement</strong>: Trimmed Ruby outer plugin output gain from +12.0 dB down to +8.0 dB inside Paradise. This allows Track 3 Logic channel strip fader to sit cleanly at -3.8 dB for fine resolution while keeping LUFS parity at -20.3 LUFS.</li>
 <li><strong>Bus Compression &amp; Reverb Fix</strong>: Increased LA-2A Peak Reduction to 40.0 for firmer submix glue. Fixed Hitsville preset compiler logic so Hitsville always loads in Power ON active state. Recompiled Bus LA-2A &amp; Hitsville presets.</li>
+</ul></div>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="rig-paradise-showtime-enigmatic-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Showtime '64 + Enigmatic '82 — SSS &amp; ODS Boutique Dual Rig (Humbuckers)</h1>
+      <a href="../tones/humbuckers/paradise-showtime-enigmatic-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="badge" style="background:rgba(96,165,250,0.15); color:#60a5fa; border:1px solid #3b82f6;">humbucker</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">dumble</span><span class="tag">showtime</span><span class="tag">showman</span><span class="tag">enigmatic</span><span class="tag">ods</span><span class="tag">sss</span><span class="tag">high-headroom</span><span class="tag">vocal-mids</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">High-headroom American dual rig pairing piano-like clean punch and tight low-end (Showtime 64) with Dumble ODS thick vocal sustain (Enigmatic 82) for humbuckers.</p>
+  </div>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint implements the iconic <strong>Steel String Singer (SSS) + Overdrive Special (ODS)</strong> boutique architecture inspired by John Mayer, Stevie Ray Vaughan, and Robben Ford, tailored specifically for humbucker guitars (<strong>Gibson Les Paul Studio</strong> and <strong>Epiphone Sheraton II</strong>).</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Showtime '64 High-Headroom Foundation)</strong>: Emulates the muscular, high-power 6L6 Showman circuit (the direct historical ancestor of the Dumble SSS). It provides an unyielding, piano-like low end and glassy upper-register clarity that never sags, mushes, or flubs out under hot neck-humbucker pick attack.</li>
+<li><strong>Amp B (Right, Pan +12 — Enigmatic '82 Dumble ODS Singing Mids)</strong>: Provides the creamy, compressed 800 Hz–2 kHz vocal midrange core, liquid sustain, and touch-sensitive harmonic bloom.</li>
+</ul>
+<p class="markdown-p">Together, the Showtime keeps chord fundamentals articulate and punchy, while the Enigmatic delivers soaring, violin-like sustain.</p>
+<p class="markdown-p">---</p></div>
+</section>
+
+  <section class="tone-section">
+    <h2 class="section-header">Parallel Amp Matrix</h2>
+    <div class="amp-matrix">
+      <div class="amp-card amp-a">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp A — Showtime '64 (High-Headroom Clean Anchor)</div>
+          <div class="pan-tag">PAN: -12 (L)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">3.8</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">5.0</td></tr><tr class="row-norm"><td class="param-name">Middle</td><td class="param-val">5.5</td></tr><tr class="row-alt"><td class="param-name">Bass</td><td class="param-val">4.8</td></tr><tr class="row-norm"><td class="param-name">Bright</td><td class="param-val">OFF</td></tr><tr class="row-alt"><td class="param-name">Room</td><td class="param-val">2.5</td></tr><tr class="row-norm"><td class="param-name">Mic</td><td class="param-val">Ribbon 160</td></tr><tr class="row-alt"><td class="param-name">Cab</td><td class="param-val">2x12 Showman (UADx)</td></tr><tr class="row-norm"><td class="param-name">Output Gain</td><td class="param-val">8.0</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Showtime Enigmatic Dual Rig HB - Amp A (Showtime)')">📋 Copy Amp A Preset Name</button>
+      </div>
+
+      <div class="amp-card amp-b">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp B — Enigmatic '82 (Dumble ODS Vocal Mids)</div>
+          <div class="pan-tag">PAN: +12 (R)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">5.0</td></tr><tr class="row-norm"><td class="param-name">Middle</td><td class="param-val">6.0</td></tr><tr class="row-alt"><td class="param-name">Bass</td><td class="param-val">4.8</td></tr><tr class="row-norm"><td class="param-name">Presence</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Master</td><td class="param-val">6.0</td></tr><tr class="row-norm"><td class="param-name">Bright</td><td class="param-val">ON</td></tr><tr class="row-alt"><td class="param-name">Voice</td><td class="param-val">Suede</td></tr><tr class="row-norm"><td class="param-name">Cab</td><td class="param-val">2x12 Boutique D65</td></tr><tr class="row-alt"><td class="param-name">Output Gain</td><td class="param-val">8.0</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Showtime Enigmatic Dual Rig HB - Amp B (Enigmatic)')">📋 Copy Amp B Preset Name</button>
+      </div>
+    </div>
+
+    <div class="bus-section">
+      <div>
+        <div class="bus-title">Parallel Submix Bus & Shared FX</div>
+        <div class="bus-details">
+          LA-2A: Peak Red <strong>40.0</strong>, Gain <strong>30.0</strong> |
+          Reverb: Hitsville Decay <strong>2.0s</strong>, Mix <strong>0.12</strong>
+        </div>
+      </div>
+      <div class="preset-pills">
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Showtime Enigmatic Dual Rig HB - Bus LA-2A')">Copy Bus LA-2A</button>
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Showtime Enigmatic Dual Rig HB - Bus Hitsville')">Copy Bus Reverb</button>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Signal Chain Breakdown</h2>
+  <div class="target-sound"><h3 class="markdown-h3">1. Tone King Imperial Preamp — physical front-end</h3>
+<ul class="markdown-ul">
+<li><strong>Status:</strong> <strong>Bypassed</strong></li>
+<li><strong>Signal Path:</strong> Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</li>
+</ul>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">2. Pre-Split Overdrive Staging (Guitar Input Track)</h3>
+<p class="markdown-p">Tested and dialed specifically for the Showtime + Enigmatic dual-rig pairing to push both amps into articulate, non-muddy crunch:</p>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>2.2 / 4.6 / 6.1</strong></td><td class="col-purpose">Transparent low-gain push; lifts amp front-end without mid-hump congestion</td></tr><tr class="row-alt"><td><strong>Nembrini NA 808</strong></td><td>Drive / Tone / Level</td><td class="col-setting"><strong>2.0 / 3.9 / 4.1</strong></td><td class="col-purpose">Low-drive vocal boost; smooth rounded top end</td></tr><tr class="row-norm"><td><strong>Kuassa Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>2.9 / 5.5 / 3.3</strong></td><td class="col-purpose">Transparent Bluesbreaker dynamic crunch with open upper-mid bite</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">3. Parallel Amp Configuration (UADx Paradise / Plugin Suite)</h3>
+<h4 class="markdown-h4">Channel Strip A: Showtime '64 — High-Headroom Clean Anchor (Pan: -12 L)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>3.8</strong></td><td class="col-purpose">Massive clean headroom with instant dynamic response</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Clear, smooth top end without harshness</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Fills the traditional blackface scoop to keep humbucker body solid</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tightened low end to prevent boominess on neck pickup</td></tr><tr class="row-norm"><td>Bright</td><td class="col-setting"><strong>Off (Normal)</strong></td><td class="col-purpose">Keeps high-end warm and rounded for humbuckers</td></tr><tr class="row-alt"><td>Room</td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Subtle studio ambient depth</td></tr><tr class="row-norm"><td>Mic / Cab</td><td class="col-setting"><strong>Ribbon 160 / 2x12 Showman</strong></td><td class="col-purpose">Smooth ribbon mic warmth taming transient spikes</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Aligned with Amp B for LUFS balance</td></tr></tbody></table></div>
+<h4 class="markdown-h4">Channel Strip B: Enigmatic '82 — Dumble ODS Vocal Mids (Pan: +12 R)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive edge-of-breakup drive</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Smooth, sweet high frequencies</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Pronounced vocal midrange push (fills the Showtime's spectral pocket)</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tight low-end contour</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Gentle upper-harmonic lift</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Power section harmonic saturation</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Flat, articulate frequency response</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Two-Rock style Celestion G12-65 response</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Level matched for stereo balance</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">4. Parallel Submix Bus &amp; Level Parity</h3>
+<ul class="markdown-ul">
+<li><strong>Short-Term LUFS Metering</strong>: Solo Amp A and Amp B independently using Logic's Loudness Meter. Confirm both read <strong>-20.0 Short-Term LUFS</strong>.</li>
+<li><strong>Submix Bus Compressor</strong>: UAD LA-2A Silver (Peak Reduction <strong>40.0</strong>, Gain <strong>30.0</strong>) pulling <strong>-1.5 to -2.5 dB GR</strong> on strum peaks to glue the stereo image.</li>
+<li><strong>Spatial Reverb</strong>: UAD Hitsville / Capitol Chambers (Mix <strong>12%</strong>, Decay <strong>2.0s</strong>, Pre-Delay <strong>10ms</strong>) on parallel aux send.</li>
+</ul>
+<p class="markdown-p">---</p></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Control</span><span class="guide-content">Set Les Paul neck pickup to <strong>7.5–8.0</strong> for articulate rhythm playing; push to <strong>10</strong> to make the Enigmatic side jump into liquid lead sustain.</span></div><div class="guide-card"><span class="guide-label">Drive Staging (Input Track Insertion)</span><span class="guide-content">Place the Bluesbreaker (Kuassa Efektor Blues Barker), Clon (Nembrini Clon Minotaur), or NA 808 directly on the <strong>Guitar Input Track</strong> (pre-split). Pushing low-drive boosts with higher output levels (Output ~6.1 on Clon, Level ~4.1 on 808) preserves the unyielding clean punch of the Showtime while driving the Enigmatic into thick, singing sustain.</span></div><div class="guide-card"><span class="guide-label">Midrange Fine-Tuning</span><span class="guide-content">If the rig feels too mid-heavy with humbuckers, pull the Showtime's <code>Middle</code> down to <strong>4.5</strong> to create a deeper valley for the Enigmatic's vocal core.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-18</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Tuning Confirmation</strong>: Tested with Les Paul humbuckers. Showtime '64 and Enigmatic '82 settings confirmed spot-on.</li>
+<li><strong>Pre-Split Drive Calibration</strong>: Encoded fine-tuned pedal settings (&quot;Showtime Enigmatic Tuning&quot;):</li>
+<li><strong>Nembrini Clon Minotaur</strong>: Gain 2.2, Treble 4.6, Output 6.1 (transparent clean boost driving front-end headroom).</li>
+<li><strong>Nembrini NA 808</strong>: Drive 2.0, Tone 3.9, Level 4.1 (smooth low-gain vocal push).</li>
+<li><strong>Kuassa Blues Barker</strong>: Gain 2.9, Tone 5.5, Level 3.3 (open Bluesbreaker texture).</li>
+<li>Recompiled presets for Amp A, Amp B, Submix Bus, and all three overdrive pedals.</li>
 </ul></div>
 </div>
 </section>
@@ -1308,6 +1594,134 @@ code {
   <div class="guide-grid"><div class="guide-card"><span class="guide-label">Telecaster Pickup Selector</span><span class="guide-content">Position 2 (Middle - Neck + Bridge) gives ultra-funky R&amp;B rhythm snap on Amp A with warm Tweed body on Amp B.</span></div><div class="guide-card"><span class="guide-label">Stratocaster Position 4</span><span class="guide-content">Position 4 (Neck + Middle) yields classic Mayer/Wong neo-soul chime across both channels.</span></div></div>
 </section>
   
+</div>
+
+<div class="tone-detail" id="rig-tele-enigmatic-ruby-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Enigmatic '82 + Ruby '63 — Telecaster Dual Rig (Single-Coils)</h1>
+      <a href="../tones/single-coils/tele-enigmatic-ruby-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Fender Player II Telecaster (Single-Coils)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="badge" style="background:rgba(96,165,250,0.15); color:#60a5fa; border:1px solid #3b82f6;">single-coil</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">telecaster</span><span class="tag">single-coil</span><span class="tag">dumble</span><span class="tag">vox</span><span class="tag">enigmatic</span><span class="tag">ruby</span><span class="tag">sustain</span><span class="tag">chime</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">Boutique dual rig pairing Dumble liquid sustain (Enigmatic 82) with Vox Top Boost harmonic chime (Ruby 63) for Telecaster single-coils.</p>
+  </div>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This toneprint adapts <strong>Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)</strong> from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md) specifically for the <strong>Fender Player II Telecaster</strong> (and single-coil guitars).</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12)</strong>: The <strong>UAD Enigmatic '82</strong> (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics, fattening up the Telecaster's single coils without masking note definition.</li>
+<li><strong>Amp B (Right, Pan +12)</strong>: The <strong>UAD Ruby '63</strong> (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.</li>
+</ul>
+<p class="markdown-p">Single-coil pickups deliver extraordinary clarity and cut through this setup, maintaining a wide, 3D stereo image with zero harshness.</p>
+<p class="markdown-p">---</p></div>
+</section>
+
+  <section class="tone-section">
+    <h2 class="section-header">Parallel Amp Matrix</h2>
+    <div class="amp-matrix">
+      <div class="amp-card amp-a">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp A — Enigmatic '82 (Liquid Sustain)</div>
+          <div class="pan-tag">PAN: -12 (L)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">5.0</td></tr><tr class="row-norm"><td class="param-name">Middle</td><td class="param-val">5.5</td></tr><tr class="row-alt"><td class="param-name">Bass</td><td class="param-val">5.0</td></tr><tr class="row-norm"><td class="param-name">Presence</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Master</td><td class="param-val">6.0</td></tr><tr class="row-norm"><td class="param-name">Bright</td><td class="param-val">ON</td></tr><tr class="row-alt"><td class="param-name">Voice</td><td class="param-val">Suede</td></tr><tr class="row-norm"><td class="param-name">Cab</td><td class="param-val">2x12 Boutique D65</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Tele Enigmatic Ruby Dual Rig SC - Amp A (Enigmatic)')">📋 Copy Amp A Preset Name</button>
+      </div>
+
+      <div class="amp-card amp-b">
+        <div class="amp-card-head">
+          <div class="amp-name">Amp B — Ruby '63 (Vox Chime)</div>
+          <div class="pan-tag">PAN: +12 (R)</div>
+        </div>
+        <div class="table-wrap">
+<table class="param-table">
+  <thead><tr><th>Parameter</th><th style="text-align:right;">Setting</th></tr></thead>
+  <tbody><tr class="row-norm"><td class="param-name">Volume</td><td class="param-val">3.5</td></tr><tr class="row-alt"><td class="param-name">Treble</td><td class="param-val">5.5</td></tr><tr class="row-norm"><td class="param-name">Bass</td><td class="param-val">4.5</td></tr><tr class="row-alt"><td class="param-name">Tone Cut</td><td class="param-val">4.0</td></tr><tr class="row-norm"><td class="param-name">Cut</td><td class="param-val">OFF</td></tr><tr class="row-alt"><td class="param-name">Boost</td><td class="param-val">OFF</td></tr><tr class="row-norm"><td class="param-name">Cab</td><td class="param-val">2x12 Silver 15</td></tr><tr class="row-alt"><td class="param-name">Output Gain</td><td class="param-val">8.0</td></tr></tbody>
+</table>
+</div>
+        <button class="copy-btn" onclick="copyPreset('Toneprint - Tele Enigmatic Ruby Dual Rig SC - Amp B (Ruby)')">📋 Copy Amp B Preset Name</button>
+      </div>
+    </div>
+
+    <div class="bus-section">
+      <div>
+        <div class="bus-title">Parallel Submix Bus & Shared FX</div>
+        <div class="bus-details">
+          LA-2A: Peak Red <strong>40.0</strong>, Gain <strong>30.0</strong> |
+          Reverb: Hitsville Decay <strong>2.0s</strong>, Mix <strong>0.12</strong>
+        </div>
+      </div>
+      <div class="preset-pills">
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Tele Enigmatic Ruby Dual Rig SC - Bus LA-2A')">Copy Bus LA-2A</button>
+        <button class="copy-btn" style="width: auto;" onclick="copyPreset('Toneprint - Tele Enigmatic Ruby Dual Rig SC - Bus Hitsville')">Copy Bus Reverb</button>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="tone-section">
+  <h2 class="section-header">Signal Chain Breakdown</h2>
+  <div class="target-sound"><h3 class="markdown-h3">1. Tone King Imperial Preamp — physical front-end</h3>
+<ul class="markdown-ul">
+<li><strong>Status:</strong> <strong>Bypassed</strong></li>
+<li><strong>Signal Path:</strong> Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</li>
+</ul>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">2. Primary Guitar Input Track (Pre-Split Drive &amp; Calibration)</h3>
+<ul class="markdown-ul">
+<li><strong>Interface Calibration Offset</strong>: Logic Utility Gain trim set to <strong>-3.2 dB</strong> (compensating for iD14's +9.0 dBu clipping point vs UAD's +12.2 dBu standard).</li>
+<li><strong>Pre-Split Drive Insertion</strong>: Place <strong>Nembrini Clon Minotaur</strong> (Klon) or <strong>Kuassa Efektor Blues Barker</strong> (Bluesbreaker) directly on the <strong>Guitar Input Track</strong> (pre-split).</li>
+<li><em>Why</em>: Feeding overdrive into both Amp A and Amp B simultaneously preserves stereo balance and causes both amps to saturate harmonically together, completely avoiding the lopsided level and tonal drift of single-amp drive.</li>
+</ul>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>6.0 / 4.5 / 4.5</strong></td><td class="col-purpose">Transparent midrange boost and singing lead sustain across both amps</td></tr><tr class="row-alt"><td><strong>Kuassa Efektor Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>3.5 / 5.0 / 2.75</strong></td><td class="col-purpose">Smooth, dynamic low-gain blues breakup across both amps</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">3. Parallel Amp Configuration (UADx Paradise / Plugin Suite)</h3>
+<h4 class="markdown-h4">Channel Strip A: Enigmatic '82 — Liquid Sustain (Pan: -12 L)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive warm clean with subtle edge-of-breakup</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Smooth high-frequency response tailored for single coils</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Thick, vocal midrange body</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Tight, uncompressed fundamental</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Gentle upper-mid control</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Clean power amp drive</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Deep, flat headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Warm boutique cab voicing</td></tr></tbody></table></div>
+<h4 class="markdown-h4">Channel Strip B: Ruby '63 — Vox Top Boost Chime (Pan: +12 R)</h4>
+<div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Top Boost</strong></td><td class="col-purpose">Brilliant harmonic chime</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>3.5</strong></td><td class="col-purpose">Cleaned-up Top Boost sweet spot; smooth response on single coils</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">High-frequency jangle and string definition</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Tightened low end to prevent boominess</td></tr><tr class="row-norm"><td>Tone Cut</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Smooths out harsh top-end glass</td></tr><tr class="row-alt"><td>Boost</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Linear headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Silver 15</strong></td><td class="col-purpose">Vintage Vox Silver Bulldog cab</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Trimmed -4.0 dB inside Paradise plugin to match Enigmatic and allow Logic fader at -3.8 dB</td></tr></tbody></table></div>
+<p class="markdown-p">---</p>
+<h3 class="markdown-h3">4. Parallel Submix Bus &amp; Level Parity</h3>
+<ul class="markdown-ul">
+<li><strong>Short-Term LUFS Metering</strong>: Solo Amp A and Amp B independently using Logic's Loudness Meter. Adjust Amp B output so both read <strong>-20.0 Short-Term LUFS</strong>.</li>
+<li><strong>Submix Bus Compressor</strong>: UAD LA-2A Silver (Peak Reduction <strong>40.0</strong>, Gain <strong>30.0</strong>) on the parallel submix bus pulling <strong>-1.5 to -3.0 dB GR</strong> on strum peaks.</li>
+<li><strong>Spatial Reverb</strong>: UAD Hitsville / Capitol Chambers (Mix <strong>12%</strong>, Decay <strong>2.0s</strong>) on parallel aux send.</li>
+</ul>
+<p class="markdown-p">---</p></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Tele Pickup Positions</span><span class="guide-content"></span></div><div class="guide-card"><span class="guide-label">Position 2 (Middle — Neck + Bridge)</span><span class="guide-content">Rich, balanced acoustic-like chime with rich low-mid support.</span></div><div class="guide-card"><span class="guide-label">Position 3 (Neck)</span><span class="guide-content">Deep, woody jazz/blues lead tone with blooming Dumble sustain.</span></div><div class="guide-card"><span class="guide-label">Drive Staging</span><span class="guide-content">Engage the Clon or Blues Barker on the <strong>Guitar Input Track</strong> to push both amps into singing overdrive simultaneously.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Telecaster bridge pickup has excessive bite on the Ruby side, increase Ruby <code>Tone Cut</code> to <strong>5.0</strong> or <strong>5.5</strong>.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Telecaster Testing</strong>: Verified with Fender Player II Telecaster. The Enigmatic '82 + Ruby '63 dual-amp pairing proved outstanding for single coils, giving the Telecaster huge vocal sustain on the Enigmatic side while retaining Vox Top Boost harmonic sparkle on the Ruby side.</li>
+<li><strong>Pre-Split Input Track Drive Staging</strong>: Confirmed high utility of inserting overdrive pedals (Nembrini Clon Minotaur, Kuassa Blues Barker) directly on the primary Guitar Input channel strip (following the -3.2 dB calibration trim). Feeding the driven signal pre-split into both amps keeps the stereo image perfectly centered and balanced, avoiding the lopsided dynamic imbalance of driving only one amp channel.</li>
+</ul></div>
+</div>
+</section>
 </div>
 
 <div class="tone-detail" id="rig-tele-woodrow-dream-dual-rig" style="display:none">

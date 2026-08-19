@@ -8,7 +8,7 @@ target: 'Bright, tight, and highly compressed chorused clean tone for fast 16th-
 tags: "clean, chorus, compression, city-pop, neo-soul, p-90, framus"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"
-status: initial
+status: archived
 pickup_type: p-90
 preset_data:
   amp_platform: neural_dsp

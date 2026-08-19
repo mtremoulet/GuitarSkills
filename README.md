@@ -63,7 +63,7 @@ GuitarSkills/
 │   ├── generate_tone_viewer.py # Parses Markdown tones into a responsive HTML dashboard
 │   └── tone-viewer.html    # The interactive web viewer for tone presets
 ├── tones/                  # Markdown files defining specific signal chains & preset guides
-│   ├── single-coils/       # Telecaster, Stratocaster, Revelation (H90) profiles
+│   ├── single-coils/       # Telecaster, Stratocaster profiles
 │   ├── humbuckers/         # Les Paul, Sheraton semi-hollow profiles
 │   ├── p-90s/              # Framus Earl Slick (DiMarzio P-90s) profiles
 │   └── INDEX.md            # Programmatically updated master catalog of all tones
@@ -111,11 +111,10 @@ GuitarSkills is customized around a real-world stable of physical instruments, a
 3. **Squier Stratocaster "Partscaster"** (Light Blue, Tex-Mex Single-Coils, D'Addario XS 10-46)
 4. **Epiphone Sheraton II** (Natural, Humbuckers, Thomastik Flats 10s)
 5. **Epiphone Les Paul Standard Plus Top** (Vintage Sunburst, Seymour Duncan 59/JB Humbuckers, D'Addario XS 10-46)
-6. **Revelation RFT DLX** (Thinline, Entwistle H90 Pickups, D'Addario XS 10-46)
-7. **Framus Earl Slick Artist Series** (Matte Black, DiMarzio P90s, Rotosound Yellows 10-46)
-8. **Cort Standard AD Mini** (3/4 Dreadnought, Steel Strings)
-9. Washburn D-12 (Sentimental Dreadnought)
-10. 1978 Fender Precision Bass (3-Color Sunburst)
+6. **Framus Earl Slick Artist Series** (Matte Black, DiMarzio P90s, Rotosound Yellows 10-46)
+7. **Cort Standard AD Mini** (3/4 Dreadnought, Steel Strings)
+8. **Washburn D-12** (Sentimental Dreadnought)
+9. **1978 Fender Precision Bass** (3-Color Sunburst)
 
 ---
 

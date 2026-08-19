@@ -24,7 +24,7 @@
 
 ## 2. Guitar & Bass Stable
 
-Mike owns 10 instruments, categorized by their pickups and primary physical/tonal roles:
+Mike owns 9 instruments, categorized by their pickups and primary physical/tonal roles:
 
 ### Electric Guitars
 
@@ -35,16 +35,17 @@ Mike owns 10 instruments, categorized by their pickups and primary physical/tona
 | **3** | **Mid-1980s Squier Stratocaster "Partscaster"** (Light Blue) | **Fender Tex-Mex** (3 single-coils) | D'Addario XS (10-46) | **"The Funky Quack."** Hot, punchy, pure nickel vintage warmth. Tex-Mex pickups are hotter than standard Strat single-coils. |
 | **4** | **2013 Epiphone Sheraton II** (Natural) | Humbuckers (neck & bridge) | Thomastik-Infeld Jazz Swing Flats (10s) | **"The Velvet Jazz Box."** Semi-hollow laminate maple. Flatwounds reinforce dark jazz character. Acoustic bloom and natural sustain, but sensitive to feedback at high gain. |
 | **5** | **2008 Epiphone Les Paul Standard Plus Top** (Sunburst) | Humbuckers (neck & bridge) | D'Addario XS (10-46) | **"Classic Rock Workhorse."** Brighter, louder, and more aggressive humbucker response than the Gibson LP Studio. |
-| **6** | **2023 Revelation RFT DLX** (Thinline Tele Style) | **Alan Entwistle H90** (P-90 character in humbucker shells) | D'Addario XS (10-46) | **"The Aggressive Growler."** Semi-hollow thinline. Single-coil bite and upper-mid growl with hum-cancelling housing. Brighter than standard humbuckers. |
-| **7** | **2012 Framus Earl Slick Artist Series** (Matte Black) | **Two DiMarzio P-90s** (Soapbar single-coils) | Rotosound Yellows (10-46) | **"The Slick Rocker."** Flat-top swamp ash body, bolt-in maple neck, Bigsby B500 Vibrato, 3-way rotary selector. P-90s have a natural upper-mid spike; brighter and punchier than humbuckers. |
+| **6** | **2012 Framus Earl Slick Artist Series** (Matte Black) | **Two DiMarzio P-90s** (Soapbar single-coils) | Rotosound Yellows (10-46) | **"The Slick Rocker."** Flat-top swamp ash body, bolt-in maple neck, Bigsby B500 Vibrato, 3-way rotary selector. P-90s have a natural upper-mid spike; brighter and punchier than humbuckers. |
 
 ### Acoustic Guitars & Bass
 
 | # | Instrument | Specs | Notes |
 |---|------------|-------|-------|
-| **8** | **2025 Cort Standard AD Mini** | 3/4 Size Dreadnought, Spruce top | Rotosound Metal (Steel) strings. Travel/couch steel-string. |
-| **9** | **1990s Washburn D-12** | Dreadnought | "Tim's Guitar." Sentimental dreadnought acoustic foundation. |
-| **10** | **1978 Fender Precision Bass** | 3-Color Sunburst | Vintage low-end anchor. |
+| **7** | **2025 Cort Standard AD Mini** | 3/4 Size Dreadnought, Spruce top | Rotosound Metal (Steel) strings. Travel/couch steel-string. |
+| **8** | **1990s Washburn D-12** | Dreadnought | "Tim's Guitar." Sentimental dreadnought acoustic foundation. |
+| **9** | **1978 Fender Precision Bass** | 3-Color Sunburst | Vintage low-end anchor. |
+
+*(Former / Sold: 2023 Revelation RFT DLX Thinline sold in 2026).*
 
 ---
 
@@ -73,10 +74,12 @@ To match the software plugins' expected analog input level (+12.2 dBu clipping p
 
 ### Software Hosts & Workflow
 * **Kushview Element (Daily Driver):** Lightweight, modular VST/AU plugin host graph environment. Used for daily practice, quick preset recall, low-latency monitoring, and modular signal chain experimentation. Primary environment for fast configuration loading.
+  * *Dual-Amp Routing:* Parallel amp graphs use Airwindows Consolidated `PurestDualPan` utility blocks for clean stereo positioning (-12 L / +12 R) before submix busing.
+  * *Hammerspoon MIDI Controller:* Number keys (`1`, `2`, `3`, `5`) map to MIDI Program Change snapshots over macOS `IAC Driver Bus 1` to toggle pedalboards instantly with zero MIDI controller hardware (documented in [hammerspoon-midi-element.md](file:///Users/miketremoulet/claude-projects/GuitarSkills/references/hammerspoon-midi-element.md)).
 * **Logic Pro (Production & High-Horsepower DAW):** Reserved for multi-track recording, complex bused routing (e.g. Aux sends, spatial mixing), heavy production, or when maximum processing horsepower is required.
 
 > [!NOTE]
-> **Host File Format Note:** Logic Pro project templates (`.logicx`) are binary/proprietary macOS bundle packages that cannot be programmatically generated via scripts. Host configurations for daily practice are managed via Kushview Element graphs or target plugin preset definitions.
+> **Host File Format Note:** Logic Pro project templates (`.logicx`) are binary/proprietary macOS bundle packages that cannot be programmatically generated via scripts. Host configurations for daily practice are managed via Kushview Element graphs (`.els`) or target plugin preset definitions.
 
 ### Amp Emulations
 

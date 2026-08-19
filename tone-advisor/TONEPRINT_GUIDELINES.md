@@ -13,18 +13,19 @@ Mike's rig is designed for high-fidelity monitoring (Sennheiser HD660S2). The go
 
 ## 2. Physical Hardware Standards
 
-### Input Path Priority
-- **Default (Direct Input)**: Connect the guitar direct to the iD14 interface (bypassing the Tone King Imperial Preamp entirely). This is the cleanest, most neutral starting point for software amp modelers.
-- **Tone King Preamp (Optional Coloration)**: Only route through the physical Tone King Imperial Preamp if you explicitly want the natural scooped flavor of its Rhythm channel or the mid-forward tweed crunch of its Lead channel as a foundation.
+### Input Path & Amp Architecture (Tone King vs. Amp Plugins)
+- **Mutual Exclusivity (Tone King Preamp OR Software Amp)**: A toneprint uses **EITHER** the physical Tone King Imperial Preamp **OR** a software amp modeler (UADx, Neural DSP, Nembrini, MixWave), **never both**. Do not run the Tone King Preamp into an amp simulation plugin (avoid double-preamping / double-amping).
+  - **Direct Input Path (Default for Amp Plugins)**: `[Guitar] → [iD14 Input 1 (D.I.)] → [Logic Pro]`. Software amp modelers receive a pure, uncolored Hi-Z instrument signal.
+  - **Hardware Preamp Path (Tone King Preamp as Amp Foundation)**: `[Guitar] → [Tone King Imperial Preamp] → [iD14 Line In] → [Logic Pro]`. When the Tone King is active, Logic Pro plugins are restricted to dynamics, EQ, modulation, delay, and reverb (no software amp sim).
 
 ### Tone King Imperial Preamp (If Route Active)
-If the Tone King is necessary for the vibe of the toneprint, follow these settings:
-- **Channel**: Rhythm (cleanest headroom).
-- **Volume**: **2.0 to 3.0**. This is the transparency zone; higher values start adding early Blackface preamp color.
+If the Tone King is used as the primary amplifier/preamp foundation:
+- **Channel**: Rhythm (clean American Blackface) or Lead (tweed/rock crunch).
+- **Volume**: Dial for desired clean headroom or preamp breakup.
 - **Attenuation**: **5.0** (unity/moderate).
-- **EQ**: **5.0 (Noon)** for flat response.
-- **IR**: **Bypassed** if using any Logic/UAD/Nembrini amp or cabinet simulation. Active ONLY if the Tone King is providing the final speaker character.
-- **Effects**: Off (unless specifically requested).
+- **EQ**: **5.0 (Noon)** for flat baseline, adjust as needed.
+- **IR**: Active (select desired built-in IR) or use a dedicated IR loader / cab plugin in Logic. Never run into a full amp modeler.
+- **Effects**: Reverb/Tremolo as dialed.
 
 ### TONEX One
 - **Default**: Bypassed (Stomp mode).
@@ -135,6 +136,7 @@ Every toneprint MUST include the following metadata in its YAML frontmatter to s
 Schema structure under `preset_data`:
 * `amp_platform`: Platforms include `uad_paradise`, `neural_dsp`, `mixwave`, or Nembrini platforms (`nembrini_jc120`, `nembrini_mrh810`, `nembrini_div11`, `nembrini_puretone`, `nembrini_acoustic_voice`).
 * `amp_settings`: Key-value control mappings corresponding to the platform's specific amp model controls.
+* `prefx`: Structured slots for host/plugin rack pedals (`slot1`–`slot5`, each specifying `pedal`, `enabled`, and pedal-specific parameters).
 * `la2a`: Custom settings for UADx Teletronix LA-2A (keys: `peak_reduction`, `gain`, `compress`).
 * `hitsville`: Custom settings for UADx Hitsville Reverb (keys: `mix`, `pre_delay`, `decay`).
 * `logic_eq`: Logic native Channel EQ bands (keys: `band1` to `band8`, each specifying `on`, `freq`, `gain` or `slope`, and optionally `q` for bands 2–7).
@@ -151,11 +153,12 @@ Always present the chain in order:
 
 ## 5. The Feedback Loop & Lifecycle
 
-Tones evolve through three states, tracked in the `status` frontmatter:
+Tones evolve through distinct lifecycle states, tracked in the `status` frontmatter:
 
 1.  **`initial`**: Proposed by the advisor but not yet tested in a DAW session.
 2.  **`tested`**: Verified in a session. Levels are confirmed, and the character matches the target.
 3.  **`refined`**: Adjusted after actual practice/playing. The "sweet spots" have been found.
+4.  **`archived`**: Retires a toneprint from the active library. The tone file remains intact in `tones/`, but is hidden by default in the HTML viewer. Its compiled plugin presets are moved into `quarantined/` to keep DAW/plugin preset menus clean and unburdened.
 
 **Feedback History Rules**:
 - Never delete old feedback.

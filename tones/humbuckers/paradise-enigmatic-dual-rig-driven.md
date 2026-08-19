@@ -5,7 +5,7 @@ guitar: "Gibson Les Paul Studio (490R neck pickup)"
 id: paradise-enigmatic-dual-rig-driven
 pickup_type: humbucker
 preset_name: "Enigmatic Dual Rig Driven HB"
-status: initial
+status: archived
 tags: "dual-amp, driven, dumble, paradise-studio, enigmatic-82, humbucker, drive-pedals"
 target: 'Vocal mid-range and driven lead amp for the parallel dual-amp setup. Features Enigmatic 82 Dumble ODS on Cream voicing with a 3-stage pre-amp drive block (Nashville OD / Blues Barker, Gold OD / Klon, TS OD / TS-808) disabled by default.'
 tone-king-channel: bypassed

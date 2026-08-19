@@ -8,7 +8,7 @@ target: 'Lush, ultra-clear hi-fi humbucker clean with integrated 67ms slap echo,
 tags: "boutique, clean, warm, humbucker, puretone, delay, slapback, clon, transient-softener"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"
-status: refined
+status: archived
 pickup_type: humbucker
 preset_data:
   logic_enveloper:

@@ -1,13 +1,13 @@
 ---
 amp: "Amp Snob (Archetype Cory Wong X)"
 created: 2026-06-07
-guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s) / Revelation RFT DLX (H-90 pickups)"
+guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s)"
 id: cory-wong-p90-warm-edge
 pickup_type: p-90
 preset_name: "P90 Warm Edge"
 status: tested
-tags: "clean, edge-of-breakup, warm, framus, p-90, revelation, neural-dsp, cory-wong, amp-snob"
-target: 'Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series and Revelation RFT DLX.'
+tags: "clean, edge-of-breakup, warm, framus, p-90, neural-dsp, cory-wong, amp-snob"
+target: 'Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series (DiMarzio P-90s).'
 tone-king-channel: bypassed
 updated: 2026-06-07
 preset_data:

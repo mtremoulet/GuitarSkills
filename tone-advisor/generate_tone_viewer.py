@@ -515,6 +515,8 @@ STATUS_CLS = {
     'initial': 'status-initial',
     'tested': 'status-tested',
     'refined': 'status-refined',
+    'verified': 'status-tested',
+    'archived': 'status-archived',
 }
 
 
@@ -952,9 +954,41 @@ body {
   white-space: nowrap;
 }
 
-.status-initial { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
-.status-tested  { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
-.status-refined { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-initial  { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
+.status-tested   { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
+.status-refined  { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-archived { background: rgba(142,142,147,0.18); color: #98989f; border: 1px solid #48484a; }
+[data-theme="light"] .status-archived { background: rgba(142,142,147,0.14); color: #636366; border: 1px solid #c7c7cc; }
+
+.filter-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archived-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s;
+}
+
+.archived-toggle-label:hover {
+  color: var(--secondary);
+}
+
+.archived-toggle-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+  width: 11px;
+  height: 11px;
+  margin: 0;
+}
 
 /* ── Tone header ── */
 .tone-header {
@@ -1571,6 +1605,7 @@ function scrollToItem(id) {
 }
 
 var activeFilters = { status: 'all', genre: 'all', pickup: 'all', guitar: 'all', amp: 'all' };
+var showArchived = false;
 
 function setFilter(dim, val) {
   activeFilters[dim] = val;
@@ -1584,6 +1619,12 @@ function setFilter(dim, val) {
   applyFilters();
 }
 
+function toggleShowArchived(checked) {
+  showArchived = !!checked;
+  localStorage.setItem('tv-show-archived', showArchived ? 'true' : 'false');
+  applyFilters();
+}
+
 function applyFilters() {
   var items = document.querySelectorAll('.sidebar-item');
   var visibleCount = 0;
@@ -1591,11 +1632,23 @@ function applyFilters() {
   var activeVisible = false;
   items.forEach(function(el) {
     var elAmps = el.dataset.amp ? el.dataset.amp.split(',').map(function(s) { return s.trim(); }) : [];
-    var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
+    var isArchived = (el.dataset.status === 'archived');
+
+    var statusMatch = false;
+    if (activeFilters.status === 'archived') {
+      statusMatch = isArchived;
+    } else if (activeFilters.status === 'all') {
+      statusMatch = !isArchived || showArchived;
+    } else {
+      statusMatch = (el.dataset.status === activeFilters.status);
+    }
+
+    var show = statusMatch
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
             && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
             && (activeFilters.amp    === 'all' || elAmps.includes(activeFilters.amp));
+
     el.style.display = show ? '' : 'none';
     if (show) {
       visibleCount++;
@@ -1603,12 +1656,23 @@ function applyFilters() {
       if (el.classList.contains('active')) { activeVisible = true; }
     }
   });
+
   var countEl = document.querySelector('.vault-count');
   if (countEl) {
     countEl.textContent = visibleCount + ' tone' + (visibleCount !== 1 ? 's' : '');
   }
+
   if (!activeVisible && firstVisible) {
     showTone(firstVisible.dataset.id);
+  } else if (!firstVisible) {
+    document.querySelectorAll('.tone-detail').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    var emptyEl = document.getElementById('empty-state');
+    if (emptyEl) { emptyEl.style.display = 'flex'; }
+  } else {
+    var emptyEl = document.getElementById('empty-state');
+    if (emptyEl) { emptyEl.style.display = 'none'; }
   }
 }
 
@@ -1662,6 +1726,13 @@ function toggleFilters() {
   var btn = document.getElementById('theme-toggle');
   if (savedTheme && btn) { btn.innerHTML = savedTheme === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
   
+  var savedArchived = localStorage.getItem('tv-show-archived');
+  if (savedArchived === 'true') {
+    showArchived = true;
+    var chk = document.getElementById('show-archived-checkbox');
+    if (chk) chk.checked = true;
+  }
+
   var collapsed = localStorage.getItem('tv-filters-collapsed');
   if (collapsed === 'true') {
     var container = document.getElementById('filters-container');
@@ -1669,6 +1740,8 @@ function toggleFilters() {
     if (container) container.classList.add('collapsed');
     if (icon) icon.classList.add('collapsed');
   }
+
+  applyFilters();
 }());
 """
 
@@ -1768,12 +1841,19 @@ def main():
     </div>
     <div class="filters-container" id="filters-container">
       <div class="filter-section">
-        <div class="filter-label">Status</div>
+        <div class="filter-header-row">
+          <div class="filter-label">Status</div>
+          <label class="archived-toggle-label" title="Show archived toneprints">
+            <input type="checkbox" id="show-archived-checkbox" onchange="toggleShowArchived(this.checked)">
+            <span>Show Archived</span>
+          </label>
+        </div>
         <div class="filter-row">
           <button class="filter-btn active" data-dim="status" data-filter="all" onclick="setFilter('status','all')">All</button>
           <button class="filter-btn" data-dim="status" data-filter="initial" onclick="setFilter('status','initial')">Initial</button>
           <button class="filter-btn" data-dim="status" data-filter="tested" onclick="setFilter('status','tested')">Tested</button>
           <button class="filter-btn" data-dim="status" data-filter="refined" onclick="setFilter('status','refined')">Refined</button>
+          <button class="filter-btn" data-dim="status" data-filter="archived" onclick="setFilter('status','archived')">Archived</button>
         </div>
       </div>
       <div class="filter-section">

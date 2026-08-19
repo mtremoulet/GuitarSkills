@@ -9,7 +9,7 @@ status: refined
 tags: "boutique, clean, warm, les-paul, humbucker, dumble, paradise-studio, enigmatic-82"
 target: 'Boutique ODS warmth inside Paradise Guitar Studio — rich, touch-sensitive clean with full, fat lower-mids and a smooth, saturated-feeling response that mimics the Two Rock Bloomfield.'
 tone-king-channel: bypassed
-updated: 2026-06-28
+updated: 2026-08-17
 preset_data:
   amp_platform: uad_paradise
   amp_settings:
@@ -21,12 +21,26 @@ preset_data:
     Master: 7
     Presence: 0.5
     Treble: 3.5
-    Volume: 5.5
-  gold_overdrive:
-    enabled: false
-    gain: 0.0
-    output: 7.5
-    treble: 4.5
+  prefx:
+    slot1:
+      pedal: ts_overdrive
+      enabled: false
+      overdrive: 3.6
+      level: 3.7
+      tone: 1.7
+    slot2:
+      pedal: gold_overdrive
+      enabled: false
+      gain: 0.2
+      output: 4.4
+      treble: 4.5
+    slot3:
+      pedal: nashville_overdrive
+      enabled: false
+      drive: 3.25
+      level: 8.4
+      spectrum: 5.95
+      bass: 0.0
   hitsville:
     decay: 2.0
     mix: 1.0
@@ -58,7 +72,7 @@ This toneprint is designed for direct-in recording (bypassing the Tone King prea
 
 ### 2. UADx Paradise Guitar Studio — boutique character source
 
-To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the transparent boost option on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.
+To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the optional pre-amp overdrives on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.
 
 #### Amp Settings
 
@@ -100,16 +114,17 @@ In Universal Audio plugins, the Cabinet and Mic combinations are a single, fixed
 
 ---
 
-#### Pre-FX Option: Gold Overdrive
+#### Optional Pre-FX Overdrive & Boost Flavors (Bypassed by Default)
 
-| Control | Setting | Purpose |
-|---------|---------|---------|
-| Pedal | **Gold Overdrive** | Transparent clean boost on hand |
-| State | **Disabled** (Off) | Bypass by default; engage for clean solo boost or pushing front end |
-| Gain | **0.0** | Zero added distortion; pure clean boost |
-| Output | **7.5** | Pushes front end of amp for singing sustain and level lift |
-| Treble | **4.5** | Slightly rounded high end for smooth boost response |
+Three versatile overdrive/boost options are pre-staged in Paradise Guitar Studio's Pre-FX rack slots 1–3. They are **bypassed by default** to preserve the pristine, dynamic boutique clean foundation, but are dialed in for instant engagement whenever extra push, singing sustain, or mid focus is needed:
 
+| Slot | Pedal | State | Key Controls | Sonic Role & Aesthetic Profile |
+|:---|:---|:---|:---|:---|
+| **Slot 1** | **TS Overdrive** (Tube Screamer TS808/TS9) | **Bypassed (Off)** | Overdrive: **3.6**, Level: **3.7**, Tone: **1.7** | Classic focused midrange push with smooth, rolled-off top end; cuts solos right through the mix |
+| **Slot 2** | **Gold Overdrive** (Klon Centaur) | **Bypassed (Off)** | Gain: **0.2**, Output: **4.4**, Treble: **4.5** | Transparent clean boost / front-end push for singing sustain, harmonic richness, and level lift |
+| **Slot 3** | **Nashville Overdrive** (Nobels ODR-1) | **Bypassed (Off)** | Drive: **3.25**, Level: **8.4**, Spectrum: **5.95**, Bass: **0.0** | Warm, open, full-spectrum drive; great for transparent rhythm push and chord clarity without nasal mid-hump |
+
+---
 
 ### 3. UADx LA-2A Silver Compressor — organic optical glue
 
@@ -146,11 +161,18 @@ By using the exact same reverb auxiliary bus as our Two Rock Bloomfield print, y
 
 - **First adjustment (Bloom / Headroom):** The **Master** control on the Enigmatic '82 (labeled **6.5** on the faceplate). If the tone feels too stiff or direct, push the Master to **7.0** or **7.5** and pull back the plugin's Output Trim to compensate. Pushing the Master increases the virtual power tube compression.
 - **Taming Humbucker Boom:** If the low-end feels "flubby" on low E-string chords, roll the **Bass** control back to **4.0** or make a small 2-3dB cut at 125 Hz in your Logic channel EQ.
+- **Engaging Optional Pre-FX Overdrives:** 
+  - For cutting lead lines with a focused, vocal midrange hump, engage **Slot 1 (TS Overdrive)**.
+  - For subtle edge-of-breakup clean boost and fat chord sustain, kick on **Slot 2 (Gold Overdrive)**.
+  - For singing lead sustain and rich harmonic grit across all strings, engage **Slot 3 (Nashville Overdrive)**.
 - **The Voice Switch Alternative:** While **Cream** is now the default for its rich low-end and singing upper-mid bloom, switching back to **Suede** offers a slightly rounder, darker, highly compressed vintage Santa Cruz vibe.
 
 ---
 
 ## Feedback History
+
+### 2026-08-17 — refined (Optional Pre-FX Overdrive Trio)
+Updated Paradise Guitar Studio preset with three pre-configured optional overdrive pedals in Pre-FX slots 1–3 (Slot 1: TS Overdrive, Slot 2: Gold Overdrive, Slot 3: Nashville Overdrive), all left bypassed by default to preserve the clean foundation. Dialed TS Overdrive for smooth mid-focus (Overdrive 3.6, Level 3.7, Tone 1.7), re-calibrated Gold Overdrive to subtle clean boost settings (Gain 0.2, Output 4.4, Treble 4.5), and dialed Nashville Overdrive for open full-spectrum drive (Drive 3.25, Level 8.4, Spectrum 5.95, Bass 0.0).
 
 ### 2026-06-28 — refined (Room Level & Cream Voicing Update)
 Dialed the Cabinet Room level back from 32% to **10%** per feedback to restore clarity and tighten pick attack. Updated primary amp Voice from Suede to **Cream** to take advantage of its extended low-end response and vocal upper-mid bloom on the Les Paul Studio's 490R neck humbucker. Added disabled Gold Overdrive pre-amp option (`Gain 0.0`, `Output 7.5`, `Treble 4.5`) to `preset_data` and signal chain documentation.
@@ -159,7 +181,7 @@ Dialed the Cabinet Room level back from 32% to **10%** per feedback to restore c
 Tested in session. Bypassed internal Reverb, Compressor, and EQ pedals in PGS to isolate the amp circuit. Added **Room level at 32%** to blend the mics together and soften the DAW clinical precision. Addressed a major "high-frequency harshness / over-sharpened photo" issue through a calibration loop:
 1. **NOR Input:** Switched from the clinical solid-state FET input back to the bottom **NOR** (Normal) input for warm tube preamp compression.
 2. **Toggle Alignment:** Confirmed Bright and Deep switches are indeed **OFF (Down)**.
-3. **Skyline Midrange Calibration:** Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound "big" but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound "quieter" or "thin"). We countered this by pushing the preamp **Volume to 5.5**, **Bass to 7.0**, and **Middle to 7.5**. This drives the virtual tubes into a thick, organic, and beautifully compressed saturation without losing that crucial boutique warmth.
+3. **Skyline Midrange Calibration:** Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound "big" but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound "quieter" or "thin"). We countered this by pushing the preamp **Volume to 5.5**, **Bass to 7.0**, and **Middle to 7.5**. This drives the virtual tubes into a thick, organic and beautifully compressed saturation without losing that crucial boutique warmth.
 4. Set **Treble to 3.5** and **Presence to 0.5** to perfectly roll off the clinical edge.
 5. **Final Touch:** Locked in the dialed-in values: **Volume 5.5, Treble 3.5, Middle 7.5, Bass 7.0, Master 7.0, Presence 0.5**. These parameters push the low-mids and vocal midrange of the Skyline stack to the max, providing incredible body and richness. Note: The Mixwave Two Rock still retains a slightly tamer/smokier high end, which can be further tweaked in the future, but these settings get Enigmatic in the exact close ballpark. Status updated to `refined`.
 

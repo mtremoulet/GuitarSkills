@@ -6,7 +6,7 @@ guitar: Fender Player II Telecaster / Squier Stratocaster
 target: 'Single-coil optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice with fuller low-mid response.'
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, single-coil"
 amp: "Enigmatic '82 (UADx)"
-status: initial
+status: archived
 pickup_type: "single-coil"
 preset_data:
   amp_platform: uad_paradise

@@ -252,10 +252,11 @@ def compile_nembrini_stomp_presets(filepath: str, output_name: str, frontmatter:
             output_val = to_float(clon_info.get("output", 7.5))
 
             xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<ClonMinotaur version="1.0.0">
+
+<ClonMinotaur version="1.0.5" lastUIWidth="667" lastUIHeight="467" CurrentPreset="{out_path}">
   <PARAM id="Gain" value="{gain_val}"/>
-  <PARAM id="Treble" value="{treble_val}"/>
   <PARAM id="Output" value="{output_val}"/>
+  <PARAM id="Treble" value="{treble_val}"/>
   <PARAM id="power" value="1.0"/>
 </ClonMinotaur>
 """
@@ -276,12 +277,14 @@ def compile_nembrini_stomp_presets(filepath: str, output_name: str, frontmatter:
             level_val = to_float(t808_info.get("level", t808_info.get("output", 7.0)))
 
             xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<Nembrini808 version="1.0.0">
-  <PARAM id="Overdrive" value="{drive_val}"/>
-  <PARAM id="Tone" value="{tone_val}"/>
+
+<NA808 lastUIWidth="536" lastUIHeight="605" CurrentPreset="{out_path}"
+       version="1.0.6">
+  <PARAM id="Drive" value="{drive_val}"/>
   <PARAM id="Level" value="{level_val}"/>
+  <PARAM id="Tone" value="{tone_val}"/>
   <PARAM id="power" value="1.0"/>
-</Nembrini808>
+</NA808>
 """
             with open(out_path, "w") as f:
                 f.write(xml_content)

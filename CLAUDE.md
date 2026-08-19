@@ -63,7 +63,7 @@ GuitarSkills/
 ├── guitar-coach-library/   # Session output (index.md + sessions/ populated over time)
 ├── tones/                  # Saved tone definitions
 │   ├── humbuckers/         # Dual-humbucker specific (LP, Sheraton)
-│   ├── single-coils/       # Single-coil specific (Tele, Strat, Revelation)
+│   ├── single-coils/       # Single-coil specific (Tele, Strat)
 │   ├── universal/          # Hybrid/Neutral platforms
 │   └── INDEX.md            # Master tone list with pickup categorization
 └── walkthroughs/           # Song walkthrough outputs (populated over time)

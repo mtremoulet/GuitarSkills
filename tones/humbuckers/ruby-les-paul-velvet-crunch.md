@@ -5,7 +5,7 @@ guitar: "Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)"
 id: ruby-les-paul-velvet-crunch
 pickup_type: humbucker
 preset_name: "Ruby LP Velvet Crunch HB"
-status: initial
+status: archived
 tags: "vox, ac30, ruby-63, les-paul, humbucker, edge-of-breakup, chime, velvet-crunch, classic-rock, indie-rock"
 target: 'Warm, vocal Class A chime and creamy velvet crunch; a rich, touch-sensitive pairing of Les Paul humbuckers and Vox AC30 Top Boost.'
 tone-king-channel: bypassed

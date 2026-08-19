@@ -77,11 +77,9 @@ Every guitar signal passes through this pedal before reaching the audio interfac
 - IR bypass switch — bypass when using Logic amp/cab simulations
 
 ### Critical interactions with Logic
-
-- **Tone King Rhythm active** → signal already has blackface American character going into Logic. Logic amps add color on top of this, not from scratch.
-- **Tone King Lead + Mid-Bite raised** → signal is already mid-forward and crunching before Logic sees it.
-- **Tone King Reverb on** → avoid stacking Logic reverb unless intentional layering is the goal.
-- **Tone King IR active** → do NOT use Logic amp/cab simulations simultaneously. Either use Tone King IR with Logic post-FX only, or bypass Tone King IR and use Logic amp + cab.
+- **Tone King vs. Software Amp Modeler**: Use **EITHER** the physical Tone King Imperial Preamp **OR** a software amp modeler (UADx, Neural DSP, Nembrini, MixWave), **never both**. Do not stack the Tone King in front of software amp sims.
+- **Tone King Routing Active** → Tone King acts as the physical preamp/amp foundation. Plugins in Logic are restricted to dynamics, EQ, modulation, delay, and reverb (no software amp sim).
+- **Direct Input Active (Default)** → Signal goes directly to iD14 D.I. Software amp modelers (Dream '65, Ruby '63, Lion '68, etc.) handle full preamp, power amp, and cabinet modeling directly from the uncolored instrument signal.
 
 ---
 
@@ -250,7 +248,27 @@ Read and display the full tone file **ONLY** if Mike specifically asks to load, 
 - User describes what worked / what didn't
 - Append a dated entry to the Feedback History section of the tone file
 - If significant, revise the signal chain and update the `updated` and `status` fields
-- Status progression: `initial` → `tested` → `refined`
+- Status progression: `initial` → `tested` → `refined` (or `archived`)
+
+---
+
+## Tone Archival & Quarantine Workflow
+
+When Mike asks to archive, retire, or move a toneprint out of the active set:
+
+1. **Update Tone Status**:
+   Change frontmatter to `status: archived`.
+2. **Quarantine Generated Presets**:
+   Move any compiled DAW/plugin presets out of user/system plugin directories and into the project's [`quarantined/`](file:///Users/miketremoulet/claude-projects/GuitarSkills/quarantined) folder, preserving their relative directory paths (e.g. `quarantined/Music/Audio Music Apps/Plug-In Settings/...`).
+   *(Or run `python3 scripts/quarantine_toneprint.py tones/path/to/tone.md`)*.
+3. **Rebuild the Viewer**:
+   Run:
+   ```bash
+   python3 tone-advisor/generate_tone_viewer.py --build-only
+   ```
+   *Note: Archived toneprints remain in `tones/` and the viewer HTML, but are hidden by default behind the "Show Archived" filter toggle.*
+4. **To Restore**:
+   Run `python3 scripts/quarantine_toneprint.py --restore tones/path/to/tone.md` or set `status: tested` and move the presets back.
 
 ---
 
@@ -271,7 +289,7 @@ target: [one-sentence sonic goal]
 tags: [comma-separated: jazz, clean, warm, blues, crunch, ambient, etc.]
 tone-king-channel: rhythm | lead | bypassed
 amp: [Amp Name, e.g., Dream '65 (UADx)]
-status: initial | tested | refined
+status: initial | tested | refined | archived
 pickup_type: humbucker | single-coil
 preset_data:
   amp_platform: uad_paradise # uad_paradise, neural_dsp, mixwave

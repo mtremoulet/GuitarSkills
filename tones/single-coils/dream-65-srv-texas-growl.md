@@ -5,7 +5,7 @@ guitar: "Squier Stratocaster (neck or neck/middle positions)"
 id: dream-65-srv-texas-growl
 pickup_type: single-coil
 preset_name: "Dream 65 SRV Texas Growl"
-status: tested
+status: archived
 tags: "blackface, srv, blues, texas-blues, single-coil, dream-65, d-tex, spring-reverb"
 target: 'Fat, midrange-forward Texas blues tone with dynamic edge-of-breakup response and lush spring reverb'
 tone-king-channel: bypassed

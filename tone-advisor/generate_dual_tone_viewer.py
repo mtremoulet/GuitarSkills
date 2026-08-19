@@ -372,6 +372,8 @@ STATUS_CLS = {
     'initial': 'status-initial',
     'tested': 'status-tested',
     'refined': 'status-refined',
+    'verified': 'status-tested',
+    'archived': 'status-archived',
 }
 
 
@@ -857,9 +859,11 @@ body {
   white-space: nowrap;
 }
 
-.status-initial { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
-.status-tested  { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
-.status-refined { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-initial  { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
+.status-tested   { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
+.status-refined  { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-archived { background: rgba(142,142,147,0.18); color: #98989f; border: 1px solid #48484a; }
+[data-theme="light"] .status-archived { background: rgba(142,142,147,0.14); color: #636366; border: 1px solid #c7c7cc; }
 
 /* ── Detail view ── */
 .tone-header {

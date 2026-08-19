@@ -9,7 +9,7 @@ status: tested
 tags: "dual-amp, humbucker, dumble, vox, enigmatic, ruby, sustain, chime, parallel"
 target: 'Boutique dual rig pairing Dumble liquid sustain (Enigmatic 82) with Vox Top Boost harmonic chime (Ruby 63) for humbucker guitars.'
 tone-king-channel: bypassed
-updated: 2026-08-02
+updated: 2026-08-17
 dual_rig: true
 amp_a:
   name: "Amp A — Enigmatic '82 (Liquid Sustain)"
@@ -129,11 +129,15 @@ Together, they eliminate humbucker dark mud while giving single notes a soaring,
 
 - **Guitar Volume Knob**: Set Les Paul neck pickup volume to **8.0** for clean rhythm, and roll up to **10** for singing lead sustain.
 - **Spectrum Balance**: If the Ruby dominates the right ear, roll the Ruby's `Tone Cut` up to **5.0**.
-- **Drive Staging**: For leads, feed a Klon/Centaur (Clon Minotaur) into **both** amps to push Enigmatic into overdrive while keeping Ruby punchy.
+- **Drive Staging (Input Track Insertion)**: Place the Klon/Centaur (Nembrini Clon Minotaur) or Bluesbreaker (Kuassa Efektor Blues Barker) directly on the primary **Guitar Input Track** (pre-split) to push both amps into overdrive simultaneously, preventing stereo imbalance and preserving punch across both channels.
 
 ---
 
 ## Feedback History
+
+### 2026-08-17 — tested
+* **Input Channel Drive Staging**: Confirmed high utility of running overdrive pedals (Nembrini Clon Minotaur, Kuassa Blues Barker) directly on the Guitar Input Channel (alongside the -3.2 dB offset fader). Pushing drive pre-split into both amps eliminates stereo lopsidedness and ensures unified harmonic crunch.
+* **Single-Coil / Telecaster Performance**: Tested and verified that the Enigmatic '82 + Ruby '63 pairing translates outstandingly to the Fender Telecaster, prompting the creation of the dedicated single-coil dual-rig toneprint (`tele-enigmatic-ruby-dual-rig.md`).
 
 ### 2026-08-02 — tested
 * **User Testing**: Pairing works extremely well. Reduced Ruby Volume from 4.0 down to 3.5 to clean up unwanted fuzz/saturation when thumb picking with humbuckers while preserving Vox chime and clarity. 

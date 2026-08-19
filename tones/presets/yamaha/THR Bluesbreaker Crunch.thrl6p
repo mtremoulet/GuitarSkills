@@ -1,0 +1,71 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Bluesbreaker Crunch",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -76.8,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": false,
+                "Sustain": 0.0,
+                "Level": 0.0
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": false,
+                "Depth": 0.0,
+                "Feedback": 0.5,
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": true,
+                "Time": 0.28,
+                "Bass": 0.3,
+                "Treble": 0.35,
+                "Feedback": 0.15,
+                "@wetDry": 0.14
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "StandardSpring",
+                "@enabled": true,
+                "Time": 0.35,
+                "Tone": 0.45,
+                "@wetDry": 0.2
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 9
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10_Lead",
+                "Drive": 0.56,
+                "Bass": 0.52,
+                "Mid": 0.68,
+                "Treble": 0.52,
+                "Master": 0.75
+            },
+            "global": {
+                "THRPresetParamTempo": 115
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

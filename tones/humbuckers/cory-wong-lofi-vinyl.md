@@ -8,7 +8,7 @@ target: 'Bandpass-filtered lo-fi clean tone resembling a sampled vinyl record, u
 tags: "clean, lo-fi, chillhop, delay, eq, humbucker, les-paul"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"
-status: tested
+status: archived
 pickup_type: humbucker
 preset_data:
   amp_platform: neural_dsp

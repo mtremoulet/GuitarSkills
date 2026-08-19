@@ -6,7 +6,7 @@ guitar: Gibson Les Paul Studio / Epiphone Sheraton
 target: 'Humbucker-optimized high-headroom "pedal platform" using Paradise Guitar Studio; Silver voice for clarity with thicker pickups.'
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker"
 amp: "Enigmatic '82 (UADx)"
-status: initial
+status: archived
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise

@@ -8,7 +8,7 @@ target: 'Sparkling, pristine, touch-sensitive clean for bossa nova chord pluckin
 tags: "boutique, clean, sparkle, single-coil, telecaster, stratocaster, fingerstyle, bossa, chillhop"
 tone-king-channel: bypassed
 amp: "H&K Puretone (Nembrini)"
-status: tested
+status: archived
 pickup_type: single-coil
 preset_data:
   nembrini_puretone:

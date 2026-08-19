@@ -128,6 +128,10 @@ def main():
                 content = file.read()
 
             frontmatter, _ = parse_yaml_frontmatter(content)
+            status_val = str(frontmatter.get("status", "")).strip().lower()
+            if status_val == "archived":
+                continue
+
             amp_str = frontmatter.get("amp", "")
             if not amp_str:
                 continue

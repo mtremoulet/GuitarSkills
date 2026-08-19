@@ -4,7 +4,7 @@ created: 2026-05-26
 guitar: "Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)"
 id: divided-11-light-blues-p90
 pickup_type: p-90
-status: initial
+status: archived
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11, framus, p-90"
 target: 'Light, dynamic blues tone through the Divided 11 — optimized for hot P-90s: clean when backing off, Class A tweed growl when digging in.'
 tone-king-channel: bypassed

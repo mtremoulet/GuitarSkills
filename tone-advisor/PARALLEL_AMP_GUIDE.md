@@ -78,8 +78,8 @@ Architecture 3: Wet / Dry Architecture
                                     └──► [Delay / Reverb] ──► [Amp B (Wet)] ──► [Bus]
 ```
 
-* **Pre-Split Drive (Into BOTH Amps)**: Creates a single, unified overdrive voice where both amplifiers distort together, producing rich inter-amplifier harmonics.
-* **Single-Amp Drive (Clean-Blend / Layered Rig)**: Drive pedal is fed **ONLY to Amp B**, while Amp A remains 100% pristine clean. Amp A preserves pick articulation, bass tightness, and transient punch, while Amp B delivers thick distortion and sustain.
+* **Pre-Split Drive (Into BOTH Amps / Input Track Insertion)**: Place drive pedals (e.g., **Nembrini Clon Minotaur** or **Kuassa Efektor Blues Barker**) directly on the primary **Guitar Input Track** in Logic (immediately following the -3.2 dB iD14 calibration offset trim). This sends the overdriven signal into both Amp A and Amp B simultaneously. Crucially, this prevents the left/right level and tonal imbalance that occurs when overdriving only one amplifier branch while the other stays clean, creating a cohesive, punchy stereo crunch.
+* **Single-Amp Drive (Clean-Blend / Layered Rig)**: Drive pedal is fed **ONLY to Amp B**, while Amp A remains 100% pristine clean. Amp A preserves pick articulation, bass tightness, and transient punch, while Amp B delivers thick distortion and sustain. Note: When using this architecture, monitor the balance carefully as Amp B's perceived volume will shift when driven.
 * **Wet / Dry Routing**: Drive pedals feed **BOTH** amps, but delay and reverb effects feed **ONLY Amp B**. Amp A holds down the dry center of the mix while Amp B creates spatial reverb bloom behind it.
 
 ---

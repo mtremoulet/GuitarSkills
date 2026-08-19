@@ -8,7 +8,7 @@ target: 'A polyphonic octave-split signal chain replicating the Boss OC-5 pedal 
 tags: "jazz, hybrid, octave-split, bass, humbuckers, sheraton"
 tone-king-channel: bypassed
 amp: "Dream '65 (UADx), Bass Amp Designer (Logic)"
-status: initial
+status: archived
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise

@@ -314,9 +314,41 @@ body {
   white-space: nowrap;
 }
 
-.status-initial { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
-.status-tested  { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
-.status-refined { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-initial  { background: rgba(104,104,110,0.2); color: #8e8e98; border: 1px solid #4a4a52; }
+.status-tested   { background: var(--badge-tested-bg); color: var(--accent); border: 1px solid var(--accent-dim); }
+.status-refined  { background: rgba(52,199,89,0.15);  color: #34c759; border: 1px solid #1e5e30; }
+.status-archived { background: rgba(142,142,147,0.18); color: #98989f; border: 1px solid #48484a; }
+[data-theme="light"] .status-archived { background: rgba(142,142,147,0.14); color: #636366; border: 1px solid #c7c7cc; }
+
+.filter-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archived-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s;
+}
+
+.archived-toggle-label:hover {
+  color: var(--secondary);
+}
+
+.archived-toggle-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+  width: 11px;
+  height: 11px;
+  margin: 0;
+}
 
 /* ── Tone header ── */
 .tone-header {
@@ -905,7 +937,7 @@ code {
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">80 tones</div>
+      <div class="vault-count">88 tones</div>
     </div>
     <div class="filters-toggle-bar" onclick="toggleFilters()">
       <span class="filter-title-label">Filters</span>
@@ -913,12 +945,19 @@ code {
     </div>
     <div class="filters-container" id="filters-container">
       <div class="filter-section">
-        <div class="filter-label">Status</div>
+        <div class="filter-header-row">
+          <div class="filter-label">Status</div>
+          <label class="archived-toggle-label" title="Show archived toneprints">
+            <input type="checkbox" id="show-archived-checkbox" onchange="toggleShowArchived(this.checked)">
+            <span>Show Archived</span>
+          </label>
+        </div>
         <div class="filter-row">
           <button class="filter-btn active" data-dim="status" data-filter="all" onclick="setFilter('status','all')">All</button>
           <button class="filter-btn" data-dim="status" data-filter="initial" onclick="setFilter('status','initial')">Initial</button>
           <button class="filter-btn" data-dim="status" data-filter="tested" onclick="setFilter('status','tested')">Tested</button>
           <button class="filter-btn" data-dim="status" data-filter="refined" onclick="setFilter('status','refined')">Refined</button>
+          <button class="filter-btn" data-dim="status" data-filter="archived" onclick="setFilter('status','archived')">Archived</button>
         </div>
       </div>
       <div class="filter-section">
@@ -957,7 +996,7 @@ code {
         <div class="filter-label">Amp</div>
         <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
           <option value="all">All amps</option>
-          <option value="Amp Snob (Archetype Cory Wong X)">Amp Snob (Archetype Cory Wong X)</option><option value="Archetype Cory Wong X + Woodrow '55 (UADx)">Archetype Cory Wong X + Woodrow '55 (UADx)</option><option value="Bass Amp Designer (Logic)">Bass Amp Designer (Logic)</option><option value="D.I. Funk Console (Archetype Cory Wong X)">D.I. Funk Console (Archetype Cory Wong X)</option><option value="Divided 11 (Nembrini)">Divided 11 (Nembrini)</option><option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Dual Woodrow '55 Differential (UADx)">Dual Woodrow '55 Differential (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Enigmatic '82 + Ruby '63 (UADx)">Enigmatic '82 + Ruby '63 (UADx)</option><option value="H&amp;K Puretone (Nembrini)">H&amp;K Puretone (Nembrini)</option><option value="JC120 Jazz Chorus (Nembrini)">JC120 Jazz Chorus (Nembrini)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Lion '68 + Dream '65 (UADx)">Lion '68 + Dream '65 (UADx)</option><option value="MRH810 V2 (Nembrini)">MRH810 V2 (Nembrini)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="Showtime '64 (UADx)">Showtime '64 (UADx)</option><option value="Ten Piece (Audio Hertz)">Ten Piece (Audio Hertz)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Tone King Imperial Preamp (Hardware)">Tone King Imperial Preamp (Hardware)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)">Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)</option><option value="UA 610-B Tube Preamp (Console Direct DI)">UA 610-B Tube Preamp (Console Direct DI)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option><option value="Woodrow '55 + Dream '65 (UADx)">Woodrow '55 + Dream '65 (UADx)</option><option value="Yamaha THR10II">Yamaha THR10II</option>
+          <option value="Amp Snob (Archetype Cory Wong X)">Amp Snob (Archetype Cory Wong X)</option><option value="Archetype Cory Wong X + Woodrow '55 (UADx)">Archetype Cory Wong X + Woodrow '55 (UADx)</option><option value="Bass Amp Designer (Logic)">Bass Amp Designer (Logic)</option><option value="D.I. Funk Console (Archetype Cory Wong X)">D.I. Funk Console (Archetype Cory Wong X)</option><option value="Divided 11 (Nembrini)">Divided 11 (Nembrini)</option><option value="Dream '65 (UADx)">Dream '65 (UADx)</option><option value="Dream '65 + Enigmatic '82 (UADx)">Dream '65 + Enigmatic '82 (UADx)</option><option value="Dual Woodrow '55 Differential (UADx)">Dual Woodrow '55 Differential (UADx)</option><option value="Enigmatic '82 (UADx)">Enigmatic '82 (UADx)</option><option value="Enigmatic '82 + Ruby '63 (UADx)">Enigmatic '82 + Ruby '63 (UADx)</option><option value="H&amp;K Puretone (Nembrini)">H&amp;K Puretone (Nembrini)</option><option value="JC120 Jazz Chorus (Nembrini)">JC120 Jazz Chorus (Nembrini)</option><option value="Lion '68 (UADx)">Lion '68 (UADx)</option><option value="Lion '68 + Dream '65 (UADx)">Lion '68 + Dream '65 (UADx)</option><option value="MRH810 V2 (Nembrini)">MRH810 V2 (Nembrini)</option><option value="Ruby '63 (UADx)">Ruby '63 (UADx)</option><option value="Showtime '64 (UADx)">Showtime '64 (UADx)</option><option value="Showtime '64 + Enigmatic '82 (UADx)">Showtime '64 + Enigmatic '82 (UADx)</option><option value="Ten Piece (Audio Hertz)">Ten Piece (Audio Hertz)</option><option value="The Clean Machine (Archetype Cory Wong X)">The Clean Machine (Archetype Cory Wong X)</option><option value="Tone King Imperial Preamp (Hardware)">Tone King Imperial Preamp (Hardware)</option><option value="Two-Rock Bloomfield (MixWave)">Two-Rock Bloomfield (MixWave)</option><option value="Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)">Two-Rock Bloomfield (MixWave) + Ruby '63 (UADx)</option><option value="UA 610-B Tube Preamp (Console Direct DI)">UA 610-B Tube Preamp (Console Direct DI)</option><option value="Woodrow '55 (UADx)">Woodrow '55 (UADx)</option><option value="Woodrow '55 + Dream '65 (UADx)">Woodrow '55 + Dream '65 (UADx)</option><option value="Yamaha THR10II">Yamaha THR10II</option>
         </select>
       </div>
     </div>
@@ -980,11 +1019,11 @@ code {
   <div class="sidebar-tags">clean, edge-of-breakup, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('cory-wong-lofi-vinyl')" data-id="cory-wong-lofi-vinyl" data-status="tested" data-genre="clean" data-guitar="les-paul" data-pickup="humbucker" data-amp="D.I. Funk Console (Archetype Cory Wong X)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('cory-wong-lofi-vinyl')" data-id="cory-wong-lofi-vinyl" data-status="archived" data-genre="clean" data-guitar="les-paul" data-pickup="humbucker" data-amp="D.I. Funk Console (Archetype Cory Wong X)" tabindex="0">
   <div class="sidebar-title">Lofi Vinyl — Sampled Chillhop Clean</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">clean, lo-fi, chillhop</div>
-  <span class="badge status-tested sidebar-badge">tested</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('cory-wong-velvet-jazz-sheraton')" data-id="cory-wong-velvet-jazz-sheraton" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="The Clean Machine (Archetype Cory Wong X)" tabindex="0">
   <div class="sidebar-title">Velvet Jazz Sheraton — Archetype Cory Wong X</div>
@@ -992,11 +1031,11 @@ code {
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('deja-hifi-jazz-humbucker')" data-id="deja-hifi-jazz-humbucker" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120 Jazz Chorus (Nembrini)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('deja-hifi-jazz-humbucker')" data-id="deja-hifi-jazz-humbucker" data-status="archived" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120 Jazz Chorus (Nembrini)" tabindex="0">
   <div class="sidebar-title">Deja HiFi Jazz Clean HB</div>
   <div class="sidebar-sub">Gibson Les Paul / Epiphone Sheraton II</div>
   <div class="sidebar-tags">jazz, hifi, solid-state</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('dream-65-blackface-jazz')" data-id="dream-65-blackface-jazz" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Dream '65 (UADx)" tabindex="0">
   <div class="sidebar-title">Dream '65 — Blackface Jazz</div>
@@ -1014,7 +1053,7 @@ code {
   <div class="sidebar-title">Henriksen Bud 6 — D.I. Funk Console (ACWX)</div>
   <div class="sidebar-sub">Epiphone Sheraton II</div>
   <div class="sidebar-tags">clean, warm, humbucker</div>
-  <span class="badge status-initial sidebar-badge">verified</span>
+  <span class="badge status-tested sidebar-badge">verified</span>
 </div>
 <div class="sidebar-item" onclick="showTone('jazz-clean-intimate-les-paul')" data-id="jazz-clean-intimate-les-paul" data-status="tested" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Showtime '64 (UADx)" tabindex="0">
   <div class="sidebar-title">Jazz Clean — Intimate Les Paul</div>
@@ -1022,10 +1061,16 @@ code {
   <div class="sidebar-tags">jazz, clean, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('jc120-pristine-jazz-clean')" data-id="jc120-pristine-jazz-clean" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120 Jazz Chorus (Nembrini)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('jc120-pristine-jazz-clean')" data-id="jc120-pristine-jazz-clean" data-status="archived" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="JC120 Jazz Chorus (Nembrini)" tabindex="0">
   <div class="sidebar-title">JC120 Pristine Jazz Clean</div>
   <div class="sidebar-sub">Epiphone Sheraton</div>
   <div class="sidebar-tags">jazz, clean, solid-state</div>
+  <span class="badge status-archived sidebar-badge">archived</span>
+</div>
+<div class="sidebar-item" onclick="showTone('leo-sun-scorpio-descent')" data-id="leo-sun-scorpio-descent" data-status="initial" data-genre="country" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Ruby '63 (UADx)" tabindex="0">
+  <div class="sidebar-title">Leo Sun Scorpio Descent HB</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton II</div>
+  <div class="sidebar-tags">edge-of-breakup, chime, vox</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('lion-68-clapton-woman-tone')" data-id="lion-68-clapton-woman-tone" data-status="initial" data-genre="rock" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Lion '68 (UADx)" tabindex="0">
@@ -1052,17 +1097,23 @@ code {
   <div class="sidebar-tags">lead, classic-rock, british</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('paradise-dream-enigmatic-dual-rig')" data-id="paradise-dream-enigmatic-dual-rig" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Dream '65 + Enigmatic '82 (UADx)" tabindex="0">
+  <div class="sidebar-title">Dream '65 + Enigmatic '82 — Vintage Deluxe &amp; ODS Dual Rig (Humbuckers)</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton II</div>
+  <div class="sidebar-tags">dual-amp, humbucker, les-paul</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
 <div class="sidebar-item" onclick="showTone('paradise-enigmatic-boutique-clean')" data-id="paradise-enigmatic-boutique-clean" data-status="refined" data-genre="clean" data-guitar="les-paul" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx)" tabindex="0">
   <div class="sidebar-title">Enigmatic '82 — Boutique Warm Clean (Paradise Guitar Studio)</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-refined sidebar-badge">refined</span>
 </div>
-<div class="sidebar-item" onclick="showTone('paradise-enigmatic-dual-rig-driven')" data-id="paradise-enigmatic-dual-rig-driven" data-status="initial" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('paradise-enigmatic-dual-rig-driven')" data-id="paradise-enigmatic-dual-rig-driven" data-status="archived" data-genre="jazz" data-guitar="les-paul" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx)" tabindex="0">
   <div class="sidebar-title">Enigmatic '82 — Dual Rig Driven &amp; Vocal Mids</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">dual-amp, driven, dumble</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('paradise-enigmatic-ruby-dual-rig')" data-id="paradise-enigmatic-ruby-dual-rig" data-status="tested" data-genre="country" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Enigmatic '82 + Ruby '63 (UADx)" tabindex="0">
   <div class="sidebar-title">Enigmatic '82 + Ruby '63 — Boutique Dual Rig (Humbuckers)</div>
@@ -1070,17 +1121,23 @@ code {
   <div class="sidebar-tags">dual-amp, humbucker, dumble</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('paradise-pedal-platform-hb')" data-id="paradise-pedal-platform-hb" data-status="initial" data-genre="clean" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('paradise-pedal-platform-hb')" data-id="paradise-pedal-platform-hb" data-status="archived" data-genre="clean" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Enigmatic '82 (UADx)" tabindex="0">
   <div class="sidebar-title">Paradise Pedal Platform (Humbucker Variant)</div>
   <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton</div>
   <div class="sidebar-tags">pedal-platform, paradise-studio, enigmatic-82</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
-<div class="sidebar-item" onclick="showTone('puretone-velvet-hb-clean')" data-id="puretone-velvet-hb-clean" data-status="refined" data-genre="clean" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="H&amp;K Puretone (Nembrini)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('paradise-showtime-enigmatic-dual-rig')" data-id="paradise-showtime-enigmatic-dual-rig" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Showtime '64 + Enigmatic '82 (UADx)" tabindex="0">
+  <div class="sidebar-title">Showtime '64 + Enigmatic '82 — SSS &amp; ODS Boutique Dual Rig (Humbuckers)</div>
+  <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton II</div>
+  <div class="sidebar-tags">dual-amp, humbucker, les-paul</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
+<div class="sidebar-item" onclick="showTone('puretone-velvet-hb-clean')" data-id="puretone-velvet-hb-clean" data-status="archived" data-genre="clean" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="H&amp;K Puretone (Nembrini)" tabindex="0">
   <div class="sidebar-title">Puretone Velvet Humbucker Clean</div>
   <div class="sidebar-sub">Gibson Les Paul Studio / Epiphone Sheraton II</div>
   <div class="sidebar-tags">boutique, clean, warm</div>
-  <span class="badge status-refined sidebar-badge">refined</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('puretone-velvet-jazz-sheraton')" data-id="puretone-velvet-jazz-sheraton" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="H&amp;K Puretone (Nembrini)" tabindex="0">
   <div class="sidebar-title">Puretone Velvet Jazz — Sheraton II</div>
@@ -1094,17 +1151,17 @@ code {
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
   <span class="badge status-refined sidebar-badge">refined</span>
 </div>
-<div class="sidebar-item" onclick="showTone('ruby-les-paul-velvet-crunch')" data-id="ruby-les-paul-velvet-crunch" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Ruby '63 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('ruby-les-paul-velvet-crunch')" data-id="ruby-les-paul-velvet-crunch" data-status="archived" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Ruby '63 (UADx)" tabindex="0">
   <div class="sidebar-title">Ruby '63 — Les Paul Velvet Crunch &amp; Chime</div>
   <div class="sidebar-sub">Gibson Les Paul Studio</div>
   <div class="sidebar-tags">vox, ac30, ruby-63</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
-<div class="sidebar-item" onclick="showTone('sheraton-bass-split-oc5')" data-id="sheraton-bass-split-oc5" data-status="initial" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Dream '65 (UADx), Bass Amp Designer (Logic)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('sheraton-bass-split-oc5')" data-id="sheraton-bass-split-oc5" data-status="archived" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Dream '65 (UADx), Bass Amp Designer (Logic)" tabindex="0">
   <div class="sidebar-title">Sheraton OC-5 Bass Split</div>
   <div class="sidebar-sub">Epiphone Sheraton II</div>
   <div class="sidebar-tags">jazz, hybrid, octave-split</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('sheraton-jazz-acoustic')" data-id="sheraton-jazz-acoustic" data-status="tested" data-genre="jazz" data-guitar="semi-hollow" data-pickup="humbucker" data-amp="Showtime '64 (UADx)" tabindex="0">
   <div class="sidebar-title">Sheraton Jazz + Acoustic Blend</div>
@@ -1116,6 +1173,12 @@ code {
   <div class="sidebar-title">Soejima Neo-Soul Clean — Humbucker</div>
   <div class="sidebar-sub">Epiphone Sheraton II / Gibson Les Paul Studio</div>
   <div class="sidebar-tags">neo-soul, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-bluesbreaker-crunch')" data-id="thr-bluesbreaker-crunch" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR Bluesbreaker Crunch — Les Paul / P-90s</div>
+  <div class="sidebar-sub">Epiphone Les Paul Standard / Gibson Les Paul Studio / Framus P-90s</div>
+  <div class="sidebar-tags">blues, rock, vintage</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('thr-singing-lp-lead')" data-id="thr-singing-lp-lead" data-status="initial" data-genre="rock" data-guitar="les-paul" data-pickup="humbucker" data-amp="Yamaha THR10II" tabindex="0">
@@ -1166,11 +1229,11 @@ code {
   <div class="sidebar-tags">boutique, clean, warm</div>
   <span class="badge status-refined sidebar-badge">refined</span>
 </div>
-<div class="sidebar-item" onclick="showTone('cory-wong-city-pop-chime')" data-id="cory-wong-city-pop-chime" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="D.I. Funk Console (Archetype Cory Wong X)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('cory-wong-city-pop-chime')" data-id="cory-wong-city-pop-chime" data-status="archived" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="D.I. Funk Console (Archetype Cory Wong X)" tabindex="0">
   <div class="sidebar-title">City Pop Chime — Chorused Rhythm Clean</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">clean, chorus, compression</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('cory-wong-funk-envelope')" data-id="cory-wong-funk-envelope" data-status="initial" data-genre="clean" data-guitar="framus" data-pickup="p-90" data-amp="The Clean Machine (Archetype Cory Wong X)" tabindex="0">
   <div class="sidebar-title">Funk Envelope — Dynamic R&amp;B Filter</div>
@@ -1184,11 +1247,11 @@ code {
   <div class="sidebar-tags">clean, edge-of-breakup, warm</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('divided-11-light-blues-p90')" data-id="divided-11-light-blues-p90" data-status="initial" data-genre="blues" data-guitar="framus" data-pickup="p-90" data-amp="Divided 11 (Nembrini)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('divided-11-light-blues-p90')" data-id="divided-11-light-blues-p90" data-status="archived" data-genre="blues" data-guitar="framus" data-pickup="p-90" data-amp="Divided 11 (Nembrini)" tabindex="0">
   <div class="sidebar-title">Divided 11 Light Blues (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">blues, dynamic, clean</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('framus-dual-woodrow-p90')" data-id="framus-dual-woodrow-p90" data-status="tested" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Dual Woodrow '55 Differential (UADx)" tabindex="0">
   <div class="sidebar-title">Dual Woodrow '55 — Framus P-90 Differential Rig</div>
@@ -1196,11 +1259,11 @@ code {
   <div class="sidebar-tags">dual-amp, p-90, framus</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('framus-electronic-veil-p90')" data-id="framus-electronic-veil-p90" data-status="initial" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Showtime '64 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('framus-electronic-veil-p90')" data-id="framus-electronic-veil-p90" data-status="archived" data-genre="jazz" data-guitar="framus" data-pickup="p-90" data-amp="Showtime '64 (UADx)" tabindex="0">
   <div class="sidebar-title">The Electronic Veil (P-90/Framus Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">jazz, framus, p-90</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('lion-68-jumped-plexi-crunch-p90')" data-id="lion-68-jumped-plexi-crunch-p90" data-status="initial" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Lion '68 (UADx)" tabindex="0">
   <div class="sidebar-title">Lion '68 — Jumped Plexi Crunch (P-90 Variant)</div>
@@ -1268,11 +1331,11 @@ code {
   <div class="sidebar-tags">tweed, woodrow, blues</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot-p90')" data-id="woodrow-sweet-spot-p90" data-status="tested" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Woodrow '55 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('woodrow-sweet-spot-p90')" data-id="woodrow-sweet-spot-p90" data-status="archived" data-genre="rock" data-guitar="framus" data-pickup="p-90" data-amp="Woodrow '55 (UADx)" tabindex="0">
   <div class="sidebar-title">Woodrow Sweet Spot (P-90 Variant)</div>
   <div class="sidebar-sub">Framus Earl Slick Artist Series</div>
   <div class="sidebar-tags">tweed, woodrow, blues</div>
-  <span class="badge status-tested sidebar-badge">tested</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('cory-wong-dire-straits-sultans')" data-id="cory-wong-dire-straits-sultans" data-status="initial" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="The Clean Machine (Archetype Cory Wong X)" tabindex="0">
   <div class="sidebar-title">Dire Straits — Sultans Clean (Archetype Cory Wong X)</div>
@@ -1310,23 +1373,29 @@ code {
   <div class="sidebar-tags">blackface, country, surf</div>
   <span class="badge status-refined sidebar-badge">refined</span>
 </div>
-<div class="sidebar-item" onclick="showTone('dream-65-srv-texas-growl')" data-id="dream-65-srv-texas-growl" data-status="tested" data-genre="blues" data-guitar="strat" data-pickup="single-coil" data-amp="Dream '65 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('dream-65-srv-texas-growl')" data-id="dream-65-srv-texas-growl" data-status="archived" data-genre="blues" data-guitar="strat" data-pickup="single-coil" data-amp="Dream '65 (UADx)" tabindex="0">
   <div class="sidebar-title">Dream '65 — SRV Texas Growl</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">blackface, srv, blues</div>
-  <span class="badge status-tested sidebar-badge">tested</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
-<div class="sidebar-item" onclick="showTone('paradise-pedal-platform-sc')" data-id="paradise-pedal-platform-sc" data-status="initial" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('hazy-thames-gold')" data-id="hazy-thames-gold" data-status="initial" data-genre="ambient" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65 (UADx)" tabindex="0">
+  <div class="sidebar-title">Hazy Thames Gold SC</div>
+  <div class="sidebar-sub">Fender Player II Telecaster / Squier Stratocaster</div>
+  <div class="sidebar-tags">clean, ambient, dream-65</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('paradise-pedal-platform-sc')" data-id="paradise-pedal-platform-sc" data-status="archived" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82 (UADx)" tabindex="0">
   <div class="sidebar-title">Paradise Pedal Platform (Single-Coil Variant)</div>
   <div class="sidebar-sub">Fender Player II Telecaster / Squier Stratocaster</div>
   <div class="sidebar-tags">pedal-platform, paradise-studio, enigmatic-82</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
-<div class="sidebar-item" onclick="showTone('puretone-bossa-fingerstyle-sc')" data-id="puretone-bossa-fingerstyle-sc" data-status="tested" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="H&amp;K Puretone (Nembrini)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('puretone-bossa-fingerstyle-sc')" data-id="puretone-bossa-fingerstyle-sc" data-status="archived" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="H&amp;K Puretone (Nembrini)" tabindex="0">
   <div class="sidebar-title">Puretone Bossa Fingerstyle — Single-Coils</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">boutique, clean, sparkle</div>
-  <span class="badge status-tested sidebar-badge">tested</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('ruby-63-vox-jangle')" data-id="ruby-63-vox-jangle" data-status="initial" data-genre="country" data-guitar="strat" data-pickup="single-coil" data-amp="Ruby '63 (UADx)" tabindex="0">
   <div class="sidebar-title">Ruby '63 — Vox Top Boost Jangle</div>
@@ -1346,11 +1415,11 @@ code {
   <div class="sidebar-tags">neo-soul, clean, warm</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
-<div class="sidebar-item" onclick="showTone('strat-ambient-bath')" data-id="strat-ambient-bath" data-status="initial" data-genre="ambient" data-guitar="strat" data-pickup="single-coil" data-amp="Showtime '64 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('strat-ambient-bath')" data-id="strat-ambient-bath" data-status="archived" data-genre="ambient" data-guitar="strat" data-pickup="single-coil" data-amp="Showtime '64 (UADx)" tabindex="0">
   <div class="sidebar-title">Strat Ambient Bath</div>
   <div class="sidebar-sub">Squier Stratocaster</div>
   <div class="sidebar-tags">ambient, lush, sound-bath</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('strat-lion-dream-dual-rig')" data-id="strat-lion-dream-dual-rig" data-status="initial" data-genre="rock" data-guitar="strat" data-pickup="single-coil" data-amp="Lion '68 + Dream '65 (UADx)" tabindex="0">
   <div class="sidebar-title">Lion '68 + Dream '65 — Stratocaster Dual Rig (Single-Coils)</div>
@@ -1364,11 +1433,11 @@ code {
   <div class="sidebar-tags">surf, clean, chorus</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('tele-bass-split-oc5')" data-id="tele-bass-split-oc5" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65 (UADx), Bass Amp Designer (Logic)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('tele-bass-split-oc5')" data-id="tele-bass-split-oc5" data-status="archived" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Dream '65 (UADx), Bass Amp Designer (Logic)" tabindex="0">
   <div class="sidebar-title">Telecaster OC-5 Bass Split</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">jazz, hybrid, octave-split</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('tele-cory-woodrow-dual-rig')" data-id="tele-cory-woodrow-dual-rig" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Archetype Cory Wong X + Woodrow '55 (UADx)" tabindex="0">
   <div class="sidebar-title">Archetype Cory Wong X + Woodrow '55 — Hi-Fi &amp; Tweed Dual Rig (Single-Coils)</div>
@@ -1382,6 +1451,12 @@ code {
   <div class="sidebar-tags">jazz, telecaster, dark</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
+<div class="sidebar-item" onclick="showTone('tele-enigmatic-ruby-dual-rig')" data-id="tele-enigmatic-ruby-dual-rig" data-status="tested" data-genre="country" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82 + Ruby '63 (UADx)" tabindex="0">
+  <div class="sidebar-title">Enigmatic '82 + Ruby '63 — Telecaster Dual Rig (Single-Coils)</div>
+  <div class="sidebar-sub">Fender Player II Telecaster</div>
+  <div class="sidebar-tags">dual-amp, telecaster, single-coil</div>
+  <span class="badge status-tested sidebar-badge">tested</span>
+</div>
 <div class="sidebar-item" onclick="showTone('tele-singing-blues-carlton')" data-id="tele-singing-blues-carlton" data-status="initial" data-genre="blues" data-guitar="telecaster" data-pickup="single-coil" data-amp="Enigmatic '82 (UADx)" tabindex="0">
   <div class="sidebar-title">Singing Blues-Jazz (Larry Carlton Style)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
@@ -1392,6 +1467,18 @@ code {
   <div class="sidebar-title">Woodrow '55 + Dream '65 — Telecaster Dual Rig (Single-Coils)</div>
   <div class="sidebar-sub">Fender Player II Telecaster</div>
   <div class="sidebar-tags">dual-amp, telecaster, single-coil</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-tele-bickert-jazz')" data-id="thr-tele-bickert-jazz" data-status="initial" data-genre="jazz" data-guitar="telecaster" data-pickup="single-coil" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR Tele Bickert Jazz — Telecaster</div>
+  <div class="sidebar-sub">2024 Fender Player II Telecaster</div>
+  <div class="sidebar-tags">jazz, clean, warm</div>
+  <span class="badge status-initial sidebar-badge">initial</span>
+</div>
+<div class="sidebar-item" onclick="showTone('thr-tele-blackface-sparkle')" data-id="thr-tele-blackface-sparkle" data-status="initial" data-genre="clean" data-guitar="telecaster" data-pickup="single-coil" data-amp="Yamaha THR10II" tabindex="0">
+  <div class="sidebar-title">THR Tele Blackface Sparkle — Telecaster</div>
+  <div class="sidebar-sub">2024 Fender Player II Telecaster</div>
+  <div class="sidebar-tags">clean, sparkle, blackface</div>
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
 <div class="sidebar-item" onclick="showTone('thr-warm-neo-soul')" data-id="thr-warm-neo-soul" data-status="initial" data-genre="jazz" data-guitar="strat" data-pickup="single-coil" data-amp="Yamaha THR10II" tabindex="0">
@@ -1424,11 +1511,11 @@ code {
   <div class="sidebar-tags">tweed, woodrow, blues</div>
   <span class="badge status-tested sidebar-badge">tested</span>
 </div>
-<div class="sidebar-item" onclick="showTone('dream-65-warm-clean')" data-id="dream-65-warm-clean" data-status="initial" data-genre="jazz" data-guitar="other" data-pickup="universal" data-amp="Dream '65 (UADx)" tabindex="0">
+<div class="sidebar-item" onclick="showTone('dream-65-warm-clean')" data-id="dream-65-warm-clean" data-status="archived" data-genre="jazz" data-guitar="other" data-pickup="universal" data-amp="Dream '65 (UADx)" tabindex="0">
   <div class="sidebar-title">Dream '65 — Warm Clean</div>
   <div class="sidebar-sub">Universal</div>
   <div class="sidebar-tags">blackface, clean, warm</div>
-  <span class="badge status-initial sidebar-badge">initial</span>
+  <span class="badge status-archived sidebar-badge">archived</span>
 </div>
 <div class="sidebar-item" onclick="showTone('slapback-defaults')" data-id="slapback-defaults" data-status="initial" data-genre="jazz" data-guitar="other" data-pickup="" data-amp="" tabindex="0">
   <div class="sidebar-title">Slapback Delay Default Presets</div>
@@ -1443,7 +1530,7 @@ code {
   <span class="badge status-initial sidebar-badge">initial</span>
 </div>
     </div>
-    <div class="sidebar-footer">Generated 2026-08-08 22:07</div>
+    <div class="sidebar-footer">Generated 2026-08-19 13:41</div>
   </aside>
 
   <main class="main-panel" id="main-panel">
@@ -1709,7 +1796,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul Studio (490R neck / 498T bridge humbuckers)</span>
-      <span class="badge status-tested">tested</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">clean</span><span class="tag">lo-fi</span><span class="tag">chillhop</span><span class="tag">delay</span><span class="tag">eq</span><span class="tag">humbucker</span><span class="tag">les-paul</span></div>
@@ -1824,7 +1911,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul / Epiphone Sheraton II (humbuckers)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">jazz</span><span class="tag">hifi</span><span class="tag">solid-state</span><span class="tag">humbucker</span><span class="tag">deja</span><span class="tag">les-paul</span><span class="tag">sheraton</span><span class="tag">cheek-to-cheek</span><span class="tag">nembrini</span><span class="tag">jc120</span></div>
@@ -2132,7 +2219,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Epiphone Sheraton II (neck humbucker, flatwounds)</span>
-      <span class="badge status-initial">verified</span>
+      <span class="badge status-tested">verified</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">clean</span><span class="tag">warm</span><span class="tag">humbucker</span><span class="tag">flatwounds</span><span class="tag">jazz</span><span class="tag">neural-dsp</span><span class="tag">cory-wong</span><span class="tag">henriksen</span></div>
@@ -2417,7 +2504,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Epiphone Sheraton (humbuckers)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">jazz</span><span class="tag">clean</span><span class="tag">solid-state</span><span class="tag">chorus</span><span class="tag">jc120</span><span class="tag">nembrini</span><span class="tag">pristine</span></div>
@@ -2518,6 +2605,131 @@ code {
     <span class="badge status-initial">bypassed Tone King Preamp (direct-in default)</span>
   </div>
   <div class="feedback-content"><p class="markdown-p">Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.</p></div>
+</div>
+</section>
+</div>
+
+<div class="tone-detail" id="tone-leo-sun-scorpio-descent" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Leo Sun Scorpio Descent HB</h1>
+      <a href="../tones/humbuckers/leo-sun-scorpio-descent.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (humbuckers)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">edge-of-breakup</span><span class="tag">chime</span><span class="tag">vox</span><span class="tag">ruby-63</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">sheraton</span><span class="tag">capitol-chambers</span><span class="tag">la2a</span><span class="tag">leo-scorpio</span><span class="tag">astrology</span></div>
+    <p class="tone-target-desc">Regal, singing British edge-of-breakup lead and chord bloom steeped in deep Capitol chamber ambience — channeling the radiant warmth of Leo and brooding depth of Scorpio.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">Conceived from the cosmic convergence of the <strong>Sun in Leo</strong> (bold, singing harmonic presence and regal warmth) and the <strong>Moon crossing into Scorpio</strong> (deep, introspective, shadowy acoustic depth), this toneprint is designed for rich dual-humbucker guitars like the <strong>Gibson Les Paul Studio</strong> or <strong>Epiphone Sheraton II</strong>.</p>
+<p class="markdown-p">Built upon the <strong>UADx Ruby '63</strong> (Vox AC30 Top Boost), it uses the <strong>Brilliant channel</strong> with the <strong>EP-III Boost circuit</strong> engaged at a modest setting (2.5). This pushes the virtual EL84 power section into a singing, touch-sensitive edge-of-breakup lead tone that roars when you dig in and purrs when you play softly. The <strong>Cut switch</strong> and <strong>Tone Cut control</strong> tame humbucker low-end flub and digital treble harshness, while the <strong>UADx LA-2A</strong> and a deep <strong>Capitol Chambers / Hitsville</strong> decay envelop the sound in an expansive, mystical twilight.</p>
+<p class="markdown-p">&gt; [!TIP] &gt; <strong>Pure Direct Input Path:</strong> &gt; By connecting your guitar directly to the <strong>Audient iD14 JFET D.I. input</strong> (bypassing the physical Tone King Imperial Preamp), you preserve the natural, vocal midrange of your humbuckers. The internal -3.2 dB input gain calibration ensures the Ruby's Top Boost stage reacts with authentic headroom and dynamic touch.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><button class="chain-chip" onclick="scrollToItem('plugin-leo-sun-scorpio-descent-1')">Physical Hardware &amp; Interf…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-leo-sun-scorpio-descent-2')">Ruby '63 Top Boost Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-leo-sun-scorpio-descent-3')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-leo-sun-scorpio-descent-4')">Post-FX Polish</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-leo-sun-scorpio-descent-5')">Spatial Effects</button></div>
+    
+<div class="plugin-section" id="plugin-leo-sun-scorpio-descent-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Physical Hardware &amp; Interface Front-End</span>
+      <span class="plugin-role">Audient iD14 mkII</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Component</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Guitar Input</strong></td><td class="col-setting">Instrument Input 1 (JFET D.I.)</td><td class="col-purpose">Discrete high-impedance JFET input provides tube-like impedance loading</td></tr><tr class="row-alt"><td><strong>Gain Knob</strong></td><td class="col-setting">Minimum / Set to peak at ~−18 dBFS</td><td class="col-purpose">Clean, unclipped dynamic headroom</td></tr><tr class="row-norm"><td><strong>Tone King Imperial</strong></td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Bypassed — prevents double-preamping and midrange pre-scooping</td></tr><tr class="row-alt"><td><strong>TONEX One</strong></td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Fully bypassed transparent route</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-leo-sun-scorpio-descent-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Ruby '63 Top Boost Amp</span>
+      <span class="plugin-role">regal chime &amp; vocal grit</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Channel</strong></td><td class="col-setting"><strong>Brilliant</strong></td><td class="col-purpose">Top Boost circuit provides rich harmonic overtone bloom on humbuckers</td></tr><tr class="row-alt"><td><strong>Volume</strong></td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Edge-of-breakup sweet spot: cleans up with volume rollback, sings under attack</td></tr><tr class="row-norm"><td><strong>Boost Switch</strong></td><td class="col-setting"><strong>ON</strong></td><td class="col-purpose">Engages the modeled EP-III tape echo preamp boost</td></tr><tr class="row-alt"><td><strong>Boost Level</strong></td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Adds velvety tube saturation and sustain without fizzy clipping</td></tr><tr class="row-norm"><td><strong>Cut Switch</strong></td><td class="col-setting"><strong>ON</strong></td><td class="col-purpose"><strong>Crucial for humbuckers:</strong> cuts sub-bass mud before the preamp stage</td></tr><tr class="row-alt"><td><strong>Top Boost Treble</strong></td><td class="col-setting"><strong>5.2</strong></td><td class="col-purpose">Balances high-mid presence and vowel-like clarity</td></tr><tr class="row-norm"><td><strong>Top Boost Bass</strong></td><td class="col-setting"><strong>4.6</strong></td><td class="col-purpose">Tight, focused low end that won't overwhelm headphone monitoring</td></tr><tr class="row-alt"><td><strong>Tone Cut</strong></td><td class="col-setting"><strong>5.8</strong></td><td class="col-purpose"><em>(Clockwise = roll-off)</em> Smooths out high-frequency transient bite</td></tr><tr class="row-norm"><td><strong>Cabinet</strong></td><td class="col-setting"><strong>Green (2x12 Celestion G12H)</strong></td><td class="col-purpose">Mic'd with ribbon; warms the midrange and rounds off aggressive highs</td></tr><tr class="row-alt"><td><strong>Input Gain (IN)</strong></td><td class="col-setting"><strong>−3.2 dB</strong></td><td class="col-purpose">Calibrates iD14 (+9 dBu) to UAD analog modeling reference (+12.2 dBu)</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-leo-sun-scorpio-descent-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">smooth vocal sustain</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Peak Reduction</strong></td><td class="col-setting"><strong>32.0</strong></td><td class="col-purpose">Provides 2–4 dB of smooth opto-compression, enhancing singing sustain</td></tr><tr class="row-alt"><td><strong>Gain</strong></td><td class="col-setting"><strong>28.0</strong></td><td class="col-purpose">Restores level for an authoritative, forward mix presence (~−11 dBFS)</td></tr><tr class="row-norm"><td><strong>Mode</strong></td><td class="col-setting"><strong>Compress</strong></td><td class="col-purpose">Gentle optical leveling preserving expressive touch sensitivity</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-leo-sun-scorpio-descent-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Post-FX Polish</span>
+      <span class="plugin-role">Logic Channel EQ</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Frequency</th><th>Gain / Slope</th><th>Q / Role</th></tr></thead><tbody><tr class="row-norm"><td><strong>High-Pass (Band 1)</strong></td><td>80 Hz</td><td>24 dB/oct</td><td>Cleans sub-bass rumble to keep the mix tight</td></tr><tr class="row-alt"><td><strong>Mid Notch (Band 4)</strong></td><td>580 Hz</td><td>−1.5 dB</td><td>1.4 Q — carves a slight dip in nasal lower-mid frequencies</td></tr><tr class="row-norm"><td><strong>High Tame (Band 7)</strong></td><td>4.8 kHz</td><td>−1.0 dB</td><td>Subtle softening of aggressive pick transients on headphones</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-leo-sun-scorpio-descent-5">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Spatial Effects</span>
+      <span class="plugin-role">Bus-First Aux Routing</span>
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-leo-sun-scorpio-descent-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 3 (Chamber Reverb): UADx Capitol Chambers / Hitsville (100% Wet on Aux Return)</span>
+      
+    </div>
+  </div>
+  <div class="plugin-note"><ul class="markdown-ul">
+<li><strong>Space / Chamber</strong>: <strong>Chamber 4 (or Hitsville Chamber 1)</strong>.</li>
+<li><strong>Decay Time</strong>: <strong>3.8 seconds</strong> (vast, dark acoustic space representing Scorpio's depths).</li>
+<li><strong>Pre-Delay</strong>: <strong>24 ms</strong> (keeps the guitar attack dry and articulate before the reverb blooms).</li>
+<li><strong>Tone / Filter</strong>: Slightly darkened top-end roll-off to avoid metallic reflections.</li>
+<li><strong>Logic Send Level</strong>: <strong>−16 dB</strong> (creates a luxurious, atmospheric depth behind lead lines).</li>
+</ul></div>
+  
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume &amp; Tone Sweet Spot</span><span class="guide-content">Set your neck pickup <strong>Volume to 7.5</strong> and <strong>Tone to 7</strong>. This brings out an astonishingly woody, vocal tone. Roll Volume to <strong>10</strong> when you want a rich, saturated Leo roar.</span></div><div class="guide-card"><span class="guide-label">First adjustment</span><span class="guide-content">If the tone feels too warm for rhythm chords, flip the <strong>Cut Switch to OFF</strong> or reduce <strong>Tone Cut to 4.5</strong> to reintroduce classic British chime.</span></div><div class="guide-card"><span class="guide-label">Sheraton II vs. Les Paul</span><span class="guide-content">On semi-hollow guitars like the Sheraton II, the acoustic body adds extra low-mid resonance; try nudging the <strong>Treble up to 5.6</strong> if needed.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <div class="feedback-content"><p class="markdown-p">Created around the astrological dynamic of the Sun in Leo and Moon transitioning into Scorpio. Calibrated for dual-humbucker guitars (Gibson Les Paul Studio / Epiphone Sheraton II) running Direct Input into the Audient iD14. Utilizes UADx Ruby '63 on the Brilliant channel with EP-III boost, LA-2A optical sustain, and a cavernous Capitol/Hitsville chamber reverb on Aux Bus 3.</p></div>
 </div>
 </section>
 </div>
@@ -2978,6 +3190,111 @@ code {
 </section>
 </div>
 
+<div class="tone-detail" id="tone-paradise-dream-enigmatic-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Dream '65 + Enigmatic '82 — Vintage Deluxe &amp; ODS Dual Rig (Humbuckers)</h1>
+      <a href="../tones/humbuckers/paradise-dream-enigmatic-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">dumble</span><span class="tag">dream</span><span class="tag">deluxe-reverb</span><span class="tag">enigmatic</span><span class="tag">ods</span><span class="tag">blackface</span><span class="tag">spring-reverb</span><span class="tag">warm-clean</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">Vintage boutique dual rig pairing spongy 6V6 Deluxe Reverb clean bloom and spring reverb (Dream 65) with thick Dumble ODS vocal sustain (Enigmatic 82) for humbuckers.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint pairs two legendary American tube voices for humbucker guitars (<strong>Gibson Les Paul Studio</strong> and <strong>Epiphone Sheraton II</strong>), blending vintage small-club warmth with boutique high-gain refinement:</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Dream '65 Deluxe Reverb Foundation)</strong>: Delivers warm 6V6 power amp sag, a pillowy bottom end, gentle blooming compression, and lush tube-driven spring reverb (pulled back to <strong>2.2</strong> for optimal mix definition). Paired with the <strong>1x12 EV12</strong> cabinet to keep humbucker low-end tight, fast, and articulate.</li>
+<li><strong>Amp B (Right, Pan +12 — Enigmatic '82 Dumble ODS Singing Mids)</strong>: Provides rich 800 Hz–2 kHz vocal midrange sustain, smooth overdrive compression, and touch-sensitive harmonic bite.</li>
+</ul>
+<p class="markdown-p">The Dream '65 gives chords an organic, three-dimensional acoustic bloom and sweet top end, while the Enigmatic ensures single-note leads sing with thick, creamy Dumble sustain.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-paradise-dream-enigmatic-dual-rig-2')">Pre-Split Overdrive Stagin…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-paradise-dream-enigmatic-dual-rig-3')">Parallel Amp Configuration…</button><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">Parallel Submix Bus &amp; Leve…</span></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">* **Status:** **Bypassed** * **Signal Path:** Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</span></div>
+<div class="plugin-section" id="plugin-paradise-dream-enigmatic-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Pre-Split Overdrive Staging (Guitar Input Track)</span>
+      
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p">Tested and dialed specifically for humbuckers pushing the parallel amp pair:</p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>2.2 / 4.6 / 6.1</strong></td><td class="col-purpose">Transparent low-gain push; lifts amp front-end without mid-hump congestion</td></tr><tr class="row-alt"><td><strong>Nembrini NA 808</strong></td><td>Drive / Tone / Level</td><td class="col-setting"><strong>2.0 / 3.9 / 4.1</strong></td><td class="col-purpose">Low-drive vocal boost; smooth rounded top end</td></tr><tr class="row-norm"><td><strong>Kuassa Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>2.9 / 5.5 / 3.3</strong></td><td class="col-purpose">Transparent Bluesbreaker dynamic crunch with open upper-mid bite</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-paradise-dream-enigmatic-dual-rig-3">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Amp Configuration (UADx Paradise / Plugin Suite)</span>
+      
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-paradise-dream-enigmatic-dual-rig-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip A: Dream '65</span>
+      <span class="plugin-role">Vintage Deluxe Reverb Bloom (Pan: -12 L)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Clean edge-of-bloom sweet spot for humbuckers</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Smooth high-frequency sheen without bright cap harshness</td></tr><tr class="row-norm"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Controlled low end to prevent 6V6 mud on neck humbucker</td></tr><tr class="row-alt"><td>Bright</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Warmer, rounder tone stack response</td></tr><tr class="row-norm"><td>Reverb</td><td class="col-setting"><strong>2.2</strong></td><td class="col-purpose">Tuned spring reverb level — provides transient &quot;gloss&quot; without muddying bus reverb</td></tr><tr class="row-alt"><td>Boost</td><td class="col-setting"><strong>Off (Stock)</strong></td><td class="col-purpose">Preserves clean headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>1x12 EV12</strong></td><td class="col-purpose">High-headroom EVM-12L speaker keeps humbucker bass tight and punchy</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Trimmed to match Enigmatic channel level</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-paradise-dream-enigmatic-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip B: Enigmatic '82</span>
+      <span class="plugin-role">Dumble ODS Vocal Mids (Pan: +12 R)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive warm overdrive</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Articulate high-end extension</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.8</strong></td><td class="col-purpose">Thick vocal core filling the Deluxe Reverb's natural mid-scoop</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tight low-end response</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Upper-harmonic clarity</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Power section saturation and sustain</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Deep, uncompressed headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Two-Rock Celestion G12-65 response</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Level matched for stereo parity</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div><div class="routing-note"><span class="routing-label">Route</span>Parallel Submix Bus &amp; Level Parity <span class="routing-detail">* **Short-Term LUFS Metering**: Solo Amp A and Amp B independently using Logic's Loudness Meter. Confirm both read **-20.0 Short-Term LUFS**. * **Submix Bus Compressor**: UAD LA-2A Silver (Peak Reduction **40.0**, Gain **30.0**) pulling **-1.5 to -2.5 dB GR** to glue the parallel soundstage. * **Spatial Reverb**: UAD Hitsville / Capitol Chambers (Mix **10%**, Decay **2.0s**, Pre-Delay **10ms**) on parallel aux send (kept at 10% to complement the Dream's onboard spring reverb).</span></div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Spring vs. Room Reverb Balance</span><span class="guide-content">With the Dream '65 spring reverb tuned to <strong>2.2</strong>, it provides mechanical string rattle and transient smoothing on the left channel, while the Hitsville bus reverb (10% mix) creates the 3D room glue across the stereo field.</span></div><div class="guide-card"><span class="guide-label">Overdrive Staging</span><span class="guide-content">Place a Klon (Nembrini Clon Minotaur), 808 (Nembrini NA 808), or Bluesbreaker (Kuassa Efektor Blues Barker) on the <strong>Guitar Input Track</strong> (pre-split). Pushing low-drive boosts with higher output levels preserves the Deluxe Reverb's clean bloom while driving the Enigmatic into thick, singing Dumble saturation.</span></div><div class="guide-card"><span class="guide-label">Neck Humbucker Clarity</span><span class="guide-content">If the neck pickup feels too dark, flip the Dream '65 Bright switch to <strong>On</strong> or switch the Cab to the <strong>2x12 JBF120 (Twin JBLs)</strong>.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-18</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Reverb Calibration</strong>: Adjusted Dream '65 onboard spring reverb from 2.8 down to <strong>2.2</strong> based on session listening. Eliminates low-mid wash while preserving authentic mechanical spring transient gloss.</li>
+<li><strong>Pre-Split Drive Calibration</strong>: Encoded fine-tuned pedal settings (&quot;Showtime Enigmatic Tuning&quot;):</li>
+<li><strong>Nembrini Clon Minotaur</strong>: Gain 2.2, Treble 4.6, Output 6.1 (transparent clean boost driving front-end headroom).</li>
+<li><strong>Nembrini NA 808</strong>: Drive 2.0, Tone 3.9, Level 4.1 (smooth low-gain vocal push).</li>
+<li><strong>Kuassa Blues Barker</strong>: Gain 2.9, Tone 5.5, Level 3.3 (open Bluesbreaker texture).</li>
+<li>Recompiled presets for Amp A, Amp B, Submix Bus, and all three overdrive pedals.</li>
+</ul></div>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-paradise-enigmatic-boutique-clean" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -3012,7 +3329,7 @@ code {
       <span class="plugin-role">boutique character source</span>
     </div>
   </div>
-  <div class="track-note"><p class="markdown-p">To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the transparent boost option on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.</p></div>
+  <div class="track-note"><p class="markdown-p">To keep the comparison with our Two Rock toneprint completely fair and transparent, we bypass all of Paradise Guitar Studio's internal effects (compression, delay, reverb) except for the optional pre-amp overdrives on hand, relying on standalone LA-2A and Hitsville Reverb. This isolates the Enigmatic '82's beautiful amp circuit and cabinet model.</p></div>
   <div class="track-body">
 
 <div class="plugin-section nested-plugin" id="plugin-paradise-enigmatic-boutique-clean-1">
@@ -3031,12 +3348,12 @@ code {
   <div class="plugin-header">
     <span class="plugin-num">2</span>
     <div class="plugin-title-block">
-      <span class="plugin-name">Pre-FX Option: Gold Overdrive</span>
+      <span class="plugin-name">Optional Pre-FX Overdrive &amp; Boost Flavors (Bypassed by Default)</span>
       
     </div>
   </div>
-  
-  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Pedal</td><td class="col-setting"><strong>Gold Overdrive</strong></td><td class="col-purpose">Transparent clean boost on hand</td></tr><tr class="row-alt"><td>State</td><td class="col-setting"><strong>Disabled</strong> (Off)</td><td class="col-purpose">Bypass by default; engage for clean solo boost or pushing front end</td></tr><tr class="row-norm"><td>Gain</td><td class="col-setting"><strong>0.0</strong></td><td class="col-purpose">Zero added distortion; pure clean boost</td></tr><tr class="row-alt"><td>Output</td><td class="col-setting"><strong>7.5</strong></td><td class="col-purpose">Pushes front end of amp for singing sustain and level lift</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Slightly rounded high end for smooth boost response</td></tr></tbody></table></div>
+  <div class="plugin-note"><p class="markdown-p">Three versatile overdrive/boost options are pre-staged in Paradise Guitar Studio's Pre-FX rack slots 1–3. They are <strong>bypassed by default</strong> to preserve the pristine, dynamic boutique clean foundation, but are dialed in for instant engagement whenever extra push, singing sustain, or mid focus is needed:</p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Slot</th><th>Pedal</th><th>State</th><th>Key Controls</th><th>Sonic Role &amp; Aesthetic Profile</th></tr></thead><tbody><tr class="row-norm"><td><strong>Slot 1</strong></td><td><strong>TS Overdrive</strong> (Tube Screamer TS808/TS9)</td><td><strong>Bypassed (Off)</strong></td><td>Overdrive: <strong>3.6</strong>, Level: <strong>3.7</strong>, Tone: <strong>1.7</strong></td><td>Classic focused midrange push with smooth, rolled-off top end; cuts solos right through the mix</td></tr><tr class="row-alt"><td><strong>Slot 2</strong></td><td><strong>Gold Overdrive</strong> (Klon Centaur)</td><td><strong>Bypassed (Off)</strong></td><td>Gain: <strong>0.2</strong>, Output: <strong>4.4</strong>, Treble: <strong>4.5</strong></td><td>Transparent clean boost / front-end push for singing sustain, harmonic richness, and level lift</td></tr><tr class="row-norm"><td><strong>Slot 3</strong></td><td><strong>Nashville Overdrive</strong> (Nobels ODR-1)</td><td><strong>Bypassed (Off)</strong></td><td>Drive: <strong>3.25</strong>, Level: <strong>8.4</strong>, Spectrum: <strong>5.95</strong>, Bass: <strong>0.0</strong></td><td>Warm, open, full-spectrum drive; great for transparent rhythm push and chord clarity without nasal mid-hump</td></tr></tbody></table></div>
   
 </div>
   </div>
@@ -3073,12 +3390,19 @@ code {
   
 <section class="tone-section">
   <h2 class="section-header">Starting Point Guide</h2>
-  <div class="guide-grid"><div class="guide-card"><span class="guide-label">First adjustment (Bloom / Headroom):</span><span class="guide-content">The <strong>Master</strong> control on the Enigmatic '82 (labeled <strong>6.5</strong> on the faceplate). If the tone feels too stiff or direct, push the Master to <strong>7.0</strong> or <strong>7.5</strong> and pull back the plugin's Output Trim to compensate. Pushing the Master increases the virtual power tube compression.</span></div><div class="guide-card"><span class="guide-label">Taming Humbucker Boom:</span><span class="guide-content">If the low-end feels &quot;flubby&quot; on low E-string chords, roll the <strong>Bass</strong> control back to <strong>4.0</strong> or make a small 2-3dB cut at 125 Hz in your Logic channel EQ.</span></div><div class="guide-card"><span class="guide-label">The Voice Switch Alternative:</span><span class="guide-content">While <strong>Cream</strong> is now the default for its rich low-end and singing upper-mid bloom, switching back to <strong>Suede</strong> offers a slightly rounder, darker, highly compressed vintage Santa Cruz vibe.</span></div></div>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">First adjustment (Bloom / Headroom):</span><span class="guide-content">The <strong>Master</strong> control on the Enigmatic '82 (labeled <strong>6.5</strong> on the faceplate). If the tone feels too stiff or direct, push the Master to <strong>7.0</strong> or <strong>7.5</strong> and pull back the plugin's Output Trim to compensate. Pushing the Master increases the virtual power tube compression.</span></div><div class="guide-card"><span class="guide-label">Taming Humbucker Boom:</span><span class="guide-content">If the low-end feels &quot;flubby&quot; on low E-string chords, roll the <strong>Bass</strong> control back to <strong>4.0</strong> or make a small 2-3dB cut at 125 Hz in your Logic channel EQ.</span></div><div class="guide-card"><span class="guide-content"><strong>Engaging Optional Pre-FX Overdrives:</strong></span></div><div class="guide-card"><span class="guide-content">For cutting lead lines with a focused, vocal midrange hump, engage <strong>Slot 1 (TS Overdrive)</strong>.</span></div><div class="guide-card"><span class="guide-content">For subtle edge-of-breakup clean boost and fat chord sustain, kick on <strong>Slot 2 (Gold Overdrive)</strong>.</span></div><div class="guide-card"><span class="guide-content">For singing lead sustain and rich harmonic grit across all strings, engage <strong>Slot 3 (Nashville Overdrive)</strong>.</span></div><div class="guide-card"><span class="guide-label">The Voice Switch Alternative:</span><span class="guide-content">While <strong>Cream</strong> is now the default for its rich low-end and singing upper-mid bloom, switching back to <strong>Suede</strong> offers a slightly rounder, darker, highly compressed vintage Santa Cruz vibe.</span></div></div>
 </section>
   
 <section class="tone-section">
   <h2 class="section-header">Feedback History</h2>
   
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-initial">refined (Optional Pre-FX Overdrive Trio)</span>
+  </div>
+  <div class="feedback-content"><p class="markdown-p">Updated Paradise Guitar Studio preset with three pre-configured optional overdrive pedals in Pre-FX slots 1–3 (Slot 1: TS Overdrive, Slot 2: Gold Overdrive, Slot 3: Nashville Overdrive), all left bypassed by default to preserve the clean foundation. Dialed TS Overdrive for smooth mid-focus (Overdrive 3.6, Level 3.7, Tone 1.7), re-calibrated Gold Overdrive to subtle clean boost settings (Gain 0.2, Output 4.4, Treble 4.5), and dialed Nashville Overdrive for open full-spectrum drive (Drive 3.25, Level 8.4, Spectrum 5.95, Bass 0.0).</p></div>
+</div>
 <div class="feedback-entry">
   <div class="feedback-header">
     <span class="feedback-date">2026-06-28</span>
@@ -3095,7 +3419,7 @@ code {
 <ol class="markdown-ol">
 <li><strong>NOR Input:</strong> Switched from the clinical solid-state FET input back to the bottom <strong>NOR</strong> (Normal) input for warm tube preamp compression.</li>
 <li><strong>Toggle Alignment:</strong> Confirmed Bright and Deep switches are indeed <strong>OFF (Down)</strong>.</li>
-<li><strong>Skyline Midrange Calibration:</strong> Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound &quot;big&quot; but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound &quot;quieter&quot; or &quot;thin&quot;). We countered this by pushing the preamp <strong>Volume to 5.5</strong>, <strong>Bass to 7.0</strong>, and <strong>Middle to 7.5</strong>. This drives the virtual tubes into a thick, organic, and beautifully compressed saturation without losing that crucial boutique warmth.</li>
+<li><strong>Skyline Midrange Calibration:</strong> Resolved the Skyline vs. Classic tone stack tradeoff. Classic has a deep Fender mid-scoop that pushes the bass/treble extremes (making it sound &quot;big&quot; but harsh on the top end). Skyline brings the mids forward and tightens the extremes (which psychoacoustically makes it sound &quot;quieter&quot; or &quot;thin&quot;). We countered this by pushing the preamp <strong>Volume to 5.5</strong>, <strong>Bass to 7.0</strong>, and <strong>Middle to 7.5</strong>. This drives the virtual tubes into a thick, organic and beautifully compressed saturation without losing that crucial boutique warmth.</li>
 <li>Set <strong>Treble to 3.5</strong> and <strong>Presence to 0.5</strong> to perfectly roll off the clinical edge.</li>
 <li><strong>Final Touch:</strong> Locked in the dialed-in values: <strong>Volume 5.5, Treble 3.5, Middle 7.5, Bass 7.0, Master 7.0, Presence 0.5</strong>. These parameters push the low-mids and vocal midrange of the Skyline stack to the max, providing incredible body and richness. Note: The Mixwave Two Rock still retains a slightly tamer/smokier high end, which can be further tweaked in the future, but these settings get Enigmatic in the exact close ballpark. Status updated to <code>refined</code>.</li>
 </ol></div>
@@ -3118,7 +3442,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul Studio (490R neck pickup)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">driven</span><span class="tag">dumble</span><span class="tag">paradise-studio</span><span class="tag">enigmatic-82</span><span class="tag">humbucker</span><span class="tag">drive-pedals</span></div>
@@ -3251,12 +3575,22 @@ code {
   
 <section class="tone-section">
   <h2 class="section-header">Starting Point Guide</h2>
-  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Knob</span><span class="guide-content">Set Les Paul neck pickup volume to <strong>8.0</strong> for clean rhythm, and roll up to <strong>10</strong> for singing lead sustain.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Ruby dominates the right ear, roll the Ruby's <code>Tone Cut</code> up to <strong>5.0</strong>.</span></div><div class="guide-card"><span class="guide-label">Drive Staging</span><span class="guide-content">For leads, feed a Klon/Centaur (Clon Minotaur) into <strong>both</strong> amps to push Enigmatic into overdrive while keeping Ruby punchy.</span></div></div>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Knob</span><span class="guide-content">Set Les Paul neck pickup volume to <strong>8.0</strong> for clean rhythm, and roll up to <strong>10</strong> for singing lead sustain.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Ruby dominates the right ear, roll the Ruby's <code>Tone Cut</code> up to <strong>5.0</strong>.</span></div><div class="guide-card"><span class="guide-label">Drive Staging (Input Track Insertion)</span><span class="guide-content">Place the Klon/Centaur (Nembrini Clon Minotaur) or Bluesbreaker (Kuassa Efektor Blues Barker) directly on the primary <strong>Guitar Input Track</strong> (pre-split) to push both amps into overdrive simultaneously, preventing stereo imbalance and preserving punch across both channels.</span></div></div>
 </section>
   
 <section class="tone-section">
   <h2 class="section-header">Feedback History</h2>
   
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Input Channel Drive Staging</strong>: Confirmed high utility of running overdrive pedals (Nembrini Clon Minotaur, Kuassa Blues Barker) directly on the Guitar Input Channel (alongside the -3.2 dB offset fader). Pushing drive pre-split into both amps eliminates stereo lopsidedness and ensures unified harmonic crunch.</li>
+<li><strong>Single-Coil / Telecaster Performance</strong>: Tested and verified that the Enigmatic '82 + Ruby '63 pairing translates outstandingly to the Fender Telecaster, prompting the creation of the dedicated single-coil dual-rig toneprint (<code>tele-enigmatic-ruby-dual-rig.md</code>).</li>
+</ul></div>
+</div>
 <div class="feedback-entry">
   <div class="feedback-header">
     <span class="feedback-date">2026-08-02</span>
@@ -3279,7 +3613,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: </span>
     </div>
     <div class="tone-tags"><span class="tag">pedal-platform</span><span class="tag">paradise-studio</span><span class="tag">enigmatic-82</span><span class="tag">overdrive</span><span class="tag">humbucker</span></div>
@@ -3404,6 +3738,111 @@ code {
 </section>
 </div>
 
+<div class="tone-detail" id="tone-paradise-showtime-enigmatic-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Showtime '64 + Enigmatic '82 — SSS &amp; ODS Boutique Dual Rig (Humbuckers)</h1>
+      <a href="../tones/humbuckers/paradise-showtime-enigmatic-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">humbucker</span><span class="tag">les-paul</span><span class="tag">dumble</span><span class="tag">showtime</span><span class="tag">showman</span><span class="tag">enigmatic</span><span class="tag">ods</span><span class="tag">sss</span><span class="tag">high-headroom</span><span class="tag">vocal-mids</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">High-headroom American dual rig pairing piano-like clean punch and tight low-end (Showtime 64) with Dumble ODS thick vocal sustain (Enigmatic 82) for humbuckers.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This dual-rig toneprint implements the iconic <strong>Steel String Singer (SSS) + Overdrive Special (ODS)</strong> boutique architecture inspired by John Mayer, Stevie Ray Vaughan, and Robben Ford, tailored specifically for humbucker guitars (<strong>Gibson Les Paul Studio</strong> and <strong>Epiphone Sheraton II</strong>).</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12 — Showtime '64 High-Headroom Foundation)</strong>: Emulates the muscular, high-power 6L6 Showman circuit (the direct historical ancestor of the Dumble SSS). It provides an unyielding, piano-like low end and glassy upper-register clarity that never sags, mushes, or flubs out under hot neck-humbucker pick attack.</li>
+<li><strong>Amp B (Right, Pan +12 — Enigmatic '82 Dumble ODS Singing Mids)</strong>: Provides the creamy, compressed 800 Hz–2 kHz vocal midrange core, liquid sustain, and touch-sensitive harmonic bloom.</li>
+</ul>
+<p class="markdown-p">Together, the Showtime keeps chord fundamentals articulate and punchy, while the Enigmatic delivers soaring, violin-like sustain.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-paradise-showtime-enigmatic-dual-rig-2')">Pre-Split Overdrive Stagin…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-paradise-showtime-enigmatic-dual-rig-3')">Parallel Amp Configuration…</button><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">Parallel Submix Bus &amp; Leve…</span></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">* **Status:** **Bypassed** * **Signal Path:** Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</span></div>
+<div class="plugin-section" id="plugin-paradise-showtime-enigmatic-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Pre-Split Overdrive Staging (Guitar Input Track)</span>
+      
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p">Tested and dialed specifically for the Showtime + Enigmatic dual-rig pairing to push both amps into articulate, non-muddy crunch:</p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>2.2 / 4.6 / 6.1</strong></td><td class="col-purpose">Transparent low-gain push; lifts amp front-end without mid-hump congestion</td></tr><tr class="row-alt"><td><strong>Nembrini NA 808</strong></td><td>Drive / Tone / Level</td><td class="col-setting"><strong>2.0 / 3.9 / 4.1</strong></td><td class="col-purpose">Low-drive vocal boost; smooth rounded top end</td></tr><tr class="row-norm"><td><strong>Kuassa Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>2.9 / 5.5 / 3.3</strong></td><td class="col-purpose">Transparent Bluesbreaker dynamic crunch with open upper-mid bite</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-paradise-showtime-enigmatic-dual-rig-3">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Amp Configuration (UADx Paradise / Plugin Suite)</span>
+      
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-paradise-showtime-enigmatic-dual-rig-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip A: Showtime '64</span>
+      <span class="plugin-role">High-Headroom Clean Anchor (Pan: -12 L)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>3.8</strong></td><td class="col-purpose">Massive clean headroom with instant dynamic response</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Clear, smooth top end without harshness</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Fills the traditional blackface scoop to keep humbucker body solid</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tightened low end to prevent boominess on neck pickup</td></tr><tr class="row-norm"><td>Bright</td><td class="col-setting"><strong>Off (Normal)</strong></td><td class="col-purpose">Keeps high-end warm and rounded for humbuckers</td></tr><tr class="row-alt"><td>Room</td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Subtle studio ambient depth</td></tr><tr class="row-norm"><td>Mic / Cab</td><td class="col-setting"><strong>Ribbon 160 / 2x12 Showman</strong></td><td class="col-purpose">Smooth ribbon mic warmth taming transient spikes</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Aligned with Amp B for LUFS balance</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-paradise-showtime-enigmatic-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip B: Enigmatic '82</span>
+      <span class="plugin-role">Dumble ODS Vocal Mids (Pan: +12 R)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive edge-of-breakup drive</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Smooth, sweet high frequencies</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Pronounced vocal midrange push (fills the Showtime's spectral pocket)</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tight low-end contour</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Gentle upper-harmonic lift</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Power section harmonic saturation</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Flat, articulate frequency response</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Two-Rock style Celestion G12-65 response</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Level matched for stereo balance</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div><div class="routing-note"><span class="routing-label">Route</span>Parallel Submix Bus &amp; Level Parity <span class="routing-detail">* **Short-Term LUFS Metering**: Solo Amp A and Amp B independently using Logic's Loudness Meter. Confirm both read **-20.0 Short-Term LUFS**. * **Submix Bus Compressor**: UAD LA-2A Silver (Peak Reduction **40.0**, Gain **30.0**) pulling **-1.5 to -2.5 dB GR** on strum peaks to glue the stereo image. * **Spatial Reverb**: UAD Hitsville / Capitol Chambers (Mix **12%**, Decay **2.0s**, Pre-Delay **10ms**) on parallel aux send.</span></div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Volume Control</span><span class="guide-content">Set Les Paul neck pickup to <strong>7.5–8.0</strong> for articulate rhythm playing; push to <strong>10</strong> to make the Enigmatic side jump into liquid lead sustain.</span></div><div class="guide-card"><span class="guide-label">Drive Staging (Input Track Insertion)</span><span class="guide-content">Place the Bluesbreaker (Kuassa Efektor Blues Barker), Clon (Nembrini Clon Minotaur), or NA 808 directly on the <strong>Guitar Input Track</strong> (pre-split). Pushing low-drive boosts with higher output levels (Output ~6.1 on Clon, Level ~4.1 on 808) preserves the unyielding clean punch of the Showtime while driving the Enigmatic into thick, singing sustain.</span></div><div class="guide-card"><span class="guide-label">Midrange Fine-Tuning</span><span class="guide-content">If the rig feels too mid-heavy with humbuckers, pull the Showtime's <code>Middle</code> down to <strong>4.5</strong> to create a deeper valley for the Enigmatic's vocal core.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-18</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Tuning Confirmation</strong>: Tested with Les Paul humbuckers. Showtime '64 and Enigmatic '82 settings confirmed spot-on.</li>
+<li><strong>Pre-Split Drive Calibration</strong>: Encoded fine-tuned pedal settings (&quot;Showtime Enigmatic Tuning&quot;):</li>
+<li><strong>Nembrini Clon Minotaur</strong>: Gain 2.2, Treble 4.6, Output 6.1 (transparent clean boost driving front-end headroom).</li>
+<li><strong>Nembrini NA 808</strong>: Drive 2.0, Tone 3.9, Level 4.1 (smooth low-gain vocal push).</li>
+<li><strong>Kuassa Blues Barker</strong>: Gain 2.9, Tone 5.5, Level 3.3 (open Bluesbreaker texture).</li>
+<li>Recompiled presets for Amp A, Amp B, Submix Bus, and all three overdrive pedals.</li>
+</ul></div>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-puretone-velvet-hb-clean" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -3412,7 +3851,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers)</span>
-      <span class="badge status-refined">refined</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">boutique</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">humbucker</span><span class="tag">puretone</span><span class="tag">delay</span><span class="tag">slapback</span><span class="tag">clon</span><span class="tag">transient-softener</span></div>
@@ -3786,7 +4225,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">vox</span><span class="tag">ac30</span><span class="tag">ruby-63</span><span class="tag">les-paul</span><span class="tag">humbucker</span><span class="tag">edge-of-breakup</span><span class="tag">chime</span><span class="tag">velvet-crunch</span><span class="tag">classic-rock</span><span class="tag">indie-rock</span></div>
@@ -3949,7 +4388,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Epiphone Sheraton II (humbuckers, neck position)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">jazz</span><span class="tag">hybrid</span><span class="tag">octave-split</span><span class="tag">bass</span><span class="tag">humbuckers</span><span class="tag">sheraton</span></div>
@@ -4433,6 +4872,36 @@ code {
   <div class="feedback-content"><p class="markdown-p">Proposed toneprint calibrated for humbucker pickups, featuring a low-volume UADx Dream '65 setting, light LA-2A Silver compression, low-mid EQ cuts, and parallel bus effects.</p></div>
 </div>
 </section>
+</div>
+
+<div class="tone-detail" id="tone-thr-bluesbreaker-crunch" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR Bluesbreaker Crunch — Les Paul / P-90s</h1>
+      <a href="../tones/humbuckers/thr-bluesbreaker-crunch.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Epiphone Les Paul Standard / Gibson Les Paul Studio / Framus P-90s</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">blues</span><span class="tag">rock</span><span class="tag">vintage</span><span class="tag">marshall</span><span class="tag">bluesbreaker</span><span class="tag">plexi</span><span class="tag">crunch</span><span class="tag">thr10ii</span><span class="tag">humbucker</span><span class="tag">p-90</span></div>
+    <p class="tone-target-desc">Dynamic, touch-sensitive 1960s British blues-rock crunch via the Classic Lead engine and British Blues 2x12 open-back cab.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This toneprint delivers the organic, touch-responsive British tube overdrive of the iconic 1960s <strong>Marshall JTM45 / Bluesbreaker</strong> combo, as heard on Eric Clapton's landmark 1966 <em>John Mayall &amp; the Bluesbreakers</em> (Beano) album and classic Peter Green/Paul Kossoff records.</p>
+<p class="markdown-p">Instead of a tight, aggressive closed-back 4x12 stack, this patch routes the <strong>Classic Lead</strong> (<code>THR10_Lead</code> — Marshall Plexi / 1959 Super Lead) preamp into the <strong>British Blues 2x12</strong> (<code>BBRKR</code> — Marshall 1962 Bluesbreaker 2x12 open-back) cabinet emulation. The open-back cabinet provides wide stereo air, warm lower-mid bloom, and harmonic chime without ear-piercing top-end rasp. The power section is pushed to 7.5 / 10 to recreate natural tube rectifier sag and compression.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
+  
 </div>
 
 <div class="tone-detail" id="tone-thr-singing-lp-lead" style="display:none">
@@ -5079,7 +5548,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">clean</span><span class="tag">chorus</span><span class="tag">compression</span><span class="tag">city-pop</span><span class="tag">neo-soul</span><span class="tag">p-90</span><span class="tag">framus</span></div>
@@ -5170,12 +5639,12 @@ code {
       <a href="../tones/p-90s/cory-wong-p90-warm-edge.md" class="view-source-btn" target="_blank">View Source</a>
     </div>
     <div class="tone-meta">
-      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s) / Revelation RFT DLX (H-90 pickups)</span>
+      <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s)</span>
       <span class="badge status-tested">tested</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
-    <div class="tone-tags"><span class="tag">clean</span><span class="tag">edge-of-breakup</span><span class="tag">warm</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">revelation</span><span class="tag">neural-dsp</span><span class="tag">cory-wong</span><span class="tag">amp-snob</span></div>
-    <p class="tone-target-desc">Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series and Revelation RFT DLX.</p>
+    <div class="tone-tags"><span class="tag">clean</span><span class="tag">edge-of-breakup</span><span class="tag">warm</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">neural-dsp</span><span class="tag">cory-wong</span><span class="tag">amp-snob</span></div>
+    <p class="tone-target-desc">Warm, touch-sensitive clean tone with a hint of grit/breakup on the neck pickup, dialed in for the Framus Earl Slick Artist Series (DiMarzio P-90s).</p>
   </div>
   
 <section class="tone-section">
@@ -5228,7 +5697,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">blues</span><span class="tag">dynamic</span><span class="tag">clean</span><span class="tag">grit</span><span class="tag">slapback</span><span class="tag">class-a</span><span class="tag">divided-11</span><span class="tag">framus</span><span class="tag">p-90</span></div>
@@ -5430,7 +5899,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">jazz</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">dark</span><span class="tag">warm</span><span class="tag">bickert</span><span class="tag">veil</span></div>
@@ -6888,7 +7357,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)</span>
-      <span class="badge status-tested">tested</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">tweed</span><span class="tag">woodrow</span><span class="tag">blues</span><span class="tag">classic-rock</span><span class="tag">framus</span><span class="tag">p-90</span><span class="tag">compressed</span><span class="tag">mid-forward</span></div>
@@ -7572,7 +8041,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Squier Stratocaster (neck or neck/middle positions)</span>
-      <span class="badge status-tested">tested</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">blackface</span><span class="tag">srv</span><span class="tag">blues</span><span class="tag">texas-blues</span><span class="tag">single-coil</span><span class="tag">dream-65</span><span class="tag">d-tex</span><span class="tag">spring-reverb</span></div>
@@ -7661,6 +8130,143 @@ code {
 </section>
 </div>
 
+<div class="tone-detail" id="tone-hazy-thames-gold" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Hazy Thames Gold SC</h1>
+      <a href="../tones/single-coils/hazy-thames-gold.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Fender Player II Telecaster / Squier Stratocaster (single-coils)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">clean</span><span class="tag">ambient</span><span class="tag">dream-65</span><span class="tag">single-coil</span><span class="tag">telecaster</span><span class="tag">stratocaster</span><span class="tag">tape-echo</span><span class="tag">dimension-d</span><span class="tag">sparkle</span><span class="tag">blackface</span><span class="tag">london-weather</span></div>
+    <p class="tone-target-desc">Shimmering, airy Blackface clean with warm tape bloom and subtle dimensional widening — inspired by London's warm August sun breaking through Thames morning haze.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">Inspired by London's warm August afternoon weather — 26°C sunny intervals cutting through lingering morning river haze with a gentle breeze — <strong>Hazy Thames Gold</strong> captures a sparkling, high-headroom American Blackface clean tone wrapped in vintage tape warmth and acoustic dimension.</p>
+<p class="markdown-p">Rather than a dry, sterile DI clean, this toneprint uses the <strong>UADx Dream '65</strong> (Fender Deluxe Reverb '65) with the <strong>D-Tex mod</strong> engaged to add rich harmonic overtones and round off single-coil glassiness. An inline <strong>UADx Studio D Chorus</strong> in Dimension Mode 1 provides a subtle, phase-coherent stereo spread without feeling chorus-heavy, while a dedicated parallel <strong>Galaxy Tape Echo</strong> bus adds an organic, fluttering ambient cushion that mirrors sunlight dancing on shifting water.</p>
+<p class="markdown-p">&gt; [!TIP] &gt; <strong>Pure Direct Input Path:</strong> &gt; To ensure optimal dynamic response and pristine gain staging, this toneprint routes your guitar directly into the <strong>Audient iD14 JFET D.I. input</strong> (bypassing the Tone King Imperial Preamp entirely). The iD14 input calibration (-3.2 dB plugin input trim) gives you the exact headroom intended by UAD's analog modeling.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><button class="chain-chip" onclick="scrollToItem('plugin-hazy-thames-gold-1')">Physical Hardware &amp; Interf…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-hazy-thames-gold-2')">Dream '65 Reverb Amp</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-hazy-thames-gold-3')">Studio D Chorus</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-hazy-thames-gold-4')">LA-2A Silver Compressor</button><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-hazy-thames-gold-5')">Post-FX Polish</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-hazy-thames-gold-6')">Spatial Effects</button></div>
+    
+<div class="plugin-section" id="plugin-hazy-thames-gold-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Physical Hardware &amp; Interface Front-End</span>
+      <span class="plugin-role">Audient iD14 mkII</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Component</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Guitar Input</strong></td><td class="col-setting">Instrument Input 1 (JFET D.I.)</td><td class="col-purpose">Dedicated discrete high-impedance input stage with natural tube-like harmonic warmth</td></tr><tr class="row-alt"><td><strong>Gain Knob</strong></td><td class="col-setting">Minimum / Set to peak at ~−18 dBFS</td><td class="col-purpose">Bypasses interface coloration and preserves full clean headroom</td></tr><tr class="row-norm"><td><strong>Tone King Imperial</strong></td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Bypassed — software amp simulation runs standalone</td></tr><tr class="row-alt"><td><strong>TONEX One</strong></td><td class="col-setting"><strong>Bypassed</strong></td><td class="col-purpose">Completely transparent pass-through</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-hazy-thames-gold-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Dream '65 Reverb Amp</span>
+      <span class="plugin-role">character &amp; core chime</span>
+    </div>
+  </div>
+  <div class="plugin-note"><p class="markdown-p">The Dream '65 delivers articulate Blackface snap with warm low-end sag and authentic spring reverb.</p></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Channel / Bright</strong></td><td class="col-setting"><strong>Normal (Bright OFF)</strong></td><td class="col-purpose">Tames single-coil ice-pick frequencies on the Tele bridge/neck</td></tr><tr class="row-alt"><td><strong>Mod Circuit</strong></td><td class="col-setting"><strong>D-Tex</strong></td><td class="col-purpose">Adds warm, woody midrange overtones and tube saturation</td></tr><tr class="row-norm"><td><strong>Volume</strong></td><td class="col-setting"><strong>3.2</strong></td><td class="col-purpose">Clean foundation with touch-sensitive bloom on harder strums</td></tr><tr class="row-alt"><td><strong>Treble</strong></td><td class="col-setting"><strong>5.4</strong></td><td class="col-purpose">Clear, airy top-end definition without harshness</td></tr><tr class="row-norm"><td><strong>Bass</strong></td><td class="col-setting"><strong>4.8</strong></td><td class="col-purpose">Tight, rounded low-end that stays firm under chord work</td></tr><tr class="row-alt"><td><strong>Reverb</strong></td><td class="col-setting"><strong>2.5</strong></td><td class="col-purpose">Subtle onboard spring reverb wash for vintage depth</td></tr><tr class="row-norm"><td><strong>Cabinet</strong></td><td class="col-setting"><strong>GB25 (1x12 Celestion Greenback)</strong></td><td class="col-purpose">Warms up the high frequencies compared to the Oxford 12K5</td></tr><tr class="row-alt"><td><strong>Input Gain (IN)</strong></td><td class="col-setting"><strong>−3.2 dB</strong></td><td class="col-purpose">Calibrates Audient iD14 DI level (+9 dBu) to UAD standard (+12.2 dBu)</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-hazy-thames-gold-3">
+  <div class="plugin-header">
+    <span class="plugin-num">3</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx Studio D Chorus</span>
+      <span class="plugin-role">subtle spatial widening</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Mode</strong></td><td class="col-setting"><strong>1</strong></td><td class="col-purpose">Lowest intensity dimension spread; enhances width without pitch warble</td></tr><tr class="row-alt"><td><strong>Power</strong></td><td class="col-setting"><strong>ON</strong></td><td class="col-purpose">Active</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-hazy-thames-gold-4">
+  <div class="plugin-header">
+    <span class="plugin-num">4</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">UADx LA-2A Silver Compressor</span>
+      <span class="plugin-role">smooth optical leveling</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Peak Reduction</strong></td><td class="col-setting"><strong>25.0</strong></td><td class="col-purpose">Gentle 1.5–2.5 dB gain reduction on peaks; stabilizes note decays</td></tr><tr class="row-alt"><td><strong>Gain</strong></td><td class="col-setting"><strong>25.0</strong></td><td class="col-purpose">Clean makeup gain to maintain target DAW level (~−12 dBFS)</td></tr><tr class="row-norm"><td><strong>Mode</strong></td><td class="col-setting"><strong>Compress</strong></td><td class="col-purpose">Smooth 3:1 optical leveling curve</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section" id="plugin-hazy-thames-gold-5">
+  <div class="plugin-header">
+    <span class="plugin-num">5</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Post-FX Polish</span>
+      <span class="plugin-role">Logic Channel EQ</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Band</th><th>Frequency</th><th>Gain / Slope</th><th>Q / Role</th></tr></thead><tbody><tr class="row-norm"><td><strong>High-Pass (Band 1)</strong></td><td>75 Hz</td><td>24 dB/oct</td><td>Removes sub-low rumble and unwanted boominess</td></tr><tr class="row-alt"><td><strong>Low-Mid Notch (Band 4)</strong></td><td>340 Hz</td><td>−1.8 dB</td><td>1.5 Q — clears out cloudy boxiness in the low-mids</td></tr><tr class="row-norm"><td><strong>High-Shelf Air (Band 7)</strong></td><td>10.0 kHz</td><td>+1.5 dB</td><td>Adds open, shimmering golden air to the single-coil decay</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-hazy-thames-gold-6">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Spatial Effects</span>
+      <span class="plugin-role">Dedicated Aux Bus</span>
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-hazy-thames-gold-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Bus 4 (Tape Echo): UADx Galaxy Tape Echo (100% Wet on Aux Return)</span>
+      
+    </div>
+  </div>
+  <div class="plugin-note"><ul class="markdown-ul">
+<li><strong>Head Select</strong>: <strong>1</strong> (single clean repeat).</li>
+<li><strong>Echo Rate</strong>: <strong>4.5</strong> (~240 ms slap-ambient tempo sync).</li>
+<li><strong>Feedback</strong>: <strong>2.2</strong> (2 gentle trailing repeats that melt into the background).</li>
+<li><strong>Tape Age</strong>: <strong>Used</strong> (introduces warm top-end damping and slight motor wow/flutter).</li>
+<li><strong>Logic Send Level</strong>: <strong>−20 dB</strong> (sits behind the dry tone as an airy haze).</li>
+</ul></div>
+  
+  
+</div>
+  </div>
+</div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Guitar Controls</span><span class="guide-content">On a Telecaster bridge pickup, roll the <strong>Tone knob back to 8</strong> and <strong>Volume to 8.5</strong> for maximum sweetness. On a Stratocaster, the <strong>neck + middle (position 4)</strong> is liquid gold with this chain.</span></div><div class="guide-card"><span class="guide-label">First adjustment</span><span class="guide-content">If you want a more ethereal, washed-out ambient sound, increase the Send to <strong>Bus 4 (Galaxy Echo)</strong> up to <strong>−14 dB</strong>.</span></div><div class="guide-card"><span class="guide-label">Bright switch</span><span class="guide-content">If playing a darker neck pickup with flatwounds, engage the <strong>Bright switch</strong> on the Dream '65 to restore snap.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-initial">initial</span>
+  </div>
+  <div class="feedback-content"><p class="markdown-p">Designed to capture the London late-summer weather aesthetic: warm sunshine breaking through Thames haze. Calibrated for single-coil guitars (Telecaster/Stratocaster) using the UADx Dream '65 (D-Tex mod), subtle Studio D spatial spreading, gentle LA-2A optical leveling, and a parallel Galaxy Tape Echo ambient bed. Direct Input into Audient iD14 DI with -3.2 dB calibration offset.</p></div>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-paradise-pedal-platform-sc" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -7669,7 +8275,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Fender Player II Telecaster / Squier Stratocaster</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: </span>
     </div>
     <div class="tone-tags"><span class="tag">pedal-platform</span><span class="tag">paradise-studio</span><span class="tag">enigmatic-82</span><span class="tag">overdrive</span><span class="tag">single-coil</span></div>
@@ -7802,7 +8408,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle)</span>
-      <span class="badge status-tested">tested</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">boutique</span><span class="tag">clean</span><span class="tag">sparkle</span><span class="tag">single-coil</span><span class="tag">telecaster</span><span class="tag">stratocaster</span><span class="tag">fingerstyle</span><span class="tag">bossa</span><span class="tag">chillhop</span></div>
@@ -8326,7 +8932,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Squier Stratocaster (single coils)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">ambient</span><span class="tag">lush</span><span class="tag">sound-bath</span><span class="tag">strat</span><span class="tag">clean</span><span class="tag">delay</span><span class="tag">reverb</span><span class="tag">modulation</span></div>
@@ -8722,7 +9328,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Fender Player II Telecaster (single-coils, neck position)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">jazz</span><span class="tag">hybrid</span><span class="tag">octave-split</span><span class="tag">bass</span><span class="tag">single-coils</span><span class="tag">telecaster</span></div>
@@ -9102,6 +9708,111 @@ code {
 </section>
 </div>
 
+<div class="tone-detail" id="tone-tele-enigmatic-ruby-dual-rig" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">Enigmatic '82 + Ruby '63 — Telecaster Dual Rig (Single-Coils)</h1>
+      <a href="../tones/single-coils/tele-enigmatic-ruby-dual-rig.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">Fender Player II Telecaster (Single-Coils)</span>
+      <span class="badge status-tested">tested</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">dual-amp</span><span class="tag">telecaster</span><span class="tag">single-coil</span><span class="tag">dumble</span><span class="tag">vox</span><span class="tag">enigmatic</span><span class="tag">ruby</span><span class="tag">sustain</span><span class="tag">chime</span><span class="tag">parallel</span></div>
+    <p class="tone-target-desc">Boutique dual rig pairing Dumble liquid sustain (Enigmatic 82) with Vox Top Boost harmonic chime (Ruby 63) for Telecaster single-coils.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This toneprint adapts <strong>Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)</strong> from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md) specifically for the <strong>Fender Player II Telecaster</strong> (and single-coil guitars).</p>
+<ul class="markdown-ul">
+<li><strong>Amp A (Left, Pan -12)</strong>: The <strong>UAD Enigmatic '82</strong> (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics, fattening up the Telecaster's single coils without masking note definition.</li>
+<li><strong>Amp B (Right, Pan +12)</strong>: The <strong>UAD Ruby '63</strong> (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.</li>
+</ul>
+<p class="markdown-p">Single-coil pickups deliver extraordinary clarity and cut through this setup, maintaining a wide, 3D stereo image with zero harshness.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    <div class="chain-flow"><span class="chain-routing-label">Tone King Imperial Preamp</span><span class="chain-arrow">&#8594;</span><button class="chain-chip" onclick="scrollToItem('plugin-tele-enigmatic-ruby-dual-rig-2')">Primary Guitar Input Track…</button><span class="chain-arrow">&#8594;</span><button class="chain-chip chain-chip-track" onclick="scrollToItem('track-tele-enigmatic-ruby-dual-rig-3')">Parallel Amp Configuration…</button><span class="chain-arrow">&#8594;</span><span class="chain-routing-label">Parallel Submix Bus &amp; Leve…</span></div>
+    <div class="routing-note"><span class="routing-label">Route</span>Tone King Imperial Preamp <span class="routing-detail">* **Status:** **Bypassed** * **Signal Path:** Guitar direct into Audient iD14 Input 1 (Preamp gain at 0 dB).</span></div>
+<div class="plugin-section" id="plugin-tele-enigmatic-ruby-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Primary Guitar Input Track (Pre-Split Drive &amp; Calibration)</span>
+      
+    </div>
+  </div>
+  <div class="plugin-note"><ul class="markdown-ul">
+<li><strong>Interface Calibration Offset</strong>: Logic Utility Gain trim set to <strong>-3.2 dB</strong> (compensating for iD14's +9.0 dBu clipping point vs UAD's +12.2 dBu standard).</li>
+<li><strong>Pre-Split Drive Insertion</strong>: Place <strong>Nembrini Clon Minotaur</strong> (Klon) or <strong>Kuassa Efektor Blues Barker</strong> (Bluesbreaker) directly on the <strong>Guitar Input Track</strong> (pre-split).</li>
+<li><em>Why</em>: Feeding overdrive into both Amp A and Amp B simultaneously preserves stereo balance and causes both amps to saturate harmonically together, completely avoiding the lopsided level and tonal drift of single-amp drive.</li>
+</ul></div>
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Pedal</th><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td><strong>Nembrini Clon Minotaur</strong></td><td>Gain / Treble / Output</td><td class="col-setting"><strong>6.0 / 4.5 / 4.5</strong></td><td class="col-purpose">Transparent midrange boost and singing lead sustain across both amps</td></tr><tr class="row-alt"><td><strong>Kuassa Efektor Blues Barker</strong></td><td>Gain / Tone / Level</td><td class="col-setting"><strong>3.5 / 5.0 / 2.75</strong></td><td class="col-purpose">Smooth, dynamic low-gain blues breakup across both amps</td></tr></tbody></table></div>
+  
+</div>
+<div class="track-group" id="track-tele-enigmatic-ruby-dual-rig-3">
+  <div class="track-header">
+    <span class="track-label">TRACK</span>
+    <div class="plugin-title-block">
+      <span class="track-name">Parallel Amp Configuration (UADx Paradise / Plugin Suite)</span>
+      
+    </div>
+  </div>
+  
+  <div class="track-body">
+
+<div class="plugin-section nested-plugin" id="plugin-tele-enigmatic-ruby-dual-rig-1">
+  <div class="plugin-header">
+    <span class="plugin-num">1</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip A: Enigmatic '82</span>
+      <span class="plugin-role">Liquid Sustain (Pan: -12 L)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Volume</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Touch-sensitive warm clean with subtle edge-of-breakup</td></tr><tr class="row-alt"><td>Treble</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Smooth high-frequency response tailored for single coils</td></tr><tr class="row-norm"><td>Middle</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">Thick, vocal midrange body</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>5.0</strong></td><td class="col-purpose">Tight, uncompressed fundamental</td></tr><tr class="row-norm"><td>Presence</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Gentle upper-mid control</td></tr><tr class="row-alt"><td>Master</td><td class="col-setting"><strong>6.0</strong></td><td class="col-purpose">Clean power amp drive</td></tr><tr class="row-norm"><td>Model / Voice</td><td class="col-setting"><strong>Suede / Skyline</strong></td><td class="col-purpose">Classic Dumble ODS voicing</td></tr><tr class="row-alt"><td>Tone Stack</td><td class="col-setting"><strong>Jazz</strong></td><td class="col-purpose">Deep, flat headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Boutique D65</strong></td><td class="col-purpose">Warm boutique cab voicing</td></tr></tbody></table></div>
+  
+</div>
+<div class="plugin-section nested-plugin" id="plugin-tele-enigmatic-ruby-dual-rig-2">
+  <div class="plugin-header">
+    <span class="plugin-num">2</span>
+    <div class="plugin-title-block">
+      <span class="plugin-name">Channel Strip B: Ruby '63</span>
+      <span class="plugin-role">Vox Top Boost Chime (Pan: +12 R)</span>
+    </div>
+  </div>
+  
+  <div class="table-wrap"><table class="settings-table"><thead><tr><th>Control</th><th class="col-setting">Setting</th><th class="col-purpose">Purpose</th></tr></thead><tbody><tr class="row-norm"><td>Channel</td><td class="col-setting"><strong>Top Boost</strong></td><td class="col-purpose">Brilliant harmonic chime</td></tr><tr class="row-alt"><td>Volume</td><td class="col-setting"><strong>3.5</strong></td><td class="col-purpose">Cleaned-up Top Boost sweet spot; smooth response on single coils</td></tr><tr class="row-norm"><td>Treble</td><td class="col-setting"><strong>5.5</strong></td><td class="col-purpose">High-frequency jangle and string definition</td></tr><tr class="row-alt"><td>Bass</td><td class="col-setting"><strong>4.5</strong></td><td class="col-purpose">Tightened low end to prevent boominess</td></tr><tr class="row-norm"><td>Tone Cut</td><td class="col-setting"><strong>4.0</strong></td><td class="col-purpose">Smooths out harsh top-end glass</td></tr><tr class="row-alt"><td>Boost</td><td class="col-setting"><strong>Off</strong></td><td class="col-purpose">Linear headroom</td></tr><tr class="row-norm"><td>Cab</td><td class="col-setting"><strong>2x12 Silver 15</strong></td><td class="col-purpose">Vintage Vox Silver Bulldog cab</td></tr><tr class="row-alt"><td>Output Gain</td><td class="col-setting"><strong>8.0 dB</strong></td><td class="col-purpose">Trimmed -4.0 dB inside Paradise plugin to match Enigmatic and allow Logic fader at -3.8 dB</td></tr></tbody></table></div>
+  
+</div>
+  </div>
+</div><div class="routing-note"><span class="routing-label">Route</span>Parallel Submix Bus &amp; Level Parity <span class="routing-detail">* **Short-Term LUFS Metering**: Solo Amp A and Amp B independently using Logic's Loudness Meter. Adjust Amp B output so both read **-20.0 Short-Term LUFS**. * **Submix Bus Compressor**: UAD LA-2A Silver (Peak Reduction **40.0**, Gain **30.0**) on the parallel submix bus pulling **-1.5 to -3.0 dB GR** on strum peaks. * **Spatial Reverb**: UAD Hitsville / Capitol Chambers (Mix **12%**, Decay **2.0s**) on parallel aux send.</span></div>
+  </section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Starting Point Guide</h2>
+  <div class="guide-grid"><div class="guide-card"><span class="guide-label">Tele Pickup Positions</span><span class="guide-content"></span></div><div class="guide-card"><span class="guide-label">Position 2 (Middle — Neck + Bridge)</span><span class="guide-content">Rich, balanced acoustic-like chime with rich low-mid support.</span></div><div class="guide-card"><span class="guide-label">Position 3 (Neck)</span><span class="guide-content">Deep, woody jazz/blues lead tone with blooming Dumble sustain.</span></div><div class="guide-card"><span class="guide-label">Drive Staging</span><span class="guide-content">Engage the Clon or Blues Barker on the <strong>Guitar Input Track</strong> to push both amps into singing overdrive simultaneously.</span></div><div class="guide-card"><span class="guide-label">Spectrum Balance</span><span class="guide-content">If the Telecaster bridge pickup has excessive bite on the Ruby side, increase Ruby <code>Tone Cut</code> to <strong>5.0</strong> or <strong>5.5</strong>.</span></div></div>
+</section>
+  
+<section class="tone-section">
+  <h2 class="section-header">Feedback History</h2>
+  
+<div class="feedback-entry">
+  <div class="feedback-header">
+    <span class="feedback-date">2026-08-17</span>
+    <span class="badge status-tested">tested</span>
+  </div>
+  <div class="feedback-content"><ul class="markdown-ul">
+<li><strong>Telecaster Testing</strong>: Verified with Fender Player II Telecaster. The Enigmatic '82 + Ruby '63 dual-amp pairing proved outstanding for single coils, giving the Telecaster huge vocal sustain on the Enigmatic side while retaining Vox Top Boost harmonic sparkle on the Ruby side.</li>
+<li><strong>Pre-Split Input Track Drive Staging</strong>: Confirmed high utility of inserting overdrive pedals (Nembrini Clon Minotaur, Kuassa Blues Barker) directly on the primary Guitar Input channel strip (following the -3.2 dB calibration trim). Feeding the driven signal pre-split into both amps keeps the stereo image perfectly centered and balanced, avoiding the lopsided dynamic imbalance of driving only one amp channel.</li>
+</ul></div>
+</div>
+</section>
+</div>
+
 <div class="tone-detail" id="tone-tele-singing-blues-carlton" style="display:none">
   <div class="tone-header">
     <div class="tone-header-top">
@@ -9297,6 +10008,66 @@ code {
   <h2 class="section-header">Starting Point Guide</h2>
   <div class="guide-grid"><div class="guide-card"><span class="guide-label">Pickup Selector</span><span class="guide-content">Start on <strong>Position 2 (Neck + Bridge parallel)</strong> or <strong>Neck pickup</strong> for soulful blues and fingerstyle rhythm.</span></div><div class="guide-card"><span class="guide-label">Dynamic Control</span><span class="guide-content">Use pick attack to drive the Woodrow into crunch while the Dream stays crystal clear.</span></div><div class="guide-card"><span class="guide-label">Drive Pedal Pairing</span><span class="guide-content">Run a TS-808 (Nembrini 808) into <strong>Amp A only</strong> for searing lead tone while keeping <strong>Amp B</strong> clean.</span></div></div>
 </section>
+  
+</div>
+
+<div class="tone-detail" id="tone-thr-tele-bickert-jazz" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR Tele Bickert Jazz — Telecaster</h1>
+      <a href="../tones/single-coils/thr-tele-bickert-jazz.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">2024 Fender Player II Telecaster (Neck single-coil pickup)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">jazz</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">ed-bickert</span><span class="tag">telecaster</span><span class="tag">dr-z</span><span class="tag">carmen-ghia</span><span class="tag">thr10ii</span><span class="tag">single-coil</span></div>
+    <p class="tone-target-desc">Dark, woody, intimate Ed Bickert-style jazz clean on a Telecaster neck pickup using the Modern Clean (Dr. Z) boutique engine.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This toneprint is crafted to transform the single-coil neck pickup of the <strong>2024 Fender Player II Telecaster</strong> into a warm, woody, and intimate jazz box voice, inspired by Canadian jazz icon <strong>Ed Bickert</strong>.</p>
+<p class="markdown-p">Solid-body Telecasters can easily sound spiky or thin when playing jazz chord melody. To create the dark &quot;Electronic Veil&quot; character, this toneprint uses the THR's <strong>Modern Clean</strong> (<code>THR30_Carmen</code> — Dr. Z Carmen Ghia) boutique engine. The Carmen Ghia's low-watt EL84 topology produces rich even-order harmonic fullness and dynamic compression as the <strong>Master</strong> is pushed high (7.8 / 10). Combined with a prominent midrange push (7.0 / 10), rolled-off highs (3.2 / 10), and an <strong>American 1x12</strong> open-back cabinet emulation, it strips away single-coil snap and replaces it with acoustic depth and round, vocal note separation.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
+  
+</div>
+
+<div class="tone-detail" id="tone-thr-tele-blackface-sparkle" style="display:none">
+  <div class="tone-header">
+    <div class="tone-header-top">
+      <h1 class="tone-title">THR Tele Blackface Sparkle — Telecaster</h1>
+      <a href="../tones/single-coils/thr-tele-blackface-sparkle.md" class="view-source-btn" target="_blank">View Source</a>
+    </div>
+    <div class="tone-meta">
+      <span class="meta-guitar">2024 Fender Player II Telecaster (Neck, Middle, or Bridge single-coils)</span>
+      <span class="badge status-initial">initial</span>
+      <span class="meta-channel">TK: bypassed</span>
+    </div>
+    <div class="tone-tags"><span class="tag">clean</span><span class="tag">sparkle</span><span class="tag">blackface</span><span class="tag">fender</span><span class="tag">deluxe-reverb</span><span class="tag">telecaster</span><span class="tag">spring-reverb</span><span class="tag">thr10ii</span><span class="tag">single-coil</span></div>
+    <p class="tone-target-desc">Pristine, dynamic American Blackface clean tone with sparkling highs, tight low-end, and lush spring reverb for the Telecaster.</p>
+  </div>
+  
+<section class="tone-section">
+  <h2 class="section-header">Target Sound</h2>
+  <div class="target-sound"><p class="markdown-p">This toneprint captures the quintessential, pure American tube clean sound: a <strong>1965 Fender Blackface Deluxe Reverb</strong> paired with the <strong>Fender Player II Telecaster</strong>.</p>
+<p class="markdown-p">It delivers sparkling, crystalline top-end chime, firm low-end definition, and crystalline dynamic headroom that instantly reacts to picking nuances. Using the <strong>Classic Clean</strong> (<code>THR10C_Deluxe</code>) model and the matching <strong>American 1x12</strong> (<code>DRVB</code> — Jensen C12K speaker) cabinet, it is dialed to highlight the Telecaster's bell-like neck warmth, funky middle position, and twangy bridge bite without any harsh ice-pick transients. A touch of optical-style compression softens fast transients and adds singing sustain, while the classic Fender spring reverb tank provides lush spatial depth.</p>
+<p class="markdown-p">---</p></div>
+</section>
+  <section class="tone-section">
+    <h2 class="section-header">Signal Chain</h2>
+    
+    
+  </section>
+  
   
 </div>
 
@@ -9736,7 +10507,7 @@ code {
     </div>
     <div class="tone-meta">
       <span class="meta-guitar">Universal (Tested with Archtop/Humbucker jazz guitars and Single-Coils)</span>
-      <span class="badge status-initial">initial</span>
+      <span class="badge status-archived">archived</span>
       <span class="meta-channel">TK: bypassed</span>
     </div>
     <div class="tone-tags"><span class="tag">blackface</span><span class="tag">clean</span><span class="tag">warm</span><span class="tag">jazz</span><span class="tag">dream-65</span><span class="tag">ev12</span><span class="tag">universal</span></div>
@@ -9908,6 +10679,7 @@ function scrollToItem(id) {
 }
 
 var activeFilters = { status: 'all', genre: 'all', pickup: 'all', guitar: 'all', amp: 'all' };
+var showArchived = false;
 
 function setFilter(dim, val) {
   activeFilters[dim] = val;
@@ -9921,6 +10693,12 @@ function setFilter(dim, val) {
   applyFilters();
 }
 
+function toggleShowArchived(checked) {
+  showArchived = !!checked;
+  localStorage.setItem('tv-show-archived', showArchived ? 'true' : 'false');
+  applyFilters();
+}
+
 function applyFilters() {
   var items = document.querySelectorAll('.sidebar-item');
   var visibleCount = 0;
@@ -9928,11 +10706,23 @@ function applyFilters() {
   var activeVisible = false;
   items.forEach(function(el) {
     var elAmps = el.dataset.amp ? el.dataset.amp.split(',').map(function(s) { return s.trim(); }) : [];
-    var show = (activeFilters.status === 'all' || el.dataset.status === activeFilters.status)
+    var isArchived = (el.dataset.status === 'archived');
+
+    var statusMatch = false;
+    if (activeFilters.status === 'archived') {
+      statusMatch = isArchived;
+    } else if (activeFilters.status === 'all') {
+      statusMatch = !isArchived || showArchived;
+    } else {
+      statusMatch = (el.dataset.status === activeFilters.status);
+    }
+
+    var show = statusMatch
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
             && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
             && (activeFilters.amp    === 'all' || elAmps.includes(activeFilters.amp));
+
     el.style.display = show ? '' : 'none';
     if (show) {
       visibleCount++;
@@ -9940,12 +10730,23 @@ function applyFilters() {
       if (el.classList.contains('active')) { activeVisible = true; }
     }
   });
+
   var countEl = document.querySelector('.vault-count');
   if (countEl) {
     countEl.textContent = visibleCount + ' tone' + (visibleCount !== 1 ? 's' : '');
   }
+
   if (!activeVisible && firstVisible) {
     showTone(firstVisible.dataset.id);
+  } else if (!firstVisible) {
+    document.querySelectorAll('.tone-detail').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    var emptyEl = document.getElementById('empty-state');
+    if (emptyEl) { emptyEl.style.display = 'flex'; }
+  } else {
+    var emptyEl = document.getElementById('empty-state');
+    if (emptyEl) { emptyEl.style.display = 'none'; }
   }
 }
 
@@ -9999,6 +10800,13 @@ function toggleFilters() {
   var btn = document.getElementById('theme-toggle');
   if (savedTheme && btn) { btn.innerHTML = savedTheme === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
   
+  var savedArchived = localStorage.getItem('tv-show-archived');
+  if (savedArchived === 'true') {
+    showArchived = true;
+    var chk = document.getElementById('show-archived-checkbox');
+    if (chk) chk.checked = true;
+  }
+
   var collapsed = localStorage.getItem('tv-filters-collapsed');
   if (collapsed === 'true') {
     var container = document.getElementById('filters-container');
@@ -10006,6 +10814,8 @@ function toggleFilters() {
     if (container) container.classList.add('collapsed');
     if (icon) icon.classList.add('collapsed');
   }
+
+  applyFilters();
 }());
 
 showTone('bill-withers-soul-rhythm');

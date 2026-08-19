@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClonMinotaur version="1.0.0">
+  <PARAM id="Gain" value="7.5"/>
+  <PARAM id="Treble" value="4.5"/>
+  <PARAM id="Output" value="4.0"/>
+  <PARAM id="power" value="1.0"/>
+</ClonMinotaur>

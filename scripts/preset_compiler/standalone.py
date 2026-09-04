@@ -16,7 +16,7 @@ import struct
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 
-from scripts.utils.config import USER_APP_SUPPORT
+from scripts.utils.config import USER_APP_SUPPORT, WORKSPACE_ROOT
 from scripts.preset_compiler.base import parse_yaml_frontmatter
 from scripts.utils.param_types import to_float, to_bool
 
@@ -372,8 +372,11 @@ def compile_all_standalone_presets(
         ):
             continue
 
-        if filter_substr and filter_substr.lower() not in str(mf).lower():
-            continue
+        if filter_substr:
+            f_norm = filter_substr.lower()
+            f_hyphen = f_norm.replace(" ", "-")
+            if f_norm not in str(mf).lower() and f_hyphen not in str(mf).lower():
+                continue
 
         preset = compile_standalone_preset_from_toneprint(
             mf,
@@ -382,10 +385,19 @@ def compile_all_standalone_presets(
 
         if preset:
             file_dest = out_path / f"{preset['id']}.json"
-            with open(file_dest, "w", encoding="utf-8") as f:
-                json.dump(preset, f, indent=2)
-            compiled_count += 1
-            pc_counter += 1
-            print(f"-> Compiled Standalone Preset (PC #{preset['pcNumber']}): '{preset['name']}' ({len(preset['items'])} modules)")
+            try:
+                with open(file_dest, "w", encoding="utf-8") as f:
+                    json.dump(preset, f, indent=2)
+                compiled_count += 1
+                pc_counter += 1
+                print(f"-> Compiled Standalone Preset (PC #{preset['pcNumber']}): '{preset['name']}' ({len(preset['items'])} modules)")
+            except (PermissionError, OSError) as e:
+                mirror_dir = WORKSPACE_ROOT / "tones" / "presets" / "standalone"
+                mirror_dir.mkdir(parents=True, exist_ok=True)
+                with open(mirror_dir / f"{preset['id']}.json", "w", encoding="utf-8") as f:
+                    json.dump(preset, f, indent=2)
+                compiled_count += 1
+                pc_counter += 1
+                print(f"-> Saved repo copy (PC #{preset['pcNumber']}): '{preset['name']}' ({len(preset['items'])} modules) (live write skipped: {e})")
 
     return compiled_count

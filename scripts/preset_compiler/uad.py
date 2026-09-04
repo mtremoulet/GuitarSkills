@@ -12,7 +12,7 @@ import re
 from typing import Dict, Any, Optional
 
 from scripts.utils.param_types import to_float, to_bool, find_numeric_param, find_boolean_param
-from scripts.utils.config import PARADISE_DIR
+from scripts.utils.config import PARADISE_DIR, WORKSPACE_ROOT
 from .base import extract_markdown_section
 
 
@@ -121,6 +121,17 @@ def compile_uad_toneprint(
         boost_enable = find_boolean_param(content, ["Boost Switch", "Boost Button"])
         if boost_enable is None and boost_amount is not None:
             boost_enable = boost_amount > 0.0
+
+    custom_cab = None
+    if isinstance(frontmatter.get("preset_overrides"), dict):
+        custom_cab = frontmatter["preset_overrides"].get("cab_and_mic")
+    if custom_cab is None and isinstance(preset_data, dict):
+        custom_cab = preset_data.get("cab_and_mic")
+    if custom_cab is not None:
+        try:
+            cab_index = int(custom_cab)
+        except (ValueError, TypeError):
+            pass
 
     preset_data_json = json.loads(json.dumps(base_preset))
     preset_data_json["name"] = f"Toneprint - {output_name}"
@@ -245,7 +256,49 @@ def compile_uad_toneprint(
                         continue
                     control_key = f"prefx_{p_name}_{param_k}"
                     if control_key in controls:
-                        controls[control_key] = {"real_value": float(param_v) if isinstance(param_v, (int, float)) else to_float(param_v)}
+                        if isinstance(param_v, bool):
+                            controls[control_key] = {"real_value": param_v}
+                        elif isinstance(param_v, int):
+                            controls[control_key] = {"real_value": param_v}
+                        else:
+                            controls[control_key] = {"real_value": float(param_v) if isinstance(param_v, (int, float)) else to_float(param_v)}
+            else:
+                controls[f"prefx_{slot_num}"] = {"real_value": 0}
+                controls[f"prefx_{slot_num}_power"] = {"real_value": False}
+    else:
+        for slot_num in range(1, 6):
+            controls[f"prefx_{slot_num}"] = {"real_value": 0}
+            controls[f"prefx_{slot_num}_power"] = {"real_value": False}
+
+    # Process Post-FX pedals if defined in preset_data
+    postfx_data = preset_data.get("postfx") if isinstance(preset_data, dict) else None
+    if postfx_data and isinstance(postfx_data, dict):
+        controls["postfx_power"] = {"real_value": True}
+        for slot_num in range(1, 6):
+            slot_key = f"slot{slot_num}"
+            if slot_key in postfx_data:
+                slot_info = postfx_data[slot_key]
+                p_name = slot_info.get("pedal", "").lower().strip()
+                p_id = pedal_id_map.get(p_name, 0)
+                p_enabled = to_bool(slot_info.get("enabled", False))
+                controls[f"postfx_{slot_num}"] = {"real_value": p_id}
+                controls[f"postfx_{slot_num}_power"] = {"real_value": p_enabled}
+
+                # Update pedal-specific parameters
+                for param_k, param_v in slot_info.items():
+                    if param_k in ("pedal", "enabled"):
+                        continue
+                    control_key = f"postfx_{p_name}_{param_k}"
+                    if control_key in controls:
+                        if isinstance(param_v, bool):
+                            controls[control_key] = {"real_value": param_v}
+                        elif isinstance(param_v, int):
+                            controls[control_key] = {"real_value": param_v}
+                        else:
+                            controls[control_key] = {"real_value": float(param_v) if isinstance(param_v, (int, float)) else to_float(param_v)}
+            else:
+                controls[f"postfx_{slot_num}"] = {"real_value": 0}
+                controls[f"postfx_{slot_num}_power"] = {"real_value": False}
 
     folder_map = {
         "dream": "Dream '65",
@@ -256,12 +309,30 @@ def compile_uad_toneprint(
         "woodrow": "Woodrow '55",
     }
     folder_name = folder_map.get(amp_type, "")
-    out_dir = os.path.join(PARADISE_DIR, folder_name) if folder_name else str(PARADISE_DIR)
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, f"Toneprint - {output_name}.json")
-    with open(out_path, "w") as f:
+    repo_mirror_dir = os.path.join(
+        WORKSPACE_ROOT,
+        "quarantined",
+        "Documents",
+        "Universal Audio",
+        "Presets",
+        "Plug-Ins",
+        "uaudio_paradise_guitar_studio",
+        folder_name,
+    )
+    os.makedirs(repo_mirror_dir, exist_ok=True)
+    repo_mirror_path = os.path.join(repo_mirror_dir, f"Toneprint - {output_name}.json")
+    with open(repo_mirror_path, "w") as f:
         json.dump(preset_data_json, f, indent=4)
-    print(f"-> Compiled UAD Paradise Amp Preset: 'Toneprint - {output_name}' in '{folder_name}'")
+
+    out_dir = os.path.join(PARADISE_DIR, folder_name) if folder_name else str(PARADISE_DIR)
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+        out_path = os.path.join(out_dir, f"Toneprint - {output_name}.json")
+        with open(out_path, "w") as f:
+            json.dump(preset_data_json, f, indent=4)
+        print(f"-> Compiled UAD Paradise Amp Preset: 'Toneprint - {output_name}' in '{folder_name}'")
+    except (PermissionError, OSError) as e:
+        print(f"-> Saved repo copy: 'Toneprint - {output_name}' (Documents live write skipped: {e})")
     return True
 
 

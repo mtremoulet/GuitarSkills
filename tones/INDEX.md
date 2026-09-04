@@ -27,6 +27,7 @@
 | Showtime '64 + Enigmatic '82 — SSS & ODS Boutique Dual Rig (Humbuckers) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers) | [humbuckers/paradise-showtime-enigmatic-dual-rig.md](humbuckers/paradise-showtime-enigmatic-dual-rig.md) | tested |
 | Puretone Velvet Humbucker Clean | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge humbuckers) | [humbuckers/puretone-velvet-hb-clean.md](humbuckers/puretone-velvet-hb-clean.md) | archived |
 | Puretone Velvet Jazz — Sheraton II | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/puretone-velvet-jazz-sheraton.md](humbuckers/puretone-velvet-jazz-sheraton.md) | initial |
+| Retro Memorex — Worn Tape & 80s Hall Showtime Clean (Humbuckers) | humbucker | Epiphone Sheraton II / Gibson Les Paul Studio (Humbuckers) | [humbuckers/retro-memorex-showtime-hb.md](humbuckers/retro-memorex-showtime-hb.md) | initial |
 | Ruby LP Velvet Blues HB | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard | [humbuckers/ruby-hb-velvet-blues.md](humbuckers/ruby-hb-velvet-blues.md) | refined |
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | Gibson Les Paul Studio (490R neck / 490T bridge humbuckers) | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | archived |
 | Sheraton OC-5 Bass Split | humbucker | Epiphone Sheraton II (humbuckers, neck position) | [humbuckers/sheraton-bass-split-oc5.md](humbuckers/sheraton-bass-split-oc5.md) | archived |

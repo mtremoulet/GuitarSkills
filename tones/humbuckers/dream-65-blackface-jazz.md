@@ -27,6 +27,8 @@ preset_data:
     decay: 2.0
     mix: 0.08
     pre_delay: 6.0
+
+    wet_solo: false
   la2a:
     gain: 25
     peak_reduction: 32

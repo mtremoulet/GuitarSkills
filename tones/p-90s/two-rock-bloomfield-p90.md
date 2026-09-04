@@ -33,9 +33,11 @@ preset_data:
     peak_reduction: 32
     gain: 28
   hitsville:
-    mix: 1.0
+    mix: 0.12
     decay: 2.0
     pre_delay: 8.0
+
+    wet_solo: false
 ---
 
 # Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant)

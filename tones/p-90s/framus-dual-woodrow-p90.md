@@ -43,6 +43,8 @@ shared_fx:
     decay: 1.6
     mix: 0.08
     pre_delay: 6.0
+
+    wet_solo: false
 ---
 
 # Dual Woodrow '55 — Framus P-90 Differential Rig

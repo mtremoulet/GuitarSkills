@@ -113,16 +113,14 @@ We use the onboard studio compressor, delay, and reverb inside the plugin for a 
 
 ---
 
-## Starting Point Guide
-
-*   **The "7/7" Baseline (Guitar Controls)**:
+## Starting Point Guide- **The "7/7" Baseline (Guitar Controls)**:
     *   Set your Stratocaster's physical **Guitar Volume to 7** and **Tone to 7**.
-    *   **Why**: This rolls off the raw, high-output single-coil edge, expanding the clean headroom of the Ruby engine and bringing out a sweet, woody quality. Roll the guitar volume up to 10 only when you want to push the amp into full, singing lead overdrive.
-*   **Pickup Position Sweet Spots**:
-    *   **Position 4 (Neck + Middle)**: The "Gold Standard" clean tone. It naturally scoops the mids and rolls off sub-bass, producing a pristine, glassy, acoustic-adjacent chime. Ideal for fingerstyle playing (think John Frusciante's *"Under the Bridge"* or Mark Knopfler's fingerstyle snaps).
-    *   **Position 2 (Bridge + Middle)**: The ultimate jangle and "quack" setting. Combines the bright bite of the bridge with the hollow woodiness of the middle pickup. Perfect for Johnny Marr's syncopated Smiths lines or Tom Petty rhythm beds.
-    *   **Position 5 (Neck)**: Warm, woody, and highly expressive. Ideal for singing blues lines (Rory Gallagher style) and atmospheric Radiohead arpeggios (*"Street Spirit"*).
-*   **Tone Cut Tuning**:
+- **Why**: This rolls off the raw, high-output single-coil edge, expanding the clean headroom of the Ruby engine and bringing out a sweet, woody quality. Roll the guitar volume up to 10 only when you want to push the amp into full, singing lead overdrive.
+- **Pickup Position Sweet Spots**:
+- **Position 4 (Neck + Middle)**: The "Gold Standard" clean tone. It naturally scoops the mids and rolls off sub-bass, producing a pristine, glassy, acoustic-adjacent chime. Ideal for fingerstyle playing (think John Frusciante's *"Under the Bridge"* or Mark Knopfler's fingerstyle snaps).
+- **Position 2 (Bridge + Middle)**: The ultimate jangle and "quack" setting. Combines the bright bite of the bridge with the hollow woodiness of the middle pickup. Perfect for Johnny Marr's syncopated Smiths lines or Tom Petty rhythm beds.
+- **Position 5 (Neck)**: Warm, woody, and highly expressive. Ideal for singing blues lines (Rory Gallagher style) and atmospheric Radiohead arpeggios (*"Street Spirit"*).
+- **Tone Cut Tuning**:
     *   Remember that the **Tone Cut control is counterintuitive** (higher setting = fewer highs). If your Strat feels too bright or "spiky" in your Sennheiser HD660S2 headphones, turn the Tone Cut *clockwise* (up to 6.5 or 7.0) to tame the transients rather than adjusting the Treble knob.
 
 ---

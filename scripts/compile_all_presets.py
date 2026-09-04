@@ -32,9 +32,6 @@ from scripts.utils.config import (
     GALAXY_BASE,
     STUDIO_D_BASE,
     VALHALLA_BASE,
-    LOGIC_EQ_BASE,
-    LOGIC_COMP_BASE,
-    LOGIC_SPACEDESIGNER_BASE,
     MIXWAVE_TEMPLATE,
     MIXWAVE_TEMPLATE_ALT,
     MIXWAVE_TEMPLATE_FACTORY,
@@ -53,14 +50,13 @@ from scripts.preset_compiler import (
     compile_studio_d_toneprint,
     compile_mixwave_toneprint,
     compile_supermassive_toneprint,
-    compile_logic_eq_toneprint,
-    compile_logic_compressor_toneprint,
-    compile_logic_space_designer_toneprint,
     compile_yamaha_thr_toneprint,
     compile_nembrini_xml_preset,
     compile_nembrini_stomp_presets,
     compile_kuassa_stomp_presets,
+    compile_all_standalone_presets,
 )
+
 
 
 def main():
@@ -109,10 +105,10 @@ def main():
     # Counters
     compiled = {
         "neural": 0, "uad": 0, "mixwave": 0, "la2a": 0, "hitsville": 0,
-        "logiceq": 0, "logiccomp": 0, "thr": 0, "mrh810": 0, "jc120": 0,
-        "div11": 0, "acoustic": 0, "puretone": 0, "galaxy": 0, "studiod": 0,
-        "supermassive": 0, "spacedesigner": 0,
+        "thr": 0, "mrh810": 0, "jc120": 0, "div11": 0, "acoustic": 0,
+        "puretone": 0, "galaxy": 0, "studiod": 0, "supermassive": 0,
     }
+
 
     # Recursively Scan Tones Directory
     for root, dirs, files in os.walk(TONES_DIR):
@@ -204,18 +200,6 @@ def main():
                 if compile_supermassive_toneprint(filepath, str(VALHALLA_BASE), clean_name, frontmatter):
                     compiled["supermassive"] += 1
 
-            if os.path.exists(LOGIC_EQ_BASE) and any(x in content.lower() for x in ["channel eq", "high-cut", "low-cut"]):
-                if compile_logic_eq_toneprint(filepath, str(LOGIC_EQ_BASE), clean_name, frontmatter):
-                    compiled["logiceq"] += 1
-
-            if os.path.exists(LOGIC_COMP_BASE) and ("logic compressor" in content.lower() or ("compressor" in content.lower() and "la-2a" not in content.lower())):
-                if compile_logic_compressor_toneprint(filepath, str(LOGIC_COMP_BASE), clean_name, frontmatter):
-                    compiled["logiccomp"] += 1
-
-            if os.path.exists(LOGIC_SPACEDESIGNER_BASE) and ("space designer" in content.lower() or "reverb aux" in content.lower()):
-                if compile_logic_space_designer_toneprint(filepath, str(LOGIC_SPACEDESIGNER_BASE), clean_name, frontmatter):
-                    compiled["spacedesigner"] += 1
-
             base_avp = NEMBRINI_TEMPLATES["acoustic_voice"]
             if os.path.exists(base_avp) and "acoustic voice" in content.lower():
                 if compile_nembrini_xml_preset(filepath, str(base_avp), clean_name, frontmatter, "acoustic_voice"):
@@ -225,16 +209,22 @@ def main():
             compile_kuassa_stomp_presets(filepath, clean_name, frontmatter)
 
     print("\n==================================================")
+    print("Compiling Standalone Rack Presets...")
+    standalone_count = compile_all_standalone_presets(
+        tones_dir=TONES_DIR,
+        filter_substr=filter_arg,
+    )
+
+    print("\n==================================================")
     print("Rig Compilation Complete! Injected:")
+    print(f"  -> {standalone_count} Standalone presets in ~/Library/Application Support/Standalone/Presets")
     print(f"  -> {compiled['neural']} Neural DSP presets in {NEURAL_OUTPUT_DIR}")
     print(f"  -> {compiled['uad']} UAD Paradise presets in {PARADISE_DIR}")
     print(f"  -> {compiled['mixwave']} MixWave Two-Rock presets in {MIXWAVE_OUTPUT_DIR}")
     print(f"  -> {compiled['la2a']} UADx LA-2A presets in Silver/Gray folders")
     print(f"  -> {compiled['hitsville']} UADx Hitsville presets in {HITSVILLE_BASE.parent}")
-    print(f"  -> {compiled['logiceq']} Logic Channel EQ presets in {LOGIC_EQ_BASE.parent}")
-    print(f"  -> {compiled['logiccomp']} Logic Compressor presets in {LOGIC_COMP_BASE.parent}")
-    print(f"  -> {compiled['spacedesigner']} Logic Space Designer presets in {LOGIC_SPACEDESIGNER_BASE.parent}")
     print(f"  -> {compiled['thr']} Yamaha THR presets in {YAMAHA_THR_OUTPUT_DIR}")
+
     print(f"  -> {compiled['mrh810']} Nembrini MRH810 XML presets in {NEMBRINI_TEMPLATES['mrh810'].parent}")
     print(f"  -> {compiled['jc120']} Nembrini Jazz Chorus XML presets in {NEMBRINI_TEMPLATES['jc120'].parent}")
     print(f"  -> {compiled['div11']} Nembrini Divided 11 XML presets in {NEMBRINI_TEMPLATES['div11'].parent}")

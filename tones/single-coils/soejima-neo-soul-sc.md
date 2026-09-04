@@ -28,9 +28,11 @@ preset_data:
     peak_reduction: 35
     compress: true
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 10
     decay: 1.8
+
+    wet_solo: false
   logic_eq:
     band1: {on: true, freq: 80.0, slope: 24.0}
     band4: {on: true, freq: 400.0, gain: -1.0, q: 1.0}
@@ -139,10 +141,8 @@ Effects are routed via auxiliary channels to preserve the dry signal's punch and
 
 ---
 
-## Starting Point Guide
-
-*   **Stratocaster Adjustments:** If using a Stratocaster and the tone feels slightly too dark, flip the Dream '65 to **Bright** and raise **Treble** to 5.0. 
-*   **Dialing the Compression:** If you play with a very heavy touch and the compressor feels like it's pumping, roll the LA-2A **Peak Reduction** down to 30.
+## Starting Point Guide- **Stratocaster Adjustments:** If using a Stratocaster and the tone feels slightly too dark, flip the Dream '65 to **Bright** and raise **Treble** to 5.0. 
+- **Dialing the Compression:** If you play with a very heavy touch and the compressor feels like it's pumping, roll the LA-2A **Peak Reduction** down to 30.
 
 ---
 

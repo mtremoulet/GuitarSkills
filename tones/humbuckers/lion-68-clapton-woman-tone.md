@@ -65,7 +65,7 @@ To achieve the Woman Tone, the physical guitar setup is **non-negotiable**:
 
 ---
 
-## Signal Chain (Paradise Guitar Studio All-in-One)
+## Signal Chain
 
 ### 1. Tone King Imperial Preamp — physical front-end
 *   **Status:** **Bypassed**

@@ -143,15 +143,13 @@ To maintain maximum clarity and prevent the Les Paul's thick midrange from getti
 
 ---
 
-## Guitar Interaction & Playback Guide
-
-* **The "7/7" Balance (Guitar Controls)**:
+## Starting Point Guide- **The "7/7" Balance (Guitar Controls)**:
   * Set your Les Paul's physical **Guitar Volume to 7** and **Tone to 7**.
-  * **Why**: This takes the high-output "edge" off the humbuckers, expanding the clean headroom of the Ruby and bringing out a glassy, woody quality. Turn the guitar volume up to 10 only when you want to push the amp into full, singing lead overdrive.
-* **Pickup Sweet Spots**:
-  * **Middle Position (Bridge + Neck)**: The ultimate clean tone. It naturally scoops the mids slightly and rolls off sub-bass, producing a pristine, glassy, acoustic-adjacent chime.
-  * **Neck Position (490R)**: Thick, warm, vocal, and cello-like. Perfect for expressive blues lines and jazz-fusion phrasing.
-  * **Bridge Position (490T)**: Warm and punchy with more mid-presence than the neck, but not aggressive — the Alnico II magnet keeps it smooth. Think late-Beatles chord crunch or Radiohead rhythm parts rather than biting hard-rock bridge tone.
+- **Why**: This takes the high-output "edge" off the humbuckers, expanding the clean headroom of the Ruby and bringing out a glassy, woody quality. Turn the guitar volume up to 10 only when you want to push the amp into full, singing lead overdrive.
+- **Pickup Sweet Spots**:
+- **Middle Position (Bridge + Neck)**: The ultimate clean tone. It naturally scoops the mids slightly and rolls off sub-bass, producing a pristine, glassy, acoustic-adjacent chime.
+- **Neck Position (490R)**: Thick, warm, vocal, and cello-like. Perfect for expressive blues lines and jazz-fusion phrasing.
+- **Bridge Position (490T)**: Warm and punchy with more mid-presence than the neck, but not aggressive — the Alnico II magnet keeps it smooth. Think late-Beatles chord crunch or Radiohead rhythm parts rather than biting hard-rock bridge tone.
 
 ---
 

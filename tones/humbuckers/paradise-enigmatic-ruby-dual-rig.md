@@ -48,6 +48,8 @@ shared_fx:
     decay: 2.0
     mix: 0.12
     pre_delay: 10.0
+
+    wet_solo: false
   kuassa_blues_barker:
     gain: 3.5
     tone: 5.0

@@ -31,10 +31,10 @@ preset_data:
     band1: {on: true, freq: 80.0, slope: 12.0}
     band7: {on: true, freq: 8000.0, gain: -1.5}
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 15.0
     decay: 1.5
-    wet_solo: true
+    wet_solo: false
 ---
 
 # TKIP Tele Clean Rhythm

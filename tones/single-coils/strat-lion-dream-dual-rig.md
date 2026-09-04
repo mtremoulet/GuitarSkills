@@ -46,6 +46,8 @@ shared_fx:
     decay: 2.2
     mix: 0.12
     pre_delay: 12.0
+
+    wet_solo: false
 ---
 
 # Lion '68 + Dream '65 — Stratocaster Dual Rig (Single-Coils)

@@ -34,7 +34,7 @@ Mike owns 9 instruments, categorized by their pickups and primary physical/tonal
 | **2** | **2014 Gibson Les Paul Studio** (Ebony, 120th Anniv.) | **490R (neck) & 490T (bridge)** (Alnico II, ~8.5k DCR) | D'Addario XS (10-46) | **"Smooth Refinement."** Sustain machine. Moderate-output humbuckers, warmer than standard LP pickups. Excellent for jazz, neo-soul, and vintage tones. Requires extra volume/gain for classic rock crunch. |
 | **3** | **Mid-1980s Squier Stratocaster "Partscaster"** (Light Blue) | **Fender Tex-Mex** (3 single-coils) | D'Addario XS (10-46) | **"The Funky Quack."** Hot, punchy, pure nickel vintage warmth. Tex-Mex pickups are hotter than standard Strat single-coils. |
 | **4** | **2013 Epiphone Sheraton II** (Natural) | Humbuckers (neck & bridge) | Thomastik-Infeld Jazz Swing Flats (10s) | **"The Velvet Jazz Box."** Semi-hollow laminate maple. Flatwounds reinforce dark jazz character. Acoustic bloom and natural sustain, but sensitive to feedback at high gain. |
-| **5** | **2008 Epiphone Les Paul Standard Plus Top** (Sunburst) | Humbuckers (neck & bridge) | D'Addario XS (10-46) | **"Classic Rock Workhorse."** Brighter, louder, and more aggressive humbucker response than the Gibson LP Studio. |
+| **5** | **2008 Epiphone Les Paul Standard Plus Top** (Vintage Sunburst) | **Tonerider Rebel 90s** (Humbucker-sized P-90s, Alnico II) | D'Addario XS (10-46) | **"Singing P-90 Workhorse."** Upgraded with Tonerider Rebel 90s (RWRP set, modern wiring). Rich, dynamic, and touch-sensitive with singing sustain; balanced output and lots of headroom on volume roll-off. |
 | **6** | **2012 Framus Earl Slick Artist Series** (Matte Black) | **Two DiMarzio P-90s** (Soapbar single-coils) | Rotosound Yellows (10-46) | **"The Slick Rocker."** Flat-top swamp ash body, bolt-in maple neck, Bigsby B500 Vibrato, 3-way rotary selector. P-90s have a natural upper-mid spike; brighter and punchier than humbuckers. |
 
 ### Acoustic Guitars & Bass
@@ -73,13 +73,14 @@ To match the software plugins' expected analog input level (+12.2 dBu clipping p
 ## 4. Software Host & Plugin Inventory
 
 ### Software Hosts & Workflow
-* **Kushview Element (Daily Driver):** Lightweight, modular VST/AU plugin host graph environment. Used for daily practice, quick preset recall, low-latency monitoring, and modular signal chain experimentation. Primary environment for fast configuration loading.
+* **Standalone Audio (by Oort Media — Primary for Linear Chains):** Dedicated lightweight macOS Audio Unit plugin host. Primary daily driver for linear, single-amp AU plugin chains, instant loading, low latency practice, and rapid preset auditioning (`~/Library/Application Support/Standalone/Presets/`).
+* **Kushview Element (Primary for Parallel & Dual-Amp Rigs):** Modular VST/AU plugin host graph environment. Used for parallel dual-amp rigs, multi-amp routing, and complex signal chain experimentation (`.els` session graphs).
   * *Dual-Amp Routing:* Parallel amp graphs use Airwindows Consolidated `PurestDualPan` utility blocks for clean stereo positioning (-12 L / +12 R) before submix busing.
   * *Hammerspoon MIDI Controller:* Number keys (`1`, `2`, `3`, `5`) map to MIDI Program Change snapshots over macOS `IAC Driver Bus 1` to toggle pedalboards instantly with zero MIDI controller hardware (documented in [hammerspoon-midi-element.md](file:///Users/miketremoulet/claude-projects/GuitarSkills/references/hammerspoon-midi-element.md)).
-* **Logic Pro (Production & High-Horsepower DAW):** Reserved for multi-track recording, complex bused routing (e.g. Aux sends, spatial mixing), heavy production, or when maximum processing horsepower is required.
+* **Logic Pro (Shelved / Inactive):** Full DAW environment. **Shelved from active toolkit until further notice.** Existing toneprints and `.pst` presets remain preserved for historical reference, but no new toneprints are designed for Logic Pro.
 
 > [!NOTE]
-> **Host File Format Note:** Logic Pro project templates (`.logicx`) are binary/proprietary macOS bundle packages that cannot be programmatically generated via scripts. Host configurations for daily practice are managed via Kushview Element graphs (`.els`) or target plugin preset definitions.
+> **Host File Format Note:** Daily practice rigs are compiled directly into native Standalone Audio JSON racks (`scripts/compile_standalone_presets.py`) or Kushview Element session graphs (`.els`).
 
 ### Amp Emulations
 

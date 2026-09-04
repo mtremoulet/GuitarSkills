@@ -15,10 +15,11 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 
 ## Host Environments
 
-| Name | Maker | Description |
-|------|-------|-------------|
-| Element | Kushview | Modular VST/AU plugin host graph environment. **Primary daily driver** for practice sessions, rapid patch loading, low-latency playback, and visual graph routing. |
-| Logic Pro | Apple | Full DAW environment. Reserved for multi-track recording, serious production, complex bus/aux mixing, or high horsepower processing requirements. |
+| Name | Maker | Status | Description |
+|------|-------|--------|-------------|
+| Standalone | Oort Media | **Active (Primary)** | Dedicated macOS Audio Unit plugin host. **Primary daily driver** for linear / single-amp signal chains, ultra-low latency practice, and rapid preset auditioning (`~/Library/Application Support/Standalone/Presets/`). |
+| Element | Kushview | **Active (Parallel)** | Modular VST/AU plugin host graph environment. **Primary daily driver** for parallel dual-amp rigs, multi-amp routing, and complex signal splitting (`.els` session graphs). |
+| Logic Pro | Apple | **Shelved (Legacy)** | Full DAW environment. **Shelved from active toolkit until further notice.** Legacy presets and `.pst` files remain supported in the archive, but no new toneprints are designed for Logic Pro. |
 
 ---
 
@@ -34,7 +35,7 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 | 2 | 2014 Gibson Les Paul Studio | Ebony (Serial: 140020207) | Solid mahogany/maple | **490R neck / 490T bridge — both Alnico II, ~8.5k DCR matched pair** | D'Addario XS 10-46 | 120th Anniversary Edition. "Smooth Refinement" and sustain machine. Both pickups warm and moderate-output — warmer/lower than the 498T in LP Standards. Well-suited for jazz, neo-soul, vintage tones. Classic Rock and blues bridge settings need extra Volume/Mid-Bite to compensate for the 490T's moderate output. |
 | 3 | Mid-1980s Squier Stratocaster "Partscaster" | Light Blue / Tortoiseshell pickguard | SQ-series MIJ body / E-series neck | Fender Tex-Mex pre-wired pickguard (3 single-coils) | D'Addario XS 10-46 | "The Funky Quack." Hot, punchy, pure nickel vintage warmth. Tex-Mex pickups are hotter than standard Strat singles. |
 | 4 | 2013 Epiphone Sheraton II | Natural | Semi-hollow laminate maple | Humbuckers (neck and bridge) | Thomastik-Infeld Jazz Swing Flats 10s | "The Velvet Jazz Box." Semi-hollow adds acoustic bloom, natural sustain, warmth. Flatwound strings reinforce dark jazz character. More sensitive to feedback at high gain than solid-body. Bridge-neck blend available. |
-| 5 | 2008 Epiphone Les Paul Standard Plus Top | Vintage Sunburst | Solid mahogany/maple | Humbuckers (neck and bridge) | D'Addario XS 10-46 | "The bright, sustaining classic rock workhorse." Brighter and more aggressive than the Gibson LP Studio. |
+| 5 | 2008 Epiphone Les Paul Standard Plus Top | Vintage Sunburst · 2008 | Solid mahogany/maple | **Tonerider Rebel 90s** (HSP-90 single-coils, Alnico II, RWRP set) | D'Addario XS 10-46 | "Singing P-90 Workhorse." Upgraded with Tonerider Rebel 90s in modern wiring. Punchy, articulate, and dynamic with rich low-mid weight and singing sustain; huge dynamic range on volume roll-off. |
 | 6 | 2012 Framus Earl Slick Artist Series | Matte Black (Serial: L-000047-12) | Flat-top double cutaway swamp ash body / Bolt-in maple neck, rosewood fingerboard, 24.75" scale | **Two DiMarzio P-90 pickups (single-coil wound, soapbar housing)** · 3-way rotary selector · Bigsby B500 vibrato | Rotosound Yellows 10-46 | "The Slick Rocker." **P-90s are NOT humbuckers** — single-coil construction, natural upper-mid spike, brighter and more present than LP 490 series. Less Mid-Bite and treble needed on the Tone King vs humbuckers. Swamp ash body adds snap and clarity. Bigsby adds subtle pitch expression. |
 
 ### Acoustic Guitars & Bass

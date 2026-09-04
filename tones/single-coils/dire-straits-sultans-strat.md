@@ -30,6 +30,8 @@ preset_data:
     mix: 0.12
     pre_delay: 10.0
     decay: 1.5
+
+    wet_solo: false
 ---
 
 # Dire Straits — Sultans Strat Fingerstyle Clean
@@ -54,7 +56,9 @@ Running into high-headroom Fender Blackface circuitry (emulated by the **UADx Dr
 
 ### 2. UADx Paradise Guitar Studio / Dream '65 — pristine clean platform
 
-#### Amp Settings
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
 |---------|---------|---------|
 | Pedal | **Gold Overdrive** | Transparent clean boost on hand |
 | State | **Disabled** (Off) | Bypass by default; engage for solo lift |
@@ -62,7 +66,7 @@ Running into high-headroom Fender Blackface circuitry (emulated by the **UADx Dr
 | Output | **7.5** | Pushes front end for level lift |
 | Treble | **4.5** | Smooth boost response |
 
-**Amp & Cab Settings (Dream '65)**
+#### Amp & Cab Settings (Dream '65)
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -75,10 +79,6 @@ Running into high-headroom Fender Blackface circuitry (emulated by the **UADx Dr
 | Room Level | **10%** | Subtle room air to blend mics |
 
 ---
-
-#### Pre-FX Option: Gold Overdrive
-
-| Control | Setting | Purpose |
 
 ### 3. UADx LA-2A Silver Compressor — peak leveling for fingerstyle
 

@@ -42,6 +42,8 @@ shared_fx:
     decay: 1.8
     mix: 0.10
     pre_delay: 8.0
+
+    wet_solo: false
 ---
 
 # Woodrow '55 + Dream '65 — Telecaster Dual Rig (Single-Coils)

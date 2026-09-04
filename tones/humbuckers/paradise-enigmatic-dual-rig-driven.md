@@ -61,6 +61,8 @@ preset_data:
     decay: 2.0
     mix: 0.10
     pre_delay: 8.0
+
+    wet_solo: false
   la2a:
     gain: 28.0
     peak_reduction: 32.0
@@ -129,3 +131,10 @@ Hosted inside **UAD Paradise Guitar Studio**, the **Enigmatic '82** (Dumble Over
   1. Try turning on **Stage 1 (Nashville OD / Blues Barker)** alone for edge-of-breakup rhythm.
   2. Engage **Stage 2 (Klon / Gold OD)** into Stage 1 for a high-headroom solo volume lift.
   3. Turn on **Stage 3 (TS-808)** to tighten the bottom end and sail into violin-like Dumble lead sustain!
+
+---
+
+## Feedback History
+
+### 2026-07-26 — initial
+Initial toneprint definition for Path B (Driven / Overdrive) in parallel dual-rig architecture. Configured with UAD Enigmatic '82 inside Paradise Guitar Studio for touch-sensitive edge-of-breakup body.

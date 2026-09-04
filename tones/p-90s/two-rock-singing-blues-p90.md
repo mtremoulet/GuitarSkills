@@ -34,12 +34,14 @@ preset_data:
     gain: 22.0
     compress: true
   hitsville:
-    mix: 1.0
+    mix: 0.12
     decay: 2.4
     pre_delay: 15.0
     chamber: "2648"
     speaker: "Bozak 800"
     mic: "Unidyne 545"
+
+    wet_solo: false
   logic_eq:
     band1: {on: true, freq: 80.0, slope: 18.0}
     band4: {on: true, freq: 400.0, gain: -1.5, q: 1.0}

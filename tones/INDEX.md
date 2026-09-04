@@ -10,7 +10,8 @@
 | Deja HiFi Jazz Clean HB | humbucker | Gibson Les Paul / Epiphone Sheraton II (humbuckers) | [humbuckers/deja-hifi-jazz-humbucker.md](humbuckers/deja-hifi-jazz-humbucker.md) | archived |
 | Dream '65 — Blackface Jazz | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-blackface-jazz.md](humbuckers/dream-65-blackface-jazz.md) | tested |
 | Dream '65 — Dual Rig Clean Foundation | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/dream-65-dual-rig-clean.md](humbuckers/dream-65-dual-rig-clean.md) | initial |
-| Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | verified |
+| Faust Feast HB (Clean Testbed) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers) | [humbuckers/faust-feast-hb.md](humbuckers/faust-feast-hb.md) | initial |
+| Henriksen Bud 6 — D.I. Funk Console (ACWX) | humbucker | Epiphone Sheraton II (neck humbucker, flatwounds) | [humbuckers/henriksen-bud-acwx.md](humbuckers/henriksen-bud-acwx.md) | tested |
 | Jazz Clean — Intimate Les Paul | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/jazz-clean-intimate-les-paul.md](humbuckers/jazz-clean-intimate-les-paul.md) | tested |
 | JC120 Pristine Jazz Clean | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/jc120-pristine-jazz-clean.md](humbuckers/jc120-pristine-jazz-clean.md) | archived |
 | Leo Sun Scorpio Descent HB | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (humbuckers) | [humbuckers/leo-sun-scorpio-descent.md](humbuckers/leo-sun-scorpio-descent.md) | initial |
@@ -29,15 +30,17 @@
 | Ruby LP Velvet Blues HB | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard | [humbuckers/ruby-hb-velvet-blues.md](humbuckers/ruby-hb-velvet-blues.md) | refined |
 | Ruby '63 — Les Paul Velvet Crunch & Chime | humbucker | Gibson Les Paul Studio (490R neck / 490T bridge humbuckers) | [humbuckers/ruby-les-paul-velvet-crunch.md](humbuckers/ruby-les-paul-velvet-crunch.md) | archived |
 | Sheraton OC-5 Bass Split | humbucker | Epiphone Sheraton II (humbuckers, neck position) | [humbuckers/sheraton-bass-split-oc5.md](humbuckers/sheraton-bass-split-oc5.md) | archived |
-| Sheraton Jazz + Acoustic Blend | humbucker | Epiphone Sheraton (humbuckers) | [humbuckers/sheraton-jazz-acoustic.md](humbuckers/sheraton-jazz-acoustic.md) | tested |
+| Sheraton Showtime + Acoustic Voice Pro — Warm Jazz & Acoustic Blend (Humbuckers) | humbucker | Epiphone Sheraton II (Humbuckers) | [humbuckers/sheraton-showtime-acoustic-dual-rig.md](humbuckers/sheraton-showtime-acoustic-dual-rig.md) | tested |
 | Soejima Neo-Soul Clean — Humbucker | humbucker | Epiphone Sheraton II / Gibson Les Paul Studio | [humbuckers/soejima-neo-soul-hb.md](humbuckers/soejima-neo-soul-hb.md) | initial |
 | THR Bluesbreaker Crunch — Les Paul / P-90s | humbucker | Epiphone Les Paul Standard / Gibson Les Paul Studio / Framus P-90s | [humbuckers/thr-bluesbreaker-crunch.md](humbuckers/thr-bluesbreaker-crunch.md) | initial |
 | THR Singing LP Lead — Les Paul | humbucker | Gibson Les Paul Studio / Epiphone Les Paul Standard (bridge humbucker) | [humbuckers/thr-singing-lp-lead.md](humbuckers/thr-singing-lp-lead.md) | initial |
 | THR Velvet Humbucker Jazz — Sheraton II | humbucker | Epiphone Sheraton II (neck humbucker, flatwound strings) | [humbuckers/thr-velvet-hb-jazz.md](humbuckers/thr-velvet-hb-jazz.md) | initial |
+| THR Withers Soul Rhythm — Humbuckers | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (neck or neck+bridge blend) | [humbuckers/thr-withers-soul-rhythm.md](humbuckers/thr-withers-soul-rhythm.md) | initial |
 | TKIP LP 80s Rock Lead | humbucker | Gibson Les Paul Studio | [humbuckers/tkip-lp-80s-rock-lead.md](humbuckers/tkip-lp-80s-rock-lead.md) | initial |
 | TKIP Sheraton Jazz Clean | humbucker | Epiphone Sheraton II | [humbuckers/tkip-sheraton-jazz-clean.md](humbuckers/tkip-sheraton-jazz-clean.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean | humbucker | Gibson Les Paul Studio (490R neck pickup) | [humbuckers/two-rock-bloomfield-warm-clean.md](humbuckers/two-rock-bloomfield-warm-clean.md) | tested |
 | Two-Rock Bloomfield + Ruby '63 — Boutique Velvet & Vox Chime Dual Rig (Humbuckers) | humbucker | Gibson Les Paul Studio / Epiphone Sheraton II (Humbuckers) | [humbuckers/two-rock-ruby-dual-rig.md](humbuckers/two-rock-ruby-dual-rig.md) | initial |
+| Toneprint Channel EQ Impulse Responses (IRs) |  |  | [irs/README.md](irs/README.md) | initial |
 | Ten Piece Bell (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/audio-hertz-ten-piece-bell.md](p-90s/audio-hertz-ten-piece-bell.md) | initial |
 | Amp Snob — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/cory-wong-amp-snob-p90.md](p-90s/cory-wong-amp-snob-p90.md) | refined |
 | City Pop Chime — Chorused Rhythm Clean | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) | [p-90s/cory-wong-city-pop-chime.md](p-90s/cory-wong-city-pop-chime.md) | archived |
@@ -53,6 +56,7 @@
 | Ruby P-90 Growly Blues | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) | [p-90s/ruby-p90-growly-blues.md](p-90s/ruby-p90-growly-blues.md) | tested |
 | Soejima Neo-Soul Clean — P-90 | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) | [p-90s/soejima-neo-soul-p90.md](p-90s/soejima-neo-soul-p90.md) | initial |
 | THR P90 Blues Drive — Framus P-90s | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90 pickups) | [p-90s/thr-p90-blues-drive.md](p-90s/thr-p90-blues-drive.md) | initial |
+| THR Royal Velvet Jazz — P-90s | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s) / Les Paul P-90s | [p-90s/thr-royal-velvet-jazz-p90.md](p-90s/thr-royal-velvet-jazz-p90.md) | initial |
 | TKIP P-90 Blues Lead | p-90 | Framus Earl Slick Artist Series | [p-90s/tkip-p90-blues-lead.md](p-90s/tkip-p90-blues-lead.md) | initial |
 | Two Rock Bloomfield — Boutique Warm Clean (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-bloomfield-p90.md](p-90s/two-rock-bloomfield-p90.md) | refined |
 | Two Rock Bloomfield — Singing Blues (P-90 Variant) | p-90 | Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s) | [p-90s/two-rock-singing-blues-p90.md](p-90s/two-rock-singing-blues-p90.md) | refined |
@@ -65,6 +69,7 @@
 | Divided 11 Light Blues | single-coil | Fender Player II Telecaster | [single-coils/divided-11-light-blues.md](single-coils/divided-11-light-blues.md) | tested |
 | Dream '65 — Blackface Sparkle | single-coil | Fender Player II Telecaster (bridge pickup, roundwound strings) | [single-coils/dream-65-blackface-sparkle.md](single-coils/dream-65-blackface-sparkle.md) | refined |
 | Dream '65 — SRV Texas Growl | single-coil | Squier Stratocaster (neck or neck/middle positions) | [single-coils/dream-65-srv-texas-growl.md](single-coils/dream-65-srv-texas-growl.md) | archived |
+| Faust Feast SC (Clean Testbed) | single-coil | Fender Player II Telecaster / Squier Stratocaster (Single-Coils) | [single-coils/faust-feast-sc.md](single-coils/faust-feast-sc.md) | initial |
 | Hazy Thames Gold SC | single-coil | Fender Player II Telecaster / Squier Stratocaster (single-coils) | [single-coils/hazy-thames-gold.md](single-coils/hazy-thames-gold.md) | initial |
 | Paradise Pedal Platform (Single-Coil Variant) | single-coil | Fender Player II Telecaster / Squier Stratocaster | [single-coils/paradise-pedal-platform-sc.md](single-coils/paradise-pedal-platform-sc.md) | archived |
 | Puretone Bossa Fingerstyle — Single-Coils | single-coil | Fender Player II Telecaster (neck pickup) / Squier Stratocaster (neck/middle) | [single-coils/puretone-bossa-fingerstyle-sc.md](single-coils/puretone-bossa-fingerstyle-sc.md) | archived |
@@ -80,6 +85,8 @@
 | Enigmatic '82 + Ruby '63 — Telecaster Dual Rig (Single-Coils) | single-coil | Fender Player II Telecaster (Single-Coils) | [single-coils/tele-enigmatic-ruby-dual-rig.md](single-coils/tele-enigmatic-ruby-dual-rig.md) | tested |
 | Singing Blues-Jazz (Larry Carlton Style) | single-coil | Fender Player II Telecaster (Neck position, Flatwounds/Pure Nickels) | [single-coils/tele-singing-blues-carlton.md](single-coils/tele-singing-blues-carlton.md) | initial |
 | Woodrow '55 + Dream '65 — Telecaster Dual Rig (Single-Coils) | single-coil | Fender Player II Telecaster (Single-Coils) | [single-coils/tele-woodrow-dream-dual-rig.md](single-coils/tele-woodrow-dream-dual-rig.md) | initial |
+| THR Hazy Thames Gold — Single-Coils | single-coil | Fender Player II Telecaster / Squier Stratocaster (single-coils) | [single-coils/thr-hazy-thames-gold.md](single-coils/thr-hazy-thames-gold.md) | initial |
+| THR Soejima Neo-Soul — Single-Coils | single-coil | Fender Player II Telecaster / Squier Stratocaster (single-coils) | [single-coils/thr-soejima-neo-soul.md](single-coils/thr-soejima-neo-soul.md) | initial |
 | THR Tele Bickert Jazz — Telecaster | single-coil | 2024 Fender Player II Telecaster (Neck single-coil pickup) | [single-coils/thr-tele-bickert-jazz.md](single-coils/thr-tele-bickert-jazz.md) | initial |
 | THR Tele Blackface Sparkle — Telecaster | single-coil | 2024 Fender Player II Telecaster (Neck, Middle, or Bridge single-coils) | [single-coils/thr-tele-blackface-sparkle.md](single-coils/thr-tele-blackface-sparkle.md) | initial |
 | THR Warm Neo-Soul — Stratocaster | single-coil | Squier Stratocaster (bridge + middle pickup position) | [single-coils/thr-warm-neo-soul.md](single-coils/thr-warm-neo-soul.md) | initial |
@@ -87,6 +94,5 @@
 | TKIP Tele Clean Rhythm | single-coil | Fender Player II Telecaster | [single-coils/tkip-tele-clean-rhythm.md](single-coils/tkip-tele-clean-rhythm.md) | initial |
 | UA 610 Console DI — 80s Studio Clean | single-coil | Squier Stratocaster / Fender Player II Telecaster (Single-Coils — Middle + Bridge "Quack" or Neck position) | [single-coils/ua610-console-di-studio-clean.md](single-coils/ua610-console-di-studio-clean.md) | initial |
 | Woodrow Sweet Spot | single-coil | Squier Stratocaster (single coils) | [single-coils/woodrow-sweet-spot.md](single-coils/woodrow-sweet-spot.md) | tested |
-| Dream '65 — Warm Clean | universal | Universal (Tested with Archtop/Humbucker jazz guitars and Single-Coils) | [universal/dream-65-warm-clean.md](universal/dream-65-warm-clean.md) | archived |
 | Slapback Delay Default Presets |  |  | [utilities/slapback-defaults.md](utilities/slapback-defaults.md) | initial |
 | Transient Blunting Utility Presets |  |  | [utilities/transient-blunters.md](utilities/transient-blunters.md) | initial |

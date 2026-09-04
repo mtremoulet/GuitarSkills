@@ -149,7 +149,7 @@ Placed on a dedicated Aux Track (**Bus 3**) set to **100% Wet**. Track send leve
 | Chamber | **Chamber 4** | Historic warm, deep chamber space beneath Capitol Tower |
 | Speaker | **Altec 605A** | Coaxial speaker voicing with beautiful vintage midrange |
 | Mic | **Unidyne 545** | Detailed dynamic mic capture |
-| Mix | **Wet Solo (ON)** | 100% Wet output configuration on Bus |
+| Mix | **12% (0.12)** | Serial insert blend — calibrated for Standalone rack & Logic channel |
 | Decay | **1.8s** (approx. 11:00) | Lush, spacious room decay that blooms behind your single notes |
 | Pre-Delay | **10 ms** | Natural gap letting your pick dynamics stay crisp and direct |
 

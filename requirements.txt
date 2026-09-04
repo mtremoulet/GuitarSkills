@@ -1,13 +1,8 @@
 # GuitarSkills Python dependencies
 #
-# Runtime: none — all scripts use Python standard library only.
-# Minimum Python version: 3.11 (required by chord-library)
-#
-# To set up on a new machine:
-#   python3 --version          # confirm 3.11+
-#   python3 -m venv .venv
-#   source .venv/bin/activate
-#   pip install -r requirements.txt
-#
-# Testing (chord-library unit tests):
+# Runtime:
+PyYAML>=6.0
+
+# Testing (preset compiler unit tests):
 pytest>=7.0
+

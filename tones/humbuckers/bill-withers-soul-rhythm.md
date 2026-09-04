@@ -29,6 +29,8 @@ preset_data:
     mix: 0.15
     pre_delay: 12.0
     decay: 1.8
+
+    wet_solo: false
 ---
 
 # Bill Withers — 70s Soul & Funk Rhythm
@@ -53,7 +55,9 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 
 ### 2. UADx Paradise Guitar Studio / Woodrow '55 — Tweed soul foundation
 
-#### Amp Settings
+#### Pre-FX Option: Gold Overdrive
+
+| Control | Setting | Purpose |
 |---------|---------|---------|
 | Pedal | **Gold Overdrive** | Transparent clean boost on hand |
 | State | **Disabled** (Off) | Bypass by default; engage for solo lift |
@@ -61,7 +65,7 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 | Output | **7.5** | Level lift pushing tube front end |
 | Treble | **4.5** | Smooth boost response |
 
-**Amp Controls (Woodrow '55)**
+#### Amp Controls (Woodrow '55)
 
 | Control | Setting | Purpose |
 |---------|---------|---------|
@@ -73,10 +77,6 @@ Using the **UADx Woodrow '55** (Fender Tweed Deluxe emulation) set to a warm, hi
 | Room Level | **10%** | Subtle room air |
 
 ---
-
-#### Pre-FX Option: Gold Overdrive
-
-| Control | Setting | Purpose |
 
 ### 3. UADx LA-2A Silver Compressor — organic optical glue
 

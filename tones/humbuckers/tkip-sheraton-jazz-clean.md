@@ -35,10 +35,10 @@ preset_data:
     knee: 0.8
     circuit_type: Vintage Opto
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 15.0
     decay: 1.5
-    wet_solo: true
+    wet_solo: false
   logic_eq:
     band1: {on: true, freq: 80.0, slope: 12.0}
     band4: {on: true, freq: 650.0, gain: 2.0, q: 1.5}

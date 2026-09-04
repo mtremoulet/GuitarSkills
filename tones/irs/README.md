@@ -1,0 +1,35 @@
+# Toneprint Channel EQ Impulse Responses (IRs)
+
+These high-resolution **24-bit / 48 kHz mono WAV IR files** capture the exact linear frequency response of Logic Pro's Channel EQ curves configured in GuitarSkills toneprints.
+
+## How to Use in Standalone:
+1. **Inside Neural Amp Modeler (NAM)**: Load the corresponding `.wav` directly into NAM's built-in **IR slot** alongside your amp profile.
+2. **Dedicated AU IR Loader**: Place a lightweight AU IR loader (e.g. NadIR, Space Designer AU, Pulse, etc.) immediately after your amp plugin in Standalone.
+
+## Generated IR Library:
+
+| Preset / Toneprint | Target Amp | Pickup / Guitar | IR File | Active EQ Bands |
+| :--- | :--- | :--- | :--- | :--- |
+| **framus-electronic-veil-p90**<br>`framus-electronic-veil-p90` | Showtime '64 (UADx) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)* | `framus-electronic-veil-p90-eq.wav` | BAND4: 250Hz (+2.5dB, Q=0.8)<br>BAND8: 3800Hz (4dB/oct) |
+| **Lion '68 — Royal Velvet Jazz P90**<br>`lion-68-royal-velvet-jazz-p90` | Lion '68 (UADx) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)* | `lion-68-royal-velvet-jazz-p90-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND4: 650.0Hz (-1.5dB, Q=1.5)<br>BAND8: 4500.0Hz (24.0dB/oct) |
+| **Lion '68 — Slick Growler Blues P90**<br>`lion-68-slick-growler-blues-p90` | Lion '68 (UADx) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)* | `lion-68-slick-growler-blues-p90-eq.wav` | BAND1: 80.0Hz (12.0dB/oct) |
+| **Ruby P-90 Growly Blues**<br>`ruby-p90-growly-blues` | Ruby '63 (UADx) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s)* | `ruby-p90-growly-blues-eq.wav` | BAND1: 85.0Hz (12.0dB/oct)<br>BAND8: 5500.0Hz (12.0dB/oct) |
+| **Soejima Neo-Soul P90**<br>`soejima-neo-soul-p90` | Dream '65 (UADx) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s)* | `soejima-neo-soul-p90-eq.wav` | BAND1: 85.0Hz (24.0dB/oct)<br>BAND4: 500.0Hz (-1.5dB, Q=1.5)<br>BAND7: 6000.0Hz (-1.0dB, Q=1.0) |
+| **TKIP P-90 Blues Lead**<br>`tkip-p90-blues-lead` | Tone King Imperial Preamp (Hardware) | p-90<br>*Framus Earl Slick Artist Series* | `tkip-p90-blues-lead-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND3: 250.0Hz (+1.5dB, Q=1.0)<br>BAND7: 7000.0Hz (-2.0dB, Q=1.0) |
+| **Two-Rock Singing Blues P90**<br>`two-rock-singing-blues-p90` | Two-Rock Bloomfield (MixWave) | p-90<br>*Framus Earl Slick Artist Series (DiMarzio P-90s, D'Addario XS 10s)* | `two-rock-singing-blues-p90-eq.wav` | BAND1: 80.0Hz (18.0dB/oct)<br>BAND4: 400.0Hz (-1.5dB, Q=1.0)<br>BAND8: 6800.0Hz (24.0dB/oct) |
+| **Deja HiFi Jazz Clean HB**<br>`deja-hifi-jazz-humbucker` | JC120 Jazz Chorus (Nembrini) | humbucker<br>*Gibson Les Paul / Epiphone Sheraton II (humbuckers)* | `deja-hifi-jazz-humbucker-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND4: 280.0Hz (+1.8dB, Q=1.0)<br>BAND8: 5800.0Hz (12.0dB/oct) |
+| **Henriksen Bud ACWX**<br>`henriksen-bud-acwx` | D.I. Funk Console (Archetype Cory Wong X) | humbucker<br>*Epiphone Sheraton II (neck humbucker, flatwounds)* | `henriksen-bud-acwx-eq.wav` | BAND1: 50.0Hz (24.0dB/oct)<br>BAND2: 80.0Hz (+0.0dB, Q=1.0)<br>BAND3: 420.0Hz (+2.0dB, Q=1.2)<br>BAND4: 1600.0Hz (+0.0dB, Q=1.2)<br>BAND5: 3500.0Hz (-2.0dB, Q=1.0)<br>BAND6: 7280.0Hz (-5.0dB, Q=1.0)<br>BAND8: 10000.0Hz (12.0dB/oct) |
+| **Leo Sun Scorpio Descent HB**<br>`leo-sun-scorpio-descent` | Ruby '63 (UADx) | humbucker<br>*Gibson Les Paul Studio / Epiphone Sheraton II (humbuckers)* | `leo-sun-scorpio-descent-eq.wav` | BAND1: 80.0Hz (24.0dB/oct)<br>BAND4: 580.0Hz (-1.5dB, Q=1.4)<br>BAND7: 4800.0Hz (-1.0dB, Q=1.0) |
+| **Ruby LP Velvet Blues HB**<br>`ruby-hb-velvet-blues` | Ruby '63 (UADx) | humbucker<br>*Gibson Les Paul Studio / Epiphone Les Paul Standard* | `ruby-hb-velvet-blues-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND8: 6000.0Hz (12.0dB/oct) |
+| **Ruby LP Velvet Crunch HB**<br>`ruby-les-paul-velvet-crunch` | Ruby '63 (UADx) | humbucker<br>*Gibson Les Paul Studio (490R neck / 490T bridge humbuckers)* | `ruby-les-paul-velvet-crunch-eq.wav` | BAND1: 80Hz (2dB/oct)<br>BAND8: 6500Hz (2dB/oct) |
+| **Sheraton OC-5 Bass Split**<br>`sheraton-bass-split-oc5` | Dream '65 (UADx), Bass Amp Designer (Logic) | humbucker<br>*Epiphone Sheraton II (humbuckers, neck position)* | `sheraton-bass-split-oc5-eq.wav` | BAND1: 100.0Hz (18.0dB/oct)<br>BAND4: 650.0Hz (-1.5dB, Q=1.5) |
+| **Soejima Neo-Soul HB**<br>`soejima-neo-soul-hb` | Dream '65 (UADx) | humbucker<br>*Epiphone Sheraton II / Gibson Les Paul Studio* | `soejima-neo-soul-hb-eq.wav` | BAND1: 90.0Hz (24.0dB/oct)<br>BAND4: 350.0Hz (-2.0dB, Q=1.2)<br>BAND7: 4000.0Hz (+1.5dB, Q=1.0) |
+| **TKIP LP 80s Rock Lead**<br>`tkip-lp-80s-rock-lead` | Tone King Imperial Preamp (Hardware) | humbucker<br>*Gibson Les Paul Studio* | `tkip-lp-80s-rock-lead-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND5: 2500.0Hz (+1.5dB, Q=1.0) |
+| **TKIP Sheraton Jazz Clean**<br>`tkip-sheraton-jazz-clean` | Tone King Imperial Preamp (Hardware) | humbucker<br>*Epiphone Sheraton II* | `tkip-sheraton-jazz-clean-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND4: 650.0Hz (+2.0dB, Q=1.5)<br>BAND7: 4000.0Hz (24.0dB/oct) |
+| **Hazy Thames Gold SC**<br>`hazy-thames-gold` | Dream '65 (UADx) | single-coil<br>*Fender Player II Telecaster / Squier Stratocaster (single-coils)* | `hazy-thames-gold-eq.wav` | BAND1: 75.0Hz (24.0dB/oct)<br>BAND4: 340.0Hz (-1.8dB, Q=1.5)<br>BAND7: 10000.0Hz (+1.5dB, Q=1.0) |
+| **Soejima Neo-Soul SC**<br>`soejima-neo-soul-sc` | Dream '65 (UADx) | single-coil<br>*Fender Player II Telecaster / Squier Stratocaster* | `soejima-neo-soul-sc-eq.wav` | BAND1: 80.0Hz (24.0dB/oct)<br>BAND4: 400.0Hz (-1.0dB, Q=1.0)<br>BAND5: 1500.0Hz (+1.5dB, Q=0.8)<br>BAND7: 5000.0Hz (-2.0dB, Q=1.0) |
+| **Telecaster OC-5 Bass Split**<br>`tele-bass-split-oc5` | Dream '65 (UADx), Bass Amp Designer (Logic) | single-coil<br>*Fender Player II Telecaster (single-coils, neck position)* | `tele-bass-split-oc5-eq.wav` | BAND1: 100.0Hz (18.0dB/oct)<br>BAND7: 5000.0Hz (-1.5dB, Q=1.0) |
+| **tele-electronic-veil-bickert**<br>`tele-electronic-veil-bickert` | Showtime '64 (UADx) | single-coil<br>*Fender Player II Telecaster (Neck position, Flatwounds)* | `tele-electronic-veil-bickert-eq.wav` | BAND4: 250Hz (+2.0dB, Q=0.8)<br>BAND8: 4000Hz (4dB/oct) |
+| **TKIP Strat Funky Rhythm**<br>`tkip-strat-funky-rhythm` | Tone King Imperial Preamp (Hardware) | single-coil<br>*Squier Stratocaster* | `tkip-strat-funky-rhythm-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND4: 400.0Hz (-1.5dB, Q=1.2)<br>BAND6: 3000.0Hz (+1.5dB, Q=1.0) |
+| **TKIP Tele Clean Rhythm**<br>`tkip-tele-clean-rhythm` | Tone King Imperial Preamp (Hardware) | single-coil<br>*Fender Player II Telecaster* | `tkip-tele-clean-rhythm-eq.wav` | BAND1: 80.0Hz (12.0dB/oct)<br>BAND7: 8000.0Hz (-1.5dB, Q=1.0) |
+| **UA 610 Console DI — 80s Studio Clean**<br>`ua610-console-di-studio-clean` | UA 610-B Tube Preamp (Console Direct DI) | single-coil<br>*Squier Stratocaster / Fender Player II Telecaster (Single-Coils — Middle + Bridge "Quack" or Neck position)* | `ua610-console-di-studio-clean-eq.wav` | BAND1: 80.0Hz (24.0dB/oct)<br>BAND7: 10000.0Hz (12.0dB/oct) |

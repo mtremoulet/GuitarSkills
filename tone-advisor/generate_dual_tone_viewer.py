@@ -1321,143 +1321,61 @@ function toggleFilters() {
 
 
 def generate_html(dual_rigs):
-    if not dual_rigs:
-        print("No dual rigs found.")
-        return
-
-    first_id = dual_rigs[0]["id"]
-
-    amp_set = set()
-    for r in dual_rigs:
-        if r.get("amp_a", {}).get("model"):
-            amp_set.add(r["amp_a"]["model"])
-        if r.get("amp_b", {}).get("model"):
-            amp_set.add(r["amp_b"]["model"])
-    amp_values = sorted(list(amp_set))
-    amp_options = "".join(f'<option value="{h(a)}">{h(a)}</option>' for a in amp_values)
-
-    sidebar_items_html = "\n".join(render_sidebar_item(r, i == 0) for i, r in enumerate(dual_rigs))
-    detail_items_html = "\n".join(render_dual_rig_detail(r) for r in dual_rigs)
-    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    html_content = f"""<!DOCTYPE html>
+    html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parallel Dual-Amp Rig Vault</title>
-<script>(function(){{try{{var t=localStorage.getItem('dtv-theme');if(t)document.documentElement.dataset.theme=t;}}catch(e){{}}}}());</script>
+<meta http-equiv="refresh" content="0; url=tone-viewer.html?mode=parallel">
+<title>Redirecting to Parallel Dual-Amp Vault...</title>
+<script>
+  window.location.replace("tone-viewer.html?mode=parallel");
+</script>
 <style>
-{CSS}
+  body {
+    background: #191c22;
+    color: #e8edf4;
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .card {
+    background: #22262f;
+    border: 1px solid #363b48;
+    padding: 32px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  h1 { font-size: 18px; margin-bottom: 12px; color: #5ba4c8; }
+  p { font-size: 14px; color: #8c96a4; margin-bottom: 20px; }
+  a {
+    display: inline-block;
+    background: #5ba4c8;
+    color: #0e1014;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+  }
 </style>
 </head>
 <body>
-<div class="app">
-
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="vault-wordmark">
-        <div class="vault-wordmark-logo">
-          <span class="vault-hex">&#x2B21;</span>
-          <span class="vault-name">Dual-Amp Vault</span>
-        </div>
-        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
-      </div>
-      <div class="vault-count">{len(dual_rigs)} dual rig{'s' if len(dual_rigs) != 1 else ''}</div>
-    </div>
-
-    <div class="filters-toggle-bar" onclick="toggleFilters()">
-      <span class="filter-title-label">Filters</span>
-      <span class="filters-toggle-icon" id="filters-toggle-icon">&#x25BC;</span>
-    </div>
-
-    <div class="filters-container" id="filters-container">
-      <div class="filter-section">
-        <div class="filter-label">Search</div>
-        <input type="text" id="searchInputSidebar" class="search-input-sidebar" placeholder="Search dual rigs..." oninput="applyFilters()">
-      </div>
-
-      <div class="filter-section">
-        <div class="filter-label">Status</div>
-        <div class="filter-row">
-          <button class="filter-btn active" data-dim="status" data-filter="all" onclick="setFilter('status','all')">All</button>
-          <button class="filter-btn" data-dim="status" data-filter="initial" onclick="setFilter('status','initial')">Initial</button>
-          <button class="filter-btn" data-dim="status" data-filter="tested" onclick="setFilter('status','tested')">Tested</button>
-          <button class="filter-btn" data-dim="status" data-filter="refined" onclick="setFilter('status','refined')">Refined</button>
-        </div>
-      </div>
-
-      <div class="filter-section">
-        <div class="filter-label">Style</div>
-        <div class="filter-row">
-          <button class="filter-btn active" data-dim="genre" data-filter="all" onclick="setFilter('genre','all')">All</button>
-          <button class="filter-btn" data-dim="genre" data-filter="jazz" onclick="setFilter('genre','jazz')">Jazz</button>
-          <button class="filter-btn" data-dim="genre" data-filter="blues" onclick="setFilter('genre','blues')">Blues</button>
-          <button class="filter-btn" data-dim="genre" data-filter="rock" onclick="setFilter('genre','rock')">Rock</button>
-          <button class="filter-btn" data-dim="genre" data-filter="country" onclick="setFilter('genre','country')">Country</button>
-          <button class="filter-btn" data-dim="genre" data-filter="ambient" onclick="setFilter('genre','ambient')">Ambient</button>
-          <button class="filter-btn" data-dim="genre" data-filter="clean" onclick="setFilter('genre','clean')">Clean</button>
-        </div>
-      </div>
-
-      <div class="filter-section">
-        <div class="filter-label">Pickup</div>
-        <div class="filter-row">
-          <button class="filter-btn active" data-dim="pickup" data-filter="all" onclick="setFilter('pickup','all')">All</button>
-          <button class="filter-btn" data-dim="pickup" data-filter="humbucker" onclick="setFilter('pickup','humbucker')">HB</button>
-          <button class="filter-btn" data-dim="pickup" data-filter="single-coil" onclick="setFilter('pickup','single-coil')">SC</button>
-          <button class="filter-btn" data-dim="pickup" data-filter="p-90" onclick="setFilter('pickup','p-90')">P-90</button>
-        </div>
-      </div>
-
-      <div class="filter-section">
-        <div class="filter-label">Guitar</div>
-        <div class="filter-row">
-          <button class="filter-btn active" data-dim="guitar" data-filter="all" onclick="setFilter('guitar','all')">All</button>
-          <button class="filter-btn" data-dim="guitar" data-filter="telecaster" onclick="setFilter('guitar','telecaster')">Tele</button>
-          <button class="filter-btn" data-dim="guitar" data-filter="strat" onclick="setFilter('guitar','strat')">Strat</button>
-          <button class="filter-btn" data-dim="guitar" data-filter="les-paul" onclick="setFilter('guitar','les-paul')">LP</button>
-          <button class="filter-btn" data-dim="guitar" data-filter="semi-hollow" onclick="setFilter('guitar','semi-hollow')">Hollow</button>
-          <button class="filter-btn" data-dim="guitar" data-filter="framus" onclick="setFilter('guitar','framus')">Framus</button>
-        </div>
-      </div>
-
-      <div class="filter-section">
-        <div class="filter-label">Amp Model</div>
-        <select class="amp-select" id="amp-filter-select" onchange="setFilter('amp', this.value)">
-          <option value="all">All amps</option>
-          {amp_options}
-        </select>
-      </div>
-    </div>
-
-    <div class="sidebar-list">
-{sidebar_items_html}
-    </div>
-
-    <div class="sidebar-footer">Generated {generated_at}</div>
-  </aside>
-
-  <main class="main-panel" id="main-panel">
-{detail_items_html}
-    <div class="empty-state" id="empty-state" style="display:none">
-      <div class="empty-icon">&#x2B21;</div>
-      <p>No matching dual-amp rigs found</p>
-    </div>
-  </main>
-
-</div>
-<script>
-{JS}
-showTone('{first_id}');
-</script>
+  <div class="card">
+    <h1>Redirecting to Unified Tone Vault</h1>
+    <p>Parallel dual-amp rigs are now seamlessly integrated under the unified Tone Vault.</p>
+    <a href="tone-viewer.html?mode=parallel">Click here to open Parallel Dual-Amp Vault</a>
+  </div>
 </body>
 </html>
 """
 
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"Generated Dual Rig Viewer: '{OUTPUT_HTML}' ({len(dual_rigs)} dual rigs)")
+    print(f"Generated Dual Rig Viewer (Redirect to unified Tone Vault): '{OUTPUT_HTML}' ({len(dual_rigs)} dual rigs)")
 
 
 def main():

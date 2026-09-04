@@ -24,7 +24,9 @@ preset_data:
     Volume: 3.0
   hitsville:
     decay: 2.0
-    mix: 1.0
+    mix: 0.12
+
+    wet_solo: false
   la2a:
     gain: 26
     peak_reduction: 36

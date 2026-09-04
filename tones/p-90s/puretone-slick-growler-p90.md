@@ -23,9 +23,11 @@ preset_data:
     peak_reduction: 35
     gain: 18
   hitsville:
-    mix: 1.0
+    mix: 0.12
     decay: 2.5
     pre_delay: 8.0
+
+    wet_solo: false
 ---
 
 # Puretone Slick Growler — P-90s & Humbuckers
@@ -97,7 +99,7 @@ Reverb applied via parallel Send on Bus 3.
 
 ---
 
-## Dial-in Workflow & Tips
+## Starting Point Guide
 
 - **Guitar Controls**: Select the **Neck Pickup** (or **Middle blend**) on your Framus or Les Paul. Roll the guitar volume knob back to **6** to play clean, woody rhythm/chord melodies. Roll the volume up to **8.5 or 9** to push the virtual tubes into a roaring, vocal overdrive.
 - **Violin-like Expressiveness**: Because of the high Growl setting, the amp reacts intensely to pick attack and vibrato. Experiment with left-hand finger vibrato and varying your pick stroke angles to hear how the harmonics shift and sing.

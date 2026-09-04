@@ -8,6 +8,13 @@ This document establishes the standards for creating, refining, and documenting 
 Mike's rig is designed for high-fidelity monitoring (Sennheiser HD660S2). The goal is clarity and touch-sensitivity, even in high-gain contexts.
 - **Transparency First**: Start with the most neutral signal path possible. Only add color (amps, drives) once the gain staging is solid.
 - **Explain the "Why"**: Always provide a technical rationale for a setting (e.g., "Set Peak Reduction to 40 to avoid raising the noise floor during note decay").
+- **Host Architecture (Standalone Audio & Element)**: Logic Pro is shelved from Mike's active toolkit until further notice. All new toneprints must be designed for:
+  - **Standalone Audio (by Oort Media)**: Primary host for linear, single-amp AU plugin chains (compiled via `scripts/compile_standalone_presets.py`).
+  - **Kushview Element**: Primary host for modular parallel and dual-amp signal chains (`.els` session graphs).
+  - *Legacy Logic Presets*: Existing Logic Pro presets (`.pst`) and toneprints remain preserved as legacy artifacts, but do not design new toneprints that require Logic-native plugins (native Channel EQ, Logic Compressor) or Logic bus architecture.
+- **Evidence-Based Recommendations & Knowledge Qualification**:
+  - **Pre-Trained Knowledge Qualification**: Any historical amplifier context, hardware/component behavior, cabinet and speaker acoustic characteristics, microphone response tendencies, guitar pickup/pot interactions, or technical audio engineering claims originating from internal parametric memory (and not directly extracted from user inputs, workspace files, or executed live searches) must be prefaced with *"I know that..."* or *"My trained knowledge includes that..."*.
+  - **First-Source Evidence Citation**: Facts, parameter names, valid control ranges, interface calibration offsets, plugin specifications, or preset schema definitions extracted from workspace documents (e.g., `tone-advisor/docs/`, `tone-advisor/gear-inventory.md`, `tone-advisor/GAIN_STAGING_STANDARDS.md`, `tones/INDEX.md`, CSV indices, XML/JSON presets) or executed searches must cite the exact workspace file path or search source.
 
 ---
 
@@ -15,8 +22,8 @@ Mike's rig is designed for high-fidelity monitoring (Sennheiser HD660S2). The go
 
 ### Input Path & Amp Architecture (Tone King vs. Amp Plugins)
 - **Mutual Exclusivity (Tone King Preamp OR Software Amp)**: A toneprint uses **EITHER** the physical Tone King Imperial Preamp **OR** a software amp modeler (UADx, Neural DSP, Nembrini, MixWave), **never both**. Do not run the Tone King Preamp into an amp simulation plugin (avoid double-preamping / double-amping).
-  - **Direct Input Path (Default for Amp Plugins)**: `[Guitar] → [iD14 Input 1 (D.I.)] → [Logic Pro]`. Software amp modelers receive a pure, uncolored Hi-Z instrument signal.
-  - **Hardware Preamp Path (Tone King Preamp as Amp Foundation)**: `[Guitar] → [Tone King Imperial Preamp] → [iD14 Line In] → [Logic Pro]`. When the Tone King is active, Logic Pro plugins are restricted to dynamics, EQ, modulation, delay, and reverb (no software amp sim).
+  - **Direct Input Path (Default for Amp Plugins)**: `[Guitar] → [iD14 Input 1 (D.I.)] → [Host: Standalone Audio or Kushview Element]`. Software amp modelers receive a pure, uncolored Hi-Z instrument signal.
+  - **Hardware Preamp Path (Tone King Preamp as Amp Foundation)**: `[Guitar] → [Tone King Imperial Preamp] → [iD14 Line In / Direct Monitoring]`. When the Tone King is active, any software plugins are restricted to transparent post-processing (no software amp sim).
 
 ### Tone King Imperial Preamp (If Route Active)
 If the Tone King is used as the primary amplifier/preamp foundation:
@@ -126,24 +133,41 @@ When blending acoustic and electric textures (e.g., **Acoustic Voice Pro**):
 - If a control is stepped (e.g., "Head 1", "Normal/Bright"), use the exact labels.
 
 ### Tone Metadata (Frontmatter)
-Every toneprint MUST include the following metadata in its YAML frontmatter to support filtering and search:
-- **`pickup_type`**: Primary classification (Options: `humbucker`, `single-coil`). Note: "Universal" tones are not permitted; create distinct variants for each pickup type to ensure proper gain staging and EQ.
-- **`guitar`**: The specific guitar used for testing/intended character (e.g., "Gibson Les Paul Studio").
-- **`target`**: A concise description of the intended sound.
-- **`tags`**: Descriptive keywords for discovery.
-- **`preset_data`**: A structured, machine-readable YAML block serving as the single source of truth for the automated preset compilers. If this block is missing or incomplete, compilers will fall back to their regex engines to extract parameters from the Markdown body.
+Every toneprint MUST include the following metadata in its YAML frontmatter to support filtering, preset compilation, and the Vault Viewer:
+- **`id`**: Unique kebab-case slug matching the filename (without `.md`).
+- **`pickup_type`**: Primary classification (Options: `humbucker`, `single-coil`, `p-90`). Note: "Universal" tones are not permitted; create distinct variants for each pickup type to ensure proper gain staging and EQ.
+- **`guitar`**: The specific guitar used for testing/intended character (e.g., "Gibson Les Paul Studio", "Framus Earl Slick (DiMarzio P-90s)").
+- **`target`**: A concise one-sentence description of the intended sound.
+- **`tags`**: Comma-separated descriptive keywords for discovery and genre inference.
+- **`amp`**: Human-readable amp name (e.g., "Dream '65 (UADx)", "Two-Rock Bloomfield (MixWave)").
+- **`tone-king-channel`**: `bypassed` for all software amp plugin rigs; `rhythm` or `lead` when Tone King Imperial Preamp pedal is the physical front-end.
+- **`status`**: Lifecycle state (Options: `initial`, `tested`, `refined`, `archived`).
+- **`preset_data`**: A structured, machine-readable YAML block serving as the single source of truth for the automated preset compilers. Ensure closing `---` frontmatter delimiter is always preceded by a newline.
 
 Schema structure under `preset_data`:
 * `amp_platform`: Platforms include `uad_paradise`, `neural_dsp`, `mixwave`, or Nembrini platforms (`nembrini_jc120`, `nembrini_mrh810`, `nembrini_div11`, `nembrini_puretone`, `nembrini_acoustic_voice`).
 * `amp_settings`: Key-value control mappings corresponding to the platform's specific amp model controls.
 * `prefx`: Structured slots for host/plugin rack pedals (`slot1`–`slot5`, each specifying `pedal`, `enabled`, and pedal-specific parameters).
 * `la2a`: Custom settings for UADx Teletronix LA-2A (keys: `peak_reduction`, `gain`, `compress`).
-* `hitsville`: Custom settings for UADx Hitsville Reverb (keys: `mix`, `pre_delay`, `decay`).
+* `hitsville`: Custom settings for UADx Hitsville Reverb (keys: `mix`, `pre_delay`, `decay`, `wet_solo`).
 * `logic_eq`: Logic native Channel EQ bands (keys: `band1` to `band8`, each specifying `on`, `freq`, `gain` or `slope`, and optionally `q` for bands 2–7).
 * `logic_compressor`: Logic native Compressor controls (keys: `threshold`, `ratio`, `attack`, `release`, `makeup_gain`, `knee`).
 * `kuassa_blues_barker`: Custom settings for Kuassa Efektor Blues Barker (keys: `gain`, `tone`, `level`, `type`).
 * `kuassa_blues_river`: Custom settings for Kuassa Efektor Blues River (keys: `gain`, `tone`, `level`, `type`).
 * `clon_minotaur` / `gold_overdrive`: Custom settings for Nembrini Clon Minotaur Klon emulation (keys: `gain`, `tone`, `level`).
+
+### Markdown Body Structure (Vault Viewer Schema)
+To ensure consistent parsing and clean rendering in the Vault Viewer, every toneprint markdown body must strictly follow this H2 section hierarchy:
+
+1. **`# <Tone Title>`**: H1 title at the root of the markdown body.
+2. **`## Target Sound`**: Sonic vision, reference artist/recording, dynamic response, and aesthetic profile.
+3. **`## Signal Chain`**: Ordered plugin and hardware chain.
+   - Format plugins as `### [Number]. [Plugin Name] — [Role]`
+   - Parameter tables must use the standard 3-column header: `| Control | Setting | Purpose |`
+4. **`## Starting Point Guide`**: Practical dialing guide, knob interactions, pickup positions, and touch-dynamics advice.
+   - Bullet items must use dash notation with bold label: `- **Control / Focus**: Advice...`
+5. **`## Feedback History`**: Chronological log of testing, monitoring environment, and refinements.
+   - Entries must be formatted as: `### YYYY-MM-DD — status` (e.g. `### 2026-06-28 — refined`)
 
 ### Signal Chain Format
 Always present the chain in order:

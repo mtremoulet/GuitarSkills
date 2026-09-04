@@ -93,7 +93,7 @@ Reverb applied via parallel Send on Bus 3 to create an organic, luxurious spatia
 
 ---
 
-## Dial-in Workflow & Tips
+## Starting Point Guide
 
 - **Guitar Controls**: Select the **Neck Pickup** on your Sheraton. Start with your guitar volume at **8** and the tone knob at **7**. This rolls off just enough of the high-end transients to achieve that smokey, classic jazz club character while keeping the high-fidelity clarity of the Puretone platform.
 - **Dynamic Control**: Because the Puretone has very fast transients, your physical picking velocity will directly influence the note projection. Soft thumb-plucks will yield a delicate, velvety acoustic-like texture, while solid pick strikes will project crisp chord melodies.

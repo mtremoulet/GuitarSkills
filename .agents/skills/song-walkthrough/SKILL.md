@@ -1,1 +1,0 @@
-../../../.claude/commands/song-walkthrough.md

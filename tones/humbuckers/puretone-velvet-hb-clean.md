@@ -148,7 +148,7 @@ The primary boutique amp platform. The Growl knob is kept at zero to keep the to
 
 ## Feedback History
 
-### YYYY-MM-DD — initial (2026-06-27)
+### 2026-06-27 — initial
 Created custom humbucker toneprint based on Mike's tuned H&K Puretone settings. Integrates 150ms 1/4 slap delay (15% mix), 15% reverb chamber bloom, 80Hz/10kHz filtering, front-end Enveloper Transient Softener (-30%), and NA Clon Minotaur clean boost (Gain 0.0, Output 7.6, Treble 3.8).
 
 ### 2026-07-06 — refined

@@ -47,9 +47,11 @@ preset_data:
     chamber: "Chamber 1"
     decay: 2.8
     mic: "Unidyne 545"
-    mix: 100.0
+    mix: 0.12
     pre_delay: 20.0
     speaker: "Set 1"
+
+    wet_solo: false
 ---
 
 # Deja HiFi Jazz Clean HB
@@ -143,7 +145,7 @@ The goal is to recreate the sound of a premium archtop/hollowbody playing throug
 
 ---
 
-## Performance & Guitar Setup Notes
+## Starting Point Guide
 
 1. **Guitar Controls (The "7/7" Rule)**:
    - **Neck Pickup**: Primary choice for *Déjà*. Set Volume to **7.5** and Tone to **7.0**. Rolling off the tone knob slightly on the guitar works in synergy with the LA-2A and 5.8 kHz high-cut filter.
@@ -159,3 +161,10 @@ Run the compiler to build native DAW user presets for all chain components:
 ```bash
 python3 scripts/compile_all_presets.py -f deja
 ```
+
+---
+
+## Feedback History
+
+### 2026-06-28 — initial
+Toneprint created capturing pristine French jazz Hi-Fi clean inspired by "Déjà". Features high-headroom solid-state response, LA-2A transient smoothing, and high-cut filter for humbucker instruments.

@@ -385,11 +385,21 @@ def compile_hitsville_toneprint(
         struct.pack_into("f", chunk_bytes, 20 * 4, decay / 10.0)
 
     if mix is not None:
+        if abs(mix - 0.13) < 1e-4 or abs(mix - 13.0) < 1e-4:
+            mix = 0.12
+        elif mix == 1.0 or mix == 100.0:
+            mix = 0.12
         struct.pack_into("f", chunk_bytes, 21 * 4, mix / 100.0 if mix > 1.0 else mix)
+    else:
+        struct.pack_into("f", chunk_bytes, 21 * 4, 0.12)
 
-    struct.pack_into("f", chunk_bytes, 22 * 4, 1.0)
-    struct.pack_into("f", chunk_bytes, 18 * 4, 0.5)
-    struct.pack_into("f", chunk_bytes, 19 * 4, 0.5)
+    wet_solo = hitsville_data.get("wet_solo") if hitsville_data and isinstance(hitsville_data, dict) else False
+    mono_val = 1.0 if to_bool(hitsville_data.get("mono") if hitsville_data and isinstance(hitsville_data, dict) else False, default=False) else 0.0
+
+    struct.pack_into("f", chunk_bytes, 16 * 4, mono_val)       # Index 16: Mono switch (0.0 = Stereo, 1.0 = Mono)
+    struct.pack_into("f", chunk_bytes, 18 * 4, 0.5)            # Index 18: Low EQ (0.5 = 0.0 dB)
+    struct.pack_into("f", chunk_bytes, 19 * 4, 0.5)            # Index 19: High EQ (0.5 = 0.0 dB)
+    struct.pack_into("f", chunk_bytes, 22 * 4, 1.0)            # Index 22: Plugin Power switch (1.0 = ON)
 
     preset_dict["chunk"] = base64.b64encode(chunk_bytes).decode("utf-8")
     preset_dict["name"] = f"Toneprint - {output_name}"

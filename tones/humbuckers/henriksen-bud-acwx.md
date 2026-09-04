@@ -8,7 +8,7 @@ target: 'Henriksen Bud 6 simulation using ACWX D.I. Funk Console and Logic Chann
 tags: "clean, warm, humbucker, flatwounds, jazz, neural-dsp, cory-wong, henriksen"
 tone-king-channel: bypassed
 amp: "D.I. Funk Console (Archetype Cory Wong X)"
-status: verified
+status: tested
 pickup_type: humbucker
 preset_data:
   amp_platform: neural_dsp
@@ -139,18 +139,16 @@ Parallel send routed post-EQ to **Bus 3** to simulate the Bud 6's onboard digita
 
 ---
 
-## Dial-in Workflow & Tips
-
-*   **Audient iD14 D.I. Calibration**: Set the **INPUT** gain slider at the top left of the ACWX plugin window to **-3.2 dB** to calibrate for your Audient iD14's JFET input.
-*   **Tweeter Tone Shaping (Tweeter Defeat vs. Tweeter Active)**:
-    *   **Tweeter Defeat (Warm, Classic Jazz)**: Keep the LPF (Band 8) active at **5.5 kHz** and set the Treble band (7.28 kHz) to **-5.0 dB**. This rolls off the high-end air, focusing the sound entirely on the warm, woody mid-range of the 6" speaker.
-    *   **Tweeter Active (Modern Acoustic Sheen)**: Bypass the LPF (Band 8) entirely and set the Treble band (7.28 kHz) to **0.0 dB** (or boost slightly for acoustic fingerstyle). This allows high-frequency air to bloom naturally up to 20 kHz.
-*   **How to Dial in Tone (Like the Physical Amp)**: Because the D.I. Funk Console is set completely flat, do not touch the amp settings to adjust your tone. To dial in the amplifier, adjust the **Gain** sliders of the 5 EQ bands in your Logic Channel EQ plugins. These act directly as the physical dials on the Henriksen:
+## Starting Point Guide- **Audient iD14 D.I. Calibration**: Set the **INPUT** gain slider at the top left of the ACWX plugin window to **-3.2 dB** to calibrate for your Audient iD14's JFET input.
+- **Tweeter Tone Shaping (Tweeter Defeat vs. Tweeter Active)**:
+- **Tweeter Defeat (Warm, Classic Jazz)**: Keep the LPF (Band 8) active at **5.5 kHz** and set the Treble band (7.28 kHz) to **-5.0 dB**. This rolls off the high-end air, focusing the sound entirely on the warm, woody mid-range of the 6" speaker.
+- **Tweeter Active (Modern Acoustic Sheen)**: Bypass the LPF (Band 8) entirely and set the Treble band (7.28 kHz) to **0.0 dB** (or boost slightly for acoustic fingerstyle). This allows high-frequency air to bloom naturally up to 20 kHz.
+- **How to Dial in Tone (Like the Physical Amp)**: Because the D.I. Funk Console is set completely flat, do not touch the amp settings to adjust your tone. To dial in the amplifier, adjust the **Gain** sliders of the 5 EQ bands in your Logic Channel EQ plugins. These act directly as the physical dials on the Henriksen:
     *   *Need more body?* Raise the **420 Hz** band.
     *   *Too boomy?* Lower the **80 Hz** band.
     *   *Too clicky or clunky?* Dip the **3.5 kHz** band.
-*   **Reverb Routing Logic**: Routing your reverb via a parallel Logic Bus Send (post-EQ) is far more accurate than using ACWX's internal cabinet room send. The Room Send inside ACWX is situated before the Logic EQ, which means your reverb tail would get heavily filtered by the steep low-pass filter (LPF) and EQ cuts. A post-EQ bus send keeps the reverb tail lush, clear, and un-muffled.
-*   **Guitar Controls**: Select the neck humbucker. Roll back the guitar volume to **8** and the tone knob to **7** to soften the pickup transients.
+- **Reverb Routing Logic**: Routing your reverb via a parallel Logic Bus Send (post-EQ) is far more accurate than using ACWX's internal cabinet room send. The Room Send inside ACWX is situated before the Logic EQ, which means your reverb tail would get heavily filtered by the steep low-pass filter (LPF) and EQ cuts. A post-EQ bus send keeps the reverb tail lush, clear, and un-muffled.
+- **Guitar Controls**: Select the neck humbucker. Roll back the guitar volume to **8** and the tone knob to **7** to soften the pickup transients.
 
 ---
 

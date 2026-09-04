@@ -93,11 +93,9 @@ To make this tone more authentic and dynamic:
 
 ---
 
-## Starting Point Guide
-
-*   **Guitar Position:** Use a Stratocaster. The neck pickup (Position 5) is the primary target for that fat, woody rhythm growl. Switch to the neck/middle blend (Position 4) for a hollower, quackier blues tone.
-*   **Alternative Speaker Choice:** If you want a tighter, cleaner, and louder response with massive headroom (similar to SRV's actual JBL/EV speaker setups), toggle the **Speaker Switch DOWN** to select the **EV12** cabinet.
-*   **Dynamics Control:** Control your gain with your hand. Soft fingerpicking stays warm and clean; digging in with a heavy pick will activate the D-TEX growl.
+## Starting Point Guide- **Guitar Position:** Use a Stratocaster. The neck pickup (Position 5) is the primary target for that fat, woody rhythm growl. Switch to the neck/middle blend (Position 4) for a hollower, quackier blues tone.
+- **Alternative Speaker Choice:** If you want a tighter, cleaner, and louder response with massive headroom (similar to SRV's actual JBL/EV speaker setups), toggle the **Speaker Switch DOWN** to select the **EV12** cabinet.
+- **Dynamics Control:** Control your gain with your hand. Soft fingerpicking stays warm and clean; digging in with a heavy pick will activate the D-TEX growl.
 
 ---
 

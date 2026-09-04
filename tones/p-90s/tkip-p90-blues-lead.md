@@ -26,10 +26,10 @@ preset_data:
     gain: 40.0
     compress: true
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 20.0
     decay: 1.8
-    wet_solo: true
+    wet_solo: false
   galaxy:
     head_select: 1
     echo_rate: 8.0

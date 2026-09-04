@@ -18,7 +18,7 @@ from datetime import datetime
 # ── Parsing ───────────────────────────────────────────────────────────────────
 
 def parse_frontmatter(text):
-    m = re.match(r'^---\n(.*?)\n---\n', text, re.DOTALL)
+    m = re.match(r'^---\r?\n(.*?)(?:\r?\n|(?<=[^\n]))---\r?\n?', text, re.DOTALL)
     if not m:
         return {}, text
     data = {}
@@ -225,22 +225,28 @@ def parse_tone_file(filepath):
 
     # Signal Chain → items (track groups, simple plugins, routing notes)
     items = []
-    if 'Signal Chain' in sections:
-        items = parse_signal_chain(sections['Signal Chain'])
+    sc_key = next((k for k in sections if re.match(r'^Signal Chain\b', k, re.IGNORECASE)), None)
+    if sc_key:
+        items = parse_signal_chain(sections[sc_key])
     plugins = [item for item in items if item['kind'] == 'plugin']
 
     # Starting Point Guide — bullet items
     guide_items = []
-    if 'Starting Point Guide' in sections:
-        for line in sections['Starting Point Guide'].split('\n'):
+    spg_key = next((k for k in sections if any(alias in k.lower() for alias in (
+        'starting point guide', 'dial-in workflow', 'performance & guitar setup',
+        'guitar interaction & playback', 'playing notes', 'starting point'
+    ))), None)
+    if spg_key:
+        for line in sections[spg_key].split('\n'):
             line = line.strip()
-            if line.startswith('- '):
-                guide_items.append(line[2:])
+            if line.startswith(('- ', '* ')):
+                guide_items.append(line[2:].strip())
 
     # Feedback History
     feedback = []
-    if 'Feedback History' in sections:
-        fh = sections['Feedback History']
+    fb_key = next((k for k in sections if any(alias in k.lower() for alias in ('feedback history', 'feedback', 'revisions', 'changelog'))), None)
+    if fb_key:
+        fh = sections[fb_key]
         fh_parts = re.split(r'^### (.+)$', fh, flags=re.MULTILINE)
         for i in range(1, len(fh_parts), 2):
             fh_hdr = fh_parts[i].strip()
@@ -256,8 +262,23 @@ def parse_tone_file(filepath):
     guitar = fm.get('guitar', '')
     slug = fm.get('id', Path(filepath).stem)
 
+    # Domain classification: 'parallel' | 'physical' | 'virtual'
+    is_dual = bool(fm.get('dual_rig') or 'amp_a' in fm or 'amp_b' in fm)
+    is_physical = (
+        slug.startswith(('tkip-', 'thr-')) or
+        'amp_platform: yamaha_thr' in text or
+        ('amp_platform: hardware' in text and not any(p in text for p in ('nembrini_', 'neural_dsp', 'uad_paradise', 'mixwave')))
+    ) and not ('nembrini_mrh810' in text or 'MRH810' in fm.get('amp', ''))
+    if is_dual:
+        domain = 'parallel'
+    elif is_physical:
+        domain = 'physical'
+    else:
+        domain = 'virtual'
+
     return {
         'id': slug,
+        'domain': domain,
         'source_path': str(Path(filepath).relative_to(Path(__file__).parent.parent)),
         'created': fm.get('created', ''),
         'updated': fm.get('updated', ''),
@@ -271,7 +292,7 @@ def parse_tone_file(filepath):
         'guitar_type': infer_guitar_type(guitar),
         'pickup_type': fm.get('pickup_type', ''),
         'title': title,
-        'target_sound': sections.get('Target Sound', ''),
+        'target_sound': sections.get(next((k for k in sections if 'target sound' in k.lower()), ''), ''),
         'items': items,
         'plugins': plugins,
         'guide_items': guide_items,
@@ -471,8 +492,11 @@ def render_table(headers, rows):
         return ''
 
     # Find column roles
-    setting_col = next((i for i, hd in enumerate(headers) if hd.lower() == 'setting'), None)
-    purpose_col = next((i for i, hd in enumerate(headers) if hd.lower() == 'purpose'), None)
+    setting_aliases = {'setting', 'value', 'target level', 'target level / option', 'setting / gain', 'setting / slope', 'clock setting'}
+    purpose_aliases = {'purpose', 'technical rationale', 'notes', 'role', 'q / role', 'sonic character', 'sonic character & aesthetic profile', 'purpose & aesthetic profile', 'description'}
+
+    setting_col = next((i for i, hd in enumerate(headers) if hd.lower().strip() in setting_aliases), None)
+    purpose_col = next((i for i, hd in enumerate(headers) if hd.lower().strip() in purpose_aliases), None)
 
     out = ['<div class="table-wrap"><table class="settings-table"><thead><tr>']
     for i, hdr in enumerate(headers):
@@ -603,6 +627,15 @@ def render_tone(tone):
   <div class="target-sound">{render_markdown_content(tone["target_sound"])}</div>
 </section>'''
 
+    domain_labels = {
+        'virtual': 'Virtual',
+        'physical': 'Physical',
+        'parallel': 'Parallel Dual Rig'
+    }
+    dom = tone.get('domain', 'virtual')
+    domain_label = domain_labels.get(dom, 'Virtual')
+    domain_badge_html = f'<span class="badge badge-domain badge-domain-{dom}">{domain_label}</span>'
+
     return f'''
 <div class="tone-detail" id="tone-{h(tid)}" style="display:none">
   <div class="tone-header">
@@ -613,6 +646,7 @@ def render_tone(tone):
     <div class="tone-meta">
       <span class="meta-guitar">{h(tone["guitar"])}</span>
       <span class="badge {scls}">{h(status)}</span>
+      {domain_badge_html}
       <span class="meta-channel">TK: {h(tone["tone_king_channel"])}</span>
     </div>
     <div class="tone-tags">{tags_html}</div>
@@ -636,7 +670,8 @@ def render_sidebar_item(tone, is_first):
     active = ' active' if is_first else ''
     guitar_short = tone['guitar'].split('(')[0].strip()
     tags_preview = ', '.join(tone['tags'][:3])
-    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-status="{h(status)}" data-genre="{h(tone['genre'])}" data-guitar="{h(tone['guitar_type'])}" data-pickup="{h(tone['pickup_type'])}" data-amp="{h(tone['amp'])}" tabindex="0">
+    search_data = f"{tone['title']} {tone['guitar']} {tone['amp']} {' '.join(tone['tags'])} {tone['target']}".lower()
+    return f'''<div class="sidebar-item{active}" onclick="showTone('{h(tid)}')" data-id="{h(tid)}" data-domain="{h(tone['domain'])}" data-status="{h(status)}" data-genre="{h(tone['genre'])}" data-guitar="{h(tone['guitar_type'])}" data-pickup="{h(tone['pickup_type'])}" data-amp="{h(tone['amp'])}" data-search="{h(search_data)}" tabindex="0">
   <div class="sidebar-title">{h(tone["title"])}</div>
   <div class="sidebar-sub">{h(guitar_short)}</div>
   <div class="sidebar-tags">{h(tags_preview)}</div>
@@ -683,7 +718,7 @@ CSS = """
 html, body { height: 100%; overflow: hidden; }
 
 body {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
   background: var(--bg);
   color: var(--text);
   font-size: 14px;
@@ -712,7 +747,7 @@ body {
 
 /* ── Sidebar header ── */
 .sidebar-header {
-  padding: 22px 20px 16px;
+  padding: 18px 16px 12px;
   border-bottom: 1px solid var(--border);
   text-align: center;
   flex-shrink: 0;
@@ -749,6 +784,100 @@ body {
   font-size: 10px;
   color: var(--muted);
   letter-spacing: 0.05em;
+}
+
+/* ── Mode Switcher ── */
+.mode-switcher {
+  display: flex;
+  gap: 3px;
+  padding: 8px 10px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+.mode-btn {
+  flex: 1;
+  padding: 6px 2px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+.mode-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.mode-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* ── Live Search Bar ── */
+.search-bar-wrap {
+  position: relative;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+.search-input {
+  width: 100%;
+  padding: 6px 28px 6px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-input:focus {
+  border-color: var(--accent);
+}
+.search-clear-btn {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+}
+.search-clear-btn:hover {
+  color: var(--text);
+}
+
+/* ── Domain Badges ── */
+.badge-domain {
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+.badge-domain-virtual {
+  background: rgba(91,164,200,0.15);
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+}
+.badge-domain-physical {
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245,158,11,0.4);
+}
+.badge-domain-parallel {
+  background: rgba(168,85,247,0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168,85,247,0.4);
 }
 
 /* ── Sidebar list ── */
@@ -1568,6 +1697,8 @@ code {
 
 JS = """
 var currentToneId = null;
+var currentMode = 'virtual';
+var searchQuery = '';
 
 function showTone(id) {
   document.querySelectorAll('.tone-detail').forEach(function(el) {
@@ -1607,6 +1738,35 @@ function scrollToItem(id) {
 var activeFilters = { status: 'all', genre: 'all', pickup: 'all', guitar: 'all', amp: 'all' };
 var showArchived = false;
 
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+  try {
+    localStorage.setItem('guitarskills-vault-mode', mode);
+  } catch (e) {}
+  applyFilters();
+}
+
+function onSearchInput(val) {
+  searchQuery = val.trim().toLowerCase();
+  var clearBtn = document.getElementById('search-clear-btn');
+  if (clearBtn) {
+    clearBtn.style.display = searchQuery ? 'block' : 'none';
+  }
+  applyFilters();
+}
+
+function clearSearch() {
+  var input = document.getElementById('search-input');
+  if (input) {
+    input.value = '';
+    onSearchInput('');
+    input.focus();
+  }
+}
+
 function setFilter(dim, val) {
   activeFilters[dim] = val;
   document.querySelectorAll('.filter-btn[data-dim="' + dim + '"]').forEach(function(btn) {
@@ -1621,7 +1781,9 @@ function setFilter(dim, val) {
 
 function toggleShowArchived(checked) {
   showArchived = !!checked;
-  localStorage.setItem('tv-show-archived', showArchived ? 'true' : 'false');
+  try {
+    localStorage.setItem('tv-show-archived', showArchived ? 'true' : 'false');
+  } catch (e) {}
   applyFilters();
 }
 
@@ -1630,10 +1792,23 @@ function applyFilters() {
   var visibleCount = 0;
   var firstVisible = null;
   var activeVisible = false;
+
   items.forEach(function(el) {
     var elAmps = el.dataset.amp ? el.dataset.amp.split(',').map(function(s) { return s.trim(); }) : [];
     var isArchived = (el.dataset.status === 'archived');
+    var elDomain = el.dataset.domain || 'virtual';
 
+    // 1. Domain / Mode Filter
+    var domainMatch = (currentMode === 'all' || elDomain === currentMode);
+
+    // 2. Text Search Filter
+    var searchMatch = true;
+    if (searchQuery) {
+      var sTarget = (el.dataset.search || '') + ' ' + (el.querySelector('.sidebar-title') ? el.querySelector('.sidebar-title').textContent : '');
+      searchMatch = (sTarget.toLowerCase().indexOf(searchQuery) !== -1);
+    }
+
+    // 3. Status Filter
     var statusMatch = false;
     if (activeFilters.status === 'archived') {
       statusMatch = isArchived;
@@ -1643,7 +1818,7 @@ function applyFilters() {
       statusMatch = (el.dataset.status === activeFilters.status);
     }
 
-    var show = statusMatch
+    var show = domainMatch && searchMatch && statusMatch
             && (activeFilters.genre  === 'all' || el.dataset.genre  === activeFilters.genre)
             && (activeFilters.pickup === 'all' || el.dataset.pickup === activeFilters.pickup)
             && (activeFilters.guitar === 'all' || el.dataset.guitar === activeFilters.guitar)
@@ -1659,7 +1834,12 @@ function applyFilters() {
 
   var countEl = document.querySelector('.vault-count');
   if (countEl) {
-    countEl.textContent = visibleCount + ' tone' + (visibleCount !== 1 ? 's' : '');
+    var modeLabel = '';
+    if (currentMode === 'virtual') modeLabel = ' virtual';
+    else if (currentMode === 'physical') modeLabel = ' physical';
+    else if (currentMode === 'parallel') modeLabel = ' parallel dual';
+    var noun = (currentMode === 'parallel' ? 'rig' : 'tone');
+    countEl.textContent = visibleCount + modeLabel + ' ' + noun + (visibleCount !== 1 ? 's' : '');
   }
 
   if (!activeVisible && firstVisible) {
@@ -1678,6 +1858,7 @@ function applyFilters() {
 
 // Keyboard navigation between tones
 document.addEventListener('keydown', function(e) {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) { return; }
   if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') { return; }
   var items = Array.from(document.querySelectorAll('.sidebar-item')).filter(function(el) {
     return el.style.display !== 'none';
@@ -1685,7 +1866,7 @@ document.addEventListener('keydown', function(e) {
   var idx = items.findIndex(function(el) { return el.classList.contains('active'); });
   var newIdx = idx + (e.key === 'ArrowDown' ? 1 : -1);
   newIdx = Math.max(0, Math.min(newIdx, items.length - 1));
-  if (newIdx !== idx) {
+  if (newIdx !== idx && items[newIdx]) {
     showTone(items[newIdx].dataset.id);
     items[newIdx].scrollIntoView({ block: 'nearest' });
   }
@@ -1707,7 +1888,10 @@ function toggleTheme() {
   var current = html.dataset.theme || 'dark';
   var next = current === 'dark' ? 'light' : 'dark';
   html.dataset.theme = next;
-  localStorage.setItem('tv-theme', next);
+  try {
+    localStorage.setItem('guitarskills-theme', next);
+    localStorage.setItem('tv-theme', next);
+  } catch (e) {}
   var btn = document.getElementById('theme-toggle');
   if (btn) { btn.innerHTML = next === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
 }
@@ -1717,23 +1901,34 @@ function toggleFilters() {
   var icon = document.getElementById('filters-toggle-icon');
   var isCollapsed = container.classList.toggle('collapsed');
   icon.classList.toggle('collapsed', isCollapsed);
-  localStorage.setItem('tv-filters-collapsed', isCollapsed ? 'true' : 'false');
+  try {
+    localStorage.setItem('tv-filters-collapsed', isCollapsed ? 'true' : 'false');
+  } catch (e) {}
 }
 
-// Sync toggle states on load
+// Sync toggle states and mode on load
 (function() {
-  var savedTheme = localStorage.getItem('tv-theme');
+  var savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem('guitarskills-theme') || localStorage.getItem('tv-theme');
+  } catch (e) {}
   var btn = document.getElementById('theme-toggle');
   if (savedTheme && btn) { btn.innerHTML = savedTheme === 'dark' ? '&#9788; Light' : '&#9790; Dark'; }
   
-  var savedArchived = localStorage.getItem('tv-show-archived');
+  var savedArchived = null;
+  try {
+    savedArchived = localStorage.getItem('tv-show-archived');
+  } catch (e) {}
   if (savedArchived === 'true') {
     showArchived = true;
     var chk = document.getElementById('show-archived-checkbox');
     if (chk) chk.checked = true;
   }
 
-  var collapsed = localStorage.getItem('tv-filters-collapsed');
+  var collapsed = null;
+  try {
+    collapsed = localStorage.getItem('tv-filters-collapsed');
+  } catch (e) {}
   if (collapsed === 'true') {
     var container = document.getElementById('filters-container');
     var icon = document.getElementById('filters-toggle-icon');
@@ -1741,7 +1936,28 @@ function toggleFilters() {
     if (icon) icon.classList.add('collapsed');
   }
 
-  applyFilters();
+  // Check URL parameters for mode or hash
+  var modeToSet = 'virtual';
+  try {
+    var urlParams = new URLSearchParams(window.location.search);
+    var pMode = urlParams.get('mode');
+    if (!pMode && window.location.hash) {
+      var hMode = window.location.hash.substring(1).toLowerCase();
+      if (['virtual', 'physical', 'parallel', 'all'].includes(hMode)) {
+        pMode = hMode;
+      }
+    }
+    if (pMode && ['virtual', 'physical', 'parallel', 'all'].includes(pMode)) {
+      modeToSet = pMode;
+    } else {
+      var savedMode = localStorage.getItem('guitarskills-vault-mode');
+      if (savedMode && ['virtual', 'physical', 'parallel', 'all'].includes(savedMode)) {
+        modeToSet = savedMode;
+      }
+    }
+  } catch (e) {}
+
+  setMode(modeToSet);
 }());
 """
 
@@ -1816,7 +2032,7 @@ def main():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tone Vault</title>
-<script>(function(){{var t=localStorage.getItem('tv-theme');if(t)document.documentElement.dataset.theme=t;}}());</script>
+<script>(function(){{try{{var t=localStorage.getItem('guitarskills-theme')||localStorage.getItem('tv-theme');if(t)document.documentElement.dataset.theme=t;}}catch(e){{}}}}());</script>
 <style>
 {CSS}
 </style>
@@ -1833,7 +2049,17 @@ def main():
         </div>
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#9788; Light</button>
       </div>
-      <div class="vault-count">{len(tones)} tone{'s' if len(tones) != 1 else ''}</div>
+      <div class="vault-count">{len(tones)} tones</div>
+    </div>
+    <div class="mode-switcher">
+      <button class="mode-btn active" data-mode="virtual" onclick="setMode('virtual')" title="Virtual In-The-Box Plugin Rigs">💻 Virtual</button>
+      <button class="mode-btn" data-mode="physical" onclick="setMode('physical')" title="Physical Hardware Amps & Presets">🎸 Physical</button>
+      <button class="mode-btn" data-mode="parallel" onclick="setMode('parallel')" title="Parallel Dual-Amp Rigs">🔀 Parallel</button>
+      <button class="mode-btn" data-mode="all" onclick="setMode('all')" title="All Tones in Vault">All</button>
+    </div>
+    <div class="search-bar-wrap">
+      <input type="text" id="search-input" class="search-input" placeholder="Search tones..." oninput="onSearchInput(this.value)" autocomplete="off">
+      <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()" style="display:none">&times;</button>
     </div>
     <div class="filters-toggle-bar" onclick="toggleFilters()">
       <span class="filter-title-label">Filters</span>

@@ -22,6 +22,10 @@ This skill documents and codifies the technical playbook for the rig-wide dynami
 
 The core objective of the preset compiler is **rig-wide automation staging**: taking a single descriptive markdown toneprint (under `tones/`) and automatically compiling native user presets for every plugin in the track's signal chain. This allows Mike to load a single tone index and instantly stage all amplifiers, dynamic controllers, EQ settings, and spatial effects in Logic Pro.
 
+### Knowledge Qualification & Evidence Citation Standards
+- **Pre-Trained Knowledge Qualification**: Any historical amplifier/plugin context, circuit/component emulation behavior, format architecture claims, or parameter behavior originating from internal parametric memory (and not directly extracted from user inputs, workspace files, diagnostic scripts, or executed live searches) must be prefaced with *"I know that..."* or *"My trained knowledge includes that..."*.
+- **First-Source Evidence Citation**: Facts, parameter names, byte offsets, FourCC codes, scaling equations, or preset schema definitions extracted from workspace documents (e.g., `tone-advisor/docs/`, `scripts/preset_compiler/`, `scripts/utils/param_types.py`, XML/JSON preset templates, diagnostic diffs) or executed searches must cite the exact workspace file path or search source.
+
 ```
                       +-------------------------+
                       |  tones/[toneprint].md   |
@@ -119,6 +123,22 @@ UADx plugins use a lightweight JSON wrapper containing metadata (`plugin_id`, `v
 * **Float Index 22 (Offset 88)**: `Echo Volume` (scaled `0.0` to `1.0`).
 * **Float Index 23 (Offset 92)**: `Tape Age` (`New` = `0.0`, `Used` = `0.5`, `Old` = `1.0`).
 
+#### Hitsville Reverb Chambers (23 float / 92-byte chunk)
+* **Float Index 10 (Offset 40)**: `Chamber` (`0.0` = Chamber 1 [2648], `1.0` = Chamber 2 [2644]).
+* **Float Index 11 (Offset 44)**: `Dist 2648` (Distance slider for Chamber 1).
+* **Float Index 12 (Offset 48)**: `Dist 2644` (Distance slider for Chamber 2).
+* **Float Index 13 (Offset 52)**: `Speakers` (`0.0` = Bozak, `1.0` = Altec 605A / Set 2).
+* **Float Index 14 (Offset 56)**: `Microphones` (`0.0` = Unidyne 545, `0.3333` = RCA 44, `0.6667` = EV 631, `1.0` = Neumann KM86).
+* **Float Index 15 (Offset 60)**: `Width` (`1.0` = 100% stereo).
+* **Float Index 16 (Offset 64)**: `Mono` toggle (`0.0` = Stereo, `1.0` = Mono).
+* **Float Index 17 (Offset 68)**: `Predelay` (log-scaled `0.0` to `1.0`: `math.log(ms / 22.9 + 1.0) / math.log(250.0 / 22.9 + 1.0)`).
+* **Float Index 18 (Offset 72)**: `Low EQ` (`0.5` = 0.0 dB flat).
+* **Float Index 19 (Offset 76)**: `High EQ` (`0.5` = 0.0 dB flat).
+* **Float Index 20 (Offset 80)**: `Decay` (`decay_sec / 10.0`, e.g., `0.18` = 1.8s, `0.36` = 3.6s).
+* **Float Index 21 (Offset 84)**: `Mix` (`0.0` to `1.0`, e.g., `0.12` = 12%).
+* **Float Index 22 (Offset 88)**: `Power Switch` (`1.0` = ON, `0.0` = OFF).
+* **CRITICAL ARCHITECTURAL RULE (Wet Solo)**: Universal Audio plugins (Hitsville, Capitol Chambers, etc.) **do NOT serialize the "Wet Solo" switch in `.json` preset chunks**. In UAD architecture, Wet Solo is treated as a host/instance-level listening state so that auditioning presets while mixing does not disrupt solo monitoring. To turn Wet Solo off, flip the front-panel toggle to OFF once in the host/rack instance—it remains latched across all preset loads. Do NOT confuse Float Index 22 (Power) with Wet Solo.
+
 ### B. Valhalla DSP XML Format
 Valhalla plugins save natively as simple, standard XML text files with attribute keys.
 
@@ -176,3 +196,15 @@ The following plugins are noted on the project backlog for future preset compila
   * Low Shelf Boost/Cut
   * High Shelf Boost/Cut
   * Output Level
+
+---
+
+## 6. Standalone Host Preset Generation
+
+Standalone (by Oort Media) presets are stored in:
+`~/Library/Application Support/Standalone/Presets/<UUID>.json`
+
+* **CLI Runner**: `python3 scripts/compile_standalone_presets.py`
+* **Format**: JSON containing an array of rack `items` where each item has `slotIndex`, `desc` (`manufacturer`, `subType`, `type` OSType integers), `inputChannels`, `outputChannels`, and Base64-encoded Apple `.aupreset` binary property lists (`statePlistBase64`).
+* **Scope**: Compiles all serial toneprints from `tones/`. Multi-amp / parallel rigs are kept in Kushview Element.
+

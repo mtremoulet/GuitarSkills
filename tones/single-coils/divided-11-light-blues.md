@@ -8,7 +8,7 @@ status: tested
 tags: "blues, dynamic, clean, grit, slapback, class-a, divided-11"
 target: '"Light, dynamic blues tone through the Divided 11 \u2014 clean when backing\'
 tone-king-channel: bypassed
-updated: 2026-07-20
+updated: 2026-08-26
 preset_data:
   galaxy:
     echo_rate: 6.5
@@ -21,21 +21,48 @@ preset_data:
     gain: 42
     peak_reduction: 20
   nembrini_div11:
-    Bass: 5.0
-    Master: 5.0
-    Treble: 6.0
-    Volume: 5.0
+    Bass: 4.0
+    Boost: 0.0
+    CabMode: 0.0
+    CabType: 0.0
+    Harsh: 1.0
+    InLevel: -3.5
+    InputMode: 0.0
+    Master: 6.5
+    Mic1Dist: 2.0
+    Mic1Gain: 0.0
+    Mic1Mute: 0.0
+    Mic1OffAxis: 1.0
+    Mic1Pos: 2.5
+    Mic1Type: 1.0
+    Mic2Dist: 2.5
+    Mic2Gain: -9.0
+    Mic2Mute: 0.0
+    Mic2OffAxis: 1.0
+    Mic2Pos: 2.5
+    Mic2Type: 0.0
+    NgPower: 1.0
+    NgThreshold: -70.0
+    OutLevel: -6.0
+    Rumbling: 1.0
+    Tight: 1.0
+    Treble: 4.8
+    Volume: 4.2
+    power: 1.0
 ---
 
 # Divided 11 Light Blues
 
 ## Target Sound
 
-The Divided 11 (Divided by 13 CJ11) is a Class A, tube-rectified 11-watt boutique amp with tweed Fender DNA — exactly the kind of amp that rewards dynamics. Class A output tubes are always conducting, which means as you push into them, the compression comes on gradually and musically, not all at once. At Volume 5 with Low input (humbuckers), the amp sits at the clean edge: back off your picking hand and it's clear and chimey; dig in and it blooms into a slightly gritty, compressed texture. It cleans up significantly with guitar volume knob as well.
+The Divided 11 (Divided by 13 CJ11) is a Class A, tube-rectified 11-watt boutique amp with tweed Fender DNA — built to reward touch dynamics. Class A circuits are always conducting, allowing notes to bloom into smooth harmonic compression rather than harsh clipping. 
 
-The Tone King sits in front as a clean signal driver only — Volume kept very low, IR bypassed. All amp and cab character comes from the Divided 11.
+To dial in true "light blues" dynamics and eliminate the amp's hyper-aggressive digital gain:
+1. **Boost OFF**: The Boost switch slams the preamp with high saturation; keeping it OFF is essential for clean headroom and dynamic touch.
+2. **Gain Staging Balance**: Preamp Volume is dialed back to **4.2**, while Master is pushed up to **6.5** to coax warm Class A power tube compression and sag without fizzy preamp buzz. The plugin's utility Input slider is trimmed to **-3.5 dB** to soften front-end sensitivity.
+3. **Taming Boom & Sharpness**: Amp Bass is pulled back to **4.0** (Tweed bass adds flub above noon) and Treble smoothed to **4.8**. In the cab section, we pair a warm **Ribbon 121** with a soft **Dynamic 57** blend, engaging the **Rumbling**, **Tight**, and **Harsh** filters.
 
-A Galaxy Tape Echo slapback (single short repeat, ~85ms) adds the signature blues dimension — time, space, and a touch of tape character — before the signal goes to a shared reverb bus with a small studio room.
+A subtle Galaxy Tape Echo slapback (~85ms) and a shared Space Designer studio room complete the spacious, organic blues soundstage.
 
 ---
 
@@ -56,31 +83,37 @@ Plugins on the guitar track directly (no Bus routing needed — this tone is a s
 | Control | Setting | Purpose |
 |---------|---------|---------|
 | Power | On | — |
-| Input | Low switch | Humbuckers have hotter output; Low pads the input for better dynamic headroom — the grit comes from Volume, not from overloading the input |
-| Volume | 5 | Edge-of-breakup territory for Class A + humbuckers — clean on a light touch, bloom on a hard pick |
-| Treble | 6 | Slightly above noon for note definition and presence in the upper mids |
-| Bass | 5 (noon) | Even, natural low end — don't push more bass than needed |
-| Master | 5 | Moderate output level — adjust relative to your listening level |
-| Boost | Off | Off — Boost adds a gain stage that pushes into more obvious saturation; this tone is about subtlety |
+| Input | **LOW Switch** | Pads the input sensitivity (~-6 dB) to expand dynamic headroom and prevent preamp overload (or use HIGH with Volume at 3.5) |
+| Volume | **4.2** | Preamp gain sweet spot — clean on light picking, dynamic bite when digging in |
+| Treble | **4.8** | Smoothed slightly below noon to eliminate harsh top-end spank |
+| Bass | **4.0** | Kept below noon to eliminate Tweed low-end boominess and mud |
+| Master | **6.5** | Pushes the Class A power amp emulation for rich harmonic bloom and sag |
+| Boost | **OFF** | **CRITICAL:** Off — Boost adds a heavy saturation stage that destroys dynamic range |
+| Input Level | **−3.5 dB** | Utility input trim; prevents hot interface DI signals from overwhelming the modeled 12AX7 grid |
+| Output Level | **−6.0 dB** | Final output trim for clean headroom into downstream plugins |
 
-**Cabinet:** Start with **THIRTEEN 1x12 GREEN** (Divided By 13 1x12 combo with Celestion G12M) — this is the reference cab for the amp, the most accurate to the original hardware character. If you want more Vox-adjacent chime, try VOICE 2x12 BLUE (Celestion Blues). Avoid the 4x12s for this tone — too much weight and low-end mass for a light blues sound.
+**Cabinet:** **THIRTEEN 1x12 GREEN** (Divided By 13 1x12 combo with Celestion G12M) — woody, focused midrange and smooth high-frequency roll-off.
 
 **Microphone 1:**
-- Axis: Off-axis
-- Position: 50% (centered-ish on the cone — balanced warmth and definition)
-- Distance: 40% (not too near-field — avoids excessive low-end proximity build-up)
+- Type: **Ribbon 121** (warm, creamy body, smooth high roll-off)
+- Axis: **Off-axis**
+- Position: **50%**
+- Distance: **40%**
+- Level: **0.0 dB**
 
-**Microphone 2 (optional blend):**
-- Axis: On-axis
-- Level: −6 dB (adds a touch of brightness and attack definition without dominating)
-- Pan: center (or slight stereo offset if you want width)
+**Microphone 2 (Blend):**
+- Type: **Dynamic 57**
+- Axis: **Off-axis**
+- Position: **50%**
+- Distance: **50%**
+- Level: **−9.0 dB** (soft background blend for pick attack definition without ice-pick treble)
 
-**Filters** (toggle switches — on/off only, not parameterized):
-- Rumbling: ON (cuts low-frequency boominess — keeps the Class A bloom tight and focused)
-- Tight: OFF (leave off unless the low end feels loose or undefined)
-- Harsh: OFF (leave off unless the top end becomes abrasive — start without it)
+**Filters (Cab Section):**
+- Rumbling: **ON** (cuts sub-100Hz cabinet boominess)
+- Tight: **ON** (tightens low-mid response)
+- Harsh: **ON** (shelves aggressive 4–6kHz digital fizz)
 
-**Noise Gate:** Set threshold just below the noise floor when playing — enough to gate hum between chords, not so sensitive it clips the decay of notes.
+**Noise Gate:** Active (Power: ON, Threshold: −70 dB, Range: 38 dB, Gate: 35) to eliminate idle circuit hiss.
 
 ---
 
@@ -92,7 +125,7 @@ Plugins on the guitar track directly (no Bus routing needed — this tone is a s
 | Peak Reduction | 20 | Light compression — the goal is to smooth note-to-note level differences, not to squash the dynamic range that makes this tone work |
 | Gain | 42 | Makeup gain |
 | Emphasis / HF | Fully Clockwise (default) | Equal frequency sensitivity in the sidechain |
-| Meter | Gain Reduction | Watch the meter: at these settings you should see 2–4 dB of reduction on hard picks — more than that and you're squashing the grit response |
+| Meter | Gain Reduction | Watch the meter: at these settings you should see 1–3 dB of reduction on hard picks |
 
 *The single most important thing about this compressor in this chain: keep Peak Reduction low. The Divided 11's dynamics are the whole point — compress too much and you lose the clean-to-gritty response.*
 
@@ -143,11 +176,11 @@ Add an Aux channel strip with Input = Bus 3. On this Aux, add Space Designer.
 
 ## Starting Point Guide
 
-- **First adjustment**: Divided 11 Volume knob. Volume 5 is the recommendation, but the right position depends on how hot your signal hits the plugin's input. If it's already breaking up at light picks, go to 4. If it stays clean even when digging in hard, try 5.5–6.
-- **Key interaction**: The Low/High input switch and the Volume knob work together. If you switch to High input, drop Volume to 3–4 to land in the same dynamic range. High input will give a slightly more alive, fizzy character; Low gives a rounder, more polished edge-of-breakup.
+- **First adjustment**: Input Switch vs Preamp Volume. Low input at Volume 4.2 gives a smooth, open dynamic range. If you prefer High input, lower Volume to 3.2–3.5 to preserve clean-to-grit headroom.
+- **Tone Stack Balance**: Bass at 4.0 and Treble at 4.8 keep the Tweed circuit balanced. If switching guitars (e.g. darker humbuckers vs bright bridge single-coil), nudge Treble up to 5.2 or down to 4.5.
 - **Variations**:
-  - *More grit on demand*: Add the Nembrini Clon Minotaur (transparent overdrive) before the Divided 11 at low Gain. It raises the dynamic floor — light picks get a hint of grit, hard picks get a bit more push. Does not change the amp's clean headroom dramatically, just raises the floor.
-  - *Blues lead mode*: Engaged Divided 11 Boost switch. This adds a gain stage that pushes into more obvious saturation and sustain — usable for single-note lead lines over a blues backing.
+  - *More grit on demand*: Add the Nembrini Clon Minotaur (transparent overdrive) before the Divided 11 at low Gain. It raises the dynamic floor — light picks get a hint of grit, hard picks get a bit more push.
+  - *Blues lead mode*: Engage Divided 11 Boost switch only when high saturation and sustained compression are explicitly desired.
 
 ---
 
@@ -158,8 +191,13 @@ Designed for Sheraton humbuckers into Divided 11 Class A boutique amp emulation.
 
 ### 2026-05-03 — first test (Gibson, THR10ii monitoring)
 Output is very hot — Mike pulled plugin Output slider to −8dB to prevent blowing out THR10ii. All Nembrini Audio plugins have plugin-level Input and Output sliders as transparent gain trims at the plugin boundary (not part of the amp or cab model). The tone file does not specify the Input slider value (likely defaulted to 0dB). Recommend pairing Input reduction (−4 to −6dB) with Output compensation rather than only trimming Output — this changes how hard the virtual preamp works and may lower the amp's own modeled noise floor. Boost switch confirmed non-starter: acts as a force multiplier on an already hot signal — reserve for high-headroom contexts only. Not much grit at Volume 5 with Low input for lead work; options are Volume 5.5–6 or switch to High input at Volume 3.5–4 for a different edge-of-breakup feel. Noise/hum present even with humbuckers: attributed to Class A / tube rectifier character modeled by Nembrini (amp self-noise, not pickup hum) — noise gate engaged and appropriate.
+
 ### 2026-06-06 — bypassed Tone King Preamp (direct-in default)
 Bypassed the Tone King Imperial Preamp by default in frontmatter and signal chain to align with updated toneprint guidelines. The direct Audient iD14 JFET input is now the primary signal path.
+
 ### 2026-07-20 — re-tested on Strat (borderline unusably bad/hot)
 Re-tested on Strat single-coils. Tone is super hot, distorted, and unpleasant. Nembrini's modeling of this Class A Divided by 13 circuit is aggressively gain-staged by default. Requires heavy internal Input trim (−6 to −10 dB) or lower preamp Volume (2.5–3.5) if retained, or pivoting to a smoother Class A / tweed alternative (e.g. Woodrow '55 or Dream '65).
+
+### 2026-08-26 — recalibration (gain architecture, boost off, filters on)
+Recalibrated toneprint after testing notes confirmed the amp is hyper-reactive and gained too aggressively with Boost on. Set Boost explicitly to OFF, set Input to Low, lowered Preamp Volume to 4.2 while pushing Master to 6.5 for warm Class A power tube sag instead of buzzy preamp distortion. Trimmed plugin InLevel to -3.5 dB and OutLevel to -6.0 dB. Reconfigured the cab section with Ribbon 121 as primary (off-axis) and Dynamic 57 blended down (-9 dB), and engaged all three cabinet corrective filters (Rumbling, Tight, Harsh) to completely eliminate boomy low-end flub and treble sharpness.
 

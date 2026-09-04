@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Royal Velvet P90 Jazz",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -84.48,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.48,
+                "Level": 0.56
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": false,
+                "Depth": 0.0,
+                "Feedback": 0.5,
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "SmallRoom1",
+                "@enabled": true,
+                "Decay": 0.38,
+                "PreDelay": 0.15,
+                "Tone": 0.42,
+                "@wetDry": 0.16
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 12
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10_Lead",
+                "Drive": 0.22,
+                "Bass": 0.46,
+                "Mid": 0.75,
+                "Treble": 0.38,
+                "Master": 0.78
+            },
+            "global": {
+                "THRPresetParamTempo": 110
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

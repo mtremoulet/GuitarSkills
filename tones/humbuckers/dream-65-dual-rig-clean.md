@@ -38,6 +38,8 @@ preset_data:
     decay: 2.0
     mix: 0.10
     pre_delay: 8.0
+
+    wet_solo: false
   la2a:
     gain: 28.0
     peak_reduction: 32.0
@@ -91,3 +93,10 @@ While Amp B (Enigmatic '82 inside Paradise) handles driven warmth, mid-range bod
 - **Volume Sweet Spot:** Keep Volume below 3.0 to ensure zero distortion occurs on Path A when playing hard strums.
 - **Cab Choice:** Use **2x12 JBF120** for maximum high-frequency glass and 3D separation around Path B's mid-range.
 - **Mixer Faders:** Set `Amp Bus Mixer` Master fader to **-8.0 dB** and trim Path B by **-5.5 dB** for clean gain staging into the LA-2A compressor.
+
+---
+
+## Feedback History
+
+### 2026-07-26 — initial
+Initial toneprint definition for Path A (Clean Foundation) in parallel dual-rig architecture. Configured with UAD Dream '65 and 2x12 JBF120 cab for pristine glass and articulation.

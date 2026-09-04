@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Soejima Neo Soul",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -84.48,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.65,
+                "Level": 0.55
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": true,
+                "Depth": 0.35,
+                "Feedback": 0.5,
+                "Freq": 0.22,
+                "Pre": 0.5,
+                "@wetDry": 0.22
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": true,
+                "Time": 0.28,
+                "Bass": 0.35,
+                "Treble": 0.35,
+                "Feedback": 0.18,
+                "@wetDry": 0.22
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "ReallyLargeHall",
+                "@enabled": true,
+                "Decay": 0.42,
+                "PreDelay": 0.1,
+                "Tone": 0.48,
+                "@wetDry": 0.18
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 7
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10C_Deluxe",
+                "Drive": 0.32,
+                "Bass": 0.52,
+                "Mid": 0.52,
+                "Treble": 0.46,
+                "Master": 0.68
+            },
+            "global": {
+                "THRPresetParamTempo": 95
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

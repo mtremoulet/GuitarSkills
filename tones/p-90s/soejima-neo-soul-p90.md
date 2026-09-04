@@ -28,9 +28,11 @@ preset_data:
     peak_reduction: 28
     compress: true
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 10
     decay: 2.0
+
+    wet_solo: false
   logic_eq:
     band1: {on: true, freq: 85.0, slope: 24.0}
     band4: {on: true, freq: 500.0, gain: -1.5, q: 1.5}
@@ -137,10 +139,8 @@ Effects are routed via auxiliary channels to preserve the dry signal's punch and
 
 ---
 
-## Starting Point Guide
-
-*   **Neck Growl:** If you want a bit more bite when playing leads on the neck P-90, select the neck pickup, raise the Dream '65 **Volume** to 3.0, and dig in with your picking hand.
-*   **Modulation Vibe:** Swap the Studio D Chorus on Bus 5 for a subtle **Logic Tremolo** (sine wave, slow rate, low depth) to get a beautiful liquid movement behind your arpeggios.
+## Starting Point Guide- **Neck Growl:** If you want a bit more bite when playing leads on the neck P-90, select the neck pickup, raise the Dream '65 **Volume** to 3.0, and dig in with your picking hand.
+- **Modulation Vibe:** Swap the Studio D Chorus on Bus 5 for a subtle **Logic Tremolo** (sine wave, slow rate, low depth) to get a beautiful liquid movement behind your arpeggios.
 
 ---
 

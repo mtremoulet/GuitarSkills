@@ -35,6 +35,12 @@ def compile_nembrini_xml_preset(
     yaml_key = yaml_keys.get(plugin_type)
     plugin_settings = preset_data.get(yaml_key) if isinstance(preset_data, dict) else None
 
+    if not plugin_settings and isinstance(preset_data, dict):
+        if "amp_settings" in preset_data and isinstance(preset_data["amp_settings"], dict):
+            plugin_settings = preset_data["amp_settings"]
+        elif plugin_type in preset_data and isinstance(preset_data[plugin_type], dict):
+            plugin_settings = preset_data[plugin_type]
+
     if not plugin_settings or not isinstance(plugin_settings, dict):
         plugin_settings = {}
         with open(filepath, "r") as f:
@@ -227,9 +233,10 @@ def compile_nembrini_xml_preset(
             param.set("value", str(mapped_settings[param_id]))
 
     output_dir = os.path.dirname(base_preset_path)
-    out_path = os.path.join(output_dir, f"Toneprint - {output_name}.xml")
+    output_filename = output_name if output_name.startswith("Toneprint - ") else f"Toneprint - {output_name}"
+    out_path = os.path.join(output_dir, f"{output_filename}.xml")
     tree.write(out_path, encoding="UTF-8", xml_declaration=True)
-    print(f"-> Compiled Nembrini {plugin_type.upper()} XML Preset: 'Toneprint - {output_name}'")
+    print(f"-> Compiled Nembrini {plugin_type.upper()} XML Preset: '{output_filename}'")
     return True
 
 

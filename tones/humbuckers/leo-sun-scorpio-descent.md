@@ -31,6 +31,8 @@ preset_data:
     decay: 3.8
     mix: 0.18
     pre_delay: 24.0
+
+    wet_solo: false
   logic_eq:
     band1:
       on: true

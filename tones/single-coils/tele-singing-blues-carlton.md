@@ -26,6 +26,8 @@ preset_data:
     feedback: 1.0
   hitsville:
     mix: 0.08
+
+    wet_solo: false
   logic_compressor:
     makeup_gain: 6
     ratio: 4

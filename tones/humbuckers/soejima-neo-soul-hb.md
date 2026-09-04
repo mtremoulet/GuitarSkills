@@ -28,9 +28,11 @@ preset_data:
     peak_reduction: 20
     compress: true
   hitsville:
-    mix: 1.0
+    mix: 0.12
     pre_delay: 12
     decay: 1.8
+
+    wet_solo: false
   logic_eq:
     band1: {on: true, freq: 90.0, slope: 24.0}
     band4: {on: true, freq: 350.0, gain: -2.0, q: 1.2}
@@ -137,10 +139,8 @@ Effects are routed via auxiliary channels to preserve the dry signal's punch and
 
 ---
 
-## Starting Point Guide
-
-*   **Neck + Bridge Blend:** For a snappier, more percussive funk-soul tone, select both humbuckers and roll the bridge volume back to 8 and the neck volume to 7.
-*   **High-End Sparkle:** If the neck humbucker still feels too dark, raise the Dream '65 **Treble** control to 6.0 or enable the **Bright** switch on the amp.
+## Starting Point Guide- **Neck + Bridge Blend:** For a snappier, more percussive funk-soul tone, select both humbuckers and roll the bridge volume back to 8 and the neck volume to 7.
+- **High-End Sparkle:** If the neck humbucker still feels too dark, raise the Dream '65 **Treble** control to 6.0 or enable the **Bright** switch on the amp.
 
 ---
 

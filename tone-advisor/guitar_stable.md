@@ -27,8 +27,9 @@
 
 ### 5. 2008 Epiphone Les Paul Standard Plus Top
 * **Finish:** Vintage Sunburst
+* **Pickups:** Tonerider Rebel 90s (Humbucker-sized P-90 single-coils, Alnico II, RWRP set, Modern wiring)
 * **Strings:** D'Addario XS (10-46)
-* **Notes:** The bright, sustaining classic rock workhorse.
+* **Notes:** The "Singing P-90 Workhorse." Solid mahogany body with carved maple cap. Upgraded with Tonerider Rebel 90s; clear, articulate, and touch-sensitive with creamy lower-mid bloom, singing sustain, and expansive dynamic range on volume roll-off.
 
 ### 6. 2012 Framus Earl Slick Artist Series
 * **Finish:** Matte Black (Serial: L-000047-12)

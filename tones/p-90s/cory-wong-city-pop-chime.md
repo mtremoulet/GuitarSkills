@@ -105,3 +105,10 @@ We pair the **Framus P-90s** (middle selector position is highly recommended for
 
 - **Pickup Selector:** Select the **middle position** (both pickups combined) on your Framus. This cancels hum and provides the scoop/chime that perfectly fits chorused 80s rhythm parts.
 - **Chorus Mix:** If the chorus modulation feels too prominent, pull the **Chorus Mix** down to **15%**. This keeps the stereo width but keeps the dry signal dominant.
+
+---
+
+## Feedback History
+
+### 2026-06-28 — initial
+Initial toneprint definition for P-90 Japanese City Pop rhythm guitar using Archetype Cory Wong X Clean Machine, dialed for bright percussive sparkle and compression.

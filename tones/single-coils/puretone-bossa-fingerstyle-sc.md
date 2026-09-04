@@ -107,7 +107,7 @@ Reverb applied via parallel Send on Bus 3.
 
 ---
 
-## Dial-in Workflow & Tips
+## Starting Point Guide
 
 - **Guitar Controls**: Select the **Neck Pickup** on your Telecaster (or **Position 4 [Neck + Middle]** on your Stratocaster). Keep the guitar volume wide open at **10** to feed the Clon Minotaur a full-fidelity signal, and set your guitar tone knob to **8.5** to retain all of the single-coil sparkle without harshness.
 - **Plucking Technique**: Use the flesh of your fingers for a warm, pillowy bossa strum, or engage your nails for a sudden, cutting acoustic snap. The amp's slight Growl factor (2.0) and the Klon boost will translate this contrast with extreme expressiveness.

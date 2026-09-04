@@ -7,6 +7,7 @@ target: 'Humbucker-optimized high-headroom "pedal platform" using Paradise Guita
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, humbucker"
 amp: "Enigmatic '82 (UADx)"
 status: archived
+tone-king-channel: bypassed
 pickup_type: humbucker
 preset_data:
   amp_platform: uad_paradise
@@ -76,6 +77,13 @@ Optimized for the thicker, warmer output of humbuckers. The **Enigmatic '82** (D
 *   **Level**: 6.0
 
 ---
+---
+
+## Starting Point Guide
+
+- **Selecting Drive Flavors**: Choose either Option A (Nashville OD for open, dynamic rhythm drive) or Option B (TS Overdrive for focused, vocal midrange lead lines). Keep other drive pedals bypassed to preserve clean headroom.
+- **Taming Humbucker Boom**: If lower notes on the neck pickup feel tubby when drive pedals are engaged, pull back Bass to 3.0 on the Enigmatic '82.
+- **Guitar Volume Interaction**: Roll the guitar volume back to 7–8 for a sparkling clean rhythm tone, then roll up to 10 to push the engaged drive pedal into singing lead sustain.
 
 ## Feedback History
 ### 2026-05-11 — Variant Creation

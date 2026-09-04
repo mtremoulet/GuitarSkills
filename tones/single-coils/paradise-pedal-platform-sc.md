@@ -7,6 +7,7 @@ target: 'Single-coil optimized high-headroom "pedal platform" using Paradise Gui
 tags: "pedal-platform, paradise-studio, enigmatic-82, overdrive, single-coil"
 amp: "Enigmatic '82 (UADx)"
 status: archived
+tone-king-channel: bypassed
 pickup_type: "single-coil"
 preset_data:
   amp_platform: uad_paradise
@@ -76,6 +77,13 @@ Optimized for the chime and lower output of single-coils. The **Enigmatic '82** 
 *   **Level**: 7.0
 
 ---
+---
+
+## Starting Point Guide
+
+- **Selecting Drive Flavors**: Choose either Option A (Nashville OD for full-frequency chord grit) or Option B (TS Overdrive to fill in single-coil midrange). Keep other drive pedals bypassed.
+- **Single-Coil Treble Taming**: If bridge single-coil pickups sound overly piercing with overdrive, roll back Treble to 5.0 or pull back your guitar's physical tone knob to 7.
+- **Guitar Volume Cleanup**: Single-coils clean up rapidly on the volume pot; use volume 7–8 for woody edge-of-breakup and 10 for solo boost.
 
 ## Feedback History
 ### 2026-05-11 — Variant Creation

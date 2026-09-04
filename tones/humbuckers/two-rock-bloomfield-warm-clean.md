@@ -28,8 +28,10 @@ preset_data:
     Vibe: 5
   hitsville:
     decay: 2.0
-    mix: 1.0
+    mix: 0.12
     pre_delay: 8.0
+
+    wet_solo: false
   la2a:
     gain: 28
     peak_reduction: 35

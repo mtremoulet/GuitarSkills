@@ -1,0 +1,71 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Hazy Thames Gold",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -86.4,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.45,
+                "Level": 0.55
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": true,
+                "Depth": 0.3,
+                "Feedback": 0.5,
+                "Freq": 0.2,
+                "Pre": 0.5,
+                "@wetDry": 0.2
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": true,
+                "Time": 0.38,
+                "Bass": 0.4,
+                "Treble": 0.32,
+                "Feedback": 0.24,
+                "@wetDry": 0.25
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "StandardSpring",
+                "@enabled": true,
+                "Time": 0.45,
+                "Tone": 0.52,
+                "@wetDry": 0.24
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 9
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10C_Deluxe",
+                "Drive": 0.34,
+                "Bass": 0.48,
+                "Mid": 0.54,
+                "Treble": 0.56,
+                "Master": 0.72
+            },
+            "global": {
+                "THRPresetParamTempo": 115
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

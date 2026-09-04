@@ -30,15 +30,19 @@ try:
     from scripts.compile_all_presets import (
         compile_neural_toneprint,
         compile_mixwave_toneprint,
+        compile_nembrini_xml_preset,
         NEURAL_TEMPLATE_ALT,
-        MIXWAVE_TEMPLATE_FACTORY
+        MIXWAVE_TEMPLATE_FACTORY,
+        NEMBRINI_TEMPLATES
     )
 except ImportError:
     from compile_all_presets import (
         compile_neural_toneprint,
         compile_mixwave_toneprint,
+        compile_nembrini_xml_preset,
         NEURAL_TEMPLATE_ALT,
-        MIXWAVE_TEMPLATE_FACTORY
+        MIXWAVE_TEMPLATE_FACTORY,
+        NEMBRINI_TEMPLATES
     )
 
 LA2A_BASE = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_teletronix_la-2a_silver/Mike - Alternative.json")
@@ -237,6 +241,11 @@ def compile_dual_rig_file(filepath, paradise_base):
         elif "mixwave" in platform_a:
             title_a = f"{preset_name} - Amp A"
             compile_mixwave_toneprint(filepath, MIXWAVE_TEMPLATE_FACTORY, title_a, {"preset_data": amp_a})
+        elif "nembrini" in platform_a or "acoustic" in platform_a:
+            title_a = f"Toneprint - {preset_name} - Amp A"
+            base_avp = NEMBRINI_TEMPLATES.get("acoustic_voice")
+            if base_avp and os.path.exists(base_avp):
+                compile_nembrini_xml_preset(filepath, str(base_avp), title_a, {"preset_data": amp_a}, "acoustic_voice")
         else:
             amp_a_info = get_amp_info(amp_a_model)
             title_a = f"Toneprint - {preset_name} - Amp A ({amp_a_info[2]})"
@@ -252,6 +261,11 @@ def compile_dual_rig_file(filepath, paradise_base):
         elif "mixwave" in platform_b:
             title_b = f"{preset_name} - Amp B"
             compile_mixwave_toneprint(filepath, MIXWAVE_TEMPLATE_FACTORY, title_b, {"preset_data": amp_b})
+        elif "nembrini" in platform_b or "acoustic" in platform_b:
+            title_b = f"Toneprint - {preset_name} - Amp B"
+            base_avp = NEMBRINI_TEMPLATES.get("acoustic_voice")
+            if base_avp and os.path.exists(base_avp):
+                compile_nembrini_xml_preset(filepath, str(base_avp), title_b, {"preset_data": amp_b}, "acoustic_voice")
         else:
             amp_b_info = get_amp_info(amp_b_model)
             title_b = f"Toneprint - {preset_name} - Amp B ({amp_b_info[2]})"

@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Withers Soul Rhythm",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -86.4,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.62,
+                "Level": 0.54
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": false,
+                "Depth": 0.0,
+                "Feedback": 0.5,
+                "Freq": 0.0,
+                "Pre": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "SmallRoom1",
+                "@enabled": true,
+                "Decay": 0.28,
+                "PreDelay": 0.12,
+                "Tone": 0.45,
+                "@wetDry": 0.15
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 14
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10C_BJunior2",
+                "Drive": 0.36,
+                "Bass": 0.54,
+                "Mid": 0.58,
+                "Treble": 0.44,
+                "Master": 0.72
+            },
+            "global": {
+                "THRPresetParamTempo": 105
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

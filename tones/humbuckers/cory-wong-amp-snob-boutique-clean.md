@@ -56,8 +56,10 @@ preset_data:
     washActive: false
   hitsville:
     decay: 2.0
-    mix: 1.0
+    mix: 0.12
     pre_delay: 8.0
+
+    wet_solo: false
   logic_compressor:
     attack: -1
     makeup_gain: 14

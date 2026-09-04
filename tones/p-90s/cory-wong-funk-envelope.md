@@ -92,3 +92,10 @@ We load **"The Clean Machine"** (Amp 1) for its transparent, high-headroom chara
 - **Fine-Tuning the Trigger:** The **Sensitivity** knob on the filter is the most important control. P-90s have healthy output, but if you find the filter is "quacking" too easily on soft notes, roll the sensitivity down to **30–35%**. If you have to strike the strings too hard to open the filter, raise it to **45–50%**.
 - **Guitar Settings:** Use the **Bridge P-90** or **Middle position** for the snappiest filter trigger. Keep your volume knob on the guitar at **10** so the filter gets the maximum transient spike to open up.
 - **Sax-Like Articulation:** Think like a horn player. Staccato notes and muted scratch strums will make the envelope open and shut quickly, creating that classic percussive funk "chank."
+
+---
+
+## Feedback History
+
+### 2026-06-28 — initial
+Initial toneprint definition for dynamic envelope-filter funk on P-90s using Archetype Cory Wong X, featuring touch-sensitive auto-wah sweep and snappy compression.

@@ -46,6 +46,8 @@ shared_fx:
     decay: 2.0
     mix: 0.12
     pre_delay: 10.0
+
+    wet_solo: false
 ---
 
 # Archetype Cory Wong X + Woodrow '55 — Hi-Fi & Tweed Dual Rig (Single-Coils)

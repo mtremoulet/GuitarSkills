@@ -49,6 +49,8 @@ shared_fx:
     decay: 2.0
     mix: 0.12
     pre_delay: 10.0
+
+    wet_solo: false
 ---
 
 # Two-Rock Bloomfield + Ruby '63 — Boutique Velvet & Vox Chime Dual Rig (Humbuckers)

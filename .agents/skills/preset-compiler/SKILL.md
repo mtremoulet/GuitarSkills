@@ -186,30 +186,31 @@ Paradise Guitar Studio provides **5 Pre-FX slots** (front of amp) and **5 Post-F
 | `0` | `none` | Empty slot | — |
 | `1` | `big_fuzz` | Electro-Harmonix Big Muff | `sustain`, `tone`, `level` |
 | `2` | `gold_overdrive` | Klon Centaur Professional Overdrive | `gain`, `output`, `treble` |
-| `3` | `ts_overdrive` | Ibanez TS808 / TS9 Tube Screamer | `overdrive`, `level`, `tone` |
+| `3` | `nashville_overdrive` | Nobels ODR-1 Natural Overdrive | `drive`, `level`, `spectrum` |
 | `4` | `raw_distortion` | Pro Co RAT2 Distortion | `distortion`, `filter`, `volume` |
-| `5` | `nashville_overdrive` | Nobels ODR-1 Natural Overdrive | `drive`, `level`, `spectrum` |
+| `5` | `ts_overdrive` | Ibanez TS808 / TS9 Tube Screamer | `overdrive`, `level`, `tone` |
 | `6` | `vintage_fuzz` | Arbiter Fuzz Face | `fuzz`, `level`, `sputter` |
 | `7` | `blue_flanger` | MXR M117 Flanger | `speed`, `width`, `manual`, `regen`, `mode`, `invert` |
 | `8` | `brigade_chorus` | Boss CE-1 Chorus Ensemble | `intensity`, `level`, `mod_select`, `stereo_mode` |
-| `9` | `orange_phaser` | MXR Phase 90 | `speed`, `era` (script vs block) |
-| `10` | `trem_65` | Fender '65 Blackface Opto/Bias Tremolo | `speed`, `intensity`, `shape`, `output`, `stereo_mod` |
-| `11` | `ep_iii_tape_echo` | Maestro Echoplex EP-3 Solid-State Tape | `time` (0.02–0.8s), `feedback`, `wonk` (0–10), `age` (0–2), `rec_level`, `preamp_color` (bool), `tone`, `mix` |
-| `12` | `memory_delay` | EHX Deluxe Memory Man BBD Delay | `level`, `blend`, `feedback`, `time`, `tone`, `mod_depth`, `mod_speed`, `cho_vib` (0=cho, 1=vib), `preamp_color` |
-| `13` | `digital_delay` | 80s Studio Digital Rack Delay | `time_a`, `time_b`, `mix`, `feedback`, `low_cut`, `high_cut`, `modulation_depth`, `modulation_rate`, `link` |
-| `14` | `pitch_shift_delay` | Pitch-Shifting Harmonized Delay | `time`, `mix`, `feedback`, `sync_pitch`, `dirt`, `mod_depth`, `mod_speed` |
-| `15` | `micropitch_shifter` | Eventide H910 / H949 MicroPitch Detune | `pitch_a` (cents), `pitch_b` (cents), `delay_a`, `delay_b`, `mix`, `filter`, `stereo_mod` |
-| `16` | `multi_chorus` | Multi-Tap Six-Voice Studio Chorus | `level`, `delay`, `regen`, `taps`, `filter`, `mod_type` |
-| `17` | `vintage_vibrato` | Magnatone / True Pitch Vibrato | `rate`, `depth`, `mode`, `wave`, `filter`, `stereo_mod`, `output` |
-| `18` | `red_comp` | MXR Dyna Comp | `sensitivity`, `output` |
-| `19` | `1176_compressor` | UREI 1176LN Peak Limiter (Blackface) | `input` (dB), `output` (dB), `attack` (1=slow to 7=fast), `release` (1=slow to 7=fast), `ratio` (0=4:1, 1=8:1, 2=12:1, 3=20:1) |
-| `20` | `10_band_graphic_eq` | MXR 10-Band Graphic EQ | 10 frequency sliders (`31hz` to `16khz`), `output`, `phase`, `mono` |
-| `21` | `studio_eq` | Console Parametric Channel EQ | `low_frequency`, `low_cut_filter`, `high_frequency`, `high_cut_filter`, `output` |
-| `22` | `volume_pedal` | Passive Volume Pedal | `position`, `minimum_volume` |
+| `9` | `micropitch_shifter` | Eventide H910 / H949 MicroPitch Detune | `pitch_a` (cents), `pitch_b` (cents), `delay_a`, `delay_b`, `mix`, `filter`, `stereo_mod` |
+| `10` | `multi_chorus` | Multi-Tap Six-Voice Studio Chorus | `level`, `delay`, `regen`, `taps`, `filter`, `mod_type` |
+| `11` | `orange_phaser` | MXR Phase 90 | `speed`, `era` (script vs block) |
+| `12` | `trem_65` | Fender '65 Blackface Opto/Bias Tremolo | `speed`, `intensity`, `shape`, `output`, `stereo_mod` |
+| `13` | `vintage_vibrato` | Magnatone / True Pitch Vibrato | `rate`, `depth`, `mode`, `wave`, `filter`, `stereo_mod`, `output` |
+| `14` | `1176_compressor` | UREI 1176LN Peak Limiter (Blackface) | `input` (dB), `output` (dB), `attack` (1=slow to 7=fast), `release` (1=slow to 7=fast), `ratio` (0=4:1, 1=8:1, 2=12:1, 3=20:1) |
+| `15` | `red_comp` | MXR Dyna Comp | `sensitivity`, `output` |
+| `16` | `memory_delay` | EHX Deluxe Memory Man BBD Delay | `level`, `blend`, `feedback`, `time`, `tone`, `mod_depth`, `mod_speed`, `cho_vib` (0=cho, 1=vib), `preamp_color` |
+| `17` | `digital_delay` | 80s Studio Digital Rack Delay | `time_a`, `time_b`, `mix`, `feedback`, `low_cut`, `high_cut`, `modulation_depth`, `modulation_rate`, `link` |
+| `18` | `ep_iii_tape_echo` | Maestro Echoplex EP-3 Solid-State Tape | `time` (0.02–0.8s), `feedback`, `wonk` (0–10), `age` (0–2), `rec_level`, `preamp_color` (bool), `tone`, `mix` |
+| `19` | `pitch_shift_delay` | Pitch-Shifting Harmonized Delay | `time`, `mix`, `feedback`, `sync_pitch`, `dirt`, `mod_depth`, `mod_speed` |
+| `20` | `digital_reverb` | Modern Algorithmic Reverb | `decay`, `predelay`, `mix`, `brightness`, `mode` |
+| `21` | `plate_140_reverb` | EMT 140 Classic Studio Plate Reverb | `decay` (s), `predelay` (ms), `mix` (0–100%), `bass`, `treble`, `low_cut`, `mod_depth`, `mod_rate` |
+| `22` | `reverb_224` | Lexicon 224 Digital Reverb (1978) | `program` (1=Concert Hall), `bass_reverb_time`, `mid_reverb_time`, `treble_reverb_time` (raw 16-bit ints 0–32768), `pre_delay`, `mix` (0–32768), `pitch`, `input`, `output` |
 | `23` | `drip_spring_65_reverb`| Fender Outboard Spring Reverb Tank | `mix`, `bass`, `treble`, `tank` |
-| `24` | `plate_140_reverb` | EMT 140 Classic Studio Plate Reverb | `decay` (s), `predelay` (ms), `mix` (0–100%), `bass`, `treble`, `low_cut`, `mod_depth`, `mod_rate` |
-| `25` | `digital_reverb` | Modern Algorithmic Reverb | `decay`, `predelay`, `mix`, `brightness`, `mode` |
-| `26` | `reverb_224` | Lexicon 224 Digital Reverb (1978) | `program` (1=Concert Hall), `bass_reverb_time`, `mid_reverb_time`, `treble_reverb_time` (raw 16-bit ints 0–32768), `pre_delay`, `mix` (0–32768), `pitch`, `input`, `output` |
+| `24` | `10_band_graphic_eq` | MXR 10-Band Graphic EQ | 10 frequency sliders (`31hz` to `16khz`), `output`, `phase`, `mono` |
+| `25` | `studio_eq` | Console Parametric Channel EQ | `low_frequency`, `low_cut_filter`, `high_frequency`, `high_cut_filter`, `output` |
+| `26` | `volume_pedal` | Passive Volume Pedal | `position`, `minimum_volume` |
+
 
 ---
 

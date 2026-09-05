@@ -213,30 +213,38 @@ def compile_uad_toneprint(
         "none": 0,
         "big_fuzz": 1,
         "gold_overdrive": 2,
-        "ts_overdrive": 3,
+        "gold_od": 2,
+        "nashville_overdrive": 3,
+        "nashville_od": 3,
         "raw_distortion": 4,
-        "nashville_overdrive": 5,
+        "ts_overdrive": 5,
+        "ts_od": 5,
         "vintage_fuzz": 6,
         "blue_flanger": 7,
         "brigade_chorus": 8,
-        "orange_phaser": 9,
-        "trem_65": 10,
-        "ep_iii_tape_echo": 11,
-        "memory_delay": 12,
-        "digital_delay": 13,
-        "pitch_shift_delay": 14,
-        "micropitch_shifter": 15,
-        "multi_chorus": 16,
-        "vintage_vibrato": 17,
-        "red_comp": 18,
-        "1176_compressor": 19,
-        "10_band_graphic_eq": 20,
-        "studio_eq": 21,
-        "volume_pedal": 22,
+        "micropitch_shifter": 9,
+        "micropitch_shift": 9,
+        "multi_chorus": 10,
+        "orange_phaser": 11,
+        "trem_65": 12,
+        "vintage_vibrato": 13,
+        "1176_compressor": 14,
+        "red_comp": 15,
+        "memory_delay": 16,
+        "analog_memory_delay": 16,
+        "digital_delay": 17,
+        "ep_iii_tape_echo": 18,
+        "ep_iii_tape_delay": 18,
+        "pitch_shift_delay": 19,
+        "digital_reverb": 20,
+        "plate_140_reverb": 21,
+        "reverb_224": 22,
         "drip_spring_65_reverb": 23,
-        "plate_140_reverb": 24,
-        "digital_reverb": 25,
-        "reverb_224": 26,
+        "spring_65_reverb": 23,
+        "10_band_graphic_eq": 24,
+        "studio_eq": 25,
+        "volume_pedal": 26,
+        "volume": 26,
     }
 
     if prefx_data and isinstance(prefx_data, dict):
@@ -330,7 +338,13 @@ def compile_uad_toneprint(
         out_path = os.path.join(out_dir, f"Toneprint - {output_name}.json")
         with open(out_path, "w") as f:
             json.dump(preset_data_json, f, indent=4)
-        print(f"-> Compiled UAD Paradise Amp Preset: 'Toneprint - {output_name}' in '{folder_name}'")
+
+        # Also write directly to the root of PARADISE_DIR for immediate top-level menu access
+        root_out_path = os.path.join(PARADISE_DIR, f"Toneprint - {output_name}.json")
+        with open(root_out_path, "w") as f:
+            json.dump(preset_data_json, f, indent=4)
+
+        print(f"-> Compiled UAD Paradise Amp Preset: 'Toneprint - {output_name}' in '{folder_name}' and root")
     except (PermissionError, OSError) as e:
         print(f"-> Saved repo copy: 'Toneprint - {output_name}' (Documents live write skipped: {e})")
     return True

@@ -44,10 +44,10 @@
                 "real_value": 0.0
             },
             "postfx_1": {
-                "real_value": 11
+                "real_value": 18
             },
             "postfx_2": {
-                "real_value": 26
+                "real_value": 22
             },
             "postfx_3": {
                 "real_value": 0
@@ -1389,6 +1389,6 @@
     },
     "plugin_id": "uaudio_paradise_guitar_studio",
     "version": 1,
-    "uid": "29fac335005e45a89d90daad6d9d1c90",
+    "uid": "79cbefff1d5741d1a9393e0c1739a823",
     "name": "Toneprint - Retro Memorex"
 }

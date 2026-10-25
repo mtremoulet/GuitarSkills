@@ -72,7 +72,7 @@ shared_fx:
 
 ## Target Sound
 
-This toneprint adapts **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md) specifically for the **Fender Player II Telecaster** (and single-coil guitars).
+This toneprint adapts **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md) specifically for the **Fender Player II Telecaster** (and single-coil guitars).
 
 * **Amp A (Left, Pan -12)**: The **UAD Enigmatic '82** (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics, fattening up the Telecaster's single coils without masking note definition.
 * **Amp B (Right, Pan +12)**: The **UAD Ruby '63** (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.

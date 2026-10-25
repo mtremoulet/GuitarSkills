@@ -1,0 +1,40 @@
+{
+  "id": "2D0CC363-14F9-5C1D-8FFB-E406C6A4E4A3",
+  "name": "Scarlett Solo Correction",
+  "pcNumber": 69,
+  "createdAt": "2026-09-26T07:11:13Z",
+  "inputMode": 0,
+  "parameterMappings": [],
+  "items": [
+    {
+      "slotIndex": 0,
+      "isBypassed": false,
+      "id": "991F9DAA-4679-51E2-A0FA-6BAF03B8A74B",
+      "manufacturerName": "Faust & Wagner",
+      "name": "7 Samurai",
+      "desc": {
+        "type": 1635083896,
+        "subType": 928203085,
+        "manufacturer": 1180123463
+      },
+      "inputChannels": 1,
+      "outputChannels": 1,
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMVG5hbWVcbWFudWZhY3R1cmVyVGRhdGFUdHlwZVdzdWJ0eXBlV3ZlcnNpb25YVW50aXRsZWQSRldBR08QhAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAFwAAAAAAAAAa/TMzNAAAABwAAAAAAAAAIAAAAAAAAAAkAAAAAAAAACgAAAAAAAAALAAAAAAAAAAwAAAAAAAAADQAAAAAAAAAOAAAAABJhdWZ4EjdTQU0QAAgVGicsMTlBSk/W2+AAAAAAAAABAQAAAAAAAAANAAAAAAAAAAAAAAAAAAAA4g=="
+    },
+    {
+      "slotIndex": 1,
+      "isBypassed": false,
+      "id": "9ACB2452-D2B2-5663-B20D-698CCC3F1BE4",
+      "manufacturerName": "Faust & Wagner",
+      "name": "Liberty Burnisher",
+      "desc": {
+        "type": 1635083896,
+        "subType": 1279410770,
+        "manufacturer": 1180123463
+      },
+      "inputChannels": 1,
+      "outputChannels": 1,
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMVG5hbWVcbWFudWZhY3R1cmVyVGRhdGFUdHlwZVdzdWJ0eXBlV3ZlcnNpb25YVW50aXRsZWQSRldBR08QdAAAAAAAAAAAAAAADQAAAAA+TMzNAAAAAUIgAAAAAAACAAAAAAAAAANCIAAAAAAABAAAAAAAAAAFAAAAAAAAAAY/gAAAAAAABwAAAAAAAAAIAAAAAAAAAAkAAAAAAAAACgAAAAAAAAALAAAAAAAAAAwAAAAAEmF1ZngSTEJCUhAACBUaJywxOUFKT8bL0AAAAAAAAAEBAAAAAAAAAA0AAAAAAAAAAAAAAAAAAADS"
+    }
+  ]
+}

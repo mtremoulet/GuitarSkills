@@ -9,6 +9,8 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 | Name | Maker | Description |
 |------|-------|-------------|
 | Imperial Preamp | Tone King | Two-channel tube preamp pedal. Rhythm channel: 60s American Blackface character (Fender Deluxe Reverb) — controls: Volume, Attenuation, Bass, Treble. Lead channel: 50s Tweed + British rock character — controls: Volume, Attenuation, Tone (high-freq contour), Mid-Bite (simultaneously adds gain, tightens bass, boosts upper mids). No Mid, Presence, or Cut controls on either channel. Shared spring convolution reverb and digital tremolo. Per-channel 3-position IR/cab selector (Tone King Imperial 1x12, Vox AC30 2x12, Marshall 4x12) with bypass. **Physical Knobs**: All knobs feature 9 pips (ticks) representing a continuous 1 to 9 scale. Pip 1 is fully left (minimum/off), Pip 5 is exactly at 12:00 (noon/flat), and Pip 9 is fully right (maximum/on). |
+| Mini5 Rhythm (Classic) | Vox | Portable 5W modeling combo (6.5" 4Ω speaker, classic diamond/argyll cloth grille). Power attenuation (5W, 1.5W, 0.1W) and battery power (6x AA, up to 19.5h) or 12V DC. Vox Bassilator circuit for enhanced low-end resonance. 11 amp models: BTQ Clean, Black 2x12, Tweed 4x10, AC15, AC30TB, UK '70s, UK '80s, UK '90s, Cali Metal, US HiGain, Line (where Gain=Bass, Tone=Treble). 8 digital effects: Comp, Chorus, Flanger, Tremolo + A.Dly, T.Echo, Spring, Room (with Tap tempo). 99 rhythm patterns (11 genre banks × 9 variations: 8-Beat, 16-Beat, Rock, Metal, Pop, R&B, Jazz, Latin, Dance, Odd Meter, Metro) with Level and Tempo knobs. Built-in E-string tuner. Dedicated 1/4" Mic In with Trim and Reverb/Delay Send, 3.5mm Aux In, and 3.5mm Phones/Line Out with cabinet simulation. |
+| THR10ii | Yamaha | Desktop stereo guitar amplifier (2x 3.3" full-range speakers, 20W stereo mains). 15 guitar amp models across 3 modes (Modern, Boutique, Classic), 3 bass amp models, 3 acoustic mic models, flat response mode. VCM modulation and delay/reverb effects. Bluetooth audio/MIDI, integrated USB audio interface, 5 user recall presets. Standalone hardware practice amplifier. |
 | iD14 mkII | Audient | Desktop USB-C audio interface. 2 mic/line preamps (JFET discrete input stage), 2 instrument inputs, monitor control. Primary analog front-end before Logic. |
 
 ---
@@ -264,6 +266,47 @@ A "powerful and high headroom amplifier" known for "rich cleans, harmonic overdr
 | HALion Sonic | Steinberg | Sample-based virtual instrument workstation. Large library of sounds. |
 | TDR Nova | Tokyo Dawn Labs | Free parallel dynamic/parametric equalizer. Features 4 parametric bands + HPF/LPF. Native/internal preset manager (saves to `~/Library/Application Support/Tokyo Dawn Labs/TDR Nova/UserData.xml`). |
 | MEqualizer | MeldaProduction | Free 6-band parametric equalizer with adjustable band shapes and an internal preset database. |
+
+---
+
+## Faust & Wagner — Virtual Analog & DSP Suite
+
+Real-time, zero-latency physical circuit models and digital twins compiled directly from continuous-to-discrete differential equations in Faust into native macOS Audio Units (`aufx` / `FWAG`). Developed in the adjacent `faust-and-wagner` project by Mike Tremoulet and Wagner.
+
+### Amplifiers & Preamps
+
+| Name | Subtype | Description |
+|------|---------|-------------|
+| **Polytone Mini Brute IV** | `PMBR` | 110W solid-state jazz amplifier digital twin. Features high-sensitivity BiFET preamp with soft rail saturation, 3-position input voicing selector (**Normal**: flat; **Brite**: +6 dB shelf @ 2.5 kHz; **Dark**: 2nd-order Sallen-Key low-pass filter at $f_c \approx 3.8\,\text{kHz}, Q = 0.7071$, –12 dB/oct "electronic veil" suppressing pick ping), active Baxandall/gyrator EQ (**Bass**: ±14 dB @ 80 Hz shelf; **Mid**: ±10 dB @ 650 Hz gyrator peak/notch; **Treble**: ±12 dB @ 3.2 kHz shelf), built-in 2-spring electromechanical reverb tank (26.0 ms and 33.5 ms delay lines), and sealed acoustic-suspension 1x12 velvet enclosure with high negative current feedback damping ($D \approx 50$, 88 Hz high-pass, 400 Hz box notch, 2.4 kHz cone presence, steep 4-pole acoustic rolloff above 4.8 kHz). |
+| **Lab Series L5** | `LAB5` | 100W solid-state combo digital twin (designed by Moog & Gibson). Dual channels with bright switches, active 3-band Baxandall EQ, sweepable parametric midrange ($100\,\text{Hz} - 6.4\,\text{kHz}$), CA3094 OTA differential overdrive core with dynamic coupling sag ($\tau = 40\,\text{ms}$), Moog 6-pole multifilter comb filter bank ($1043\,\text{Hz} - 5082\,\text{Hz}$), and built-in CA3080 optical-style dynamic compressor/limiter. |
+| **Elevens** | `ELVN` | Multi-stage Zener-clamped tube amp preamp emulation (Victory V1 series: The Jack, Countess, Sheriff, Kraken, Duchess). True bipolar rails with staggered Zener feedback clamping ($2.7\,\text{V} - 6.2\,\text{V}$) for massive headroom and tube plate-swing dynamics. |
+| **Pearce G2R** | `PG2R` | 100W/ch solid-state professional amplifier digital twin (designed by Dan Pearce, late 1980s; Allan Holdsworth signature clean/lead foundation). Features dual independent channels with interactive bright switches: **Channel 1 (Clean)**: High-headroom preamp driving an active Baxandall Bass shelf ($\pm12\,\text{dB}$ @ 80 Hz), sweepable parametric midrange ($200\,\text{Hz} - 6.0\,\text{kHz}, \pm15\,\text{dB}, Q = 2.0$), and active Baxandall Treble shelf ($\pm12\,\text{dB}$ @ 3.5 kHz); **Channel 2 (Lead)**: Cascaded FET/diode saturation core with independent drive, volume, active 3-band EQ, and built-in OTA ceiling limiter for liquid legato sustain. Master section includes flexible channel routing (**Ch1 Clean**, **Ch2 Lead**, or **Both** in parallel blend), active Presence ($\pm9\,\text{dB}$ @ 5.5 kHz), internal digital reverb, stereo master volume, and 2x12 open-back cabinet simulation with current-feedback power amp damping. |
+| **Peavey Bandit 112** | `BAND` | Iconic TransTube solid-state combo with dynamic power sag, dual channels, and T-Dynamics power control. |
+
+### Overdrives, Boosts & Preamps (Stompboxes)
+
+| Name | Subtype | Description |
+|------|---------|-------------|
+| **Stasimon** | `STAS` | 1976 Boss CE-1 Chorus Ensemble & discrete analog preamp digital twin (formerly *Ensemble CE-1* `CE01`). Features switchable input loading (**Vintage Low-Z 50kΩ** for authentic pickup coil loading vs. **Modern Hi-Z 1MΩ** buffer), discrete 2SC900/2SC945 Class-A BJT booster (**High Sensitivity** mode, +20.8 dB gain, rich $H_2$ harmonics), 50kΩ log level pot into TA7136P op-amp preamp stage with dynamic PEAK overload detector, 512-stage MN3002 BBD modulation engine (**Chorus**, **Vibrato**, or **Preamp Only**), and **Classic Dual Mix** vs. **Spatial JC-120** stereo output routing. |
+| **Liberty Burnisher** | `LBBR` | Discrete JFET + Class-A BJT burnished booster in Aged Teak aesthetic. Features dynamic Miller pick-attack transient softener, passive presence air shelf, and 1N34A Germanium soft-knee harmonic warmth. |
+| **Arthur** | `ARTR` | Dual-channel overdrive digital twin of the Analogman King of Tone / PedalPCB Paragon. Yellow side: high-headroom transparent drive; Red side: Ge+Si hybrid clipping / hard distortion mode. |
+| **Broke Better Blues** | `BBBR` | Modified Marshall Bluesbreaker BB-1 digital twin with corrected low output impedance and +10 dB of singing clarity. |
+| **Fifty Shades of Blue** | `FSBL` | Multi-decade Bluesbreaker continuum overdrive with 4-way voicing selector (Ge, Schottky, Si, and Mayer/Texas diode configurations). |
+| **Fumble on the Grid** | `FMBL` | Dumble Overdrive Special JFET front-end preamp with variable drain bias and dynamic DC sag. |
+| **Nobels ODR-1 Plus** | `ODR1` | Natural overdrive digital twin with bridged Twin-T Spectrum control and switchable bass boost. |
+| **Marmaduke** | `MMDK` | Thorpy The Dane tribute featuring independent low-frequency contour ("Lows"), high-headroom clean boost, and dynamic overdrive. |
+| **Matt Foley** | `MFLY` | Parallel dual-J201 JFET power motivator (Wampler Talent Booster / Speaker Motivator) with high-headroom Class-A punch. |
+| **Stumblelater** | `STMB` | Dumble ABL passive send attenuator and Class-A tube recovery gain stage digital twin. |
+| **Law of Averages** | `LOAV` | Barcus-Berry Circuit BBC-1 / Bluesbreaker buffer with selectable RF snubber capacitors. |
+| **7 Samurai** | `7SAM` | Boss GE-7 7-band active op-amp gyrator equalizer digital twin. |
+| **Kinetica** | `KNET` | Dynamic envelope filter and dynamic response processor. |
+| **Ryman** | `RYMN` | Nashville-voiced dynamic drive and compression platform. |
+
+### Reverb & Spatial Laboratories
+
+| Name | Subtype | Description |
+|------|---------|-------------|
+| **Aetheria** | `AETH` | Classical & ambient reverb laboratory featuring 4 distinct physical and algorithmic engines: (1) **Spring (Accutronics Tank)**: Dispersive allpass chirp cascade ("drip"), multi-tank geometry (Type 4, Type 9, Short), transducer saturation, physical damping, and interactive pinball-style mechanical Tilt impulse trigger; (2) **Plate (EMT 140 Figure-8)**: Dattorro figure-eight dual recirculating loop with quadrature LFO delay modulation and boundary damping; (3) **Room & Hall (8x8 FDN)**: Lossless 8x8 Householder Unitary Feedback Delay Network with mutually prime delay lines (17 ms to 89 ms), 6-tap specular early reflections, and selectable room archetypes (Studio, Chamber, Concert Hall, Cathedral); (4) **Shimmer (Atmospheric Cloud)**: Cloud reverb tank with Faust `ef.transpose` pitch regeneration (Octave Up, Perfect Fifth, Sub-Octave, Twelfth, Astral Choir) and infinite ambient Freeze hold. |
 
 ---
 

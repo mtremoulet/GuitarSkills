@@ -72,7 +72,7 @@ shared_fx:
 
 ## Target Sound
 
-This toneprint implements **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for humbucker guitars (**Gibson Les Paul Studio** and **Epiphone Sheraton II**).
+This toneprint implements **Approach 2 (Dumble Liquid Sustain + Vox Harmonic Chime)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for humbucker guitars (**Gibson Les Paul Studio** and **Epiphone Sheraton II**).
 
 * **Amp A (Left, Pan -12)**: The **UAD Enigmatic '82** (ODS Dumble style) provides smooth, compressed lower-midrange sustain, vocal warmth, and touch-sensitive dynamics.
 * **Amp B (Right, Pan +12)**: The **UAD Ruby '63** (Vox AC30 Top Boost) supplies bell-like high-end chime, upper-mid bite, and fast transient pick attack.

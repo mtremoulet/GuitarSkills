@@ -603,7 +603,7 @@ def sweep_all_toneprints():
         print("Error loading plugin cache database.")
         return
         
-    tones_dir = "/Users/miketremoulet/claude-projects/GuitarSkills/tones"
+    tones_dir = "/Users/miketremoulet/ai_projects/GuitarSkills/tones"
     md_pattern = os.path.join(tones_dir, "**/*.md")
     md_files = glob.glob(md_pattern, recursive=True)
     

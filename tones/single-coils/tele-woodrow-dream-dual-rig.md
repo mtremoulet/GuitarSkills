@@ -50,7 +50,7 @@ shared_fx:
 
 ## Target Sound
 
-This toneprint implements **Approach 1 (Tweed Mid-Punch + Blackface Glass)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), optimized for the **Fender Player II Telecaster**.
+This toneprint implements **Approach 1 (Tweed Mid-Punch + Blackface Glass)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), optimized for the **Fender Player II Telecaster**.
 
 Inspired by **Chris Buck (Cardinal Black)**, this setup pairs a warm, woody Tweed Deluxe right at the edge of breakup with a pristine, uncompressed Blackface Deluxe Reverb clean foundation.
 

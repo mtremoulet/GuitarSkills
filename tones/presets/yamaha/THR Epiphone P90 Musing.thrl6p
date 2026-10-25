@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Epiphone P90 Musing",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -84.48,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.45,
+                "Level": 0.56
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": true,
+                "Depth": 0.3,
+                "Feedback": 0.0,
+                "Freq": 0.35,
+                "Pre": 0.0,
+                "@wetDry": 0.25
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "LargePlate1",
+                "@enabled": true,
+                "Decay": 0.38,
+                "PreDelay": 0.08,
+                "Tone": 0.38,
+                "@wetDry": 0.16
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 12
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10C_Deluxe",
+                "Drive": 0.3,
+                "Bass": 0.52,
+                "Mid": 0.68,
+                "Treble": 0.42,
+                "Master": 0.8
+            },
+            "global": {
+                "THRPresetParamTempo": 110
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

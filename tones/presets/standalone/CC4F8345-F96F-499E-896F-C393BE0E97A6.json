@@ -1,0 +1,70 @@
+{
+  "pcNumber": 67,
+  "name": "Faust's Jazz Hotel",
+  "items": [
+    {
+      "desc": {
+        "type": 1635083896,
+        "subType": 1279410770,
+        "manufacturer": 1180123463
+      },
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMXG1hbnVmYWN0dXJlcldzdWJ0eXBlVG5hbWVXdmVyc2lvblRkYXRhVHR5cGUSRldBRxJMQkJSWFVudGl0bGVkEABPEHQAAAAAAAAAAAAAAA0AAAAAPhmZmgAAAAFCpAAAAAAAAsAgAAAAAAADQiAAAAAAAAQAAAAAAAAABQAAAAAAAAAGAAAAAAAAAAcAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAoAAAAAAAAACwAAAAAAAAAMAAAAABJhdWZ4CBUiKi83PEFGS1RWzQAAAAAAAAEBAAAAAAAAAA0AAAAAAAAAAAAAAAAAAADS",
+      "id": "687C3EEE-8EE8-48A1-AC6A-323EB5F7F0E4",
+      "name": "Liberty Burnisher",
+      "slotIndex": 0,
+      "inputChannels": 1,
+      "outputChannels": 1,
+      "manufacturerName": "Faust & Wagner",
+      "isBypassed": false
+    },
+    {
+      "name": "Stasimon",
+      "id": "BFFDAA6A-FADE-42B0-8AEE-8878DBA94162",
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMXG1hbnVmYWN0dXJlcldzdWJ0eXBlVG5hbWVXdmVyc2lvblRkYXRhVHR5cGUSRldBRxJTVEFTWFVudGl0bGVkEABPEHQAAAAAAAAAAAAAAA0AAAAAPpmZmgAAAAEAAAAAAAAAAj8ZmZoAAAADQGAAAAAAAAQ/GZmaAAAABT+AAAAAAAAGAAAAAAAAAAcAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAoAAAAAAAAACwAAAAAAAAAMAAAAABJhdWZ4CBUiKi83PEFGS1RWzQAAAAAAAAEBAAAAAAAAAA0AAAAAAAAAAAAAAAAAAADS",
+      "outputChannels": 2,
+      "manufacturerName": "Faust & Wagner",
+      "desc": {
+        "type": 1635083896,
+        "subType": 1398030675,
+        "manufacturer": 1180123463
+      },
+      "inputChannels": 1,
+      "isBypassed": false,
+      "slotIndex": 1
+    },
+    {
+      "name": "Pearce G2r",
+      "id": "BC3A04B5-2245-4FC9-8248-2980E9DDEF73",
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMVGRhdGFXc3VidHlwZVR0eXBlV3ZlcnNpb25cbWFudWZhY3R1cmVyVG5hbWVPEQEEAAAAAAAAAAAAAAAfAAAAAD+AAAAAAAABPzMzMwAAAAI/GGZmAAAAA0N7Fe4AAAAEPyXxXwAAAAU+19B1AAAABgAAAAAAAAAHPwwSSgAAAAg+tj4sAAAACT8mq+MAAAAKRJYAAAAAAAs+yqSSAAAADD8SivkAAAANAAAAAAAAAA4/GZmaAAAADwAAAAAAAAAQPwAAAAAAABE+GZmaAAAAEgAAAAAAAAATP4AAAAAAABQAAAAAAAAAFQAAAAAAAAAWAAAAAAAAABcAAAAAAAAAGAAAAAAAAAAZAAAAAAAAABoAAAAAAAAAGwAAAAAAAAAcAAAAAAAAAB0AAAAAAAAAHgAAAAASUEcyUhJhdWZ4EAASRldBR1hVbnRpdGxlZAAIABUAGgAiACcALwA8AEEBSQFOAVMBVQFaAAAAAAAAAgEAAAAAAAAADQAAAAAAAAAAAAAAAAAAAWM=",
+      "outputChannels": 2,
+      "manufacturerName": "Faust & Wagner",
+      "desc": {
+        "type": 1635083896,
+        "subType": 1346843218,
+        "manufacturer": 1180123463
+      },
+      "inputChannels": 2,
+      "isBypassed": false,
+      "slotIndex": 2
+    },
+    {
+      "inputChannels": 2,
+      "name": "Aetheria",
+      "statePlistBase64": "YnBsaXN0MDDWAQIDBAUGBwgJCgsMVGRhdGFXc3VidHlwZVR0eXBlV3ZlcnNpb25cbWFudWZhY3R1cmVyVG5hbWVPEHQAAAAAAAAAAAAAAA0AAAAAQAAAAAAAAAFCDAAAAAAAAkFAAAAAAAADQAAAAAAAAARFjKAAAAAABUHIAAAAAAAGP4AAAAAAAAcAAAAAAAAACAAAAAAAAAAJAAAAAAAAAAoAAAAAAAAACwAAAAAAAAAMAAAAABJBRVRIEmF1ZngQABJGV0FHWFVudGl0bGVkCBUaIicvPEG4vcLEyQAAAAAAAAEBAAAAAAAAAA0AAAAAAAAAAAAAAAAAAADS",
+      "slotIndex": 3,
+      "manufacturerName": "Faust & Wagner",
+      "desc": {
+        "type": 1635083896,
+        "subType": 1095062600,
+        "manufacturer": 1180123463
+      },
+      "outputChannels": 2,
+      "id": "4F6D6A29-85BB-4D35-B473-7ACA6C835C10",
+      "isBypassed": false
+    }
+  ],
+  "parameterMappings": [],
+  "createdAt": "2026-09-20T21:20:57Z",
+  "inputMode": 0,
+  "id": "CC4F8345-F96F-499E-896F-C393BE0E97A6"
+}

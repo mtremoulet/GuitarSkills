@@ -1,0 +1,72 @@
+{
+    "schema": "L6Preset",
+    "version": 5,
+    "data": {
+        "device": 2359296,
+        "device_version": 22020194,
+        "meta": {
+            "name": "THR Sheraton HB Musing",
+            "tnid": 0
+        },
+        "tone": {
+            "THRGroupGate": {
+                "@asset": "noiseGate",
+                "@enabled": true,
+                "Thresh": -86.4,
+                "Decay": 0.5
+            },
+            "THRGroupFX1Compressor": {
+                "@asset": "RedComp",
+                "@enabled": true,
+                "Sustain": 0.52,
+                "Level": 0.55
+            },
+            "THRGroupFX2Effect": {
+                "@asset": "StereoSquareChorus",
+                "@enabled": true,
+                "Depth": 0.3,
+                "Feedback": 0.0,
+                "Freq": 0.35,
+                "Pre": 0.0,
+                "@wetDry": 0.25
+            },
+            "THRGroupFX3EffectEcho": {
+                "@asset": "TapeEcho",
+                "@enabled": false,
+                "Time": 0.0,
+                "Bass": 0.0,
+                "Treble": 0.0,
+                "Feedback": 0.0,
+                "@wetDry": 0.0
+            },
+            "THRGroupFX4EffectReverb": {
+                "@asset": "LargePlate1",
+                "@enabled": true,
+                "Decay": 0.4,
+                "PreDelay": 0.05,
+                "Tone": 0.35,
+                "@wetDry": 0.18
+            },
+            "THRGroupCab": {
+                "@asset": "speakerSimulator",
+                "SpkSimType": 15
+            },
+            "THRGroupAmp": {
+                "@asset": "THR10C_Deluxe",
+                "Drive": 0.28,
+                "Bass": 0.56,
+                "Mid": 0.48,
+                "Treble": 0.36,
+                "Master": 0.76
+            },
+            "global": {
+                "THRPresetParamTempo": 110
+            }
+        }
+    },
+    "meta": {
+        "original": 0,
+        "pbn": 0,
+        "premium": 0
+    }
+}

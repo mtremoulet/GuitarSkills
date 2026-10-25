@@ -431,7 +431,7 @@ def generate_dual_amp_session():
     output_dir = "/Users/miketremoulet/Music/Element/Sessions/Toneprints/humbuckers"
     os.makedirs(output_dir, exist_ok=True)
     out_path_1 = os.path.join(output_dir, "dual-amp-dream65-enigmatic82.els")
-    out_path_2 = "/Users/miketremoulet/claude-projects/GuitarSkills/DualAmp_Dream65_Enigmatic82.els"
+    out_path_2 = "/Users/miketremoulet/ai_projects/GuitarSkills/DualAmp_Dream65_Enigmatic82.els"
 
     with open(out_path_1, "w") as f:
         f.write(session_xml)

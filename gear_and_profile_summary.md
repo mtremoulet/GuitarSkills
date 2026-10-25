@@ -76,7 +76,7 @@ To match the software plugins' expected analog input level (+12.2 dBu clipping p
 * **Standalone Audio (by Oort Media — Primary for Linear Chains):** Dedicated lightweight macOS Audio Unit plugin host. Primary daily driver for linear, single-amp AU plugin chains, instant loading, low latency practice, and rapid preset auditioning (`~/Library/Application Support/Standalone/Presets/`).
 * **Kushview Element (Primary for Parallel & Dual-Amp Rigs):** Modular VST/AU plugin host graph environment. Used for parallel dual-amp rigs, multi-amp routing, and complex signal chain experimentation (`.els` session graphs).
   * *Dual-Amp Routing:* Parallel amp graphs use Airwindows Consolidated `PurestDualPan` utility blocks for clean stereo positioning (-12 L / +12 R) before submix busing.
-  * *Hammerspoon MIDI Controller:* Number keys (`1`, `2`, `3`, `5`) map to MIDI Program Change snapshots over macOS `IAC Driver Bus 1` to toggle pedalboards instantly with zero MIDI controller hardware (documented in [hammerspoon-midi-element.md](file:///Users/miketremoulet/claude-projects/GuitarSkills/references/hammerspoon-midi-element.md)).
+  * *Hammerspoon MIDI Controller:* Number keys (`1`, `2`, `3`, `5`) map to MIDI Program Change snapshots over macOS `IAC Driver Bus 1` to toggle pedalboards instantly with zero MIDI controller hardware (documented in [hammerspoon-midi-element.md](file:///Users/miketremoulet/ai_projects/GuitarSkills/references/hammerspoon-midi-element.md)).
 * **Logic Pro (Shelved / Inactive):** Full DAW environment. **Shelved from active toolkit until further notice.** Existing toneprints and `.pst` presets remain preserved for historical reference, but no new toneprints are designed for Logic Pro.
 
 > [!NOTE]

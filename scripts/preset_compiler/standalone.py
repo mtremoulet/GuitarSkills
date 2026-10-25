@@ -124,11 +124,12 @@ def compile_standalone_preset_from_toneprint(
     pname_lower = preset_name.lower()
     amp_lower = amp_str.lower()
     if (
-        "dual" in pid
+        frontmatter.get("dual_rig") is True
+        or "dual" in pid
         or "dual" in pname_lower
         or "dual" in amp_lower
-        or "trinity" in pid
-        or "trinity" in pname_lower
+        or "parallel" in pid
+        or "3amp" in pid
     ):
         return None
 
@@ -148,6 +149,44 @@ def compile_standalone_preset_from_toneprint(
     if tonex_data and "tonex" not in amp_lower and "tonex" not in amp_platform:
         in_c = 1 if slot_idx == 0 else 2
         item = build_module_item("TONEX", slot_idx, input_channels=in_c, output_channels=2, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
+
+    # -------------------------------------------------------------
+    # 1b. FAUST & WAGNER PEDALS (pre-amp)
+    # -------------------------------------------------------------
+    if preset_data.get("liberty_burnisher") or "liberty_burnisher" in str(preset_data).lower():
+        in_c = 1 if slot_idx == 0 else 2
+        item = build_module_item("Liberty Burnisher", slot_idx, input_channels=in_c, output_channels=1, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
+
+    faust_raw = preset_data.get("faust_pedals") or frontmatter.get("faust_pedals") or []
+    if isinstance(faust_raw, str):
+        faust_list = [x.strip() for x in faust_raw.split(",") if x.strip()]
+    elif isinstance(faust_raw, list):
+        faust_list = faust_raw
+    else:
+        faust_list = []
+
+    for fp in faust_list:
+        tpl_key = fp
+        if tpl_key not in STANDALONE_TEMPLATES:
+            for k in STANDALONE_TEMPLATES:
+                if k.lower() == fp.lower() or k.lower().replace(" ", "") == fp.lower().replace(" ", ""):
+                    tpl_key = k
+                    break
+        in_c = 1 if slot_idx == 0 else 2
+        item = build_module_item(tpl_key, slot_idx, input_channels=in_c, output_channels=2, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
+
+    if preset_data.get("stasimon") or "stasimon" in str(preset_data).lower():
+        in_c = 1 if slot_idx == 0 else 2
+        item = build_module_item("Stasimon", slot_idx, input_channels=in_c, output_channels=2, pid=pid)
         if item:
             items.append(item)
             slot_idx += 1
@@ -185,6 +224,16 @@ def compile_standalone_preset_from_toneprint(
         or "paradise" in amp_lower
     ):
         item = build_module_item("UADx Paradise Guitar Studio", slot_idx, input_channels=amp_in_channels, output_channels=amp_out_channels, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
+    elif "pearce" in amp_lower or "g2r" in amp_lower:
+        item = build_module_item("Pearce G2r", slot_idx, input_channels=amp_in_channels, output_channels=amp_out_channels, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
+    elif "polytone" in amp_lower or "mini brute" in amp_lower:
+        item = build_module_item("Polytone Mini Brute", slot_idx, input_channels=amp_in_channels, output_channels=amp_out_channels, pid=pid)
         if item:
             items.append(item)
             slot_idx += 1
@@ -272,6 +321,11 @@ def compile_standalone_preset_from_toneprint(
             )
             items.append(item)
             slot_idx += 1
+    elif preset_data.get("aetheria") or "aetheria" in content.lower():
+        item = build_module_item("Aetheria", slot_idx, input_channels=2, output_channels=2, pid=pid)
+        if item:
+            items.append(item)
+            slot_idx += 1
     elif preset_data.get("valhalla") or "valhalla" in content.lower():
         item = build_module_item("ValhallaSupermassive", slot_idx, input_channels=2, output_channels=2, pid=pid)
         if item:
@@ -344,19 +398,7 @@ def compile_all_standalone_presets(
         except Exception:
             pass
 
-    # 2. Clean up old toneprint files on full recompile (preserving user manual presets)
-    if not filter_substr:
-        for ep in existing_presets:
-            try:
-                with open(ep, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                name = data.get("name", "")
-                if name.startswith("Toneprint — ") or name.startswith("Toneprint - "):
-                    ep.unlink(missing_ok=True)
-            except Exception:
-                pass
-
-    # 3. Compile all active serial toneprints
+    # 2. Compile all active serial toneprints (safe deterministic overwrites by UUID; no wildcard deletion)
     md_files = sorted(list(tones_path.glob("**/*.md")))
     compiled_count = 0
     pc_counter = 2  # Start at 2 so PC #1 is reserved for user's baseline preset

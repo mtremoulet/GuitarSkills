@@ -13,7 +13,7 @@ from datetime import datetime
 
 # Paths
 DB_PATH = Path("/Users/miketremoulet/Documents/IK Multimedia/TONEX/Library.db")
-OUTPUT_PATH = Path("/Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/tonex-stomp-viewer.html")
+OUTPUT_PATH = Path("/Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/tonex-stomp-viewer.html")
 BACKUP_DIR = "/Users/miketremoulet/Documents/IK Multimedia/TONEX/Backup/ToneModels"
 
 # Comprehensive profiles mapping manufacturer:model to description paragraphs

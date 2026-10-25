@@ -69,7 +69,7 @@ Tested with humbuckers — especially the **Epiphone Sheraton II** strung with *
 
 ### 1. Physical Hardware & Interface Front-End — Audient iD14 mkII
 
-*First-Source Citation*: Baseline levels and hardware calibration offsets are sourced from [`tone-advisor/GAIN_STAGING_STANDARDS.md`](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/GAIN_STAGING_STANDARDS.md) and [`tone-advisor/TONEPRINT_GUIDELINES.md`](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/TONEPRINT_GUIDELINES.md#L51-L58).
+*First-Source Citation*: Baseline levels and hardware calibration offsets are sourced from [`tone-advisor/GAIN_STAGING_STANDARDS.md`](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/GAIN_STAGING_STANDARDS.md) and [`tone-advisor/TONEPRINT_GUIDELINES.md`](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/TONEPRINT_GUIDELINES.md#L51-L58).
 
 | Component / Control | Setting | Purpose |
 |---|---|---|
@@ -82,7 +82,7 @@ Tested with humbuckers — especially the **Epiphone Sheraton II** strung with *
 
 ### 2. UADx Paradise Guitar Studio — Showtime '64 & Post-FX Rack
 
-*First-Source Citation*: Control names, internal parameter trees, and routing architecture are extracted from [`tone-advisor/docs/uad/paradise-guitar-studio.md`](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/docs/uad/paradise-guitar-studio.md) and the plugin's schema definitions in [`scripts/preset_compiler/uad.py`](file:///Users/miketremoulet/claude-projects/GuitarSkills/scripts/preset_compiler/uad.py).
+*First-Source Citation*: Control names, internal parameter trees, and routing architecture are extracted from [`tone-advisor/docs/uad/paradise-guitar-studio.md`](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/docs/uad/paradise-guitar-studio.md) and the plugin's schema definitions in [`scripts/preset_compiler/uad.py`](file:///Users/miketremoulet/ai_projects/GuitarSkills/scripts/preset_compiler/uad.py).
 
 #### A. Pre-FX Menu (Pedals In Front of Amp)
 - **All Pre-FX Slots (1–5)**: **Disabled (Off)**. *I know that* putting tape flutter or intense modulation in front of the amplifier causes the amp's preamp tubes to distort the tape noise and narrows the frequency range before the power section. Bypassing all pre-amp stompboxes preserves the pristine guitar signal.
@@ -99,7 +99,7 @@ Tested with humbuckers — especially the **Epiphone Sheraton II** strung with *
 | **Bright Switch** | **OFF** | Disables the bright cap to avoid brittle high-frequency hiss or exaggerated tape noise |
 
 #### C. Cabinet & Mics
-*First-Source Citation*: Cabinet pairing index `cab_and_mic: 29` documented in [`docs/mayer-trinity-rig-guide.md`](file:///Users/miketremoulet/claude-projects/GuitarSkills/docs/mayer-trinity-rig-guide.md#L78).
+*First-Source Citation*: Cabinet pairing index `cab_and_mic: 29` documented in [`docs/mayer-trinity-rig-guide.md`](file:///Users/miketremoulet/ai_projects/GuitarSkills/docs/mayer-trinity-rig-guide.md#L78).
 
 | Component | Setting | Purpose |
 |---|---|---|

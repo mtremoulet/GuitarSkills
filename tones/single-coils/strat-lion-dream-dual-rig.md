@@ -54,7 +54,7 @@ shared_fx:
 
 ## Target Sound
 
-This toneprint implements **Approach 3 (British Plexi Crunch + High-Headroom American Clean)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored for the **Squier Stratocaster** (Neck & "Quack" positions).
+This toneprint implements **Approach 3 (British Plexi Crunch + High-Headroom American Clean)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored for the **Squier Stratocaster** (Neck & "Quack" positions).
 
 Inspired by the dual-rig architecture of **John Mayer**, **Eric Johnson**, and **Stevie Ray Vaughan**, this setup merges heavy British Plexi wallop with pristine Fender Blackface headroom.
 

@@ -51,7 +51,7 @@ shared_fx:
 
 ## Target Sound
 
-This toneprint implements **Approach 4 (Dual Same-Amp Differential Split)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/claude-projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for the **Framus Earl Slick Artist Series (DiMarzio P-90s)**.
+This toneprint implements **Approach 4 (Dual Same-Amp Differential Split)** from our [Parallel Dual-Amp Guide](file:///Users/miketremoulet/ai_projects/GuitarSkills/tone-advisor/PARALLEL_AMP_GUIDE.md), tailored specifically for the **Framus Earl Slick Artist Series (DiMarzio P-90s)**.
 
 By running **two instances of the UAD Woodrow '55** with differential settings and wet/dry FX separation, this rig amplifies the raw, growling character of P-90 pickups without phase mismatches or muddy frequency overlap.
 

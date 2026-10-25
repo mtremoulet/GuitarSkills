@@ -57,7 +57,7 @@ def fix_file(path):
         print(f"Fixed YAML quotes in {path}")
 
 if __name__ == "__main__":
-    tones_dir = "/Users/miketremoulet/claude-projects/GuitarSkills/tones"
+    tones_dir = "/Users/miketremoulet/ai_projects/GuitarSkills/tones"
     for p in glob.glob(f"{tones_dir}/**/*.md", recursive=True):
         if 'INDEX.md' not in p:
             fix_file(p)

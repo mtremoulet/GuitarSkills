@@ -21,7 +21,7 @@ import base64
 import struct
 import argparse
 
-TONES_DIR = "/Users/miketremoulet/claude-projects/GuitarSkills/tones"
+TONES_DIR = "/Users/miketremoulet/ai_projects/GuitarSkills/tones"
 BASE_UAD_PRESETS_DIR = "/Users/miketremoulet/Documents/Universal Audio/Presets/Plug-Ins"
 PARADISE_DIR = os.path.join(BASE_UAD_PRESETS_DIR, "uaudio_paradise_guitar_studio")
 PARADISE_TEMPLATE = os.path.join(PARADISE_DIR, "Non-Toneprints", "Boutique Warm Clean - Enigmatic.json")

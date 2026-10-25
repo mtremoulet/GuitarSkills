@@ -468,8 +468,8 @@ def process_toneprints(tones_dir: str | Path, output_dir: str | Path) -> List[Di
 
 
 if __name__ == "__main__":
-    tones_dir = Path("/Users/miketremoulet/claude-projects/GuitarSkills/tones")
-    output_dir = Path("/Users/miketremoulet/claude-projects/SPICEyNAM/tones_irs")
+    tones_dir = Path("/Users/miketremoulet/ai_projects/GuitarSkills/tones")
+    output_dir = Path("/Users/miketremoulet/ai_projects/faust-and-wagner/ir/tone_curves")
 
     if len(sys.argv) > 1:
         tones_dir = Path(sys.argv[1])

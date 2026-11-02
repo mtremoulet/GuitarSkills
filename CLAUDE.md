@@ -37,7 +37,7 @@ This project is a self-contained guitar learning and tone-dialing assistant for 
 - **Active Software Hosts**:
   - **Standalone Audio (by Oort Media)**: Primary daily driver for linear / single-amp plugin chains (AU racks compiled via `scripts/compile_standalone_presets.py`).
   - **Kushview Element**: Primary modular host for parallel / multi-amp signal chains (`.els` session graphs).
-- **Physical Hardware**: Tone King Imperial Preamp and Yamaha THR10ii are used standalone for hardware-only playing (no laptop in the chain).
+- **Physical Hardware**: Tone King Imperial Preamp, Yamaha THR10ii, and Vox MINI5 Rhythm are used standalone for hardware-only playing (no laptop in the chain).
 
 ---
 

@@ -37,17 +37,23 @@
 * **Strings:** Rotosound Yellows (10-46)
 * **Notes:** The "Slick Rocker." Raw swamp ash growl, sweet and punchy DiMarzio P-90 grit, and a Bigsby tremolo for expressive vibrato. Great fun!
 
+### 7. 2005 Yamaha AE-500
+* **Finish:** Sunburst (Serial: QL 0946 S, May 9, 2005)
+* **Specs:** Thin archtop body with stylized multi-dimensional soundholes, set mahogany neck, rosewood fingerboard (24.75" scale), dual stock Yamaha humbuckers
+* **Strings:** Flatwound (suspected Thomastik-Infeld)
+* **Notes:** The "Modern Jazz Box." Acquired from Tom's Guitar Shop in trade for the Revelation RFT DLX. All stock, exceptional playability, woody resonance, and flatwound warmth perfect for jazz chord melodies, bossa nova, and neo-soul.
+
 ## Acoustic Guitars & Bass
 
-### 7. 2025 Cort Standard AD Mini
+### 8. 2025 Cort Standard AD Mini
 * **Specs:** Spruce Top, 3/4 Size Dreadnought
 * **Strings:** Rotosound Metal (Steel) Strings
 * **Notes:** The travel/couch steel-string.
 
-### 8. 1990s Washburn D-12
+### 9. 1990s Washburn D-12
 * **Notes:** "Tim's Guitar." The sentimental dreadnought foundation.
 
-### 9. 1978 Fender Precision Bass
+### 10. 1978 Fender Precision Bass
 * **Finish:** 3-Color Sunburst
 * **Notes:** The vintage low-end anchor.
 

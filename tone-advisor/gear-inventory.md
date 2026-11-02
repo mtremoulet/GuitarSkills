@@ -39,14 +39,15 @@ All hardware, plugins, and signal chain components available in this rig. Organi
 | 4 | 2013 Epiphone Sheraton II | Natural | Semi-hollow laminate maple | Humbuckers (neck and bridge) | Thomastik-Infeld Jazz Swing Flats 10s | "The Velvet Jazz Box." Semi-hollow adds acoustic bloom, natural sustain, warmth. Flatwound strings reinforce dark jazz character. More sensitive to feedback at high gain than solid-body. Bridge-neck blend available. |
 | 5 | 2008 Epiphone Les Paul Standard Plus Top | Vintage Sunburst · 2008 | Solid mahogany/maple | **Tonerider Rebel 90s** (HSP-90 single-coils, Alnico II, RWRP set) | D'Addario XS 10-46 | "Singing P-90 Workhorse." Upgraded with Tonerider Rebel 90s in modern wiring. Punchy, articulate, and dynamic with rich low-mid weight and singing sustain; huge dynamic range on volume roll-off. |
 | 6 | 2012 Framus Earl Slick Artist Series | Matte Black (Serial: L-000047-12) | Flat-top double cutaway swamp ash body / Bolt-in maple neck, rosewood fingerboard, 24.75" scale | **Two DiMarzio P-90 pickups (single-coil wound, soapbar housing)** · 3-way rotary selector · Bigsby B500 vibrato | Rotosound Yellows 10-46 | "The Slick Rocker." **P-90s are NOT humbuckers** — single-coil construction, natural upper-mid spike, brighter and more present than LP 490 series. Less Mid-Bite and treble needed on the Tone King vs humbuckers. Swamp ash body adds snap and clarity. Bigsby adds subtle pitch expression. |
+| 7 | 2005 Yamaha AE-500 | Sunburst · 2005 (Serial: QL 0946 S) | Thin-body archtop / Mahogany neck, rosewood fingerboard, 24.75" scale | Stock Yamaha humbuckers (neck and bridge) | Flatwound (suspected Thomastik-Infeld) | "The Modern Jazz Box." Archtop with stylized modern soundholes. Acquired via trade at Tom's Guitar Shop in lieu of funds for the Revelation RFT DLX. All stock, woody acoustic resonance, flatwound warmth, and buttery jazz playability. |
 
 ### Acoustic Guitars & Bass
 
 | # | Name | Specs | Notes |
 |---|------|-------|-------|
-| 7 | 2025 Cort Standard AD Mini | Spruce top, 3/4 size dreadnought · Rotosound Metal (Steel) strings | Travel/couch steel-string. |
-| 8 | 1990s Washburn D-12 | Dreadnought | "Tim's Guitar." The sentimental dreadnought foundation. |
-| 9 | 1978 Fender Precision Bass | 3-Color Sunburst | The vintage low-end anchor. |
+| 8 | 2025 Cort Standard AD Mini | Spruce top, 3/4 size dreadnought · Rotosound Metal (Steel) strings | Travel/couch steel-string. |
+| 9 | 1990s Washburn D-12 | Dreadnought | "Tim's Guitar." The sentimental dreadnought foundation. |
+| 10 | 1978 Fender Precision Bass | 3-Color Sunburst | The vintage low-end anchor. |
 
 ### Former / Sold Instruments (Archive)
 
